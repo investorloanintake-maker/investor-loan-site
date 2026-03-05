@@ -3,100 +3,100 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Fix &amp; Flip Calculator | Investor Loan Marketplace</title>
-  <meta name="description" content="Fix and flip deal analyzer: estimate all-in cost, LTV, LTC, and talk to an expert."/>
+  <title>Fix &amp; Flip Analyzer | Investor Loan Marketplace</title>
+  <meta name="description" content="Fix and flip deal analyzer: all-in cost, LTV, LTC and quick loan request."/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-<header class="header">
-  <div class="brand">
-    <div class="logo" aria-hidden="true"></div>
-    <div><h1>Investor Loan Marketplace</h1></div>
+<div class="topbar">
+  <div class="topbarInner">
+    <div class="muted">National marketplace for business-purpose investor financing</div>
+    <div><a href="#" onclick="openLeadModal('Quick Loan Request');return false;">Get Started</a> <span class="muted" style="margin-left:10px;">(XXX) XXX-XXXX</span></div>
   </div>
-  <nav class="nav" aria-label="Primary">
-    <a href="index.html">Home</a>
-    <a href="fix-and-flip.html">Fix &amp; Flip</a>
-    <a href="dscr.html">DSCR</a>
-  </nav>
-  <div class="headerActions">
-    <button class="btn btnGhost" type="button" onclick="openLeadModal('General')">Talk to an Expert</button>
+</div>
+<header class="header">
+  <div class="headerInner">
+    <a class="brand" href="index.html">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <strong>Investor Loan Marketplace</strong>
+        <span>Fix &amp; Flip • DSCR • Bridge / BPL</span>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Financing</a>
+      <a href="fix-and-flip.html">Fix &amp; Flip</a>
+      <a href="dscr.html">DSCR</a>
+      <a href="#faq" onclick="smoothTo('faq');return false;">FAQ</a>
+      <a href="#" onclick="openLeadModal('General');return false;">Contact</a>
+    </nav>
+
+    <div class="headerActions">
+      <a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Quick Loan Request</a>
+    </div>
   </div>
 </header>
 
 <main class="wrap">
-
-  <section class="card">
-    <div class="cardHead">
-      <h2>Fix &amp; Flip Deal Analyzer</h2>
-      <p>Run quick leverage metrics, then talk to an expert (calculator results attach automatically).</p>
+  <section class="section">
+    <div class="sectionHead">
+      <div>
+        <h2>Fix &amp; Flip deal analyzer</h2>
+        <p>Run leverage numbers, then submit a request with your results.</p>
+      </div>
+      <a class="btn btnPrimary" href="#" onclick="openLeadModal('Fix & Flip');return false;">Quick loan request</a>
     </div>
 
-    <div class="grid2">
-      <div>
-        <label>Purchase Price</label>
-        <input id="purchase" type="number" placeholder="350000" inputmode="numeric">
-        <label>Rehab Budget</label>
-        <input id="rehab" type="number" placeholder="75000" inputmode="numeric">
-        <label>After Repair Value (ARV)</label>
-        <input id="arv" type="number" placeholder="520000" inputmode="numeric">
-        <label>Loan Requested</label>
-        <input id="loan" type="number" placeholder="420000" inputmode="numeric">
+    <div class="card"><div class="cardPad">
+      <div class="grid2">
+        <div>
+          <label>Purchase Price</label>
+          <input id="purchase" type="number" placeholder="350000" inputmode="numeric">
+          <label>Rehab Budget</label>
+          <input id="rehab" type="number" placeholder="75000" inputmode="numeric">
+          <label>After Repair Value (ARV)</label>
+          <input id="arv" type="number" placeholder="520000" inputmode="numeric">
+          <label>Loan Requested</label>
+          <input id="loan" type="number" placeholder="420000" inputmode="numeric">
 
-        <div class="heroBtns" style="margin-top:14px;">
-          <button class="btn btnPrimary" type="button" onclick="calculateFlip()">Analyze Deal</button>
-          <button class="btn btnGhost" type="button" onclick="openLeadModal('Fix & Flip')">Talk to an Expert</button>
+          <div class="heroBtns" style="margin-top:14px;">
+            <button class="btn btnPrimary" type="button" onclick="calculateFlip()">Analyze Deal</button>
+            <button class="btn" type="button" onclick="openLeadModal('Fix & Flip')">Talk to an Expert</button>
+          </div>
+
+          <p class="micro">Estimates only. Not a commitment to lend. Program rules vary by lender and state.</p>
         </div>
 
-        <p class="micro">Estimates only. Not a commitment to lend. Program rules vary by lender and state.</p>
+        <div class="resultsBox" id="flipResults" style="display:none" aria-live="polite">
+          <div class="metric"><span>All-In Cost</span><strong id="allin">—</strong></div>
+          <div class="metric"><span>LTV (Loan / ARV)</span><strong id="ltv">—</strong></div>
+          <div class="metric"><span>LTC (Loan / All-In)</span><strong id="ltc">—</strong></div>
+          <div class="metric"><span>Deal Signal</span><strong id="signal">—</strong></div>
+          <div class="divider"></div>
+          <button class="btn btnDark" type="button" onclick="openLeadModal('Fix & Flip')">Submit with these numbers</button>
+          <p class="micro">We’ll confirm scope, timeline, experience, and exit strategy.</p>
+        </div>
       </div>
-
-      <div class="resultsBox" id="flipResults" style="display:none" aria-live="polite">
-        <div class="metric"><span>All-In Cost</span><strong id="allin">—</strong></div>
-        <div class="metric"><span>LTV (Loan / ARV)</span><strong id="ltv">—</strong></div>
-        <div class="metric"><span>LTC (Loan / All-In)</span><strong id="ltc">—</strong></div>
-        <div class="metric"><span>Deal Signal</span><strong id="signal">—</strong></div>
-        <div class="divider"></div>
-        <button class="btn btnPrimary" type="button" onclick="openLeadModal('Fix & Flip')">Talk to an Expert with These Numbers</button>
-        <p class="micro">We’ll follow up with 1–2 questions (scope, timeline, experience, exit strategy).</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="card cardSoft">
-    <div class="cardHead">
-      <h2>Deal guidance</h2>
-      <p>What we’ll ask (so you can move fast).</p>
-    </div>
-    <div class="grid2">
-      <div>
-        <strong>Key inputs</strong>
-        <p class="micro">ARV support, rehab scope/budget, timeline, borrower/entity experience, exit strategy.</p>
-      </div>
-      <div>
-        <strong>Common docs</strong>
-        <p class="micro">Contract, scope/budget, photos, entity docs, insurance, ID.</p>
-      </div>
-    </div>
+    </div></div>
   </section>
 
   <footer class="footer">
-    <p><strong>Disclosures:</strong> Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
+    <strong>Disclosures:</strong> Not a lender. Not a commitment to lend. Business-purpose investor financing only.
   </footer>
-
 </main>
 
 <div class="modal" id="leadModal" aria-hidden="true">
   <div class="modalBackdrop" onclick="closeLeadModal()" aria-label="Close"></div>
-  <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Talk to an expert">
+  <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Quick loan request">
     <div class="modalTop">
       <div>
-        <h3>Talk to an Expert</h3>
-        <p class="micro" id="modalSub">Talk to an expert — we’ll route you to the right investor lane.</p>
+        <h3>Quick Loan Request</h3>
+        <p class="micro" id="modalSub">Tell us about your scenario.</p>
       </div>
       <button class="iconBtn" type="button" onclick="closeLeadModal()" aria-label="Close">✕</button>
     </div>
 
-    <!-- Netlify Form -->
     <form class="form" name="request-options" method="POST" data-netlify="true" action="/?submitted=request-options">
       <input type="hidden" name="form-name" value="request-options"/>
       <input type="hidden" name="page" id="h_page" value=""/>
@@ -108,7 +108,7 @@
       <input type="hidden" name="calc_signal" id="h_signal" value=""/>
       <input type="hidden" name="state" id="h_state" value=""/>
 
-      <label>What do you need?</label>
+      <label>Loan Type</label>
       <select name="loan_type" id="f_type" required>
         <option value="">Select</option>
         <option>Fix &amp; Flip</option>
@@ -117,7 +117,7 @@
         <option>Other</option>
       </select>
 
-      <div class="grid2 modalGrid">
+      <div class="grid2">
         <div>
           <label>Estimated Loan Amount</label>
           <input type="number" name="loan_amount" id="f_amount" placeholder="450000" inputmode="numeric" required>
@@ -128,7 +128,7 @@
         </div>
       </div>
 
-      <div class="grid2 modalGrid">
+      <div class="grid2">
         <div>
           <label>Name</label>
           <input type="text" name="name" placeholder="Jane Investor" required>
@@ -147,7 +147,7 @@
         <span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span>
       </label>
 
-      <button class="btn btnPrimary" type="submit">Submit</button>
+      <button class="btn btnDark" type="submit">Submit</button>
       <p class="micro">Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
     </form>
   </div>

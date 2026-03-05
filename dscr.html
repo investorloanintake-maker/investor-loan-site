@@ -4,96 +4,96 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>DSCR Calculator | Investor Loan Marketplace</title>
-  <meta name="description" content="DSCR calculator: estimate DSCR using Rent ÷ PITIA and talk to an expert."/>
+  <meta name="description" content="DSCR calculator: estimate DSCR using Rent ÷ PITIA and submit a quick loan request."/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-<header class="header">
-  <div class="brand">
-    <div class="logo" aria-hidden="true"></div>
-    <div><h1>Investor Loan Marketplace</h1></div>
+<div class="topbar">
+  <div class="topbarInner">
+    <div class="muted">National marketplace for business-purpose investor financing</div>
+    <div><a href="#" onclick="openLeadModal('Quick Loan Request');return false;">Get Started</a> <span class="muted" style="margin-left:10px;">(XXX) XXX-XXXX</span></div>
   </div>
-  <nav class="nav" aria-label="Primary">
-    <a href="index.html">Home</a>
-    <a href="fix-and-flip.html">Fix &amp; Flip</a>
-    <a href="dscr.html">DSCR</a>
-  </nav>
-  <div class="headerActions">
-    <button class="btn btnGhost" type="button" onclick="openLeadModal('General')">Talk to an Expert</button>
+</div>
+<header class="header">
+  <div class="headerInner">
+    <a class="brand" href="index.html">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <strong>Investor Loan Marketplace</strong>
+        <span>Fix &amp; Flip • DSCR • Bridge / BPL</span>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Financing</a>
+      <a href="fix-and-flip.html">Fix &amp; Flip</a>
+      <a href="dscr.html">DSCR</a>
+      <a href="#faq" onclick="smoothTo('faq');return false;">FAQ</a>
+      <a href="#" onclick="openLeadModal('General');return false;">Contact</a>
+    </nav>
+
+    <div class="headerActions">
+      <a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Quick Loan Request</a>
+    </div>
   </div>
 </header>
 
 <main class="wrap">
-
-  <section class="card">
-    <div class="cardHead">
-      <h2>DSCR Calculator</h2>
-      <p>Estimate DSCR using Monthly Rent ÷ Monthly PITIA, then talk to an expert.</p>
+  <section class="section">
+    <div class="sectionHead">
+      <div>
+        <h2>DSCR calculator</h2>
+        <p>Estimate DSCR using Monthly Rent ÷ Monthly PITIA, then submit a request.</p>
+      </div>
+      <a class="btn btnPrimary" href="#" onclick="openLeadModal('DSCR');return false;">Quick loan request</a>
     </div>
 
-    <div class="grid2">
-      <div>
-        <label>Monthly Rent</label>
-        <input id="rent" type="number" placeholder="3200" inputmode="numeric">
-        <label>Monthly PITIA</label>
-        <input id="pitia" type="number" placeholder="2600" inputmode="numeric">
-        <label>State</label>
-        <input id="state" type="text" placeholder="FL" maxlength="2" autocapitalize="characters">
+    <div class="card"><div class="cardPad">
+      <div class="grid2">
+        <div>
+          <label>Monthly Rent</label>
+          <input id="rent" type="number" placeholder="3200" inputmode="numeric">
+          <label>Monthly PITIA</label>
+          <input id="pitia" type="number" placeholder="2600" inputmode="numeric">
+          <label>State</label>
+          <input id="state" type="text" placeholder="FL" maxlength="2" autocapitalize="characters">
 
-        <div class="heroBtns" style="margin-top:14px;">
-          <button class="btn btnPrimary" type="button" onclick="calculateDSCR()">Calculate DSCR</button>
-          <button class="btn btnGhost" type="button" onclick="openLeadModal('DSCR')">Talk to an Expert</button>
+          <div class="heroBtns" style="margin-top:14px;">
+            <button class="btn btnPrimary" type="button" onclick="calculateDSCR()">Calculate DSCR</button>
+            <button class="btn" type="button" onclick="openLeadModal('DSCR')">Talk to an Expert</button>
+          </div>
+
+          <p class="micro">DSCR methodology varies by lender. This is a quick estimate.</p>
         </div>
 
-        <p class="micro">DSCR methodology varies by lender (lease vs market rent vs STR). This is a quick estimate.</p>
+        <div class="resultsBox" id="dscrResults" style="display:none" aria-live="polite">
+          <div class="metric"><span>DSCR</span><strong id="dscrVal">—</strong></div>
+          <div class="metric"><span>Signal</span><strong id="dscrSignal">—</strong></div>
+          <div class="metric"><span>Next Step</span><strong id="dscrNext">—</strong></div>
+          <div class="divider"></div>
+          <button class="btn btnDark" type="button" onclick="openLeadModal('DSCR')">Submit with these numbers</button>
+          <p class="micro">We’ll confirm property type, rent source, occupancy, leverage target, and state.</p>
+        </div>
       </div>
-
-      <div class="resultsBox" id="dscrResults" style="display:none" aria-live="polite">
-        <div class="metric"><span>DSCR</span><strong id="dscrVal">—</strong></div>
-        <div class="metric"><span>Signal</span><strong id="dscrSignal">—</strong></div>
-        <div class="metric"><span>Next Step</span><strong id="dscrNext">—</strong></div>
-        <div class="divider"></div>
-        <button class="btn btnPrimary" type="button" onclick="openLeadModal('DSCR')">Talk to an Expert with These Numbers</button>
-        <p class="micro">We’ll follow up on property type, rent source, occupancy, leverage target, and state.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="card cardSoft">
-    <div class="cardHead">
-      <h2>DSCR guidance</h2>
-      <p>What we’ll ask (so you can move fast).</p>
-    </div>
-    <div class="grid2">
-      <div>
-        <strong>What is PITIA?</strong>
-        <p class="micro">Principal + Interest + Taxes + Insurance + (HOA if applicable).</p>
-      </div>
-      <div>
-        <strong>Common thresholds</strong>
-        <p class="micro">Many programs price better at 1.10–1.25+. Below 1.00 often needs structure changes.</p>
-      </div>
-    </div>
+    </div></div>
   </section>
 
   <footer class="footer">
-    <p><strong>Disclosures:</strong> Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
+    <strong>Disclosures:</strong> Not a lender. Not a commitment to lend. Business-purpose investor financing only.
   </footer>
-
 </main>
 
 <div class="modal" id="leadModal" aria-hidden="true">
   <div class="modalBackdrop" onclick="closeLeadModal()" aria-label="Close"></div>
-  <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Talk to an expert">
+  <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Quick loan request">
     <div class="modalTop">
       <div>
-        <h3>Talk to an Expert</h3>
-        <p class="micro" id="modalSub">Talk to an expert — we’ll route you to the right investor lane.</p>
+        <h3>Quick Loan Request</h3>
+        <p class="micro" id="modalSub">Tell us about your scenario.</p>
       </div>
       <button class="iconBtn" type="button" onclick="closeLeadModal()" aria-label="Close">✕</button>
     </div>
 
-    <!-- Netlify Form -->
     <form class="form" name="request-options" method="POST" data-netlify="true" action="/?submitted=request-options">
       <input type="hidden" name="form-name" value="request-options"/>
       <input type="hidden" name="page" id="h_page" value=""/>
@@ -105,7 +105,7 @@
       <input type="hidden" name="calc_signal" id="h_signal" value=""/>
       <input type="hidden" name="state" id="h_state" value=""/>
 
-      <label>What do you need?</label>
+      <label>Loan Type</label>
       <select name="loan_type" id="f_type" required>
         <option value="">Select</option>
         <option>Fix &amp; Flip</option>
@@ -114,7 +114,7 @@
         <option>Other</option>
       </select>
 
-      <div class="grid2 modalGrid">
+      <div class="grid2">
         <div>
           <label>Estimated Loan Amount</label>
           <input type="number" name="loan_amount" id="f_amount" placeholder="450000" inputmode="numeric" required>
@@ -125,7 +125,7 @@
         </div>
       </div>
 
-      <div class="grid2 modalGrid">
+      <div class="grid2">
         <div>
           <label>Name</label>
           <input type="text" name="name" placeholder="Jane Investor" required>
@@ -144,7 +144,7 @@
         <span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span>
       </label>
 
-      <button class="btn btnPrimary" type="submit">Submit</button>
+      <button class="btn btnDark" type="submit">Submit</button>
       <p class="micro">Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
     </form>
   </div>

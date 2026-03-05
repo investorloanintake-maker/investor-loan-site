@@ -1,11 +1,7 @@
-// Shared calculators + modal
-
 const metrics = { allin:"", ltv:"", ltc:"", dscr:"", signal:"", state:"" };
 
 function calculateFlip(){
-  const purchaseEl = document.getElementById("purchase");
-  if (!purchaseEl) return;
-
+  if (!document.getElementById("purchase")) return;
   const purchase = Number(document.getElementById("purchase").value || 0);
   const rehab = Number(document.getElementById("rehab").value || 0);
   const arv = Number(document.getElementById("arv").value || 0);
@@ -19,15 +15,14 @@ function calculateFlip(){
   if (isFinite(ltvNum) && ltvNum > 80) signal = "Moderate";
   if (isFinite(ltvNum) && ltvNum > 85) signal = "Aggressive";
 
-  const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  setText("allin", allin ? ("$" + allin.toLocaleString()) : "—");
+  setText("ltv", isFinite(ltvNum) ? (ltvNum.toFixed(1) + "%") : "—");
+  setText("ltc", isFinite(ltcNum) ? (ltcNum.toFixed(1) + "%") : "—");
+  setText("signal", signal);
 
-  set("allin", allin ? ("$" + allin.toLocaleString()) : "—");
-  set("ltv", isFinite(ltvNum) ? (ltvNum.toFixed(1) + "%") : "—");
-  set("ltc", isFinite(ltcNum) ? (ltcNum.toFixed(1) + "%") : "—");
-  set("signal", signal);
-
-  const results = document.getElementById("flipResults");
-  if (results) results.style.display = "block";
+  const box = document.getElementById("flipResults");
+  if (box) box.style.display = "block";
 
   metrics.allin = allin ? ("$" + allin.toLocaleString()) : "";
   metrics.ltv = isFinite(ltvNum) ? (ltvNum.toFixed(1) + "%") : "";
@@ -36,9 +31,7 @@ function calculateFlip(){
 }
 
 function calculateDSCR(){
-  const rentEl = document.getElementById("rent");
-  if (!rentEl) return;
-
+  if (!document.getElementById("rent")) return;
   const rent = Number(document.getElementById("rent").value || 0);
   const pitia = Number(document.getElementById("pitia").value || 0);
   const st = (document.getElementById("state").value || "").toUpperCase();
@@ -53,14 +46,13 @@ function calculateDSCR(){
     else { signal = "Tight"; next = "Consider more equity / lower PITIA"; }
   }
 
-  const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  setText("dscrVal", isFinite(dscrNum) ? dscrNum.toFixed(2) : "—");
+  setText("dscrSignal", signal);
+  setText("dscrNext", next);
 
-  set("dscrVal", isFinite(dscrNum) ? dscrNum.toFixed(2) : "—");
-  set("dscrSignal", signal);
-  set("dscrNext", next);
-
-  const results = document.getElementById("dscrResults");
-  if (results) results.style.display = "block";
+  const box = document.getElementById("dscrResults");
+  if (box) box.style.display = "block";
 
   metrics.dscr = isFinite(dscrNum) ? dscrNum.toFixed(2) : "";
   metrics.signal = signal;
@@ -80,12 +72,11 @@ function openLeadModal(type){
   if (sel) {
     if (clean.includes("dscr")) sel.value = "DSCR";
     else if (clean.includes("fix")) sel.value = "Fix & Flip";
-    else if (clean.includes("bridge")) sel.value = "Bridge";
+    else if (clean.includes("bridge")) sel.value = "Bridge / BPL";
     else sel.value = "";
   }
 
   const setVal = (id, val) => { const el = document.getElementById(id); if (el) el.value = val; };
-
   setVal("h_page", window.location.pathname.split("/").pop() || "index.html");
   setVal("h_type", type || "");
   setVal("h_allin", metrics.allin || "");
@@ -95,15 +86,11 @@ function openLeadModal(type){
   setVal("h_signal", metrics.signal || "");
   setVal("h_state", metrics.state || "");
 
+  const sub = document.getElementById("modalSub");
+  if (sub) sub.textContent = type ? ("Tell us about your " + type + " scenario.") : "Tell us about your scenario.";
+
   const stateInput = document.getElementById("f_state");
   if (stateInput && metrics.state) stateInput.value = metrics.state;
-
-  const sub = document.getElementById("modalSub");
-  if (sub) {
-    sub.textContent = type
-      ? ("Talk to an expert about: " + type + ".")
-      : "Talk to an expert — we’ll route you to the right investor lane.";
-  }
 }
 
 function closeLeadModal(){
@@ -115,12 +102,15 @@ function closeLeadModal(){
   document.body.classList.remove("noScroll");
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const fState = document.getElementById("f_state");
-  const hState = document.getElementById("h_state");
-  if (fState && hState) {
-    fState.addEventListener("input", (e) => {
-      hState.value = (e.target.value || "").toUpperCase();
-    });
-  }
-});
+function toggleFAQ(btn){
+  const wrap = btn.closest(".qa");
+  if (!wrap) return;
+  wrap.classList.toggle("open");
+  const chev = wrap.querySelector(".chev");
+  if (chev) chev.textContent = wrap.classList.contains("open") ? "—" : "+";
+}
+
+function smoothTo(id){
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({behavior:"smooth"});
+}

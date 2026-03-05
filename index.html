@@ -3,139 +3,210 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Investor Loan Marketplace | Home</title>
-  <meta name="description" content="Investor loan calculators and expert guidance for Fix & Flip, DSCR, and Bridge/BPL. Run numbers or talk to an expert."/>
+  <title>Investor Loan Marketplace | Investment Property Loans</title>
+  <meta name="description" content="National marketplace for business-purpose investor financing. Quick loan request, DSCR, Fix & Flip, and Bridge/BPL."/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-<header class="header">
-  <div class="brand">
-    <div class="logo" aria-hidden="true"></div>
-    <div><h1>Investor Loan Marketplace</h1></div>
+<div class="topbar">
+  <div class="topbarInner">
+    <div class="muted">National marketplace for business-purpose investor financing</div>
+    <div><a href="#" onclick="openLeadModal('Quick Loan Request');return false;">Get Started</a> <span class="muted" style="margin-left:10px;">(XXX) XXX-XXXX</span></div>
   </div>
-  <nav class="nav" aria-label="Primary">
-    <a href="index.html">Home</a>
-    <a href="fix-and-flip.html">Fix &amp; Flip</a>
-    <a href="dscr.html">DSCR</a>
-  </nav>
-  <div class="headerActions">
-    <button class="btn btnGhost" type="button" onclick="openLeadModal('General')">Talk to an Expert</button>
+</div>
+<header class="header">
+  <div class="headerInner">
+    <a class="brand" href="index.html">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <strong>Investor Loan Marketplace</strong>
+        <span>Fix &amp; Flip • DSCR • Bridge / BPL</span>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Financing</a>
+      <a href="fix-and-flip.html">Fix &amp; Flip</a>
+      <a href="dscr.html">DSCR</a>
+      <a href="#faq" onclick="smoothTo('faq');return false;">FAQ</a>
+      <a href="#" onclick="openLeadModal('General');return false;">Contact</a>
+    </nav>
+
+    <div class="headerActions">
+      <a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Quick Loan Request</a>
+    </div>
   </div>
 </header>
 
-<section class="hero">
-  <div class="heroInner">
-    <div class="heroCopy">
-      <h2>Investor financing tools + fast expert routing.</h2>
-      <p>
-        Start with a calculator for quick numbers — or skip it and talk to an expert right away.
-        We route your request to the right investor lane (Fix &amp; Flip, DSCR, Bridge/BPL).
-      </p>
-      <div class="heroBtns">
-        <a class="btn btnPrimary" href="fix-and-flip.html">Fix &amp; Flip Calculator</a>
-        <a class="btn btnGhost" href="dscr.html">DSCR Calculator</a>
-        <button class="btn btnGhost" type="button" onclick="openLeadModal('General')">Talk to an Expert</button>
-      </div>
-      <div class="badges">
-        <span class="badge">Business-purpose only</span>
-        <span class="badge">Fast intake</span>
-        <span class="badge">Deal-specific guidance</span>
-      </div>
-      <p class="micro">Not a lender. Not a commitment to lend. Program availability varies by lender and jurisdiction.</p>
-    </div>
-
-    <div class="heroSide">
-      <h3>How it works</h3>
-      <div class="step"><div class="stepNum">1</div><div><strong>Pick a lane</strong><div class="micro">Fix &amp; Flip, DSCR, or Bridge/BPL.</div></div></div>
-      <div class="step"><div class="stepNum">2</div><div><strong>Run numbers (optional)</strong><div class="micro">Calculator results can be attached to your request.</div></div></div>
-      <div class="step"><div class="stepNum">3</div><div><strong>Talk to an expert</strong><div class="micro">We follow up with 1–2 questions and route you.</div></div></div>
-      <div class="step"><div class="stepNum">4</div><div><strong>Move to prequal</strong><div class="micro">If it fits, we request docs and confirm terms.</div></div></div>
-    </div>
-  </div>
-</section>
-
 <main class="wrap">
-
-  <section class="card">
-    <div class="cardHead">
-      <h2>Choose your starting point</h2>
-      <p>Most investors convert after they run a quick check. But you can also skip calculators and speak with an expert immediately.</p>
-    </div>
-
-    <div class="tiles">
-      <div class="tile">
-        <h3>Fix &amp; Flip</h3>
-        <p>Purchase + rehab + ARV. Get All-In, LTV, LTC and a quick signal.</p>
+  <section class="hero">
+    <div class="heroGrid">
+      <div class="panel">
+        <h1>The marketplace for<br/>investment property loans</h1>
+        <p>
+          Run quick numbers, submit a fast request, and get routed to the right investor lane.
+          Fix &amp; Flip, DSCR, and Bridge/BPL — nationwide, program-dependent.
+        </p>
         <div class="heroBtns">
-          <a class="btn btnPrimary" href="fix-and-flip.html">Open Calculator</a>
-          <button class="btn btnGhost" type="button" onclick="openLeadModal('Fix & Flip')">Talk to Expert</button>
+          <a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Quick Loan Request</a>
+          <a class="btn" href="dscr.html">DSCR Calculator</a>
+          <a class="btn" href="fix-and-flip.html">Fix &amp; Flip Analyzer</a>
         </div>
+        <div class="pills">
+          <span class="pill">Fast intake</span>
+          <span class="pill">Investor-only</span>
+          <span class="pill">Program-dependent</span>
+        </div>
+        <p class="micro">Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
       </div>
 
-      <div class="tile">
-        <h3>DSCR</h3>
-        <p>Rent ÷ PITIA. Quick check before you talk structure and leverage.</p>
-        <div class="heroBtns">
-          <a class="btn btnPrimary" href="dscr.html">Open Calculator</a>
-          <button class="btn btnGhost" type="button" onclick="openLeadModal('DSCR')">Talk to Expert</button>
-        </div>
-      </div>
+      <div class="panel" style="box-shadow:none;background:rgba(255,255,255,.60);">
+        <h2 style="margin:0 0 10px;font-size:16px;">How it works</h2>
 
-      <div class="tile">
-        <h3>Bridge / BPL</h3>
-        <p>Need speed or flexibility? Skip the calculator and talk to an expert.</p>
-        <div class="heroBtns">
-          <button class="btn btnPrimary" type="button" onclick="openLeadModal('Bridge / BPL')">Talk to Expert</button>
+        <div class="step">
+          <div class="stepNum">1</div>
+          <div><strong>Quick request</strong><span>Loan type, amount, and state.</span></div>
         </div>
+        <div class="step">
+          <div class="stepNum">2</div>
+          <div><strong>Expert call</strong><span>Confirm details and route the lane.</span></div>
+        </div>
+        <div class="step">
+          <div class="stepNum">3</div>
+          <div><strong>Select terms</strong><span>Pick an offer — we coordinate the rest.</span></div>
+        </div>
+
+        <div class="heroBtns" style="margin-top:12px;">
+          <a class="btn btnDark" href="#" onclick="openLeadModal('Talk to an Expert');return false;">Talk to an Expert</a>
+          <a class="btn" href="#products" onclick="smoothTo('products');return false;">Browse Products</a>
+        </div>
+
+        <p class="micro">Want to skip calculators? Use “Quick Loan Request.”</p>
       </div>
     </div>
   </section>
 
-  <section class="card cardSoft">
-    <div class="cardHead">
-      <h2>Guidance (quick)</h2>
-      <p>Keep it simple — these are the main items that determine routing and terms.</p>
+  <section class="section" id="products">
+    <div class="sectionHead">
+      <div>
+        <h2>Loan products</h2>
+        <p>Start with a lane — then we’ll match the right program for your scenario.</p>
+      </div>
+      <a class="btn" href="#" onclick="openLeadModal('General');return false;">Ask a question</a>
     </div>
-    <div class="grid2">
+
+    <div class="grid3">
+      <div class="card"><div class="cardPad">
+        <h3>Single-family (1–4)</h3>
+        <p>DSCR rentals, cash-out refi, purchase. Investor-only.</p>
+        <div class="actions">
+          <a class="btn btnPrimary" href="dscr.html">Run DSCR</a>
+          <a class="btn" href="#" onclick="openLeadModal('DSCR');return false;">Quick request</a>
+        </div>
+      </div></div>
+
+      <div class="card"><div class="cardPad">
+        <h3>Fix &amp; Flip / Rehab</h3>
+        <p>Purchase + rehab + ARV. Fast leverage check and signal.</p>
+        <div class="actions">
+          <a class="btn btnPrimary" href="fix-and-flip.html">Run Analyzer</a>
+          <a class="btn" href="#" onclick="openLeadModal('Fix & Flip');return false;">Quick request</a>
+        </div>
+      </div></div>
+
+      <div class="card"><div class="cardPad">
+        <h3>Bridge / BPL</h3>
+        <p>Short-term investor financing for speed, execution, and flexibility.</p>
+        <div class="actions">
+          <a class="btn btnPrimary" href="#" onclick="openLeadModal('Bridge / BPL');return false;">Quick request</a>
+          <a class="btn" href="#" onclick="openLeadModal('Bridge / BPL');return false;">Talk to expert</a>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sectionHead">
       <div>
-        <strong>Fix &amp; Flip / Bridge</strong>
-        <p class="micro">Purchase, rehab scope, ARV support, timeline, experience, exit strategy.</p>
-      </div>
-      <div>
-        <strong>DSCR</strong>
-        <p class="micro">Rent source, PITIA, property type, occupancy, leverage target, state.</p>
+        <h2>Featured rates (example)</h2>
+        <p>Illustration only — pricing varies by profile, property, and state.</p>
       </div>
     </div>
-    <div class="grid2">
-      <div>
-        <strong>Docs you’ll usually need</strong>
-        <p class="micro">Contract, scope/budget (if rehab), lease (if DSCR), entity docs, ID, insurance.</p>
+
+    <div class="rateGrid">
+      <div class="rate">
+        <div class="label">1-unit DSCR Rental</div>
+        <div class="pct">6.99%</div>
+        <div class="sub">30-year fixed • 80% LTV purchase</div>
       </div>
+      <div class="rate">
+        <div class="label">5+ unit Multifamily</div>
+        <div class="pct">7.75%</div>
+        <div class="sub">30-year fixed • 75% LTV purchase</div>
+      </div>
+      <div class="rate">
+        <div class="label">Rehab / Fix &amp; Flip</div>
+        <div class="pct">9.50%</div>
+        <div class="sub">Up to 85% LTC • experience-based</div>
+      </div>
+      <div class="rate">
+        <div class="label">Bridge / BPL</div>
+        <div class="pct">10.25%</div>
+        <div class="sub">Interest-only • 12–18 months</div>
+      </div>
+    </div>
+
+    <p class="micro">These numbers are placeholders and not an offer to lend.</p>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="sectionHead">
       <div>
-        <strong>Fastest way to move</strong>
-        <p class="micro">Run the calculator and submit right from the results screen — or talk to an expert now.</p>
+        <h2>Frequently asked questions</h2>
+        <p>Quick answers for common investor financing questions.</p>
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="qa">
+        <button type="button" onclick="toggleFAQ(this)">Who is this for? <span class="chev">+</span></button>
+        <div class="ans">Business-purpose borrowers financing investment properties (rentals, flips, bridge needs). Not for owner-occupied.</div>
+      </div>
+
+      <div class="qa">
+        <button type="button" onclick="toggleFAQ(this)">Do I have to use the calculators? <span class="chev">+</span></button>
+        <div class="ans">No — submit a Quick Loan Request and talk to an expert right away. Calculators simply speed up routing.</div>
+      </div>
+
+      <div class="qa">
+        <button type="button" onclick="toggleFAQ(this)">What should I have ready? <span class="chev">+</span></button>
+        <div class="ans">Loan type, estimated loan amount, state, property type, and (if relevant) purchase/rehab/ARV or rent/PITIA.</div>
+      </div>
+
+      <div class="qa">
+        <button type="button" onclick="toggleFAQ(this)">Is this a commitment to lend? <span class="chev">+</span></button>
+        <div class="ans">No. This is an intake and routing experience. Terms and approvals depend on lender guidelines and underwriting.</div>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <p><strong>Disclosures:</strong> Not a lender. Not a commitment to lend. For business-purpose investor financing only. This site does not provide legal, tax, or financial advice.</p>
+    <strong>Disclosures:</strong> Not a lender. Not a commitment to lend. Business-purpose investor financing only.
+    This site does not provide legal, tax, or financial advice.
   </footer>
-
 </main>
 
 <div class="modal" id="leadModal" aria-hidden="true">
   <div class="modalBackdrop" onclick="closeLeadModal()" aria-label="Close"></div>
-  <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Talk to an expert">
+  <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Quick loan request">
     <div class="modalTop">
       <div>
-        <h3>Talk to an Expert</h3>
-        <p class="micro" id="modalSub">Talk to an expert — we’ll route you to the right investor lane.</p>
+        <h3>Quick Loan Request</h3>
+        <p class="micro" id="modalSub">Tell us about your scenario.</p>
       </div>
       <button class="iconBtn" type="button" onclick="closeLeadModal()" aria-label="Close">✕</button>
     </div>
 
-    <!-- Netlify Form -->
     <form class="form" name="request-options" method="POST" data-netlify="true" action="/?submitted=request-options">
       <input type="hidden" name="form-name" value="request-options"/>
       <input type="hidden" name="page" id="h_page" value=""/>
@@ -147,7 +218,7 @@
       <input type="hidden" name="calc_signal" id="h_signal" value=""/>
       <input type="hidden" name="state" id="h_state" value=""/>
 
-      <label>What do you need?</label>
+      <label>Loan Type</label>
       <select name="loan_type" id="f_type" required>
         <option value="">Select</option>
         <option>Fix &amp; Flip</option>
@@ -156,7 +227,7 @@
         <option>Other</option>
       </select>
 
-      <div class="grid2 modalGrid">
+      <div class="grid2">
         <div>
           <label>Estimated Loan Amount</label>
           <input type="number" name="loan_amount" id="f_amount" placeholder="450000" inputmode="numeric" required>
@@ -167,7 +238,7 @@
         </div>
       </div>
 
-      <div class="grid2 modalGrid">
+      <div class="grid2">
         <div>
           <label>Name</label>
           <input type="text" name="name" placeholder="Jane Investor" required>
@@ -186,7 +257,7 @@
         <span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span>
       </label>
 
-      <button class="btn btnPrimary" type="submit">Submit</button>
+      <button class="btn btnDark" type="submit">Submit</button>
       <p class="micro">Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
     </form>
   </div>
