@@ -114,3 +114,13 @@ function smoothTo(id){
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({behavior:"smooth"});
 }
+
+function openLeadModalWithPrefill(type, amount, state){
+  openLeadModal(type || "General");
+  const amt = document.getElementById("f_amount");
+  if (amt && amount !== undefined && amount !== null && amount !== "") amt.value = amount;
+  const st = document.getElementById("f_state");
+  if (st && state) st.value = String(state).toUpperCase();
+  const hState = document.getElementById("h_state");
+  if (hState && state) hState.value = String(state).toUpperCase();
+}
