@@ -1,23 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#5aa8ff" stop-opacity="0.38"/>
+      <stop offset="0" stop-color="#5aa8ff" stop-opacity="0.35"/>
       <stop offset="1" stop-color="#ffffff" stop-opacity="0.06"/>
     </linearGradient>
-    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
     </pattern>
+    <radialGradient id="glow" cx="30%" cy="25%" r="65%">
+      <stop offset="0" stop-color="#5aa8ff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#0b0f14" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <rect width="900" height="560" fill="#0b0f14"/>
-  <rect width="900" height="560" fill="url(#grid)"/>
-  <g transform="translate(90,80)">
-    <path d="M120 210 L270 90 L420 210 V380 H120 Z" fill="url(#g)" stroke="#ffffff" stroke-opacity="0.14" stroke-width="2"/>
-    <rect x="190" y="250" width="90" height="90" rx="12" fill="#0b0f14" fill-opacity="0.45" stroke="#ffffff" stroke-opacity="0.12"/>
-    <path d="M520 120 h180 v260 h-180 z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="2" rx="14"/>
-    <path d="M540 170 h140" stroke="rgba(90,168,255,0.55)" stroke-width="4"/>
-    <path d="M540 220 h100" stroke="rgba(255,255,255,0.18)" stroke-width="3"/>
-    <path d="M540 270 h125" stroke="rgba(255,255,255,0.18)" stroke-width="3"/>
-    <path d="M540 320 h85" stroke="rgba(255,255,255,0.18)" stroke-width="3"/>
-    <text x="520" y="420" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#ffffff" opacity="0.75">Fix &amp; Flip</text>
+  <rect width="1600" height="900" fill="#0b0f14"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <g opacity="0.9" transform="translate(140,160)">
+    <path d="M130 320 L260 220 L390 320 V520 H130 Z" fill="url(#g)" stroke="#ffffff" stroke-opacity="0.14" stroke-width="2"/>
+    <path d="M450 360 L560 280 L670 360 V520 H450 Z" fill="url(#g)" stroke="#ffffff" stroke-opacity="0.12" stroke-width="2"/>
+    <path d="M820 330 L950 240 L1080 330 V520 H820 Z" fill="url(#g)" stroke="#ffffff" stroke-opacity="0.12" stroke-width="2"/>
+    <rect x="180" y="370" width="70" height="70" rx="10" fill="#0b0f14" fill-opacity="0.45" stroke="#ffffff" stroke-opacity="0.10"/>
+    <rect x="510" y="400" width="70" height="70" rx="10" fill="#0b0f14" fill-opacity="0.45" stroke="#ffffff" stroke-opacity="0.10"/>
+    <rect x="875" y="385" width="70" height="70" rx="10" fill="#0b0f14" fill-opacity="0.45" stroke="#ffffff" stroke-opacity="0.10"/>
+  </g>
+  <g opacity="0.35">
+    <path d="M0 720 C 260 650, 420 830, 700 760 C 980 690, 1160 860, 1600 780" fill="none" stroke="#5aa8ff" stroke-opacity="0.35" stroke-width="3"/>
+    <path d="M0 760 C 260 690, 420 870, 700 800 C 980 730, 1160 900, 1600 820" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
+  </g>
+  <g transform="translate(1120,120)" opacity="0.95">
+    <rect x="0" y="0" width="380" height="180" rx="18" fill="#101826" fill-opacity="0.72" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="24" y="62" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#ffffff" opacity="0.95">Investor tools</text>
+    <text x="24" y="102" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#ffffff" opacity="0.70">Fix &amp; Flip • DSCR • Bridge</text>
+    <text x="24" y="134" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#ffffff" opacity="0.70">Fast intake → lender routing</text>
   </g>
 </svg>
