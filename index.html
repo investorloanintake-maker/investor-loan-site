@@ -1,0 +1,52 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Investor Loan Marketplace</title>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<header>
+  <h1>Investor Loan Marketplace</h1>
+  <p>Fix & Flip • Bridge • DSCR • Business Purpose Loans</p>
+</header>
+
+<section>
+  <h2>Request Loan Options</h2>
+
+  <!-- Netlify form -->
+  <form name="request-options" method="POST" data-netlify="true">
+    <input type="hidden" name="form-name" value="request-options"/>
+
+    <label>Loan Type</label>
+    <select name="loan_type">
+      <option>Fix & Flip</option>
+      <option>Bridge</option>
+      <option>DSCR</option>
+    </select>
+
+    <label>Loan Amount</label>
+    <input type="number" name="loan_amount" placeholder="450000"/>
+
+    <label>Name</label>
+    <input type="text" name="name"/>
+
+    <label>Email</label>
+    <input type="email" name="email"/>
+
+    <label>Phone</label>
+    <input type="tel" name="phone"/>
+
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<footer>
+  <p>Business purpose lending for real estate investors. Not a commitment to lend.</p>
+</footer>
+
+</body>
+</html>
