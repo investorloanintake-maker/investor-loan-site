@@ -1,11 +1,11 @@
-
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Investor Loan Marketplace</title>
-<link rel="stylesheet" href="styles.css"/>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Investor Loan Marketplace</title>
+  <meta name="description" content="Fix & Flip, Bridge, DSCR and Business Purpose Loans. Analyze your deal in minutes and request options."/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
@@ -14,12 +14,52 @@
   <p>Fix & Flip • Bridge • DSCR • Business Purpose Loans</p>
 </header>
 
+<section id="flip-calculator">
+  <h2>Fix & Flip Deal Analyzer</h2>
+  <p>Run quick numbers to see leverage and a basic signal. Then request loan options.</p>
+
+  <div class="calculator">
+    <label>Purchase Price</label>
+    <input id="purchase" type="number" placeholder="350000">
+
+    <label>Rehab Budget</label>
+    <input id="rehab" type="number" placeholder="75000">
+
+    <label>After Repair Value (ARV)</label>
+    <input id="arv" type="number" placeholder="520000">
+
+    <label>Loan Requested</label>
+    <input id="loan" type="number" placeholder="420000">
+
+    <button type="button" onclick="calculateFlip()">Analyze Deal</button>
+
+    <div id="results" class="results" style="display:none">
+      <p><strong>All-In Cost:</strong> $<span id="allin"></span></p>
+      <p><strong>LTV (Loan / ARV):</strong> <span id="ltv"></span>%</p>
+      <p><strong>LTC (Loan / All-In):</strong> <span id="ltc"></span>%</p>
+      <p><strong>Deal Signal:</strong> <span id="signal"></span></p>
+
+      <button type="button" onclick="openRequestOptions()">Get Loan Options</button>
+    </div>
+
+    <p class="micro">
+      Estimates only. Not a commitment to lend. Business-purpose investor financing; terms vary by lender and state.
+    </p>
+  </div>
+</section>
+
 <section>
   <h2>Request Loan Options</h2>
 
   <!-- Netlify form -->
   <form name="request-options" method="POST" data-netlify="true">
     <input type="hidden" name="form-name" value="request-options"/>
+
+    <!-- Helpful hidden fields populated by the calculator -->
+    <input type="hidden" name="calc_allin" id="f_allin_hidden" value="">
+    <input type="hidden" name="calc_ltv" id="f_ltv_hidden" value="">
+    <input type="hidden" name="calc_ltc" id="f_ltc_hidden" value="">
+    <input type="hidden" name="calc_signal" id="f_signal_hidden" value="">
 
     <label>Loan Type</label>
     <select name="loan_type">
@@ -40,6 +80,11 @@
     <label>Phone</label>
     <input type="tel" name="phone"/>
 
+    <label class="consent">
+      <input type="checkbox" name="consent" required>
+      <span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span>
+    </label>
+
     <button type="submit">Submit</button>
   </form>
 </section>
@@ -47,6 +92,41 @@
 <footer>
   <p>Business purpose lending for real estate investors. Not a commitment to lend.</p>
 </footer>
+
+<script>
+function calculateFlip(){
+  const purchase = Number(document.getElementById("purchase").value || 0);
+  const rehab = Number(document.getElementById("rehab").value || 0);
+  const arv = Number(document.getElementById("arv").value || 0);
+  const loan = Number(document.getElementById("loan").value || 0);
+
+  const allin = purchase + rehab;
+  const ltv = (arv > 0) ? (loan / arv) * 100 : NaN;
+  const ltc = (allin > 0) ? (loan / allin) * 100 : NaN;
+
+  document.getElementById("allin").innerText = allin.toLocaleString();
+  document.getElementById("ltv").innerText = isFinite(ltv) ? ltv.toFixed(1) : "—";
+  document.getElementById("ltc").innerText = isFinite(ltc) ? ltc.toFixed(1) : "—";
+
+  let signal = "Strong";
+  if (isFinite(ltv) && ltv > 80) signal = "Moderate";
+  if (isFinite(ltv) && ltv > 85) signal = "Aggressive";
+
+  document.getElementById("signal").innerText = signal;
+  document.getElementById("results").style.display = "block";
+
+  // Populate hidden fields for Netlify submission
+  document.getElementById("f_allin_hidden").value = allin ? ("$" + allin.toLocaleString()) : "";
+  document.getElementById("f_ltv_hidden").value = isFinite(ltv) ? (ltv.toFixed(1) + "%") : "";
+  document.getElementById("f_ltc_hidden").value = isFinite(ltc) ? (ltc.toFixed(1) + "%") : "";
+  document.getElementById("f_signal_hidden").value = signal;
+}
+
+function openRequestOptions(){
+  const form = document.querySelector('form[name="request-options"]');
+  if (form) form.scrollIntoView({behavior: "smooth", block: "start"});
+}
+</script>
 
 </body>
 </html>
