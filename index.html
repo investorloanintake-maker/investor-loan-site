@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Investor Loan Marketplace | Fix & Flip • DSCR • BPL</title>
-  <meta name="description" content="Investor financing for Fix & Flip, Bridge, and DSCR. Run quick deal numbers and request loan options."/>
+  <meta name="description" content="Investor financing tools for Fix & Flip, Bridge, and DSCR. Run quick deal numbers and request lender options."/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -22,34 +22,53 @@
   </div>
 </header>
 
+<section class="hero">
+  <div class="heroInner">
+    <div class="heroCopy">
+      <h2>Run numbers first. Then request options.</h2>
+      <p>
+        Investors convert when they can quickly answer: <strong>“Can I finance this deal?”</strong>
+        Use the calculators below and submit your scenario for lender routing.
+      </p>
+      <div class="heroBtns">
+        <a class="btn btnPrimary" href="#flip-calculator">Fix &amp; Flip Analyzer</a>
+        <a class="btn btnGhost" href="#dscr-calculator">DSCR Calculator</a>
+      </div>
+      <p class="micro">
+        Not a lender. Not a commitment to lend. Business-purpose investor financing only.
+      </p>
+    </div>
+    <div class="heroArt" aria-hidden="true">
+      <img src="assets/hero.svg" alt="" />
+    </div>
+  </div>
+</section>
+
 <main class="wrap">
 
-  <!-- FIX & FLIP -->
   <section class="card" id="flip-calculator">
     <div class="cardHead">
-      <h2>Fix & Flip Deal Analyzer</h2>
-      <p>Run quick leverage numbers and get a simple signal. Then request lender options.</p>
+      <div class="cardMedia">
+        <img src="assets/flip.svg" alt="Fix and flip deal analyzer illustration"/>
+      </div>
+      <div>
+        <h2>Fix &amp; Flip Deal Analyzer</h2>
+        <p>Run quick leverage numbers and get a simple signal. Then request lender options.</p>
+      </div>
     </div>
 
     <div class="grid2">
       <div>
         <label>Purchase Price</label>
         <input id="purchase" type="number" placeholder="350000" inputmode="numeric">
-
         <label>Rehab Budget</label>
         <input id="rehab" type="number" placeholder="75000" inputmode="numeric">
-
         <label>After Repair Value (ARV)</label>
         <input id="arv" type="number" placeholder="520000" inputmode="numeric">
-
         <label>Loan Requested</label>
         <input id="loan" type="number" placeholder="420000" inputmode="numeric">
-
         <button class="btn btnPrimary" type="button" onclick="calculateFlip()">Analyze Deal</button>
-
-        <p class="micro">
-          Estimates only. Not a commitment to lend. Business-purpose investor financing; terms vary by lender and state.
-        </p>
+        <p class="micro">Estimates only. Not a commitment to lend. Business-purpose investor financing; terms vary by lender and state.</p>
       </div>
 
       <div class="resultsBox" id="flipResults" style="display:none" aria-live="polite">
@@ -57,68 +76,58 @@
         <div class="metric"><span>LTV (Loan / ARV)</span><strong id="ltv">—</strong></div>
         <div class="metric"><span>LTC (Loan / All-In)</span><strong id="ltc">—</strong></div>
         <div class="metric"><span>Deal Signal</span><strong id="signal">—</strong></div>
-
         <div class="divider"></div>
-
         <button class="btn btnGhost" type="button" onclick="openLeadModal('Fix & Flip')">Get Loan Options</button>
         <p class="micro">We’ll follow up with 1–2 questions to route your deal to the right lane.</p>
       </div>
     </div>
   </section>
 
-  <!-- DSCR -->
   <section class="card" id="dscr-calculator">
     <div class="cardHead">
-      <h2>DSCR Calculator</h2>
-      <p>Estimate DSCR using Monthly Rent ÷ Monthly PITIA, then request DSCR options.</p>
+      <div class="cardMedia">
+        <img src="assets/rental.svg" alt="DSCR calculator illustration"/>
+      </div>
+      <div>
+        <h2>DSCR Calculator</h2>
+        <p>Estimate DSCR using Monthly Rent ÷ Monthly PITIA, then request DSCR options.</p>
+      </div>
     </div>
 
     <div class="grid2">
       <div>
         <label>Monthly Rent</label>
         <input id="rent" type="number" placeholder="3200" inputmode="numeric">
-
         <label>Monthly PITIA</label>
         <input id="pitia" type="number" placeholder="2600" inputmode="numeric">
-
         <label>State</label>
         <input id="state" type="text" placeholder="FL" maxlength="2" autocapitalize="characters">
-
         <button class="btn btnPrimary" type="button" onclick="calculateDSCR()">Calculate DSCR</button>
-
-        <p class="micro">
-          DSCR methodology varies by lender (lease vs market rent vs STR). This is a quick estimate.
-        </p>
+        <p class="micro">DSCR methodology varies by lender (lease vs market rent vs STR). This is a quick estimate.</p>
       </div>
 
       <div class="resultsBox" id="dscrResults" style="display:none" aria-live="polite">
         <div class="metric"><span>DSCR</span><strong id="dscrVal">—</strong></div>
         <div class="metric"><span>Signal</span><strong id="dscrSignal">—</strong></div>
         <div class="metric"><span>Next Step</span><strong id="dscrNext">—</strong></div>
-
         <div class="divider"></div>
-
         <button class="btn btnGhost" type="button" onclick="openLeadModal('DSCR')">Request DSCR Options</button>
       </div>
     </div>
   </section>
 
-  <!-- LOCAL SEO BLOCK (simple, optional) -->
-  <section class="card cardSoft" id="tampa">
+  <section class="card cardSoft" id="florida">
     <div class="cardHead">
-      <h2>Florida Investor Lending</h2>
-      <p>Launching with business-purpose investor financing. Tampa/Florida-focused support, with DSCR available in many states depending on lender programs.</p>
+      <div>
+        <h2>Florida Investor Lending</h2>
+        <p>Tampa/Florida-focused support, with DSCR availability in many states depending on lender programs.</p>
+      </div>
     </div>
     <div class="pillRow">
-      <span class="pill">Tampa</span>
-      <span class="pill">Orlando</span>
-      <span class="pill">Miami</span>
-      <span class="pill">Florida</span>
-      <span class="pill">Nationwide (program-dependent)</span>
+      <span class="pill">Tampa</span><span class="pill">Orlando</span><span class="pill">Miami</span>
+      <span class="pill">Florida</span><span class="pill">Nationwide (program-dependent)</span>
     </div>
-    <p class="micro">
-      Not a lender. Program availability varies by lender and jurisdiction.
-    </p>
+    <p class="micro">Not a lender. Program availability varies by lender and jurisdiction.</p>
   </section>
 
   <footer class="footer">
@@ -127,7 +136,6 @@
 
 </main>
 
-<!-- LEAD MODAL (Netlify Form) -->
 <div class="modal" id="leadModal" aria-hidden="true">
   <div class="modalBackdrop" onclick="closeLeadModal()" aria-label="Close"></div>
   <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Request loan options">
@@ -139,11 +147,8 @@
       <button class="iconBtn" type="button" onclick="closeLeadModal()" aria-label="Close">✕</button>
     </div>
 
-    <!-- Netlify Form -->
     <form class="form" name="request-options" method="POST" data-netlify="true" action="/?submitted=request-options">
       <input type="hidden" name="form-name" value="request-options"/>
-
-      <!-- hidden calculator context -->
       <input type="hidden" name="source" id="h_source" value="site"/>
       <input type="hidden" name="loan_type_prefill" id="h_type" value=""/>
       <input type="hidden" name="calc_allin" id="h_allin" value=""/>
@@ -156,7 +161,7 @@
       <label>Loan Type</label>
       <select name="loan_type" id="f_type" required>
         <option value="">Select</option>
-        <option>Fix & Flip</option>
+        <option>Fix &amp; Flip</option>
         <option>Bridge</option>
         <option>DSCR</option>
         <option>Other</option>
@@ -193,24 +198,14 @@
       </label>
 
       <button class="btn btnPrimary" type="submit">Submit</button>
-
       <p class="micro">Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
     </form>
   </div>
 </div>
 
 <script>
-  // --------- Metrics store ----------
-  const metrics = {
-    allin: "",
-    ltv: "",
-    ltc: "",
-    dscr: "",
-    signal: "",
-    state: ""
-  };
+  const metrics = { allin:"", ltv:"", ltc:"", dscr:"", signal:"", state:"" };
 
-  // --------- Calculators ----------
   function calculateFlip(){
     const purchase = Number(document.getElementById("purchase").value || 0);
     const rehab = Number(document.getElementById("rehab").value || 0);
@@ -229,7 +224,6 @@
     document.getElementById("ltv").textContent = isFinite(ltvNum) ? (ltvNum.toFixed(1) + "%") : "—";
     document.getElementById("ltc").textContent = isFinite(ltcNum) ? (ltcNum.toFixed(1) + "%") : "—";
     document.getElementById("signal").textContent = signal;
-
     document.getElementById("flipResults").style.display = "block";
 
     metrics.allin = allin ? ("$" + allin.toLocaleString()) : "";
@@ -242,7 +236,6 @@
     const rent = Number(document.getElementById("rent").value || 0);
     const pitia = Number(document.getElementById("pitia").value || 0);
     const st = (document.getElementById("state").value || "").toUpperCase();
-
     const dscrNum = (pitia > 0) ? (rent / pitia) : NaN;
 
     let signal = "—";
@@ -256,22 +249,19 @@
     document.getElementById("dscrVal").textContent = isFinite(dscrNum) ? dscrNum.toFixed(2) : "—";
     document.getElementById("dscrSignal").textContent = signal;
     document.getElementById("dscrNext").textContent = next;
-
     document.getElementById("dscrResults").style.display = "block";
 
     metrics.dscr = isFinite(dscrNum) ? dscrNum.toFixed(2) : "";
-    metrics.signal = signal; // last computed signal (OK for modal)
+    metrics.signal = signal;
     metrics.state = st || "";
   }
 
-  // --------- Modal ----------
   function openLeadModal(type){
     const modal = document.getElementById("leadModal");
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("noScroll");
 
-    // prefill select
     const sel = document.getElementById("f_type");
     const clean = (type || "").toLowerCase();
     if (clean.includes("dscr")) sel.value = "DSCR";
@@ -279,7 +269,6 @@
     else if (clean.includes("bridge")) sel.value = "Bridge";
     else sel.value = "";
 
-    // set hidden fields
     document.getElementById("h_type").value = type || "";
     document.getElementById("h_allin").value = metrics.allin || "";
     document.getElementById("h_ltv").value = metrics.ltv || "";
@@ -288,11 +277,9 @@
     document.getElementById("h_signal").value = metrics.signal || "";
     document.getElementById("h_state").value = metrics.state || "";
 
-    // set visible state input too
     const stateInput = document.getElementById("f_state");
     if (stateInput && metrics.state) stateInput.value = metrics.state;
 
-    // helpful subtitle
     const sub = document.getElementById("modalSub");
     sub.textContent = type ? ("Submitting for: " + type + ". We’ll route you to the right investor lane.") :
       "Submit your scenario — we’ll route you to the right investor lane.";
@@ -305,28 +292,9 @@
     document.body.classList.remove("noScroll");
   }
 
-  // Keep hidden state in sync with visible state field
   document.getElementById("f_state")?.addEventListener("input", (e) => {
     document.getElementById("h_state").value = (e.target.value || "").toUpperCase();
   });
-
-  // Submitted banner (optional)
-  (function(){
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("submitted") === "request-options") {
-      const msg = document.createElement("div");
-      msg.className = "toast";
-      msg.textContent = "✅ Request received. We’ll follow up shortly.";
-      document.body.appendChild(msg);
-      setTimeout(() => msg.classList.add("show"), 50);
-      setTimeout(() => msg.classList.remove("show"), 3500);
-      setTimeout(() => msg.remove(), 4200);
-
-      // clean URL
-      try { history.replaceState({}, document.title, window.location.pathname + window.location.hash); } catch {}
-    }
-  })();
-
 </script>
 
 </body>
