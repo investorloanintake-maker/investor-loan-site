@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Fix &amp; Flip Calculator | Investor Loan Marketplace</title>
-  <meta name="description" content="Fix and flip deal analyzer: estimate all-in cost, LTV, LTC, and request investor loan options."/>
+  <title>DSCR Calculator | Investor Loan Marketplace</title>
+  <meta name="description" content="DSCR calculator: estimate DSCR using Rent ÷ PITIA and request DSCR loan options."/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -30,64 +30,60 @@
   <section class="card">
     <div class="cardHead">
       <div class="cardMedia">
-        <img src="assets/flip.svg" alt="Fix and flip deal analyzer illustration"/>
+        <img src="assets/rental.svg" alt="DSCR calculator illustration"/>
       </div>
       <div>
-        <h2>Fix &amp; Flip Deal Analyzer</h2>
-        <p>Quick leverage metrics and a simple signal. Then request lender options.</p>
+        <h2>DSCR Calculator</h2>
+        <p>Estimate DSCR using Monthly Rent ÷ Monthly PITIA, then request options.</p>
       </div>
     </div>
 
     <div class="grid2">
       <div>
-        <label>Purchase Price</label>
-        <input id="purchase" type="number" placeholder="350000" inputmode="numeric">
+        <label>Monthly Rent</label>
+        <input id="rent" type="number" placeholder="3200" inputmode="numeric">
 
-        <label>Rehab Budget</label>
-        <input id="rehab" type="number" placeholder="75000" inputmode="numeric">
+        <label>Monthly PITIA</label>
+        <input id="pitia" type="number" placeholder="2600" inputmode="numeric">
 
-        <label>After Repair Value (ARV)</label>
-        <input id="arv" type="number" placeholder="520000" inputmode="numeric">
+        <label>State</label>
+        <input id="state" type="text" placeholder="FL" maxlength="2" autocapitalize="characters">
 
-        <label>Loan Requested</label>
-        <input id="loan" type="number" placeholder="420000" inputmode="numeric">
-
-        <button class="btn btnPrimary" type="button" onclick="calculateFlip()">Analyze Deal</button>
-        <p class="micro">Estimates only. Not a commitment to lend. Program rules vary by lender and state.</p>
+        <button class="btn btnPrimary" type="button" onclick="calculateDSCR()">Calculate DSCR</button>
+        <p class="micro">DSCR methodology varies by lender (lease vs market rent vs STR). This is a quick estimate.</p>
       </div>
 
-      <div class="resultsBox" id="flipResults" style="display:none" aria-live="polite">
-        <div class="metric"><span>All-In Cost</span><strong id="allin">—</strong></div>
-        <div class="metric"><span>LTV (Loan / ARV)</span><strong id="ltv">—</strong></div>
-        <div class="metric"><span>LTC (Loan / All-In)</span><strong id="ltc">—</strong></div>
-        <div class="metric"><span>Deal Signal</span><strong id="signal">—</strong></div>
+      <div class="resultsBox" id="dscrResults" style="display:none" aria-live="polite">
+        <div class="metric"><span>DSCR</span><strong id="dscrVal">—</strong></div>
+        <div class="metric"><span>Signal</span><strong id="dscrSignal">—</strong></div>
+        <div class="metric"><span>Next Step</span><strong id="dscrNext">—</strong></div>
         <div class="divider"></div>
-        <button class="btn btnGhost" type="button" onclick="openLeadModal('Fix & Flip')">Get Loan Options</button>
-        <p class="micro">We’ll follow up with 1–2 questions to confirm scope, timeline, experience, and exit strategy.</p>
+        <button class="btn btnGhost" type="button" onclick="openLeadModal('DSCR')">Request DSCR Options</button>
+        <p class="micro">We’ll follow up on property type, rent source, occupancy, and loan size.</p>
       </div>
     </div>
   </section>
 
   <section class="card cardSoft">
-    <h2 style="margin:0 0 8px;">Deal guidance</h2>
+    <h2 style="margin:0 0 8px;">DSCR guidance</h2>
     <div class="grid2">
       <div>
-        <strong>What lenders typically look at</strong>
-        <p class="micro">ARV support, rehab scope, borrower experience, and exit strategy (sale vs refi).</p>
+        <strong>What is PITIA?</strong>
+        <p class="micro">Principal + Interest + Taxes + Insurance + (HOA if applicable).</p>
       </div>
       <div>
-        <strong>Common docs</strong>
-        <p class="micro">Purchase contract, scope/budget, photos, entity docs, insurance, and ID.</p>
+        <strong>Common DSCR thresholds</strong>
+        <p class="micro">Many programs price better at 1.10–1.25+. Below 1.00 often needs structure changes.</p>
       </div>
     </div>
     <div class="grid2">
       <div>
-        <strong>Common pitfalls</strong>
-        <p class="micro">Overstated ARV, rehab underbudgeted, tight timelines, missing contractor bids.</p>
+        <strong>Rent source differences</strong>
+        <p class="micro">Some lenders use leases; some use market rent; STR programs can use appraiser rent schedules.</p>
       </div>
       <div>
         <strong>Next step</strong>
-        <p class="micro">Submit the request and we’ll route to the right lender lane for your metrics.</p>
+        <p class="micro">Submit your request and we’ll route you to the right DSCR lane for your metrics.</p>
       </div>
     </div>
   </section>

@@ -27,10 +27,4 @@
     <path d="M0 720 C 260 650, 420 830, 700 760 C 980 690, 1160 860, 1600 780" fill="none" stroke="#5aa8ff" stroke-opacity="0.35" stroke-width="3"/>
     <path d="M0 760 C 260 690, 420 870, 700 800 C 980 730, 1160 900, 1600 820" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
   </g>
-  <g transform="translate(1120,120)" opacity="0.95">
-    <rect x="0" y="0" width="380" height="180" rx="18" fill="#101826" fill-opacity="0.72" stroke="#ffffff" stroke-opacity="0.12"/>
-    <text x="24" y="62" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#ffffff" opacity="0.95">Investor tools</text>
-    <text x="24" y="102" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#ffffff" opacity="0.70">Fix &amp; Flip • DSCR • Bridge</text>
-    <text x="24" y="134" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#ffffff" opacity="0.70">Fast intake → lender routing</text>
-  </g>
 </svg>

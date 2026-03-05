@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Fix &amp; Flip Calculator | Investor Loan Marketplace</title>
-  <meta name="description" content="Fix and flip deal analyzer: estimate all-in cost, LTV, LTC, and request investor loan options."/>
+  <title>Investor Loan Marketplace | Investor Financing Tools</title>
+  <meta name="description" content="Investor loan calculators and guidance for Fix & Flip and DSCR. Run numbers and request lender options."/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -25,75 +25,115 @@
   </div>
 </header>
 
+<section class="hero">
+  <div class="heroInner">
+    <div class="heroCopy">
+      <h2>Choose your lane. Run numbers. Submit for options.</h2>
+      <p>
+        This is a fast intake site for business-purpose investor financing.
+        Start with the calculator that matches your deal type.
+      </p>
+      <div class="heroBtns">
+        <a class="btn btnPrimary" href="fix-and-flip.html">Fix &amp; Flip Analyzer</a>
+        <a class="btn btnGhost" href="dscr.html">DSCR Calculator</a>
+      </div>
+      <p class="micro">Not a lender. Not a commitment to lend. Program availability varies by lender and jurisdiction.</p>
+    </div>
+    <div class="heroArt" aria-hidden="true">
+      <img src="assets/hero.svg" alt=""/>
+    </div>
+  </div>
+</section>
+
 <main class="wrap">
 
   <section class="card">
     <div class="cardHead">
-      <div class="cardMedia">
-        <img src="assets/flip.svg" alt="Fix and flip deal analyzer illustration"/>
-      </div>
       <div>
-        <h2>Fix &amp; Flip Deal Analyzer</h2>
-        <p>Quick leverage metrics and a simple signal. Then request lender options.</p>
+        <h2>Tools</h2>
+        <p>Each calculator is its own page so we can add deal-specific guidance (and rank better in search).</p>
       </div>
     </div>
 
-    <div class="grid2">
-      <div>
-        <label>Purchase Price</label>
-        <input id="purchase" type="number" placeholder="350000" inputmode="numeric">
-
-        <label>Rehab Budget</label>
-        <input id="rehab" type="number" placeholder="75000" inputmode="numeric">
-
-        <label>After Repair Value (ARV)</label>
-        <input id="arv" type="number" placeholder="520000" inputmode="numeric">
-
-        <label>Loan Requested</label>
-        <input id="loan" type="number" placeholder="420000" inputmode="numeric">
-
-        <button class="btn btnPrimary" type="button" onclick="calculateFlip()">Analyze Deal</button>
-        <p class="micro">Estimates only. Not a commitment to lend. Program rules vary by lender and state.</p>
+    <div class="tiles">
+      <div class="tile">
+        <div class="tileTop">
+          <div class="tileIcon">F</div>
+          <div>
+            <strong>Fix &amp; Flip</strong>
+            <div class="micro">LTV / LTC, quick deal signal</div>
+          </div>
+        </div>
+        <div class="tileBody">
+          <p>Use for purchase + rehab + ARV scenarios. Great for bridge / flip programs.</p>
+        </div>
+        <div class="tileActions">
+          <a class="btn btnPrimary" href="fix-and-flip.html">Open Analyzer</a>
+          <button class="btn btnGhost" type="button" onclick="openLeadModal('Fix & Flip')">Request Options</button>
+        </div>
       </div>
 
-      <div class="resultsBox" id="flipResults" style="display:none" aria-live="polite">
-        <div class="metric"><span>All-In Cost</span><strong id="allin">—</strong></div>
-        <div class="metric"><span>LTV (Loan / ARV)</span><strong id="ltv">—</strong></div>
-        <div class="metric"><span>LTC (Loan / All-In)</span><strong id="ltc">—</strong></div>
-        <div class="metric"><span>Deal Signal</span><strong id="signal">—</strong></div>
-        <div class="divider"></div>
-        <button class="btn btnGhost" type="button" onclick="openLeadModal('Fix & Flip')">Get Loan Options</button>
-        <p class="micro">We’ll follow up with 1–2 questions to confirm scope, timeline, experience, and exit strategy.</p>
+      <div class="tile">
+        <div class="tileTop">
+          <div class="tileIcon">D</div>
+          <div>
+            <strong>DSCR</strong>
+            <div class="micro">Rent ÷ PITIA, eligibility signal</div>
+          </div>
+        </div>
+        <div class="tileBody">
+          <p>Use for long-term rentals. Quick check before you talk structure and leverage.</p>
+        </div>
+        <div class="tileActions">
+          <a class="btn btnPrimary" href="dscr.html">Open Calculator</a>
+          <button class="btn btnGhost" type="button" onclick="openLeadModal('DSCR')">Request Options</button>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tileTop">
+          <div class="tileIcon">B</div>
+          <div>
+            <strong>Bridge / BPL</strong>
+            <div class="micro">Coming next</div>
+          </div>
+        </div>
+        <div class="tileBody">
+          <p>Short-term investor financing for speed, flexibility, and execution.</p>
+        </div>
+        <div class="tileActions">
+          <button class="btn btnGhost" type="button" onclick="openLeadModal('Bridge')">Request Options</button>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="card cardSoft">
-    <h2 style="margin:0 0 8px;">Deal guidance</h2>
+    <h2 style="margin:0 0 8px;">How it works</h2>
     <div class="grid2">
       <div>
-        <strong>What lenders typically look at</strong>
-        <p class="micro">ARV support, rehab scope, borrower experience, and exit strategy (sale vs refi).</p>
+        <strong>1) Run numbers</strong>
+        <p class="micro">Use the calculator page that matches your deal type.</p>
       </div>
       <div>
-        <strong>Common docs</strong>
-        <p class="micro">Purchase contract, scope/budget, photos, entity docs, insurance, and ID.</p>
+        <strong>2) Submit scenario</strong>
+        <p class="micro">We capture your inputs and route your request to the right lane.</p>
       </div>
     </div>
     <div class="grid2">
       <div>
-        <strong>Common pitfalls</strong>
-        <p class="micro">Overstated ARV, rehab underbudgeted, tight timelines, missing contractor bids.</p>
+        <strong>3) Lender routing</strong>
+        <p class="micro">We follow up with 1–2 questions to match program fit and terms.</p>
       </div>
       <div>
-        <strong>Next step</strong>
-        <p class="micro">Submit the request and we’ll route to the right lender lane for your metrics.</p>
+        <strong>4) Next steps</strong>
+        <p class="micro">If it’s a fit, we’ll request docs and move to prequal.</p>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <p><strong>Disclosures:</strong> Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
+    <p><strong>Disclosures:</strong> Not a lender. Not a commitment to lend. For business-purpose investor financing only. This site does not provide legal, tax, or financial advice.</p>
   </footer>
 
 </main>
