@@ -1,23 +1,154 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#5aa8ff" stop-opacity="0.30"/>
-      <stop offset="1" stop-color="#ffffff" stop-opacity="0.05"/>
-    </linearGradient>
-    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
-      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
-    </pattern>
-  </defs>
-  <rect width="900" height="560" fill="#0b0f14"/>
-  <rect width="900" height="560" fill="url(#grid)"/>
-  <g transform="translate(90,90)">
-    <path d="M110 210 L240 120 L370 210 V380 H110 Z" fill="url(#g)" stroke="#ffffff" stroke-opacity="0.14" stroke-width="2"/>
-    <path d="M420 210 L550 120 L680 210 V380 H420 Z" fill="url(#g)" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
-    <rect x="150" y="255" width="70" height="70" rx="10" fill="#0b0f14" fill-opacity="0.45" stroke="#ffffff" stroke-opacity="0.12"/>
-    <rect x="460" y="255" width="70" height="70" rx="10" fill="#0b0f14" fill-opacity="0.45" stroke="#ffffff" stroke-opacity="0.12"/>
-    <path d="M720 140 a70 70 0 1 1 -0.1 0" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
-    <path d="M720 140 L720 90" stroke="rgba(90,168,255,0.55)" stroke-width="4"/>
-    <path d="M720 140 L770 170" stroke="rgba(255,255,255,0.18)" stroke-width="3"/>
-    <text x="680" y="420" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#ffffff" opacity="0.75">DSCR</text>
-  </g>
-</svg>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>DSCR Calculator | Investor Loan Marketplace</title>
+  <meta name="description" content="DSCR calculator: estimate DSCR using Rent ÷ PITIA and talk to an expert."/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<header class="header">
+  <div class="brand">
+    <div class="logo" aria-hidden="true"></div>
+    <div><h1>Investor Loan Marketplace</h1></div>
+  </div>
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="dscr.html">DSCR</a>
+  </nav>
+  <div class="headerActions">
+    <button class="btn btnGhost" type="button" onclick="openLeadModal('General')">Talk to an Expert</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="card">
+    <div class="cardHead">
+      <h2>DSCR Calculator</h2>
+      <p>Estimate DSCR using Monthly Rent ÷ Monthly PITIA, then talk to an expert.</p>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <label>Monthly Rent</label>
+        <input id="rent" type="number" placeholder="3200" inputmode="numeric">
+        <label>Monthly PITIA</label>
+        <input id="pitia" type="number" placeholder="2600" inputmode="numeric">
+        <label>State</label>
+        <input id="state" type="text" placeholder="FL" maxlength="2" autocapitalize="characters">
+
+        <div class="heroBtns" style="margin-top:14px;">
+          <button class="btn btnPrimary" type="button" onclick="calculateDSCR()">Calculate DSCR</button>
+          <button class="btn btnGhost" type="button" onclick="openLeadModal('DSCR')">Talk to an Expert</button>
+        </div>
+
+        <p class="micro">DSCR methodology varies by lender (lease vs market rent vs STR). This is a quick estimate.</p>
+      </div>
+
+      <div class="resultsBox" id="dscrResults" style="display:none" aria-live="polite">
+        <div class="metric"><span>DSCR</span><strong id="dscrVal">—</strong></div>
+        <div class="metric"><span>Signal</span><strong id="dscrSignal">—</strong></div>
+        <div class="metric"><span>Next Step</span><strong id="dscrNext">—</strong></div>
+        <div class="divider"></div>
+        <button class="btn btnPrimary" type="button" onclick="openLeadModal('DSCR')">Talk to an Expert with These Numbers</button>
+        <p class="micro">We’ll follow up on property type, rent source, occupancy, leverage target, and state.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card cardSoft">
+    <div class="cardHead">
+      <h2>DSCR guidance</h2>
+      <p>What we’ll ask (so you can move fast).</p>
+    </div>
+    <div class="grid2">
+      <div>
+        <strong>What is PITIA?</strong>
+        <p class="micro">Principal + Interest + Taxes + Insurance + (HOA if applicable).</p>
+      </div>
+      <div>
+        <strong>Common thresholds</strong>
+        <p class="micro">Many programs price better at 1.10–1.25+. Below 1.00 often needs structure changes.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p><strong>Disclosures:</strong> Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
+  </footer>
+
+</main>
+
+<div class="modal" id="leadModal" aria-hidden="true">
+  <div class="modalBackdrop" onclick="closeLeadModal()" aria-label="Close"></div>
+  <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Talk to an expert">
+    <div class="modalTop">
+      <div>
+        <h3>Talk to an Expert</h3>
+        <p class="micro" id="modalSub">Talk to an expert — we’ll route you to the right investor lane.</p>
+      </div>
+      <button class="iconBtn" type="button" onclick="closeLeadModal()" aria-label="Close">✕</button>
+    </div>
+
+    <!-- Netlify Form -->
+    <form class="form" name="request-options" method="POST" data-netlify="true" action="/?submitted=request-options">
+      <input type="hidden" name="form-name" value="request-options"/>
+      <input type="hidden" name="page" id="h_page" value=""/>
+      <input type="hidden" name="loan_type_prefill" id="h_type" value=""/>
+      <input type="hidden" name="calc_allin" id="h_allin" value=""/>
+      <input type="hidden" name="calc_ltv" id="h_ltv" value=""/>
+      <input type="hidden" name="calc_ltc" id="h_ltc" value=""/>
+      <input type="hidden" name="calc_dscr" id="h_dscr" value=""/>
+      <input type="hidden" name="calc_signal" id="h_signal" value=""/>
+      <input type="hidden" name="state" id="h_state" value=""/>
+
+      <label>What do you need?</label>
+      <select name="loan_type" id="f_type" required>
+        <option value="">Select</option>
+        <option>Fix &amp; Flip</option>
+        <option>Bridge / BPL</option>
+        <option>DSCR</option>
+        <option>Other</option>
+      </select>
+
+      <div class="grid2 modalGrid">
+        <div>
+          <label>Estimated Loan Amount</label>
+          <input type="number" name="loan_amount" id="f_amount" placeholder="450000" inputmode="numeric" required>
+        </div>
+        <div>
+          <label>State</label>
+          <input type="text" name="state_display" id="f_state" placeholder="FL" maxlength="2">
+        </div>
+      </div>
+
+      <div class="grid2 modalGrid">
+        <div>
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Jane Investor" required>
+        </div>
+        <div>
+          <label>Email</label>
+          <input type="email" name="email" placeholder="jane@email.com" required>
+        </div>
+      </div>
+
+      <label>Phone</label>
+      <input type="tel" name="phone" placeholder="(555) 555-5555" required>
+
+      <label class="consent">
+        <input type="checkbox" name="consent" required>
+        <span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span>
+      </label>
+
+      <button class="btn btnPrimary" type="submit">Submit</button>
+      <p class="micro">Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

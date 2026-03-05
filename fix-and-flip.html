@@ -3,17 +3,15 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>DSCR Calculator | Investor Loan Marketplace</title>
-  <meta name="description" content="DSCR calculator: estimate DSCR using Rent ÷ PITIA and request DSCR loan options."/>
+  <title>Fix &amp; Flip Calculator | Investor Loan Marketplace</title>
+  <meta name="description" content="Fix and flip deal analyzer: estimate all-in cost, LTV, LTC, and talk to an expert."/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 <header class="header">
   <div class="brand">
     <div class="logo" aria-hidden="true"></div>
-    <div>
-      <h1>Investor Loan Marketplace</h1>
-    </div>
+    <div><h1>Investor Loan Marketplace</h1></div>
   </div>
   <nav class="nav" aria-label="Primary">
     <a href="index.html">Home</a>
@@ -21,7 +19,7 @@
     <a href="dscr.html">DSCR</a>
   </nav>
   <div class="headerActions">
-    <button class="btn btnGhost" type="button" onclick="openLeadModal('General')">Get Loan Options</button>
+    <button class="btn btnGhost" type="button" onclick="openLeadModal('General')">Talk to an Expert</button>
   </div>
 </header>
 
@@ -29,61 +27,54 @@
 
   <section class="card">
     <div class="cardHead">
-      <div class="cardMedia">
-        <img src="assets/rental.svg" alt="DSCR calculator illustration"/>
-      </div>
-      <div>
-        <h2>DSCR Calculator</h2>
-        <p>Estimate DSCR using Monthly Rent ÷ Monthly PITIA, then request options.</p>
-      </div>
+      <h2>Fix &amp; Flip Deal Analyzer</h2>
+      <p>Run quick leverage metrics, then talk to an expert (calculator results attach automatically).</p>
     </div>
 
     <div class="grid2">
       <div>
-        <label>Monthly Rent</label>
-        <input id="rent" type="number" placeholder="3200" inputmode="numeric">
+        <label>Purchase Price</label>
+        <input id="purchase" type="number" placeholder="350000" inputmode="numeric">
+        <label>Rehab Budget</label>
+        <input id="rehab" type="number" placeholder="75000" inputmode="numeric">
+        <label>After Repair Value (ARV)</label>
+        <input id="arv" type="number" placeholder="520000" inputmode="numeric">
+        <label>Loan Requested</label>
+        <input id="loan" type="number" placeholder="420000" inputmode="numeric">
 
-        <label>Monthly PITIA</label>
-        <input id="pitia" type="number" placeholder="2600" inputmode="numeric">
+        <div class="heroBtns" style="margin-top:14px;">
+          <button class="btn btnPrimary" type="button" onclick="calculateFlip()">Analyze Deal</button>
+          <button class="btn btnGhost" type="button" onclick="openLeadModal('Fix & Flip')">Talk to an Expert</button>
+        </div>
 
-        <label>State</label>
-        <input id="state" type="text" placeholder="FL" maxlength="2" autocapitalize="characters">
-
-        <button class="btn btnPrimary" type="button" onclick="calculateDSCR()">Calculate DSCR</button>
-        <p class="micro">DSCR methodology varies by lender (lease vs market rent vs STR). This is a quick estimate.</p>
+        <p class="micro">Estimates only. Not a commitment to lend. Program rules vary by lender and state.</p>
       </div>
 
-      <div class="resultsBox" id="dscrResults" style="display:none" aria-live="polite">
-        <div class="metric"><span>DSCR</span><strong id="dscrVal">—</strong></div>
-        <div class="metric"><span>Signal</span><strong id="dscrSignal">—</strong></div>
-        <div class="metric"><span>Next Step</span><strong id="dscrNext">—</strong></div>
+      <div class="resultsBox" id="flipResults" style="display:none" aria-live="polite">
+        <div class="metric"><span>All-In Cost</span><strong id="allin">—</strong></div>
+        <div class="metric"><span>LTV (Loan / ARV)</span><strong id="ltv">—</strong></div>
+        <div class="metric"><span>LTC (Loan / All-In)</span><strong id="ltc">—</strong></div>
+        <div class="metric"><span>Deal Signal</span><strong id="signal">—</strong></div>
         <div class="divider"></div>
-        <button class="btn btnGhost" type="button" onclick="openLeadModal('DSCR')">Request DSCR Options</button>
-        <p class="micro">We’ll follow up on property type, rent source, occupancy, and loan size.</p>
+        <button class="btn btnPrimary" type="button" onclick="openLeadModal('Fix & Flip')">Talk to an Expert with These Numbers</button>
+        <p class="micro">We’ll follow up with 1–2 questions (scope, timeline, experience, exit strategy).</p>
       </div>
     </div>
   </section>
 
   <section class="card cardSoft">
-    <h2 style="margin:0 0 8px;">DSCR guidance</h2>
-    <div class="grid2">
-      <div>
-        <strong>What is PITIA?</strong>
-        <p class="micro">Principal + Interest + Taxes + Insurance + (HOA if applicable).</p>
-      </div>
-      <div>
-        <strong>Common DSCR thresholds</strong>
-        <p class="micro">Many programs price better at 1.10–1.25+. Below 1.00 often needs structure changes.</p>
-      </div>
+    <div class="cardHead">
+      <h2>Deal guidance</h2>
+      <p>What we’ll ask (so you can move fast).</p>
     </div>
     <div class="grid2">
       <div>
-        <strong>Rent source differences</strong>
-        <p class="micro">Some lenders use leases; some use market rent; STR programs can use appraiser rent schedules.</p>
+        <strong>Key inputs</strong>
+        <p class="micro">ARV support, rehab scope/budget, timeline, borrower/entity experience, exit strategy.</p>
       </div>
       <div>
-        <strong>Next step</strong>
-        <p class="micro">Submit your request and we’ll route you to the right DSCR lane for your metrics.</p>
+        <strong>Common docs</strong>
+        <p class="micro">Contract, scope/budget, photos, entity docs, insurance, ID.</p>
       </div>
     </div>
   </section>
@@ -96,11 +87,11 @@
 
 <div class="modal" id="leadModal" aria-hidden="true">
   <div class="modalBackdrop" onclick="closeLeadModal()" aria-label="Close"></div>
-  <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Request loan options">
+  <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Talk to an expert">
     <div class="modalTop">
       <div>
-        <h3>Request Loan Options</h3>
-        <p class="micro" id="modalSub">Submit your scenario — we’ll route you to the right investor lane.</p>
+        <h3>Talk to an Expert</h3>
+        <p class="micro" id="modalSub">Talk to an expert — we’ll route you to the right investor lane.</p>
       </div>
       <button class="iconBtn" type="button" onclick="closeLeadModal()" aria-label="Close">✕</button>
     </div>
@@ -108,7 +99,7 @@
     <!-- Netlify Form -->
     <form class="form" name="request-options" method="POST" data-netlify="true" action="/?submitted=request-options">
       <input type="hidden" name="form-name" value="request-options"/>
-      <input type="hidden" name="source" id="h_source" value="site"/>
+      <input type="hidden" name="page" id="h_page" value=""/>
       <input type="hidden" name="loan_type_prefill" id="h_type" value=""/>
       <input type="hidden" name="calc_allin" id="h_allin" value=""/>
       <input type="hidden" name="calc_ltv" id="h_ltv" value=""/>
@@ -117,11 +108,11 @@
       <input type="hidden" name="calc_signal" id="h_signal" value=""/>
       <input type="hidden" name="state" id="h_state" value=""/>
 
-      <label>Loan Type</label>
+      <label>What do you need?</label>
       <select name="loan_type" id="f_type" required>
         <option value="">Select</option>
         <option>Fix &amp; Flip</option>
-        <option>Bridge</option>
+        <option>Bridge / BPL</option>
         <option>DSCR</option>
         <option>Other</option>
       </select>
