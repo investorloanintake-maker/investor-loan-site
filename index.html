@@ -3,129 +3,330 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Investor Loan Marketplace</title>
-  <meta name="description" content="Fix & Flip, Bridge, DSCR and Business Purpose Loans. Analyze your deal in minutes and request options."/>
+  <title>Investor Loan Marketplace | Fix & Flip • DSCR • BPL</title>
+  <meta name="description" content="Investor financing for Fix & Flip, Bridge, and DSCR. Run quick deal numbers and request loan options."/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-<header>
-  <h1>Investor Loan Marketplace</h1>
-  <p>Fix & Flip • Bridge • DSCR • Business Purpose Loans</p>
+<header class="header">
+  <div class="brand">
+    <div class="logo" aria-hidden="true"></div>
+    <div>
+      <h1>Investor Loan Marketplace</h1>
+      <p>Fix & Flip • Bridge • DSCR • Business Purpose Loans</p>
+    </div>
+  </div>
+  <div class="headerActions">
+    <button class="btn btnGhost" type="button" onclick="openLeadModal('General')">Get Loan Options</button>
+  </div>
 </header>
 
-<section id="flip-calculator">
-  <h2>Fix & Flip Deal Analyzer</h2>
-  <p>Run quick numbers to see leverage and a basic signal. Then request loan options.</p>
+<main class="wrap">
 
-  <div class="calculator">
-    <label>Purchase Price</label>
-    <input id="purchase" type="number" placeholder="350000">
-
-    <label>Rehab Budget</label>
-    <input id="rehab" type="number" placeholder="75000">
-
-    <label>After Repair Value (ARV)</label>
-    <input id="arv" type="number" placeholder="520000">
-
-    <label>Loan Requested</label>
-    <input id="loan" type="number" placeholder="420000">
-
-    <button type="button" onclick="calculateFlip()">Analyze Deal</button>
-
-    <div id="results" class="results" style="display:none">
-      <p><strong>All-In Cost:</strong> $<span id="allin"></span></p>
-      <p><strong>LTV (Loan / ARV):</strong> <span id="ltv"></span>%</p>
-      <p><strong>LTC (Loan / All-In):</strong> <span id="ltc"></span>%</p>
-      <p><strong>Deal Signal:</strong> <span id="signal"></span></p>
-
-      <button type="button" onclick="openRequestOptions()">Get Loan Options</button>
+  <!-- FIX & FLIP -->
+  <section class="card" id="flip-calculator">
+    <div class="cardHead">
+      <h2>Fix & Flip Deal Analyzer</h2>
+      <p>Run quick leverage numbers and get a simple signal. Then request lender options.</p>
     </div>
 
+    <div class="grid2">
+      <div>
+        <label>Purchase Price</label>
+        <input id="purchase" type="number" placeholder="350000" inputmode="numeric">
+
+        <label>Rehab Budget</label>
+        <input id="rehab" type="number" placeholder="75000" inputmode="numeric">
+
+        <label>After Repair Value (ARV)</label>
+        <input id="arv" type="number" placeholder="520000" inputmode="numeric">
+
+        <label>Loan Requested</label>
+        <input id="loan" type="number" placeholder="420000" inputmode="numeric">
+
+        <button class="btn btnPrimary" type="button" onclick="calculateFlip()">Analyze Deal</button>
+
+        <p class="micro">
+          Estimates only. Not a commitment to lend. Business-purpose investor financing; terms vary by lender and state.
+        </p>
+      </div>
+
+      <div class="resultsBox" id="flipResults" style="display:none" aria-live="polite">
+        <div class="metric"><span>All-In Cost</span><strong id="allin">—</strong></div>
+        <div class="metric"><span>LTV (Loan / ARV)</span><strong id="ltv">—</strong></div>
+        <div class="metric"><span>LTC (Loan / All-In)</span><strong id="ltc">—</strong></div>
+        <div class="metric"><span>Deal Signal</span><strong id="signal">—</strong></div>
+
+        <div class="divider"></div>
+
+        <button class="btn btnGhost" type="button" onclick="openLeadModal('Fix & Flip')">Get Loan Options</button>
+        <p class="micro">We’ll follow up with 1–2 questions to route your deal to the right lane.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DSCR -->
+  <section class="card" id="dscr-calculator">
+    <div class="cardHead">
+      <h2>DSCR Calculator</h2>
+      <p>Estimate DSCR using Monthly Rent ÷ Monthly PITIA, then request DSCR options.</p>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <label>Monthly Rent</label>
+        <input id="rent" type="number" placeholder="3200" inputmode="numeric">
+
+        <label>Monthly PITIA</label>
+        <input id="pitia" type="number" placeholder="2600" inputmode="numeric">
+
+        <label>State</label>
+        <input id="state" type="text" placeholder="FL" maxlength="2" autocapitalize="characters">
+
+        <button class="btn btnPrimary" type="button" onclick="calculateDSCR()">Calculate DSCR</button>
+
+        <p class="micro">
+          DSCR methodology varies by lender (lease vs market rent vs STR). This is a quick estimate.
+        </p>
+      </div>
+
+      <div class="resultsBox" id="dscrResults" style="display:none" aria-live="polite">
+        <div class="metric"><span>DSCR</span><strong id="dscrVal">—</strong></div>
+        <div class="metric"><span>Signal</span><strong id="dscrSignal">—</strong></div>
+        <div class="metric"><span>Next Step</span><strong id="dscrNext">—</strong></div>
+
+        <div class="divider"></div>
+
+        <button class="btn btnGhost" type="button" onclick="openLeadModal('DSCR')">Request DSCR Options</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL SEO BLOCK (simple, optional) -->
+  <section class="card cardSoft" id="tampa">
+    <div class="cardHead">
+      <h2>Florida Investor Lending</h2>
+      <p>Launching with business-purpose investor financing. Tampa/Florida-focused support, with DSCR available in many states depending on lender programs.</p>
+    </div>
+    <div class="pillRow">
+      <span class="pill">Tampa</span>
+      <span class="pill">Orlando</span>
+      <span class="pill">Miami</span>
+      <span class="pill">Florida</span>
+      <span class="pill">Nationwide (program-dependent)</span>
+    </div>
     <p class="micro">
-      Estimates only. Not a commitment to lend. Business-purpose investor financing; terms vary by lender and state.
+      Not a lender. Program availability varies by lender and jurisdiction.
     </p>
+  </section>
+
+  <footer class="footer">
+    <p><strong>Disclosures:</strong> Not a lender. Not a commitment to lend. For business-purpose investor financing only. This site does not provide legal, tax, or financial advice.</p>
+  </footer>
+
+</main>
+
+<!-- LEAD MODAL (Netlify Form) -->
+<div class="modal" id="leadModal" aria-hidden="true">
+  <div class="modalBackdrop" onclick="closeLeadModal()" aria-label="Close"></div>
+  <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Request loan options">
+    <div class="modalTop">
+      <div>
+        <h3>Request Loan Options</h3>
+        <p class="micro" id="modalSub">Submit your scenario — we’ll route you to the right investor lane.</p>
+      </div>
+      <button class="iconBtn" type="button" onclick="closeLeadModal()" aria-label="Close">✕</button>
+    </div>
+
+    <!-- Netlify Form -->
+    <form class="form" name="request-options" method="POST" data-netlify="true" action="/?submitted=request-options">
+      <input type="hidden" name="form-name" value="request-options"/>
+
+      <!-- hidden calculator context -->
+      <input type="hidden" name="source" id="h_source" value="site"/>
+      <input type="hidden" name="loan_type_prefill" id="h_type" value=""/>
+      <input type="hidden" name="calc_allin" id="h_allin" value=""/>
+      <input type="hidden" name="calc_ltv" id="h_ltv" value=""/>
+      <input type="hidden" name="calc_ltc" id="h_ltc" value=""/>
+      <input type="hidden" name="calc_dscr" id="h_dscr" value=""/>
+      <input type="hidden" name="calc_signal" id="h_signal" value=""/>
+      <input type="hidden" name="state" id="h_state" value=""/>
+
+      <label>Loan Type</label>
+      <select name="loan_type" id="f_type" required>
+        <option value="">Select</option>
+        <option>Fix & Flip</option>
+        <option>Bridge</option>
+        <option>DSCR</option>
+        <option>Other</option>
+      </select>
+
+      <div class="grid2 modalGrid">
+        <div>
+          <label>Estimated Loan Amount</label>
+          <input type="number" name="loan_amount" id="f_amount" placeholder="450000" inputmode="numeric" required>
+        </div>
+        <div>
+          <label>State</label>
+          <input type="text" name="state_display" id="f_state" placeholder="FL" maxlength="2">
+        </div>
+      </div>
+
+      <div class="grid2 modalGrid">
+        <div>
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Jane Investor" required>
+        </div>
+        <div>
+          <label>Email</label>
+          <input type="email" name="email" placeholder="jane@email.com" required>
+        </div>
+      </div>
+
+      <label>Phone</label>
+      <input type="tel" name="phone" placeholder="(555) 555-5555" required>
+
+      <label class="consent">
+        <input type="checkbox" name="consent" required>
+        <span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span>
+      </label>
+
+      <button class="btn btnPrimary" type="submit">Submit</button>
+
+      <p class="micro">Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
+    </form>
   </div>
-</section>
-
-<section>
-  <h2>Request Loan Options</h2>
-
-  <!-- Netlify form -->
-  <form name="request-options" method="POST" data-netlify="true">
-    <input type="hidden" name="form-name" value="request-options"/>
-
-    <!-- Helpful hidden fields populated by the calculator -->
-    <input type="hidden" name="calc_allin" id="f_allin_hidden" value="">
-    <input type="hidden" name="calc_ltv" id="f_ltv_hidden" value="">
-    <input type="hidden" name="calc_ltc" id="f_ltc_hidden" value="">
-    <input type="hidden" name="calc_signal" id="f_signal_hidden" value="">
-
-    <label>Loan Type</label>
-    <select name="loan_type">
-      <option>Fix & Flip</option>
-      <option>Bridge</option>
-      <option>DSCR</option>
-    </select>
-
-    <label>Loan Amount</label>
-    <input type="number" name="loan_amount" placeholder="450000"/>
-
-    <label>Name</label>
-    <input type="text" name="name"/>
-
-    <label>Email</label>
-    <input type="email" name="email"/>
-
-    <label>Phone</label>
-    <input type="tel" name="phone"/>
-
-    <label class="consent">
-      <input type="checkbox" name="consent" required>
-      <span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span>
-    </label>
-
-    <button type="submit">Submit</button>
-  </form>
-</section>
-
-<footer>
-  <p>Business purpose lending for real estate investors. Not a commitment to lend.</p>
-</footer>
+</div>
 
 <script>
-function calculateFlip(){
-  const purchase = Number(document.getElementById("purchase").value || 0);
-  const rehab = Number(document.getElementById("rehab").value || 0);
-  const arv = Number(document.getElementById("arv").value || 0);
-  const loan = Number(document.getElementById("loan").value || 0);
+  // --------- Metrics store ----------
+  const metrics = {
+    allin: "",
+    ltv: "",
+    ltc: "",
+    dscr: "",
+    signal: "",
+    state: ""
+  };
 
-  const allin = purchase + rehab;
-  const ltv = (arv > 0) ? (loan / arv) * 100 : NaN;
-  const ltc = (allin > 0) ? (loan / allin) * 100 : NaN;
+  // --------- Calculators ----------
+  function calculateFlip(){
+    const purchase = Number(document.getElementById("purchase").value || 0);
+    const rehab = Number(document.getElementById("rehab").value || 0);
+    const arv = Number(document.getElementById("arv").value || 0);
+    const loan = Number(document.getElementById("loan").value || 0);
 
-  document.getElementById("allin").innerText = allin.toLocaleString();
-  document.getElementById("ltv").innerText = isFinite(ltv) ? ltv.toFixed(1) : "—";
-  document.getElementById("ltc").innerText = isFinite(ltc) ? ltc.toFixed(1) : "—";
+    const allin = purchase + rehab;
+    const ltvNum = (arv > 0) ? (loan / arv) * 100 : NaN;
+    const ltcNum = (allin > 0) ? (loan / allin) * 100 : NaN;
 
-  let signal = "Strong";
-  if (isFinite(ltv) && ltv > 80) signal = "Moderate";
-  if (isFinite(ltv) && ltv > 85) signal = "Aggressive";
+    let signal = "Strong";
+    if (isFinite(ltvNum) && ltvNum > 80) signal = "Moderate";
+    if (isFinite(ltvNum) && ltvNum > 85) signal = "Aggressive";
 
-  document.getElementById("signal").innerText = signal;
-  document.getElementById("results").style.display = "block";
+    document.getElementById("allin").textContent = allin ? ("$" + allin.toLocaleString()) : "—";
+    document.getElementById("ltv").textContent = isFinite(ltvNum) ? (ltvNum.toFixed(1) + "%") : "—";
+    document.getElementById("ltc").textContent = isFinite(ltcNum) ? (ltcNum.toFixed(1) + "%") : "—";
+    document.getElementById("signal").textContent = signal;
 
-  // Populate hidden fields for Netlify submission
-  document.getElementById("f_allin_hidden").value = allin ? ("$" + allin.toLocaleString()) : "";
-  document.getElementById("f_ltv_hidden").value = isFinite(ltv) ? (ltv.toFixed(1) + "%") : "";
-  document.getElementById("f_ltc_hidden").value = isFinite(ltc) ? (ltc.toFixed(1) + "%") : "";
-  document.getElementById("f_signal_hidden").value = signal;
-}
+    document.getElementById("flipResults").style.display = "block";
 
-function openRequestOptions(){
-  const form = document.querySelector('form[name="request-options"]');
-  if (form) form.scrollIntoView({behavior: "smooth", block: "start"});
-}
+    metrics.allin = allin ? ("$" + allin.toLocaleString()) : "";
+    metrics.ltv = isFinite(ltvNum) ? (ltvNum.toFixed(1) + "%") : "";
+    metrics.ltc = isFinite(ltcNum) ? (ltcNum.toFixed(1) + "%") : "";
+    metrics.signal = signal;
+  }
+
+  function calculateDSCR(){
+    const rent = Number(document.getElementById("rent").value || 0);
+    const pitia = Number(document.getElementById("pitia").value || 0);
+    const st = (document.getElementById("state").value || "").toUpperCase();
+
+    const dscrNum = (pitia > 0) ? (rent / pitia) : NaN;
+
+    let signal = "—";
+    let next = "—";
+    if (isFinite(dscrNum)) {
+      if (dscrNum >= 1.25) { signal = "Strong"; next = "Likely DSCR-eligible lane"; }
+      else if (dscrNum >= 1.00) { signal = "Borderline"; next = "May need structure changes"; }
+      else { signal = "Tight"; next = "Consider more equity / lower PITIA"; }
+    }
+
+    document.getElementById("dscrVal").textContent = isFinite(dscrNum) ? dscrNum.toFixed(2) : "—";
+    document.getElementById("dscrSignal").textContent = signal;
+    document.getElementById("dscrNext").textContent = next;
+
+    document.getElementById("dscrResults").style.display = "block";
+
+    metrics.dscr = isFinite(dscrNum) ? dscrNum.toFixed(2) : "";
+    metrics.signal = signal; // last computed signal (OK for modal)
+    metrics.state = st || "";
+  }
+
+  // --------- Modal ----------
+  function openLeadModal(type){
+    const modal = document.getElementById("leadModal");
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("noScroll");
+
+    // prefill select
+    const sel = document.getElementById("f_type");
+    const clean = (type || "").toLowerCase();
+    if (clean.includes("dscr")) sel.value = "DSCR";
+    else if (clean.includes("fix")) sel.value = "Fix & Flip";
+    else if (clean.includes("bridge")) sel.value = "Bridge";
+    else sel.value = "";
+
+    // set hidden fields
+    document.getElementById("h_type").value = type || "";
+    document.getElementById("h_allin").value = metrics.allin || "";
+    document.getElementById("h_ltv").value = metrics.ltv || "";
+    document.getElementById("h_ltc").value = metrics.ltc || "";
+    document.getElementById("h_dscr").value = metrics.dscr || "";
+    document.getElementById("h_signal").value = metrics.signal || "";
+    document.getElementById("h_state").value = metrics.state || "";
+
+    // set visible state input too
+    const stateInput = document.getElementById("f_state");
+    if (stateInput && metrics.state) stateInput.value = metrics.state;
+
+    // helpful subtitle
+    const sub = document.getElementById("modalSub");
+    sub.textContent = type ? ("Submitting for: " + type + ". We’ll route you to the right investor lane.") :
+      "Submit your scenario — we’ll route you to the right investor lane.";
+  }
+
+  function closeLeadModal(){
+    const modal = document.getElementById("leadModal");
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("noScroll");
+  }
+
+  // Keep hidden state in sync with visible state field
+  document.getElementById("f_state")?.addEventListener("input", (e) => {
+    document.getElementById("h_state").value = (e.target.value || "").toUpperCase();
+  });
+
+  // Submitted banner (optional)
+  (function(){
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("submitted") === "request-options") {
+      const msg = document.createElement("div");
+      msg.className = "toast";
+      msg.textContent = "✅ Request received. We’ll follow up shortly.";
+      document.body.appendChild(msg);
+      setTimeout(() => msg.classList.add("show"), 50);
+      setTimeout(() => msg.classList.remove("show"), 3500);
+      setTimeout(() => msg.remove(), 4200);
+
+      // clean URL
+      try { history.replaceState({}, document.title, window.location.pathname + window.location.hash); } catch {}
+    }
+  })();
+
 </script>
 
 </body>
