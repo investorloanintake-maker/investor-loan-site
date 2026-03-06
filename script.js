@@ -1,117 +1,57 @@
 const metrics = { allin:"", ltv:"", ltc:"", dscr:"", signal:"", state:"", bsMonthly:"", bsAnnual:"" };
-function setText(id, val){ const el = document.getElementById(id); if (el) el.textContent = val; }
-function show(id){ const el = document.getElementById(id); if (el) el.style.display = "block"; }
-function setVal(id, val){ const el = document.getElementById(id); if (el) el.value = val; }
+
+function nextStep(){
+  const type = document.getElementById('hero_type').value.trim();
+  const property = document.getElementById('hero_property_type').value.trim();
+  const amount = document.getElementById('hero_amount').value.trim();
+  if(!type || !property || !amount){
+    alert('Please complete deal type, property type, and loan amount.');
+    return;
+  }
+  document.getElementById('step1').classList.add('hidden');
+  document.getElementById('step2').classList.remove('hidden');
+}
+function prevStep(){
+  document.getElementById('step2').classList.add('hidden');
+  document.getElementById('step1').classList.remove('hidden');
+}
+function syncTwoStep(){
+  const map = {
+    f_name:'hero_name', f_email:'hero_email', f_phone:'hero_phone',
+    f_type:'hero_type', f_property_type:'hero_property_type',
+    f_amount:'hero_amount', f_message:'hero_message'
+  };
+  Object.entries(map).forEach(([dest,src])=>{
+    const d=document.getElementById(dest), s=document.getElementById(src);
+    if(d && s) d.value = s.value || '';
+  });
+}
+function setText(id, val){ const el=document.getElementById(id); if(el) el.textContent=val; }
+function show(id){ const el=document.getElementById(id); if(el) el.style.display='block'; }
 function calculateFlip(){
-  if (!document.getElementById("purchase")) return;
-  const purchase = Number(document.getElementById("purchase").value || 0);
-  const rehab = Number(document.getElementById("rehab").value || 0);
-  const arv = Number(document.getElementById("arv").value || 0);
-  const loan = Number(document.getElementById("loan").value || 0);
-  const allin = purchase + rehab;
-  const ltvNum = (arv > 0) ? (loan / arv) * 100 : NaN;
-  const ltcNum = (allin > 0) ? (loan / allin) * 100 : NaN;
-  let signal = "Strong";
-  if (isFinite(ltvNum) && ltvNum > 80) signal = "Moderate";
-  if (isFinite(ltvNum) && ltvNum > 85) signal = "Aggressive";
-  setText("allin", allin ? "$" + allin.toLocaleString() : "—");
-  setText("ltv", isFinite(ltvNum) ? ltvNum.toFixed(1) + "%" : "—");
-  setText("ltc", isFinite(ltcNum) ? ltcNum.toFixed(1) + "%" : "—");
-  setText("signal", signal);
-  show("flipResults");
-  metrics.allin = allin ? "$" + allin.toLocaleString() : "";
-  metrics.ltv = isFinite(ltvNum) ? ltvNum.toFixed(1) + "%" : "";
-  metrics.ltc = isFinite(ltcNum) ? ltcNum.toFixed(1) + "%" : "";
-  metrics.signal = signal;
+  if(!document.getElementById('purchase')) return;
+  const purchase=Number(document.getElementById('purchase').value||0), rehab=Number(document.getElementById('rehab').value||0), arv=Number(document.getElementById('arv').value||0), loan=Number(document.getElementById('loan').value||0);
+  const allin=purchase+rehab, ltvNum=(arv>0)?(loan/arv)*100:NaN, ltcNum=(allin>0)?(loan/allin)*100:NaN;
+  let signal='Strong'; if(isFinite(ltvNum)&&ltvNum>80) signal='Moderate'; if(isFinite(ltvNum)&&ltvNum>85) signal='Aggressive';
+  setText('allin', allin?'$'+allin.toLocaleString():'—'); setText('ltv', isFinite(ltvNum)?ltvNum.toFixed(1)+'%':'—'); setText('ltc', isFinite(ltcNum)?ltcNum.toFixed(1)+'%':'—'); setText('signal', signal); show('flipResults');
 }
 function calculateDSCR(){
-  if (!document.getElementById("rent")) return;
-  const rent = Number(document.getElementById("rent").value || 0);
-  const pitia = Number(document.getElementById("pitia").value || 0);
-  const st = (document.getElementById("state").value || "").toUpperCase();
-  const dscrNum = (pitia > 0) ? (rent / pitia) : NaN;
-  let signal = "—"; let next = "—";
-  if (isFinite(dscrNum)) {
-    if (dscrNum >= 1.25) { signal = "Strong"; next = "Likely DSCR-eligible lane"; }
-    else if (dscrNum >= 1.00) { signal = "Borderline"; next = "May need structure changes"; }
-    else { signal = "Tight"; next = "Consider more equity / lower PITIA"; }
-  }
-  setText("dscrVal", isFinite(dscrNum) ? dscrNum.toFixed(2) : "—");
-  setText("dscrSignal", signal);
-  setText("dscrNext", next);
-  show("dscrResults");
-  metrics.dscr = isFinite(dscrNum) ? dscrNum.toFixed(2) : "";
-  metrics.signal = signal;
-  metrics.state = st || "";
+  if(!document.getElementById('rent')) return;
+  const rent=Number(document.getElementById('rent').value||0), pitia=Number(document.getElementById('pitia').value||0);
+  const dscrNum=(pitia>0)?(rent/pitia):NaN;
+  let signal='—', next='—';
+  if(isFinite(dscrNum)){ if(dscrNum>=1.25){signal='Strong';next='Likely DSCR-eligible lane';} else if(dscrNum>=1.00){signal='Borderline';next='May need structure changes';} else {signal='Tight';next='Consider more equity / lower PITIA';}}
+  setText('dscrVal', isFinite(dscrNum)?dscrNum.toFixed(2):'—'); setText('dscrSignal', signal); setText('dscrNext', next); show('dscrResults');
 }
 function calculateBankStatement(){
-  if (!document.getElementById("bs_deposits")) return;
-  const months = Number(document.getElementById("bs_months").value || 12);
-  const deposits = Number(document.getElementById("bs_deposits").value || 0);
-  const expensePct = Number(document.getElementById("bs_expense").value || 50) / 100;
-  const ownPct = Number(document.getElementById("bs_own").value || 100) / 100;
-  const net = deposits * (1 - expensePct);
-  const netOwn = net * ownPct;
-  const monthly = months > 0 ? netOwn / months : 0;
-  const annual = monthly * 12;
-  const fmt = (n) => n ? "$" + Math.round(n).toLocaleString() : "—";
-  setText("bs_net", fmt(net)); setText("bs_net_own", fmt(netOwn)); setText("bs_monthly", fmt(monthly)); setText("bs_annual", fmt(annual));
-  show("bsResults");
-  metrics.signal = "Bank Statement Estimate";
-  metrics.bsMonthly = fmt(monthly);
-  metrics.bsAnnual = fmt(annual);
-}
-function openLeadModal(type){
-  const modal = document.getElementById("leadModal");
-  if (!modal) return;
-  modal.classList.add("open");
-  modal.setAttribute("aria-hidden","false");
-  document.body.classList.add("noScroll");
-  const sel = document.getElementById("f_type");
-  const clean = (type || "").toLowerCase();
-  if (sel) {
-    if (clean.includes("rental") || clean.includes("dscr")) sel.value = "Rental property";
-    else if (clean.includes("fix")) sel.value = "Fix & Flip";
-    else if (clean.includes("bridge")) sel.value = "Bridge / BPL";
-    else if (clean.includes("refi")) sel.value = "Refinance / cash-out";
-    else sel.value = "";
-  }
-  setVal("h_page", window.location.pathname.split("/").pop() || "index.html");
-  setVal("h_type", type || "");
-  setVal("h_allin", metrics.allin || "");
-  setVal("h_ltv", metrics.ltv || "");
-  setVal("h_ltc", metrics.ltc || "");
-  setVal("h_dscr", metrics.dscr || "");
-  setVal("h_signal", metrics.signal || "");
-  setVal("h_state", metrics.state || "");
-  setVal("h_bs_monthly", metrics.bsMonthly || "");
-  setVal("h_bs_annual", metrics.bsAnnual || "");
-  const sub = document.getElementById("modalSub");
-  if (sub) sub.textContent = type ? ("Tell us about your " + type + " scenario.") : "Tell us about your scenario.";
-}
-function openLeadModalWithPrefill(type, amount, state, value){
-  openLeadModal(type || "General");
-  const amt = document.getElementById("f_amount"); if (amt && amount) amt.value = amount;
-  const st = document.getElementById("f_state"); if (st && state) st.value = String(state).toUpperCase();
-  const hs = document.getElementById("h_state"); if (hs && state) hs.value = String(state).toUpperCase();
-  const fv = document.getElementById("f_value"); if (fv && value) fv.value = value;
-}
-function closeLeadModal(){
-  const modal = document.getElementById("leadModal");
-  if (!modal) return;
-  modal.classList.remove("open");
-  modal.setAttribute("aria-hidden","true");
-  document.body.classList.remove("noScroll");
+  if(!document.getElementById('bs_deposits')) return;
+  const months=Number(document.getElementById('bs_months').value||12), deposits=Number(document.getElementById('bs_deposits').value||0), expensePct=Number(document.getElementById('bs_expense').value||50)/100, ownPct=Number(document.getElementById('bs_own').value||100)/100;
+  const net=deposits*(1-expensePct), netOwn=net*ownPct, monthly=months>0?netOwn/months:0, annual=monthly*12;
+  const fmt=n=>n?'$'+Math.round(n).toLocaleString():'—';
+  setText('bs_net', fmt(net)); setText('bs_net_own', fmt(netOwn)); setText('bs_monthly', fmt(monthly)); setText('bs_annual', fmt(annual)); show('bsResults');
 }
 function toggleFAQ(btn){
-  const wrap = btn.closest(".qa");
-  if (!wrap) return;
-  wrap.classList.toggle("open");
-  const chev = wrap.querySelector(".chev");
-  if (chev) chev.textContent = wrap.classList.contains("open") ? "—" : "+";
-}
-document.addEventListener("DOMContentLoaded", () => {
-  const fState = document.getElementById("f_state");
-  const hState = document.getElementById("h_state");
-  if (fState && hState) fState.addEventListener("input", (e) => { hState.value = (e.target.value || "").toUpperCase(); });
-});
+  const wrap=btn.closest('.qa'); if(!wrap) return;
+  wrap.classList.toggle('open');
+  const chev=wrap.querySelector('.chev'); if(chev) chev.textContent=wrap.classList.contains('open')?'—':'+';
+}\n

@@ -1,88 +1,93 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Full Application | Investor Loan Marketplace</title><link rel="icon" href="brand-icon.png"/><link rel="stylesheet" href="styles.css"/></head><body><div class="topbar">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Talk to an Expert | Investor Loan Marketplace</title>
+  <link rel="icon" href="favicon.png"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<div class="topbar">
   <div class="wrap">
-    <div class="muted">Investor financing marketplace for real estate investors</div>
-    <div><a href="#" onclick="openLeadModal('Quick Loan Request');return false;">Get started</a> <span class="muted" style="margin-left:10px;">Investorloanintake@gmail.com</span></div>
+    <div class="muted">Investor Loan Marketplace</div>
+    <div><a href="#lead-form">Get started</a> <span class="muted" style="margin-left:10px;">Powered by Capvia</span></div>
   </div>
-</div><header class="header">
+</div>
+
+
+<header class="header">
   <div class="wrap">
-    <a class="brand" href="index.html"><img src="brand-logo.png" alt="Investor Loan Marketplace"/></a>
+    <a class="brand" href="index.html"><img src="ilm-logo.png" alt="Investor Loan Marketplace Powered by Capvia"/></a>
     <nav class="nav" aria-label="Primary">
       <a href="index.html">Home</a>
-      <a href="fix-and-flip.html">Fix &amp; Flip</a>
-      <a href="dscr.html">DSCR</a>
-      <a href="bank-statement.html">Bank Statement</a>
-      <a href="application.html">Full Application</a>
-      <a href="#faq">FAQ</a>
+      <a href="#programs">Loan Programs</a>
+      <a href="#tools">Calculators</a>
+      <a href="application.html">About</a>
+      <a href="application.html">Contact</a>
     </nav>
-    <a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Get Loan Options</a>
+    <a class="btn btnPrimary" href="#lead-form">Get Loan Options</a>
   </div>
-</header><main class="wrap">
-<section class="hero"><div class="sectionHead"><div><h2>Full application</h2><p>A deeper intake path for cleaner routing, stronger lead data, and better follow-up.</p></div></div>
-<div class="panel">
-<form action="https://formsubmit.co/Investorloanintake@gmail.com" method="POST">
-<input type="hidden" name="_subject" value="New Full Investor Loan Application"/>
-<input type="hidden" name="_template" value="table"/>
-<input type="hidden" name="_captcha" value="false"/>
-<input type="hidden" name="_next" value="thanks.html"/>
-<div class="grid2"><div><label>Deal type</label><select name="deal_type" required><option value="">Select</option><option>Rental property</option><option>Fix &amp; Flip</option><option>Bridge / BPL</option><option>Refinance / cash-out</option><option>Bank Statement / Non-QM</option></select></div><div><label>Borrower type</label><select name="borrower_type"><option>Individual</option><option>LLC</option><option>Corporation</option><option>Trust</option></select></div></div>
-<div class="grid2"><div><label>Name</label><input type="text" name="name" required></div><div><label>Email</label><input type="email" name="email" required></div></div>
-<div class="grid2"><div><label>Phone</label><input type="tel" name="phone" required></div><div><label>State</label><input type="text" name="state" maxlength="2"></div></div>
-<div class="grid2"><div><label>Property address</label><input type="text" name="property_address"></div><div><label>Property type</label><select name="property_type"><option value="">Select</option><option>SFR</option><option>2-4 Unit</option><option>Multifamily</option><option>Condo</option><option>Mixed Use</option><option>Other</option></select></div></div>
-<div class="grid2"><div><label>Estimated loan amount</label><input type="number" name="loan_amount"></div><div><label>Purchase price / value</label><input type="number" name="property_value"></div></div>
-<div class="grid2"><div><label>Rehab budget</label><input type="number" name="rehab_budget"></div><div><label>Monthly rent</label><input type="number" name="monthly_rent"></div></div>
-<div class="grid2"><div><label>Monthly PITIA</label><input type="number" name="monthly_pitia"></div><div><label>Exit strategy</label><select name="exit_strategy"><option value="">Select</option><option>Sell</option><option>Refinance</option><option>Hold</option><option>Undecided</option></select></div></div>
-<label>Notes / scenario details</label><textarea name="notes" placeholder="Anything helpful about the property, borrower, timing, or lender fit."></textarea>
-<label class="consent"><input type="checkbox" name="consent" required><span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span></label>
-<div class="heroBtns"><button class="btn btnPrimary" type="submit">Submit full application</button><a class="btn btnGhost" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Use short form instead</a></div>
-</form>
-</div></section>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="sectionHead">
+      <div><h2>Talk to an Expert</h2><p>A longer intake page built to support more complete routing and expert follow-up.</p></div>
+    </div>
+    <div class="panel">
+      <form action="https://formsubmit.co/Investorloanintake@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Full Investor Loan Application"/>
+        <input type="hidden" name="_template" value="table"/>
+        <input type="hidden" name="_captcha" value="false"/>
+        <input type="hidden" name="_next" value="thanks.html"/>
+
+        <div class="grid2">
+          <div><label>Name</label><input type="text" name="name" required></div>
+          <div><label>Email</label><input type="email" name="email" required></div>
+        </div>
+        <div class="grid2">
+          <div><label>Phone</label><input type="tel" name="phone" required></div>
+          <div><label>Loan Type</label><select name="loan_type" required><option value="">Select</option><option>Fix &amp; Flip</option><option>DSCR Rental</option><option>Bridge / BPL</option><option>Refinance / cash-out</option><option>Bank Statement</option></select></div>
+        </div>
+        <div class="grid2">
+          <div><label>Property Type</label><input type="text" name="property_type"></div>
+          <div><label>Loan Amount</label><input type="number" name="loan_amount"></div>
+        </div>
+        <div class="grid2">
+          <div><label>State</label><input type="text" name="state" maxlength="2"></div>
+          <div><label>Property Address</label><input type="text" name="property_address"></div>
+        </div>
+        <label>Message</label><textarea name="message" placeholder="Tell us about the deal, borrower profile, timing, or lender fit."></textarea>
+        <label class="small" style="display:flex;gap:10px;align-items:flex-start;margin-top:14px;">
+          <input type="checkbox" name="consent" required style="width:auto;margin-top:3px;">
+          <span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span>
+        </label>
+        <div class="heroBtns">
+          <button class="btn btnPrimary" type="submit">Talk to an Expert</button>
+          <a class="btn btnGhost" href="index.html#lead-form">Quick Loan Request</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
 <footer class="footer">
   <div class="footerCard">
-    <div class="footerBrand"><img src="brand-logo.png" alt="Investor Loan Marketplace"/></div>
-    <div class="small"><strong>Disclosures:</strong> Not a lender. Not a commitment to lend. Business-purpose investor financing only. This site does not provide legal, tax, or financial advice.</div>
+    <div class="footerBrand"><img src="ilm-logo.png" alt="Investor Loan Marketplace"/></div>
+    <div class="small">Investor Loan Marketplace</div>
+    <div class="small" style="margin-top:4px">Connecting real estate investors with trusted lending partners.</div>
+    <div class="small" style="margin-top:4px">Powered by Capvia</div>
+    <div class="small" style="margin-top:4px">capviahq.com</div>
+    <div class="footerLinks">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="application.html">Contact</a>
+    </div>
   </div>
 </footer>
-</main><div class="modal" id="leadModal" aria-hidden="true">
-  <div class="modalBackdrop" onclick="closeLeadModal()" aria-label="Close"></div>
-  <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Quick loan request">
-    <div class="modalTop">
-      <div><h3 style="margin:0 0 6px;">Quick Loan Request</h3><p class="small" id="modalSub">Tell us about your scenario.</p></div>
-      <button class="iconBtn" type="button" onclick="closeLeadModal()">✕</button>
-    </div>
-    <form action="https://formsubmit.co/Investorloanintake@gmail.com" method="POST">
-      <input type="hidden" name="page" id="h_page" value=""/>
-      <input type="hidden" name="loan_type_prefill" id="h_type" value=""/>
-      <input type="hidden" name="calc_allin" id="h_allin" value=""/>
-      <input type="hidden" name="calc_ltv" id="h_ltv" value=""/>
-      <input type="hidden" name="calc_ltc" id="h_ltc" value=""/>
-      <input type="hidden" name="calc_dscr" id="h_dscr" value=""/>
-      <input type="hidden" name="calc_signal" id="h_signal" value=""/>
-      <input type="hidden" name="state" id="h_state" value=""/>
-      <input type="hidden" name="bank_statement_monthly_income" id="h_bs_monthly" value=""/>
-      <input type="hidden" name="bank_statement_annual_income" id="h_bs_annual" value=""/>
-      <input type="hidden" name="_subject" value="New Investor Loan Request"/>
-      <input type="hidden" name="_template" value="table"/>
-      <input type="hidden" name="_captcha" value="false"/>
-      <input type="hidden" name="_next" value="thanks.html"/>
-      <div class="grid2">
-        <div><label>Deal type</label><select name="loan_type" id="f_type" required><option value="">Select</option><option>Rental property</option><option>Fix &amp; Flip</option><option>Bridge / BPL</option><option>Refinance / cash-out</option><option>Not sure yet</option></select></div>
-        <div><label>Estimated loan amount</label><input type="number" name="loan_amount" id="f_amount" placeholder="450000" required></div>
-      </div>
-      <div class="grid2">
-        <div><label>Property value / purchase (optional)</label><input type="number" name="property_value" id="f_value" placeholder="550000"></div>
-        <div><label>State</label><input type="text" name="state_display" id="f_state" placeholder="FL" maxlength="2"></div>
-      </div>
-      <div class="grid2">
-        <div><label>Name</label><input type="text" name="name" required></div>
-        <div><label>Email</label><input type="email" name="email" required></div>
-      </div>
-      <div class="grid2">
-        <div><label>Phone</label><input type="tel" name="phone" required></div>
-        <div><label>Anything else we should know? (optional)</label><input type="text" name="notes"></div>
-      </div>
-      <label class="consent"><input type="checkbox" name="consent" required><span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span></label>
-      <div class="heroBtns" style="margin-top:14px"><button class="btn btnPrimary" type="submit">Submit request</button><a class="btn btnGhost" href="application.html">Start full application</a></div>
-      <p class="small">Business-purpose investor financing only. Not a commitment to lend.</p>
-    </form>
-  </div>
-</div><script src="script.js"></script></body></html>
+
+</main>
+<script src="script.js"></script>
+</body>
+</html>\n
