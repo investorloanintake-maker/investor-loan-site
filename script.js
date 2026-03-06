@@ -2,7 +2,6 @@ const metrics = { allin:"", ltv:"", ltc:"", dscr:"", signal:"", state:"", bsMont
 function setText(id, val){ const el = document.getElementById(id); if (el) el.textContent = val; }
 function show(id){ const el = document.getElementById(id); if (el) el.style.display = "block"; }
 function setVal(id, val){ const el = document.getElementById(id); if (el) el.value = val; }
-
 function calculateFlip(){
   if (!document.getElementById("purchase")) return;
   const purchase = Number(document.getElementById("purchase").value || 0);
@@ -66,7 +65,7 @@ function openLeadModal(type){
   const modal = document.getElementById("leadModal");
   if (!modal) return;
   modal.classList.add("open");
-  modal.setAttribute("aria-hidden", "false");
+  modal.setAttribute("aria-hidden","false");
   document.body.classList.add("noScroll");
   const sel = document.getElementById("f_type");
   const clean = (type || "").toLowerCase();
@@ -75,7 +74,6 @@ function openLeadModal(type){
     else if (clean.includes("fix")) sel.value = "Fix & Flip";
     else if (clean.includes("bridge")) sel.value = "Bridge / BPL";
     else if (clean.includes("refi")) sel.value = "Refinance / cash-out";
-    else if (clean.includes("bank")) sel.value = "Not sure yet";
     else sel.value = "";
   }
   setVal("h_page", window.location.pathname.split("/").pop() || "index.html");
@@ -90,8 +88,6 @@ function openLeadModal(type){
   setVal("h_bs_annual", metrics.bsAnnual || "");
   const sub = document.getElementById("modalSub");
   if (sub) sub.textContent = type ? ("Tell us about your " + type + " scenario.") : "Tell us about your scenario.";
-  const stateInput = document.getElementById("f_state");
-  if (stateInput && metrics.state) stateInput.value = metrics.state;
 }
 function openLeadModalWithPrefill(type, amount, state, value){
   openLeadModal(type || "General");
@@ -104,7 +100,7 @@ function closeLeadModal(){
   const modal = document.getElementById("leadModal");
   if (!modal) return;
   modal.classList.remove("open");
-  modal.setAttribute("aria-hidden", "true");
+  modal.setAttribute("aria-hidden","true");
   document.body.classList.remove("noScroll");
 }
 function toggleFAQ(btn){
@@ -114,12 +110,8 @@ function toggleFAQ(btn){
   const chev = wrap.querySelector(".chev");
   if (chev) chev.textContent = wrap.classList.contains("open") ? "—" : "+";
 }
-function smoothTo(id){
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({behavior:"smooth"});
-}
 document.addEventListener("DOMContentLoaded", () => {
   const fState = document.getElementById("f_state");
   const hState = document.getElementById("h_state");
-  if (fState && hState) fState.addEventListener("input", (e)=>{ hState.value = (e.target.value || "").toUpperCase(); });
+  if (fState && hState) fState.addEventListener("input", (e) => { hState.value = (e.target.value || "").toUpperCase(); });
 });
