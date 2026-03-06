@@ -1,13 +1,9 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Investor Loan Marketplace Powered by Capvia</title>
-  <link rel="icon" href="favicon.png"/>
-  <link rel="stylesheet" href="styles.css"/>
-</head>
-<body>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Investor Loan Marketplace Powered by Capvia</title>
+<link rel="icon" href="favicon.png"/><link rel="stylesheet" href="styles.css"/>
+</head><body>
 
 <div class="topbar">
   <div class="wrap">
@@ -19,7 +15,13 @@
 
 <header class="header">
   <div class="wrap">
-    <a class="brand" href="index.html"><img src="ilm-logo.png" alt="Investor Loan Marketplace Powered by Capvia"/></a>
+    <a class="brand" href="index.html">
+      <img src="favicon.png" alt="Capvia icon" class="brandIcon"/>
+      <span class="brandText">
+        <strong>Investor Loan Marketplace</strong>
+        <small>Powered by Capvia</small>
+      </span>
+    </a>
     <nav class="nav" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="#programs">Loan Programs</a>
@@ -32,222 +34,165 @@
 </header>
 
 <main class="wrap">
-  <section class="hero">
-    <div class="heroIntro">
-      <div class="kicker"><span class="dot"></span> Connecting Investors to Capital</div>
-      <h1>Capital for Real Estate Investors</h1>
-      <p>Compare loan options from top investment property lenders.</p>
-      <div class="heroBtns">
-        <a class="btn btnPrimary" href="#lead-form">Get Loan Options</a>
-        <a class="btn btnGhost" href="application.html">Talk to an Expert</a>
-      </div>
-      <div class="pills">
-        <span class="pill">✓ Fix &amp; Flip</span>
-        <span class="pill">✓ DSCR Rental</span>
-        <span class="pill">✓ Bridge / BPL</span>
-      </div>
+<section class="hero">
+  <div class="heroIntro">
+    <div class="kicker"><span class="dot"></span> Connecting Investors to Capital</div>
+    <h1>Capital for Real Estate Investors</h1>
+    <p>Compare loan options from top investment property lenders.</p>
+    <div class="heroBtns">
+      <a class="btn btnPrimary" href="#lead-form">Get Loan Options</a>
+      <a class="btn btnGhost" href="application.html">Talk to an Expert</a>
     </div>
+    <div class="pills">
+      <span class="pill">✓ Fix &amp; Flip</span>
+      <span class="pill">✓ DSCR Rental</span>
+      <span class="pill">✓ Bridge / BPL</span>
+    </div>
+  </div>
 
-    <div class="floatingWrap" id="lead-form">
-      <div class="twoStepCard">
-        <h3>Compare Options From Investor Lenders</h3>
-        <p class="small">A 2-step form that feels lighter to start and converts better.</p>
+  <div class="floatingWrap" id="lead-form">
+    <div class="twoStepCard">
+      <h3>Compare Options From Investor Lenders</h3>
+      <p class="small">A 2-step form that feels lighter to start and converts better.</p>
+      <form action="https://formsubmit.co/Investorloanintake@gmail.com" method="POST" onsubmit="syncTwoStep()">
+        <input type="hidden" name="_subject" value="New Investor Loan Request"/>
+        <input type="hidden" name="_template" value="table"/>
+        <input type="hidden" name="_captcha" value="false"/>
+        <input type="hidden" name="_next" value="thanks.html"/>
 
-        <form action="https://formsubmit.co/Investorloanintake@gmail.com" method="POST" onsubmit="syncTwoStep()">
-          <input type="hidden" name="_subject" value="New Investor Loan Request"/>
-          <input type="hidden" name="_template" value="table"/>
-          <input type="hidden" name="_captcha" value="false"/>
-          <input type="hidden" name="_next" value="thanks.html"/>
-
-          <div id="step1">
-            <div class="grid2">
-              <div>
-                <label>What type of deal is this?</label>
-                <select id="hero_type" required>
-                  <option value="">Select</option>
-                  <option>Fix &amp; Flip</option>
-                  <option>DSCR Rental</option>
-                  <option>Bridge / BPL</option>
-                  <option>Refinance / cash-out</option>
-                  <option>Not sure yet</option>
-                </select>
-              </div>
-              <div>
-                <label>Property Type</label>
-                <input id="hero_property_type" type="text" placeholder="SFR, 2-4 unit, condo, mixed use" required>
-              </div>
+        <div id="step1">
+          <div class="grid2">
+            <div>
+              <label>What type of deal is this?</label>
+              <select id="hero_type" required>
+                <option value="">Select</option>
+                <option>Fix &amp; Flip</option>
+                <option>DSCR Rental</option>
+                <option>Bridge / BPL</option>
+                <option>Refinance / cash-out</option>
+                <option>Not sure yet</option>
+              </select>
             </div>
-
-            <label>Estimated Loan Amount</label>
-            <input id="hero_amount" type="number" placeholder="450000" required>
-
-            <div class="heroBtns">
-              <button class="btn btnPrimary" type="button" onclick="nextStep()">See My Options</button>
+            <div>
+              <label>Property Type</label>
+              <input id="hero_property_type" type="text" placeholder="SFR, 2-4 unit, condo, mixed use" required>
             </div>
           </div>
-
-          <div id="step2" class="hidden">
-            <div class="notice">Good fit — let’s show your options. Where should we send them?</div>
-
-            <input type="hidden" name="loan_type" id="f_type">
-            <input type="hidden" name="property_type" id="f_property_type">
-            <input type="hidden" name="loan_amount" id="f_amount">
-
-            <label>Name</label>
-            <input id="hero_name" type="text" name="name" placeholder="Jane Investor" required>
-
-            <div class="grid2">
-              <div>
-                <label>Email</label>
-                <input id="hero_email" type="email" name="email" placeholder="jane@email.com" required>
-              </div>
-              <div>
-                <label>Phone</label>
-                <input id="hero_phone" type="tel" name="phone" placeholder="(555) 555-5555" required>
-              </div>
-            </div>
-
-            <label>Anything else we should know?</label>
-            <input id="hero_message" type="text" name="message" placeholder="Timing, purchase vs refi, current status, etc.">
-
-            <label class="small" style="display:flex;gap:10px;align-items:flex-start;margin-top:14px;">
-              <input type="checkbox" name="consent" required style="width:auto;margin-top:3px;">
-              <span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span>
-            </label>
-
-            <div class="heroBtns">
-              <button class="btn btnGhost" type="button" onclick="prevStep()">Back</button>
-              <button class="btn btnPrimary" type="submit">Get Loan Options</button>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      <div class="credBand">
-        <div class="cred"><strong>Nationwide</strong><span>Investor lending programs</span></div>
-        <div class="cred"><strong>Fast</strong><span>Deal review and routing</span></div>
-        <div class="cred"><strong>Business-purpose</strong><span>Built for investors</span></div>
-        <div class="cred"><strong>Modern</strong><span>Clean fintech intake</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="sectionHead">
-      <div>
-        <h2>Platform overview</h2>
-        <p>Clean fintech style with institutional real-estate positioning.</p>
-      </div>
-    </div>
-    <div class="grid3">
-      <div class="card"><div class="cardTop"><div class="icon">C</div><h3>Professional</h3></div><p>Clean, modern, institutional presentation designed for investor trust.</p></div>
-      <div class="card"><div class="cardTop"><div class="icon">F</div><h3>Fintech workflow</h3></div><p>Short forms, calculators, and long-form intake in one cohesive path.</p></div>
-      <div class="card"><div class="cardTop"><div class="icon">R</div><h3>Real-estate focused</h3></div><p>Built around investment property loan scenarios and lender routing.</p></div>
-    </div>
-  </section>
-
-  <section class="section" id="programs">
-    <div class="sectionHead">
-      <div>
-        <h2>Loan program categories</h2>
-        <p>Product-first structure for fast clarity.</p>
-      </div>
-    </div>
-    <div class="grid4">
-      <div class="card"><div class="cardTop"><div class="icon">F</div><h3>Fix &amp; Flip Loans</h3></div><p>Short-term rehab financing for value-add investors.</p><div class="actions"><a class="btn btnSoft" href="fix-and-flip.html">Learn More</a></div></div>
-      <div class="card"><div class="cardTop"><div class="icon">D</div><h3>DSCR Rental Loans</h3></div><p>Rental financing designed around property cash flow.</p><div class="actions"><a class="btn btnSoft" href="dscr.html">Learn More</a></div></div>
-      <div class="card"><div class="cardTop"><div class="icon">B</div><h3>Bridge / BPL Loans</h3></div><p>Flexible short-term financing for acquisition and transition.</p><div class="actions"><a class="btn btnSoft" href="#lead-form">Learn More</a></div></div>
-      <div class="card"><div class="cardTop"><div class="icon">N</div><h3>Bank Statement Loans</h3></div><p>Alt-doc support for self-employed borrowers.</p><div class="actions"><a class="btn btnSoft" href="bank-statement.html">Learn More</a></div></div>
-    </div>
-  </section>
-
-  <section class="section" id="tools">
-    <div class="toolBand">
-      <div>
-        <h2 style="margin:0 0 8px;font-size:34px;letter-spacing:-.8px;">Calculator tools</h2>
-        <p style="margin:0;color:var(--muted);line-height:1.7;">Estimate scenario fit, then move into the lead form or application.</p>
-      </div>
-      <div class="toolLinks">
-        <a class="btn btnSoft" href="dscr.html">DSCR</a>
-        <a class="btn btnSoft" href="fix-and-flip.html">Fix &amp; Flip</a>
-        <a class="btn btnSoft" href="bank-statement.html">Bank Statement</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="sectionHead">
-      <div>
-        <h2>How it works</h2>
-        <p>Clear, lender-friendly routing.</p>
-      </div>
-    </div>
-    <div class="grid3">
-      <div class="card"><div class="cardTop"><div class="icon">1</div><h3>Submit</h3></div><p>Use the 2-step form or full application to submit your deal.</p></div>
-      <div class="card"><div class="cardTop"><div class="icon">2</div><h3>Compare</h3></div><p>Review options aligned to property type, leverage, and borrower fit.</p></div>
-      <div class="card"><div class="cardTop"><div class="icon">3</div><h3>Proceed</h3></div><p>Move into the lender path that best matches the scenario.</p></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="example">
-      <div class="sectionHead">
-        <div>
-          <h2>Example deal</h2>
-          <p>A single clean illustration to anchor the product story.</p>
-        </div>
-      </div>
-      <div class="exampleGrid">
-        <div>
-          <h3 style="margin-top:0;">Example Fix &amp; Flip Deal</h3>
-          <div class="exampleTable">
-            <div>Purchase Price</div><div><strong>$320,000</strong></div>
-            <div>Rehab Budget</div><div><strong>$80,000</strong></div>
-            <div>ARV</div><div><strong>$520,000</strong></div>
-            <div>Loan Structure</div><div><strong>90% / 100%</strong></div>
+          <label>Estimated Loan Amount</label>
+          <input id="hero_amount" type="number" placeholder="450000" required>
+          <div class="heroBtns">
+            <button class="btn btnPrimary" type="button" onclick="nextStep()">See My Options</button>
           </div>
         </div>
-        <div>
-          <h3 style="margin-top:0;">Why it works</h3>
-          <p style="margin:0;color:var(--muted);line-height:1.8;">A simple example helps investors understand leverage and self-identify faster.</p>
-          <div class="heroBtns" style="margin-top:18px;"><a class="btn btnPrimary" href="#lead-form">Get Loan Options</a></div>
+
+        <div id="step2" class="hidden">
+          <div class="notice">Good fit — let’s show your options. Where should we send them?</div>
+          <input type="hidden" name="loan_type" id="f_type">
+          <input type="hidden" name="property_type" id="f_property_type">
+          <input type="hidden" name="loan_amount" id="f_amount">
+          <label>Name</label>
+          <input id="hero_name" type="text" name="name" placeholder="Jane Investor" required>
+          <div class="grid2">
+            <div><label>Email</label><input id="hero_email" type="email" name="email" placeholder="jane@email.com" required></div>
+            <div><label>Phone</label><input id="hero_phone" type="tel" name="phone" placeholder="(555) 555-5555" required></div>
+          </div>
+          <label>Anything else we should know?</label>
+          <input id="hero_message" type="text" name="message" placeholder="Timing, purchase vs refi, current status, etc.">
+          <label class="small" style="display:flex;gap:10px;align-items:flex-start;margin-top:14px;">
+            <input type="checkbox" name="consent" required style="width:auto;margin-top:3px;">
+            <span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span>
+          </label>
+          <div class="heroBtns">
+            <button class="btn btnGhost" type="button" onclick="prevStep()">Back</button>
+            <button class="btn btnPrimary" type="submit">Get Loan Options</button>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
-  </section>
 
-  <section class="section">
-    <div class="ctaBand">
-      <h2>Ready to review your options?</h2>
-      <p>Use the short form for speed or the full application for a more complete borrower profile.</p>
-      <div class="heroBtns">
-        <a class="btn btnPrimary" href="#lead-form">Get Loan Options</a>
-        <a class="btn btnGhost" href="application.html">Talk to an Expert</a>
-      </div>
+    <div class="credBand">
+      <div class="cred"><strong>Nationwide</strong><span>Investor lending programs</span></div>
+      <div class="cred"><strong>Fast</strong><span>Deal review and routing</span></div>
+      <div class="cred"><strong>Business-purpose</strong><span>Built for investors</span></div>
+      <div class="cred"><strong>Modern</strong><span>Clean fintech intake</span></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="faq">
-    <div class="sectionHead">
-      <div>
-        <h2>FAQ</h2>
-        <p>Short answers that support clarity and conversion.</p>
-      </div>
+<section class="section">
+  <div class="sectionHead"><div><h2>Platform overview</h2><p>Clean fintech style with institutional real-estate positioning.</p></div></div>
+  <div class="grid3">
+    <div class="card"><div class="cardTop"><div class="icon">C</div><h3>Professional</h3></div><p>Clean, modern, institutional presentation designed for investor trust.</p></div>
+    <div class="card"><div class="cardTop"><div class="icon">F</div><h3>Fintech workflow</h3></div><p>Short forms, calculators, and long-form intake in one cohesive path.</p></div>
+    <div class="card"><div class="cardTop"><div class="icon">R</div><h3>Real-estate focused</h3></div><p>Built around investment property loan scenarios and lender routing.</p></div>
+  </div>
+</section>
+
+<section class="section" id="programs">
+  <div class="sectionHead"><div><h2>Loan program categories</h2><p>Product-first structure for fast clarity.</p></div></div>
+  <div class="grid4">
+    <div class="card"><div class="cardTop"><div class="icon">F</div><h3>Fix &amp; Flip Loans</h3></div><p>Short-term rehab financing for value-add investors.</p><div class="actions"><a class="btn btnSoft" href="fix-and-flip.html">Learn More</a></div></div>
+    <div class="card"><div class="cardTop"><div class="icon">D</div><h3>DSCR Rental Loans</h3></div><p>Rental financing designed around property cash flow.</p><div class="actions"><a class="btn btnSoft" href="dscr.html">Learn More</a></div></div>
+    <div class="card"><div class="cardTop"><div class="icon">B</div><h3>Bridge / BPL Loans</h3></div><p>Flexible short-term financing for acquisition and transition.</p><div class="actions"><a class="btn btnSoft" href="#lead-form">Learn More</a></div></div>
+    <div class="card"><div class="cardTop"><div class="icon">N</div><h3>Bank Statement Loans</h3></div><p>Alt-doc support for self-employed borrowers.</p><div class="actions"><a class="btn btnSoft" href="bank-statement.html">Learn More</a></div></div>
+  </div>
+</section>
+
+<section class="section" id="tools">
+  <div class="toolBand">
+    <div><h2 style="margin:0 0 8px;font-size:34px;letter-spacing:-.8px;">Calculator tools</h2><p style="margin:0;color:var(--muted);line-height:1.7;">Estimate scenario fit, then move into the lead form or application.</p></div>
+    <div class="toolLinks"><a class="btn btnSoft" href="dscr.html">DSCR</a><a class="btn btnSoft" href="fix-and-flip.html">Fix &amp; Flip</a><a class="btn btnSoft" href="bank-statement.html">Bank Statement</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sectionHead"><div><h2>How it works</h2><p>Clear, lender-friendly routing.</p></div></div>
+  <div class="grid3">
+    <div class="card"><div class="cardTop"><div class="icon">1</div><h3>Submit</h3></div><p>Use the 2-step form or full application to submit your deal.</p></div>
+    <div class="card"><div class="cardTop"><div class="icon">2</div><h3>Compare</h3></div><p>Review options aligned to property type, leverage, and borrower fit.</p></div>
+    <div class="card"><div class="cardTop"><div class="icon">3</div><h3>Proceed</h3></div><p>Move into the lender path that best matches the scenario.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="example">
+    <div class="sectionHead"><div><h2>Example deal</h2><p>A single clean illustration to anchor the product story.</p></div></div>
+    <div class="exampleGrid">
+      <div><h3 style="margin-top:0;">Example Fix &amp; Flip Deal</h3><div class="exampleTable"><div>Purchase Price</div><div><strong>$320,000</strong></div><div>Rehab Budget</div><div><strong>$80,000</strong></div><div>ARV</div><div><strong>$520,000</strong></div><div>Loan Structure</div><div><strong>90% / 100%</strong></div></div></div>
+      <div><h3 style="margin-top:0;">Why it works</h3><p style="margin:0;color:var(--muted);line-height:1.8;">A simple example helps investors understand leverage and self-identify faster.</p><div class="heroBtns" style="margin-top:18px;"><a class="btn btnPrimary" href="#lead-form">Get Loan Options</a></div></div>
     </div>
-    <div class="faq">
-      <div class="qa"><button type="button" onclick="toggleFAQ(this)">Who is this for? <span class="chev">+</span></button><div class="ans">Real estate investors looking to compare capital options for business-purpose scenarios.</div></div>
-      <div class="qa"><button type="button" onclick="toggleFAQ(this)">What kinds of loans are supported? <span class="chev">+</span></button><div class="ans">The site is structured around Fix &amp; Flip, DSCR rental, Bridge / BPL, and bank statement workflows.</div></div>
-      <div class="qa"><button type="button" onclick="toggleFAQ(this)">Do forms route to email? <span class="chev">+</span></button><div class="ans">Yes. All forms are configured to route to Investorloanintake@gmail.com.</div></div>
-      <div class="qa"><button type="button" onclick="toggleFAQ(this)">What happens after I submit? <span class="chev">+</span></button><div class="ans">The request can be reviewed, routed, and followed up through the investor intake workflow.</div></div>
-    </div>
-  </section>
+  </div>
+</section>
+
+<section class="section">
+  <div class="ctaBand">
+    <h2>Ready to review your options?</h2>
+    <p>Use the short form for speed or the full application for a more complete borrower profile.</p>
+    <div class="heroBtns"><a class="btn btnPrimary" href="#lead-form">Get Loan Options</a><a class="btn btnGhost" href="application.html">Talk to an Expert</a></div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="sectionHead"><div><h2>FAQ</h2><p>Short answers that support clarity and conversion.</p></div></div>
+  <div class="faq">
+    <div class="qa"><button type="button" onclick="toggleFAQ(this)">Who is this for? <span class="chev">+</span></button><div class="ans">Real estate investors looking to compare capital options for business-purpose scenarios.</div></div>
+    <div class="qa"><button type="button" onclick="toggleFAQ(this)">What kinds of loans are supported? <span class="chev">+</span></button><div class="ans">The site is structured around Fix &amp; Flip, DSCR rental, Bridge / BPL, and bank statement workflows.</div></div>
+    <div class="qa"><button type="button" onclick="toggleFAQ(this)">Do forms route to email? <span class="chev">+</span></button><div class="ans">Yes. All forms are configured to route to Investorloanintake@gmail.com.</div></div>
+    <div class="qa"><button type="button" onclick="toggleFAQ(this)">What happens after I submit? <span class="chev">+</span></button><div class="ans">The request can be reviewed, routed, and followed up through the investor intake workflow.</div></div>
+  </div>
+</section>
+
 
 <footer class="footer">
   <div class="footerCard">
-    <div class="footerBrand"><img src="ilm-logo.png" alt="Investor Loan Marketplace"/></div>
-    <div class="small">Investor Loan Marketplace</div>
-    <div class="small" style="margin-top:4px">Connecting real estate investors with trusted lending partners.</div>
-    <div class="small" style="margin-top:4px">Powered by Capvia</div>
+    <div class="footerBrand">
+      <img src="favicon.png" alt="Capvia icon" class="brandIcon"/>
+      <span class="brandText">
+        <strong>Investor Loan Marketplace</strong>
+        <small>Powered by Capvia</small>
+      </span>
+    </div>
+    <div class="small">Connecting real estate investors with trusted lending partners.</div>
     <div class="small" style="margin-top:4px">capviahq.com</div>
     <div class="footerLinks">
       <a href="#">Privacy Policy</a>
@@ -259,5 +204,4 @@
 
 </main>
 <script src="script.js"></script>
-</body>
-</html>
+</body></html>

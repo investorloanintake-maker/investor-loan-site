@@ -1,13 +1,9 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>DSCR Rental Loans | Investor Loan Marketplace</title>
-  <link rel="icon" href="favicon.png"/>
-  <link rel="stylesheet" href="styles.css"/>
-</head>
-<body>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>DSCR Rental Loans | Investor Loan Marketplace</title>
+<link rel="icon" href="favicon.png"/><link rel="stylesheet" href="styles.css"/>
+</head><body>
 
 <div class="topbar">
   <div class="wrap">
@@ -19,7 +15,13 @@
 
 <header class="header">
   <div class="wrap">
-    <a class="brand" href="index.html"><img src="ilm-logo.png" alt="Investor Loan Marketplace Powered by Capvia"/></a>
+    <a class="brand" href="index.html">
+      <img src="favicon.png" alt="Capvia icon" class="brandIcon"/>
+      <span class="brandText">
+        <strong>Investor Loan Marketplace</strong>
+        <small>Powered by Capvia</small>
+      </span>
+    </a>
     <nav class="nav" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="#programs">Loan Programs</a>
@@ -33,40 +35,19 @@
 
 <main class="wrap">
 
-<section class="hero">
-  <div class="sectionHead">
-    <div><h2>DSCR Rental Loans</h2><p>Rental financing designed around property cash flow.</p></div>
-    <a class="btn btnPrimary" href="application.html">Talk to an Expert</a>
-  </div>
-  <div class="panel">
-    <div class="grid2">
-      <div>
-        <label>Monthly Rent</label><input id="rent" type="number" placeholder="3200">
-        <label>Monthly PITIA</label><input id="pitia" type="number" placeholder="2600">
-        <label>State</label><input id="state" type="text" placeholder="FL" maxlength="2">
-        <div class="heroBtns">
-          <button class="btn btnPrimary" type="button" onclick="calculateDSCR()">Calculate DSCR</button>
-          <a class="btn btnGhost" href="application.html">Talk to an Expert</a>
-        </div>
-      </div>
-      <div class="resultsBox" id="dscrResults" style="display:none">
-        <div class="metric"><span>DSCR</span><strong id="dscrVal">—</strong></div>
-        <div class="metric"><span>Signal</span><strong id="dscrSignal">—</strong></div>
-        <div class="metric"><span>Next Step</span><strong id="dscrNext">—</strong></div>
-        <div class="divider"></div>
-        <a class="btn btnPrimary" href="application.html">Get Loan Options</a>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="hero"><div class="sectionHead"><div><h2>DSCR Rental Loans</h2><p>Rental financing designed around property cash flow.</p></div><a class="btn btnPrimary" href="application.html">Talk to an Expert</a></div><div class="twoStepCard"><div class="grid2"><div><label>Monthly Rent</label><input id="rent" type="number" placeholder="3200"><label>Monthly PITIA</label><input id="pitia" type="number" placeholder="2600"><label>State</label><input id="state" type="text" placeholder="FL" maxlength="2"><div class="heroBtns"><button class="btn btnPrimary" type="button" onclick="calculateDSCR()">Calculate DSCR</button><a class="btn btnGhost" href="application.html">Talk to an Expert</a></div></div><div class="resultsBox" id="dscrResults" style="display:none"><div class="metric"><span>DSCR</span><strong id="dscrVal">—</strong></div><div class="metric"><span>Signal</span><strong id="dscrSignal">—</strong></div><div class="metric"><span>Next Step</span><strong id="dscrNext">—</strong></div><div class="divider"></div><a class="btn btnPrimary" href="application.html">Get Loan Options</a></div></div></div></section>
 
 
 <footer class="footer">
   <div class="footerCard">
-    <div class="footerBrand"><img src="ilm-logo.png" alt="Investor Loan Marketplace"/></div>
-    <div class="small">Investor Loan Marketplace</div>
-    <div class="small" style="margin-top:4px">Connecting real estate investors with trusted lending partners.</div>
-    <div class="small" style="margin-top:4px">Powered by Capvia</div>
+    <div class="footerBrand">
+      <img src="favicon.png" alt="Capvia icon" class="brandIcon"/>
+      <span class="brandText">
+        <strong>Investor Loan Marketplace</strong>
+        <small>Powered by Capvia</small>
+      </span>
+    </div>
+    <div class="small">Connecting real estate investors with trusted lending partners.</div>
     <div class="small" style="margin-top:4px">capviahq.com</div>
     <div class="footerLinks">
       <a href="#">Privacy Policy</a>
@@ -78,5 +59,4 @@
 
 </main>
 <script src="script.js"></script>
-</body>
-</html>
+</body></html>

@@ -2,10 +2,7 @@ function nextStep(){
   const type = document.getElementById('hero_type').value.trim();
   const property = document.getElementById('hero_property_type').value.trim();
   const amount = document.getElementById('hero_amount').value.trim();
-  if(!type || !property || !amount){
-    alert('Please complete deal type, property type, and loan amount.');
-    return;
-  }
+  if(!type || !property || !amount){ alert('Please complete deal type, property type, and loan amount.'); return; }
   document.getElementById('step1').classList.add('hidden');
   document.getElementById('step2').classList.remove('hidden');
 }

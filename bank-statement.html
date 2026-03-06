@@ -1,13 +1,9 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Bank Statement Loans | Investor Loan Marketplace</title>
-  <link rel="icon" href="favicon.png"/>
-  <link rel="stylesheet" href="styles.css"/>
-</head>
-<body>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Bank Statement Loans | Investor Loan Marketplace</title>
+<link rel="icon" href="favicon.png"/><link rel="stylesheet" href="styles.css"/>
+</head><body>
 
 <div class="topbar">
   <div class="wrap">
@@ -19,7 +15,13 @@
 
 <header class="header">
   <div class="wrap">
-    <a class="brand" href="index.html"><img src="ilm-logo.png" alt="Investor Loan Marketplace Powered by Capvia"/></a>
+    <a class="brand" href="index.html">
+      <img src="favicon.png" alt="Capvia icon" class="brandIcon"/>
+      <span class="brandText">
+        <strong>Investor Loan Marketplace</strong>
+        <small>Powered by Capvia</small>
+      </span>
+    </a>
     <nav class="nav" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="#programs">Loan Programs</a>
@@ -33,44 +35,19 @@
 
 <main class="wrap">
 
-<section class="hero">
-  <div class="sectionHead">
-    <div><h2>Bank Statement Loans</h2><p>Alt-doc support for self-employed borrowers.</p></div>
-    <a class="btn btnPrimary" href="application.html">Talk to an Expert</a>
-  </div>
-  <div class="panel">
-    <div class="grid2">
-      <div>
-        <label>Months of Statements</label>
-        <select id="bs_months"><option value="12">12 months</option><option value="24">24 months</option></select>
-        <label>Total Deposits</label><input id="bs_deposits" type="number" placeholder="240000">
-        <label>Expense Factor</label>
-        <select id="bs_expense"><option value="50">50%</option><option value="40">40%</option><option value="35">35%</option><option value="30">30%</option></select>
-        <label>Ownership Percentage</label><input id="bs_own" type="number" placeholder="100">
-        <div class="heroBtns">
-          <button class="btn btnPrimary" type="button" onclick="calculateBankStatement()">Estimate Income</button>
-          <a class="btn btnGhost" href="application.html">Talk to an Expert</a>
-        </div>
-      </div>
-      <div class="resultsBox" id="bsResults" style="display:none">
-        <div class="metric"><span>Net Deposits</span><strong id="bs_net">—</strong></div>
-        <div class="metric"><span>Ownership-Adjusted Net</span><strong id="bs_net_own">—</strong></div>
-        <div class="metric"><span>Monthly Income</span><strong id="bs_monthly">—</strong></div>
-        <div class="metric"><span>Annual Income</span><strong id="bs_annual">—</strong></div>
-        <div class="divider"></div>
-        <a class="btn btnPrimary" href="application.html">Get Loan Options</a>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="hero"><div class="sectionHead"><div><h2>Bank Statement Loans</h2><p>Alt-doc support for self-employed borrowers.</p></div><a class="btn btnPrimary" href="application.html">Talk to an Expert</a></div><div class="twoStepCard"><div class="grid2"><div><label>Months of Statements</label><select id="bs_months"><option value="12">12 months</option><option value="24">24 months</option></select><label>Total Deposits</label><input id="bs_deposits" type="number" placeholder="240000"><label>Expense Factor</label><select id="bs_expense"><option value="50">50%</option><option value="40">40%</option><option value="35">35%</option><option value="30">30%</option></select><label>Ownership Percentage</label><input id="bs_own" type="number" placeholder="100"><div class="heroBtns"><button class="btn btnPrimary" type="button" onclick="calculateBankStatement()">Estimate Income</button><a class="btn btnGhost" href="application.html">Talk to an Expert</a></div></div><div class="resultsBox" id="bsResults" style="display:none"><div class="metric"><span>Net Deposits</span><strong id="bs_net">—</strong></div><div class="metric"><span>Ownership-Adjusted Net</span><strong id="bs_net_own">—</strong></div><div class="metric"><span>Monthly Income</span><strong id="bs_monthly">—</strong></div><div class="metric"><span>Annual Income</span><strong id="bs_annual">—</strong></div><div class="divider"></div><a class="btn btnPrimary" href="application.html">Get Loan Options</a></div></div></div></section>
 
 
 <footer class="footer">
   <div class="footerCard">
-    <div class="footerBrand"><img src="ilm-logo.png" alt="Investor Loan Marketplace"/></div>
-    <div class="small">Investor Loan Marketplace</div>
-    <div class="small" style="margin-top:4px">Connecting real estate investors with trusted lending partners.</div>
-    <div class="small" style="margin-top:4px">Powered by Capvia</div>
+    <div class="footerBrand">
+      <img src="favicon.png" alt="Capvia icon" class="brandIcon"/>
+      <span class="brandText">
+        <strong>Investor Loan Marketplace</strong>
+        <small>Powered by Capvia</small>
+      </span>
+    </div>
+    <div class="small">Connecting real estate investors with trusted lending partners.</div>
     <div class="small" style="margin-top:4px">capviahq.com</div>
     <div class="footerLinks">
       <a href="#">Privacy Policy</a>
@@ -82,5 +59,4 @@
 
 </main>
 <script src="script.js"></script>
-</body>
-</html>
+</body></html>
