@@ -1,5 +1,3 @@
-const metrics = { allin:"", ltv:"", ltc:"", dscr:"", signal:"", state:"", bsMonthly:"", bsAnnual:"" };
-
 function nextStep(){
   const type = document.getElementById('hero_type').value.trim();
   const property = document.getElementById('hero_property_type').value.trim();
@@ -16,15 +14,9 @@ function prevStep(){
   document.getElementById('step1').classList.remove('hidden');
 }
 function syncTwoStep(){
-  const map = {
-    f_name:'hero_name', f_email:'hero_email', f_phone:'hero_phone',
-    f_type:'hero_type', f_property_type:'hero_property_type',
-    f_amount:'hero_amount', f_message:'hero_message'
-  };
-  Object.entries(map).forEach(([dest,src])=>{
-    const d=document.getElementById(dest), s=document.getElementById(src);
-    if(d && s) d.value = s.value || '';
-  });
+  document.getElementById('f_type').value = document.getElementById('hero_type').value || '';
+  document.getElementById('f_property_type').value = document.getElementById('hero_property_type').value || '';
+  document.getElementById('f_amount').value = document.getElementById('hero_amount').value || '';
 }
 function setText(id, val){ const el=document.getElementById(id); if(el) el.textContent=val; }
 function show(id){ const el=document.getElementById(id); if(el) el.style.display='block'; }
@@ -54,4 +46,4 @@ function toggleFAQ(btn){
   const wrap=btn.closest('.qa'); if(!wrap) return;
   wrap.classList.toggle('open');
   const chev=wrap.querySelector('.chev'); if(chev) chev.textContent=wrap.classList.contains('open')?'—':'+';
-}\n
+}
