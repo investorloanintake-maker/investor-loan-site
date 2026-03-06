@@ -1,166 +1,149 @@
-:root{
-  --bg:#ffffff;
-  --bg2:#f6f8fc;
-  --text:#0b1220;
-  --muted:#4b5565;
-  --line:rgba(15,23,42,.10);
-  --shadow:0 14px 40px rgba(2,6,23,.10);
-  --accent:#1f6fff;
-  --accent2:#0b4ddf;
-  --pill:#eaf2ff;
-  --radius:18px;
+const metrics = { allin:"", ltv:"", ltc:"", dscr:"", signal:"", state:"", bsMonthly:"", bsAnnual:"" };
+
+function setText(id, val){ const el = document.getElementById(id); if (el) el.textContent = val; }
+function show(id){ const el = document.getElementById(id); if (el) el.style.display = "block"; }
+function setVal(id, val){ const el = document.getElementById(id); if (el) el.value = val; }
+
+function calculateFlip(){
+  if (!document.getElementById("purchase")) return;
+  const purchase = Number(document.getElementById("purchase").value || 0);
+  const rehab = Number(document.getElementById("rehab").value || 0);
+  const arv = Number(document.getElementById("arv").value || 0);
+  const loan = Number(document.getElementById("loan").value || 0);
+  const allin = purchase + rehab;
+  const ltvNum = (arv > 0) ? (loan / arv) * 100 : NaN;
+  const ltcNum = (allin > 0) ? (loan / allin) * 100 : NaN;
+  let signal = "Strong";
+  if (isFinite(ltvNum) && ltvNum > 80) signal = "Moderate";
+  if (isFinite(ltvNum) && ltvNum > 85) signal = "Aggressive";
+  setText("allin", allin ? "$" + allin.toLocaleString() : "—");
+  setText("ltv", isFinite(ltvNum) ? ltvNum.toFixed(1) + "%" : "—");
+  setText("ltc", isFinite(ltcNum) ? ltcNum.toFixed(1) + "%" : "—");
+  setText("signal", signal);
+  show("flipResults");
+  metrics.allin = allin ? "$" + allin.toLocaleString() : "";
+  metrics.ltv = isFinite(ltvNum) ? ltvNum.toFixed(1) + "%" : "";
+  metrics.ltc = isFinite(ltcNum) ? ltcNum.toFixed(1) + "%" : "";
+  metrics.signal = signal;
 }
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
-  color:var(--text);
-  background:
-    radial-gradient(900px 520px at 12% 0%, rgba(31,111,255,.10), transparent 55%),
-    radial-gradient(900px 520px at 95% 10%, rgba(31,111,255,.08), transparent 60%),
-    linear-gradient(180deg,#ffffff,#fbfcff 60%,#ffffff);
+
+function calculateDSCR(){
+  if (!document.getElementById("rent")) return;
+  const rent = Number(document.getElementById("rent").value || 0);
+  const pitia = Number(document.getElementById("pitia").value || 0);
+  const st = (document.getElementById("state").value || "").toUpperCase();
+  const dscrNum = (pitia > 0) ? (rent / pitia) : NaN;
+  let signal = "—";
+  let next = "—";
+  if (isFinite(dscrNum)) {
+    if (dscrNum >= 1.25) { signal = "Strong"; next = "Likely DSCR-eligible lane"; }
+    else if (dscrNum >= 1.00) { signal = "Borderline"; next = "May need structure changes"; }
+    else { signal = "Tight"; next = "Consider more equity / lower PITIA"; }
+  }
+  setText("dscrVal", isFinite(dscrNum) ? dscrNum.toFixed(2) : "—");
+  setText("dscrSignal", signal);
+  setText("dscrNext", next);
+  show("dscrResults");
+  metrics.dscr = isFinite(dscrNum) ? dscrNum.toFixed(2) : "";
+  metrics.signal = signal;
+  metrics.state = st || "";
 }
-a{color:inherit}
-.noScroll{overflow:hidden}
 
-.topbar{background:#0b1220;color:rgba(255,255,255,.90);font-size:13px}
-.topbarInner{max-width:1120px;margin:0 auto;padding:10px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.topbar a{color:#fff;text-decoration:none;font-weight:800}
-.topbar .muted{opacity:.78}
-
-.header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.headerInner{max-width:1120px;margin:0 auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-.brand{display:flex;gap:12px;align-items:center;text-decoration:none}
-.logo{
-  width:40px;height:40px;border-radius:14px;
-  background:radial-gradient(circle at 30% 20%, rgba(255,255,255,.45), transparent 55%),
-             linear-gradient(135deg, var(--accent), rgba(31,111,255,.18));
-  border:1px solid rgba(31,111,255,.25);
-  box-shadow:0 10px 25px rgba(31,111,255,.18);
+function calculateBankStatement(){
+  if (!document.getElementById("bs_deposits")) return;
+  const months = Number(document.getElementById("bs_months").value || 12);
+  const deposits = Number(document.getElementById("bs_deposits").value || 0);
+  const expensePct = Number(document.getElementById("bs_expense").value || 50) / 100;
+  const ownPct = Number(document.getElementById("bs_own").value || 100) / 100;
+  const net = deposits * (1 - expensePct);
+  const netOwn = net * ownPct;
+  const monthly = months > 0 ? netOwn / months : 0;
+  const annual = monthly * 12;
+  const fmt = (n) => n ? "$" + Math.round(n).toLocaleString() : "—";
+  setText("bs_net", fmt(net));
+  setText("bs_net_own", fmt(netOwn));
+  setText("bs_monthly", fmt(monthly));
+  setText("bs_annual", fmt(annual));
+  show("bsResults");
+  metrics.signal = "Bank Statement Estimate";
+  metrics.bsMonthly = fmt(monthly);
+  metrics.bsAnnual = fmt(annual);
 }
-.brand strong{display:block;letter-spacing:.2px}
-.brand span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
 
-.nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.nav a{text-decoration:none;font-weight:900;font-size:13px;color:rgba(11,18,32,.86);padding:9px 12px;border-radius:999px;border:1px solid rgba(15,23,42,.10);background:rgba(255,255,255,.65)}
-.nav a:hover{transform:translateY(-1px)}
-.headerActions{display:flex;gap:10px;align-items:center}
+function openLeadModal(type){
+  const modal = document.getElementById("leadModal");
+  if (!modal) return;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("noScroll");
 
-.wrap{max-width:1120px;margin:0 auto;padding:22px 18px}
-.section{margin-top:18px}
-.sectionHead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:12px}
-.sectionHead h2{margin:0;font-size:20px;letter-spacing:-.2px}
-.sectionHead p{margin:0;color:var(--muted);line-height:1.6;font-size:13px}
+  const sel = document.getElementById("f_type");
+  const clean = (type || "").toLowerCase();
+  if (sel) {
+    if (clean.includes("rental") || clean.includes("dscr")) sel.value = "Rental property";
+    else if (clean.includes("fix")) sel.value = "Fix & Flip";
+    else if (clean.includes("bridge")) sel.value = "Bridge / BPL";
+    else if (clean.includes("refi")) sel.value = "Refinance / cash-out";
+    else if (clean.includes("bank")) sel.value = "Not sure yet";
+    else sel.value = "";
+  }
 
-.hero{padding:28px 0 8px}
-.heroGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch}
-@media (max-width: 920px){.heroGrid{grid-template-columns:1fr}}
-.panel{
-  background:rgba(255,255,255,.90);
-  border:1px solid var(--line);
-  border-radius:calc(var(--radius) + 4px);
-  box-shadow:var(--shadow);
-  padding:22px;
+  setVal("h_page", window.location.pathname.split("/").pop() || "index.html");
+  setVal("h_type", type || "");
+  setVal("h_allin", metrics.allin || "");
+  setVal("h_ltv", metrics.ltv || "");
+  setVal("h_ltc", metrics.ltc || "");
+  setVal("h_dscr", metrics.dscr || "");
+  setVal("h_signal", metrics.signal || "");
+  setVal("h_state", metrics.state || "");
+  setVal("h_bs_monthly", metrics.bsMonthly || "");
+  setVal("h_bs_annual", metrics.bsAnnual || "");
+
+  const sub = document.getElementById("modalSub");
+  if (sub) sub.textContent = type ? ("Tell us about your " + type + " scenario.") : "Tell us about your scenario.";
+  const stateInput = document.getElementById("f_state");
+  if (stateInput && metrics.state) stateInput.value = metrics.state;
 }
-.hero h1{margin:0 0 10px;font-size:36px;line-height:1.08;letter-spacing:-.6px}
-.hero p{margin:0 0 16px;color:var(--muted);line-height:1.6;font-size:15px}
-.heroBtns{display:flex;gap:10px;flex-wrap:wrap}
-.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.pill{display:inline-flex;padding:7px 10px;border-radius:999px;background:var(--pill);border:1px solid rgba(31,111,255,.18);color:rgba(11,18,32,.78);font-size:12px;font-weight:900}
-.micro{color:rgba(75,85,101,.92);font-size:12px;line-height:1.6;margin-top:10px}
-.smallNote{font-size:12px;color:rgba(75,85,101,.92);line-height:1.6}
 
-.step{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed rgba(15,23,42,.10)}
-.step:last-child{border-bottom:none}
-.stepNum{
-  width:30px;height:30px;border-radius:12px;
-  background:rgba(31,111,255,.10);border:1px solid rgba(31,111,255,.22);
-  display:flex;align-items:center;justify-content:center;font-weight:950;color:var(--accent2);
+function openLeadModalWithPrefill(type, amount, state, value){
+  openLeadModal(type || "General");
+  const amt = document.getElementById("f_amount");
+  if (amt && amount) amt.value = amount;
+  const st = document.getElementById("f_state");
+  if (st && state) st.value = String(state).toUpperCase();
+  const hs = document.getElementById("h_state");
+  if (hs && state) hs.value = String(state).toUpperCase();
+  const fv = document.getElementById("f_value");
+  if (fv && value) fv.value = value;
 }
-.step strong{display:block}
-.step span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
 
-.trustbar{
-  margin-top:14px;
-  display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;
-  background:rgba(255,255,255,.70);border:1px solid rgba(15,23,42,.10);border-radius:999px;padding:10px 12px;
+function closeLeadModal(){
+  const modal = document.getElementById("leadModal");
+  if (!modal) return;
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("noScroll");
 }
-.trustbar strong{font-size:12px;letter-spacing:.2px}
-.trustbar .items{display:flex;gap:10px;flex-wrap:wrap;color:rgba(75,85,101,.95);font-size:12px;font-weight:900}
-.dot{width:6px;height:6px;border-radius:99px;background:rgba(31,111,255,.55);display:inline-block;transform:translateY(-1px)}
 
-.quickForm{
-  margin-top:10px;padding:14px;border-radius:22px;border:1px solid rgba(15,23,42,.10);background:rgba(255,255,255,.78);
+function toggleFAQ(btn){
+  const wrap = btn.closest(".qa");
+  if (!wrap) return;
+  wrap.classList.toggle("open");
+  const chev = wrap.querySelector(".chev");
+  if (chev) chev.textContent = wrap.classList.contains("open") ? "—" : "+";
 }
-.quickForm h3{margin:0 0 10px;font-size:15px;letter-spacing:-.1px}
-.quickForm .grid2{margin-top:0}
-.quickForm .btnRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-.quickForm .hint{margin-top:10px;color:rgba(75,85,101,.92);font-size:12px;line-height:1.6}
 
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-@media (max-width: 980px){.grid3{grid-template-columns:1fr}}
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 10px 20px rgba(2,6,23,.06)}
-.cardPad{padding:16px}
-.card h3{margin:0 0 6px;font-size:16px}
-.card p{margin:0 0 12px;color:var(--muted);line-height:1.6;font-size:13px}
-.actions{display:flex;gap:10px;flex-wrap:wrap}
+function smoothTo(id){
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({behavior:"smooth"});
+}
 
-.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-@media (max-width: 1040px){.benefits{grid-template-columns:1fr 1fr}}
-@media (max-width: 620px){.benefits{grid-template-columns:1fr}}
-.benefit{background:rgba(255,255,255,.90);border:1px solid rgba(15,23,42,.10);border-radius:var(--radius);padding:14px;box-shadow:0 10px 18px rgba(2,6,23,.05)}
-.benefit .k{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.benefit .icon{width:36px;height:36px;border-radius:14px;background:rgba(31,111,255,.10);border:1px solid rgba(31,111,255,.20);display:flex;align-items:center;justify-content:center;color:var(--accent2);font-weight:1000}
-
-.deals{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-@media (max-width: 980px){.deals{grid-template-columns:1fr}}
-.deal{background:linear-gradient(180deg, rgba(31,111,255,.05), rgba(255,255,255,.90));border:1px solid rgba(31,111,255,.16);border-radius:var(--radius);padding:16px;box-shadow:0 10px 18px rgba(2,6,23,.05)}
-.deal .top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.deal .badge{display:inline-flex;padding:6px 10px;border-radius:999px;background:var(--pill);border:1px solid rgba(31,111,255,.18);font-size:12px;font-weight:1000;color:rgba(11,18,32,.78)}
-
-.rateGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-@media (max-width: 1040px){.rateGrid{grid-template-columns:1fr 1fr}}
-@media (max-width: 620px){.rateGrid{grid-template-columns:1fr}}
-.rate{background:linear-gradient(180deg, rgba(31,111,255,.06), #ffffff);border:1px solid rgba(31,111,255,.18);border-radius:var(--radius);padding:14px}
-.rate .label{font-size:12px;color:rgba(11,18,32,.78);font-weight:900}
-.rate .pct{font-size:28px;font-weight:1000;letter-spacing:-.3px;margin:8px 0 4px}
-.rate .sub{font-size:12px;color:var(--muted);line-height:1.5}
-
-label{display:block;margin-top:12px;font-size:13px;color:rgba(11,18,32,.74);font-weight:900}
-input,select{width:100%;margin-top:6px;padding:11px 12px;border-radius:14px;border:1px solid rgba(15,23,42,.14);background:rgba(255,255,255,.90);color:var(--text);outline:none}
-input::placeholder{color:rgba(75,85,101,.55)}
-input:focus,select:focus{border-color:rgba(31,111,255,.55);box-shadow:0 0 0 4px rgba(31,111,255,.12)}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 14px;border-radius:14px;cursor:pointer;border:1px solid rgba(15,23,42,.14);background:#fff;color:rgba(11,18,32,.92);font-weight:1000;text-decoration:none}
-.btnPrimary{border-color:rgba(31,111,255,.45);background:linear-gradient(180deg, rgba(31,111,255,.20), rgba(31,111,255,.08))}
-.btnDark{border-color:rgba(11,18,32,.18);background:rgba(11,18,32,.92);color:#fff}
-.btn:hover{transform:translateY(-1px)}
-.btn:active{transform:translateY(0px)}
-
-.resultsBox{background:rgba(246,248,252,.95);border:1px solid rgba(15,23,42,.12);border-radius:var(--radius);padding:14px}
-.metric{display:flex;justify-content:space-between;padding:8px 0;color:rgba(75,85,101,.95);font-weight:900}
-.metric strong{color:rgba(11,18,32,.95)}
-.divider{height:1px;background:rgba(15,23,42,.10);margin:10px 0}
-
-.faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media (max-width: 920px){.faq{grid-template-columns:1fr}}
-.qa{border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.75);overflow:hidden}
-.qa button{width:100%;text-align:left;padding:14px;border:0;background:transparent;cursor:pointer;font-weight:1000;display:flex;justify-content:space-between;gap:10px}
-.qa .ans{padding:0 14px 14px;color:var(--muted);font-size:13px;line-height:1.7;display:none}
-.qa.open .ans{display:block}
-.chev{font-weight:1000;color:rgba(11,18,32,.55)}
-
-.footer{margin-top:22px;padding:16px 0 30px;border-top:1px solid var(--line);color:rgba(75,85,101,.95);font-size:12px;line-height:1.7}
-
-.modal{position:fixed;inset:0;display:none;z-index:50}
-.modal.open{display:block}
-.modalBackdrop{position:absolute;inset:0;background:rgba(2,6,23,.62)}
-.modalPanel{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(780px,92vw);background:rgba(255,255,255,.96);border:1px solid rgba(15,23,42,.16);border-radius:22px;box-shadow:0 28px 80px rgba(2,6,23,.30);padding:16px}
-.modalTop{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(15,23,42,.10);padding-bottom:12px;margin-bottom:12px}
-.modalTop h3{margin:0;font-size:18px;letter-spacing:-.2px}
-.iconBtn{width:42px;height:42px;border-radius:14px;border:1px solid rgba(15,23,42,.14);background:rgba(255,255,255,.90);cursor:pointer;font-weight:1000}
-.form{display:grid;gap:10px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media (max-width: 820px){.grid2{grid-template-columns:1fr}}
-.consent{display:flex;gap:10px;align-items:flex-start;border:1px solid rgba(15,23,42,.12);background:rgba(246,248,252,.85);padding:10px;border-radius:16px}
-.consent input{width:auto;margin-top:3px}
+document.addEventListener("DOMContentLoaded", () => {
+  const fState = document.getElementById("f_state");
+  const hState = document.getElementById("h_state");
+  if (fState && hState) {
+    fState.addEventListener("input", (e) => {
+      hState.value = (e.target.value || "").toUpperCase();
+    });
+  }
+});
