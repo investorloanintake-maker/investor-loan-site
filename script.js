@@ -25,15 +25,13 @@ function calculateFlip(){
   metrics.ltc = isFinite(ltcNum) ? ltcNum.toFixed(1) + "%" : "";
   metrics.signal = signal;
 }
-
 function calculateDSCR(){
   if (!document.getElementById("rent")) return;
   const rent = Number(document.getElementById("rent").value || 0);
   const pitia = Number(document.getElementById("pitia").value || 0);
   const st = (document.getElementById("state").value || "").toUpperCase();
   const dscrNum = (pitia > 0) ? (rent / pitia) : NaN;
-  let signal = "—";
-  let next = "—";
+  let signal = "—"; let next = "—";
   if (isFinite(dscrNum)) {
     if (dscrNum >= 1.25) { signal = "Strong"; next = "Likely DSCR-eligible lane"; }
     else if (dscrNum >= 1.00) { signal = "Borderline"; next = "May need structure changes"; }
@@ -47,7 +45,6 @@ function calculateDSCR(){
   metrics.signal = signal;
   metrics.state = st || "";
 }
-
 function calculateBankStatement(){
   if (!document.getElementById("bs_deposits")) return;
   const months = Number(document.getElementById("bs_months").value || 12);
@@ -65,7 +62,6 @@ function calculateBankStatement(){
   metrics.bsMonthly = fmt(monthly);
   metrics.bsAnnual = fmt(annual);
 }
-
 function openLeadModal(type){
   const modal = document.getElementById("leadModal");
   if (!modal) return;
@@ -79,16 +75,23 @@ function openLeadModal(type){
     else if (clean.includes("fix")) sel.value = "Fix & Flip";
     else if (clean.includes("bridge")) sel.value = "Bridge / BPL";
     else if (clean.includes("refi")) sel.value = "Refinance / cash-out";
+    else if (clean.includes("bank")) sel.value = "Not sure yet";
     else sel.value = "";
   }
   setVal("h_page", window.location.pathname.split("/").pop() || "index.html");
   setVal("h_type", type || "");
-  setVal("h_allin", metrics.allin || ""); setVal("h_ltv", metrics.ltv || ""); setVal("h_ltc", metrics.ltc || "");
-  setVal("h_dscr", metrics.dscr || ""); setVal("h_signal", metrics.signal || ""); setVal("h_state", metrics.state || "");
-  setVal("h_bs_monthly", metrics.bsMonthly || ""); setVal("h_bs_annual", metrics.bsAnnual || "");
+  setVal("h_allin", metrics.allin || "");
+  setVal("h_ltv", metrics.ltv || "");
+  setVal("h_ltc", metrics.ltc || "");
+  setVal("h_dscr", metrics.dscr || "");
+  setVal("h_signal", metrics.signal || "");
+  setVal("h_state", metrics.state || "");
+  setVal("h_bs_monthly", metrics.bsMonthly || "");
+  setVal("h_bs_annual", metrics.bsAnnual || "");
   const sub = document.getElementById("modalSub");
   if (sub) sub.textContent = type ? ("Tell us about your " + type + " scenario.") : "Tell us about your scenario.";
-  const stateInput = document.getElementById("f_state"); if (stateInput && metrics.state) stateInput.value = metrics.state;
+  const stateInput = document.getElementById("f_state");
+  if (stateInput && metrics.state) stateInput.value = metrics.state;
 }
 function openLeadModalWithPrefill(type, amount, state, value){
   openLeadModal(type || "General");
@@ -97,10 +100,26 @@ function openLeadModalWithPrefill(type, amount, state, value){
   const hs = document.getElementById("h_state"); if (hs && state) hs.value = String(state).toUpperCase();
   const fv = document.getElementById("f_value"); if (fv && value) fv.value = value;
 }
-function closeLeadModal(){ const modal = document.getElementById("leadModal"); if (!modal) return; modal.classList.remove("open"); modal.setAttribute("aria-hidden","true"); document.body.classList.remove("noScroll");}
-function toggleFAQ(btn){ const wrap = btn.closest(".qa"); if (!wrap) return; wrap.classList.toggle("open"); const chev = wrap.querySelector(".chev"); if (chev) chev.textContent = wrap.classList.contains("open") ? "—" : "+"; }
-function smoothTo(id){ const el = document.getElementById(id); if (el) el.scrollIntoView({behavior:"smooth"}); }
+function closeLeadModal(){
+  const modal = document.getElementById("leadModal");
+  if (!modal) return;
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("noScroll");
+}
+function toggleFAQ(btn){
+  const wrap = btn.closest(".qa");
+  if (!wrap) return;
+  wrap.classList.toggle("open");
+  const chev = wrap.querySelector(".chev");
+  if (chev) chev.textContent = wrap.classList.contains("open") ? "—" : "+";
+}
+function smoothTo(id){
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({behavior:"smooth"});
+}
 document.addEventListener("DOMContentLoaded", () => {
-  const fState = document.getElementById("f_state"); const hState = document.getElementById("h_state");
+  const fState = document.getElementById("f_state");
+  const hState = document.getElementById("h_state");
   if (fState && hState) fState.addEventListener("input", (e)=>{ hState.value = (e.target.value || "").toUpperCase(); });
 });

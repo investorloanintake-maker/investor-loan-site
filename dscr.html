@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>DSCR Calculator | Investor Loan Marketplace</title><link rel="icon" href="brand-icon.png"/><link rel="stylesheet" href="styles.css"/></head><body><div class="topbar">
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>DSCR Rental Loans | Investor Loan Marketplace</title><link rel="icon" href="brand-icon.png"/><link rel="stylesheet" href="styles.css"/></head><body><div class="topbar">
   <div class="wrap">
     <div class="muted">National marketplace for business-purpose investor financing</div>
     <div><a href="#" onclick="openLeadModal('Quick Loan Request');return false;">Get Started</a> <span class="muted" style="margin-left:10px;">Investorloanintake@gmail.com</span></div>
@@ -15,33 +15,25 @@
       <a href="#faq" onclick="smoothTo('faq');return false;">FAQ</a>
       <a href="#" onclick="openLeadModal('General');return false;">Contact</a>
     </nav>
-    <div class="stackBtns"><a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Quick Loan Request</a></div>
+    <div><a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Quick Loan Request</a></div>
   </div>
 </header><main class="wrap">
-<section class="section hero">
-  <div class="sectionHead"><div><h2>DSCR Calculator</h2><p>Estimate DSCR using Monthly Rent ÷ Monthly PITIA, then submit a request.</p></div><a class="btn btnPrimary" href="#" onclick="openLeadModal('DSCR');return false;">Quick Loan Request</a></div>
-  <div class="panel"><div class="grid2">
-    <div>
-      <label>Monthly Rent</label><input id="rent" type="number" placeholder="3200" inputmode="numeric">
-      <label>Monthly PITIA</label><input id="pitia" type="number" placeholder="2600" inputmode="numeric">
-      <label>State</label><input id="state" type="text" placeholder="FL" maxlength="2">
-      <div class="heroBtns"><button class="btn btnPrimary" type="button" onclick="calculateDSCR()">Calculate DSCR</button><button class="btn" type="button" onclick="openLeadModal('DSCR')">Talk to an Expert</button></div>
-      <p class="small" style="margin-top:10px">DSCR methodology varies by lender. This is a quick estimate.</p>
-    </div>
-    <div class="resultsBox" id="dscrResults" style="display:none">
-      <div class="metric"><span>DSCR</span><strong id="dscrVal">—</strong></div>
-      <div class="metric"><span>Signal</span><strong id="dscrSignal">—</strong></div>
-      <div class="metric"><span>Next Step</span><strong id="dscrNext">—</strong></div>
-      <div class="divider"></div>
-      <button class="btn btnDark" type="button" onclick="openLeadModal('DSCR')">Submit with These Numbers</button>
-    </div>
-  </div></div>
-</section>
-<section class="section"><div class="grid3">
-<div class="card"><div class="cardTop"><div class="icon">P</div><h3>PITIA</h3></div><p>Principal + Interest + Taxes + Insurance + HOA if applicable.</p></div>
-<div class="card"><div class="cardTop"><div class="icon">R</div><h3>Rent source</h3></div><p>Lease, market rent, or short-term rental methodology depends on program.</p></div>
-<div class="card"><div class="cardTop"><div class="icon">T</div><h3>Thresholds</h3></div><p>Many programs price better at 1.10–1.25+. Below 1.00 can require more equity.</p></div>
-</div></section>
+<section class="hero"><div class="sectionHead"><div><h2>DSCR Rental Loans</h2><p>Long-term rental property financing built around property cash flow.</p></div><a class="btn btnPrimary" href="#" onclick="openLeadModal('DSCR');return false;">Get Loan Options</a></div>
+<div class="panel"><div class="grid2">
+<div>
+<label>Monthly Rent</label><input id="rent" type="number" placeholder="3200" inputmode="numeric">
+<label>Monthly PITIA</label><input id="pitia" type="number" placeholder="2600" inputmode="numeric">
+<label>State</label><input id="state" type="text" placeholder="FL" maxlength="2">
+<div class="heroBtns"><button class="btn btnPrimary" type="button" onclick="calculateDSCR()">Calculate DSCR</button><button class="btn btnGhost" type="button" onclick="openLeadModal('DSCR')">Talk to an Expert</button></div>
+</div>
+<div class="resultsBox" id="dscrResults" style="display:none">
+<div class="metric"><span>DSCR</span><strong id="dscrVal">—</strong></div>
+<div class="metric"><span>Signal</span><strong id="dscrSignal">—</strong></div>
+<div class="metric"><span>Next Step</span><strong id="dscrNext">—</strong></div>
+<div class="divider"></div>
+<button class="btn btnDark" type="button" onclick="openLeadModal('DSCR')">Submit with These Numbers</button>
+</div>
+</div></div></section>
 <footer class="footer">
   <div class="footerCard">
     <div class="footerBrand"><img src="brand-logo.png" alt="Investor Loan Marketplace"/></div>
@@ -73,8 +65,7 @@
         <div><label>What type of deal is this?</label>
           <select name="loan_type" id="f_type" required>
             <option value="">Select</option><option>Rental property</option><option>Fix &amp; Flip</option><option>Bridge / BPL</option><option>Refinance / cash-out</option><option>Not sure yet</option>
-          </select>
-        </div>
+          </select></div>
         <div><label>Estimated Loan Amount</label><input type="number" name="loan_amount" id="f_amount" placeholder="450000" inputmode="numeric" required></div>
       </div>
       <div class="grid2">

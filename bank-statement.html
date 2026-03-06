@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Bank Statement Estimator | Investor Loan Marketplace</title><link rel="icon" href="brand-icon.png"/><link rel="stylesheet" href="styles.css"/></head><body><div class="topbar">
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Bank Statement Loans | Investor Loan Marketplace</title><link rel="icon" href="brand-icon.png"/><link rel="stylesheet" href="styles.css"/></head><body><div class="topbar">
   <div class="wrap">
     <div class="muted">National marketplace for business-purpose investor financing</div>
     <div><a href="#" onclick="openLeadModal('Quick Loan Request');return false;">Get Started</a> <span class="muted" style="margin-left:10px;">Investorloanintake@gmail.com</span></div>
@@ -15,35 +15,27 @@
       <a href="#faq" onclick="smoothTo('faq');return false;">FAQ</a>
       <a href="#" onclick="openLeadModal('General');return false;">Contact</a>
     </nav>
-    <div class="stackBtns"><a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Quick Loan Request</a></div>
+    <div><a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Quick Loan Request</a></div>
   </div>
 </header><main class="wrap">
-<section class="section hero">
-  <div class="sectionHead"><div><h2>Bank Statement Income Estimator</h2><p>Estimate qualifying income using deposits, expense factor, and ownership percentage.</p></div><a class="btn btnPrimary" href="#" onclick="openLeadModal('Bank Statement');return false;">Quick Loan Request</a></div>
-  <div class="panel"><div class="grid2">
-    <div>
-      <label>Months of statements</label><select id="bs_months"><option value="12">12 months</option><option value="24">24 months</option></select>
-      <label>Total deposits (for selected period)</label><input id="bs_deposits" type="number" placeholder="240000" inputmode="numeric">
-      <label>Expense factor</label><select id="bs_expense"><option value="50">50% (common default)</option><option value="40">40%</option><option value="35">35%</option><option value="30">30%</option></select>
-      <label>Ownership percentage</label><input id="bs_own" type="number" placeholder="100" inputmode="numeric">
-      <div class="heroBtns"><button class="btn btnPrimary" type="button" onclick="calculateBankStatement()">Estimate Income</button><button class="btn" type="button" onclick="openLeadModal('Bank Statement')">Talk to an Expert</button></div>
-      <p class="small" style="margin-top:10px">All business deposits must be sourced to a client paying a business. Estimation only.</p>
-    </div>
-    <div class="resultsBox" id="bsResults" style="display:none">
-      <div class="metric"><span>Net Deposits (after expense)</span><strong id="bs_net">—</strong></div>
-      <div class="metric"><span>Ownership-adjusted Net</span><strong id="bs_net_own">—</strong></div>
-      <div class="metric"><span>Monthly Qualifying Income</span><strong id="bs_monthly">—</strong></div>
-      <div class="metric"><span>Annual Qualifying Income</span><strong id="bs_annual">—</strong></div>
-      <div class="divider"></div>
-      <button class="btn btnDark" type="button" onclick="openLeadModal('Bank Statement')">Submit with These Numbers</button>
-    </div>
-  </div></div>
-</section>
-<section class="section"><div class="grid3">
-<div class="card"><div class="cardTop"><div class="icon">1</div><h3>12 / 24 Month Options</h3></div><p>Screen both common lookback periods depending on lender lane.</p></div>
-<div class="card"><div class="cardTop"><div class="icon">%</div><h3>Expense Factor</h3></div><p>Default 50% shown, with alternatives for different business profiles.</p></div>
-<div class="card"><div class="cardTop"><div class="icon">O</div><h3>Ownership %</h3></div><p>Adjust qualifying income where the borrower owns less than 100% of the business.</p></div>
-</div></section>
+<section class="hero"><div class="sectionHead"><div><h2>Bank Statement Loans</h2><p>Alt-doc income estimate for self-employed borrowers using deposits and expense factor.</p></div><a class="btn btnPrimary" href="#" onclick="openLeadModal('Bank Statement');return false;">Get Loan Options</a></div>
+<div class="panel"><div class="grid2">
+<div>
+<label>Months of statements</label><select id="bs_months"><option value="12">12 months</option><option value="24">24 months</option></select>
+<label>Total deposits (for selected period)</label><input id="bs_deposits" type="number" placeholder="240000" inputmode="numeric">
+<label>Expense factor</label><select id="bs_expense"><option value="50">50% (common default)</option><option value="40">40%</option><option value="35">35%</option><option value="30">30%</option></select>
+<label>Ownership percentage</label><input id="bs_own" type="number" placeholder="100" inputmode="numeric">
+<div class="heroBtns"><button class="btn btnPrimary" type="button" onclick="calculateBankStatement()">Estimate Income</button><button class="btn btnGhost" type="button" onclick="openLeadModal('Bank Statement')">Talk to an Expert</button></div>
+</div>
+<div class="resultsBox" id="bsResults" style="display:none">
+<div class="metric"><span>Net Deposits (after expense)</span><strong id="bs_net">—</strong></div>
+<div class="metric"><span>Ownership-adjusted Net</span><strong id="bs_net_own">—</strong></div>
+<div class="metric"><span>Monthly Qualifying Income</span><strong id="bs_monthly">—</strong></div>
+<div class="metric"><span>Annual Qualifying Income</span><strong id="bs_annual">—</strong></div>
+<div class="divider"></div>
+<button class="btn btnDark" type="button" onclick="openLeadModal('Bank Statement')">Submit with These Numbers</button>
+</div>
+</div></div></section>
 <footer class="footer">
   <div class="footerCard">
     <div class="footerBrand"><img src="brand-logo.png" alt="Investor Loan Marketplace"/></div>
@@ -75,8 +67,7 @@
         <div><label>What type of deal is this?</label>
           <select name="loan_type" id="f_type" required>
             <option value="">Select</option><option>Rental property</option><option>Fix &amp; Flip</option><option>Bridge / BPL</option><option>Refinance / cash-out</option><option>Not sure yet</option>
-          </select>
-        </div>
+          </select></div>
         <div><label>Estimated Loan Amount</label><input type="number" name="loan_amount" id="f_amount" placeholder="450000" inputmode="numeric" required></div>
       </div>
       <div class="grid2">

@@ -16,22 +16,32 @@
       <a href="#faq" onclick="smoothTo('faq');return false;">FAQ</a>
       <a href="#" onclick="openLeadModal('General');return false;">Contact</a>
     </nav>
-    <div class="stackBtns"><a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Quick Loan Request</a></div>
+    <div><a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Quick Loan Request</a></div>
   </div>
 </header>
 <main class="wrap">
 <section class="hero"><div class="heroGrid">
 <div class="panel">
-<h1>Funding for Investment Properties — Without the Bank Runaround</h1>
-<p>DSCR loans, Fix &amp; Flip financing, Bridge / BPL programs, and bank statement income guidance matched to your deal. Run quick numbers or submit a fast request to talk with an expert.</p>
-<div class="heroBtns"><a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Quick Loan Request</a><a class="btn btnGhost" href="dscr.html">Run DSCR</a><a class="btn btnGhost" href="fix-and-flip.html">Run Fix &amp; Flip</a><a class="btn btnGhost" href="application.html">Full Application</a></div>
-<div class="trustbar"><strong>Used by real estate investors nationwide</strong><div class="trustItems"><span><span class="dot"></span> Business-purpose only</span><span><span class="dot"></span> No hard credit pull to start</span><span><span class="dot"></span> Program-dependent</span></div></div>
-<div class="miniPills"><span class="pill">Fast intake</span><span class="pill">Investor-only</span><span class="pill">Deal-specific guidance</span></div>
+<h1>Investment Property Financing for Real Estate Investors</h1>
+<p>DSCR rental loans, Fix &amp; Flip financing, Bridge / BPL loans, and bank statement income guidance. Structured to help investors compare programs, submit deals, and move faster.</p>
+<div class="heroBtns">
+<a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Get Loan Options</a>
+<a class="btn btnGhost" href="application.html">Submit Your Deal</a>
+</div>
+<div class="kpiBar">
+<div class="kpi"><strong>Up to 90%</strong><span>Purchase financing on select fix &amp; flip scenarios</span></div>
+<div class="kpi"><strong>100%</strong><span>Rehab financing on eligible deals and lender programs</span></div>
+<div class="kpi"><strong>10–14 Days</strong><span>Potential closing timeline depending on deal and docs</span></div>
+<div class="kpi"><strong>$75K – $5M+</strong><span>Common investor loan size range across program types</span></div>
+</div>
+<div class="trustbar"><strong>Nationwide investor loan programs</strong><div class="trustItems"><span><span class="dot"></span> Business-purpose only</span><span><span class="dot"></span> Fast deal review</span><span><span class="dot"></span> Experienced investor financing team</span></div></div>
 </div>
 <div class="panel">
-<h3>Choose your path</h3><p class="small">Use the short form for speed or the full application when you want tighter deal routing and cleaner CRM intake.</p>
-<div class="step"><div class="stepN">1</div><div><strong>Quick Loan Request</strong><span>Best for fast lead capture and first contact.</span></div></div>
-<div class="step"><div class="stepN">2</div><div><strong>Full Application</strong><span>Best for serious borrowers ready to submit more deal detail.</span></div></div>
+<h3>Quick Loan Request</h3>
+<p class="small">Start with a short form for fast routing, or use the full application if you want deeper review and cleaner CRM intake.</p>
+<div class="step"><div class="stepN">1</div><div><strong>Select deal type</strong><span>Rental, flip, bridge, refinance, or not sure yet.</span></div></div>
+<div class="step"><div class="stepN">2</div><div><strong>Share the basics</strong><span>Loan amount, state, and any deal context.</span></div></div>
+<div class="step"><div class="stepN">3</div><div><strong>Review options</strong><span>We match your scenario to the right program lane.</span></div></div>
 <div class="quickForm">
 <label>What type of deal is this?</label>
 <select id="hero_type"><option value="">Select</option><option>Rental property</option><option>Fix &amp; Flip</option><option>Bridge / BPL</option><option>Refinance / cash-out</option><option>Not sure yet</option></select>
@@ -40,48 +50,90 @@
 <div><label>Property value / purchase (optional)</label><input id="hero_value" type="number" placeholder="550000" inputmode="numeric"/></div>
 </div>
 <label>State</label><input id="hero_state" type="text" placeholder="FL" maxlength="2"/>
-<div class="heroBtns" style="margin-top:14px"><button class="btn btnDark" type="button" onclick="openLeadModalWithPrefill(document.getElementById('hero_type').value, document.getElementById('hero_amount').value, document.getElementById('hero_state').value, document.getElementById('hero_value').value)">Get Loan Options</button><a class="btn btnGhost" href="application.html">Start Full Application</a></div>
-<p class="small" style="margin-top:10px">✓ No hard credit pull to start<br/>✓ Business purpose loans only<br/>✓ Nationwide investor programs</p>
-</div></div></div></section>
-
-<section class="section"><div class="sectionHead"><div><h2>Why investors use our marketplace</h2><p>The fastest way to get to the right program — without guessing lender fit on your own.</p></div></div>
-<div class="grid4">
-<div class="card"><div class="cardTop"><div class="icon">≋</div><h3>Multiple loan options</h3></div><p>Compare DSCR, Fix &amp; Flip, Bridge/BPL, and alt-doc options across multiple lenders.</p></div>
-<div class="card"><div class="cardTop"><div class="icon">⚡</div><h3>Fast intake</h3></div><p>Submit a deal in minutes and get routed to the right financing lane.</p></div>
-<div class="card"><div class="cardTop"><div class="icon">🏠</div><h3>Built for investors</h3></div><p>Business-purpose financing designed for rentals, flips, and bridge execution.</p></div>
-<div class="card"><div class="cardTop"><div class="icon">✓</div><h3>Expert guidance</h3></div><p>Talk with someone who understands investor financing and transaction flow.</p></div>
+<div class="heroBtns" style="margin-top:14px">
+<button class="btn btnDark" type="button" onclick="openLeadModalWithPrefill(document.getElementById('hero_type').value, document.getElementById('hero_amount').value, document.getElementById('hero_state').value, document.getElementById('hero_value').value)">Get Loan Options</button>
+<a class="btn btnGhost" href="application.html">Start Full Application</a>
+</div>
+<p class="small" style="margin-top:10px">✓ No hard credit pull to start<br/>✓ Business purpose loans only<br/>✓ Built for investor scenarios</p>
+</div>
+</div>
 </div></section>
 
-<section class="section" id="deals"><div class="sectionHead"><div><h2>Explore deal types</h2><p>Start here if you’re not sure which path fits your deal.</p></div><a class="btn" href="#" onclick="openLeadModal('General');return false;">Ask a Question</a></div>
+<section class="section"><div class="sectionHead"><div><h2>Investment property loan programs</h2><p>Program-first structure inspired by high-converting investor lending sites.</p></div></div>
 <div class="grid4">
-<div class="card"><div class="cardTop"><div class="icon">D</div><h3>DSCR Loans</h3></div><p>Long-term rental financing. Quick check: Rent ÷ PITIA.</p><div class="actions" style="margin-top:14px"><a class="btn btnPrimary" href="dscr.html">Run DSCR Calculator</a><a class="btn" href="#" onclick="openLeadModal('DSCR');return false;">Request Options</a></div></div>
-<div class="card"><div class="cardTop"><div class="icon">F</div><h3>Fix &amp; Flip</h3></div><p>Purchase + rehab financing. Quick leverage: LTV, LTC, and signal.</p><div class="actions" style="margin-top:14px"><a class="btn btnPrimary" href="fix-and-flip.html">Run Flip Analyzer</a><a class="btn" href="#" onclick="openLeadModal('Fix & Flip');return false;">Request Options</a></div></div>
-<div class="card"><div class="cardTop"><div class="icon">B</div><h3>Bridge / BPL</h3></div><p>Short-term investor financing for speed, flexibility, and execution.</p><div class="actions" style="margin-top:14px"><a class="btn btnPrimary" href="#" onclick="openLeadModal('Bridge / BPL');return false;">Request Terms</a><a class="btn" href="#" onclick="openLeadModal('Bridge / BPL');return false;">Talk to Expert</a></div></div>
-<div class="card"><div class="cardTop"><div class="icon">N</div><h3>Bank Statement</h3></div><p>Alt-doc income estimate for self-employed borrowers using deposits and expense factor.</p><div class="actions" style="margin-top:14px"><a class="btn btnPrimary" href="bank-statement.html">Run Estimator</a><a class="btn" href="#" onclick="openLeadModal('Bank Statement');return false;">Request Options</a></div></div>
+<div class="card"><div class="cardTop"><div class="icon">F</div><h3>Fix &amp; Flip Loans</h3></div><p>Short-term rehab financing for purchase + improvement strategies.</p><div class="actions" style="margin-top:14px"><a class="btn btnPrimary" href="fix-and-flip.html">Learn More</a><a class="btn" href="#" onclick="openLeadModal('Fix & Flip');return false;">Get Loan Options</a></div></div>
+<div class="card"><div class="cardTop"><div class="icon">D</div><h3>DSCR Rental Loans</h3></div><p>Long-term rental property financing built around property cash flow.</p><div class="actions" style="margin-top:14px"><a class="btn btnPrimary" href="dscr.html">Learn More</a><a class="btn" href="#" onclick="openLeadModal('DSCR');return false;">Get Loan Options</a></div></div>
+<div class="card"><div class="cardTop"><div class="icon">B</div><h3>Bridge / BPL Loans</h3></div><p>Short-term capital for acquisitions, transitions, or investor speed.</p><div class="actions" style="margin-top:14px"><a class="btn btnPrimary" href="#" onclick="openLeadModal('Bridge / BPL');return false;">Request Terms</a><a class="btn" href="application.html">Apply</a></div></div>
+<div class="card"><div class="cardTop"><div class="icon">N</div><h3>Bank Statement Loans</h3></div><p>Alt-doc screening for self-employed borrowers using deposits and expense factor.</p><div class="actions" style="margin-top:14px"><a class="btn btnPrimary" href="bank-statement.html">Learn More</a><a class="btn" href="#" onclick="openLeadModal('Bank Statement');return false;">Get Loan Options</a></div></div>
 </div></section>
 
-<section class="section"><div class="sectionHead"><div><h2>Featured rates (example)</h2><p>Illustration only — pricing varies by profile, property, and state.</p></div></div>
-<div class="grid4">
-<div class="rateCard"><div class="kicker">1-unit DSCR Rental</div><div class="pct">6.99%</div><div class="small">30-year fixed • 80% LTV purchase</div></div>
-<div class="rateCard"><div class="kicker">5+ unit Multifamily</div><div class="pct">7.75%</div><div class="small">30-year fixed • 75% LTV purchase</div></div>
-<div class="rateCard"><div class="kicker">Rehab / Fix &amp; Flip</div><div class="pct">9.50%</div><div class="small">Up to 85% LTC • experience-based</div></div>
-<div class="rateCard"><div class="kicker">Bridge / BPL</div><div class="pct">10.25%</div><div class="small">Interest-only • 12–18 months</div></div>
-</div><p class="small" style="margin-top:10px">These numbers are placeholders and not an offer to lend.</p></section>
+<section class="section"><div class="sectionHead"><div><h2>Fix &amp; Flip program highlights</h2><p>Simple, scannable terms section like leading investor lending pages.</p></div></div>
+<div class="highlightRow">
+<div class="highlight"><div class="label">Max LTV</div><div class="value">90%</div></div>
+<div class="highlight"><div class="label">Rehab Financing</div><div class="value">100%</div></div>
+<div class="highlight"><div class="label">Loan Amount</div><div class="value">$75K+</div></div>
+<div class="highlight"><div class="label">Terms</div><div class="value">12–24 Mo</div></div>
+<div class="highlight"><div class="label">Experience</div><div class="value">Varies</div></div>
+</div>
+<p class="small" style="margin-top:10px">Examples only. Final terms depend on lender guidelines, borrower profile, property, and jurisdiction.</p></section>
+
+<section class="section"><div class="sectionHead"><div><h2>How it works</h2><p>Keep the flow simple: submit, review options, close.</p></div></div>
+<div class="grid3">
+<div class="card"><div class="cardTop"><div class="icon">1</div><h3>Submit your deal</h3></div><p>Use the quick request, calculator pages, or full application page.</p></div>
+<div class="card"><div class="cardTop"><div class="icon">2</div><h3>Review loan options</h3></div><p>We route your scenario to the best-fit investor financing lane.</p></div>
+<div class="card"><div class="cardTop"><div class="icon">3</div><h3>Close fast</h3></div><p>If the fit works, we request docs and move the deal toward terms and closing.</p></div>
+</div></section>
+
+<section class="section"><div class="sectionHead"><div><h2>Example deal</h2><p>One of the most effective trust builders on investor lending pages.</p></div><a class="btn btnPrimary" href="#" onclick="openLeadModal('Fix & Flip Example');return false;">Submit Your Deal</a></div>
+<div class="exampleDeal">
+<div class="exampleGrid">
+<div>
+<h3 style="margin-top:0">Example Fix &amp; Flip Deal</h3>
+<div class="exampleTable">
+<div>Purchase Price</div><div><strong>$320,000</strong></div>
+<div>Rehab Budget</div><div><strong>$80,000</strong></div>
+<div>After Repair Value</div><div><strong>$520,000</strong></div>
+<div>Loan Amount</div><div><strong>$360,000</strong></div>
+</div>
+</div>
+<div>
+<h3 style="margin-top:0">Illustrative Loan Structure</h3>
+<div class="exampleTable">
+<div>Purchase Financing</div><div><strong>90%</strong></div>
+<div>Rehab Financing</div><div><strong>100%</strong></div>
+<div>Term</div><div><strong>12 Months</strong></div>
+<div>Type</div><div><strong>Interest-Only</strong></div>
+</div>
+<div class="heroBtns" style="margin-top:18px"><a class="btn btnDark" href="#" onclick="openLeadModal('Example Deal');return false;">Get Loan Options</a></div>
+</div>
+</div>
+</div></section>
+
+<section class="section"><div class="sectionHead"><div><h2>Calculators</h2><p>Tools support the sales flow, but don’t lead it.</p></div></div>
+<div class="grid3">
+<div class="card"><div class="cardTop"><div class="icon">D</div><h3>DSCR Calculator</h3></div><p>Check rental cash-flow fit before talking leverage and structure.</p><div class="actions" style="margin-top:14px"><a class="btn btnPrimary" href="dscr.html">Run DSCR</a></div></div>
+<div class="card"><div class="cardTop"><div class="icon">F</div><h3>Flip Analyzer</h3></div><p>Quick leverage screen for purchase, rehab, and ARV.</p><div class="actions" style="margin-top:14px"><a class="btn btnPrimary" href="fix-and-flip.html">Run Analyzer</a></div></div>
+<div class="card"><div class="cardTop"><div class="icon">N</div><h3>Bank Statement Estimator</h3></div><p>Alt-doc income estimate using deposits, expense factor, and ownership.</p><div class="actions" style="margin-top:14px"><a class="btn btnPrimary" href="bank-statement.html">Run Estimator</a></div></div>
+</div></section>
 
 <section class="section" id="faq"><div class="sectionHead"><div><h2>Frequently asked questions</h2><p>Quick answers for common investor financing questions.</p></div></div>
 <div class="faq">
-<div class="qa"><button type="button" onclick="toggleFAQ(this)">Who is this for? <span class="chev">+</span></button><div class="ans">Business-purpose borrowers financing investment properties. The bank statement estimator is for alt-doc screening only.</div></div>
-<div class="qa"><button type="button" onclick="toggleFAQ(this)">Do I have to use the calculators? <span class="chev">+</span></button><div class="ans">No — submit a Quick Loan Request and talk to an expert right away. Calculators simply speed up routing.</div></div>
-<div class="qa"><button type="button" onclick="toggleFAQ(this)">Why a full application page? <span class="chev">+</span></button><div class="ans">It gives a cleaner borrower profile for CRM intake, lead routing, and faster follow-up on more serious scenarios.</div></div>
-<div class="qa"><button type="button" onclick="toggleFAQ(this)">Is this a commitment to lend? <span class="chev">+</span></button><div class="ans">No. This is an intake and routing experience. Terms and approvals depend on lender guidelines and underwriting.</div></div>
+<div class="qa"><button type="button" onclick="toggleFAQ(this)">What credit score is needed? <span class="chev">+</span></button><div class="ans">Requirements vary by lender and loan type. Some investor programs are more property-focused, while others weigh borrower profile more heavily.</div></div>
+<div class="qa"><button type="button" onclick="toggleFAQ(this)">How fast can I close? <span class="chev">+</span></button><div class="ans">Some investor deals can close in as little as 10–14 days depending on documentation, valuation, and lender process.</div></div>
+<div class="qa"><button type="button" onclick="toggleFAQ(this)">Do I need experience? <span class="chev">+</span></button><div class="ans">Not always. Some fix & flip and bridge programs work with newer investors, while others price better for experienced operators.</div></div>
+<div class="qa"><button type="button" onclick="toggleFAQ(this)">Do lenders require income verification? <span class="chev">+</span></button><div class="ans">For many DSCR and business-purpose loans, the property cash flow or deal structure matters more than traditional owner-occupied income underwriting.</div></div>
 </div></section>
+
+<section class="section"><div class="panel"><div class="sectionHead"><div><h2>Ready to move?</h2><p>Use the short form for speed or the full application for deeper deal review.</p></div></div><div class="heroBtns"><a class="btn btnPrimary" href="#" onclick="openLeadModal('Final CTA');return false;">Get Loan Options</a><a class="btn btnGhost" href="application.html">Start Full Application</a></div></div></section>
+
 <footer class="footer">
   <div class="footerCard">
     <div class="footerBrand"><img src="brand-logo.png" alt="Investor Loan Marketplace"/></div>
     <div><strong>Disclosures:</strong> Not a lender. Not a commitment to lend. Business-purpose investor financing only. This site does not provide legal, tax, or financial advice.</div>
   </div>
 </footer>
-</main><div class="modal" id="leadModal" aria-hidden="true">
+</main>
+<div class="modal" id="leadModal" aria-hidden="true">
   <div class="modalBackdrop" onclick="closeLeadModal()" aria-label="Close"></div>
   <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Quick loan request">
     <div class="modalTop">
@@ -107,8 +159,7 @@
         <div><label>What type of deal is this?</label>
           <select name="loan_type" id="f_type" required>
             <option value="">Select</option><option>Rental property</option><option>Fix &amp; Flip</option><option>Bridge / BPL</option><option>Refinance / cash-out</option><option>Not sure yet</option>
-          </select>
-        </div>
+          </select></div>
         <div><label>Estimated Loan Amount</label><input type="number" name="loan_amount" id="f_amount" placeholder="450000" inputmode="numeric" required></div>
       </div>
       <div class="grid2">
@@ -128,4 +179,6 @@
       <p class="small">Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
     </form>
   </div>
-</div><script src="script.js"></script></body></html>
+</div>
+<script src="script.js"></script>
+</body></html>
