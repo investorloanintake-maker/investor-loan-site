@@ -1,178 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Full Qualification | Investor Loan Marketplace</title>
-  <meta name="description" content="Complete the full investor borrower and property qualification form for Investor Loan Marketplace." />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div class="page-glow glow-one"></div>
-  <div class="page-glow glow-two"></div>
+const metrics = { allin:"", ltv:"", ltc:"", dscr:"", signal:"", state:"", bsMonthly:"", bsAnnual:"" };
 
-  <div class="site-shell">
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Investor Loan Marketplace home">
-        <img src="assets/logo.svg" alt="Investor Loan Marketplace" class="brand-logo" />
-      </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="index.html#quick-request">Quick Request</a>
-        <a href="qualification.html" class="active-link">Full Qualification</a>
-      </nav>
-    </header>
+function setText(id, val){ const el = document.getElementById(id); if (el) el.textContent = val; }
+function show(id){ const el = document.getElementById(id); if (el) el.style.display = "block"; }
+function setVal(id, val){ const el = document.getElementById(id); if (el) el.value = val; }
 
-    <main>
-      <section class="page-hero compact-hero">
-        <p class="eyebrow">Detailed intake</p>
-        <h1>Full Qualification Form</h1>
-        <p>
-          Use this form for borrowers who are ready to provide more deal detail. It supports cleaner review,
-          stronger routing, and better downstream CRM tracking.
-        </p>
-      </section>
+function calculateFlip(){
+  if (!document.getElementById("purchase")) return;
+  const purchase = Number(document.getElementById("purchase").value || 0);
+  const rehab = Number(document.getElementById("rehab").value || 0);
+  const arv = Number(document.getElementById("arv").value || 0);
+  const loan = Number(document.getElementById("loan").value || 0);
+  const allin = purchase + rehab;
+  const ltvNum = (arv > 0) ? (loan / arv) * 100 : NaN;
+  const ltcNum = (allin > 0) ? (loan / allin) * 100 : NaN;
+  let signal = "Strong";
+  if (isFinite(ltvNum) && ltvNum > 80) signal = "Moderate";
+  if (isFinite(ltvNum) && ltvNum > 85) signal = "Aggressive";
+  setText("allin", allin ? "$" + allin.toLocaleString() : "—");
+  setText("ltv", isFinite(ltvNum) ? ltvNum.toFixed(1) + "%" : "—");
+  setText("ltc", isFinite(ltcNum) ? ltcNum.toFixed(1) + "%" : "—");
+  setText("signal", signal);
+  show("flipResults");
+  metrics.allin = allin ? "$" + allin.toLocaleString() : "";
+  metrics.ltv = isFinite(ltvNum) ? ltvNum.toFixed(1) + "%" : "";
+  metrics.ltc = isFinite(ltcNum) ? ltcNum.toFixed(1) + "%" : "";
+  metrics.signal = signal;
+}
 
-      <section class="section qualification-shell">
-        <form class="loan-form long-form" action="https://formsubmit.co/Investorloanintake@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="New Investor Loan Marketplace Full Qualification" />
-          <input type="hidden" name="_next" value="https://example.com/thank-you.html" data-local-next="thank-you.html" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="Form Type" value="Full Qualification" />
+function calculateDSCR(){
+  if (!document.getElementById("rent")) return;
+  const rent = Number(document.getElementById("rent").value || 0);
+  const pitia = Number(document.getElementById("pitia").value || 0);
+  const st = (document.getElementById("state").value || "").toUpperCase();
+  const dscrNum = (pitia > 0) ? (rent / pitia) : NaN;
+  let signal = "—";
+  let next = "—";
+  if (isFinite(dscrNum)) {
+    if (dscrNum >= 1.25) { signal = "Strong"; next = "Likely DSCR-eligible lane"; }
+    else if (dscrNum >= 1.00) { signal = "Borderline"; next = "May need structure changes"; }
+    else { signal = "Tight"; next = "Consider more equity / lower PITIA"; }
+  }
+  setText("dscrVal", isFinite(dscrNum) ? dscrNum.toFixed(2) : "—");
+  setText("dscrSignal", signal);
+  setText("dscrNext", next);
+  show("dscrResults");
+  metrics.dscr = isFinite(dscrNum) ? dscrNum.toFixed(2) : "";
+  metrics.signal = signal;
+  metrics.state = st || "";
+}
 
-          <section class="form-section-block">
-            <div class="block-head">
-              <p class="eyebrow">Borrower profile</p>
-              <h2>Contact Information</h2>
-            </div>
-            <div class="field-grid two-col">
-              <label>First Name<input type="text" name="First Name" required /></label>
-              <label>Last Name<input type="text" name="Last Name" required /></label>
-              <label>Email<input type="email" name="Email" required /></label>
-              <label>Phone<input type="tel" name="Phone" required /></label>
-              <label>Entity Name<input type="text" name="Entity Name" /></label>
-              <label>Ownership Percentage<input type="number" name="Ownership Percentage" min="0" max="100" step="0.01" /></label>
-            </div>
-          </section>
+function calculateBankStatement(){
+  if (!document.getElementById("bs_deposits")) return;
+  const months = Number(document.getElementById("bs_months").value || 12);
+  const deposits = Number(document.getElementById("bs_deposits").value || 0);
+  const expensePct = Number(document.getElementById("bs_expense").value || 50) / 100;
+  const ownPct = Number(document.getElementById("bs_own").value || 100) / 100;
+  const net = deposits * (1 - expensePct);
+  const netOwn = net * ownPct;
+  const monthly = months > 0 ? netOwn / months : 0;
+  const annual = monthly * 12;
+  const fmt = (n) => n ? "$" + Math.round(n).toLocaleString() : "—";
+  setText("bs_net", fmt(net));
+  setText("bs_net_own", fmt(netOwn));
+  setText("bs_monthly", fmt(monthly));
+  setText("bs_annual", fmt(annual));
+  show("bsResults");
+  metrics.signal = "Bank Statement Estimate";
+  metrics.bsMonthly = fmt(monthly);
+  metrics.bsAnnual = fmt(annual);
+}
 
-          <section class="form-section-block">
-            <div class="block-head">
-              <p class="eyebrow">Property</p>
-              <h2>Property and Deal Details</h2>
-            </div>
-            <div class="field-grid two-col">
-              <label>Property Address<input type="text" name="Property Address" /></label>
-              <label>City<input type="text" name="City" /></label>
-              <label>State<input type="text" name="State" required /></label>
-              <label>ZIP Code<input type="text" name="ZIP Code" /></label>
-              <label>Property Type
-                <select name="Property Type" required>
-                  <option value="">Select</option>
-                  <option>Single Family</option>
-                  <option>2-4 Unit</option>
-                  <option>Multifamily</option>
-                  <option>Mixed Use</option>
-                  <option>Commercial</option>
-                </select>
-              </label>
-              <label>Loan Purpose
-                <select name="Loan Purpose" required>
-                  <option value="">Select</option>
-                  <option>Purchase</option>
-                  <option>Refinance</option>
-                  <option>Cash-Out Refinance</option>
-                </select>
-              </label>
-              <label>Purchase Price<input type="number" name="Purchase Price" min="0" step="0.01" /></label>
-              <label>Estimated Value<input type="number" name="Estimated Value" min="0" step="0.01" /></label>
-              <label>Loan Amount Requested<input type="number" name="Loan Amount Requested" min="0" step="0.01" required /></label>
-              <label>Down Payment or Equity<input type="number" name="Down Payment or Equity" min="0" step="0.01" /></label>
-            </div>
-          </section>
+function openLeadModal(type){
+  const modal = document.getElementById("leadModal");
+  if (!modal) return;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("noScroll");
 
-          <section class="form-section-block">
-            <div class="block-head">
-              <p class="eyebrow">Loan scenario</p>
-              <h2>Program Fit and Readiness</h2>
-            </div>
-            <div class="field-grid two-col">
-              <label>Loan Type
-                <select name="Loan Type" required>
-                  <option value="">Select</option>
-                  <option>DSCR Rental Loan</option>
-                  <option>Fix &amp; Flip</option>
-                  <option>Bridge Loan</option>
-                  <option>Bank Statement Loan</option>
-                  <option>Ground Up Construction</option>
-                  <option>Commercial Loan</option>
-                  <option>Not Sure</option>
-                </select>
-              </label>
-              <label>Timeline
-                <select name="Timeline" required>
-                  <option value="">Select</option>
-                  <option>ASAP</option>
-                  <option>Within 30 Days</option>
-                  <option>Within 60+ Days</option>
-                  <option>Just Exploring</option>
-                </select>
-              </label>
-              <label>Estimated Rental Income<input type="number" name="Estimated Rental Income" min="0" step="0.01" /></label>
-              <label>Rehab Budget<input type="number" name="Rehab Budget" min="0" step="0.01" /></label>
-              <label>After Repair Value (ARV)<input type="number" name="After Repair Value (ARV)" min="0" step="0.01" /></label>
-              <label>Credit Score Range
-                <select name="Credit Score Range" required>
-                  <option value="">Select</option>
-                  <option>760+</option>
-                  <option>720-759</option>
-                  <option>680-719</option>
-                  <option>640-679</option>
-                  <option>Below 640</option>
-                </select>
-              </label>
-              <label>Experience Level
-                <select name="Experience Level" required>
-                  <option value="">Select</option>
-                  <option>First Deal</option>
-                  <option>1-3 Deals</option>
-                  <option>4-10 Deals</option>
-                  <option>10+ Deals</option>
-                </select>
-              </label>
-              <label>Documents Readiness
-                <select name="Documents Readiness">
-                  <option value="">Select</option>
-                  <option>Yes</option>
-                  <option>Some</option>
-                  <option>Not Yet</option>
-                </select>
-              </label>
-            </div>
-          </section>
+  const sel = document.getElementById("f_type");
+  const clean = (type || "").toLowerCase();
+  if (sel) {
+    if (clean.includes("rental") || clean.includes("dscr")) sel.value = "Rental property";
+    else if (clean.includes("fix")) sel.value = "Fix & Flip";
+    else if (clean.includes("bridge")) sel.value = "Bridge / BPL";
+    else if (clean.includes("refi")) sel.value = "Refinance / cash-out";
+    else if (clean.includes("bank")) sel.value = "Not sure yet";
+    else sel.value = "";
+  }
 
-          <section class="form-section-block">
-            <div class="block-head">
-              <p class="eyebrow">Additional context</p>
-              <h2>Notes</h2>
-            </div>
-            <div class="field-grid">
-              <label class="full-width">Additional Notes<textarea name="Additional Notes" rows="6"></textarea></label>
-            </div>
-          </section>
+  setVal("h_page", window.location.pathname.split("/").pop() || "index.html");
+  setVal("h_type", type || "");
+  setVal("h_allin", metrics.allin || "");
+  setVal("h_ltv", metrics.ltv || "");
+  setVal("h_ltc", metrics.ltc || "");
+  setVal("h_dscr", metrics.dscr || "");
+  setVal("h_signal", metrics.signal || "");
+  setVal("h_state", metrics.state || "");
+  setVal("h_bs_monthly", metrics.bsMonthly || "");
+  setVal("h_bs_annual", metrics.bsAnnual || "");
 
-          <div class="form-actions spread-actions">
-            <a class="btn btn-secondary" href="index.html#quick-request">Back to Quick Request</a>
-            <button class="btn btn-primary" type="submit">Submit Deal for Review</button>
-          </div>
-        </form>
-      </section>
-    </main>
+  const sub = document.getElementById("modalSub");
+  if (sub) sub.textContent = type ? ("Tell us about your " + type + " scenario.") : "Tell us about your scenario.";
+  const stateInput = document.getElementById("f_state");
+  if (stateInput && metrics.state) stateInput.value = metrics.state;
+}
 
-    <footer class="site-footer">
-      <p>Detailed intake for stronger qualification, routing, and lender matching.</p>
-    </footer>
-  </div>
+function openLeadModalWithPrefill(type, amount, state, value){
+  openLeadModal(type || "General");
+  const amt = document.getElementById("f_amount");
+  if (amt && amount) amt.value = amount;
+  const st = document.getElementById("f_state");
+  if (st && state) st.value = String(state).toUpperCase();
+  const hs = document.getElementById("h_state");
+  if (hs && state) hs.value = String(state).toUpperCase();
+  const fv = document.getElementById("f_value");
+  if (fv && value) fv.value = value;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+function closeLeadModal(){
+  const modal = document.getElementById("leadModal");
+  if (!modal) return;
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("noScroll");
+}
+
+function toggleFAQ(btn){
+  const wrap = btn.closest(".qa");
+  if (!wrap) return;
+  wrap.classList.toggle("open");
+  const chev = wrap.querySelector(".chev");
+  if (chev) chev.textContent = wrap.classList.contains("open") ? "—" : "+";
+}
+
+function smoothTo(id){
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({behavior:"smooth"});
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const fState = document.getElementById("f_state");
+  const hState = document.getElementById("h_state");
+  if (fState && hState) {
+    fState.addEventListener("input", (e) => {
+      hState.value = (e.target.value || "").toUpperCase();
+    });
+  }
+});
