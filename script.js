@@ -124,3 +124,32 @@ function openLeadModalWithPrefill(type, amount, state){
   const hState = document.getElementById("h_state");
   if (hState && state) hState.value = String(state).toUpperCase();
 }
+
+
+function calculateBankStatement(){
+  if (!document.getElementById("bs_deposits")) return;
+
+  const months = Number(document.getElementById("bs_months").value || 12);
+  const deposits = Number(document.getElementById("bs_deposits").value || 0);
+  const expensePct = Number(document.getElementById("bs_expense").value || 50) / 100;
+  const ownPct = Number(document.getElementById("bs_own").value || 100) / 100;
+
+  const net = deposits * (1 - expensePct);
+  const netOwn = net * ownPct;
+  const monthly = months > 0 ? netOwn / months : 0;
+  const annual = monthly * 12;
+
+  const fmt = (n) => n ? ("$" + Math.round(n).toLocaleString()) : "—";
+  const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+
+  setText("bs_net", fmt(net));
+  setText("bs_net_own", fmt(netOwn));
+  setText("bs_monthly", fmt(monthly));
+  setText("bs_annual", fmt(annual));
+
+  const box = document.getElementById("bsResults");
+  if (box) box.style.display = "block";
+
+  // store for modal hidden fields using existing metrics object
+  metrics.signal = "Bank Statement Estimate";
+}
