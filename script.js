@@ -1,308 +1,149 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Investor Loan Marketplace</title>
-  <link rel="icon" href="assets/brand-assets.png"/>
-  <link rel="stylesheet" href="styles.css"/>
-</head>
-<body>
-<div class="topbar">
-  <div class="wrap">
-    <div class="muted">National marketplace for business-purpose investor financing</div>
-    <div><a href="#" onclick="openLeadModal('Quick Loan Request');return false;">Get Started</a> <span class="muted" style="margin-left:10px;">InvestorLoanIntake@gmail.com</span></div>
-  </div>
-</div>
-<header class="header">
-  <div class="wrap">
-    <a class="brand" href="index.html">
-      <img src="assets/brand-assets.png" alt="Investor Loan Marketplace"/>
-    </a>
-    <nav class="nav" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="fix-and-flip.html">Fix &amp; Flip</a>
-      <a href="dscr.html">DSCR</a>
-      <a href="bank-statement.html">Bank Statement</a>
-      <a href="#faq" onclick="smoothTo('faq');return false;">FAQ</a>
-      <a href="#" onclick="openLeadModal('General');return false;">Contact</a>
-    </nav>
-    <div class="stackBtns">
-      <a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Quick Loan Request</a>
-    </div>
-  </div>
-</header>
+const metrics = { allin:"", ltv:"", ltc:"", dscr:"", signal:"", state:"", bsMonthly:"", bsAnnual:"" };
 
-<main class="wrap">
-  <section class="hero">
-    <div class="heroGrid">
-      <div class="panel">
-        <h1>Funding for Investment Properties — Without the Bank Runaround</h1>
-        <p>
-          DSCR loans, Fix &amp; Flip financing, Bridge / BPL programs, and bank statement income guidance matched to your deal.
-          Run quick numbers or submit a fast request to talk with an expert.
-        </p>
+function setText(id, val){ const el = document.getElementById(id); if (el) el.textContent = val; }
+function show(id){ const el = document.getElementById(id); if (el) el.style.display = "block"; }
+function setVal(id, val){ const el = document.getElementById(id); if (el) el.value = val; }
 
-        <div class="heroBtns">
-          <a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Quick Loan Request</a>
-          <a class="btn btnGhost" href="dscr.html">Run DSCR</a>
-          <a class="btn btnGhost" href="fix-and-flip.html">Run Fix &amp; Flip</a>
-        </div>
+function calculateFlip(){
+  if (!document.getElementById("purchase")) return;
+  const purchase = Number(document.getElementById("purchase").value || 0);
+  const rehab = Number(document.getElementById("rehab").value || 0);
+  const arv = Number(document.getElementById("arv").value || 0);
+  const loan = Number(document.getElementById("loan").value || 0);
+  const allin = purchase + rehab;
+  const ltvNum = (arv > 0) ? (loan / arv) * 100 : NaN;
+  const ltcNum = (allin > 0) ? (loan / allin) * 100 : NaN;
+  let signal = "Strong";
+  if (isFinite(ltvNum) && ltvNum > 80) signal = "Moderate";
+  if (isFinite(ltvNum) && ltvNum > 85) signal = "Aggressive";
+  setText("allin", allin ? "$" + allin.toLocaleString() : "—");
+  setText("ltv", isFinite(ltvNum) ? ltvNum.toFixed(1) + "%" : "—");
+  setText("ltc", isFinite(ltcNum) ? ltcNum.toFixed(1) + "%" : "—");
+  setText("signal", signal);
+  show("flipResults");
+  metrics.allin = allin ? "$" + allin.toLocaleString() : "";
+  metrics.ltv = isFinite(ltvNum) ? ltvNum.toFixed(1) + "%" : "";
+  metrics.ltc = isFinite(ltcNum) ? ltcNum.toFixed(1) + "%" : "";
+  metrics.signal = signal;
+}
 
-        <div class="trustbar">
-          <strong>Used by real estate investors nationwide</strong>
-          <div class="trustItems">
-            <span><span class="dot"></span> Business-purpose only</span>
-            <span><span class="dot"></span> No hard credit pull to start</span>
-            <span><span class="dot"></span> Program-dependent</span>
-          </div>
-        </div>
+function calculateDSCR(){
+  if (!document.getElementById("rent")) return;
+  const rent = Number(document.getElementById("rent").value || 0);
+  const pitia = Number(document.getElementById("pitia").value || 0);
+  const st = (document.getElementById("state").value || "").toUpperCase();
+  const dscrNum = (pitia > 0) ? (rent / pitia) : NaN;
+  let signal = "—";
+  let next = "—";
+  if (isFinite(dscrNum)) {
+    if (dscrNum >= 1.25) { signal = "Strong"; next = "Likely DSCR-eligible lane"; }
+    else if (dscrNum >= 1.00) { signal = "Borderline"; next = "May need structure changes"; }
+    else { signal = "Tight"; next = "Consider more equity / lower PITIA"; }
+  }
+  setText("dscrVal", isFinite(dscrNum) ? dscrNum.toFixed(2) : "—");
+  setText("dscrSignal", signal);
+  setText("dscrNext", next);
+  show("dscrResults");
+  metrics.dscr = isFinite(dscrNum) ? dscrNum.toFixed(2) : "";
+  metrics.signal = signal;
+  metrics.state = st || "";
+}
 
-        <div class="miniPills">
-          <span class="pill">Fast intake</span>
-          <span class="pill">Investor-only</span>
-          <span class="pill">Deal-specific guidance</span>
-        </div>
-      </div>
+function calculateBankStatement(){
+  if (!document.getElementById("bs_deposits")) return;
+  const months = Number(document.getElementById("bs_months").value || 12);
+  const deposits = Number(document.getElementById("bs_deposits").value || 0);
+  const expensePct = Number(document.getElementById("bs_expense").value || 50) / 100;
+  const ownPct = Number(document.getElementById("bs_own").value || 100) / 100;
+  const net = deposits * (1 - expensePct);
+  const netOwn = net * ownPct;
+  const monthly = months > 0 ? netOwn / months : 0;
+  const annual = monthly * 12;
+  const fmt = (n) => n ? "$" + Math.round(n).toLocaleString() : "—";
+  setText("bs_net", fmt(net));
+  setText("bs_net_own", fmt(netOwn));
+  setText("bs_monthly", fmt(monthly));
+  setText("bs_annual", fmt(annual));
+  show("bsResults");
+  metrics.signal = "Bank Statement Estimate";
+  metrics.bsMonthly = fmt(monthly);
+  metrics.bsAnnual = fmt(annual);
+}
 
-      <div class="panel quickCard">
-        <h3>Quick Loan Request</h3>
-        <p class="small">Most investors start here. Submit a few details and we’ll route your scenario to the right lane.</p>
+function openLeadModal(type){
+  const modal = document.getElementById("leadModal");
+  if (!modal) return;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("noScroll");
 
-        <div class="step"><div class="stepN">1</div><div><strong>Tell us the deal type</strong><span>Rental, flip, bridge, refinance, or not sure yet.</span></div></div>
-        <div class="step"><div class="stepN">2</div><div><strong>Share the basics</strong><span>Loan amount, state, and any timing or property notes.</span></div></div>
-        <div class="step"><div class="stepN">3</div><div><strong>Get matched</strong><span>We’ll follow up and route you to the best-fit program.</span></div></div>
+  const sel = document.getElementById("f_type");
+  const clean = (type || "").toLowerCase();
+  if (sel) {
+    if (clean.includes("rental") || clean.includes("dscr")) sel.value = "Rental property";
+    else if (clean.includes("fix")) sel.value = "Fix & Flip";
+    else if (clean.includes("bridge")) sel.value = "Bridge / BPL";
+    else if (clean.includes("refi")) sel.value = "Refinance / cash-out";
+    else if (clean.includes("bank")) sel.value = "Not sure yet";
+    else sel.value = "";
+  }
 
-        <div class="quickForm">
-          <label>What type of deal is this?</label>
-          <select id="hero_type">
-            <option value="">Select</option>
-            <option>Rental property</option>
-            <option>Fix &amp; Flip</option>
-            <option>Bridge / BPL</option>
-            <option>Refinance / cash-out</option>
-            <option>Not sure yet</option>
-          </select>
+  setVal("h_page", window.location.pathname.split("/").pop() || "index.html");
+  setVal("h_type", type || "");
+  setVal("h_allin", metrics.allin || "");
+  setVal("h_ltv", metrics.ltv || "");
+  setVal("h_ltc", metrics.ltc || "");
+  setVal("h_dscr", metrics.dscr || "");
+  setVal("h_signal", metrics.signal || "");
+  setVal("h_state", metrics.state || "");
+  setVal("h_bs_monthly", metrics.bsMonthly || "");
+  setVal("h_bs_annual", metrics.bsAnnual || "");
 
-          <div class="grid2">
-            <div>
-              <label>Estimated Loan Amount</label>
-              <input id="hero_amount" type="number" placeholder="450000" inputmode="numeric"/>
-            </div>
-            <div>
-              <label>Property value / purchase (optional)</label>
-              <input id="hero_value" type="number" placeholder="550000" inputmode="numeric"/>
-            </div>
-          </div>
+  const sub = document.getElementById("modalSub");
+  if (sub) sub.textContent = type ? ("Tell us about your " + type + " scenario.") : "Tell us about your scenario.";
+  const stateInput = document.getElementById("f_state");
+  if (stateInput && metrics.state) stateInput.value = metrics.state;
+}
 
-          <label>State</label>
-          <input id="hero_state" type="text" placeholder="FL" maxlength="2"/>
+function openLeadModalWithPrefill(type, amount, state, value){
+  openLeadModal(type || "General");
+  const amt = document.getElementById("f_amount");
+  if (amt && amount) amt.value = amount;
+  const st = document.getElementById("f_state");
+  if (st && state) st.value = String(state).toUpperCase();
+  const hs = document.getElementById("h_state");
+  if (hs && state) hs.value = String(state).toUpperCase();
+  const fv = document.getElementById("f_value");
+  if (fv && value) fv.value = value;
+}
 
-          <div class="heroBtns" style="margin-top:14px">
-            <button class="btn btnDark" type="button" onclick="openLeadModalWithPrefill(document.getElementById('hero_type').value, document.getElementById('hero_amount').value, document.getElementById('hero_state').value, document.getElementById('hero_value').value)">Get Loan Options</button>
-            <button class="btn btnGhost" type="button" onclick="openLeadModal('Talk to an Expert')">Talk to an Expert</button>
-          </div>
+function closeLeadModal(){
+  const modal = document.getElementById("leadModal");
+  if (!modal) return;
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("noScroll");
+}
 
-          <p class="small" style="margin-top:10px">
-            ✓ No hard credit pull to start<br/>
-            ✓ Business purpose loans only<br/>
-            ✓ Nationwide investor programs
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+function toggleFAQ(btn){
+  const wrap = btn.closest(".qa");
+  if (!wrap) return;
+  wrap.classList.toggle("open");
+  const chev = wrap.querySelector(".chev");
+  if (chev) chev.textContent = wrap.classList.contains("open") ? "—" : "+";
+}
 
-  <section class="section">
-    <div class="sectionHead">
-      <div>
-        <h2>Why investors use our marketplace</h2>
-        <p>The fastest way to get to the right program — without guessing lender fit on your own.</p>
-      </div>
-    </div>
-    <div class="grid4">
-      <div class="card"><div class="cardTop"><div class="icon">≋</div><h3>Multiple loan options</h3></div><p>Compare DSCR, Fix &amp; Flip, Bridge/BPL, and alt-doc options across multiple lenders.</p></div>
-      <div class="card"><div class="cardTop"><div class="icon">⚡</div><h3>Fast intake</h3></div><p>Submit a deal in minutes and get routed to the right financing lane.</p></div>
-      <div class="card"><div class="cardTop"><div class="icon">🏠</div><h3>Built for investors</h3></div><p>Business-purpose financing designed for rentals, flips, and bridge execution.</p></div>
-      <div class="card"><div class="cardTop"><div class="icon">✓</div><h3>Expert guidance</h3></div><p>Talk with someone who understands investor financing and transaction flow.</p></div>
-    </div>
-  </section>
+function smoothTo(id){
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({behavior:"smooth"});
+}
 
-  <section class="section" id="deals">
-    <div class="sectionHead">
-      <div>
-        <h2>Explore deal types</h2>
-        <p>Start here if you’re not sure which path fits your deal.</p>
-      </div>
-      <a class="btn" href="#" onclick="openLeadModal('General');return false;">Ask a Question</a>
-    </div>
-    <div class="grid4">
-      <div class="card">
-        <div class="cardTop"><div class="icon">D</div><h3>DSCR Loans</h3></div>
-        <p>Long-term rental financing. Quick check: Rent ÷ PITIA.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btnPrimary" href="dscr.html">Run DSCR Calculator</a>
-          <a class="btn" href="#" onclick="openLeadModal('DSCR');return false;">Request Options</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="cardTop"><div class="icon">F</div><h3>Fix &amp; Flip</h3></div>
-        <p>Purchase + rehab financing. Quick leverage: LTV, LTC, and signal.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btnPrimary" href="fix-and-flip.html">Run Flip Analyzer</a>
-          <a class="btn" href="#" onclick="openLeadModal('Fix & Flip');return false;">Request Options</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="cardTop"><div class="icon">B</div><h3>Bridge / BPL</h3></div>
-        <p>Short-term investor financing for speed, flexibility, and execution.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btnPrimary" href="#" onclick="openLeadModal('Bridge / BPL');return false;">Request Terms</a>
-          <a class="btn" href="#" onclick="openLeadModal('Bridge / BPL');return false;">Talk to Expert</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="cardTop"><div class="icon">N</div><h3>Bank Statement</h3></div>
-        <p>Alt-doc income estimate for self-employed borrowers using deposits and expense factor.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btnPrimary" href="bank-statement.html">Run Estimator</a>
-          <a class="btn" href="#" onclick="openLeadModal('Bank Statement');return false;">Request Options</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="sectionHead">
-      <div>
-        <h2>Featured rates (example)</h2>
-        <p>Illustration only — pricing varies by profile, property, and state.</p>
-      </div>
-    </div>
-    <div class="grid4">
-      <div class="rateCard"><div class="kicker">1-unit DSCR Rental</div><div class="pct">6.99%</div><div class="small">30-year fixed • 80% LTV purchase</div></div>
-      <div class="rateCard"><div class="kicker">5+ unit Multifamily</div><div class="pct">7.75%</div><div class="small">30-year fixed • 75% LTV purchase</div></div>
-      <div class="rateCard"><div class="kicker">Rehab / Fix &amp; Flip</div><div class="pct">9.50%</div><div class="small">Up to 85% LTC • experience-based</div></div>
-      <div class="rateCard"><div class="kicker">Bridge / BPL</div><div class="pct">10.25%</div><div class="small">Interest-only • 12–18 months</div></div>
-    </div>
-    <p class="small" style="margin-top:10px">These numbers are placeholders and not an offer to lend.</p>
-  </section>
-
-  <section class="section" id="faq">
-    <div class="sectionHead">
-      <div>
-        <h2>Frequently asked questions</h2>
-        <p>Quick answers for common investor financing questions.</p>
-      </div>
-    </div>
-    <div class="faq">
-      <div class="qa"><button type="button" onclick="toggleFAQ(this)">Who is this for? <span class="chev">+</span></button><div class="ans">Business-purpose borrowers financing investment properties. The bank statement estimator is for alt-doc screening only.</div></div>
-      <div class="qa"><button type="button" onclick="toggleFAQ(this)">Do I have to use the calculators? <span class="chev">+</span></button><div class="ans">No — submit a Quick Loan Request and talk to an expert right away. Calculators simply speed up routing.</div></div>
-      <div class="qa"><button type="button" onclick="toggleFAQ(this)">What should I have ready? <span class="chev">+</span></button><div class="ans">Deal type, estimated loan amount, state, and if relevant purchase/rehab/ARV, rent/PITIA, or deposits/expense factor.</div></div>
-      <div class="qa"><button type="button" onclick="toggleFAQ(this)">Is this a commitment to lend? <span class="chev">+</span></button><div class="ans">No. This is an intake and routing experience. Terms and approvals depend on lender guidelines and underwriting.</div></div>
-    </div>
-  </section>
-
-  <footer class="footer">
-  <div class="footerCard">
-    <div class="footerBrand">
-      <img src="assets/brand-assets.png" alt="Investor Loan Marketplace"/>
-    </div>
-    <div><strong>Disclosures:</strong> Not a lender. Not a commitment to lend. Business-purpose investor financing only. This site does not provide legal, tax, or financial advice.</div>
-  </div>
-</footer>
-</main>
-
-<div class="modal" id="leadModal" aria-hidden="true">
-  <div class="modalBackdrop" onclick="closeLeadModal()" aria-label="Close"></div>
-  <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Quick loan request">
-    <div class="modalTop">
-      <div>
-        <h3>Quick Loan Request</h3>
-        <p class="small" id="modalSub">Tell us about your scenario.</p>
-      </div>
-      <button class="iconBtn" type="button" onclick="closeLeadModal()" aria-label="Close">✕</button>
-    </div>
-
-    <form class="formCard" action="https://formsubmit.co/Investorloanintake@gmail.com" method="POST">
-      <input type="hidden" name="page" id="h_page" value=""/>
-      <input type="hidden" name="loan_type_prefill" id="h_type" value=""/>
-      <input type="hidden" name="calc_allin" id="h_allin" value=""/>
-      <input type="hidden" name="calc_ltv" id="h_ltv" value=""/>
-      <input type="hidden" name="calc_ltc" id="h_ltc" value=""/>
-      <input type="hidden" name="calc_dscr" id="h_dscr" value=""/>
-      <input type="hidden" name="calc_signal" id="h_signal" value=""/>
-      <input type="hidden" name="state" id="h_state" value=""/>
-      <input type="hidden" name="bank_statement_monthly_income" id="h_bs_monthly" value=""/>
-      <input type="hidden" name="bank_statement_annual_income" id="h_bs_annual" value=""/>
-      <input type="hidden" name="_subject" value="New Investor Loan Request"/>
-      <input type="hidden" name="_template" value="table"/>
-      <input type="hidden" name="_captcha" value="false"/>
-      <input type="hidden" name="_next" value="thanks.html"/>
-
-      <div class="grid2">
-        <div>
-          <label>What type of deal is this?</label>
-          <select name="loan_type" id="f_type" required>
-            <option value="">Select</option>
-            <option>Rental property</option>
-            <option>Fix &amp; Flip</option>
-            <option>Bridge / BPL</option>
-            <option>Refinance / cash-out</option>
-            <option>Not sure yet</option>
-          </select>
-        </div>
-        <div>
-          <label>Estimated Loan Amount</label>
-          <input type="number" name="loan_amount" id="f_amount" placeholder="450000" inputmode="numeric" required>
-        </div>
-      </div>
-
-      <div class="grid2">
-        <div>
-          <label>Property value / purchase (optional)</label>
-          <input type="number" name="property_value" id="f_value" placeholder="550000" inputmode="numeric">
-        </div>
-        <div>
-          <label>State</label>
-          <input type="text" name="state_display" id="f_state" placeholder="FL" maxlength="2">
-        </div>
-      </div>
-
-      <div class="grid2">
-        <div>
-          <label>Name</label>
-          <input type="text" name="name" placeholder="Jane Investor" required>
-        </div>
-        <div>
-          <label>Email</label>
-          <input type="email" name="email" placeholder="jane@email.com" required>
-        </div>
-      </div>
-
-      <div class="grid2">
-        <div>
-          <label>Phone</label>
-          <input type="tel" name="phone" placeholder="(555) 555-5555" required>
-        </div>
-        <div>
-          <label>Anything else we should know? (optional)</label>
-          <input type="text" name="notes" placeholder="Property type, timing, occupancy, etc.">
-        </div>
-      </div>
-
-      <label class="consent">
-        <input type="checkbox" name="consent" required>
-        <span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span>
-      </label>
-
-      <div class="heroBtns" style="margin-top:14px">
-        <button class="btn btnDark" type="submit">Submit Request</button>
-      </div>
-      <p class="small">Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
-    </form>
-  </div>
-</div>
-<script src="script.js"></script>
-</body>
-</html>
+document.addEventListener("DOMContentLoaded", () => {
+  const fState = document.getElementById("f_state");
+  const hState = document.getElementById("h_state");
+  if (fState && hState) {
+    fState.addEventListener("input", (e) => {
+      hState.value = (e.target.value || "").toUpperCase();
+    });
+  }
+});
