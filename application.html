@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>DSCR Calculator | Investor Loan Marketplace</title><link rel="icon" href="brand-icon.png"/><link rel="stylesheet" href="styles.css"/></head><body><div class="topbar">
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Full Application | Investor Loan Marketplace</title><link rel="icon" href="brand-icon.png"/><link rel="stylesheet" href="styles.css"/></head><body><div class="topbar">
   <div class="wrap">
     <div class="muted">National marketplace for business-purpose investor financing</div>
     <div><a href="#" onclick="openLeadModal('Quick Loan Request');return false;">Get Started</a> <span class="muted" style="margin-left:10px;">Investorloanintake@gmail.com</span></div>
@@ -17,37 +17,70 @@
     </nav>
     <div class="stackBtns"><a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Quick Loan Request</a></div>
   </div>
-</header><main class="wrap">
+</header>
+<main class="wrap">
 <section class="section hero">
-  <div class="sectionHead"><div><h2>DSCR Calculator</h2><p>Estimate DSCR using Monthly Rent ÷ Monthly PITIA, then submit a request.</p></div><a class="btn btnPrimary" href="#" onclick="openLeadModal('DSCR');return false;">Quick Loan Request</a></div>
-  <div class="panel"><div class="grid2">
-    <div>
-      <label>Monthly Rent</label><input id="rent" type="number" placeholder="3200" inputmode="numeric">
-      <label>Monthly PITIA</label><input id="pitia" type="number" placeholder="2600" inputmode="numeric">
-      <label>State</label><input id="state" type="text" placeholder="FL" maxlength="2">
-      <div class="heroBtns"><button class="btn btnPrimary" type="button" onclick="calculateDSCR()">Calculate DSCR</button><button class="btn" type="button" onclick="openLeadModal('DSCR')">Talk to an Expert</button></div>
-      <p class="small" style="margin-top:10px">DSCR methodology varies by lender. This is a quick estimate.</p>
-    </div>
-    <div class="resultsBox" id="dscrResults" style="display:none">
-      <div class="metric"><span>DSCR</span><strong id="dscrVal">—</strong></div>
-      <div class="metric"><span>Signal</span><strong id="dscrSignal">—</strong></div>
-      <div class="metric"><span>Next Step</span><strong id="dscrNext">—</strong></div>
-      <div class="divider"></div>
-      <button class="btn btnDark" type="button" onclick="openLeadModal('DSCR')">Submit with These Numbers</button>
-    </div>
-  </div></div>
+  <div class="sectionHead"><div><h2>Full Application</h2><p>For serious borrowers ready to submit deeper deal detail for CRM routing and follow-up.</p></div></div>
+  <div class="panel">
+    <form action="https://formsubmit.co/Investorloanintake@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Full Investor Loan Application"/>
+      <input type="hidden" name="_template" value="table"/>
+      <input type="hidden" name="_captcha" value="false"/>
+      <input type="hidden" name="_next" value="thanks.html"/>
+      <div class="grid2">
+        <div><label>Deal Type</label><select name="deal_type" required><option value="">Select</option><option>Rental property</option><option>Fix &amp; Flip</option><option>Bridge / BPL</option><option>Refinance / cash-out</option><option>Bank Statement / Non-QM</option></select></div>
+        <div><label>Borrower Type</label><select name="borrower_type"><option>Individual</option><option>LLC</option><option>Corporation</option><option>Trust</option></select></div>
+      </div>
+      <div class="grid2">
+        <div><label>Name</label><input type="text" name="name" required></div>
+        <div><label>Email</label><input type="email" name="email" required></div>
+      </div>
+      <div class="grid2">
+        <div><label>Phone</label><input type="tel" name="phone" required></div>
+        <div><label>State</label><input type="text" name="state" maxlength="2"></div>
+      </div>
+      <div class="grid2">
+        <div><label>Property Address</label><input type="text" name="property_address"></div>
+        <div><label>Property Type</label><select name="property_type"><option value="">Select</option><option>SFR</option><option>2-4 Unit</option><option>Multifamily</option><option>Condo</option><option>Mixed Use</option><option>Other</option></select></div>
+      </div>
+      <div class="grid2">
+        <div><label>Occupancy / Use</label><select name="occupancy"><option value="">Select</option><option>Investment</option><option>Short-term rental</option><option>Vacant / rehab</option><option>Other</option></select></div>
+        <div><label>Estimated Loan Amount</label><input type="number" name="loan_amount"></div>
+      </div>
+      <div class="grid2">
+        <div><label>Purchase Price</label><input type="number" name="purchase_price"></div>
+        <div><label>Property Value / ARV</label><input type="number" name="property_value_or_arv"></div>
+      </div>
+      <div class="grid2">
+        <div><label>Rehab Budget</label><input type="number" name="rehab_budget"></div>
+        <div><label>Monthly Rent</label><input type="number" name="monthly_rent"></div>
+      </div>
+      <div class="grid2">
+        <div><label>Monthly PITIA</label><input type="number" name="monthly_pitia"></div>
+        <div><label>Exit Strategy</label><select name="exit_strategy"><option value="">Select</option><option>Sell</option><option>Refinance</option><option>Hold</option><option>Undecided</option></select></div>
+      </div>
+      <div class="grid2">
+        <div><label>Credit Range</label><select name="credit_range"><option value="">Select</option><option>760+</option><option>720-759</option><option>680-719</option><option>640-679</option><option>Below 640</option></select></div>
+        <div><label>Liquidity / Reserves</label><input type="text" name="liquidity_reserves" placeholder="$ or months reserves"></div>
+      </div>
+      <div class="grid2">
+        <div><label>Timeline</label><select name="timeline"><option value="">Select</option><option>Immediately</option><option>30 days</option><option>60 days</option><option>90+ days</option></select></div>
+        <div><label>Bank Statement Deposits (optional)</label><input type="number" name="bank_statement_deposits"></div>
+      </div>
+      <label>Notes / Scenario Details</label><textarea name="notes" placeholder="Anything helpful about the property, borrower, timeline, or lender fit."></textarea>
+      <label class="consent"><input type="checkbox" name="consent" required><span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span></label>
+      <div class="heroBtns"><button class="btn btnDark" type="submit">Submit Full Application</button><a class="btn btnGhost" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Use Short Form Instead</a></div>
+      <p class="small">This form is designed to support CRM intake, lead routing, and faster qualification follow-up.</p>
+    </form>
+  </div>
 </section>
-<section class="section"><div class="grid3">
-<div class="card"><div class="cardTop"><div class="icon">P</div><h3>PITIA</h3></div><p>Principal + Interest + Taxes + Insurance + HOA if applicable.</p></div>
-<div class="card"><div class="cardTop"><div class="icon">R</div><h3>Rent source</h3></div><p>Lease, market rent, or short-term rental methodology depends on program.</p></div>
-<div class="card"><div class="cardTop"><div class="icon">T</div><h3>Thresholds</h3></div><p>Many programs price better at 1.10–1.25+. Below 1.00 can require more equity.</p></div>
-</div></section>
 <footer class="footer">
   <div class="footerCard">
     <div class="footerBrand"><img src="brand-logo.png" alt="Investor Loan Marketplace"/></div>
     <div><strong>Disclosures:</strong> Not a lender. Not a commitment to lend. Business-purpose investor financing only. This site does not provide legal, tax, or financial advice.</div>
   </div>
-</footer></main><div class="modal" id="leadModal" aria-hidden="true">
+</footer>
+</main><div class="modal" id="leadModal" aria-hidden="true">
   <div class="modalBackdrop" onclick="closeLeadModal()" aria-label="Close"></div>
   <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Quick loan request">
     <div class="modalTop">
