@@ -10,11 +10,10 @@
 <body>
 <div class="topbar">
   <div class="topbarInner">
-    <div class="muted">Alt-Doc (Non-QM) income estimate — for screening only</div>
-    <div><a href="#" onclick="openLeadModal('Bank Statement');return false;">Get Started</a> <span class="muted" style="margin-left:10px;">(XXX) XXX-XXXX</span></div>
+    <div class="muted">National marketplace for business-purpose investor financing</div>
+    <div><a href="#" onclick="openLeadModal('Quick Loan Request');return false;">Get Started</a> <span class="muted" style="margin-left:10px;">(XXX) XXX-XXXX</span></div>
   </div>
 </div>
-
 <header class="header">
   <div class="headerInner">
     <a class="brand" href="index.html">
@@ -30,26 +29,21 @@
       <a href="fix-and-flip.html">Fix &amp; Flip</a>
       <a href="dscr.html">DSCR</a>
       <a href="bank-statement.html">Bank Statement</a>
-      <a href="index.html#faq">FAQ</a>
+      <a href="#faq" onclick="smoothTo('faq');return false;">FAQ</a>
       <a href="#" onclick="openLeadModal('General');return false;">Contact</a>
     </nav>
 
     <div class="headerActions">
-      <a class="btn btnPrimary" href="#" onclick="openLeadModal('Bank Statement');return false;">Quick Loan Request</a>
+      <a class="btn btnPrimary" href="#" onclick="openLeadModal('Quick Loan Request');return false;">Quick Loan Request</a>
     </div>
   </div>
 </header>
-
 <main class="wrap">
   <section class="section">
     <div class="sectionHead">
-      <div>
-        <h2>Bank statement income estimator</h2>
-        <p>Estimate qualifying income using total deposits, expense factor, and ownership %.</p>
-      </div>
+      <div><h2>Bank statement income estimator</h2><p>Estimate qualifying income using total deposits, expense factor, and ownership %.</p></div>
       <a class="btn btnPrimary" href="#" onclick="openLeadModal('Bank Statement');return false;">Talk to an expert</a>
     </div>
-
     <div class="card"><div class="cardPad">
       <div class="grid2">
         <div>
@@ -58,10 +52,7 @@
             <option value="12">12 months</option>
             <option value="24">24 months</option>
           </select>
-
-          <label>Total deposits (for selected period)</label>
-          <input id="bs_deposits" type="number" placeholder="240000" inputmode="numeric">
-
+          <label>Total deposits (for selected period)</label><input id="bs_deposits" type="number" placeholder="240000" inputmode="numeric">
           <label>Expense factor</label>
           <select id="bs_expense">
             <option value="50">50% (common default)</option>
@@ -69,20 +60,13 @@
             <option value="35">35%</option>
             <option value="30">30%</option>
           </select>
-
-          <label>Ownership percentage</label>
-          <input id="bs_own" type="number" placeholder="100" inputmode="numeric">
-
+          <label>Ownership percentage</label><input id="bs_own" type="number" placeholder="100" inputmode="numeric">
           <div class="heroBtns" style="margin-top:14px;">
             <button class="btn btnPrimary" type="button" onclick="calculateBankStatement()">Estimate Income</button>
             <button class="btn" type="button" onclick="openLeadModal('Bank Statement')">Quick Loan Request</button>
           </div>
-
-          <p class="micro">
-            Disclaimer: All business deposits must be sourced to a client paying a business. This tool is for estimation only and does not guarantee approval or terms.
-          </p>
+          <p class="micro">Disclaimer: All business deposits must be sourced to a client paying a business. This tool is for estimation only and does not guarantee approval or terms.</p>
         </div>
-
         <div class="resultsBox" id="bsResults" style="display:none" aria-live="polite">
           <div class="metric"><span>Net Deposits (after expense)</span><strong id="bs_net">—</strong></div>
           <div class="metric"><span>Ownership-adjusted Net</span><strong id="bs_net_own">—</strong></div>
@@ -95,13 +79,86 @@
       </div>
     </div></div>
   </section>
-
-  <footer class="footer">
-    <strong>Disclosures:</strong> Not a lender. Not a commitment to lend. For screening/estimation only.
-  </footer>
+  <footer class="footer"><strong>Disclosures:</strong> Not a lender. Not a commitment to lend. For screening/estimation only.</footer>
 </main>
+<div class="modal" id="leadModal" aria-hidden="true">
+  <div class="modalBackdrop" onclick="closeLeadModal()" aria-label="Close"></div>
+  <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Quick loan request">
+    <div class="modalTop">
+      <div>
+        <h3>Quick Loan Request</h3>
+        <p class="micro" id="modalSub">Tell us about your scenario.</p>
+      </div>
+      <button class="iconBtn" type="button" onclick="closeLeadModal()" aria-label="Close">✕</button>
+    </div>
 
+    <form class="form" action="https://formsubmit.co/investorloanintake@gmail.com" method="POST">
+      <input type="hidden" name="page" id="h_page" value=""/>
+      <input type="hidden" name="loan_type_prefill" id="h_type" value=""/>
+      <input type="hidden" name="calc_allin" id="h_allin" value=""/>
+      <input type="hidden" name="calc_ltv" id="h_ltv" value=""/>
+      <input type="hidden" name="calc_ltc" id="h_ltc" value=""/>
+      <input type="hidden" name="calc_dscr" id="h_dscr" value=""/>
+      <input type="hidden" name="calc_signal" id="h_signal" value=""/>
+      <input type="hidden" name="state" id="h_state" value=""/>
+      <input type="hidden" name="_subject" value="New Investor Loan Request"/>
+      <input type="hidden" name="_template" value="table"/>
+      <input type="hidden" name="_captcha" value="false"/>
+      <input type="hidden" name="_next" value="thanks.html"/>
 
+      <label>What type of deal is this?</label>
+      <select name="loan_type" id="f_type" required>
+        <option value="">Select</option>
+        <option>Rental property</option>
+        <option>Fix &amp; Flip</option>
+        <option>Bridge / BPL</option>
+        <option>Refinance / cash-out</option>
+        <option>Not sure yet</option>
+      </select>
+
+      <div class="grid2">
+        <div>
+          <label>Estimated Loan Amount</label>
+          <input type="number" name="loan_amount" id="f_amount" placeholder="450000" inputmode="numeric" required>
+        </div>
+        <div>
+          <label>Property value / purchase (optional)</label>
+          <input type="number" name="property_value" id="f_value" placeholder="550000" inputmode="numeric">
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <label>State</label>
+          <input type="text" name="state_display" id="f_state" placeholder="FL" maxlength="2">
+        </div>
+        <div>
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Jane Investor" required>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <label>Email</label>
+          <input type="email" name="email" placeholder="jane@email.com" required>
+        </div>
+        <div>
+          <label>Phone</label>
+          <input type="tel" name="phone" placeholder="(555) 555-5555" required>
+        </div>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" name="consent" required>
+        <span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span>
+      </label>
+
+      <button class="btn btnDark" type="submit">Submit</button>
+      <p class="micro">Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
+    </form>
+  </div>
+</div>
 <script src="script.js"></script>
 </body>
 </html>

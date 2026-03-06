@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Investor Loan Marketplace | Investment Property Loans</title>
-  <meta name="description" content="Investment property financing marketplace for DSCR, Fix & Flip, and Bridge/BPL. Run numbers or submit a quick loan request."/>
+  <meta name="description" content="Investment property financing marketplace for DSCR, Fix & Flip, Bridge/BPL, and Bank Statement. Run numbers or submit a quick loan request."/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -45,8 +45,8 @@
       <div class="panel">
         <h1>Funding for Investment Properties —<br/>Without the Bank Runaround</h1>
         <p>
-          DSCR loans, Fix &amp; Flip financing, and Bridge/BPL programs matched to your deal.
-          Run quick numbers (optional) or submit a fast request to talk with an expert.
+          DSCR loans, Fix &amp; Flip financing, Bridge/BPL programs, and bank statement income guidance matched to your deal.
+          Run quick numbers or submit a fast request to talk with an expert.
         </p>
 
         <div class="heroBtns">
@@ -55,7 +55,7 @@
           <a class="btn" href="fix-and-flip.html">Run Fix &amp; Flip</a>
         </div>
 
-        <div class="trustbar" role="note" aria-label="Trust and coverage">
+        <div class="trustbar" role="note">
           <strong>Used by real estate investors nationwide</strong>
           <div class="items">
             <span><span class="dot"></span> Business-purpose only</span>
@@ -78,7 +78,7 @@
 
         <div class="step">
           <div class="stepNum">1</div>
-          <div><strong>Quick request</strong><span>Loan type, amount, and state.</span></div>
+          <div><strong>Quick request</strong><span>Deal type, amount, and state.</span></div>
         </div>
         <div class="step">
           <div class="stepNum">2</div>
@@ -89,16 +89,17 @@
           <div><strong>Select terms</strong><span>Pick an offer — we coordinate the rest.</span></div>
         </div>
 
-        <div class="quickForm" aria-label="Quick request form">
+        <div class="quickForm">
           <h3>Quick Loan Request</h3>
 
           <label>What type of deal is this?</label>
           <select id="hero_type">
             <option value="">Select</option>
+            <option>Rental property</option>
             <option>Fix &amp; Flip</option>
             <option>Bridge / BPL</option>
-            <option>DSCR</option>
-            <option>Other</option>
+            <option>Refinance / cash-out</option>
+            <option>Not sure yet</option>
           </select>
 
           <div class="grid2">
@@ -106,10 +107,13 @@
               <label>Estimated Loan Amount</label>
               <input id="hero_amount" type="number" placeholder="450000" inputmode="numeric"/>
             </div>
-<div>
-<label>Property value / purchase (optional)</label>
-<input id="hero_value" type="number" placeholder="550000" inputmode="numeric"/>
-</div>
+            <div>
+              <label>Property value / purchase (optional)</label>
+              <input id="hero_value" type="number" placeholder="550000" inputmode="numeric"/>
+            </div>
+          </div>
+
+          <div class="grid2">
             <div>
               <label>State</label>
               <input id="hero_state" type="text" placeholder="FL" maxlength="2"/>
@@ -124,25 +128,13 @@
             <button class="btn" type="button" onclick="openLeadModal('Talk to an Expert')">Talk to an Expert</button>
           </div>
 
-          <div class="hint">
-<div style="margin-top:10px;font-size:12px;color:#555;">
-✓ No hard credit pull to start<br>
-✓ Business purpose loans only<br>
-✓ Nationwide investor programs
-</div>
-</div>
+          <div class="smallNote">
+            ✓ No hard credit pull to start<br>
+            ✓ Business purpose loans only<br>
+            ✓ Nationwide investor programs
+          </div>
         </div>
       </div>
-    
-      <div class="card"><div class="cardPad">
-        <h3>Non-QM Bank Statement</h3>
-        <p>Income estimate using 12/24-month deposits, expense factor, and ownership %.</p>
-        <div class="actions">
-          <a class="btn btnPrimary" href="bank-statement.html">Run Estimator</a>
-          <a class="btn" href="#" onclick="openLeadModal('Bank Statement');return false;">Quick request</a>
-        </div>
-      </div></div>
-
     </div>
   </section>
 
@@ -157,7 +149,7 @@
     <div class="benefits">
       <div class="benefit">
         <div class="k"><div class="icon">≋</div><strong>Multiple loan options</strong></div>
-        <div class="smallNote">Compare DSCR, Fix &amp; Flip, and Bridge/BPL programs across multiple lenders.</div>
+        <div class="smallNote">Compare DSCR, Fix &amp; Flip, Bridge/BPL, and alt-doc options across multiple lenders.</div>
       </div>
       <div class="benefit">
         <div class="k"><div class="icon">⚡</div><strong>Fast investor intake</strong></div>
@@ -185,9 +177,7 @@
 
     <div class="deals">
       <div class="deal">
-        <div class="top">
-          <span class="badge">DSCR Loans</span>
-        </div>
+        <div class="top"><span class="badge">DSCR Loans</span></div>
         <p>Long-term rental financing. Quick check: Rent ÷ PITIA.</p>
         <div class="actions">
           <a class="btn btnPrimary" href="dscr.html">Run DSCR Calculator</a>
@@ -196,9 +186,7 @@
       </div>
 
       <div class="deal">
-        <div class="top">
-          <span class="badge">Fix &amp; Flip</span>
-        </div>
+        <div class="top"><span class="badge">Fix &amp; Flip</span></div>
         <p>Purchase + rehab financing. Quick leverage: LTV/LTC and signal.</p>
         <div class="actions">
           <a class="btn btnPrimary" href="fix-and-flip.html">Run Flip Analyzer</a>
@@ -207,27 +195,22 @@
       </div>
 
       <div class="deal">
-        <div class="top">
-          <span class="badge">Bridge / BPL</span>
-        </div>
+        <div class="top"><span class="badge">Bridge / BPL</span></div>
         <p>Short-term investor financing for speed, flexibility, and execution.</p>
         <div class="actions">
           <a class="btn btnPrimary" href="#" onclick="openLeadModal('Bridge / BPL');return false;">Request Terms</a>
           <a class="btn" href="#" onclick="openLeadModal('Bridge / BPL');return false;">Talk to Expert</a>
         </div>
       </div>
-    
+
       <div class="deal">
-        <div class="top">
-          <span class="badge">Bank Statement (Non-QM)</span>
-        </div>
+        <div class="top"><span class="badge">Bank Statement (Non-QM)</span></div>
         <p>Alt-doc income estimate for self-employed borrowers using deposits and expense factor.</p>
         <div class="actions">
           <a class="btn btnPrimary" href="bank-statement.html">Run Estimator</a>
           <a class="btn" href="#" onclick="openLeadModal('Bank Statement');return false;">Request Options</a>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -315,19 +298,16 @@
     <div class="faq">
       <div class="qa">
         <button type="button" onclick="toggleFAQ(this)">Who is this for? <span class="chev">+</span></button>
-        <div class="ans">Business-purpose borrowers financing investment properties (rentals, flips, bridge needs). Not for owner-occupied.</div>
+        <div class="ans">Business-purpose borrowers financing investment properties. The bank statement estimator is for alt-doc screening only.</div>
       </div>
-
       <div class="qa">
         <button type="button" onclick="toggleFAQ(this)">Do I have to use the calculators? <span class="chev">+</span></button>
         <div class="ans">No — submit a Quick Loan Request and talk to an expert right away. Calculators simply speed up routing.</div>
       </div>
-
       <div class="qa">
         <button type="button" onclick="toggleFAQ(this)">What should I have ready? <span class="chev">+</span></button>
-        <div class="ans">Loan type, estimated loan amount, state, property type, and (if relevant) purchase/rehab/ARV or rent/PITIA.</div>
+        <div class="ans">Deal type, estimated loan amount, state, and if relevant purchase/rehab/ARV, rent/PITIA, or deposits/expense factor.</div>
       </div>
-
       <div class="qa">
         <button type="button" onclick="toggleFAQ(this)">Is this a commitment to lend? <span class="chev">+</span></button>
         <div class="ans">No. This is an intake and routing experience. Terms and approvals depend on lender guidelines and underwriting.</div>
@@ -341,8 +321,84 @@
   </footer>
 </main>
 
+<div class="modal" id="leadModal" aria-hidden="true">
+  <div class="modalBackdrop" onclick="closeLeadModal()" aria-label="Close"></div>
+  <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Quick loan request">
+    <div class="modalTop">
+      <div>
+        <h3>Quick Loan Request</h3>
+        <p class="micro" id="modalSub">Tell us about your scenario.</p>
+      </div>
+      <button class="iconBtn" type="button" onclick="closeLeadModal()" aria-label="Close">✕</button>
+    </div>
 
+    <form class="form" action="https://formsubmit.co/investorloanintake@gmail.com" method="POST">
+      <input type="hidden" name="page" id="h_page" value=""/>
+      <input type="hidden" name="loan_type_prefill" id="h_type" value=""/>
+      <input type="hidden" name="calc_allin" id="h_allin" value=""/>
+      <input type="hidden" name="calc_ltv" id="h_ltv" value=""/>
+      <input type="hidden" name="calc_ltc" id="h_ltc" value=""/>
+      <input type="hidden" name="calc_dscr" id="h_dscr" value=""/>
+      <input type="hidden" name="calc_signal" id="h_signal" value=""/>
+      <input type="hidden" name="state" id="h_state" value=""/>
+      <input type="hidden" name="_subject" value="New Investor Loan Request"/>
+      <input type="hidden" name="_template" value="table"/>
+      <input type="hidden" name="_captcha" value="false"/>
+      <input type="hidden" name="_next" value="thanks.html"/>
 
+      <label>What type of deal is this?</label>
+      <select name="loan_type" id="f_type" required>
+        <option value="">Select</option>
+        <option>Rental property</option>
+        <option>Fix &amp; Flip</option>
+        <option>Bridge / BPL</option>
+        <option>Refinance / cash-out</option>
+        <option>Not sure yet</option>
+      </select>
+
+      <div class="grid2">
+        <div>
+          <label>Estimated Loan Amount</label>
+          <input type="number" name="loan_amount" id="f_amount" placeholder="450000" inputmode="numeric" required>
+        </div>
+        <div>
+          <label>Property value / purchase (optional)</label>
+          <input type="number" name="property_value" id="f_value" placeholder="550000" inputmode="numeric">
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <label>State</label>
+          <input type="text" name="state_display" id="f_state" placeholder="FL" maxlength="2">
+        </div>
+        <div>
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Jane Investor" required>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <label>Email</label>
+          <input type="email" name="email" placeholder="jane@email.com" required>
+        </div>
+        <div>
+          <label>Phone</label>
+          <input type="tel" name="phone" placeholder="(555) 555-5555" required>
+        </div>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" name="consent" required>
+        <span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span>
+      </label>
+
+      <button class="btn btnDark" type="submit">Submit</button>
+      <p class="micro">Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
+    </form>
+  </div>
+</div>
 <script src="script.js"></script>
 </body>
 </html>

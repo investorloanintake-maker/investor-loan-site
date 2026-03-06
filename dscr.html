@@ -38,35 +38,24 @@
     </div>
   </div>
 </header>
-
 <main class="wrap">
   <section class="section">
     <div class="sectionHead">
-      <div>
-        <h2>DSCR calculator</h2>
-        <p>Estimate DSCR using Monthly Rent ÷ Monthly PITIA, then submit a request.</p>
-      </div>
+      <div><h2>DSCR calculator</h2><p>Estimate DSCR using Monthly Rent ÷ Monthly PITIA, then submit a request.</p></div>
       <a class="btn btnPrimary" href="#" onclick="openLeadModal('DSCR');return false;">Quick loan request</a>
     </div>
-
     <div class="card"><div class="cardPad">
       <div class="grid2">
         <div>
-          <label>Monthly Rent</label>
-          <input id="rent" type="number" placeholder="3200" inputmode="numeric">
-          <label>Monthly PITIA</label>
-          <input id="pitia" type="number" placeholder="2600" inputmode="numeric">
-          <label>State</label>
-          <input id="state" type="text" placeholder="FL" maxlength="2" autocapitalize="characters">
-
+          <label>Monthly Rent</label><input id="rent" type="number" placeholder="3200" inputmode="numeric">
+          <label>Monthly PITIA</label><input id="pitia" type="number" placeholder="2600" inputmode="numeric">
+          <label>State</label><input id="state" type="text" placeholder="FL" maxlength="2" autocapitalize="characters">
           <div class="heroBtns" style="margin-top:14px;">
             <button class="btn btnPrimary" type="button" onclick="calculateDSCR()">Calculate DSCR</button>
             <button class="btn" type="button" onclick="openLeadModal('DSCR')">Talk to an Expert</button>
           </div>
-
           <p class="micro">DSCR methodology varies by lender. This is a quick estimate.</p>
         </div>
-
         <div class="resultsBox" id="dscrResults" style="display:none" aria-live="polite">
           <div class="metric"><span>DSCR</span><strong id="dscrVal">—</strong></div>
           <div class="metric"><span>Signal</span><strong id="dscrSignal">—</strong></div>
@@ -78,14 +67,86 @@
       </div>
     </div></div>
   </section>
-
-  <footer class="footer">
-    <strong>Disclosures:</strong> Not a lender. Not a commitment to lend. Business-purpose investor financing only.
-  </footer>
+  <footer class="footer"><strong>Disclosures:</strong> Not a lender. Not a commitment to lend. Business-purpose investor financing only.</footer>
 </main>
+<div class="modal" id="leadModal" aria-hidden="true">
+  <div class="modalBackdrop" onclick="closeLeadModal()" aria-label="Close"></div>
+  <div class="modalPanel" role="dialog" aria-modal="true" aria-label="Quick loan request">
+    <div class="modalTop">
+      <div>
+        <h3>Quick Loan Request</h3>
+        <p class="micro" id="modalSub">Tell us about your scenario.</p>
+      </div>
+      <button class="iconBtn" type="button" onclick="closeLeadModal()" aria-label="Close">✕</button>
+    </div>
 
+    <form class="form" action="https://formsubmit.co/investorloanintake@gmail.com" method="POST">
+      <input type="hidden" name="page" id="h_page" value=""/>
+      <input type="hidden" name="loan_type_prefill" id="h_type" value=""/>
+      <input type="hidden" name="calc_allin" id="h_allin" value=""/>
+      <input type="hidden" name="calc_ltv" id="h_ltv" value=""/>
+      <input type="hidden" name="calc_ltc" id="h_ltc" value=""/>
+      <input type="hidden" name="calc_dscr" id="h_dscr" value=""/>
+      <input type="hidden" name="calc_signal" id="h_signal" value=""/>
+      <input type="hidden" name="state" id="h_state" value=""/>
+      <input type="hidden" name="_subject" value="New Investor Loan Request"/>
+      <input type="hidden" name="_template" value="table"/>
+      <input type="hidden" name="_captcha" value="false"/>
+      <input type="hidden" name="_next" value="thanks.html"/>
 
+      <label>What type of deal is this?</label>
+      <select name="loan_type" id="f_type" required>
+        <option value="">Select</option>
+        <option>Rental property</option>
+        <option>Fix &amp; Flip</option>
+        <option>Bridge / BPL</option>
+        <option>Refinance / cash-out</option>
+        <option>Not sure yet</option>
+      </select>
 
+      <div class="grid2">
+        <div>
+          <label>Estimated Loan Amount</label>
+          <input type="number" name="loan_amount" id="f_amount" placeholder="450000" inputmode="numeric" required>
+        </div>
+        <div>
+          <label>Property value / purchase (optional)</label>
+          <input type="number" name="property_value" id="f_value" placeholder="550000" inputmode="numeric">
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <label>State</label>
+          <input type="text" name="state_display" id="f_state" placeholder="FL" maxlength="2">
+        </div>
+        <div>
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Jane Investor" required>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <label>Email</label>
+          <input type="email" name="email" placeholder="jane@email.com" required>
+        </div>
+        <div>
+          <label>Phone</label>
+          <input type="tel" name="phone" placeholder="(555) 555-5555" required>
+        </div>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" name="consent" required>
+        <span>I agree to be contacted by phone/SMS/email. Message/data rates may apply.</span>
+      </label>
+
+      <button class="btn btnDark" type="submit">Submit</button>
+      <p class="micro">Not a lender. Not a commitment to lend. Business-purpose investor financing only.</p>
+    </form>
+  </div>
+</div>
 <script src="script.js"></script>
 </body>
 </html>

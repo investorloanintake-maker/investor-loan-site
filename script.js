@@ -6,24 +6,17 @@ function calculateFlip(){
   const rehab = Number(document.getElementById("rehab").value || 0);
   const arv = Number(document.getElementById("arv").value || 0);
   const loan = Number(document.getElementById("loan").value || 0);
-
   const allin = purchase + rehab;
   const ltvNum = (arv > 0) ? (loan / arv) * 100 : NaN;
   const ltcNum = (allin > 0) ? (loan / allin) * 100 : NaN;
-
   let signal = "Strong";
   if (isFinite(ltvNum) && ltvNum > 80) signal = "Moderate";
   if (isFinite(ltvNum) && ltvNum > 85) signal = "Aggressive";
-
-  const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
   setText("allin", allin ? ("$" + allin.toLocaleString()) : "—");
   setText("ltv", isFinite(ltvNum) ? (ltvNum.toFixed(1) + "%") : "—");
   setText("ltc", isFinite(ltcNum) ? (ltcNum.toFixed(1) + "%") : "—");
   setText("signal", signal);
-
-  const box = document.getElementById("flipResults");
-  if (box) box.style.display = "block";
-
+  show("flipResults");
   metrics.allin = allin ? ("$" + allin.toLocaleString()) : "";
   metrics.ltv = isFinite(ltvNum) ? (ltvNum.toFixed(1) + "%") : "";
   metrics.ltc = isFinite(ltcNum) ? (ltcNum.toFixed(1) + "%") : "";
@@ -35,9 +28,7 @@ function calculateDSCR(){
   const rent = Number(document.getElementById("rent").value || 0);
   const pitia = Number(document.getElementById("pitia").value || 0);
   const st = (document.getElementById("state").value || "").toUpperCase();
-
   const dscrNum = (pitia > 0) ? (rent / pitia) : NaN;
-
   let signal = "—";
   let next = "—";
   if (isFinite(dscrNum)) {
@@ -45,24 +36,46 @@ function calculateDSCR(){
     else if (dscrNum >= 1.00) { signal = "Borderline"; next = "May need structure changes"; }
     else { signal = "Tight"; next = "Consider more equity / lower PITIA"; }
   }
-
-  const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
   setText("dscrVal", isFinite(dscrNum) ? dscrNum.toFixed(2) : "—");
   setText("dscrSignal", signal);
   setText("dscrNext", next);
-
-  const box = document.getElementById("dscrResults");
-  if (box) box.style.display = "block";
-
+  show("dscrResults");
   metrics.dscr = isFinite(dscrNum) ? dscrNum.toFixed(2) : "";
   metrics.signal = signal;
   metrics.state = st || "";
 }
 
+function calculateBankStatement(){
+  if (!document.getElementById("bs_deposits")) return;
+  const months = Number(document.getElementById("bs_months").value || 12);
+  const deposits = Number(document.getElementById("bs_deposits").value || 0);
+  const expensePct = Number(document.getElementById("bs_expense").value || 50) / 100;
+  const ownPct = Number(document.getElementById("bs_own").value || 100) / 100;
+  const net = deposits * (1 - expensePct);
+  const netOwn = net * ownPct;
+  const monthly = months > 0 ? netOwn / months : 0;
+  const annual = monthly * 12;
+  const fmt = (n) => n ? ("$" + Math.round(n).toLocaleString()) : "—";
+  setText("bs_net", fmt(net));
+  setText("bs_net_own", fmt(netOwn));
+  setText("bs_monthly", fmt(monthly));
+  setText("bs_annual", fmt(annual));
+  show("bsResults");
+  metrics.signal = "Bank Statement Estimate";
+}
+
+function setText(id, val){
+  const el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
+function show(id){
+  const el = document.getElementById(id);
+  if (el) el.style.display = "block";
+}
+
 function openLeadModal(type){
   const modal = document.getElementById("leadModal");
   if (!modal) return;
-
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("noScroll");
@@ -73,10 +86,10 @@ function openLeadModal(type){
     if (clean.includes("dscr")) sel.value = "DSCR";
     else if (clean.includes("fix")) sel.value = "Fix & Flip";
     else if (clean.includes("bridge")) sel.value = "Bridge / BPL";
+    else if (clean.includes("bank")) sel.value = "Other";
     else sel.value = "";
   }
 
-  const setVal = (id, val) => { const el = document.getElementById(id); if (el) el.value = val; };
   setVal("h_page", window.location.pathname.split("/").pop() || "index.html");
   setVal("h_type", type || "");
   setVal("h_allin", metrics.allin || "");
@@ -93,10 +106,24 @@ function openLeadModal(type){
   if (stateInput && metrics.state) stateInput.value = metrics.state;
 }
 
+function openLeadModalWithPrefill(type, amount, state){
+  openLeadModal(type || "General");
+  const amt = document.getElementById("f_amount");
+  if (amt && amount !== undefined && amount !== null && amount !== "") amt.value = amount;
+  const st = document.getElementById("f_state");
+  if (st && state) st.value = String(state).toUpperCase();
+  const hs = document.getElementById("h_state");
+  if (hs && state) hs.value = String(state).toUpperCase();
+}
+
+function setVal(id, val){
+  const el = document.getElementById(id);
+  if (el) el.value = val;
+}
+
 function closeLeadModal(){
   const modal = document.getElementById("leadModal");
   if (!modal) return;
-
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("noScroll");
@@ -115,41 +142,12 @@ function smoothTo(id){
   if (el) el.scrollIntoView({behavior:"smooth"});
 }
 
-function openLeadModalWithPrefill(type, amount, state){
-  openLeadModal(type || "General");
-  const amt = document.getElementById("f_amount");
-  if (amt && amount !== undefined && amount !== null && amount !== "") amt.value = amount;
-  const st = document.getElementById("f_state");
-  if (st && state) st.value = String(state).toUpperCase();
+document.addEventListener("DOMContentLoaded", () => {
+  const fState = document.getElementById("f_state");
   const hState = document.getElementById("h_state");
-  if (hState && state) hState.value = String(state).toUpperCase();
-}
-
-
-function calculateBankStatement(){
-  if (!document.getElementById("bs_deposits")) return;
-
-  const months = Number(document.getElementById("bs_months").value || 12);
-  const deposits = Number(document.getElementById("bs_deposits").value || 0);
-  const expensePct = Number(document.getElementById("bs_expense").value || 50) / 100;
-  const ownPct = Number(document.getElementById("bs_own").value || 100) / 100;
-
-  const net = deposits * (1 - expensePct);
-  const netOwn = net * ownPct;
-  const monthly = months > 0 ? netOwn / months : 0;
-  const annual = monthly * 12;
-
-  const fmt = (n) => n ? ("$" + Math.round(n).toLocaleString()) : "—";
-  const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-
-  setText("bs_net", fmt(net));
-  setText("bs_net_own", fmt(netOwn));
-  setText("bs_monthly", fmt(monthly));
-  setText("bs_annual", fmt(annual));
-
-  const box = document.getElementById("bsResults");
-  if (box) box.style.display = "block";
-
-  // store for modal hidden fields using existing metrics object
-  metrics.signal = "Bank Statement Estimate";
-}
+  if (fState && hState) {
+    fState.addEventListener("input", (e) => {
+      hState.value = (e.target.value || "").toUpperCase();
+    });
+  }
+});
