@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Bank Statement Estimator | Investor Loan Marketplace</title>
-  <link rel="icon" href="assets/brand-logo.png"/>
+  <title>DSCR Calculator | Investor Loan Marketplace</title>
+  <link rel="icon" href="assets/brand-assets.png"/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -17,7 +17,7 @@
 <header class="header">
   <div class="wrap">
     <a class="brand" href="index.html">
-      <img src="assets/brand-logo.png" alt="Investor Loan Marketplace"/>
+      <img src="assets/brand-assets.png" alt="Investor Loan Marketplace"/>
     </a>
     <nav class="nav" aria-label="Primary">
       <a href="index.html">Home</a>
@@ -36,42 +36,30 @@
   <section class="section hero">
     <div class="sectionHead">
       <div>
-        <h2>Bank Statement Income Estimator</h2>
-        <p>Estimate qualifying income using deposits, expense factor, and ownership percentage.</p>
+        <h2>DSCR Calculator</h2>
+        <p>Estimate DSCR using Monthly Rent ÷ Monthly PITIA, then submit a request.</p>
       </div>
-      <a class="btn btnPrimary" href="#" onclick="openLeadModal('Bank Statement');return false;">Quick Loan Request</a>
+      <a class="btn btnPrimary" href="#" onclick="openLeadModal('DSCR');return false;">Quick Loan Request</a>
     </div>
     <div class="panel">
       <div class="grid2">
         <div>
-          <label>Months of statements</label>
-          <select id="bs_months">
-            <option value="12">12 months</option>
-            <option value="24">24 months</option>
-          </select>
-          <label>Total deposits (for selected period)</label><input id="bs_deposits" type="number" placeholder="240000" inputmode="numeric">
-          <label>Expense factor</label>
-          <select id="bs_expense">
-            <option value="50">50% (common default)</option>
-            <option value="40">40%</option>
-            <option value="35">35%</option>
-            <option value="30">30%</option>
-          </select>
-          <label>Ownership percentage</label><input id="bs_own" type="number" placeholder="100" inputmode="numeric">
+          <label>Monthly Rent</label><input id="rent" type="number" placeholder="3200" inputmode="numeric">
+          <label>Monthly PITIA</label><input id="pitia" type="number" placeholder="2600" inputmode="numeric">
+          <label>State</label><input id="state" type="text" placeholder="FL" maxlength="2" autocapitalize="characters">
           <div class="heroBtns">
-            <button class="btn btnPrimary" type="button" onclick="calculateBankStatement()">Estimate Income</button>
-            <button class="btn" type="button" onclick="openLeadModal('Bank Statement')">Talk to an Expert</button>
+            <button class="btn btnPrimary" type="button" onclick="calculateDSCR()">Calculate DSCR</button>
+            <button class="btn" type="button" onclick="openLeadModal('DSCR')">Talk to an Expert</button>
           </div>
-          <p class="small" style="margin-top:10px">All business deposits must be sourced to a client paying a business. Estimation only.</p>
+          <p class="small" style="margin-top:10px">DSCR methodology varies by lender. This is a quick estimate.</p>
         </div>
-        <div class="resultsBox" id="bsResults" style="display:none">
-          <div class="metric"><span>Net Deposits (after expense)</span><strong id="bs_net">—</strong></div>
-          <div class="metric"><span>Ownership-adjusted Net</span><strong id="bs_net_own">—</strong></div>
-          <div class="metric"><span>Monthly Qualifying Income</span><strong id="bs_monthly">—</strong></div>
-          <div class="metric"><span>Annual Qualifying Income</span><strong id="bs_annual">—</strong></div>
+        <div class="resultsBox" id="dscrResults" style="display:none">
+          <div class="metric"><span>DSCR</span><strong id="dscrVal">—</strong></div>
+          <div class="metric"><span>Signal</span><strong id="dscrSignal">—</strong></div>
+          <div class="metric"><span>Next Step</span><strong id="dscrNext">—</strong></div>
           <div class="divider"></div>
-          <button class="btn btnDark" type="button" onclick="openLeadModal('Bank Statement')">Submit with These Numbers</button>
-          <p class="small" style="margin-top:10px">We’ll confirm business type, documentation, and program specifics.</p>
+          <button class="btn btnDark" type="button" onclick="openLeadModal('DSCR')">Submit with These Numbers</button>
+          <p class="small" style="margin-top:10px">We’ll confirm property type, rent source, occupancy, leverage target, and state.</p>
         </div>
       </div>
     </div>
@@ -79,15 +67,15 @@
 
   <section class="section">
     <div class="grid3">
-      <div class="card"><div class="cardTop"><div class="icon">1</div><h3>12 / 24 Month Options</h3></div><p>Screen both common lookback periods depending on lender lane.</p></div>
-      <div class="card"><div class="cardTop"><div class="icon">%</div><h3>Expense Factor</h3></div><p>Default 50% shown, with alternatives for different business profiles.</p></div>
-      <div class="card"><div class="cardTop"><div class="icon">O</div><h3>Ownership %</h3></div><p>Adjust qualifying income where the borrower owns less than 100% of the business.</p></div>
+      <div class="card"><div class="cardTop"><div class="icon">P</div><h3>PITIA</h3></div><p>Principal + Interest + Taxes + Insurance + HOA if applicable.</p></div>
+      <div class="card"><div class="cardTop"><div class="icon">R</div><h3>Rent source</h3></div><p>Lease, market rent, or short-term rental methodology depends on program.</p></div>
+      <div class="card"><div class="cardTop"><div class="icon">T</div><h3>Thresholds</h3></div><p>Many programs price better at 1.10–1.25+. Below 1.00 can require more equity.</p></div>
     </div>
   </section>
   <footer class="footer">
   <div class="footerCard">
     <div class="footerBrand">
-      <img src="assets/brand-logo.png" alt="Investor Loan Marketplace"/>
+      <img src="assets/brand-assets.png" alt="Investor Loan Marketplace"/>
     </div>
     <div><strong>Disclosures:</strong> Not a lender. Not a commitment to lend. Business-purpose investor financing only. This site does not provide legal, tax, or financial advice.</div>
   </div>

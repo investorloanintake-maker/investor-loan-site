@@ -1,149 +1,164 @@
-const metrics = { allin:"", ltv:"", ltc:"", dscr:"", signal:"", state:"", bsMonthly:"", bsAnnual:"" };
-
-function setText(id, val){ const el = document.getElementById(id); if (el) el.textContent = val; }
-function show(id){ const el = document.getElementById(id); if (el) el.style.display = "block"; }
-function setVal(id, val){ const el = document.getElementById(id); if (el) el.value = val; }
-
-function calculateFlip(){
-  if (!document.getElementById("purchase")) return;
-  const purchase = Number(document.getElementById("purchase").value || 0);
-  const rehab = Number(document.getElementById("rehab").value || 0);
-  const arv = Number(document.getElementById("arv").value || 0);
-  const loan = Number(document.getElementById("loan").value || 0);
-  const allin = purchase + rehab;
-  const ltvNum = (arv > 0) ? (loan / arv) * 100 : NaN;
-  const ltcNum = (allin > 0) ? (loan / allin) * 100 : NaN;
-  let signal = "Strong";
-  if (isFinite(ltvNum) && ltvNum > 80) signal = "Moderate";
-  if (isFinite(ltvNum) && ltvNum > 85) signal = "Aggressive";
-  setText("allin", allin ? "$" + allin.toLocaleString() : "—");
-  setText("ltv", isFinite(ltvNum) ? ltvNum.toFixed(1) + "%" : "—");
-  setText("ltc", isFinite(ltcNum) ? ltcNum.toFixed(1) + "%" : "—");
-  setText("signal", signal);
-  show("flipResults");
-  metrics.allin = allin ? "$" + allin.toLocaleString() : "";
-  metrics.ltv = isFinite(ltvNum) ? ltvNum.toFixed(1) + "%" : "";
-  metrics.ltc = isFinite(ltcNum) ? ltcNum.toFixed(1) + "%" : "";
-  metrics.signal = signal;
+:root{
+  --bg:#f5f7fb;
+  --surface:#ffffff;
+  --surface-2:#f8fbff;
+  --text:#10213f;
+  --muted:#66758f;
+  --line:rgba(16,33,63,.10);
+  --blue:#1e88e5;
+  --green:#34a853;
+  --navy:#10213f;
+  --shadow:0 18px 50px rgba(16,33,63,.10);
+  --radius:22px;
 }
-
-function calculateDSCR(){
-  if (!document.getElementById("rent")) return;
-  const rent = Number(document.getElementById("rent").value || 0);
-  const pitia = Number(document.getElementById("pitia").value || 0);
-  const st = (document.getElementById("state").value || "").toUpperCase();
-  const dscrNum = (pitia > 0) ? (rent / pitia) : NaN;
-  let signal = "—";
-  let next = "—";
-  if (isFinite(dscrNum)) {
-    if (dscrNum >= 1.25) { signal = "Strong"; next = "Likely DSCR-eligible lane"; }
-    else if (dscrNum >= 1.00) { signal = "Borderline"; next = "May need structure changes"; }
-    else { signal = "Tight"; next = "Consider more equity / lower PITIA"; }
-  }
-  setText("dscrVal", isFinite(dscrNum) ? dscrNum.toFixed(2) : "—");
-  setText("dscrSignal", signal);
-  setText("dscrNext", next);
-  show("dscrResults");
-  metrics.dscr = isFinite(dscrNum) ? dscrNum.toFixed(2) : "";
-  metrics.signal = signal;
-  metrics.state = st || "";
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(900px 500px at 0% 0%, rgba(30,136,229,.10), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(52,168,83,.07), transparent 55%),
+    linear-gradient(180deg, #f8fbff 0%, #f5f7fb 100%);
 }
-
-function calculateBankStatement(){
-  if (!document.getElementById("bs_deposits")) return;
-  const months = Number(document.getElementById("bs_months").value || 12);
-  const deposits = Number(document.getElementById("bs_deposits").value || 0);
-  const expensePct = Number(document.getElementById("bs_expense").value || 50) / 100;
-  const ownPct = Number(document.getElementById("bs_own").value || 100) / 100;
-  const net = deposits * (1 - expensePct);
-  const netOwn = net * ownPct;
-  const monthly = months > 0 ? netOwn / months : 0;
-  const annual = monthly * 12;
-  const fmt = (n) => n ? "$" + Math.round(n).toLocaleString() : "—";
-  setText("bs_net", fmt(net));
-  setText("bs_net_own", fmt(netOwn));
-  setText("bs_monthly", fmt(monthly));
-  setText("bs_annual", fmt(annual));
-  show("bsResults");
-  metrics.signal = "Bank Statement Estimate";
-  metrics.bsMonthly = fmt(monthly);
-  metrics.bsAnnual = fmt(annual);
+a{color:inherit}
+img{max-width:100%;display:block}
+button{font:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.topbar{background:#0f1f3d;color:#fff;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 20px}
+.topbar .muted{opacity:.8}
+.topbar a{text-decoration:none;font-weight:700}
+.header{
+  position:sticky;top:0;z-index:20;
+  backdrop-filter: blur(10px);
+  background:rgba(255,255,255,.85);
+  border-bottom:1px solid var(--line);
 }
-
-function openLeadModal(type){
-  const modal = document.getElementById("leadModal");
-  if (!modal) return;
-  modal.classList.add("open");
-  modal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("noScroll");
-
-  const sel = document.getElementById("f_type");
-  const clean = (type || "").toLowerCase();
-  if (sel) {
-    if (clean.includes("rental") || clean.includes("dscr")) sel.value = "Rental property";
-    else if (clean.includes("fix")) sel.value = "Fix & Flip";
-    else if (clean.includes("bridge")) sel.value = "Bridge / BPL";
-    else if (clean.includes("refi")) sel.value = "Refinance / cash-out";
-    else if (clean.includes("bank")) sel.value = "Not sure yet";
-    else sel.value = "";
-  }
-
-  setVal("h_page", window.location.pathname.split("/").pop() || "index.html");
-  setVal("h_type", type || "");
-  setVal("h_allin", metrics.allin || "");
-  setVal("h_ltv", metrics.ltv || "");
-  setVal("h_ltc", metrics.ltc || "");
-  setVal("h_dscr", metrics.dscr || "");
-  setVal("h_signal", metrics.signal || "");
-  setVal("h_state", metrics.state || "");
-  setVal("h_bs_monthly", metrics.bsMonthly || "");
-  setVal("h_bs_annual", metrics.bsAnnual || "");
-
-  const sub = document.getElementById("modalSub");
-  if (sub) sub.textContent = type ? ("Tell us about your " + type + " scenario.") : "Tell us about your scenario.";
-  const stateInput = document.getElementById("f_state");
-  if (stateInput && metrics.state) stateInput.value = metrics.state;
+.header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0}
+.brand img{height:52px;width:auto}
+.nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.nav a{
+  text-decoration:none;padding:10px 13px;border:1px solid var(--line);border-radius:999px;
+  font-weight:700;font-size:13px;color:var(--navy);background:rgba(255,255,255,.72)
 }
-
-function openLeadModalWithPrefill(type, amount, state, value){
-  openLeadModal(type || "General");
-  const amt = document.getElementById("f_amount");
-  if (amt && amount) amt.value = amount;
-  const st = document.getElementById("f_state");
-  if (st && state) st.value = String(state).toUpperCase();
-  const hs = document.getElementById("h_state");
-  if (hs && state) hs.value = String(state).toUpperCase();
-  const fv = document.getElementById("f_value");
-  if (fv && value) fv.value = value;
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 18px;border-radius:14px;text-decoration:none;font-weight:800;
+  border:1px solid var(--line);background:#fff;color:var(--navy);cursor:pointer;
+  box-shadow:0 6px 18px rgba(16,33,63,.06);
 }
+.btn:hover{transform:translateY(-1px)}
+.btnPrimary{background:linear-gradient(180deg,#2d91ea,#1e88e5);color:#fff;border-color:#1e88e5}
+.btnDark{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btnGhost{background:rgba(255,255,255,.78)}
 
-function closeLeadModal(){
-  const modal = document.getElementById("leadModal");
-  if (!modal) return;
-  modal.classList.remove("open");
-  modal.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("noScroll");
+.hero{padding:38px 0 20px}
+.heroGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}
+.panel{
+  background:rgba(255,255,255,.86);
+  border:1px solid var(--line);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+  padding:26px;
 }
-
-function toggleFAQ(btn){
-  const wrap = btn.closest(".qa");
-  if (!wrap) return;
-  wrap.classList.toggle("open");
-  const chev = wrap.querySelector(".chev");
-  if (chev) chev.textContent = wrap.classList.contains("open") ? "—" : "+";
+.hero h1{margin:0 0 12px;font-size:48px;line-height:1.02;letter-spacing:-1.2px}
+.hero p{margin:0;color:var(--muted);line-height:1.75;font-size:16px}
+.heroBtns,.actions,.stackBtns{display:flex;gap:12px;flex-wrap:wrap}
+.heroBtns{margin-top:18px}
+.trustbar{
+  margin-top:18px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  padding:14px 16px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f8fbff);
 }
-
-function smoothTo(id){
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({behavior:"smooth"});
+.trustbar strong{font-size:13px}
+.trustItems{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:12px;font-weight:700}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;margin-right:6px}
+.miniPills{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.pill{
+  display:inline-flex;align-items:center;padding:7px 11px;border-radius:999px;
+  background:#edf5ff;border:1px solid rgba(30,136,229,.16);font-size:12px;font-weight:800;color:var(--navy)
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  const fState = document.getElementById("f_state");
-  const hState = document.getElementById("h_state");
-  if (fState && hState) {
-    fState.addEventListener("input", (e) => {
-      hState.value = (e.target.value || "").toUpperCase();
-    });
-  }
-});
+.small{color:var(--muted);font-size:12px;line-height:1.6}
+.step{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.step:last-child{border-bottom:none}
+.stepN{
+  width:32px;height:32px;border-radius:12px;background:#edf5ff;border:1px solid rgba(30,136,229,.18);
+  display:flex;align-items:center;justify-content:center;font-weight:900;color:#1e88e5;flex:none;
+}
+.step strong{display:block}
+.step span{display:block;color:var(--muted);font-size:13px;margin-top:4px;line-height:1.55}
+.quickForm{margin-top:16px;padding:16px;border-radius:22px;border:1px solid var(--line);background:#fff}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+label{display:block;font-size:13px;font-weight:800;color:var(--navy);margin:12px 0 6px}
+input,select{
+  width:100%;padding:12px 14px;border-radius:14px;border:1px solid rgba(16,33,63,.14);
+  background:#fff;color:var(--navy);outline:none;
+}
+input:focus,select:focus{border-color:#1e88e5;box-shadow:0 0 0 4px rgba(30,136,229,.12)}
+.section{padding:18px 0}
+.sectionHead{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:14px}
+.sectionHead p{margin:6px 0 0;color:var(--muted);font-size:14px;line-height:1.7}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;
+  box-shadow:0 10px 26px rgba(16,33,63,.06);
+}
+.card h3{margin:0 0 8px;font-size:18px}
+.card p{margin:0;color:var(--muted);line-height:1.7;font-size:14px}
+.cardTop{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.icon{
+  width:42px;height:42px;border-radius:14px;background:#edf5ff;border:1px solid rgba(30,136,229,.18);
+  display:flex;align-items:center;justify-content:center;font-weight:900;color:#1e88e5;flex:none;
+}
+.rateCard{
+  background:linear-gradient(180deg,#fff,#f7fbff);
+  border:1px solid rgba(30,136,229,.16);border-radius:22px;padding:18px;
+}
+.rateCard .pct{font-size:34px;font-weight:900;letter-spacing:-.7px;margin:6px 0}
+.kicker{font-size:12px;font-weight:900;color:var(--navy);opacity:.8}
+.resultsBox{
+  background:linear-gradient(180deg,#fff,#f8fbff);
+  border:1px solid var(--line);border-radius:22px;padding:18px;
+}
+.metric{display:flex;justify-content:space-between;gap:10px;padding:9px 0;color:var(--muted);font-weight:800}
+.metric strong{color:var(--navy)}
+.divider{height:1px;background:var(--line);margin:10px 0}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.qa{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.qa button{
+  width:100%;background:transparent;border:0;padding:16px;text-align:left;display:flex;justify-content:space-between;gap:14px;
+  cursor:pointer;font-weight:800;color:var(--navy);
+}
+.qa .ans{display:none;padding:0 16px 16px;color:var(--muted);font-size:14px;line-height:1.7}
+.qa.open .ans{display:block}
+.footer{padding:28px 0 40px;margin-top:20px;color:var(--muted);font-size:12px;line-height:1.8}
+.footerCard{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 10px 26px rgba(16,33,63,.05)}
+.footerBrand{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.footerBrand img{height:48px;width:auto}
+.modal{position:fixed;inset:0;display:none;z-index:50}
+.modal.open{display:block}
+.modalBackdrop{position:absolute;inset:0;background:rgba(15,31,61,.56)}
+.modalPanel{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:min(860px,94vw);max-height:90vh;overflow:auto;
+  background:#fff;border:1px solid var(--line);border-radius:26px;box-shadow:0 28px 90px rgba(16,33,63,.26);padding:18px;
+}
+.modalTop{display:flex;justify-content:space-between;align-items:start;gap:14px;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.iconBtn{width:44px;height:44px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:900}
+.consent{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:16px;background:#f8fbff}
+.consent input{width:auto;margin-top:4px}
+@media (max-width:1080px){.heroGrid,.grid4{grid-template-columns:1fr 1fr}}
+@media (max-width:920px){
+  .heroGrid,.grid3,.faq{grid-template-columns:1fr}
+  .header .wrap,.topbar .wrap{padding-left:16px;padding-right:16px}
+  .header .wrap{align-items:flex-start}
+}
+@media (max-width:720px){
+  .grid2,.grid4{grid-template-columns:1fr}
+  .hero h1{font-size:38px}
+  .nav{display:none}
+  .brand img{height:44px}
+}
