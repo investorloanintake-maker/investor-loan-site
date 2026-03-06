@@ -91,7 +91,7 @@
         <div class="quickForm" aria-label="Quick request form">
           <h3>Quick Loan Request</h3>
 
-          <label>Loan Type</label>
+          <label>What type of deal is this?</label>
           <select id="hero_type">
             <option value="">Select</option>
             <option>Fix &amp; Flip</option>
@@ -105,6 +105,10 @@
               <label>Estimated Loan Amount</label>
               <input id="hero_amount" type="number" placeholder="450000" inputmode="numeric"/>
             </div>
+<div>
+<label>Property value / purchase (optional)</label>
+<input id="hero_value" type="number" placeholder="550000" inputmode="numeric"/>
+</div>
             <div>
               <label>State</label>
               <input id="hero_state" type="text" placeholder="FL" maxlength="2"/>
@@ -114,12 +118,18 @@
           <div class="btnRow">
             <button class="btn btnDark" type="button"
               onclick="openLeadModalWithPrefill(document.getElementById('hero_type').value, document.getElementById('hero_amount').value, document.getElementById('hero_state').value)">
-              See Loan Options
+              Get Loan Options
             </button>
             <button class="btn" type="button" onclick="openLeadModal('Talk to an Expert')">Talk to an Expert</button>
           </div>
 
-          <div class="hint">Prefer to run numbers first? Use the calculators, then submit with your results.</div>
+          <div class="hint">
+<div style="margin-top:10px;font-size:12px;color:#555;">
+✓ No hard credit pull to start<br>
+✓ Business purpose loans only<br>
+✓ Nationwide investor programs
+</div>
+</div>
         </div>
       </div>
     </div>
