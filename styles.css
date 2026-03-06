@@ -160,3 +160,20 @@ input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 
   .hero h1{font-size:40px}
   .brand img,.footerBrand img{height:46px}
 }\n
+
+/* Logo fit adjustments */
+.brand img{
+  height:48px !important;
+  width:auto !important;
+  object-fit:contain !important;
+}
+.footerBrand img{
+  height:52px !important;
+  width:auto !important;
+  object-fit:contain !important;
+}
+@media (max-width:720px){
+  .brand img,.footerBrand img{
+    height:40px !important;
+  }
+}
