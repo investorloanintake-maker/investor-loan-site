@@ -1,1 +1,76 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>DSCR Rental | Investor Loan Marketplace</title><link rel="icon" href="favicon.png"/><link rel="stylesheet" href="styles.css"/></head><body><div class="topbar"><div class="wrap"><div class="muted">Investor Loan Marketplace</div><div><a href="#lead-form">Get started</a> <span class="muted" style="margin-left:10px;">Powered by Capvia</span></div></div></div><header class="header"><div class="wrap"><a class="brand" href="index.html"><img src="favicon.png" alt="Capvia icon" class="brandIcon"/><span class="brandText"><strong>Investor Loan Marketplace</strong><small>Powered by Capvia</small></span></a><nav class="nav" aria-label="Primary"><a href="index.html">Home</a><a href="#programs">Loan Programs</a><a href="#tools">Calculators</a><a href="application.html">About</a><a href="application.html">Contact</a></nav><a class="btn btnPrimary" href="#lead-form">Get Loan Options</a></div></header><main class="wrap"><section class="hero"><div class="sectionHead"><div><h2>DSCR Rental</h2><p>Rental financing designed around property cash flow.</p></div><a class="btn btnPrimary" href="application.html">Talk to an Expert</a></div><div class="formCard"><div class="grid2"><div><label>Monthly rent</label><input id="rent" type="number" placeholder="3200"><label>Monthly PITIA</label><input id="pitia" type="number" placeholder="2600"><label>State</label><input id="state" type="text" placeholder="FL" maxlength="2"><div class="heroActions"><button class="btn btnPrimary" type="button" onclick="calculateDSCR()">Calculate DSCR</button><a class="btn btnGhost" href="application.html">Talk to an Expert</a></div></div><div class="resultsBox" id="dscrResults" style="display:none"><div class="metric"><span>DSCR</span><strong id="dscrVal">—</strong></div><div class="metric"><span>Signal</span><strong id="dscrSignal">—</strong></div><div class="metric"><span>Next step</span><strong id="dscrNext">—</strong></div><div class="divider"></div><a class="btn btnPrimary" href="application.html">Get Loan Options</a></div></div></div></section><footer class="footer"><div class="footerCard"><div class="footerBrand"><img src="favicon.png" alt="Capvia icon" class="brandIcon"/><span class="brandText"><strong>Investor Loan Marketplace</strong><small>Powered by Capvia</small></span></div><div class="subtle">Connecting real estate investors with trusted lending partners.</div><div class="subtle" style="margin-top:4px">capviahq.com</div><div class="footerLinks"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="application.html">Contact</a></div></div></footer></main><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capvia | DSCR Quick Check</title>
+  <link rel="stylesheet" href="styles.css" />
+  
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">C</div>
+        <div class="brand-copy">
+          <strong>Capvia</strong>
+          <span>Investor Capital & Deal Advisory</span>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="index.html#process">How It Works</a>
+        <a href="index.html#timeline">Build Wealth</a>
+        <a href="index.html#analyzer">Deal Analyzer</a>
+        <a href="index.html#network">Network</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <a href="index.html#deal-form" class="btn btn-primary">Review My Deal</a>
+    </div>
+  </header>
+  <main>
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> DSCR rental</div>
+      <h2>Run a quick DSCR check</h2>
+      <p>Estimate whether monthly rent appears to support the payment on a rental property scenario.</p>
+    </div>
+    <div class="hero-mini-grid">
+      <div class="panel pad">
+        <div class="field">
+          <label>Monthly rent</label>
+          <input type="number" id="rentIncome" placeholder="2600" />
+        </div>
+        <div class="field">
+          <label>Estimated monthly PITIA</label>
+          <input type="number" id="pitia" placeholder="2100" />
+        </div>
+        <button class="btn btn-primary btn-full" type="button" onclick="runDscrCheck()">Check DSCR</button>
+        <div class="result-box" id="dscrResult">Estimate whether your rental income supports the payment.</div>
+      </div>
+      <div class="mini-card">
+        <h3>Why this matters</h3>
+        <p>Many first-time investors do not realize some rental loan programs rely more on property cash flow than personal income. This quick estimate helps frame whether the scenario may fit that lane.</p>
+        <div class="hero-actions">
+          <a href="index.html#deal-form" class="btn btn-primary">Review My Deal</a>
+          <a href="application.html" class="btn btn-secondary">Talk To An Expert</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div>
+        <strong>Capvia</strong>
+        <p>Investor Capital & Deal Advisory</p>
+      </div>
+      <div class="footer-note">
+        Example scenarios are illustrative only and do not represent guaranteed returns. Financing outcomes depend on lender guidelines and deal specifics.
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

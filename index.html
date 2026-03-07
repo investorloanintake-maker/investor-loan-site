@@ -1,1 +1,485 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Investor Loan Marketplace Powered by Capvia</title><link rel="icon" href="favicon.png"/><link rel="stylesheet" href="styles.css"/></head><body><div class="topbar"><div class="wrap"><div class="muted">Investor Loan Marketplace</div><div><a href="#lead-form">Get started</a> <span class="muted" style="margin-left:10px;">Powered by Capvia</span></div></div></div><header class="header"><div class="wrap"><a class="brand" href="index.html"><img src="favicon.png" alt="Capvia icon" class="brandIcon"/><span class="brandText"><strong>Investor Loan Marketplace</strong><small>Powered by Capvia</small></span></a><nav class="nav" aria-label="Primary"><a href="index.html">Home</a><a href="#programs">Loan Programs</a><a href="#tools">Calculators</a><a href="application.html">About</a><a href="application.html">Contact</a></nav><a class="btn btnPrimary" href="#lead-form">Get Loan Options</a></div></header><main class="wrap"><section class="hero"><div class="heroGrid"><div class="heroCopy"><div class="kicker"><span class="dot"></span> Connecting Investors to Capital</div><h1>Capital for Real Estate Investors</h1><p>Compare loan options from top investment property lenders across core investor scenarios — quickly, clearly, and without a messy intake experience.</p><div class="heroActions"><a class="btn btnPrimary" href="#lead-form">Get Loan Options</a><a class="btn btnGhost" href="application.html">Talk to an Expert</a></div><div class="heroStats"><div class="stat"><strong>Fix &amp; Flip</strong><span>Purchase and rehab financing</span></div><div class="stat"><strong>DSCR Rental</strong><span>Cash-flow based rental options</span></div><div class="stat"><strong>Bridge / BPL</strong><span>Short-term investor capital</span></div></div></div><div class="formCard" id="lead-form"><h3>Compare options from investor lenders</h3><div class="subtle">Start with deal details. Contact info comes second.</div><form action="https://formsubmit.co/Investorloanintake@gmail.com" method="POST" onsubmit="syncTwoStep()"><input type="hidden" name="_subject" value="New Investor Loan Request"/><input type="hidden" name="_template" value="table"/><input type="hidden" name="_captcha" value="false"/><input type="hidden" name="_next" value="thanks.html"/><div id="step1"><div class="grid2"><div><label>Loan type</label><select id="hero_type" required><option value="">Select</option><option>Fix &amp; Flip</option><option>DSCR Rental</option><option>Bridge / BPL</option><option>Refinance / cash-out</option><option>Not sure yet</option></select></div><div><label>Property type</label><input id="hero_property_type" type="text" placeholder="SFR, 2-4 unit, condo, mixed use" required></div></div><label>Estimated loan amount</label><input id="hero_amount" type="number" placeholder="450000" required><div class="heroActions"><button class="btn btnPrimary" type="button" onclick="nextStep()">See My Options</button></div></div><div id="step2" class="hidden"><div class="notice">Good fit — where should we send your options?</div><input type="hidden" name="loan_type" id="f_type"><input type="hidden" name="property_type" id="f_property_type"><input type="hidden" name="loan_amount" id="f_amount"><label>Name</label><input id="hero_name" type="text" name="name" placeholder="Jane Investor" required><div class="grid2"><div><label>Email</label><input id="hero_email" type="email" name="email" placeholder="jane@email.com" required></div><div><label>Phone</label><input id="hero_phone" type="tel" name="phone" placeholder="(555) 555-5555" required></div></div><label>Message</label><input id="hero_message" type="text" name="message" placeholder="Timing, purchase vs refi, current status, etc."><label class="consent"><input type="checkbox" name="consent" required><span>I agree to be contacted by phone, SMS, and email. Message and data rates may apply.</span></label><div class="heroActions"><button class="btn btnGhost" type="button" onclick="prevStep()">Back</button><button class="btn btnPrimary" type="submit">Get Loan Options</button></div></div></form></div></div></section><section class="section"><div class="sectionHead"><div><h2>Why investors use the marketplace</h2><p>Cleaner structure. Faster decision-making. Better first impression.</p></div></div><div class="grid3"><div class="card"><div class="cardTop"><div class="icon">✓</div><h3>Clear loan paths</h3></div><p>Visitors can quickly understand whether they are looking at a flip, rental, bridge, or alt-doc scenario.</p></div><div class="card"><div class="cardTop"><div class="icon">⚡</div><h3>Fast intake</h3></div><p>The form starts with the deal, then asks for contact details once intent is established.</p></div><div class="card"><div class="cardTop"><div class="icon">◌</div><h3>Professional presentation</h3></div><p>Minimal copy, stronger spacing, and a cleaner information hierarchy increase trust.</p></div></div></section><section class="section" id="programs"><div class="sectionHead"><div><h2>Loan programs</h2><p>Core investor financing categories with focused pages and calculators.</p></div></div><div class="grid4"><div class="card"><div class="cardTop"><div class="icon">F</div><h3>Fix &amp; Flip</h3></div><p>Short-term financing for purchase, rehab, and sale or refinance execution.</p><div class="heroActions"><a class="btn btnSoft" href="fix-and-flip.html">Learn More</a></div></div><div class="card"><div class="cardTop"><div class="icon">D</div><h3>DSCR Rental</h3></div><p>Rental financing built around property cash flow and DSCR fit.</p><div class="heroActions"><a class="btn btnSoft" href="dscr.html">Learn More</a></div></div><div class="card"><div class="cardTop"><div class="icon">B</div><h3>Bridge / BPL</h3></div><p>Flexible short-term capital for acquisition, transition, and timing-sensitive deals.</p><div class="heroActions"><a class="btn btnSoft" href="application.html">Learn More</a></div></div><div class="card"><div class="cardTop"><div class="icon">N</div><h3>Bank Statement</h3></div><p>Alt-doc support for borrowers with non-traditional income documentation.</p><div class="heroActions"><a class="btn btnSoft" href="bank-statement.html">Learn More</a></div></div></div></section><section class="section"><div class="sectionHead"><div><h2>How it works</h2><p>A simple, lender-friendly flow for serious investor leads.</p></div></div><div class="grid3"><div class="stepCard"><div class="stepNum">1</div><h3>Submit the scenario</h3><p>Start with deal type, property type, and target loan amount.</p></div><div class="stepCard"><div class="stepNum">2</div><h3>Review the lane</h3><p>Use program pages and calculators to confirm likely fit.</p></div><div class="stepCard"><div class="stepNum">3</div><h3>Move forward</h3><p>Submit full details and continue into expert review and lender routing.</p></div></div></section><section class="section"><div class="sectionHead"><div><h2>Built for investor financing</h2><p>A tighter trust section without bloated copy.</p></div></div><div class="logoStrip"><div class="logoItem">Business-purpose only</div><div class="logoItem">Fast deal review</div><div class="logoItem">Cleaner intake flow</div><div class="logoItem">Modern lender handoff</div></div></section><section class="section" id="tools"><div class="toolBand"><div><h2 style="margin:0 0 8px;font-size:34px;letter-spacing:-.9px;">Calculator tools</h2><p style="margin:0;color:var(--muted);line-height:1.75;">Run quick numbers, then continue to a request or full application.</p></div><div class="toolLinks"><a class="btn btnSoft" href="dscr.html">DSCR</a><a class="btn btnSoft" href="fix-and-flip.html">Fix &amp; Flip</a><a class="btn btnSoft" href="bank-statement.html">Bank Statement</a></div></div></section><section class="section"><div class="example"><div class="sectionHead"><div><h2>Example deal</h2><p>A single example is enough to make the offer more tangible.</p></div></div><div class="exampleGrid"><div><h3 style="margin-top:0;">Fix &amp; Flip scenario</h3><div class="exampleTable"><div>Purchase price</div><div><strong>20,000</strong></div><div>Rehab budget</div><div><strong>0,000</strong></div><div>ARV</div><div><strong>20,000</strong></div><div>Illustrative structure</div><div><strong>90% / 100%</strong></div></div></div><div><h3 style="margin-top:0;">Why it works</h3><p style="margin:0;color:var(--muted);line-height:1.75;">A clear example helps borrowers quickly understand leverage, deal shape, and whether it is worth taking the next step.</p><div class="heroActions" style="margin-top:18px;"><a class="btn btnPrimary" href="#lead-form">Get Loan Options</a></div></div></div></div></section><section class="section"><div class="ctaBand"><h2>Ready to review your options?</h2><p>Use the short request form for speed, or move into the full application for a stronger borrower profile.</p><div class="heroActions"><a class="btn btnPrimary" href="#lead-form">Get Loan Options</a><a class="btn btnGhost" href="application.html">Talk to an Expert</a></div></div></section><section class="section" id="faq"><div class="sectionHead"><div><h2>Frequently asked questions</h2><p>Short answers, clean presentation.</p></div></div><div class="faq"><div class="qa"><button type="button" onclick="toggleFAQ(this)">Who is this for? <span class="chev">+</span></button><div class="ans">Real estate investors looking for business-purpose financing options across flips, rentals, bridge scenarios, and alt-doc lanes.</div></div><div class="qa"><button type="button" onclick="toggleFAQ(this)">Do forms route to email? <span class="chev">+</span></button><div class="ans">Yes. All lead forms are configured to route to Investorloanintake@gmail.com.</div></div><div class="qa"><button type="button" onclick="toggleFAQ(this)">Do I have to use the calculators? <span class="chev">+</span></button><div class="ans">No. The calculators are optional. They are there to help screen fit faster.</div></div><div class="qa"><button type="button" onclick="toggleFAQ(this)">Can I submit a full scenario instead? <span class="chev">+</span></button><div class="ans">Yes. Use the Talk to an Expert page for a more complete submission.</div></div></div></section><footer class="footer"><div class="footerCard"><div class="footerBrand"><img src="favicon.png" alt="Capvia icon" class="brandIcon"/><span class="brandText"><strong>Investor Loan Marketplace</strong><small>Powered by Capvia</small></span></div><div class="subtle">Connecting real estate investors with trusted lending partners.</div><div class="subtle" style="margin-top:4px">capviahq.com</div><div class="footerLinks"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="application.html">Contact</a></div></div></footer></main><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capvia | Investor Capital & Deal Advisory</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#top" class="brand">
+        <div class="brand-mark">C</div>
+        <div class="brand-text">
+          <strong>Capvia</strong>
+          <span>Investor Capital & Deal Advisory</span>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="#process">How It Works</a>
+        <a href="#timeline">Build Wealth</a>
+        <a href="#analyzer">Deal Analyzer</a>
+        <a href="#network">Network</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a href="#deal-form" class="btn btn-primary">Review My Deal</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Built for first-time and growing investors</div>
+          <h1>Start with one property. Build wealth over time.</h1>
+          <p class="hero-sub">
+            Submit your deal, understand your financing path, and get help evaluating
+            the right next step — even if this is your first investment property.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#deal-form" class="btn btn-primary">Review My Deal</a>
+            <a href="#analyzer" class="btn btn-secondary">Analyze A Deal</a>
+          </div>
+
+          <div class="hero-points">
+            <div class="point">
+              <strong>Beginner-friendly</strong>
+              <span>Designed for investors who are not sure where to start.</span>
+            </div>
+            <div class="point">
+              <strong>Deal-first process</strong>
+              <span>We review the scenario before discussing financing options.</span>
+            </div>
+            <div class="point">
+              <strong>Long-term mindset</strong>
+              <span>Focused on income, net worth, and family legacy.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card" id="deal-form">
+          <div class="card-head">
+            <h2>Tell us about your investment deal</h2>
+            <p>We gather the details needed to evaluate your scenario and follow up with the best next step.</p>
+          </div>
+
+          <form class="deal-form">
+            <div class="field-grid two">
+              <div class="field">
+                <label>What type of deal is this?</label>
+                <select>
+                  <option>First rental property</option>
+                  <option>Rental property purchase</option>
+                  <option>Fix & Flip</option>
+                  <option>Refinance investment property</option>
+                  <option>Cash-out refinance</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Property location</label>
+                <input type="text" placeholder="City / State" />
+              </div>
+            </div>
+
+            <div class="field-grid two">
+              <div class="field">
+                <label>Estimated property value</label>
+                <input type="text" placeholder="$350,000" />
+              </div>
+              <div class="field">
+                <label>Loan amount needed</label>
+                <input type="text" placeholder="$250,000" />
+              </div>
+            </div>
+
+            <div class="field-grid two">
+              <div class="field">
+                <label>Property status</label>
+                <select>
+                  <option>Under contract</option>
+                  <option>Making offers</option>
+                  <option>Still searching</option>
+                  <option>Property already owned</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Investor experience</label>
+                <select>
+                  <option>First investment deal</option>
+                  <option>1–3 deals completed</option>
+                  <option>4–10 deals completed</option>
+                  <option>10+ deals completed</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-grid two">
+              <div class="field">
+                <label>Name</label>
+                <input type="text" placeholder="Your name" />
+              </div>
+              <div class="field">
+                <label>Email</label>
+                <input type="email" placeholder="you@email.com" />
+              </div>
+            </div>
+
+            <div class="field-grid two">
+              <div class="field">
+                <label>Phone</label>
+                <input type="text" placeholder="(555) 555-5555" />
+              </div>
+              <div class="field">
+                <label>Are you a first-time investor?</label>
+                <select>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Anything else we should know?</label>
+              <textarea placeholder="Tell us about the deal, timeline, or questions you have."></textarea>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-full">Submit Deal For Review</button>
+            <p class="form-note">No obligation. We review deals every day and help investors understand where to start.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading narrow">
+          <div class="eyebrow">Why this matters</div>
+          <h2>Real estate can do more than generate monthly income.</h2>
+          <p>
+            The immediate goal may be financing one property — but the bigger opportunity
+            is building long-term net worth, creating optionality, and eventually replacing
+            income from a corporate job with income from assets and your own business.
+          </p>
+        </div>
+
+        <div class="grid three">
+          <article class="info-card">
+            <h3>Build net worth</h3>
+            <p>Property appreciation and mortgage paydown can increase equity over time and grow overall household wealth.</p>
+          </article>
+          <article class="info-card">
+            <h3>Create flexibility</h3>
+            <p>As cash flow and equity grow, investors may gain more freedom to choose how they work and live.</p>
+          </article>
+          <article class="info-card">
+            <h3>Leave a legacy</h3>
+            <p>Income-producing assets can become part of a long-term family plan rather than just a short-term investment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="timeline">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Illustrative investor path</div>
+          <h2>From one property to financial independence</h2>
+          <p>
+            Many investors begin with one property, gain confidence, then use experience and equity
+            to build a portfolio over time.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-step">
+            <span class="step-num">1</span>
+            <h3>Buy the first property</h3>
+            <p>Learn the process, build initial equity, and understand how investor financing works.</p>
+          </div>
+          <div class="timeline-step">
+            <span class="step-num">2</span>
+            <h3>Stabilize cash flow</h3>
+            <p>Improve operations, build reserves, and create a more predictable financial base.</p>
+          </div>
+          <div class="timeline-step">
+            <span class="step-num">3</span>
+            <h3>Expand the portfolio</h3>
+            <p>Use experience and equity to add more properties and grow long-term wealth.</p>
+          </div>
+          <div class="timeline-step">
+            <span class="step-num">4</span>
+            <h3>Replace income over time</h3>
+            <p>As the portfolio matures, some investors use it to reduce dependence on a traditional job.</p>
+          </div>
+          <div class="timeline-step">
+            <span class="step-num">5</span>
+            <h3>Create a family legacy</h3>
+            <p>Long-term ownership can create durable assets that support future generations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="portfolio-calculator">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Portfolio wealth visualizer</div>
+          <h2>See how one property can become a portfolio</h2>
+          <p>
+            This example is illustrative only, but it helps new investors think beyond one deal
+            and start understanding the long-term picture.
+          </p>
+        </div>
+
+        <div class="calculator-wrap">
+          <div class="calculator-card">
+            <label for="propertyCount">Number of properties</label>
+            <input id="propertyCount" type="range" min="1" max="10" value="1" />
+            <div class="range-value"><span id="propertyCountLabel">1</span> property</div>
+
+            <div class="metrics">
+              <div class="metric">
+                <span>Illustrative portfolio value</span>
+                <strong id="portfolioValue">$350,000</strong>
+              </div>
+              <div class="metric">
+                <span>Illustrative annual cash flow</span>
+                <strong id="annualCashFlow">$4,800</strong>
+              </div>
+              <div class="metric">
+                <span>Illustrative equity over time</span>
+                <strong id="equityPotential">$120,000+</strong>
+              </div>
+            </div>
+
+            <p class="footnote">
+              Example scenarios are illustrative only and do not represent guaranteed returns.
+            </p>
+          </div>
+
+          <div class="calculator-side">
+            <h3>Every portfolio starts with one deal</h3>
+            <p>
+              Most investors do not begin with 10 properties. They begin by understanding one deal,
+              getting the right financing in place, and building from there.
+            </p>
+            <a href="#deal-form" class="btn btn-primary">Start With My First Deal</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="examples">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Examples</div>
+          <h2>Example investment scenarios</h2>
+          <p>These examples help first-time investors quickly identify where they might fit.</p>
+        </div>
+
+        <div class="grid three">
+          <article class="scenario-card">
+            <h3>First rental property</h3>
+            <ul>
+              <li>Purchase price: $325,000</li>
+              <li>Estimated rent: $2,400 / month</li>
+              <li>Potential path: DSCR rental financing</li>
+            </ul>
+          </article>
+          <article class="scenario-card">
+            <h3>Fix &amp; flip project</h3>
+            <ul>
+              <li>Purchase price: $210,000</li>
+              <li>Rehab budget: $80,000</li>
+              <li>Potential path: Short-term fix &amp; flip financing</li>
+            </ul>
+          </article>
+          <article class="scenario-card">
+            <h3>Refinance rental property</h3>
+            <ul>
+              <li>Property value: $450,000</li>
+              <li>Existing loan: $240,000</li>
+              <li>Potential path: DSCR cash-out refinance</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="process">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Process</div>
+          <h2>How investor financing works here</h2>
+          <p>
+            This is not about instant quotes. It is about understanding the deal, reviewing the structure,
+            and helping you move toward the most appropriate next step.
+          </p>
+        </div>
+
+        <div class="grid three">
+          <article class="step-card">
+            <span class="step-pill">01</span>
+            <h3>Submit your deal</h3>
+            <p>Provide the key facts we need to understand the property, strategy, and capital need.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-pill">02</span>
+            <h3>We review the scenario</h3>
+            <p>We assess the structure and determine which financing path may make the most sense.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-pill">03</span>
+            <h3>We help you move forward</h3>
+            <p>If the scenario fits investor lending guidelines, we help connect you with the right next step.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="analyzer">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Lead magnet tools</div>
+          <h2>Analyze your deal before you submit it</h2>
+          <p>
+            These tools help investors understand a scenario quickly, then continue into a deal review.
+          </p>
+        </div>
+
+        <div class="grid three">
+          <div class="tool-card">
+            <h3>Fix &amp; Flip Analyzer</h3>
+            <div class="field">
+              <label>Purchase price</label>
+              <input type="number" id="flipPurchase" placeholder="250000" />
+            </div>
+            <div class="field">
+              <label>Rehab budget</label>
+              <input type="number" id="flipRehab" placeholder="75000" />
+            </div>
+            <div class="field">
+              <label>ARV</label>
+              <input type="number" id="flipArv" placeholder="420000" />
+            </div>
+            <button type="button" class="btn btn-secondary btn-full" onclick="runFlipAnalyzer()">Analyze Flip Deal</button>
+            <div class="tool-result" id="flipResult">Enter deal numbers to estimate leverage.</div>
+          </div>
+
+          <div class="tool-card">
+            <h3>DSCR Quick Check</h3>
+            <div class="field">
+              <label>Monthly rent</label>
+              <input type="number" id="rentIncome" placeholder="2600" />
+            </div>
+            <div class="field">
+              <label>Estimated monthly PITIA</label>
+              <input type="number" id="pitia" placeholder="2100" />
+            </div>
+            <button type="button" class="btn btn-secondary btn-full" onclick="runDscrCheck()">Check DSCR</button>
+            <div class="tool-result" id="dscrResult">Estimate whether your rental income supports the payment.</div>
+          </div>
+
+          <div class="tool-card">
+            <h3>What should I do next?</h3>
+            <p class="tool-copy">
+              Run the numbers, then submit your scenario for review so we can help you determine the most practical next step.
+            </p>
+            <a href="#deal-form" class="btn btn-primary btn-full">Submit This Deal For Review</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="network">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Investor ecosystem</div>
+          <h2>We can also help investors build the right team</h2>
+          <p>
+            Financing is only one part of the process. When needed, we can help investors connect with
+            other professionals who support successful deals.
+          </p>
+        </div>
+
+        <div class="grid four">
+          <article class="network-card">
+            <h3>Realtors</h3>
+            <p>Agents who understand investment property criteria and investor goals.</p>
+          </article>
+          <article class="network-card">
+            <h3>Attorneys &amp; title</h3>
+            <p>Closing support and legal guidance when the transaction requires it.</p>
+          </article>
+          <article class="network-card">
+            <h3>Contractors</h3>
+            <p>Rehab and renovation professionals for value-add and fix &amp; flip projects.</p>
+          </article>
+          <article class="network-card">
+            <h3>Property managers</h3>
+            <p>Operational support for investors building rental portfolios over time.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">FAQ</div>
+          <h2>Questions first-time investors ask most often</h2>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>Do I need experience to get an investor loan?</summary>
+            <p>Not necessarily. Many programs allow first-time investors depending on the deal structure, property type, and overall scenario.</p>
+          </details>
+          <details>
+            <summary>Do I need traditional income to qualify?</summary>
+            <p>Some investor loan programs rely more on property cash flow than personal W-2 income.</p>
+          </details>
+          <details>
+            <summary>How much money do I need down?</summary>
+            <p>That depends on the strategy, property type, and loan structure. Deal review helps determine what is realistic.</p>
+          </details>
+          <details>
+            <summary>What if I am not sure where to start?</summary>
+            <p>That is exactly why the site is structured this way. Submit the scenario and start with the deal itself.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-cta">
+      <div class="container final-cta-box">
+        <div>
+          <div class="eyebrow">Start here</div>
+          <h2>Every portfolio starts with one deal.</h2>
+          <p>Tell us about your scenario and we’ll help you understand the financing path and next step.</p>
+        </div>
+        <a href="#deal-form" class="btn btn-primary">Review My Deal</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div>
+        <strong>Capvia</strong>
+        <p>Investor Capital & Deal Advisory</p>
+      </div>
+      <div class="footer-note">
+        Example scenarios are illustrative only and do not represent guaranteed returns. Financing outcomes depend on lender guidelines and deal specifics.
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
