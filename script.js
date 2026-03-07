@@ -1,1 +1,27 @@
-function nextStep(){document.getElementById('step1').classList.add('hidden');document.getElementById('step2').classList.remove('hidden');}function prevStep(){document.getElementById('step2').classList.add('hidden');document.getElementById('step1').classList.remove('hidden');}const propertySlider=document.getElementById('propertyCount'),propertyCountLabel=document.getElementById('propertyCountLabel'),portfolioValue=document.getElementById('portfolioValue'),annualCashFlow=document.getElementById('annualCashFlow'),equityPotential=document.getElementById('equityPotential');function formatCurrency(value){return '$'+Number(value).toLocaleString();}function updatePortfolioCalc(){if(!propertySlider)return;const count=Number(propertySlider.value),value=count*350000,cashFlow=count*4800,equity=count*120000;propertyCountLabel.textContent=count;portfolioValue.textContent=formatCurrency(value);annualCashFlow.textContent=formatCurrency(cashFlow);equityPotential.textContent=formatCurrency(equity)+'+';}if(propertySlider){propertySlider.addEventListener('input',updatePortfolioCalc);updatePortfolioCalc();}function runFlipAnalyzer(){const purchase=Number(document.getElementById('flipPurchase').value||0),rehab=Number(document.getElementById('flipRehab').value||0),arv=Number(document.getElementById('flipArv').value||0),result=document.getElementById('flipResult');if(!purchase||!arv){result.textContent='Enter purchase price and ARV to estimate deal leverage.';return;}const totalCost=purchase+rehab,ltc=totalCost?(totalCost/arv)*100:0;let signal='Conservative';if(ltc>85)signal='Aggressive';else if(ltc>70)signal='Moderate';result.textContent=`Estimated total cost: ${formatCurrency(totalCost)} · Cost to value: ${ltc.toFixed(1)}% · Deal signal: ${signal}`;}function runDscrCheck(){const rent=Number(document.getElementById('rentIncome').value||0),pitia=Number(document.getElementById('pitia').value||0),result=document.getElementById('dscrResult');if(!rent||!pitia){result.textContent='Enter rent and payment to estimate DSCR.';return;}const dscr=rent/pitia;let signal='Likely strong';if(dscr<1.0)signal='Likely weak';else if(dscr<1.2)signal='Borderline';result.textContent=`Estimated DSCR: ${dscr.toFixed(2)} · Signal: ${signal}`;}
+
+function flip(){
+
+let purchase = parseFloat(document.getElementById('purchase').value || 0)
+let rehab = parseFloat(document.getElementById('rehab').value || 0)
+let arv = parseFloat(document.getElementById('arv').value || 0)
+
+let cost = purchase + rehab
+let ltv = (cost / arv) * 100
+
+document.getElementById('flipResult').innerText =
+"Estimated cost: $" + cost.toLocaleString() +
+" | Cost to value: " + ltv.toFixed(1) + "%"
+
+}
+
+function dscr(){
+
+let rent = parseFloat(document.getElementById('rent').value || 0)
+let pay = parseFloat(document.getElementById('payment').value || 0)
+
+let ratio = rent / pay
+
+document.getElementById('dscrResult').innerText =
+"Estimated DSCR: " + ratio.toFixed(2)
+
+}
