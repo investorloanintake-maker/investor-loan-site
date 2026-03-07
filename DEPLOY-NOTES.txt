@@ -1,1 +1,1 @@
-Upload all files in this ZIP to the repo root and replace existing files.
+Upload all files in this ZIP to the repo root and replace existing files. Delete old leftovers if they remain.

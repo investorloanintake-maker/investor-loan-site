@@ -1,46 +1,9 @@
-function nextStep(){
-  const type = document.getElementById('hero_type').value.trim();
-  const property = document.getElementById('hero_property_type').value.trim();
-  const amount = document.getElementById('hero_amount').value.trim();
-  if(!type || !property || !amount){ alert('Please complete deal type, property type, and loan amount.'); return; }
-  document.getElementById('step1').classList.add('hidden');
-  document.getElementById('step2').classList.remove('hidden');
-}
-function prevStep(){
-  document.getElementById('step2').classList.add('hidden');
-  document.getElementById('step1').classList.remove('hidden');
-}
-function syncTwoStep(){
-  document.getElementById('f_type').value = document.getElementById('hero_type').value || '';
-  document.getElementById('f_property_type').value = document.getElementById('hero_property_type').value || '';
-  document.getElementById('f_amount').value = document.getElementById('hero_amount').value || '';
-}
-function setText(id, val){ const el=document.getElementById(id); if(el) el.textContent=val; }
-function show(id){ const el=document.getElementById(id); if(el) el.style.display='block'; }
-function calculateFlip(){
-  if(!document.getElementById('purchase')) return;
-  const purchase=Number(document.getElementById('purchase').value||0), rehab=Number(document.getElementById('rehab').value||0), arv=Number(document.getElementById('arv').value||0), loan=Number(document.getElementById('loan').value||0);
-  const allin=purchase+rehab, ltvNum=(arv>0)?(loan/arv)*100:NaN, ltcNum=(allin>0)?(loan/allin)*100:NaN;
-  let signal='Strong'; if(isFinite(ltvNum)&&ltvNum>80) signal='Moderate'; if(isFinite(ltvNum)&&ltvNum>85) signal='Aggressive';
-  setText('allin', allin?'$'+allin.toLocaleString():'—'); setText('ltv', isFinite(ltvNum)?ltvNum.toFixed(1)+'%':'—'); setText('ltc', isFinite(ltcNum)?ltcNum.toFixed(1)+'%':'—'); setText('signal', signal); show('flipResults');
-}
-function calculateDSCR(){
-  if(!document.getElementById('rent')) return;
-  const rent=Number(document.getElementById('rent').value||0), pitia=Number(document.getElementById('pitia').value||0);
-  const dscrNum=(pitia>0)?(rent/pitia):NaN;
-  let signal='—', next='—';
-  if(isFinite(dscrNum)){ if(dscrNum>=1.25){signal='Strong';next='Likely DSCR-eligible lane';} else if(dscrNum>=1.00){signal='Borderline';next='May need structure changes';} else {signal='Tight';next='Consider more equity / lower PITIA';}}
-  setText('dscrVal', isFinite(dscrNum)?dscrNum.toFixed(2):'—'); setText('dscrSignal', signal); setText('dscrNext', next); show('dscrResults');
-}
-function calculateBankStatement(){
-  if(!document.getElementById('bs_deposits')) return;
-  const months=Number(document.getElementById('bs_months').value||12), deposits=Number(document.getElementById('bs_deposits').value||0), expensePct=Number(document.getElementById('bs_expense').value||50)/100, ownPct=Number(document.getElementById('bs_own').value||100)/100;
-  const net=deposits*(1-expensePct), netOwn=net*ownPct, monthly=months>0?netOwn/months:0, annual=monthly*12;
-  const fmt=n=>n?'$'+Math.round(n).toLocaleString():'—';
-  setText('bs_net', fmt(net)); setText('bs_net_own', fmt(netOwn)); setText('bs_monthly', fmt(monthly)); setText('bs_annual', fmt(annual)); show('bsResults');
-}
-function toggleFAQ(btn){
-  const wrap=btn.closest('.qa'); if(!wrap) return;
-  wrap.classList.toggle('open');
-  const chev=wrap.querySelector('.chev'); if(chev) chev.textContent=wrap.classList.contains('open')?'—':'+';
-}
+function nextStep(){const t=document.getElementById('hero_type').value.trim(),p=document.getElementById('hero_property_type').value.trim(),a=document.getElementById('hero_amount').value.trim();if(!t||!p||!a){alert('Please complete deal type, property type, and loan amount.');return;}document.getElementById('step1').classList.add('hidden');document.getElementById('step2').classList.remove('hidden');}
+function prevStep(){document.getElementById('step2').classList.add('hidden');document.getElementById('step1').classList.remove('hidden');}
+function syncTwoStep(){document.getElementById('f_type').value=document.getElementById('hero_type').value||'';document.getElementById('f_property_type').value=document.getElementById('hero_property_type').value||'';document.getElementById('f_amount').value=document.getElementById('hero_amount').value||'';}
+function setText(id,val){const el=document.getElementById(id);if(el)el.textContent=val;}
+function show(id){const el=document.getElementById(id);if(el)el.style.display='block';}
+function calculateFlip(){if(!document.getElementById('purchase'))return;const purchase=Number(document.getElementById('purchase').value||0),rehab=Number(document.getElementById('rehab').value||0),arv=Number(document.getElementById('arv').value||0),loan=Number(document.getElementById('loan').value||0);const allin=purchase+rehab,ltvNum=(arv>0)?(loan/arv)*100:NaN,ltcNum=(allin>0)?(loan/allin)*100:NaN;let signal='Strong';if(isFinite(ltvNum)&&ltvNum>80)signal='Moderate';if(isFinite(ltvNum)&&ltvNum>85)signal='Aggressive';setText('allin',allin?'$'+allin.toLocaleString():'—');setText('ltv',isFinite(ltvNum)?ltvNum.toFixed(1)+'%':'—');setText('ltc',isFinite(ltcNum)?ltcNum.toFixed(1)+'%':'—');setText('signal',signal);show('flipResults');}
+function calculateDSCR(){if(!document.getElementById('rent'))return;const rent=Number(document.getElementById('rent').value||0),pitia=Number(document.getElementById('pitia').value||0);const dscrNum=(pitia>0)?(rent/pitia):NaN;let signal='—',next='—';if(isFinite(dscrNum)){if(dscrNum>=1.25){signal='Strong';next='Likely DSCR-eligible lane';}else if(dscrNum>=1.00){signal='Borderline';next='May need structure changes';}else{signal='Tight';next='Consider more equity / lower PITIA';}}setText('dscrVal',isFinite(dscrNum)?dscrNum.toFixed(2):'—');setText('dscrSignal',signal);setText('dscrNext',next);show('dscrResults');}
+function calculateBankStatement(){if(!document.getElementById('bs_deposits'))return;const months=Number(document.getElementById('bs_months').value||12),deposits=Number(document.getElementById('bs_deposits').value||0),expensePct=Number(document.getElementById('bs_expense').value||50)/100,ownPct=Number(document.getElementById('bs_own').value||100)/100;const net=deposits*(1-expensePct),netOwn=net*ownPct,monthly=months>0?netOwn/months:0,annual=monthly*12;const fmt=n=>n?'$'+Math.round(n).toLocaleString():'—';setText('bs_net',fmt(net));setText('bs_net_own',fmt(netOwn));setText('bs_monthly',fmt(monthly));setText('bs_annual',fmt(annual));show('bsResults');}
+function toggleFAQ(btn){const wrap=btn.closest('.qa');if(!wrap)return;wrap.classList.toggle('open');const chev=wrap.querySelector('.chev');if(chev)chev.textContent=wrap.classList.contains('open')?'—':'+';}
