@@ -1,6 +1,104 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Capvia | Investor Capital & Deal Advisory</title><link rel="stylesheet" href="styles.css"/></head><body><header class="site-header"><div class="container nav-wrap"><a href="#top" class="brand"><div class="brand-mark">C</div><div class="brand-text"><strong>Capvia</strong><span>Investor Capital & Deal Advisory</span></div></a><nav class="nav"><a href="#process">How It Works</a><a href="#timeline">Build Wealth</a><a href="#analyzer">Deal Analyzer</a><a href="#network">Network</a><a href="#faq">FAQ</a></nav><a href="#deal-form" class="btn btn-primary">Review My Deal</a></div></header><main id="top"><section class="hero"><div class="container hero-grid"><div class="hero-copy"><div class="eyebrow">For first-time and experienced investors</div><h1>Capital for Real Estate Investors</h1><p class="hero-sub">Whether you’re buying your first rental or scaling a portfolio, submit your deal and we’ll help evaluate the best financing path.</p><div class="hero-actions"><a href="#deal-form" class="btn btn-primary">Review My Deal</a><a href="#analyzer" class="btn btn-secondary">Analyze A Deal</a></div><p class="fastlane">Experienced investor? <a href="#deal-form">Submit your deal in 60 seconds →</a></p><div class="hero-points"><div class="point"><strong>Beginner-friendly</strong><span>Designed for investors who are not sure where to start.</span></div><div class="point"><strong>Deal-first process</strong><span>We review the scenario before discussing financing options.</span></div><div class="point"><strong>Long-term mindset</strong><span>Focused on income, net worth, and family legacy.</span></div></div></div><div class="hero-card" id="deal-form"><div class="card-head"><h2>Tell us about your investment deal</h2><p>Start with the deal details first. Then add contact info so we can review the scenario and help determine the best next step.</p></div><form class="deal-form"><div id="step1"><div class="field-grid two"><div class="field"><label>What type of deal is this?</label><select><option>First rental property</option><option>Rental property purchase</option><option>Fix & Flip</option><option>Refinance investment property</option><option>Cash-out refinance</option><option>Not sure yet</option></select></div><div class="field"><label>Property type</label><select><option>Single Family</option><option>Duplex</option><option>Triplex / Fourplex</option><option>Condo</option><option>Townhome</option><option>5+ Units</option><option>Mixed Use</option><option>Not sure yet</option></select></div></div><div class="field-grid three"><div class="field"><label>City</label><input type="text" placeholder="Tampa"/></div><div class="field"><label>State</label><select><option>Select State</option><option>AL</option><option>AK</option><option>AZ</option><option>AR</option><option>CA</option><option>CO</option><option>CT</option><option>DE</option><option>FL</option><option>GA</option><option>HI</option><option>ID</option><option>IL</option><option>IN</option><option>IA</option><option>KS</option><option>KY</option><option>LA</option><option>ME</option><option>MD</option><option>MA</option><option>MI</option><option>MN</option><option>MS</option><option>MO</option><option>MT</option><option>NE</option><option>NV</option><option>NH</option><option>NJ</option><option>NM</option><option>NY</option><option>NC</option><option>ND</option><option>OH</option><option>OK</option><option>OR</option><option>PA</option><option>RI</option><option>SC</option><option>SD</option><option>TN</option><option>TX</option><option>UT</option><option>VT</option><option>VA</option><option>WA</option><option>WV</option><option>WI</option><option>WY</option></select></div><div class="field"><label>Purchase or refinance?</label><select><option>Purchase</option><option>Refinance</option><option>Cash-out refinance</option><option>Not sure yet</option></select></div></div><div class="field-grid two"><div class="field"><label>Estimated property value</label><input type="text" placeholder="$350,000"/></div><div class="field"><label>Loan amount needed</label><input type="text" placeholder="$250,000"/></div></div><div class="field-grid two"><div class="field"><label>Property status</label><select><option>Under contract</option><option>Making offers</option><option>Still searching</option><option>Property already owned</option></select></div><div class="field"><label>Investor experience</label><select><option>First investment deal</option><option>1–3 deals completed</option><option>4–10 deals completed</option><option>10+ deals completed</option></select></div></div><button type="button" class="btn btn-primary btn-full" onclick="nextStep()">Continue</button><p class="form-note">Step 1 of 2 — tell us about the deal first.</p></div><div id="step2" class="hidden"><div class="notice">Good fit to review — where should we send next steps?</div><div class="field-grid two"><div class="field"><label>Name</label><input type="text" placeholder="Your name"/></div><div class="field"><label>Email</label><input type="email" placeholder="you@email.com"/></div></div><div class="field-grid two"><div class="field"><label>Phone</label><input type="text" placeholder="(555) 555-5555"/></div><div class="field"><label>Investor profile</label><select><option>First-time investor</option><option>Growing investor</option><option>Experienced investor</option></select></div></div><div class="field"><label>Anything else we should know?</label><textarea placeholder="Tell us about the deal, timeline, or questions you have."></textarea></div><div class="hero-actions"><button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button><button type="button" class="btn btn-primary">Submit Deal For Review</button></div><p class="form-note">No obligation. We review deals every day and help investors understand where to start.</p></div></form></div></div>
-</section>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Capvia | Investor Capital & Deal Advisory</title><link rel="stylesheet" href="styles.css"/></head><body><header class="site-header"><div class="container nav-wrap"><a href="#top" class="brand"><div class="brand-mark">C</div><div class="brand-text"><strong>Capvia</strong><span>Investor Capital & Deal Advisory</span></div></a><nav class="nav"><a href="#process">How It Works</a><a href="#timeline">Build Wealth</a><a href="#analyzer">Deal Analyzer</a><a href="#network">Network</a><a href="#faq">FAQ</a></nav><a href="#deal-form" class="btn btn-primary">Review My Deal</a></div></header><main id="top"><section class="hero"><div class="container hero-grid"><div class="hero-copy"><div class="eyebrow">Built for first-time and growing investors</div><h1>Capital for Real Estate Investors</h1><p class="hero-sub">Whether you’re buying your first rental or scaling a portfolio, submit your deal and we’ll help evaluate the best financing path.</p><div class="hero-actions"><a href="#deal-form" class="btn btn-primary">Review My Deal</a><a href="#analyzer" class="btn btn-secondary">Analyze A Deal</a></div><div class="hero-points"><div class="point"><strong>Beginner-friendly</strong><span>Designed for investors who are not sure where to start.</span></div><div class="point"><strong>Deal-first process</strong><span>We review the scenario before discussing financing options.</span></div><div class="point"><strong>Long-term mindset</strong><span>Focused on income, net worth, and family legacy.</span></div></div></div><div class="hero-card" id="deal-form"><div class="card-head"><h2>Tell us about your investment deal</h2><p>Start with deal details in step one. Then add contact info so we can review the scenario.</p></div><form class="deal-form">
+<div id="step1">
+  <div class="field-grid two">
+    <div class="field">
+      <label>Investor Experience</label>
+      <select>
+        <option>First investment deal</option>
+        <option>1–3 deals completed</option>
+        <option>4–10 deals completed</option>
+        <option>10+ deals completed</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Deal Type</label>
+      <select>
+        <option>First rental property</option>
+        <option>Rental property purchase</option>
+        <option>Fix &amp; Flip</option>
+        <option>Refinance investment property</option>
+        <option>Cash-out refinance</option>
+        <option>Not sure yet</option>
+      </select>
+    </div>
+  </div>
 
+  <div class="field-grid two">
+    <div class="field">
+      <label>Property address</label>
+      <input type="text" placeholder="123 Main St or City / State" />
+    </div>
+    <div class="field">
+      <label>Listing URL</label>
+      <input type="text" placeholder="Paste Zillow, Realtor, Redfin, or MLS link" />
+    </div>
+  </div>
+
+  <div class="field-grid three">
+    <div class="field">
+      <label>Property type</label>
+      <select>
+        <option>Single Family</option>
+        <option>Duplex</option>
+        <option>Triplex / Fourplex</option>
+        <option>Condo</option>
+        <option>Townhome</option>
+        <option>5+ Units</option>
+        <option>Mixed Use</option>
+        <option>Not sure yet</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Purchase or refinance?</label>
+      <select>
+        <option>Purchase</option>
+        <option>Refinance</option>
+        <option>Cash-out refinance</option>
+        <option>Not sure yet</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Property status</label>
+      <select>
+        <option>Property identified</option>
+        <option>Under contract</option>
+        <option>Making offers</option>
+        <option>Still searching</option>
+        <option>Property already owned</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field-grid two">
+    <div class="field">
+      <label>Purchase price</label>
+      <input type="text" placeholder="$325,000" />
+    </div>
+    <div class="field">
+      <label>Estimated property value</label>
+      <input type="text" placeholder="$350,000" />
+    </div>
+  </div>
+
+  <div class="field-grid three">
+    <div class="field">
+      <label>Loan amount needed</label>
+      <input type="text" placeholder="$250,000" />
+    </div>
+    <div class="field">
+      <label>Estimated monthly rent</label>
+      <input type="text" placeholder="$2,400" />
+    </div>
+    <div class="field">
+      <label>Estimated ARV / rehab value</label>
+      <input type="text" placeholder="$420,000" />
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary btn-full" onclick="nextStep()">Continue</button>
+  <p class="form-note">Step 1 of 2 — if you already found a property, paste the address or listing URL.</p>
+</div>
+<div id="step2" class="hidden"><div class="notice">Good fit to review — where should we send next steps?</div><div class="field-grid two"><div class="field"><label>Name</label><input type="text" placeholder="Your name"/></div><div class="field"><label>Email</label><input type="email" placeholder="you@email.com"/></div></div><div class="field-grid two"><div class="field"><label>Phone</label><input type="text" placeholder="(555) 555-5555"/></div><div class="field"><label>Investor profile</label><select><option>First-time investor</option><option>Growing investor</option><option>Experienced investor</option></select></div></div><div class="field"><label>Anything else we should know?</label><textarea placeholder="Tell us about the deal, timeline, or questions you have."></textarea></div><div class="hero-actions"><button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button><button type="button" class="btn btn-primary">Submit Deal For Review</button></div><p class="form-note">No obligation. We review deals every day and help investors understand where to start.</p></div></form></div></div></section>
 <section class="section paths-section" id="paths">
   <div class="container">
     <div class="section-heading narrow">
@@ -31,4 +129,6 @@
       </article>
     </div>
   </div>
+</section>
+
 <section class="section section-soft"><div class="container"><div class="section-heading narrow"><div class="eyebrow">Why this matters</div><h2>Real estate can do more than generate monthly income.</h2><p>The immediate goal may be financing one property — but the bigger opportunity is building long-term net worth, creating optionality, and eventually replacing income from a corporate job with income from assets and your own business.</p></div><div class="grid three"><article class="info-card"><h3>Build net worth</h3><p>Property appreciation and mortgage paydown can increase equity over time and grow overall household wealth.</p></article><article class="info-card"><h3>Create flexibility</h3><p>As cash flow and equity grow, investors may gain more freedom to choose how they work and live.</p></article><article class="info-card"><h3>Leave a legacy</h3><p>Income-producing assets can become part of a long-term family plan rather than just a short-term investment.</p></article></div></div></section><section class="section" id="timeline"><div class="container"><div class="section-heading"><div class="eyebrow">Illustrative investor path</div><h2>From one property to financial independence</h2><p>Many investors begin with one property, gain confidence, then use experience and equity to build a portfolio over time.</p></div><div class="timeline"><div class="timeline-step"><span class="step-num">1</span><h3>Buy the first property</h3><p>Learn the process, build initial equity, and understand how investor financing works.</p></div><div class="timeline-step"><span class="step-num">2</span><h3>Stabilize cash flow</h3><p>Improve operations, build reserves, and create a more predictable financial base.</p></div><div class="timeline-step"><span class="step-num">3</span><h3>Expand the portfolio</h3><p>Use experience and equity to add more properties and grow long-term wealth.</p></div><div class="timeline-step"><span class="step-num">4</span><h3>Replace income over time</h3><p>As the portfolio matures, some investors use it to reduce dependence on a traditional job.</p></div><div class="timeline-step"><span class="step-num">5</span><h3>Create a family legacy</h3><p>Long-term ownership can create durable assets that support future generations.</p></div></div></div></section><section class="section section-soft"><div class="container"><div class="section-heading"><div class="eyebrow">Portfolio wealth visualizer</div><h2>See how one property can become a portfolio</h2><p>This example is illustrative only, but it helps new investors think beyond one deal and start understanding the long-term picture.</p></div><div class="calculator-wrap"><div class="calculator-card"><label for="propertyCount">Number of properties</label><input id="propertyCount" type="range" min="1" max="10" value="1"/><div class="range-value"><span id="propertyCountLabel">1</span> property</div><div class="metrics"><div class="metric"><span>Illustrative portfolio value</span><strong id="portfolioValue">$350,000</strong></div><div class="metric"><span>Illustrative annual cash flow</span><strong id="annualCashFlow">$4,800</strong></div><div class="metric"><span>Illustrative equity over time</span><strong id="equityPotential">$120,000+</strong></div></div><p class="footnote">Example scenarios are illustrative only and do not represent guaranteed returns.</p></div><div class="calculator-side"><h3>Every portfolio starts with one deal</h3><p>Most investors do not begin with 10 properties. They begin by understanding one deal, getting the right financing in place, and building from there.</p><a href="#deal-form" class="btn btn-primary">Start With My First Deal</a></div></div></div></section><section class="section" id="analyzer"><div class="container"><div class="section-heading"><div class="eyebrow">Lead magnet tools</div><h2>Analyze your deal before you submit it</h2><p>These tools help investors understand a scenario quickly, then continue into a deal review.</p></div><div class="grid three"><div class="tool-card"><h3>Fix &amp; Flip Analyzer</h3><div class="field"><label>Purchase price</label><input type="number" id="flipPurchase" placeholder="250000"/></div><div class="field"><label>Rehab budget</label><input type="number" id="flipRehab" placeholder="75000"/></div><div class="field"><label>ARV</label><input type="number" id="flipArv" placeholder="420000"/></div><button type="button" class="btn btn-secondary btn-full" onclick="runFlipAnalyzer()">Analyze Flip Deal</button><div class="tool-result" id="flipResult">Enter deal numbers to estimate leverage.</div></div><div class="tool-card"><h3>DSCR Quick Check</h3><div class="field"><label>Monthly rent</label><input type="number" id="rentIncome" placeholder="2600"/></div><div class="field"><label>Estimated monthly PITIA</label><input type="number" id="pitia" placeholder="2100"/></div><button type="button" class="btn btn-secondary btn-full" onclick="runDscrCheck()">Check DSCR</button><div class="tool-result" id="dscrResult">Estimate whether your rental income supports the payment.</div></div><div class="tool-card"><h3>What should I do next?</h3><p class="tool-copy">Run the numbers, then submit your scenario for review so we can help you determine the most practical next step.</p><a href="#deal-form" class="btn btn-primary btn-full">Submit This Deal For Review</a></div></div></div></section><section class="section section-soft" id="network"><div class="container"><div class="section-heading"><div class="eyebrow">Investor ecosystem</div><h2>We can also help investors build the right team</h2><p>Financing is only one part of the process. When needed, we can help investors connect with other professionals who support successful deals.</p></div><div class="grid four"><article class="network-card"><h3>Realtors</h3><p>Agents who understand investment property criteria and investor goals.</p></article><article class="network-card"><h3>Attorneys &amp; title</h3><p>Closing support and legal guidance when the transaction requires it.</p></article><article class="network-card"><h3>Contractors</h3><p>Rehab and renovation professionals for value-add and fix &amp; flip projects.</p></article><article class="network-card"><h3>Property managers</h3><p>Operational support for investors building rental portfolios over time.</p></article></div></div></section><section class="section" id="faq"><div class="container"><div class="section-heading"><div class="eyebrow">FAQ</div><h2>Questions first-time investors ask most often</h2></div><div class="faq-list"><details><summary>Do I need experience to get an investor loan?</summary><p>Not necessarily. Many programs allow first-time investors depending on the deal structure, property type, and overall scenario.</p></details><details><summary>Do I need traditional income to qualify?</summary><p>Some investor loan programs rely more on property cash flow than personal W-2 income.</p></details><details><summary>How much money do I need down?</summary><p>That depends on the strategy, property type, and loan structure. Deal review helps determine what is realistic.</p></details><details><summary>What if I am not sure where to start?</summary><p>That is exactly why the site is structured this way. Submit the scenario and start with the deal itself.</p></details></div></div></section><section class="section final-cta"><div class="container final-cta-box"><div><div class="eyebrow">Start here</div><h2>Every portfolio starts with one deal.</h2><p>Tell us about your scenario and we’ll help you understand the financing path and next step.</p></div><a href="#deal-form" class="btn btn-primary">Review My Deal</a></div></section></main><footer class="site-footer"><div class="container footer-wrap"><div><strong>Capvia</strong><p>Investor Capital & Deal Advisory</p></div><div class="footer-note">Example scenarios are illustrative only and do not represent guaranteed returns. Financing outcomes depend on lender guidelines and deal specifics.</div></div></footer><script src="script.js"></script></body></html>
