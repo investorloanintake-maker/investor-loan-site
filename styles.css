@@ -1,13 +1,13 @@
 
-body{font-family:Arial;margin:0;background:#f6f8fc;color:#111}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f6f8fc;color:#111}
 .container{width:90%;max-width:1100px;margin:auto}
 
 .header{background:#fff;border-bottom:1px solid #eee}
 .nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
 
-.logo{font-weight:700;font-size:20px}
+.logo{font-weight:700;font-size:22px}
 
-nav a{margin:0 10px;text-decoration:none;color:#333}
+nav a{margin:0 12px;color:#444;text-decoration:none}
 
 .btn-primary{background:#2563eb;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none}
 .btn-secondary{border:1px solid #2563eb;color:#2563eb;padding:10px 16px;border-radius:6px;text-decoration:none}
@@ -16,25 +16,25 @@ nav a{margin:0 10px;text-decoration:none;color:#333}
 
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
 
-.hero-card{background:#fff;padding:30px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.hero-card{background:#fff;padding:30px;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.08)}
 
 .hero-card input,.hero-card select{width:100%;padding:10px;margin-bottom:12px;border:1px solid #ddd;border-radius:6px}
 
 .hero-card button{background:#2563eb;color:#fff;border:none;padding:12px;width:100%;border-radius:6px}
 
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 
 .paths{padding:80px 0;background:#fff}
 
 .path-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:30px}
 
-.path-card{background:#f7f9ff;padding:30px;border-radius:10px}
+.path-card{background:#f7f9ff;padding:30px;border-radius:12px}
 
 .tools{padding:80px 0}
 
 .tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
 
-.tool{background:#fff;padding:25px;border-radius:10px}
+.tool{background:#fff;padding:25px;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.05)}
 
 .tool input{width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px}
 
@@ -42,10 +42,10 @@ nav a{margin:0 10px;text-decoration:none;color:#333}
 
 .network-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 
-.net{background:#f7f9ff;padding:20px;text-align:center;border-radius:8px}
+.net{background:#f7f9ff;padding:20px;text-align:center;border-radius:10px}
 
 .faq{padding:80px 0}
 
-footer{background:#111;color:#fff;text-align:center;padding:40px 0}
+footer{background:#111;color:#fff;padding:40px 0;text-align:center}
 
 .small{opacity:.7;font-size:12px}
