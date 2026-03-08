@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is a Business Purpose Loan (BPL)? The Complete Investor's Guide</title>
+<meta name="description" content="Business Purpose Loans (BPL) explained for real estate investors. What BPL means, who qualifies, how it compares to DSCR, and why it's changing how serious investors scale their portfolios.">
+<meta name="keywords" content="business purpose loan, BPL loan, BPL real estate, business purpose loan real estate, BPL vs DSCR, investment property loan, no income verification loan">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0a0c0f;
+  --surface: #111318;
+  --surface2: #181c23;
+  --border: rgba(255,255,255,0.07);
+  --text: #e8e4dc;
+  --text-muted: #6b7280;
+  --text-dim: #9ca3af;
+  --gold: #d4a843;
+  --gold-dim: #8a6a25;
+  --gold-faint: rgba(212,168,67,0.08);
+  --green: #4ade80;
+  --green-dim: rgba(74,222,128,0.1);
+  --red-dim: rgba(239,68,68,0.1);
+  --red: #f87171;
+  --accent: #5b8dd9;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Spectral', Georgia, serif;
+  font-weight: 300;
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: var(--gold);
+  z-index: 100;
+  transition: width 0.1s linear;
+  width: 0%;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  padding: 16px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10,12,15,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  background: var(--gold);
+  color: var(--bg);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.nav-cta:hover { opacity: 0.85; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 120px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(212,168,67,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(91,141,217,0.04) 0%, transparent 50%);
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-inner {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.hero-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-tag::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 6vw, 80px);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-subtitle {
+  font-size: 19px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  max-width: 600px;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hero-meta-item {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-meta-item::before {
+  content: '●';
+  color: var(--gold);
+  font-size: 6px;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  right: 48px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  writing-mode: vertical-rl;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-scroll::before {
+  content: '';
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, var(--text-muted));
+}
+
+/* LAYOUT */
+.page-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.content-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 80px;
+  align-items: start;
+}
+
+.article-body { min-width: 0; }
+
+/* SIDEBAR */
+.sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.toc {
+  border: 1px solid var(--border);
+  padding: 28px;
+  background: var(--surface);
+  margin-bottom: 24px;
+}
+
+.toc-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.toc-list {
+  list-style: none;
+}
+
+.toc-list li {
+  border-bottom: 1px solid var(--border);
+}
+
+.toc-list li:last-child { border-bottom: none; }
+
+.toc-list a {
+  display: block;
+  padding: 8px 0;
+  font-size: 13px;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+  line-height: 1.4;
+}
+
+.toc-list a:hover { color: var(--gold); }
+
+.toc-list a.active { color: var(--gold); }
+
+.sidebar-cta {
+  background: var(--gold-faint);
+  border: 1px solid var(--gold-dim);
+  padding: 28px;
+}
+
+.sidebar-cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.sidebar-cta-text {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.sidebar-cta-btn {
+  display: block;
+  text-align: center;
+  background: var(--gold);
+  color: var(--bg);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.sidebar-cta-btn:hover { opacity: 0.85; }
+
+/* ARTICLE SECTIONS */
+.article-section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.article-section:last-child { border-bottom: none; }
+
+.section-marker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-marker::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--gold-dim);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+.section-title em { color: var(--gold); font-style: italic; }
+
+p {
+  margin-bottom: 20px;
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+p:last-child { margin-bottom: 0; }
+
+strong { font-weight: 500; color: var(--text); }
+
+/* CALLOUT */
+.callout {
+  border-left: 3px solid var(--gold);
+  padding: 20px 24px;
+  background: var(--gold-faint);
+  margin: 32px 0;
+}
+
+.callout p {
+  font-size: 16px;
+  color: var(--text-dim);
+  margin: 0;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.callout strong { color: var(--gold); font-style: normal; }
+
+/* STAT GRID */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin: 40px 0;
+}
+
+.stat-card {
+  background: var(--surface);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* COMPARISON TABLE */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 40px 0;
+  font-size: 14px;
+}
+
+.compare-table th {
+  background: var(--surface2);
+  padding: 14px 20px;
+  text-align: left;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.compare-table th.highlight {
+  background: var(--gold-faint);
+  color: var(--gold);
+  border-bottom-color: var(--gold-dim);
+}
+
+.compare-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+.compare-table td.highlight {
+  background: var(--gold-faint);
+  color: var(--text);
+}
+
+.compare-table tr:last-child td { border-bottom: none; }
+
+.compare-table .row-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+.check { color: var(--green); }
+.cross { color: var(--red); }
+.neutral { color: var(--text-muted); }
+
+/* SCENARIO BOX */
+.scenario {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 36px;
+  margin: 40px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.scenario::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--gold);
+}
+
+.scenario-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.scenario-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.scenario p {
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.scenario-numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.scenario-number {
+  text-align: center;
+}
+
+.scenario-number-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.scenario-number-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* PROS CONS */
+.pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin: 40px 0;
+}
+
+.pros, .cons {
+  padding: 28px;
+}
+
+.pros { background: var(--green-dim); }
+.cons { background: var(--red-dim); }
+
+.pros-cons-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.pros .pros-cons-title { color: var(--green); }
+.cons .pros-cons-title { color: var(--red); }
+
+.pros-cons-list {
+  list-style: none;
+}
+
+.pros-cons-list li {
+  font-size: 14px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  gap: 10px;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+.pros-cons-list li:last-child { border-bottom: none; }
+
+.pros .pros-cons-list li::before { content: '✓'; color: var(--green); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
+.cons .pros-cons-list li::before { content: '✗'; color: var(--red); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
+
+/* FAQ */
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-question {
+  padding: 20px 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  transition: color 0.2s;
+  line-height: 1.4;
+}
+
+.faq-question:hover { color: var(--gold); }
+
+.faq-icon {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: transform 0.2s;
+}
+
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer-inner {
+  padding: 0 0 24px;
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+
+.faq-item.open .faq-answer { max-height: 500px; }
+
+/* WHO IT'S FOR */
+.audience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin: 40px 0;
+}
+
+.audience-card {
+  background: var(--surface);
+  padding: 28px;
+  border-top: 2px solid var(--gold-dim);
+  transition: border-color 0.2s;
+}
+
+.audience-card:hover { border-color: var(--gold); }
+
+.audience-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.audience-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.audience-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* PROCESS STEPS */
+.process-steps {
+  margin: 40px 0;
+}
+
+.process-step {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+
+.process-step:last-child { border-bottom: none; }
+
+.step-num {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--gold-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.step-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.step-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* FINAL CTA */
+.final-cta {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin: 80px 0 0;
+}
+
+.final-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212,168,67,0.05) 0%, transparent 70%);
+}
+
+.final-cta-inner { position: relative; }
+
+.final-cta-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.final-cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.final-cta-title em { color: var(--gold); font-style: italic; }
+
+.final-cta-sub {
+  font-size: 17px;
+  color: var(--text-dim);
+  margin-bottom: 40px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--bg);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+  display: inline-block;
+}
+
+.btn-primary:hover { opacity: 0.85; }
+
+.btn-secondary {
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+  display: inline-block;
+}
+
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 48px;
+  text-align: center;
+}
+
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.footer-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-tag { animation: fadeUp 0.6s ease both; animation-delay: 0.1s; opacity: 0; }
+.hero-title { animation: fadeUp 0.7s ease both; animation-delay: 0.2s; opacity: 0; }
+.hero-subtitle { animation: fadeUp 0.7s ease both; animation-delay: 0.35s; opacity: 0; }
+.hero-meta { animation: fadeUp 0.7s ease both; animation-delay: 0.5s; opacity: 0; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero-inner, .page-wrap { padding: 0 24px; }
+  .content-layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .stat-grid, .pros-cons, .audience-grid { grid-template-columns: 1fr; }
+  .scenario-numbers { grid-template-columns: 1fr; }
+  .final-cta { padding: 40px 24px; }
+  footer { padding: 32px 24px; }
+  .hero-scroll { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a href="#" class="nav-brand">Capvia</a>
+  <ul class="nav-links">
+    <li><a href="#what-is-bpl">What is BPL</a></li>
+    <li><a href="#who-qualifies">Who Qualifies</a></li>
+    <li><a href="#vs-dscr">BPL vs DSCR</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#get-quote" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Complete Investor's Guide</div>
+    <h1 class="hero-title">What Is a<br><em>Business Purpose Loan?</em></h1>
+    <p class="hero-subtitle">
+      The loan structure serious real estate investors use to scale without limits — and why most people have never heard of it.
+    </p>
+    <div class="hero-meta">
+      <span class="hero-meta-item">10 min read</span>
+      <span class="hero-meta-item">Updated 2025</span>
+      <span class="hero-meta-item">Investors · Realtors · First-Timers</span>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll to read</div>
+</section>
+
+<!-- MAIN CONTENT -->
+<div class="page-wrap" style="padding-top: 80px; padding-bottom: 120px;">
+  <div class="content-layout">
+
+    <!-- ARTICLE -->
+    <article class="article-body">
+
+      <!-- INTRO -->
+      <section class="article-section" id="intro">
+        <div class="section-marker">The Short Answer</div>
+        <h2 class="section-title">Most investors are leaving <em>money on the table.</em></h2>
+
+        <p>You've probably heard of DSCR loans. Maybe you've done a fix and flip. You understand that investment property financing works differently than a regular mortgage.</p>
+
+        <p>But there's a layer of financing above all of that — one that the most active real estate investors quietly use to build portfolios at scale — and almost nobody talks about it clearly.</p>
+
+        <p>It's called a <strong>Business Purpose Loan</strong>, or BPL.</p>
+
+        <div class="callout">
+          <p><strong>The one-sentence definition:</strong> A Business Purpose Loan is a real estate loan made to a business entity — typically an LLC — for an investment property, where the loan is underwritten primarily on the asset and the deal, not on your personal income or financial profile.</p>
+        </div>
+
+        <p>That might sound like a DSCR loan. It isn't — not exactly. BPL is a broader category, a legal and underwriting framework that enables a different class of financing entirely. Once you understand the distinction, you'll see why it matters for how you structure your deals, your portfolio, and your growth.</p>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-value">10</div>
+            <div class="stat-label">Conventional loan<br>limit per investor</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">∞</div>
+            <div class="stat-label">BPL loan limit<br>(entity-based)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">No W2</div>
+            <div class="stat-label">Income verification<br>required</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT IS BPL -->
+      <section class="article-section" id="what-is-bpl">
+        <div class="section-marker">Definition</div>
+        <h2 class="section-title">What exactly <em>is</em> a Business Purpose Loan?</h2>
+
+        <p>The term "Business Purpose Loan" refers to a loan that is made for a business or investment purpose — as opposed to a personal or consumer purpose. This distinction is more important than it sounds, because it determines which regulations apply to the loan.</p>
+
+        <p>Consumer loans — like your personal mortgage — are governed by a dense web of federal regulations: TILA, RESPA, the Dodd-Frank Act, the ATR (Ability to Repay) rule. These regulations exist to protect everyday homeowners from predatory lending. They're important. But they also create the restrictions that cap how many conventional loans you can have, require income verification, and impose debt-to-income limits.</p>
+
+        <p>BPL loans operate outside of those consumer protections. Not because they're unregulated — they have their own framework — but because the borrower is a business entity purchasing a business-purpose property. The legal assumption is that businesses are sophisticated enough to look out for themselves.</p>
+
+        <div class="callout">
+          <p>The key requirement for a Business Purpose Loan is that the borrower must be a <strong>business entity</strong> (typically an LLC or corporation) and the property must be used for <strong>investment or business purposes</strong> — not as a primary residence.</p>
+        </div>
+
+        <p>This is why investors who take the time to set up an LLC and operate their portfolio as a business unlock a fundamentally different financing landscape than those who borrow in their personal name.</p>
+
+        <p>BPL is the umbrella. Under it, you'll find DSCR loans, fix-and-flip bridge loans, portfolio blanket loans, and other structures — all of which can be structured as business purpose loans when the borrower is an entity and the intent is investment.</p>
+      </section>
+
+      <!-- WHO QUALIFIES -->
+      <section class="article-section" id="who-qualifies">
+        <div class="section-marker">Eligibility</div>
+        <h2 class="section-title">Who is BPL <em>actually</em> for?</h2>
+
+        <p>Business Purpose Loans aren't for everyone — and that's by design. Here's who they're built for:</p>
+
+        <div class="audience-grid">
+          <div class="audience-card">
+            <div class="audience-icon">🏗️</div>
+            <div class="audience-title">The Active Investor</div>
+            <div class="audience-desc">You've done deals. You have an LLC. You're building a portfolio and you're tired of every new loan requiring your personal tax returns and W2s. BPL is what you've been looking for.</div>
+          </div>
+          <div class="audience-card">
+            <div class="audience-icon">📊</div>
+            <div class="audience-title">The Investor at the Conventional Limit</div>
+            <div class="audience-desc">Fannie Mae and Freddie Mac cap conventional loans at 10 per borrower. Many investors hit this wall and think they're done. BPL has no such cap — because it's entity-based, not personal.</div>
+          </div>
+          <div class="audience-card">
+            <div class="audience-icon">💼</div>
+            <div class="audience-title">The Self-Employed or Complex Income Borrower</div>
+            <div class="audience-desc">You earn well but your tax returns don't show it clearly — because you're self-employed, own a business, or structure your income in ways that confuse conventional underwriters. BPL doesn't care about your W2.</div>
+          </div>
+          <div class="audience-card">
+            <div class="audience-icon">🏘️</div>
+            <div class="audience-title">The Portfolio Builder</div>
+            <div class="audience-desc">You want to acquire multiple properties efficiently, potentially under one blanket loan. BPL enables portfolio-level financing that single-asset conventional loans simply can't offer.</div>
+          </div>
+        </div>
+
+        <p>What all of these investors have in common: they're borrowing as a business, for a business purpose, and they want their loan to reflect that.</p>
+
+        <p><strong>What you need to qualify:</strong> At minimum, an LLC or other business entity, a non-owner-occupied investment property, and a deal that makes financial sense — meaning the property can support the loan through its income or value. Personal credit is reviewed but it's far less determinative than in conventional lending.</p>
+      </section>
+
+      <!-- VS DSCR -->
+      <section class="article-section" id="vs-dscr">
+        <div class="section-marker">Comparison</div>
+        <h2 class="section-title">BPL vs. DSCR: <em>What's the difference?</em></h2>
+
+        <p>This is the question we get most often. Here's the honest answer: DSCR is a type of BPL, not a competitor to it.</p>
+
+        <p>DSCR (Debt Service Coverage Ratio) refers to the underwriting method — the property's rental income divided by the loan's debt obligations. If that ratio is above 1.0, the property effectively pays for itself. DSCR loans are typically structured as BPL loans because they're for investment properties held in entities.</p>
+
+        <p>But BPL is broader. A fix-and-flip bridge loan where the exit strategy is a sale rather than rental income can't be underwritten on DSCR — there's no rent to measure. A blanket portfolio loan covering 6 properties has different underwriting logic. A mixed-use or light commercial property may not fit a DSCR model at all. All of these can be BPL.</p>
+
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Conventional Loan</th>
+              <th>DSCR Loan</th>
+              <th class="highlight">BPL (Broad)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="row-label">Borrower type</td>
+              <td>Individual (personal name)</td>
+              <td>Individual or entity</td>
+              <td class="highlight">Entity required (LLC/Corp)</td>
+            </tr>
+            <tr>
+              <td class="row-label">Income verification</td>
+              <td><span class="cross">✗</span> W2 / tax returns required</td>
+              <td><span class="check">✓</span> Property income only</td>
+              <td class="highlight"><span class="check">✓</span> Asset-based, deal-based</td>
+            </tr>
+            <tr>
+              <td class="row-label">Property count limit</td>
+              <td><span class="cross">✗</span> 10 max (Fannie/Freddie)</td>
+              <td><span class="check">✓</span> No limit (most lenders)</td>
+              <td class="highlight"><span class="check">✓</span> No limit</td>
+            </tr>
+            <tr>
+              <td class="row-label">Loan types available</td>
+              <td>Purchase, refi</td>
+              <td>Rental/hold only</td>
+              <td class="highlight">Fix & flip, rental, bridge, portfolio, blanket</td>
+            </tr>
+            <tr>
+              <td class="row-label">Exit strategy flexibility</td>
+              <td>Hold only</td>
+              <td>Hold/rent only</td>
+              <td class="highlight">Sell, refi, hold — all valid</td>
+            </tr>
+            <tr>
+              <td class="row-label">Speed to close</td>
+              <td>30–60 days</td>
+              <td>14–30 days</td>
+              <td class="highlight">7–21 days typical</td>
+            </tr>
+            <tr>
+              <td class="row-label">Regulatory framework</td>
+              <td>Consumer lending (TILA, RESPA, ATR)</td>
+              <td>Usually BPL exempt</td>
+              <td class="highlight">Business lending — not consumer</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>The practical takeaway: if you're going to invest seriously in real estate, you want to be operating in the BPL world. It's more flexible, faster, and not constrained by the rules designed for homeowners.</p>
+      </section>
+
+      <!-- REAL SCENARIO -->
+      <section class="article-section" id="scenario">
+        <div class="section-marker">Real World Example</div>
+        <h2 class="section-title">What BPL looks like <em>in practice</em></h2>
+
+        <div class="scenario">
+          <div class="scenario-label">Scenario — The Investor at the Limit</div>
+          <div class="scenario-title">Maria has 10 conventional loans and just found a deal.</div>
+          <p>Maria is a Florida-based investor with a growing portfolio. She's been buying DSCR loans on rentals and has done well. But her conventional loan count is maxed — her bank told her she can't get another mortgage in her personal name.</p>
+          <p>A fix-and-flip opportunity comes up. The numbers are strong: purchase at $280k, estimated $60k in rehab, ARV of $420k. She has her LLC set up and has been using it for property management. Under a BPL structure, she borrows through her LLC — the loan is underwritten on the deal (purchase price, ARV, rehab scope) rather than her personal income or loan count. She closes in 14 days.</p>
+          <p>The conventional limit was a personal limit. Her entity had no such ceiling.</p>
+          <div class="scenario-numbers">
+            <div class="scenario-number">
+              <span class="scenario-number-value">$280k</span>
+              <span class="scenario-number-label">Purchase price</span>
+            </div>
+            <div class="scenario-number">
+              <span class="scenario-number-value">$420k</span>
+              <span class="scenario-number-label">Estimated ARV</span>
+            </div>
+            <div class="scenario-number">
+              <span class="scenario-number-value">14 days</span>
+              <span class="scenario-number-label">Time to close</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scenario">
+          <div class="scenario-label">Scenario — The Realtor's Client</div>
+          <div class="scenario-title">James has 8 rental properties and thinks he's capped.</div>
+          <p>James has been buying rentals steadily for 6 years. His realtor, Sarah, keeps sending him opportunities — but James keeps saying he can't get another loan. His bank has hit the DTI limit even though his properties cash flow well.</p>
+          <p>Sarah learns about BPL through a partner she works with. She calls James: "Your portfolio is an asset. We can refinance some of your existing properties under a blanket BPL loan, free up equity, and use a BPL structure to buy the next one — all without touching your personal income picture." James goes from stuck to actively acquiring again within 60 days. Sarah earns a referral fee and becomes James's go-to financing resource.</p>
+          <div class="scenario-numbers">
+            <div class="scenario-number">
+              <span class="scenario-number-value">8 → ∞</span>
+              <span class="scenario-number-label">Properties owned</span>
+            </div>
+            <div class="scenario-number">
+              <span class="scenario-number-value">Blanket BPL</span>
+              <span class="scenario-number-label">Loan structure</span>
+            </div>
+            <div class="scenario-number">
+              <span class="scenario-number-value">60 days</span>
+              <span class="scenario-number-label">Back to acquiring</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROS CONS -->
+      <section class="article-section" id="pros-cons">
+        <div class="section-marker">Honest Assessment</div>
+        <h2 class="section-title">The honest <em>pros and cons</em></h2>
+
+        <p>BPL isn't magic. It's a different tool with different trade-offs. Here's a straight assessment:</p>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <div class="pros-cons-title">Advantages</div>
+            <ul class="pros-cons-list">
+              <li>No personal income verification — qualified on the deal, not your W2</li>
+              <li>No property count limits — scale without hitting a ceiling</li>
+              <li>Borrow in your LLC — personal assets are protected</li>
+              <li>Faster closings than conventional — 7–21 days typical</li>
+              <li>Works across loan types — fix & flip, DSCR, bridge, portfolio</li>
+              <li>Self-employed friendly — complex income structures welcome</li>
+              <li>Portfolio and blanket loan options available</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <div class="pros-cons-title">Trade-offs</div>
+            <ul class="pros-cons-list">
+              <li>Rates typically higher than conventional (offset by speed and flexibility)</li>
+              <li>Requires a business entity (LLC setup needed if you don't have one)</li>
+              <li>Not for primary residences — investment property only</li>
+              <li>Lender requirements vary — quality of lender matters more</li>
+              <li>Some programs have minimum deal size or experience requirements</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout">
+          <p>The rate premium on BPL loans is real — but serious investors understand that <strong>speed, flexibility, and the ability to close</strong> often produce better returns than chasing a slightly lower rate on a deal you might otherwise miss entirely.</p>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="article-section" id="process">
+        <div class="section-marker">The Process</div>
+        <h2 class="section-title">How to get a <em>Business Purpose Loan</em></h2>
+
+        <p>The process is more straightforward than most investors expect. Here's what it looks like:</p>
+
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-num">1</div>
+            <div>
+              <div class="step-title">Set up your entity</div>
+              <p class="step-desc">You need an LLC or corporation to borrow under BPL. If you don't have one, this is a simple and inexpensive step — typically under $200 in most states. Many investors already have this in place for liability protection.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-num">2</div>
+            <div>
+              <div class="step-title">Identify your deal</div>
+              <p class="step-desc">BPL underwriting focuses on the deal: purchase price, property condition, ARV (for fix & flip), or rental income potential (for DSCR). Have the basics ready — address, asking price, your estimated numbers.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-num">3</div>
+            <div>
+              <div class="step-title">Submit a scenario</div>
+              <p class="step-desc">Unlike conventional lending, BPL lenders typically work fast on initial scenario reviews. Share your deal details — you'll get a preliminary read on terms often within 24 hours.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-num">4</div>
+            <div>
+              <div class="step-title">Provide entity documents</div>
+              <p class="step-desc">Operating agreement, articles of organization, and ID for the principal. This is lighter documentation than the mountains of personal financial paperwork conventional lenders require.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-num">5</div>
+            <div>
+              <div class="step-title">Close and fund</div>
+              <p class="step-desc">BPL loans can close in as few as 7 days for experienced investors with clean entities and clear deals. 14–21 days is more typical. Compare this to 30–60 days for conventional financing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="article-section" id="faq">
+        <div class="section-marker">FAQ</div>
+        <h2 class="section-title">Questions investors <em>actually ask</em></h2>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Do I need an LLC before I can get a BPL loan?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes — business purpose loans require a business entity as the borrower. An LLC is the most common structure. The good news is that forming an LLC is straightforward and inexpensive in most states. If you're investing seriously in real estate, you should have one anyway for liability protection. Some lenders will allow other entity types (corporations, partnerships) — ask your lender what they accept.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            How is a BPL loan different from a hard money loan?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Hard money loans are a type of BPL — short-term, asset-based loans typically used for fix and flip or bridge situations. BPL is the broader category. What BPL adds is a cleaner legal framework, more institutional lender options, and the ability to structure longer-term products (like DSCR rental loans) under the same business-purpose umbrella. Hard money is often faster and more flexible; BPL can encompass both that speed and more structured, longer-term options.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Will my personal credit matter?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes, but much less than in conventional lending. Most BPL lenders will pull a soft or hard credit check on the principals of the borrowing entity. This is used as one data point — not the primary underwriting driver. A minimum FICO of 620–660 is common, but the deal itself carries far more weight. Investors with lower credit who have strong deals and experience often qualify for BPL when conventional lenders would turn them away immediately.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Can I use a BPL loan for my first investment property?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Some lenders will work with first-time investors; others require a minimum number of completed transactions. If you're new, the most important things are: having your LLC in place, having a deal with solid numbers, and working with a lender who understands how to work with newer investors. Experience requirements vary widely — don't assume you're disqualified without asking.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            What types of properties qualify for BPL?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Non-owner-occupied residential properties are the most common — single-family, 2-4 units, condos, townhomes. Some BPL lenders also cover small multifamily (5+ units), mixed-use, and light commercial. The key requirement in all cases is that the property cannot be your primary residence. It must be an investment.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Are BPL loans available in Florida and Ohio?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. Both states are active BPL markets. Florida in particular has one of the highest concentrations of real estate investors in the country, and BPL lending is well-established there. Ohio offers strong rental yields and is an increasingly popular market for investors seeking cash flow. We specialize in both states and can structure deals in either market.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            What's a blanket BPL loan and is it right for me?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">A blanket loan covers multiple properties under a single loan agreement. Instead of managing 8 separate mortgages, you have one payment, one set of terms, potentially a lower blended rate. It's typically for investors with 3+ existing properties looking to simplify and potentially pull equity for future acquisitions. The trade-off is that all properties are cross-collateralized — but for serious portfolio builders, the efficiency is often worth it.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <div class="final-cta" id="get-quote">
+        <div class="final-cta-inner">
+          <div class="final-cta-label">Ready to move?</div>
+          <h2 class="final-cta-title">Your next deal<br>doesn't have to <em>wait.</em></h2>
+          <p class="final-cta-sub">Tell us about your deal or your situation. We'll give you a straight answer on what's possible — no runaround, no pressure.</p>
+          <div class="cta-buttons">
+            <a href="/apply" class="btn-primary">Get a Quote →</a>
+            <a href="/partners" class="btn-secondary">I'm a Realtor</a>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="toc">
+        <div class="toc-title">In This Guide</div>
+        <ul class="toc-list">
+          <li><a href="#intro">The Short Answer</a></li>
+          <li><a href="#what-is-bpl">What Is BPL?</a></li>
+          <li><a href="#who-qualifies">Who Qualifies</a></li>
+          <li><a href="#vs-dscr">BPL vs. DSCR</a></li>
+          <li><a href="#scenario">Real Examples</a></li>
+          <li><a href="#pros-cons">Pros &amp; Cons</a></li>
+          <li><a href="#process">The Process</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-title">Have a deal in mind?</div>
+        <p class="sidebar-cta-text">Get a preliminary quote in 24 hours. No application fee. No pressure.</p>
+        <a href="/apply" class="sidebar-cta-btn">Get a Quote →</a>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">Capvia</div>
+  <div class="footer-text">
+    Real estate investor financing — Florida &amp; Ohio<br>
+    DSCR · Fix &amp; Flip · Bridge · BPL · Bank Statement<br><br>
+    This guide is for informational purposes. Loan terms vary by deal, entity, and lender criteria.
+  </div>
+</footer>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrollTop = doc.scrollTop || document.body.scrollTop;
+  const scrollHeight = doc.scrollHeight - doc.clientHeight;
+  const progress = (scrollTop / scrollHeight) * 100;
+  document.getElementById('progressBar').style.width = progress + '%';
+});
+
+// FAQ toggle
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// TOC active state
+const sections = document.querySelectorAll('[id]');
+const tocLinks = document.querySelectorAll('.toc-list a');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + entry.target.id) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+
+sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

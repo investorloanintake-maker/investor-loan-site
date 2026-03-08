@@ -972,3 +972,433 @@ details p { margin: 14px 0 0; color: var(--muted); line-height: 1.8; font-size: 
   transition: color .15s;
 }
 .exit-close:hover { color: var(--text); }
+
+/* ============================================================
+   CAPVIA V3 — New Section Styles
+   Three-path homepage, BPL band, partner band, programs grid
+   ============================================================ */
+
+/* ── Nav highlight ──────────────────────────────────────── */
+.nav-highlight {
+  color: var(--gold) !important;
+  font-weight: 600;
+}
+
+/* ── Three-path cards ───────────────────────────────────── */
+.paths-grid {
+  margin-top: 40px;
+}
+
+.path-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  position: relative;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s;
+}
+
+.path-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold-light);
+}
+
+.path-card-featured {
+  border-color: var(--gold);
+  background: linear-gradient(160deg, #fffdf5 0%, var(--white) 100%);
+}
+
+.path-badge {
+  position: absolute;
+  top: -12px;
+  left: 28px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+
+.path-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.path-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 8px;
+}
+
+.path-card h3 {
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--navy);
+}
+
+.path-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.path-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-sm {
+  font-size: 11px;
+  padding: 9px 18px;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--gold-dark);
+  border: 1px solid var(--gold-light);
+  border-radius: 8px;
+  padding: 9px 18px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-head);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-align: center;
+  transition: background .2s, color .2s;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-ghost:hover {
+  background: var(--soft);
+  color: var(--navy);
+}
+
+/* ── BPL Education Band ─────────────────────────────────── */
+.bpl-band {
+  background: var(--navy);
+  padding: 72px 0;
+}
+
+.bpl-band-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.bpl-band-copy .eyebrow.dark {
+  color: var(--gold-light);
+  border-color: var(--gold-dark);
+  background: rgba(212,168,75,.12);
+}
+
+.bpl-band-copy h2 {
+  font-family: var(--font-head);
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.bpl-band-copy p {
+  color: rgba(255,255,255,.72);
+  font-size: 15px;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.bpl-band-copy strong {
+  color: var(--gold-light);
+}
+
+.bpl-band-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.bpl-band-actions .btn-secondary {
+  background: transparent;
+  border-color: rgba(255,255,255,.3);
+  color: var(--white);
+}
+
+.bpl-band-actions .btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.bpl-band-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bpl-stat {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.bpl-stat-highlight {
+  background: rgba(212,168,75,.12);
+  border-color: rgba(212,168,75,.3);
+}
+
+.bpl-stat-value {
+  font-family: var(--font-head);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--gold);
+  min-width: 80px;
+  line-height: 1;
+}
+
+.bpl-stat-label {
+  font-size: 13px;
+  color: rgba(255,255,255,.65);
+  line-height: 1.5;
+}
+
+/* ── Programs Grid ──────────────────────────────────────── */
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.program-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  position: relative;
+  transition: box-shadow .25s var(--ease), border-color .25s;
+}
+
+.program-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--gold-light);
+}
+
+.program-card-featured {
+  border-color: var(--gold);
+  background: linear-gradient(160deg, #fffdf5 0%, var(--white) 100%);
+}
+
+.program-badge {
+  position: absolute;
+  top: -11px;
+  left: 24px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 20px;
+}
+
+.program-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 8px;
+}
+
+.program-card h3 {
+  font-family: var(--font-head);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.program-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.program-details {
+  list-style: none;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.program-details li {
+  font-size: 13px;
+  color: var(--muted);
+  padding-left: 18px;
+  position: relative;
+}
+
+.program-details li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.program-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold-dark);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-light);
+  padding-bottom: 1px;
+  transition: color .2s, border-color .2s;
+}
+
+.program-link:hover {
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+/* ── Partner Band ───────────────────────────────────────── */
+.partner-band {
+  background: var(--soft);
+}
+
+.partner-band-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.partner-band-copy h2 {
+  font-family: var(--font-head);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 14px;
+  line-height: 1.25;
+}
+
+.partner-band-copy p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.partner-band-features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.partner-feature {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.partner-feature-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--gold);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.partner-feature strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+
+.partner-feature span {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── Form additions ─────────────────────────────────────── */
+.form-divider {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 20px 0;
+}
+
+.field-required {
+  color: var(--gold-dark);
+  font-size: 12px;
+}
+
+.field-optional {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.form-disclaimer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* ── Responsive updates ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .bpl-band-inner,
+  .partner-band-inner,
+  .programs-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .bpl-band-actions {
+    flex-direction: column;
+  }
+
+  .bpl-band-actions .btn {
+    text-align: center;
+  }
+
+  .path-actions {
+    flex-direction: column;
+  }
+
+  .programs-grid {
+    grid-template-columns: 1fr;
+  }
+}
