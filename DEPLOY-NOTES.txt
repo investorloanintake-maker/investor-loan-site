@@ -1,1 +1,1 @@
-Upload all files in this ZIP to the repo root and replace existing files. Delete old leftovers if they remain.
+Upload all files from this ZIP to the repo root and replace matching files. This build keeps the earlier Capvia navy/blue/green palette.
