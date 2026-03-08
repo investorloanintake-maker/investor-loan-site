@@ -1,1 +1,127 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Capvia | Fix & Flip Analyzer</title><link rel="stylesheet" href="styles.css"/></head><body><header class="site-header"><div class="container nav-wrap"><a href="index.html" class="brand"><div class="brand-mark">C</div><div class="brand-copy"><strong>Capvia</strong><span>Investor Capital & Deal Advisory</span></div></a><nav class="nav"><a href="index.html#programs">Programs</a><a href="index.html#paths">Investor Paths</a><a href="index.html#process">How It Works</a><a href="index.html#faq">FAQ</a></nav><a href="index.html#dealform" class="btn btn-primary">REVIEW MY DEAL</a></div></header><main><section class="section section-alt"><div class="container"><div class="section-head"><div class="eyebrow dark">Fix & flip</div><h2>Analyze a value-add scenario</h2><p>Use this quick tool to frame the leverage and structure of a fix & flip deal before submitting it for review.</p></div><div class="two-up"><div class="card"><h3>Fix & Flip Analyzer</h3><div class="field"><label>Purchase Price</label><input id="purchase" type="number" placeholder="250000"/></div><div class="field"><label>Rehab Budget</label><input id="rehab" type="number" placeholder="75000"/></div><div class="field"><label>After Repair Value</label><input id="arv" type="number" placeholder="420000"/></div><button type="button" class="btn btn-primary btn-full" onclick="flip()">ANALYZE</button><div class="result-box" id="flipResult">Enter purchase price, rehab budget, and ARV to estimate the scenario.</div></div><div class="card"><h3>How to use this</h3><p>This estimate is designed to help you understand the general shape of the deal. It is not an approval, but it gives you a better starting point before submitting the property for review.</p></div></div></div></section></main><footer class="site-footer"><div class="container footer-grid"><div><div class="footer-brand"><div class="brand-mark">C</div><div class="brand-copy"><strong>Capvia</strong><span>Investor Capital & Deal Advisory</span></div></div></div></div></footer><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fix & Flip Analyzer | Capvia</title>
+  <meta name="description" content="Use Capvia's free fix and flip analyzer to estimate total project cost, cost-to-value ratio, and gross profit before submitting your deal for review." />
+  <link rel="canonical" href="https://capvia.com/fix-and-flip.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <div class="container nav-wrap">
+    <a href="index.html" class="brand" aria-label="Capvia Home">
+      <div class="brand-mark" aria-hidden="true">C</div>
+      <div class="brand-copy">
+        <strong>Capvia</strong>
+        <span>Investor Capital & Deal Advisory</span>
+      </div>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html#programs">Programs</a>
+      <a href="index.html#paths">Investor Paths</a>
+      <a href="index.html#process">How It Works</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <a href="index.html#dealform" class="btn btn-primary">REVIEW MY DEAL</a>
+    <button class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html#programs">Programs</a>
+    <a href="index.html#paths">Investor Paths</a>
+    <a href="index.html#process">How It Works</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#dealform">Review My Deal</a>
+  </nav>
+</header>
+
+<main>
+  <section class="section section-alt" aria-labelledby="ff-heading">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow dark">Fix &amp; Flip</div>
+        <h1 id="ff-heading">Analyze a Value-Add Scenario</h1>
+        <p>Use this quick tool to frame the leverage and structure of a fix &amp; flip deal before submitting it for review. Results are illustrative and not a financing approval.</p>
+      </div>
+      <div class="two-up">
+        <div class="card reveal">
+          <h2 style="font-size:22px;margin-bottom:20px;">Fix &amp; Flip Analyzer</h2>
+          <div class="field">
+            <label for="purchase">Purchase Price</label>
+            <input id="purchase" type="number" placeholder="250000" min="0" />
+          </div>
+          <div class="field">
+            <label for="rehab">Rehab Budget</label>
+            <input id="rehab" type="number" placeholder="75000" min="0" />
+          </div>
+          <div class="field">
+            <label for="arv">After Repair Value (ARV)</label>
+            <input id="arv" type="number" placeholder="420000" min="0" />
+          </div>
+          <button type="button" class="btn btn-primary btn-full" onclick="flip()">ANALYZE DEAL</button>
+          <div class="result-box" id="flipResult" role="status" aria-live="polite">
+            Enter deal numbers to estimate total cost and cost-to-value.
+          </div>
+        </div>
+        <div class="card reveal">
+          <h2 style="font-size:22px;margin-bottom:16px;">How to use this</h2>
+          <p style="margin-bottom:16px;">This estimate is designed to help you understand the general shape of the deal. It is not an approval, but it gives you a better starting point before submitting the property for review.</p>
+          <p style="margin-bottom:16px;color:var(--muted);">Typical fix &amp; flip programs look at cost-to-value ratios — the total amount borrowed relative to the ARV. The lower the ratio, the more equity cushion lenders typically see.</p>
+          <p style="color:var(--muted);">After reviewing your numbers, submit the full deal below for a more complete assessment.</p>
+          <div style="margin-top:24px;">
+            <a href="index.html#dealform" class="btn btn-primary btn-full">SUBMIT DEAL FOR REVIEW</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="brand-mark" aria-hidden="true">C</div>
+          <div class="brand-copy">
+            <strong>Capvia</strong>
+            <span>Investor Capital & Deal Advisory</span>
+          </div>
+        </div>
+        <p class="footer-copy">Illustrative examples only. Not a commitment to lend.</p>
+      </div>
+      <nav aria-label="Investor resources">
+        <h4>Investor Resources</h4>
+        <a href="index.html#tools">Deal Analyzers</a>
+        <a href="index.html#paths">Investor Paths</a>
+        <a href="index.html#process">How It Works</a>
+      </nav>
+      <nav aria-label="Programs">
+        <h4>Programs</h4>
+        <a href="fix-and-flip.html">Fix &amp; Flips</a>
+        <a href="dscr.html">DSCR Loans</a>
+        <a href="application.html">Talk To An Expert</a>
+      </nav>
+      <nav aria-label="Support">
+        <h4>Support</h4>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#dealform">Review My Deal</a>
+      </nav>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2025 Capvia. All rights reserved.</span>
+      <span>Results are illustrative only.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

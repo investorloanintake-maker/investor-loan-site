@@ -1,1 +1,123 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Capvia | DSCR Quick Check</title><link rel="stylesheet" href="styles.css"/></head><body><header class="site-header"><div class="container nav-wrap"><a href="index.html" class="brand"><div class="brand-mark">C</div><div class="brand-copy"><strong>Capvia</strong><span>Investor Capital & Deal Advisory</span></div></a><nav class="nav"><a href="index.html#programs">Programs</a><a href="index.html#paths">Investor Paths</a><a href="index.html#process">How It Works</a><a href="index.html#faq">FAQ</a></nav><a href="index.html#dealform" class="btn btn-primary">REVIEW MY DEAL</a></div></header><main><section class="section section-alt"><div class="container"><div class="section-head"><div class="eyebrow dark">DSCR rental</div><h2>Check whether the rent appears to support the payment</h2><p>This quick calculation helps first-time and experienced investors frame the likely strength of a rental property scenario.</p></div><div class="two-up"><div class="card"><h3>DSCR Quick Check</h3><div class="field"><label>Monthly Rent</label><input id="rent" type="number" placeholder="2600"/></div><div class="field"><label>Monthly Payment</label><input id="payment" type="number" placeholder="2100"/></div><button type="button" class="btn btn-primary btn-full" onclick="dscr()">CHECK DSCR</button><div class="result-box" id="dscrResult">Enter rent and payment to estimate DSCR.</div></div><div class="card"><h3>Why this matters</h3><p>Some investor loan programs rely more on property cash flow than traditional income. This quick estimate helps you think through whether the numbers appear to be in range.</p></div></div></div></section></main><footer class="site-footer"><div class="container footer-grid"><div><div class="footer-brand"><div class="brand-mark">C</div><div class="brand-copy"><strong>Capvia</strong><span>Investor Capital & Deal Advisory</span></div></div></div></div></footer><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSCR Loan Quick Check | Capvia</title>
+  <meta name="description" content="Use Capvia's DSCR quick check tool to estimate whether your rental property's income appears to support the loan payment before submitting your deal for review." />
+  <link rel="canonical" href="https://capvia.com/dscr.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <div class="container nav-wrap">
+    <a href="index.html" class="brand" aria-label="Capvia Home">
+      <div class="brand-mark" aria-hidden="true">C</div>
+      <div class="brand-copy">
+        <strong>Capvia</strong>
+        <span>Investor Capital & Deal Advisory</span>
+      </div>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html#programs">Programs</a>
+      <a href="index.html#paths">Investor Paths</a>
+      <a href="index.html#process">How It Works</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <a href="index.html#dealform" class="btn btn-primary">REVIEW MY DEAL</a>
+    <button class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html#programs">Programs</a>
+    <a href="index.html#paths">Investor Paths</a>
+    <a href="index.html#process">How It Works</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#dealform">Review My Deal</a>
+  </nav>
+</header>
+
+<main>
+  <section class="section section-alt" aria-labelledby="dscr-heading">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow dark">DSCR Rental</div>
+        <h1 id="dscr-heading">Check Whether the Rent Appears to Support the Payment</h1>
+        <p>This quick calculation helps first-time and experienced investors frame the likely strength of a rental property scenario. Not an approval — illustrative only.</p>
+      </div>
+      <div class="two-up">
+        <div class="card reveal">
+          <h2 style="font-size:22px;margin-bottom:20px;">DSCR Quick Check</h2>
+          <div class="field">
+            <label for="rent">Monthly Rent</label>
+            <input id="rent" type="number" placeholder="2600" min="0" />
+          </div>
+          <div class="field">
+            <label for="payment">Monthly Payment (PITIA)</label>
+            <input id="payment" type="number" placeholder="2100" min="0" />
+          </div>
+          <button type="button" class="btn btn-primary btn-full" onclick="dscr()">CHECK DSCR</button>
+          <div class="result-box" id="dscrResult" role="status" aria-live="polite">
+            Enter rent and payment to estimate your DSCR.
+          </div>
+        </div>
+        <div class="card reveal">
+          <h2 style="font-size:22px;margin-bottom:16px;">Why this matters</h2>
+          <p style="margin-bottom:16px;">DSCR — Debt Service Coverage Ratio — measures whether the property's rental income covers its loan payment. A DSCR of 1.0 means rent equals the payment; above 1.25 is typically preferred by lenders.</p>
+          <p style="margin-bottom:16px;color:var(--muted);">Some investor loan programs rely more on property cash flow than traditional income documentation, making DSCR a key qualifying metric for rental properties.</p>
+          <p style="color:var(--muted);">Use this estimate to shape the conversation before submitting the full deal.</p>
+          <div style="margin-top:24px;">
+            <a href="index.html#dealform" class="btn btn-primary btn-full">SUBMIT DEAL FOR REVIEW</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="brand-mark" aria-hidden="true">C</div>
+          <div class="brand-copy">
+            <strong>Capvia</strong>
+            <span>Investor Capital & Deal Advisory</span>
+          </div>
+        </div>
+        <p class="footer-copy">Illustrative examples only. Not a commitment to lend.</p>
+      </div>
+      <nav aria-label="Investor resources">
+        <h4>Investor Resources</h4>
+        <a href="index.html#tools">Deal Analyzers</a>
+        <a href="index.html#paths">Investor Paths</a>
+        <a href="index.html#process">How It Works</a>
+      </nav>
+      <nav aria-label="Programs">
+        <h4>Programs</h4>
+        <a href="fix-and-flip.html">Fix &amp; Flips</a>
+        <a href="dscr.html">DSCR Loans</a>
+        <a href="application.html">Talk To An Expert</a>
+      </nav>
+      <nav aria-label="Support">
+        <h4>Support</h4>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#dealform">Review My Deal</a>
+      </nav>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2025 Capvia. All rights reserved.</span>
+      <span>Results are illustrative only.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
