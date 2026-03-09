@@ -1,340 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Capvia | Real Estate Investor Financing — DSCR, Fix & Flip, BPL Loans</title>
-  <meta name="description" content="Capvia helps real estate investors find financing that fits — DSCR, Fix & Flip, Bridge, and Business Purpose Loans (BPL). Deals reviewed within 24 hours. Serving Florida and Ohio." />
-  <meta name="keywords" content="business purpose loan, BPL loan, DSCR loan, fix and flip financing, real estate investor loan, investment property loan Florida, BPL real estate investor" />
-  <link rel="canonical" href="https://capvia.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Capvia | Real Estate Investor Financing — DSCR, Fix & Flip, BPL" />
-  <meta property="og:description" content="Deal reviewed within 24 hours. Expert investor financing guidance — DSCR, Fix & Flip, Bridge, and Business Purpose Loans." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="styles.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FinancialService","name":"Capvia","description":"Real estate investor financing — DSCR, Fix & Flip, Bridge, and Business Purpose Loans (BPL).","url":"https://capvia.com","serviceType":["DSCR Loans","Fix and Flip Financing","Business Purpose Loans","Bridge Loans","Investment Property Financing"],"areaServed":["Florida","Ohio"]}</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Capvia | Real Estate Investor Financing — DSCR, Fix & Flip, BPL</title>
+  <meta name="description" content="Capvia helps real estate investors find financing that fits — DSCR, Fix & Flip, Bridge, and Business Purpose Loans (BPL). Deals reviewed within 24 hours."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-<!-- ── Exit Intent Popup ──────────────────────────────── -->
-<div class="exit-overlay" id="exitOverlay" role="dialog" aria-modal="true" aria-labelledby="exitTitle" aria-hidden="true">
-  <div class="exit-modal">
-    <button class="exit-close" id="exitClose" aria-label="Close">&times;</button>
-    <div class="exit-eyebrow">Free resource</div>
-    <h2 id="exitTitle">The Investor's Guide to Business Purpose Loans</h2>
-    <p>What BPL is, who it's for, and why it's changing how serious investors scale — in plain English. No jargon.</p>
-    <div class="exit-form-wrap">
-      <input type="email" id="exitEmail" placeholder="your@email.com" autocomplete="email" />
-      <button type="button" class="btn btn-primary btn-full" id="exitSubmit">SEND ME THE GUIDE</button>
-    </div>
-    <p class="exit-note">No spam. One email with the resource. That's it.</p>
-  </div>
-</div>
+<!-- GRAIN OVERLAY -->
+<div class="grain" aria-hidden="true"></div>
 
-<!-- ── Header ─────────────────────────────────────────── -->
-<header class="site-header" role="banner">
-  <div class="container nav-wrap">
-    <a href="#top" class="brand" aria-label="Capvia Home">
-      <div class="brand-mark" aria-hidden="true">C</div>
-      <div class="brand-copy"><strong>Capvia</strong><span>Investor Capital & Deal Advisory</span></div>
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">C</span>
+      <span class="logo-text">Capvia</span>
     </a>
-    <nav class="nav" aria-label="Primary navigation">
+    <nav class="nav-links" aria-label="Primary">
       <a href="#paths">Who We Help</a>
-      <a href="bpl.html" class="nav-highlight">What Is BPL?</a>
-      <a href="#programs">Loan Programs</a>
-      <a href="#tools">Analyzers</a>
+      <a href="bpl.html" class="nav-gold">What Is BPL?</a>
+      <a href="#programs">Programs</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a href="#dealform" class="btn btn-primary">REVIEW MY DEAL</a>
-    <button class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
-      <span></span><span></span><span></span>
+    <a href="#dealform" class="nav-cta">Review My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">
+      <span></span><span></span>
     </button>
   </div>
-  <nav class="mobile-nav" aria-label="Mobile navigation">
+  <div class="mobile-drawer" id="drawer">
     <a href="#paths">Who We Help</a>
     <a href="bpl.html">What Is BPL?</a>
-    <a href="#programs">Loan Programs</a>
-    <a href="#tools">Analyzers</a>
+    <a href="#programs">Programs</a>
     <a href="#faq">FAQ</a>
-    <a href="#dealform">Review My Deal — Free</a>
-  </nav>
+    <a href="#dealform" class="drawer-cta">Review My Deal →</a>
+  </div>
 </header>
 
-<main id="top">
+<main>
 
-  <!-- ── Hero ─────────────────────────────────────────── -->
-  <section class="hero" aria-labelledby="hero-heading">
-    <div class="container hero-content">
-      <div class="hero-copy">
-        <div class="eyebrow">✓ Most deals reviewed within 24 hours</div>
-        <h1 id="hero-heading">Investor Financing That Doesn't Stop When You're Ready to Scale</h1>
-        <p>Whether you're funding your first rental, closing a flip, or building a portfolio that's outgrown conventional limits — we find the right path and move fast.</p>
-        <div class="hero-actions">
-          <a href="#dealform" class="btn btn-primary">REVIEW MY DEAL — FREE</a>
-          <a href="bpl.html" class="btn btn-secondary">WHAT IS BPL? →</a>
-        </div>
-        <p class="fastlane">Already have an LLC and a deal? <a href="#dealform">Submit in 60 seconds →</a></p>
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-inner">
+
+    <div class="hero-copy">
+      <div class="hero-tag">
+        <span class="tag-dot"></span>
+        Deal reviews within 24 hours · FL &amp; OH
+      </div>
+
+      <h1 id="h1" class="hero-title">
+        Financing that<br>
+        <em>doesn't stop</em><br>
+        when you're ready<br>
+        to scale.
+      </h1>
+
+      <p class="hero-sub">DSCR · Fix &amp; Flip · Bridge · BPL<br>
+      For investors at every stage — from first deal to full portfolio.</p>
+
+      <div class="hero-actions">
+        <a href="#dealform" class="btn-primary">Review My Deal — Free</a>
+        <a href="bpl.html" class="btn-ghost">What is BPL? →</a>
       </div>
     </div>
-  </section>
 
-  <!-- ── Social Proof Bar ──────────────────────────────── -->
-  <div class="proof-bar">
-    <div class="container proof-grid">
-      <div class="proof-stat"><strong>200+</strong><span>Deals reviewed</span></div>
-      <div class="proof-divider" aria-hidden="true"></div>
-      <div class="proof-stat"><strong>24 hrs</strong><span>Typical response time</span></div>
-      <div class="proof-divider" aria-hidden="true"></div>
-      <div class="proof-stat"><strong>DSCR · Fix &amp; Flip · BPL</strong><span>Loan types we work with</span></div>
-      <div class="proof-divider" aria-hidden="true"></div>
-      <div class="proof-stat"><strong>FL &amp; OH</strong><span>Primary markets</span></div>
+    <div class="hero-right">
+      <div class="hero-stat-stack">
+        <div class="hero-stat">
+          <div class="hero-stat-num">24<span>hr</span></div>
+          <div class="hero-stat-label">Typical deal review</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">∞</div>
+          <div class="hero-stat-label">BPL loan limit — no ceiling</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">0</div>
+          <div class="hero-stat-label">W2s required for DSCR</div>
+        </div>
+      </div>
+
+      <div class="hero-loan-types">
+        <span>DSCR</span>
+        <span>Fix &amp; Flip</span>
+        <span>Bridge</span>
+        <span class="pill-gold">BPL</span>
+        <span>Bank Statement</span>
+      </div>
     </div>
+
   </div>
 
-  <!-- ── THREE PATHS ────────────────────────────────────── -->
-  <section class="section" id="paths" aria-labelledby="paths-heading">
-    <div class="container">
-      <h2 class="center-title reveal" id="paths-heading">Who are you?</h2>
-      <p class="section-subtitle reveal">Tell us where you are — we'll show you what's possible.</p>
-      <div class="three-up paths-grid">
+  <!-- Decorative rule -->
+  <div class="hero-rule">
+    <div class="hero-rule-line"></div>
+    <div class="hero-rule-text">Serving investors across Florida &amp; Ohio</div>
+    <div class="hero-rule-line"></div>
+  </div>
+</section>
 
-        <article class="path-card reveal" data-path="investor">
-          <div class="path-icon" aria-hidden="true">📈</div>
+<!-- ═══════════════════════════════════════════
+     THREE PATHS
+═══════════════════════════════════════════ -->
+<section class="section paths-section" id="paths">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Who we help</div>
+      <h2 class="section-title">Tell us where you are.<br>We'll show you what's possible.</h2>
+    </div>
+
+    <div class="paths-grid">
+
+      <article class="path-card" tabindex="0">
+        <div class="path-num">01</div>
+        <div class="path-body">
           <div class="path-tag">Active investor</div>
-          <h3>I'm building a portfolio</h3>
-          <p>You've done deals. You have an LLC. You need financing that moves as fast as you do — DSCR, Bridge, Fix & Flip, or BPL for your next acquisition.</p>
-          <div class="path-actions">
-            <a href="#dealform" class="btn btn-primary btn-sm">SUBMIT MY DEAL</a>
-            <a href="bpl.html" class="btn btn-ghost btn-sm">What Is BPL? →</a>
+          <h3>Building a portfolio</h3>
+          <p>You've done deals. You have an LLC. You need financing that moves as fast as you do — DSCR, BPL, fix &amp; flip, or bridge for your next acquisition.</p>
+          <div class="path-links">
+            <a href="#dealform" class="link-arrow">Submit my deal →</a>
+            <a href="bpl.html" class="link-plain">What is BPL?</a>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="path-card path-card-featured reveal" data-path="realtor">
-          <div class="path-badge">Referral partners</div>
-          <div class="path-icon" aria-hidden="true">🤝</div>
+      <article class="path-card path-card-mid" tabindex="0">
+        <div class="path-num">02</div>
+        <div class="path-featured-label">Referral partners</div>
+        <div class="path-body">
           <div class="path-tag">Realtors &amp; advisors</div>
-          <h3>I work with investors</h3>
-          <p>Your investor clients are hitting financing walls — conventional limits, slow approvals, turned-down deals. We close what banks can't. You earn a referral fee.</p>
-          <div class="path-actions">
-            <a href="partners.html" class="btn btn-primary btn-sm">BECOME A PARTNER</a>
-            <a href="#dealform" class="btn btn-ghost btn-sm">Submit a Client Deal →</a>
+          <h3>Working with investors</h3>
+          <p>Your investor clients are hitting financing walls. We close what banks can't — and pay you a referral fee at closing for every deal that funds.</p>
+          <div class="path-links">
+            <a href="partners.html" class="link-arrow">Become a partner →</a>
+            <a href="#dealform" class="link-plain">Submit a client deal</a>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="path-card reveal" data-path="new">
-          <div class="path-icon" aria-hidden="true">🏠</div>
+      <article class="path-card" tabindex="0">
+        <div class="path-num">03</div>
+        <div class="path-body">
           <div class="path-tag">New investor</div>
-          <h3>I'm just getting started</h3>
-          <p>You know real estate builds wealth but don't know how people fund it. We break down how investment loans actually work — and whether your first deal can move forward.</p>
-          <div class="path-actions">
-            <a href="#tools" class="btn btn-primary btn-sm">ANALYZE MY DEAL</a>
-            <a href="#dealform" class="btn btn-ghost btn-sm">Ask A Question →</a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── BPL EDUCATION BAND ─────────────────────────────── -->
-  <section class="bpl-band" aria-labelledby="bpl-band-heading">
-    <div class="container bpl-band-inner">
-      <div class="bpl-band-copy">
-        <div class="eyebrow dark">Emerging opportunity</div>
-        <h2 id="bpl-band-heading">Have you hit your conventional loan limit?</h2>
-        <p>Fannie Mae and Freddie Mac cap conventional loans at 10 per borrower. Most investors don't know there's a financing structure with no such ceiling — and it's faster, more flexible, and doesn't touch your personal income.</p>
-        <p>It's called a <strong>Business Purpose Loan (BPL)</strong> — and it's changing how serious investors scale.</p>
-        <div class="bpl-band-actions">
-          <a href="bpl.html" class="btn btn-primary">READ THE FULL GUIDE →</a>
-          <a href="#dealform" class="btn btn-secondary">TALK TO US ABOUT BPL</a>
-        </div>
-      </div>
-      <div class="bpl-band-stats">
-        <div class="bpl-stat">
-          <div class="bpl-stat-value">10</div>
-          <div class="bpl-stat-label">Conventional loan limit per borrower</div>
-        </div>
-        <div class="bpl-stat bpl-stat-highlight">
-          <div class="bpl-stat-value">∞</div>
-          <div class="bpl-stat-label">BPL limit — entity-based, no ceiling</div>
-        </div>
-        <div class="bpl-stat">
-          <div class="bpl-stat-value">No W2</div>
-          <div class="bpl-stat-label">Required — qualified on the deal</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Testimonials ──────────────────────────────────── -->
-  <section class="section section-alt" id="testimonials" aria-labelledby="testimonials-heading">
-    <div class="container">
-      <h2 class="center-title reveal" id="testimonials-heading">What investors say</h2>
-      <div class="three-up">
-        <article class="testimonial-card reveal">
-          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <blockquote>"I had no idea where to start with my first rental. Capvia walked me through the numbers and helped me understand what lenders actually look at. Closed 60 days later."</blockquote>
-          <footer class="testimonial-author">
-            <div class="author-avatar" aria-hidden="true">M</div>
-            <div><strong>Marcus T.</strong><span>First rental, Atlanta GA</span></div>
-          </footer>
-        </article>
-        <article class="testimonial-card reveal">
-          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <blockquote>"I was capped at 10 conventional loans and thought I was done growing. BPL changed everything — closed two more deals through my LLC in the same quarter."</blockquote>
-          <footer class="testimonial-author">
-            <div class="author-avatar" aria-hidden="true">R</div>
-            <div><strong>Rachel S.</strong><span>8-property portfolio, Tampa FL</span></div>
-          </footer>
-        </article>
-        <article class="testimonial-card reveal">
-          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <blockquote>"Submitted my fix &amp; flip deal on Friday afternoon. Had a clear path forward by Monday morning. That kind of speed matters when you're making offers."</blockquote>
-          <footer class="testimonial-author">
-            <div class="author-avatar" aria-hidden="true">D</div>
-            <div><strong>Derek W.</strong><span>Fix &amp; flip investor, Tampa FL</span></div>
-          </footer>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Loan Programs ──────────────────────────────────── -->
-  <section class="section" id="programs" aria-labelledby="programs-heading">
-    <div class="container">
-      <h2 class="center-title reveal" id="programs-heading">Loan programs we work with</h2>
-      <p class="section-subtitle reveal">Every deal is different. We match your scenario to the right structure.</p>
-      <div class="programs-grid">
-
-        <article class="program-card reveal">
-          <div class="program-tag">Buy &amp; hold</div>
-          <h3>DSCR Rental Loans</h3>
-          <p>Qualify on the property's rental income — not your W2. No tax returns, no employment verification. Ideal for investors building long-term rental portfolios.</p>
-          <ul class="program-details">
-            <li>No personal income required</li>
-            <li>Single family, 2–4 units, condos</li>
-            <li>LLC borrowing welcomed</li>
-          </ul>
-          <a href="dscr.html" class="program-link">DSCR loan guide →</a>
-        </article>
-
-        <article class="program-card reveal">
-          <div class="program-tag">Short-term</div>
-          <h3>Fix &amp; Flip / Bridge</h3>
-          <p>Fast capital for value-add deals. Borrow against purchase price and rehab costs, with repayment on sale or refinance. Speed is the point.</p>
-          <ul class="program-details">
-            <li>Up to 90% of purchase + 100% rehab</li>
-            <li>Based on ARV, not personal income</li>
-            <li>Close in as few as 10 days</li>
-          </ul>
-          <a href="fix-and-flip.html" class="program-link">Fix &amp; flip guide →</a>
-        </article>
-
-        <article class="program-card program-card-featured reveal">
-          <div class="program-badge">Emerging</div>
-          <div class="program-tag">Entity-based</div>
-          <h3>Business Purpose Loans (BPL)</h3>
-          <p>The financing structure serious investors use to scale without hitting conventional limits. Borrow through your LLC — no property count cap, no personal income scrutiny.</p>
-          <ul class="program-details">
-            <li>No conventional loan count limit</li>
-            <li>Entity-based — protects personal assets</li>
-            <li>Fix &amp; flip, DSCR, bridge, blanket portfolio</li>
-          </ul>
-          <a href="bpl.html" class="program-link">What is BPL? Full guide →</a>
-        </article>
-
-        <article class="program-card reveal">
-          <div class="program-tag">Self-employed</div>
-          <h3>Bank Statement Loans</h3>
-          <p>Qualify using 12–24 months of business or personal bank statements — not tax returns. Built for business owners and self-employed investors with complex income.</p>
-          <ul class="program-details">
-            <li>No W2 or tax returns needed</li>
-            <li>12 or 24-month bank statement options</li>
-            <li>Investment and primary properties</li>
-          </ul>
-          <a href="#dealform" class="program-link">Submit your scenario →</a>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── How It Works ──────────────────────────────────── -->
-  <section class="section section-alt" aria-labelledby="howitworks-heading">
-    <div class="container">
-      <h2 class="center-title reveal" id="howitworks-heading">How Capvia Works</h2>
-      <div class="three-up">
-        <article class="card center reveal">
-          <div class="icon-circle" aria-hidden="true">1</div>
-          <h3>Submit Your Deal</h3>
-          <p>Tell us the property, deal type, and where you are in the process. Takes about 90 seconds. Entity and loan type questions are part of the intake.</p>
-        </article>
-        <article class="card center reveal">
-          <div class="icon-circle" aria-hidden="true">2</div>
-          <h3>We Review It</h3>
-          <p>Deal and property structure come first. We assess whether it's a DSCR, BPL, fix &amp; flip, or bridge scenario. Most reviews completed within 24 hours.</p>
-        </article>
-        <article class="card center reveal">
-          <div class="icon-circle" aria-hidden="true">3</div>
-          <h3>Move Forward</h3>
-          <p>Clear direction on the right financing path — whether that's originating the deal directly, connecting you with the right lender, or explaining what needs to change.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Deal Form (Two-Step) ──────────────────────────── -->
-  <section class="section" id="dealform" aria-labelledby="form-heading">
-    <div class="container form-layout">
-
-      <div class="form-copy reveal">
-        <div class="eyebrow dark">Free deal review — no obligation</div>
-        <h2 id="form-heading">Tell us about your deal</h2>
-        <p>Whether it's your first property or your fifteenth — submit the details and we'll tell you what's realistic. No credit pull. No commitment.</p>
-        <div class="copy-points">
-          <div class="copy-point">
-            <strong>Have an LLC?</strong>
-            <span>Tell us in Step 1 — it opens up BPL and entity-based financing options most investors don't know they qualify for.</span>
-          </div>
-          <div class="copy-point">
-            <strong>Hit your conventional limit?</strong>
-            <span>BPL has no property count ceiling. Submit your deal and we'll assess the right structure.</span>
-          </div>
-          <div class="copy-point">
-            <strong>Realtor with a client deal?</strong>
-            <span>Submit it here or <a href="partners.html">join our partner program</a> to streamline referrals.</span>
+          <h3>Just getting started</h3>
+          <p>You know real estate builds wealth but don't know how people fund it. We break down how investor loans actually work — and whether your first deal can move.</p>
+          <div class="path-links">
+            <a href="#tools" class="link-arrow">Analyze my deal →</a>
+            <a href="#dealform" class="link-plain">Ask a question</a>
           </div>
         </div>
-        <div class="trust-signals">
-          <div class="trust-item"><span class="trust-icon">✓</span> Free, no cost</div>
-          <div class="trust-item"><span class="trust-icon">✓</span> No credit pull</div>
-          <div class="trust-item"><span class="trust-icon">✓</span> 24-hour response</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     BPL FEATURE MOMENT
+═══════════════════════════════════════════ -->
+<section class="bpl-moment" aria-labelledby="bpl-h">
+  <div class="bpl-moment-inner">
+
+    <div class="bpl-left">
+      <div class="section-label light">Emerging opportunity</div>
+      <h2 id="bpl-h" class="bpl-title">
+        Hit your<br>conventional<br>loan limit?
+      </h2>
+      <p class="bpl-sub">Most investors don't know there's a financing structure with no property count ceiling — faster, more flexible, and it doesn't touch your personal income.</p>
+      <p class="bpl-sub">It's called a <strong>Business Purpose Loan.</strong></p>
+      <div class="bpl-actions">
+        <a href="bpl.html" class="btn-primary-dark">Read the full guide →</a>
+        <a href="#dealform" class="btn-ghost-dark">Talk to us about BPL</a>
+      </div>
+    </div>
+
+    <div class="bpl-right">
+      <div class="bpl-compare">
+        <div class="bpl-compare-row bpl-compare-header">
+          <span></span>
+          <span>Conventional</span>
+          <span class="bpl-col-highlight">BPL</span>
+        </div>
+        <div class="bpl-compare-row">
+          <span>Loan limit</span>
+          <span>10 max</span>
+          <span class="bpl-col-highlight">Unlimited</span>
+        </div>
+        <div class="bpl-compare-row">
+          <span>Income proof</span>
+          <span>W2 required</span>
+          <span class="bpl-col-highlight">Not required</span>
+        </div>
+        <div class="bpl-compare-row">
+          <span>Borrower</span>
+          <span>Personal name</span>
+          <span class="bpl-col-highlight">LLC / Entity</span>
+        </div>
+        <div class="bpl-compare-row">
+          <span>Closing speed</span>
+          <span>30–60 days</span>
+          <span class="bpl-col-highlight">7–21 days</span>
+        </div>
+        <div class="bpl-compare-row">
+          <span>Loan types</span>
+          <span>Purchase, refi</span>
+          <span class="bpl-col-highlight">Flip, DSCR, bridge, blanket</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════════ -->
+<section class="section testimonials-section" id="testimonials">
+  <div class="container">
+    <div class="section-label">What investors say</div>
+    <div class="testimonials-grid">
+
+      <article class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>"I had no idea where to start with my first rental. Capvia walked me through the numbers and helped me understand what lenders actually look at. Closed 60 days later."</blockquote>
+        <footer>
+          <div class="testimonial-avatar">M</div>
+          <div>
+            <strong>Marcus T.</strong>
+            <span>First rental · Atlanta, GA</span>
+          </div>
+        </footer>
+      </article>
+
+      <article class="testimonial testimonial-featured">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>"I was capped at 10 conventional loans and thought I was done growing. BPL changed everything — closed two more deals through my LLC in the same quarter."</blockquote>
+        <footer>
+          <div class="testimonial-avatar">R</div>
+          <div>
+            <strong>Rachel S.</strong>
+            <span>8-property portfolio · Tampa, FL</span>
+          </div>
+        </footer>
+      </article>
+
+      <article class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>"Submitted my fix &amp; flip deal Friday afternoon. Had a clear path forward by Monday morning. That kind of speed matters when you're making offers."</blockquote>
+        <footer>
+          <div class="testimonial-avatar">D</div>
+          <div>
+            <strong>Derek W.</strong>
+            <span>Fix &amp; flip investor · Tampa, FL</span>
+          </div>
+        </footer>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     LOAN PROGRAMS
+═══════════════════════════════════════════ -->
+<section class="section programs-section" id="programs">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Loan programs</div>
+      <h2 class="section-title">Every deal is different.<br>We match the right structure.</h2>
+    </div>
+
+    <div class="programs-grid">
+
+      <article class="program">
+        <div class="program-type">DSCR</div>
+        <h3>Rental Loans</h3>
+        <p>Qualify on rental income — not your W2. No tax returns, no employment verification. For investors building long-term portfolios.</p>
+        <ul>
+          <li>No personal income required</li>
+          <li>Single family, 2–4 units, condos</li>
+          <li>LLC borrowing welcomed</li>
+        </ul>
+        <a href="dscr.html" class="program-link">DSCR guide →</a>
+      </article>
+
+      <article class="program">
+        <div class="program-type">Bridge</div>
+        <h3>Fix &amp; Flip</h3>
+        <p>Fast capital for value-add deals. Borrow against purchase and rehab costs, repay on sale or refinance. Speed is the point.</p>
+        <ul>
+          <li>Up to 90% purchase + 100% rehab</li>
+          <li>Based on ARV, not income</li>
+          <li>Close in as few as 10 days</li>
+        </ul>
+        <a href="fix-and-flip.html" class="program-link">Fix &amp; flip guide →</a>
+      </article>
+
+      <article class="program program-featured">
+        <div class="program-badge">Emerging</div>
+        <div class="program-type">BPL</div>
+        <h3>Business Purpose Loans</h3>
+        <p>The structure serious investors use to scale without hitting conventional limits. Borrow through your LLC — no cap, no personal income scrutiny.</p>
+        <ul>
+          <li>No conventional loan count limit</li>
+          <li>Entity-based — protects assets</li>
+          <li>Flip, DSCR, bridge, blanket portfolio</li>
+        </ul>
+        <a href="bpl.html" class="program-link">Full BPL guide →</a>
+      </article>
+
+      <article class="program">
+        <div class="program-type">Bank Statement</div>
+        <h3>Self-Employed Loans</h3>
+        <p>Qualify using 12–24 months of bank statements — not tax returns. Built for business owners with complex income who don't fit the conventional mold.</p>
+        <ul>
+          <li>No W2 or tax returns needed</li>
+          <li>12 or 24-month options</li>
+          <li>Investment and primary properties</li>
+        </ul>
+        <a href="#dealform" class="program-link">Submit your scenario →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     HOW IT WORKS
+═══════════════════════════════════════════ -->
+<section class="how-section">
+  <div class="container">
+    <div class="section-label">The process</div>
+    <div class="how-grid">
+
+      <div class="how-step">
+        <div class="how-num">01</div>
+        <div class="how-body">
+          <h3>Submit your deal</h3>
+          <p>Property, deal type, whether you have an LLC, what state. Takes 90 seconds. The form is built to route your deal to the right structure from the start.</p>
         </div>
       </div>
 
-      <div class="card form-card reveal">
+      <div class="how-connector" aria-hidden="true"></div>
 
-        <div class="step-indicator">
-          <div class="step-dot active" id="dot1">1</div>
-          <div class="step-line"></div>
-          <div class="step-dot" id="dot2">2</div>
+      <div class="how-step">
+        <div class="how-num">02</div>
+        <div class="how-body">
+          <h3>We review it</h3>
+          <p>Deal and property structure first. We assess whether it's DSCR, BPL, fix &amp; flip, or bridge. Most reviews within 24 hours — experienced investors often same day.</p>
+        </div>
+      </div>
+
+      <div class="how-connector" aria-hidden="true"></div>
+
+      <div class="how-step">
+        <div class="how-num">03</div>
+        <div class="how-body">
+          <h3>Move forward</h3>
+          <p>Clear direction on the right path — whether we originate directly, connect you with a lender partner, or tell you honestly what needs to change.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     DEAL FORM
+═══════════════════════════════════════════ -->
+<section class="form-section" id="dealform">
+  <div class="container">
+    <div class="form-layout">
+
+      <div class="form-copy">
+        <div class="section-label">Free deal review</div>
+        <h2 class="form-title">Tell us about<br>your deal.</h2>
+        <p>No credit pull. No obligation. Response within 24 hours.</p>
+
+        <div class="form-trust">
+          <div class="trust-item"><span>✓</span> Free, always</div>
+          <div class="trust-item"><span>✓</span> No credit pull</div>
+          <div class="trust-item"><span>✓</span> 24-hour response</div>
+        </div>
+
+        <div class="form-notes">
+          <p><strong>Have an LLC?</strong> Tell us in Step 1 — it opens up BPL financing options most investors don't know they qualify for.</p>
+          <p><strong>Hit your limit?</strong> BPL has no property count ceiling. Submit and we'll find the right structure.</p>
+          <p><strong>Realtor?</strong> Submit a client deal here or <a href="partners.html">join our partner program.</a></p>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <!-- Step indicator -->
+        <div class="steps-indicator">
+          <div class="step-pip active" id="pip1">
+            <span>1</span>
+            <div class="step-pip-label">About you</div>
+          </div>
+          <div class="step-track"></div>
+          <div class="step-pip" id="pip2">
+            <span>2</span>
+            <div class="step-pip-label">The deal</div>
+          </div>
         </div>
 
         <form id="dealForm" novalidate>
 
           <!-- STEP 1 -->
-          <div id="formStep1">
-            <h3 class="form-step-title">Step 1 of 2 — Tell us about you</h3>
-
+          <div id="step1">
             <div class="field">
               <label for="exp">Investor experience</label>
               <select id="exp" name="experience">
-                <option value="">Select your experience level</option>
-                <option value="first">First deal — never done this before</option>
+                <option value="">Select your level</option>
+                <option value="first">First deal — brand new</option>
                 <option value="1-3">1–3 completed deals</option>
                 <option value="4-10">4–10 completed deals</option>
-                <option value="10+">10+ deals — experienced investor</option>
+                <option value="10+">10+ deals — experienced</option>
               </select>
             </div>
 
@@ -355,9 +446,9 @@
               <label for="entity">Do you have an LLC or entity?</label>
               <select id="entity" name="has_entity">
                 <option value="">Select one</option>
-                <option value="yes">Yes — I have an LLC or Corp</option>
-                <option value="no">No — borrowing in personal name</option>
-                <option value="forming">Working on setting one up</option>
+                <option value="yes">Yes — LLC or Corp</option>
+                <option value="no">No — personal name</option>
+                <option value="forming">Setting one up</option>
               </select>
             </div>
 
@@ -371,21 +462,21 @@
               </select>
             </div>
 
-            <button type="button" class="btn btn-primary btn-full" id="step1Next">CONTINUE — STEP 2 OF 2 →</button>
+            <button type="button" class="btn-primary btn-full" id="step1Next">
+              Continue — Step 2 of 2 →
+            </button>
           </div>
 
           <!-- STEP 2 -->
-          <div id="formStep2" style="display:none">
-            <h3 class="form-step-title">Step 2 of 2 — Property &amp; contact details</h3>
-
+          <div id="step2" style="display:none">
             <div class="field-row">
               <div class="field">
                 <label for="address">Property address or city/state</label>
-                <input type="text" id="address" name="address" placeholder="123 Main St or City / State" autocomplete="off" />
+                <input type="text" id="address" name="address" placeholder="123 Main St or City, State"/>
               </div>
               <div class="field">
-                <label for="listing">Listing URL <span class="field-optional">(optional)</span></label>
-                <input type="url" id="listing" name="listing_url" placeholder="Zillow, Realtor, Redfin…" />
+                <label for="listing">Listing URL <em>(optional)</em></label>
+                <input type="url" id="listing" name="listing_url" placeholder="Zillow, Realtor, Redfin…"/>
               </div>
             </div>
 
@@ -393,21 +484,21 @@
               <div class="field">
                 <label for="proptype">Property type</label>
                 <select id="proptype" name="property_type">
-                  <option value="">Select type</option>
-                  <option value="sfr">Single family (SFR)</option>
-                  <option value="2-4">2–4 unit</option>
-                  <option value="condo">Condo / Townhome</option>
-                  <option value="5plus">5+ units (multifamily)</option>
-                  <option value="mixed">Mixed-use</option>
+                  <option value="">Select</option>
+                  <option>Single family (SFR)</option>
+                  <option>2–4 unit</option>
+                  <option>Condo / Townhome</option>
+                  <option>5+ units</option>
+                  <option>Mixed-use</option>
                 </select>
               </div>
               <div class="field">
                 <label for="transtype">Transaction type</label>
                 <select id="transtype" name="transaction_type">
                   <option value="">Select</option>
-                  <option value="purchase">Purchase</option>
-                  <option value="refi">Refinance</option>
-                  <option value="cashout">Cash-out refinance</option>
+                  <option>Purchase</option>
+                  <option>Refinance</option>
+                  <option>Cash-out refinance</option>
                 </select>
               </div>
             </div>
@@ -415,58 +506,57 @@
             <div class="field-row">
               <div class="field">
                 <label for="price">Purchase / current value</label>
-                <input type="text" id="price" name="purchase_price" placeholder="$325,000" />
+                <input type="text" id="price" name="purchase_price" placeholder="$325,000"/>
               </div>
               <div class="field">
                 <label for="loanamt">Loan amount needed</label>
-                <input type="text" id="loanamt" name="loan_amount" placeholder="$260,000" />
+                <input type="text" id="loanamt" name="loan_amount" placeholder="$260,000"/>
               </div>
             </div>
-
-            <div class="field-row" id="rentalFields">
-              <div class="field">
-                <label for="rent-est">Monthly rent (actual or estimated)</label>
-                <input type="text" id="rent-est" name="monthly_rent" placeholder="$2,400" />
-              </div>
-              <div class="field">
-                <label for="arv-est">ARV — After Repair Value <span class="field-optional">(flips)</span></label>
-                <input type="text" id="arv-est" name="arv" placeholder="$420,000" />
-              </div>
-            </div>
-
-            <hr class="form-divider" />
 
             <div class="field-row">
               <div class="field">
-                <label for="fname">Your name <span class="field-required">*</span></label>
-                <input type="text" id="fname" name="name" placeholder="First &amp; last name" autocomplete="name" required />
+                <label for="rent-est">Monthly rent (actual or estimated)</label>
+                <input type="text" id="rent-est" name="monthly_rent" placeholder="$2,400"/>
               </div>
               <div class="field">
-                <label for="femail">Email <span class="field-required">*</span></label>
-                <input type="email" id="femail" name="email" placeholder="you@email.com" autocomplete="email" required />
+                <label for="arv-est">ARV — After Repair Value</label>
+                <input type="text" id="arv-est" name="arv" placeholder="$420,000"/>
+              </div>
+            </div>
+
+            <div class="field-divider"></div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="fname">Name <span class="req">*</span></label>
+                <input type="text" id="fname" name="name" placeholder="First & last" autocomplete="name" required/>
+              </div>
+              <div class="field">
+                <label for="femail">Email <span class="req">*</span></label>
+                <input type="email" id="femail" name="email" placeholder="you@email.com" autocomplete="email" required/>
               </div>
             </div>
 
             <div class="field">
-              <label for="phone">Phone <span class="field-optional">(optional — for faster follow-up)</span></label>
-              <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" autocomplete="tel" />
+              <label for="phone">Phone <em>(optional)</em></label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" autocomplete="tel"/>
             </div>
 
             <div class="field">
-              <label for="notes">Anything else we should know?</label>
-              <textarea id="notes" name="notes" placeholder="Timeline, specific questions, or context that helps us give better feedback…"></textarea>
+              <label for="notes">Anything else?</label>
+              <textarea id="notes" name="notes" placeholder="Timeline, questions, or context that helps us give better feedback…"></textarea>
             </div>
 
-            <button type="button" class="btn btn-primary btn-full" id="submitDeal">SUBMIT DEAL FOR REVIEW</button>
-            <p class="form-disclaimer">No credit pull. No obligation. Response within 24 hours.</p>
-          </div>
+            <button type="button" class="btn-primary btn-full" id="submitDeal">Submit Deal for Review</button>
+            <p class="form-fine">No credit pull · No obligation · 24-hour response</p>
 
-          <!-- BACK BUTTON -->
-          <button type="button" class="step-back" id="step2Back" style="display:none">← Back to step 1</button>
+            <button type="button" class="btn-back" id="step2Back">← Back</button>
+          </div>
 
           <!-- SUCCESS -->
           <div id="formSuccess" style="display:none" class="form-success" aria-live="polite">
-            <div class="success-icon" aria-hidden="true">✓</div>
+            <div class="success-check">✓</div>
             <h3>Deal submitted.</h3>
             <p>We'll review your scenario and be in touch within 24 hours — often sooner for experienced investors with full details.</p>
           </div>
@@ -474,205 +564,205 @@
         </form>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── What Sets Capvia Apart ────────────────────────── -->
-  <section class="section section-alt split-section" aria-labelledby="apart-heading">
-    <div class="split-grid">
-      <div class="split-media" role="img" aria-label="Capvia advisory services visual"></div>
-      <div class="split-panel">
-        <h2 id="apart-heading">What sets Capvia apart</h2>
-        <div class="feature">
-          <h3>Deal-First, Not Application-First</h3>
-          <p>Most lenders start with a credit application. We start with the property and the structure — so you understand the path before committing to anything.</p>
-        </div>
-        <div class="feature">
-          <h3>BPL-Forward Thinking</h3>
-          <p>We specialize in Business Purpose Loans — an underserved financing structure that unlocks portfolio growth beyond what conventional lenders allow. Most investors have never heard of it.</p>
-        </div>
-        <div class="feature">
-          <h3>Works for Realtors Too</h3>
-          <p>Your investor clients deserve fast, creative financing. Refer deals through our partner program and earn a referral fee when they close.</p>
-        </div>
-        <div class="feature">
-          <h3>Clear, Honest Answers</h3>
-          <p>If the deal doesn't work, we'll tell you that too. No runaround. Better intake means more useful feedback up front — and less wasted time for everyone.</p>
-        </div>
+<!-- ═══════════════════════════════════════════
+     PARTNER BAND
+═══════════════════════════════════════════ -->
+<section class="partner-band" aria-labelledby="partner-h">
+  <div class="container">
+    <div class="partner-inner">
+      <div class="partner-copy">
+        <div class="section-label">For realtors &amp; advisors</div>
+        <h2 id="partner-h">Your investor clients deserve better financing options.</h2>
+        <p>When they hit conventional limits or need to close faster than banks can move — send them our way. You earn a referral fee. They close deals they'd otherwise miss.</p>
+        <a href="partners.html" class="btn-primary" style="margin-top:28px; display:inline-block;">Learn About Our Partner Program →</a>
       </div>
-    </div>
-  </section>
-
-  <!-- ── Tools ─────────────────────────────────────────── -->
-  <section class="section" id="tools" aria-labelledby="tools-heading">
-    <div class="container">
-      <h2 class="center-title reveal" id="tools-heading">Analyze your scenario before you submit</h2>
-      <p class="section-subtitle reveal">Free tools to check the numbers before getting into the details.</p>
-      <div class="two-up" style="margin-top:28px;">
-        <div class="card reveal">
-          <h3>Fix &amp; Flip Analyzer</h3>
-          <p class="tool-desc">Estimate total cost, cost-to-value, and gross profit on a value-add deal.</p>
-          <div class="field">
-            <label for="purchase">Purchase Price</label>
-            <input id="purchase" type="number" placeholder="250000" min="0" />
-          </div>
-          <div class="field">
-            <label for="rehab">Rehab Budget</label>
-            <input id="rehab" type="number" placeholder="75000" min="0" />
-          </div>
-          <div class="field">
-            <label for="arv">After Repair Value (ARV)</label>
-            <input id="arv" type="number" placeholder="420000" min="0" />
-          </div>
-          <button type="button" class="btn btn-primary btn-full" onclick="flip()">ANALYZE DEAL</button>
-          <div class="result-box" id="flipResult" role="status" aria-live="polite">Enter purchase price, rehab budget, and ARV to estimate the scenario.</div>
-          <a href="fix-and-flip.html" class="tool-link">Full fix &amp; flip financing guide →</a>
-        </div>
-        <div class="card reveal">
-          <h3>DSCR Quick Check</h3>
-          <p class="tool-desc">See whether your rental property's income covers the estimated loan payment.</p>
-          <div class="field">
-            <label for="rent">Monthly Rent</label>
-            <input id="rent" type="number" placeholder="2600" min="0" />
-          </div>
-          <div class="field">
-            <label for="payment">Monthly Payment (PITIA)</label>
-            <input id="payment" type="number" placeholder="2100" min="0" />
-          </div>
-          <button type="button" class="btn btn-primary btn-full" onclick="dscr()">CHECK DSCR</button>
-          <div class="result-box" id="dscrResult" role="status" aria-live="polite">Estimate whether the property cash flow appears to support the payment.</div>
-          <a href="dscr.html" class="tool-link">Full DSCR loan guide →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Realtor / Partner Band ─────────────────────────── -->
-  <section class="section section-alt partner-band" aria-labelledby="partner-heading">
-    <div class="container partner-band-inner">
-      <div class="partner-band-copy reveal">
-        <div class="eyebrow dark">For realtors &amp; advisors</div>
-        <h2 id="partner-heading">Your investor clients deserve better financing options</h2>
-        <p>When your clients hit conventional loan limits or need to close faster than traditional lenders can move — send them our way. You earn a referral fee. They close deals they'd otherwise miss.</p>
-        <a href="partners.html" class="btn btn-primary" style="margin-top: 20px;">LEARN ABOUT OUR PARTNER PROGRAM →</a>
-      </div>
-      <div class="partner-band-features reveal">
-        <div class="partner-feature">
-          <span class="partner-feature-icon">✓</span>
+      <div class="partner-features">
+        <div class="partner-feat">
+          <div class="partner-feat-icon">$</div>
           <div>
-            <strong>Referral fees paid at closing</strong>
-            <span>Compensated for every deal you send that closes.</span>
+            <strong>Referral fees at closing</strong>
+            <p>Compensated for every deal you refer that funds.</p>
           </div>
         </div>
-        <div class="partner-feature">
-          <span class="partner-feature-icon">✓</span>
+        <div class="partner-feat">
+          <div class="partner-feat-icon">🔓</div>
           <div>
             <strong>We close what banks can't</strong>
-            <span>BPL, DSCR, bridge — programs designed for investors, not homeowners.</span>
+            <p>BPL, DSCR, bridge — built for investors, not homeowners.</p>
           </div>
         </div>
-        <div class="partner-feature">
-          <span class="partner-feature-icon">✓</span>
+        <div class="partner-feat">
+          <div class="partner-feat-icon">⚡</div>
           <div>
             <strong>Fast &amp; reliable</strong>
-            <span>Your reputation is on the line with every referral. We won't burn it.</span>
+            <p>Your reputation is on the line. We won't burn it.</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── FAQ ───────────────────────────────────────────── -->
-  <section class="section" id="faq" aria-labelledby="faq-heading">
-    <div class="container faq-wrap">
-      <h2 class="center-title reveal" id="faq-heading">Investor financing questions, answered</h2>
-
-      <h3 class="faq-category reveal">Business Purpose Loans (BPL)</h3>
-      <div class="faq-list">
-        <details><summary>What is a Business Purpose Loan (BPL)?</summary><p>A Business Purpose Loan is a real estate loan made to a business entity — typically an LLC — for an investment property. Unlike conventional loans, BPL is underwritten on the deal and the asset, not your personal income. It falls outside consumer lending regulations, which removes the property count limits and income documentation requirements that cap most investors. <a href="bpl.html">Read our full BPL guide →</a></p></details>
-        <details><summary>How is BPL different from a DSCR loan?</summary><p>DSCR is a type of BPL — it's a specific underwriting method (rental income vs. debt payment). BPL is the broader framework. Under BPL you can also structure fix and flip loans, bridge loans, and blanket portfolio loans — things a DSCR model doesn't cover. The key is that both require an entity borrower and business purpose use.</p></details>
-        <details><summary>Do I need an LLC to get a BPL loan?</summary><p>Yes. Business Purpose Loans require a business entity as the borrower — most commonly an LLC. If you don't have one, it's a straightforward and inexpensive setup (typically under $200 in Florida or Ohio). We can point you in the right direction.</p></details>
-        <details><summary>Does BPL have a property count limit?</summary><p>No — that's one of the main reasons investors use it. Conventional Fannie/Freddie loans cap at 10 per borrower. Since BPL is entity-based (your LLC borrows, not you personally), there is no equivalent ceiling.</p></details>
-      </div>
-
-      <h3 class="faq-category reveal">Getting Started</h3>
-      <div class="faq-list">
-        <details><summary>Do I need experience to get an investor loan?</summary><p>Many investor loan programs allow first-time investors depending on the property, structure, and overall scenario. A strong deal with a solid down payment often matters more than experience. Submit your deal and we'll tell you what's realistic.</p></details>
-        <details><summary>Do I need W-2 income to qualify for a DSCR loan?</summary><p>No — DSCR loans qualify based on the property's rental income relative to the loan payment, not your personal income. This makes them useful for self-employed investors, business owners, and anyone whose income doesn't fit traditional documentation requirements.</p></details>
-        <details><summary>Can I get a fix and flip loan with no experience?</summary><p>Some fix and flip programs do work with first-time investors, particularly when the deal has a strong equity cushion and a realistic rehab scope. The deal has to make sense on paper. Use our Fix &amp; Flip Analyzer to check your numbers first.</p></details>
-      </div>
-
-      <h3 class="faq-category reveal">Down Payments &amp; Qualifying</h3>
-      <div class="faq-list">
-        <details><summary>How much down payment is required?</summary><p>For DSCR loans, expect 20–25% down as a starting point. Fix and flip loans are structured differently — typically lending on a percentage of cost or ARV. BPL and bridge loans vary by deal. Submit your scenario and we'll give you realistic guidance.</p></details>
-        <details><summary>Can I get an investor loan with a 680 credit score?</summary><p>Credit score requirements vary by program and lender. Some DSCR and BPL programs go down to 620–640; others require 700+. A lower score often means a slightly higher rate. The property and deal structure carry significant weight alongside credit.</p></details>
-        <details><summary>Can I use a DSCR or BPL loan for a short-term rental?</summary><p>Some lenders will consider short-term rental income (Airbnb, VRBO) for DSCR and BPL calculations, but guidelines vary. This is a specific scenario worth reviewing deal-by-deal — submit your property and we'll assess what's possible.</p></details>
-      </div>
-
-      <h3 class="faq-category reveal">The Review Process</h3>
-      <div class="faq-list">
-        <details><summary>How long does the deal review take?</summary><p>Most initial reviews are completed within 24 hours. Experienced investor scenarios with full deal details are often reviewed same business day. The more complete the information, the faster the response.</p></details>
-        <details><summary>Is there a cost or obligation for the deal review?</summary><p>No — the initial deal review is completely free with no obligation. We don't pull credit at this stage. The goal is useful directional feedback before any commitments are made.</p></details>
-        <details><summary>What happens after I submit my deal?</summary><p>You'll receive a response reviewing the scenario, the most appropriate financing path (DSCR, BPL, bridge, fix &amp; flip), and logical next steps. If there are gaps in the information that affect the review, we'll flag those too.</p></details>
-      </div>
-
+<!-- ═══════════════════════════════════════════
+     TOOLS
+═══════════════════════════════════════════ -->
+<section class="section tools-section" id="tools">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Free analyzers</div>
+      <h2 class="section-title">Run the numbers<br>before you submit.</h2>
     </div>
-  </section>
 
-  <!-- ── CTA ───────────────────────────────────────────── -->
-  <section class="section section-alt" aria-labelledby="cta-heading">
-    <div class="container">
-      <div class="cta-box reveal">
-        <div>
-          <h2 id="cta-heading">Ready to find out if your deal works?</h2>
-          <p>Free, no obligation, response within 24 hours. Most investors get more clarity in one review than weeks of searching on their own.</p>
-        </div>
-        <div class="cta-actions">
-          <a href="#dealform" class="btn btn-primary">REVIEW MY DEAL — FREE</a>
-          <p class="cta-sub">No credit pull &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; 24-hour response</p>
-        </div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <h3>Fix &amp; Flip Analyzer</h3>
+        <p>Estimate cost-to-value and gross profit on a value-add deal.</p>
+        <div class="field"><label for="t-purchase">Purchase Price</label><input id="t-purchase" type="number" placeholder="250000" min="0"/></div>
+        <div class="field"><label for="t-rehab">Rehab Budget</label><input id="t-rehab" type="number" placeholder="75000" min="0"/></div>
+        <div class="field"><label for="t-arv">After Repair Value (ARV)</label><input id="t-arv" type="number" placeholder="420000" min="0"/></div>
+        <button type="button" class="btn-primary btn-full" onclick="runFlip()">Analyze Deal</button>
+        <div class="tool-result" id="flipResult">Enter figures above to see the scenario.</div>
+        <a href="fix-and-flip.html" class="tool-link">Full fix &amp; flip guide →</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>DSCR Quick Check</h3>
+        <p>See if your rental property's income covers the estimated loan payment.</p>
+        <div class="field"><label for="t-rent">Monthly Rent</label><input id="t-rent" type="number" placeholder="2600" min="0"/></div>
+        <div class="field"><label for="t-payment">Monthly Payment (PITIA)</label><input id="t-payment" type="number" placeholder="2100" min="0"/></div>
+        <div style="height:76px"></div>
+        <button type="button" class="btn-primary btn-full" onclick="runDscr()">Check DSCR</button>
+        <div class="tool-result" id="dscrResult">Enter figures above to check coverage.</div>
+        <a href="dscr.html" class="tool-link">Full DSCR loan guide →</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════ -->
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-left">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Questions<br>answered.</h2>
+        <a href="#dealform" class="btn-primary" style="margin-top:32px;display:inline-block;">Still have questions? Submit your deal →</a>
+      </div>
+
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>What is a Business Purpose Loan (BPL)?</summary>
+          <p>A Business Purpose Loan is a real estate loan made to a business entity — typically an LLC — for an investment property. It's underwritten on the deal and asset, not your personal income. This removes the property count limits and income documentation requirements that cap most conventional investors. <a href="bpl.html">Read the full guide →</a></p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How is BPL different from a DSCR loan?</summary>
+          <p>DSCR is a type of BPL — it's a specific underwriting method (rental income vs. debt payment). BPL is the broader framework, which also covers fix &amp; flip bridge loans, blanket portfolio loans, and other structures that DSCR doesn't.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do I need an LLC to get a BPL loan?</summary>
+          <p>Yes. Business Purpose Loans require a business entity as the borrower — most commonly an LLC. If you don't have one, setup is straightforward and typically under $200 in Florida or Ohio.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do I need W-2 income to qualify for DSCR?</summary>
+          <p>No — DSCR loans qualify based on the property's rental income relative to the loan payment, not your personal income. Ideal for self-employed investors and anyone whose income doesn't fit traditional documentation.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How much down payment is required?</summary>
+          <p>For DSCR loans, expect 20–25% down as a starting point. Fix &amp; flip loans are typically structured on a percentage of cost or ARV. BPL and bridge loans vary by deal. Submit your scenario for specific guidance.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is there a cost for the deal review?</summary>
+          <p>No — the initial deal review is completely free with no obligation. We don't pull credit at this stage. The goal is useful directional feedback before any commitments are made.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How long does a review take?</summary>
+          <p>Most reviews within 24 hours. Experienced investors with complete deal details are often reviewed the same business day. The more you share, the faster and more useful the feedback.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Are you available in states other than FL and OH?</summary>
+          <p>Florida and Ohio are our primary markets but we work with lender partners across many states. Submit your deal and we'll let you know what's available in your market.</p>
+        </details>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FINAL CTA
+═══════════════════════════════════════════ -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-inner">
+      <h2 class="final-cta-title">Ready to find out<br>if your deal works?</h2>
+      <p>Free review. No credit pull. No obligation. Most investors get more clarity in one conversation than weeks of searching on their own.</p>
+      <div class="final-cta-actions">
+        <a href="#dealform" class="btn-primary-dark">Review My Deal — Free</a>
+        <a href="bpl.html" class="btn-ghost-dark">What Is BPL? →</a>
+      </div>
+      <div class="final-trust">
+        <span>No credit pull</span>
+        <span class="dot">·</span>
+        <span>No obligation</span>
+        <span class="dot">·</span>
+        <span>24-hour response</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 </main>
 
-<!-- ── Footer ─────────────────────────────────────────── -->
-<footer class="site-footer" role="contentinfo">
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="footer">
   <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <div class="brand-mark" aria-hidden="true">C</div>
-          <div class="brand-copy"><strong>Capvia</strong><span>Investor Capital & Deal Advisory</span></div>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-mark">C</span>
+        <div>
+          <strong>Capvia</strong>
+          <span>Investor Capital &amp; Deal Advisory</span>
         </div>
-        <p class="footer-copy">Real estate investor financing — Florida &amp; Ohio. Illustrative examples only. Financing terms and outcomes depend on lender guidelines and the full scenario. Not a commitment to lend.</p>
       </div>
-      <nav aria-label="Investor resources">
-        <h4>Investor Resources</h4>
-        <a href="#tools">Deal Analyzers</a>
-        <a href="#paths">Who We Help</a>
+      <div class="footer-nav-group">
+        <h4>Investors</h4>
         <a href="bpl.html">What Is BPL?</a>
-        <a href="#testimonials">Investor Stories</a>
-      </nav>
-      <nav aria-label="Loan Programs">
-        <h4>Loan Programs</h4>
-        <a href="fix-and-flip.html">Fix &amp; Flip Financing</a>
-        <a href="dscr.html">DSCR Rental Loans</a>
+        <a href="dscr.html">DSCR Loans</a>
+        <a href="fix-and-flip.html">Fix &amp; Flip</a>
+        <a href="#dealform">Review My Deal</a>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Programs</h4>
         <a href="bpl.html">Business Purpose Loans</a>
-        <a href="application.html">Talk To An Expert</a>
-      </nav>
-      <nav aria-label="Partners">
+        <a href="dscr.html">DSCR Rental Loans</a>
+        <a href="fix-and-flip.html">Fix &amp; Flip Bridge</a>
+        <a href="#dealform">Bank Statement Loans</a>
+      </div>
+      <div class="footer-nav-group">
         <h4>Partners</h4>
         <a href="partners.html">Realtor Program</a>
         <a href="partners.html">Refer a Deal</a>
         <a href="#faq">FAQ</a>
-        <a href="#dealform">Review My Deal</a>
-      </nav>
+      </div>
     </div>
-    <hr class="footer-divider" />
     <div class="footer-bottom">
       <span>© 2025 Capvia. All rights reserved.</span>
-      <span>Not a commitment to lend. Results are illustrative only.</span>
+      <span>Not a commitment to lend. Illustrative only. FL &amp; OH markets.</span>
     </div>
   </div>
 </footer>

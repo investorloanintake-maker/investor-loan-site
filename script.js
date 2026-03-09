@@ -1,213 +1,139 @@
-/* ============================================================
-   CAPVIA v2 — Script
-   - Scroll header shadow
-   - Mobile nav toggle
-   - Scroll reveal animations
-   - Two-step form logic
-   - Fix & Flip analyzer
-   - DSCR Quick Check
-   - Exit intent popup
-   ============================================================ */
+/* ── Capvia V4 — script.js ─────────────────────────────── */
 
-(function () {
-  'use strict';
+document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── Header scroll shadow ─────────────────────────────── */
-  const header = document.querySelector('.site-header');
-  if (header) {
+  /* ── Nav scroll shadow ───────────────────────────────── */
+  const nav = document.getElementById('nav');
+  if (nav) {
     window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 10);
+      nav.classList.toggle('scrolled', window.scrollY > 20);
     }, { passive: true });
   }
 
-  /* ── Mobile nav ───────────────────────────────────────── */
-  const mobileBtn = document.querySelector('.mobile-menu-btn');
-  const mobileNav = document.querySelector('.mobile-nav');
-  if (mobileBtn && mobileNav) {
-    mobileBtn.addEventListener('click', () => {
-      const open = mobileNav.classList.toggle('open');
-      mobileBtn.setAttribute('aria-expanded', open);
+  /* ── Mobile burger ───────────────────────────────────── */
+  const burger = document.getElementById('burger');
+  const drawer = document.getElementById('drawer');
+  if (burger && drawer) {
+    burger.addEventListener('click', () => {
+      const open = burger.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open);
+      drawer.style.display = open ? 'flex' : 'none';
     });
-    mobileNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => mobileNav.classList.remove('open'));
-    });
-  }
-
-  /* ── Scroll reveal ────────────────────────────────────── */
-  const revealEls = document.querySelectorAll('.reveal');
-  if (revealEls.length && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
+    drawer.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', false);
+        drawer.style.display = 'none';
       });
-    }, { threshold: 0.1 });
-    revealEls.forEach(el => observer.observe(el));
-  } else {
-    revealEls.forEach(el => el.classList.add('visible'));
+    });
   }
 
-  /* ── Two-step form ────────────────────────────────────── */
-  const step1    = document.getElementById('formStep1');
-  const step2    = document.getElementById('formStep2');
-  const success  = document.getElementById('formSuccess');
+  /* ── Two-step deal form ──────────────────────────────── */
+  const step1El  = document.getElementById('step1');
+  const step2El  = document.getElementById('step2');
+  const successEl = document.getElementById('formSuccess');
+  const pip1     = document.getElementById('pip1');
+  const pip2     = document.getElementById('pip2');
   const nextBtn  = document.getElementById('step1Next');
   const backBtn  = document.getElementById('step2Back');
   const submitBtn = document.getElementById('submitDeal');
 
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
-      const exp  = document.getElementById('exp')?.value;
-      const deal = document.getElementById('dealtype')?.value;
-      if (!exp || !deal) {
-        alert('Please select your experience level and deal type to continue.');
-        return;
-      }
-      step1.style.display = 'none';
-      step2.style.display = 'block';
-      // Scroll form into view smoothly
-      document.getElementById('dealform')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      step1El.style.display = 'none';
+      step2El.style.display = 'block';
+      backBtn.style.display = 'block';
+      pip1.classList.remove('active');
+      pip2.classList.add('active');
+      step2El.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
   }
 
   if (backBtn) {
     backBtn.addEventListener('click', () => {
-      step2.style.display = 'none';
-      step1.style.display = 'block';
+      step2El.style.display = 'none';
+      backBtn.style.display = 'none';
+      step1El.style.display = 'block';
+      pip2.classList.remove('active');
+      pip1.classList.add('active');
     });
   }
 
   if (submitBtn) {
     submitBtn.addEventListener('click', () => {
-      const name  = document.getElementById('fname')?.value.trim();
-      const email = document.getElementById('femail')?.value.trim();
-      if (!name || !email) {
-        alert('Please enter your name and email before submitting.');
+      const fname = document.getElementById('fname');
+      const femail = document.getElementById('femail');
+      if (!fname?.value.trim() || !femail?.value.trim()) {
+        if (!fname?.value.trim()) fname?.focus();
+        else femail?.focus();
         return;
       }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
+      document.getElementById('dealForm').style.display = 'none';
+      if (successEl) {
+        successEl.style.display = 'block';
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
-      // Replace with your actual form endpoint (Netlify Forms, Formspree, etc.)
-      step2.style.display = 'none';
-      success.style.display = 'block';
-      // Prevent exit intent from showing after submission
-      exitShown = true;
     });
   }
 
-  /* ── Fix & Flip Analyzer ──────────────────────────────── */
-  window.flip = function () {
-    const purchase = parseFloat(document.getElementById('purchase')?.value) || 0;
-    const rehab    = parseFloat(document.getElementById('rehab')?.value) || 0;
-    const arv      = parseFloat(document.getElementById('arv')?.value) || 0;
-    const result   = document.getElementById('flipResult');
-    if (!result) return;
-
-    if (!purchase || !arv) {
-      result.textContent = 'Enter at least a purchase price and ARV to analyze.';
-      result.className = 'result-box';
-      return;
-    }
-
-    const total  = purchase + rehab;
-    const profit = arv - total;
-    const ltv    = (total / arv) * 100;
-    const margin = (profit / arv) * 100;
-    const fmt    = n => '$' + Math.round(n).toLocaleString();
-    const good   = ltv <= 85 && profit > 0;
-
-    result.className = 'result-box ' + (good ? 'has-result' : 'warning');
-    result.innerHTML =
-      `<strong>Total cost:</strong> ${fmt(total)} &nbsp;·&nbsp; <strong>Cost-to-value:</strong> ${ltv.toFixed(1)}%<br>` +
-      `<strong>Gross profit:</strong> ${fmt(profit)} &nbsp;·&nbsp; <strong>Margin:</strong> ${margin.toFixed(1)}%<br>` +
-      (ltv > 90 ? '⚠ High leverage — lender may require additional equity.' :
-       profit < 0 ? '⚠ Numbers show a loss at current values.' :
-       '✓ Deal appears within typical fix & flip leverage range.');
+  /* ── Fix & Flip Analyzer ─────────────────────────────── */
+  window.runFlip = function () {
+    const p  = parseFloat(document.getElementById('t-purchase')?.value) || 0;
+    const r  = parseFloat(document.getElementById('t-rehab')?.value)    || 0;
+    const a  = parseFloat(document.getElementById('t-arv')?.value)      || 0;
+    const el = document.getElementById('flipResult');
+    if (!el) return;
+    if (!p || !r || !a) { el.textContent = 'Enter all three figures to see the scenario.'; return; }
+    const totalCost   = p + r;
+    const grossProfit = a - totalCost;
+    const ltv         = (totalCost / a * 100).toFixed(1);
+    const margin      = (grossProfit / a * 100).toFixed(1);
+    const ok = grossProfit > 0 && ltv < 80;
+    el.innerHTML = `
+      <strong style="color:${ok ? 'var(--gold)' : 'var(--ink-soft)'}">
+        ${ok ? '✓ Deal pencils' : '⚠ Thin margins — review numbers'}
+      </strong><br>
+      Total cost: <strong>$${totalCost.toLocaleString()}</strong> &nbsp;·&nbsp;
+      LTC: <strong>${ltv}%</strong><br>
+      Gross profit (pre-carry): <strong>$${grossProfit.toLocaleString()}</strong> &nbsp;·&nbsp;
+      Margin: <strong>${margin}%</strong>
+    `;
   };
 
-  /* ── DSCR Quick Check ─────────────────────────────────── */
-  window.dscr = function () {
-    const rent    = parseFloat(document.getElementById('rent')?.value) || 0;
-    const payment = parseFloat(document.getElementById('payment')?.value) || 0;
-    const result  = document.getElementById('dscrResult');
-    if (!result) return;
-
-    if (!rent || !payment) {
-      result.textContent = 'Enter both monthly rent and estimated payment.';
-      result.className = 'result-box';
-      return;
-    }
-
-    const ratio       = rent / payment;
-    const isGood      = ratio >= 1.25;
-    const isBorderline = ratio >= 1.0 && ratio < 1.25;
-
-    result.className = 'result-box ' + (isGood ? 'has-result' : 'warning');
-    result.innerHTML =
-      `<strong>Estimated DSCR: ${ratio.toFixed(2)}</strong><br>` +
-      (isGood
-        ? `✓ Appears to meet a typical 1.25 DSCR threshold.`
-        : isBorderline
-        ? `⚠ Between 1.0–1.25 — some programs may accept this; review required.`
-        : `⚠ Below 1.0 — rent does not appear to cover the estimated payment.`);
+  /* ── DSCR Quick Check ───────────────────────────────── */
+  window.runDscr = function () {
+    const rent    = parseFloat(document.getElementById('t-rent')?.value)    || 0;
+    const payment = parseFloat(document.getElementById('t-payment')?.value) || 0;
+    const el      = document.getElementById('dscrResult');
+    if (!el) return;
+    if (!rent || !payment) { el.textContent = 'Enter rent and payment to check coverage.'; return; }
+    const ratio = (rent / payment).toFixed(2);
+    let msg, color;
+    if (ratio >= 1.25)      { msg = `✓ Strong — DSCR ${ratio}. Well above typical 1.25 threshold.`;  color = 'var(--gold)'; }
+    else if (ratio >= 1.0)  { msg = `~ Marginal — DSCR ${ratio}. Qualifies at some lenders, tighter terms.`; color = 'var(--ink-soft)'; }
+    else                    { msg = `⚠ Below 1.0 — DSCR ${ratio}. Property income doesn't cover payment.`; color = '#b45309'; }
+    el.innerHTML = `<strong style="color:${color}">${msg}</strong>`;
   };
 
-  /* ── Exit intent popup ────────────────────────────────── */
-  let exitShown = false;
-  const overlay   = document.getElementById('exitOverlay');
-  const closeBtn  = document.getElementById('exitClose');
-  const exitSub   = document.getElementById('exitSubmit');
+  /* ── Scroll reveals ─────────────────────────────────── */
+  const revealEls = document.querySelectorAll('.path-card, .program, .testimonial, .tool-card, .partner-feat, .how-step, .faq-item');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
 
-  function showExit() {
-    if (exitShown || !overlay) return;
-    exitShown = true;
-    overlay.removeAttribute('aria-hidden');
-    overlay.classList.add('visible');
-    document.getElementById('exitEmail')?.focus();
-  }
-
-  function hideExit() {
-    if (!overlay) return;
-    overlay.classList.remove('visible');
-    overlay.setAttribute('aria-hidden', 'true');
-  }
-
-  // Trigger on mouse leaving the viewport upward (desktop)
-  document.addEventListener('mouseleave', (e) => {
-    if (e.clientY <= 0) showExit();
-  });
-
-  // Trigger on mobile: after 45 seconds of inactivity
-  let idleTimer = setTimeout(() => showExit(), 45000);
-  ['touchstart', 'scroll', 'keypress'].forEach(ev => {
-    window.addEventListener(ev, () => {
-      clearTimeout(idleTimer);
-      idleTimer = setTimeout(() => showExit(), 45000);
-    }, { passive: true });
-  });
-
-  if (closeBtn) closeBtn.addEventListener('click', hideExit);
-  if (overlay)  overlay.addEventListener('click', e => { if (e.target === overlay) hideExit(); });
-
-  // Escape key
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') hideExit(); });
-
-  if (exitSub) {
-    exitSub.addEventListener('click', () => {
-      const email = document.getElementById('exitEmail')?.value.trim();
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
-      }
-      // Replace with your email capture endpoint
-      exitSub.textContent = '✓ Check your inbox!';
-      exitSub.disabled = true;
-      setTimeout(hideExit, 1800);
+    revealEls.forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = `opacity .5s ease ${i % 3 * 0.08}s, transform .5s ease ${i % 3 * 0.08}s`;
+      io.observe(el);
     });
   }
 
-})();
+});
