@@ -156,6 +156,54 @@
       line-height: 1;
     }
 
+    /* Network grid */
+    .about-network {
+      margin: 36px 0;
+      padding: 32px;
+      background: var(--cream-dark);
+      border: 1px solid rgba(20,18,16,0.08);
+      border-left: 3px solid var(--gold);
+    }
+    .about-network-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .about-network-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .about-network-item {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .about-network-icon {
+      font-size: 20px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .about-network-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .about-network-desc {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    @media (max-width: 600px) {
+      .about-network-grid { grid-template-columns: 1fr; }
+    }
+
     /* LinkedIn block */
     .about-linkedin {
       display: flex;
@@ -417,16 +465,24 @@
 
       <div>
         <div class="about-eyebrow">About</div>
-        <h1 class="about-h1">17 years in lending.<br>Built this because<br><em>the gap was real.</em></h1>
+        <h1 class="about-h1">The right dor<br>changes everything.<br><em>Most investors don't<br>know it's there.</em></h1>
         <p class="about-hero-sub">Most real estate investors are leaving money on the table — not because their deals are bad, but because nobody explained the financing structures that actually work at scale. That's the problem Viador Partners exists to solve.</p>
         <div class="about-hero-stats">
           <div class="about-hero-stat">
-            <div class="about-stat-val">17+</div>
-            <div class="about-stat-lbl">Years in<br>lending</div>
+            <div class="about-stat-val">20+</div>
+            <div class="about-stat-lbl">Years in<br>finance</div>
           </div>
           <div class="about-hero-stat">
             <div class="about-stat-val">3</div>
             <div class="about-stat-lbl">Institutions —<br>regional to global</div>
+          </div>
+          <div class="about-hero-stat">
+            <div class="about-stat-val">$1B+</div>
+            <div class="about-stat-lbl">In fundings<br>managed</div>
+          </div>
+          <div class="about-hero-stat">
+            <div class="about-stat-val">∞</div>
+            <div class="about-stat-lbl">Possibilities<br>unlocked</div>
           </div>
         </div>
       </div>
@@ -531,6 +587,34 @@
     <p class="about-p">I work with a small group of direct lender partners — including an established servicing company actively building out a dedicated BPL origination team — which means I have direct relationships with the people making decisions on your deal, not just access to a rate sheet.</p>
 
     <p class="about-p">For deals that fit our direct origination criteria, we move fast. For deals better served by a specific lender partner, I broker to the right fit and stay involved. For deals that aren't the right structure or don't pencil — I'll tell you that clearly, and usually explain why, so you understand what would need to change.</p>
+
+    <p class="about-p">But financing is only one dor. When you work with Viador Partners, you get access to my full network — the people I've built relationships with over two decades who I trust to do right by an investor. You shouldn't have to start from scratch finding a realtor who understands investment deals, an insurance broker who knows landlord coverage, or a title and legal team that's closed hundreds of investor transactions. That network is part of what you get.</p>
+
+    <div class="about-network">
+      <div class="about-network-label">The full circle</div>
+      <div class="about-network-grid">
+        <div class="about-network-item">
+          <div class="about-network-icon">🏦</div>
+          <div class="about-network-name">Lenders</div>
+          <div class="about-network-desc">Direct lender relationships — BPL, DSCR, fix &amp; flip, bridge. No rate sheets, real decisions.</div>
+        </div>
+        <div class="about-network-item">
+          <div class="about-network-icon">🏡</div>
+          <div class="about-network-name">Realtors</div>
+          <div class="about-network-desc">Investor-focused agents who understand deal structure, ARV, and what moves fast in this market.</div>
+        </div>
+        <div class="about-network-item">
+          <div class="about-network-icon">🛡</div>
+          <div class="about-network-name">Insurance</div>
+          <div class="about-network-desc">Brokers who know landlord policies, builder's risk, and investment property coverage inside out.</div>
+        </div>
+        <div class="about-network-item">
+          <div class="about-network-icon">⚖️</div>
+          <div class="about-network-name">Title &amp; Legal</div>
+          <div class="about-network-desc">Title companies and attorneys who've closed investor deals — LLC structures, entity vesting, fast closings.</div>
+        </div>
+      </div>
+    </div>
 
     <div class="about-callout">
       <p>The institutional background matters here. I've seen what good underwriting looks like from the inside. I know what a lender is actually looking for, and I can tell you honestly whether your deal is there before you've wasted time on a full application.</p>
