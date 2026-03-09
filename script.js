@@ -115,6 +115,18 @@ document.addEventListener('DOMContentLoaded', () => {
     el.innerHTML = `<strong style="color:${color}">${msg}</strong>`;
   };
 
+  /* ── Sticky mobile CTA — hide when near form ── */
+  const mobileCta = document.getElementById('mobileCta');
+  const dealForm  = document.getElementById('dealform');
+  if (mobileCta && dealForm) {
+    window.addEventListener('scroll', () => {
+      const r = dealForm.getBoundingClientRect();
+      const visible = r.top < window.innerHeight && r.bottom > 0;
+      mobileCta.style.opacity = visible ? '0' : '1';
+      mobileCta.style.pointerEvents = visible ? 'none' : 'auto';
+    }, { passive: true });
+  }
+
   /* ── Scroll reveals ─────────────────────────────────── */
   const revealEls = document.querySelectorAll('.path-card, .program, .testimonial, .tool-card, .partner-feat, .how-step, .faq-item');
   if ('IntersectionObserver' in window) {
