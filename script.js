@@ -59,19 +59,88 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ── HubSpot config — paste your Form GUID below ── */
+  const HS_PORTAL_ID  = '245454217';
+  const HS_FORM_GUID  = 'YOUR_FORM_GUID_HERE'; // ← replace with GUID from HubSpot form embed
+
   if (submitBtn) {
-    submitBtn.addEventListener('click', () => {
-      const fname = document.getElementById('fname');
-      const femail = document.getElementById('femail');
-      if (!fname?.value.trim() || !femail?.value.trim()) {
-        if (!fname?.value.trim()) fname?.focus();
-        else femail?.focus();
-        return;
-      }
-      document.getElementById('dealForm').style.display = 'none';
-      if (successEl) {
-        successEl.style.display = 'block';
-        successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    submitBtn.addEventListener('click', async () => {
+
+      /* Validate required fields */
+      const fnameEl  = document.getElementById('fname');
+      const femailEl = document.getElementById('femail');
+      if (!fnameEl?.value.trim()) { fnameEl.focus(); fnameEl.style.outline = '2px solid #c0392b'; return; }
+      if (!femailEl?.value.trim()) { femailEl.focus(); femailEl.style.outline = '2px solid #c0392b'; return; }
+
+      /* Show loading state */
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+
+      /* Split name into first / last */
+      const fullName  = fnameEl.value.trim().split(' ');
+      const firstName = fullName[0] || '';
+      const lastName  = fullName.slice(1).join(' ') || '';
+
+      /* Helper to get field value safely */
+      const val = id => document.getElementById(id)?.value?.trim() || '';
+
+      /* Build HubSpot fields array */
+      const fields = [
+        { name: 'firstname',            value: firstName },
+        { name: 'lastname',             value: lastName },
+        { name: 'email',                value: femailEl.value.trim() },
+        { name: 'phone',                value: val('phone') },
+        { name: 'investor_experience',  value: val('exp') },
+        { name: 'deal_type_interest',   value: val('dealtype') },
+        { name: 'has_entity',           value: val('entity') },
+        { name: 'property_state',       value: val('propstate') },
+        { name: 'property_address',     value: val('address') },
+        { name: 'listing_url',          value: val('listing') },
+        { name: 'purchase_price',       value: val('price').replace(/[^0-9.]/g, '') },
+        { name: 'loan_amount_requested',value: val('loanamt').replace(/[^0-9.]/g, '') },
+        { name: 'monthly_rent',         value: val('rent-est').replace(/[^0-9.]/g, '') },
+        { name: 'estimated_arv',        value: val('arv-est').replace(/[^0-9.]/g, '') },
+        { name: 'message',              value: val('notes') },
+        { name: 'hs_page_url',          value: window.location.href },
+      ].filter(f => f.value !== ''); /* strip empty fields */
+
+      const payload = {
+        fields,
+        context: {
+          pageUri:  window.location.href,
+          pageName: document.title
+        }
+      };
+
+      try {
+        const res = await fetch(
+          `https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL_ID}/${HS_FORM_GUID}`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          }
+        );
+
+        if (res.ok) {
+          /* Success — show confirmation */
+          document.getElementById('dealForm').style.display = 'none';
+          if (successEl) {
+            successEl.style.display = 'block';
+            successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        } else {
+          const err = await res.json().catch(() => ({}));
+          console.error('HubSpot error:', err);
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Deal for Review';
+          alert('Something went wrong. Please try again or email us directly.');
+        }
+      } catch (e) {
+        console.error('Submission failed:', e);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Deal for Review';
+        alert('Network error. Please check your connection and try again.');
       }
     });
   }
