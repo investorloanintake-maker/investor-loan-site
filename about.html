@@ -1,204 +1,584 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>About Chad Evers | Viador Partners</title>
-<meta name="description" content="Chad Evers — 17 years in institutional lending. Founder of Viador Partners, Tampa, Florida."/>
-<link rel="stylesheet" href="styles.css"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Chad Evers | Viador Partners — Investor Financing</title>
+  <meta name="description" content="Chad Evers brings 17 years of senior lending and program leadership — from regional banks to Citi — to help real estate investors access financing that scales."/>
+  <link rel="canonical" href="https://www.viadorpartners.com/about.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ── About page specific styles ───────────────── */
+
+    .about-hero {
+      background: var(--ink);
+      padding: 140px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 90% 10%, rgba(201,146,58,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 10% 90%, rgba(201,146,58,0.04) 0%, transparent 50%);
+    }
+    .about-hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 80px;
+      align-items: end;
+    }
+    .about-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .about-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+    .about-h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(38px, 5vw, 64px);
+      font-weight: 900;
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+      margin-bottom: 24px;
+    }
+    .about-h1 em { font-style: italic; color: var(--gold); }
+    .about-hero-sub {
+      font-size: 18px;
+      line-height: 1.75;
+      color: rgba(247,243,238,0.65);
+      max-width: 540px;
+      margin-bottom: 40px;
+    }
+    .about-hero-stats {
+      display: flex;
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 32px;
+    }
+    .about-hero-stat {
+      padding-right: 36px;
+      margin-right: 36px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .about-hero-stat:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+    .about-stat-val {
+      font-family: 'Fraunces', serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .about-stat-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(247,243,238,0.35);
+      line-height: 1.5;
+    }
+
+    /* Avatar card */
+    .about-avatar-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-avatar-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      z-index: 1;
+    }
+    .about-avatar-card-body {
+      padding: 20px 24px 28px;
+    }
+    .about-avatar-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      margin-bottom: 20px;
+      filter: grayscale(15%);
+    }
+    .about-avatar-name {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+    .about-avatar-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .about-avatar-details {
+      list-style: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 16px;
+    }
+    .about-avatar-details li {
+      font-size: 13px;
+      color: rgba(247,243,238,0.5);
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .about-avatar-details li::before {
+      content: '·';
+      color: var(--gold);
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    /* Body sections */
+    .about-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 80px 48px 120px;
+    }
+    .about-section {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .about-section:last-child { border-bottom: none; }
+    .about-marker {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .about-marker::after { content: ''; width: 32px; height: 1px; background: var(--gold); opacity: 0.4; }
+    .about-h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .about-h2 em { font-style: italic; color: var(--gold); }
+    .about-p {
+      font-size: 17px;
+      line-height: 1.85;
+      color: #3a3733;
+      margin-bottom: 18px;
+    }
+    .about-p:last-child { margin-bottom: 0; }
+    .about-p strong { color: var(--ink); font-weight: 500; }
+
+    /* Timeline */
+    .about-timeline { margin: 36px 0; }
+    .about-tl-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: start;
+    }
+    .about-tl-item:last-child { border-bottom: none; }
+    .about-tl-years {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      padding-top: 3px;
+    }
+    .about-tl-role {
+      font-family: 'Fraunces', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .about-tl-org {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 8px;
+    }
+    .about-tl-desc {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Callout */
+    .about-callout {
+      border-left: 3px solid var(--gold);
+      background: rgba(201,146,58,0.05);
+      padding: 22px 28px;
+      margin: 32px 0;
+    }
+    .about-callout p {
+      font-size: 17px;
+      color: #444;
+      margin: 0;
+      line-height: 1.75;
+      font-style: italic;
+    }
+    .about-callout strong { color: var(--gold); font-style: normal; }
+
+    /* Credential chips */
+    .about-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 24px 0;
+    }
+    .about-chip {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      color: #777;
+      background: var(--soft, #F2EDE7);
+    }
+
+    /* CTA section */
+    .about-cta-section {
+      background: var(--ink);
+      padding: 56px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 0;
+    }
+    .about-cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,146,58,0.06) 0%, transparent 70%);
+    }
+    .about-cta-inner { position: relative; }
+    .about-cta-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .about-cta-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+    .about-cta-title em { font-style: italic; color: var(--gold); }
+    .about-cta-sub {
+      font-size: 16px;
+      color: rgba(247,243,238,0.55);
+      margin-bottom: 32px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.65;
+    }
+    .about-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .about-btn-primary {
+      background: var(--gold); color: var(--ink);
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 15px 32px; text-decoration: none; font-weight: 500;
+      transition: opacity 0.2s; display: inline-block;
+    }
+    .about-btn-primary:hover { opacity: 0.85; }
+    .about-btn-ghost {
+      border: 1px solid rgba(255,255,255,0.2); color: rgba(247,243,238,0.6);
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 15px 32px; text-decoration: none;
+      transition: border-color 0.2s, color 0.2s; display: inline-block;
+    }
+    .about-btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    @media (max-width: 860px) {
+      .about-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .about-avatar-card { order: -1; }
+      .about-hero { padding: 120px 0 60px; }
+      .about-body { padding: 48px 24px 80px; }
+      .about-tl-item { grid-template-columns: 1fr; gap: 6px; }
+      .about-hero-stats { flex-wrap: wrap; gap: 24px; }
+      .about-hero-stat { border-right: none; padding-right: 0; margin-right: 0; }
+      .about-cta-section { padding: 40px 24px; }
+    }
+  </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container nav-wrap">
-    <a href="index.html" class="brand">
-      <span class="brand-name">Viador</span><span class="brand-word">Partners</span>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">Viador <span class="logo-sub">Partners</span></span>
     </a>
-    <nav class="nav">
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#paths">Who We Help</a>
+      <a href="bpl.html" class="nav-gold">What Is BPL?</a>
       <a href="index.html#programs">Programs</a>
-      <a href="dscr.html">DSCR</a>
-      <a href="fix-and-flip.html">Fix &amp; Flip</a>
-      <a href="partners.html">Realtors</a>
-      <a href="about.html" class="active">About</a>
+      <a href="index.html#faq">FAQ</a>
     </nav>
-    <a href="application.html" class="btn btn-primary">Get Funded</a>
-    <div class="nav-toggle" onclick="document.querySelector('nav.nav').style.display='flex'">
-      <span></span><span></span><span></span>
-    </div>
+    <a href="tel:+1XXXXXXXXXX" class="nav-phone" aria-label="Call us">(XXX) XXX-XXXX</a>
+    <a href="index.html#dealform" class="nav-cta">Review My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="index.html#paths">Who We Help</a>
+    <a href="bpl.html">What Is BPL?</a>
+    <a href="index.html#programs">Programs</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#dealform" class="drawer-cta">Review My Deal →</a>
   </div>
 </header>
 
 <main>
 
-  <!-- HERO -->
-  <section class="about-hero">
-    <div class="container">
-      <div class="about-grid">
-        <div>
-          <div class="eyebrow">Founder · Tampa, Florida</div>
-          <h1>Chad Evers</h1>
-          <p style="font-size:18px; color:rgba(255,255,255,0.55); font-weight:300; line-height:1.75; margin:20px 0 32px; max-width:540px;">17 years building lending programs inside some of the country's largest institutions. Now using that access to open doors for the investors those institutions turned away.</p>
-          <div style="display:flex; gap:48px;">
-            <div>
-              <div class="guide-stat-num">17+</div>
-              <div class="guide-stat-label">Years in lending</div>
-            </div>
-            <div>
-              <div class="guide-stat-num">$2B+</div>
-              <div class="guide-stat-label">Loans managed</div>
-            </div>
-            <div>
-              <div class="guide-stat-num">3</div>
-              <div class="guide-stat-label">Major institutions</div>
-            </div>
+<!-- HERO -->
+<section class="about-hero">
+  <div class="container">
+    <div class="about-hero-inner">
+
+      <div>
+        <div class="about-eyebrow">About</div>
+        <h1 class="about-h1">17 years in lending.<br>Built this because<br><em>the gap was real.</em></h1>
+        <p class="about-hero-sub">Most real estate investors are leaving money on the table — not because their deals are bad, but because nobody explained the financing structures that actually work at scale. That's the problem Viador Partners exists to solve.</p>
+        <div class="about-hero-stats">
+          <div class="about-hero-stat">
+            <div class="about-stat-val">17+</div>
+            <div class="about-stat-lbl">Years in<br>lending</div>
+          </div>
+          <div class="about-hero-stat">
+            <div class="about-stat-val">VP</div>
+            <div class="about-stat-lbl">Citi — Global<br>Program Mgmt</div>
+          </div>
+          <div class="about-hero-stat">
+            <div class="about-stat-val">SVP</div>
+            <div class="about-stat-lbl">Senior lending<br>leadership</div>
           </div>
         </div>
-        <div class="headshot-frame">
-          <img src="chad-evers.jpg" alt="Chad Evers, Founder of Viador Partners"/>
+      </div>
+
+      <div class="about-avatar-card">
+        <img src="chad-evers.jpg" alt="Chad Evers — Founder, Viador Partners" class="about-avatar-img"/>
+        <div class="about-avatar-card-body">
+        <div class="about-avatar-name">Chad Evers</div>
+        <div class="about-avatar-title">Founder · Viador Partners</div>
+        <ul class="about-avatar-details">
+          <li>Tampa, Florida</li>
+          <li>17+ years in mortgage &amp; lending</li>
+          <li>Former VP, Citi</li>
+          <li>Former SVP, BayFirst &amp; Congressional Bank</li>
+          <li>Specializing in BPL &amp; investor financing</li>
+          <li>Nationwide deal coverage</li>
+        </ul>
         </div>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- BODY CONTENT -->
+<div class="about-body">
 
   <!-- THE STORY -->
-  <section class="section section-deep">
-    <div class="container">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;">
+  <section class="about-section" id="story">
+    <div class="about-marker">The story</div>
+    <h2 class="about-h2">Why I left institutional<br>lending to build <em>this.</em></h2>
+
+    <p class="about-p">I spent the better part of two decades inside some of the most rigorous lending environments in the country. Senior lending leadership at Congressional Bank in Ohio, then BayFirst in Tampa — running divisions, managing credit risk, building teams. Then three years at Citi as Vice President of Global Program Management, working at a scale and complexity most lenders never see.</p>
+
+    <p class="about-p">What I kept running into — at every level, in every institution — was the same gap. Real estate investors with strong deals, solid track records, and real portfolios hitting walls that had nothing to do with the quality of their investment. Conventional loan limits. DTI calculations that penalized business owners. Underwriting frameworks designed for homeowners being applied to people building multi-property investment businesses.</p>
+
+    <div class="about-callout">
+      <p>The conventional mortgage system wasn't built for investors. It was built for families buying homes. Serious investors need a different tool — and <strong>most of them don't know it exists.</strong></p>
+    </div>
+
+    <p class="about-p">That tool is Business Purpose Lending. And the opportunity I saw was simple: most investors have never heard of BPL, most brokers don't specialize in it, and the lenders who offer it aren't always easy to find or work with directly. There was a clear need for someone who understood both the institutional side of how these programs work and the investor side of what actually matters when a deal is on the table.</p>
+
+    <p class="about-p">That's why I built Viador Partners.</p>
+  </section>
+
+  <!-- BACKGROUND -->
+  <section class="about-section" id="background">
+    <div class="about-marker">Background</div>
+    <h2 class="about-h2">Where the experience<br><em>actually comes from.</em></h2>
+
+    <p class="about-p">I didn't come to lending from finance theory. I built my understanding deal by deal, division by division, over 17 years of senior leadership in environments where getting it wrong had real consequences.</p>
+
+    <div class="about-timeline">
+      <div class="about-tl-item">
+        <div class="about-tl-years">2023 – Present</div>
         <div>
-          <div class="eyebrow">The Story</div>
-          <h2>Built from the <em>inside out.</em></h2>
-          <p style="color:rgba(255,255,255,0.55); font-size:16px; font-weight:300; line-height:1.8; margin-top:24px;">I spent 17 years inside the system — SVP at Congressional Bank, SVP at BayFirst, VP at Citi. I know exactly how those institutions think, what they'll approve, and more importantly, what they'll never approve.</p>
-          <p style="color:rgba(255,255,255,0.55); font-size:16px; font-weight:300; line-height:1.8; margin-top:16px;">The investors I kept seeing turned away weren't bad borrowers. They were buying in LLCs. They were self-employed. Their income didn't fit a W-2 box. The property made sense — the paperwork didn't conform.</p>
-          <p style="color:rgba(255,255,255,0.55); font-size:16px; font-weight:300; line-height:1.8; margin-top:16px;">Business purpose lending exists specifically for those deals. Most investors don't know it exists. Most realtors have never heard of it. That gap is exactly where Viador Partners operates.</p>
+          <div class="about-tl-role">Vice President — Global Program Management</div>
+          <div class="about-tl-org">Citi</div>
+          <p class="about-tl-desc">Led program governance and execution at global scale. Regulatory compliance, credit risk, business transformation across one of the world's largest financial institutions. The level of rigor, process discipline, and stakeholder complexity at Citi is unlike anything at a regional level — it sharpened how I think about deal structure, risk, and execution under pressure.</p>
         </div>
+      </div>
+      <div class="about-tl-item">
+        <div class="about-tl-years">2018 – 2022</div>
         <div>
-          <div class="eyebrow">How I Work</div>
-          <h2>Deal first. <em>Always.</em></h2>
-          <p style="color:rgba(255,255,255,0.55); font-size:16px; font-weight:300; line-height:1.8; margin-top:24px;">I don't start with a credit pull. I start with the property, the strategy, and the numbers. If the deal makes sense, we find the path. If it doesn't, I'll tell you why — and what would need to change.</p>
-          <p style="color:rgba(255,255,255,0.55); font-size:16px; font-weight:300; line-height:1.8; margin-top:16px;">My lender relationships are direct — not a marketplace, not a broker chain. That's what allows 10-day closes. That's what allows flexibility on deal structure that a bank portal never could.</p>
-          <div style="margin-top:36px; padding:28px; background:var(--navy); border-top:2px solid var(--gold);">
-            <p style="color:#fff; font-size:15px; font-weight:400; line-height:1.75; font-style:italic; font-family:'Playfair Display',serif;">"The financing most investors need exists. They just need someone who knows where it is."</p>
-            <p style="color:var(--gold); font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; margin-top:12px;">— Chad Evers, Founder</p>
-          </div>
+          <div class="about-tl-role">Senior Vice President — Lending</div>
+          <div class="about-tl-org">BayFirst · Tampa, FL</div>
+          <p class="about-tl-desc">Senior lending leadership at a Tampa-based regional bank. Credit risk management, portfolio oversight, lending strategy. This is where my proximity to real estate investor financing deepened — Florida is one of the most active investor markets in the country, and the volume of investor scenarios that don't fit conventional boxes is significant.</p>
         </div>
       </div>
+      <div class="about-tl-item">
+        <div class="about-tl-years">2007 – 2018</div>
+        <div>
+          <div class="about-tl-role">Senior Vice President — Lending</div>
+          <div class="about-tl-org">Congressional Bank · Columbus, OH</div>
+          <p class="about-tl-desc">Over 11 years building and running large lending divisions. This is where the foundation was laid — understanding credit underwriting from the ground up, managing teams at scale, and developing the judgment that comes from seeing thousands of loan scenarios across different market conditions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-chips">
+      <span class="about-chip">Credit Risk Management</span>
+      <span class="about-chip">Mortgage Banking</span>
+      <span class="about-chip">Program Management</span>
+      <span class="about-chip">Regulatory Compliance</span>
+      <span class="about-chip">BPL Origination</span>
+      <span class="about-chip">DSCR Lending</span>
+      <span class="about-chip">Bridge Financing</span>
+      <span class="about-chip">Portfolio Strategy</span>
     </div>
   </section>
 
-  <!-- TIMELINE -->
-  <section class="section section-navy">
-    <div class="container">
-      <div style="max-width:760px; margin:0 auto;">
-        <div class="eyebrow">Career Timeline</div>
-        <h2>The path that built <em>Viador.</em></h2>
-        <div class="timeline" style="margin-top:48px;">
-          <div class="timeline-item">
-            <div class="timeline-year">2007–2018</div>
-            <div class="timeline-body">
-              <h4>SVP — Congressional Bank · Columbus, Ohio</h4>
-              <p>Built and managed lending programs through the financial crisis and recovery. Developed deep expertise in commercial and residential loan structures. Originated and managed hundreds of millions in loan volume.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2018–2022</div>
-            <div class="timeline-body">
-              <h4>SVP — BayFirst National Bank · Tampa, Florida</h4>
-              <p>Relocated to Tampa to lead lending operations at a growing community bank. Managed investor relationships and expanded the bank's portfolio lending capabilities. Saw firsthand the gap between what investors needed and what banks could offer.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2023–Present</div>
-            <div class="timeline-body">
-              <h4>VP Global Program Management — Citi</h4>
-              <p>Institutional lending at scale. Managing global program structures and capital deployment. The macro view that informs how Viador Partners thinks about lender relationships and deal structure.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2025</div>
-            <div class="timeline-body">
-              <h4>Founder — Viador Partners · Tampa, Florida</h4>
-              <p>Built Viador Partners to connect real estate investors and small business owners with the business purpose lending most of them never knew existed. Direct lender relationships. Deal-first approach. 10-day closes.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- HOW I WORK -->
+  <section class="about-section" id="how-i-work">
+    <div class="about-marker">How I work</div>
+    <h2 class="about-h2">What you can expect<br><em>when you submit a deal.</em></h2>
+
+    <p class="about-p">When you submit a deal through Viador Partners, I review it personally. Not a call center, not an automated system — me, looking at the property, the structure, and what financing approach actually makes sense for your situation.</p>
+
+    <p class="about-p">I work with a small group of direct lender partners — including an established servicing company actively building out a dedicated BPL origination team — which means I have direct relationships with the people making decisions on your deal, not just access to a rate sheet.</p>
+
+    <p class="about-p">For deals that fit our direct origination criteria, we move fast. For deals better served by a specific lender partner, I broker to the right fit and stay involved. For deals that aren't the right structure or don't pencil — I'll tell you that clearly, and usually explain why, so you understand what would need to change.</p>
+
+    <div class="about-callout">
+      <p>The institutional background matters here. I've seen what good underwriting looks like from the inside. I know what a lender is actually looking for, and I can tell you honestly whether your deal is there before you've wasted time on a full application.</p>
     </div>
+
+    <p class="about-p">The goal isn't to close every deal — it's to be the person investors and their advisors trust to give them a straight read on their financing options. That reputation takes years to build. I'm not going to compromise it by overselling a deal that doesn't work.</p>
   </section>
 
-  <!-- WHY BPL -->
-  <section class="section section-deep">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow" style="justify-content:center;">Why This</div>
-        <h2>Why business purpose <em>lending?</em></h2>
-        <p>Most lending categories are crowded. BPL isn't. And the investors who need it most are the ones least likely to know it exists.</p>
-      </div>
-      <div class="grid-3">
-        <div class="card card-gold-top">
-          <div class="card-icon">Access</div>
-          <h3>The Gap Is Real</h3>
-          <p>Conventional lenders turn away investors with LLCs, self-employment income, or multiple properties. BPL was designed specifically for those scenarios.</p>
-        </div>
-        <div class="card card-gold-top">
-          <div class="card-icon">Speed</div>
-          <h3>Timing Wins Deals</h3>
-          <p>In competitive markets, a 10-day close beats a 45-day conventional every time. Speed isn't a feature — it's the difference between getting the deal and watching it go.</p>
-        </div>
-        <div class="card card-gold-top">
-          <div class="card-icon">Legacy</div>
-          <h3>Built for Builders</h3>
-          <p>The investors we work with aren't speculating. They're building portfolios, creating income, and building something that outlasts them. That work deserves the right financing partner.</p>
-        </div>
-      </div>
-    </div>
+  <!-- BPL FOCUS -->
+  <section class="about-section" id="bpl-focus">
+    <div class="about-marker">Why BPL</div>
+    <h2 class="about-h2">The financing structure<br><em>most investors don't know exists.</em></h2>
+
+    <p class="about-p">Business Purpose Lending is where I've chosen to focus Viador Partners's energy — not because it's the only thing I do, but because it's the area of greatest unmet need and the least well-understood by the investors who could benefit most from it.</p>
+
+    <p class="about-p">The investors who benefit from BPL aren't fringe cases. They're serious, active real estate investors who have simply run up against the structural limits of a consumer lending system that wasn't designed for them. The conventional mortgage was built for someone buying one home to live in. BPL was built for the investor buying their seventh, or their first one through an LLC, or the one where personal income just doesn't tell the full story.</p>
+
+    <p class="about-p">My goal with every piece of content on this site — and every deal I review — is to make sure that if you're building a real estate investment portfolio, you understand the full range of tools available to you. Not just the ones your bank offers.</p>
+
+    <a href="bpl.html" style="display:inline-flex; align-items:center; gap:8px; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); text-decoration:none; margin-top:8px; border-bottom:1px solid rgba(201,146,58,0.3); padding-bottom:2px;">Read the full BPL guide →</a>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-banner">
-    <div class="container">
-      <div class="cta-inner">
-        <h2>Ready to work with someone who <em>knows the system?</em></h2>
-        <a href="application.html" class="btn btn-navy">Submit Your Deal</a>
-      </div>
+</div>
+
+<!-- CTA -->
+<section class="about-cta-section">
+  <div class="about-cta-inner">
+    <div class="about-cta-label">Work with me</div>
+    <h2 class="about-cta-title">Have a deal?<br><em>Let's look at it together.</em></h2>
+    <p class="about-cta-sub">Submit your scenario and I'll personally review it. You'll get a straight answer on structure, fit, and next steps — within 24 hours.</p>
+    <div class="about-cta-btns">
+      <a href="index.html#dealform" class="about-btn-primary">Review My Deal →</a>
+      <a href="partners.html" class="about-btn-ghost">Partner Program</a>
     </div>
-  </section>
+  </div>
+</section>
 
 </main>
 
-<footer class="site-footer">
+<footer class="footer">
   <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <span class="brand-name">Viador</span><span class="brand-word">Partners</span>
-        </div>
-        <p class="footer-copy">Investor capital and deal advisory. Tampa, Florida. Nationwide lending.</p>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-mark">V</span>
+        <div><strong>Viador</strong> <span class="logo-sub" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:400;">Partners</span><span>Investor Capital &amp; Deal Advisory</span></div>
       </div>
-      <div class="footer-col">
-        <h4>Programs</h4>
+      <div class="footer-nav-group">
+        <h4>Investors</h4>
+        <a href="bpl.html">What Is BPL?</a>
         <a href="dscr.html">DSCR Loans</a>
         <a href="fix-and-flip.html">Fix &amp; Flip</a>
-        <a href="application.html">Business Purpose</a>
+        <a href="index.html#dealform">Review My Deal</a>
       </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="about.html">About Chad Evers</a>
-        <a href="partners.html">Realtor Partners</a>
-        <a href="application.html">Apply Now</a>
+      <div class="footer-nav-group">
+        <h4>Programs</h4>
+        <a href="bpl.html">Business Purpose Loans</a>
+        <a href="dscr.html">DSCR Rental Loans</a>
+        <a href="fix-and-flip.html">Fix &amp; Flip Bridge</a>
+        <a href="index.html#dealform">Bank Statement Loans</a>
       </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="tel:XXXXXXXXXX">(XXX) XXX-XXXX</a>
-        <a href="mailto:chad@viadorpartners.com">chad@viadorpartners.com</a>
-        <a href="application.html">Submit a Deal</a>
+      <div class="footer-nav-group">
+        <h4>About</h4>
+        <a href="about.html">About Chad</a>
+        <a href="partners.html">Partner Program</a>
+        <a href="index.html#faq">FAQ</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-legal">© 2025 Viador Partners LLC · Tampa, Florida</div>
-      <div class="footer-disclaimer">Viador Partners LLC is a mortgage broker, not a lender. Loan approval subject to lender underwriting guidelines. Not a commitment to lend.</div>
+      <span>© 2025 Viador Partners LLC. All rights reserved.</span>
+      <span>Not a commitment to lend. Illustrative only.</span>
     </div>
   </div>
 </footer>
 
+<div class="mobile-sticky-cta" id="mobileCta">
+  <a href="index.html#dealform" class="mobile-sticky-btn">Review My Deal — Free →</a>
+  <a href="tel:+1XXXXXXXXXX" class="mobile-sticky-call">Call Us</a>
+</div>
+
+<script src="script.js" defer></script>
 </body>
 </html>
