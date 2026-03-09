@@ -97,9 +97,9 @@ body {
 /* ── Labels / Eyebrows ──────────────────────────────────── */
 .section-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 400;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 20px;
@@ -401,7 +401,7 @@ body {
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -467,7 +467,7 @@ body {
 
 .hero-proof-tag {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold);
@@ -523,7 +523,7 @@ body {
 
 .hero-proof-free {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -614,7 +614,7 @@ body {
 
 .hero-rule-text {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -664,7 +664,7 @@ body {
   position: absolute;
   top: -1px; left: 32px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   background: var(--gold);
@@ -685,7 +685,7 @@ body {
 
 .path-tag {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold);
@@ -802,46 +802,46 @@ body {
 .bpl-compare-row {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1.2fr;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
 }
 
 .bpl-compare-row:last-child { border-bottom: none; }
 
 .bpl-compare-row span {
-  padding: 14px 18px;
-  font-size: 20px;
-  color: rgba(255,255,255,0.55);
+  padding: 16px 20px;
+  font-size: 16px;
+  color: rgba(255,255,255,0.75);
   line-height: 1.4;
 }
 
 .bpl-compare-row span:first-child {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-  border-right: 1px solid rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.50);
+  border-right: 1px solid rgba(255,255,255,0.10);
 }
 
 .bpl-compare-header span {
   font-family: var(--font-mono) !important;
-  font-size: 9px !important;
+  font-size: 12px !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
-  color: rgba(255,255,255,0.3) !important;
-  padding: 10px 18px !important;
+  color: rgba(255,255,255,0.45) !important;
+  padding: 12px 20px !important;
 }
 
-.bpl-compare-header { background: rgba(255,255,255,0.03); }
+.bpl-compare-header { background: rgba(255,255,255,0.05); }
 
 .bpl-col-highlight {
-  background: var(--gold-faint2);
+  background: rgba(201,146,58,0.18) !important;
   color: var(--gold-light) !important;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .bpl-compare-row span:nth-child(2) {
-  border-right: 1px solid rgba(255,255,255,0.06);
+  border-right: 1px solid rgba(255,255,255,0.10);
 }
 
 /* ═══════════════════════════════════════════
@@ -947,7 +947,7 @@ body {
   position: absolute;
   top: 20px; right: 20px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   background: var(--gold);
@@ -957,7 +957,7 @@ body {
 
 .program-type {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold);
@@ -1649,7 +1649,7 @@ body {
 
 .footer-nav-group h4 {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.3);
@@ -1679,7 +1679,7 @@ body {
 }
 
 .footer-bottom span {
-  font-size: 11px;
+  font-size: 13px;
   color: rgba(255,255,255,0.25);
   font-family: var(--font-mono);
   letter-spacing: 0.04em;
