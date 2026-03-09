@@ -8,21 +8,21 @@
 
 /* ── Tokens ─────────────────────────────────────────────── */
 :root {
-  /* Palette */
-  --cream:      #F7F3EE;
-  --cream-dark: #EDE7DC;
-  --ink:        #1C1A17;
-  --ink-mid:    #3D3A35;
-  --ink-soft:   #6B6560;
-  --gold:       #C9923A;
-  --gold-light: #E8C07A;
-  --gold-faint: rgba(201,146,58,0.08);
-  --gold-faint2:rgba(201,146,58,0.14);
-  --charcoal:   #1E2028;
-  --charcoal2:  #272A34;
+  /* Palette — boosted contrast throughout */
+  --cream:      #FFFFFF;        /* pure white base — maximum contrast */
+  --cream-dark: #F2EDE6;        /* section alternates */
+  --ink:        #141210;        /* near-black — stronger than before */
+  --ink-mid:    #2E2B27;        /* was too light — now clearly legible */
+  --ink-soft:   #52504C;        /* body text secondary — was #6B6560, now darker */
+  --gold:       #B8811E;        /* slightly deeper gold — more contrast on white */
+  --gold-light: #D9A84A;
+  --gold-faint: rgba(184,129,30,0.08);
+  --gold-faint2:rgba(184,129,30,0.14);
+  --charcoal:   #1A1C24;
+  --charcoal2:  #22252F;
   --white:      #FFFFFF;
-  --line:       rgba(28,26,23,0.10);
-  --line-soft:  rgba(28,26,23,0.06);
+  --line:       rgba(20,18,16,0.14);  /* darker dividers — more visible */
+  --line-soft:  rgba(20,18,16,0.08);
 
   /* Type */
   --font-display: 'Fraunces', Georgia, serif;
@@ -52,8 +52,8 @@ a { color: inherit; text-decoration: none; }
 
 body {
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 17px;           /* up from 16px */
+  line-height: 1.7;
   color: var(--ink);
   background: var(--cream);
   -webkit-font-smoothing: antialiased;
@@ -92,7 +92,7 @@ body {
   margin-inline: auto;
 }
 
-.section { padding: clamp(64px, 8vw, 120px) 0; }
+.section { padding: clamp(80px, 10vw, 140px) 0; }
 
 /* ── Labels / Eyebrows ──────────────────────────────────── */
 .section-label {
@@ -370,7 +370,7 @@ body {
    HERO
 ═══════════════════════════════════════════ */
 .hero {
-  padding: clamp(64px, 10vw, 120px) 0 0;
+  padding: clamp(80px, 12vw, 140px) 0 0;
   position: relative;
   overflow: hidden;
 }
@@ -438,9 +438,9 @@ body {
 }
 
 .hero-sub {
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink-mid);
   margin-bottom: 36px;
   max-width: 380px;
 }
@@ -558,7 +558,7 @@ body {
 
 .path-card {
   background: var(--white);
-  padding: 36px 32px;
+  padding: 48px 36px;
   position: relative;
   transition: background .25s;
   cursor: default;
@@ -626,9 +626,9 @@ body {
 }
 
 .path-card p {
-  font-size: 14px;
-  color: var(--ink-soft);
-  line-height: 1.65;
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.7;
   margin-bottom: 24px;
 }
 
@@ -706,8 +706,8 @@ body {
 }
 
 .bpl-sub {
-  font-size: 15px;
-  color: rgba(255,255,255,0.62);
+  font-size: 16px;
+  color: rgba(255,255,255,0.78);
   line-height: 1.75;
   margin-bottom: 14px;
 }
@@ -799,7 +799,7 @@ body {
 
 .testimonial blockquote {
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 300;
   font-style: italic;
   line-height: 1.65;
@@ -853,7 +853,7 @@ body {
 
 .program {
   background: var(--white);
-  padding: 36px 32px;
+  padding: 48px 40px;
   position: relative;
   transition: background .2s;
 }
@@ -902,13 +902,13 @@ body {
 .program-featured h3 { color: var(--white); }
 
 .program p {
-  font-size: 14px;
-  color: var(--ink-soft);
-  line-height: 1.65;
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.7;
   margin-bottom: 20px;
 }
 
-.program-featured p { color: rgba(255,255,255,0.6); }
+.program-featured p { color: rgba(255,255,255,0.72); }
 
 .program ul {
   list-style: none;
@@ -919,11 +919,11 @@ body {
 }
 
 .program li {
-  font-size: 13px;
-  color: var(--ink-soft);
+  font-size: 14px;
+  color: var(--ink-mid);
   padding-left: 16px;
   position: relative;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .program li::before {
@@ -933,7 +933,7 @@ body {
   color: var(--gold);
 }
 
-.program-featured li { color: rgba(255,255,255,0.55); }
+.program-featured li { color: rgba(255,255,255,0.78); }
 .program-featured li::before { color: var(--gold-light); }
 
 .program-link {
@@ -1090,7 +1090,7 @@ body {
   background: var(--white);
   border: 1px solid var(--line);
   box-shadow: var(--shadow-md);
-  padding: 36px;
+  padding: 44px;
 }
 
 .steps-indicator {
@@ -1455,9 +1455,9 @@ body {
 .faq-item[open] summary { color: var(--gold); }
 
 .faq-item p {
-  font-size: 14px;
-  color: var(--ink-soft);
-  line-height: 1.75;
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.8;
   padding: 0 0 24px;
 }
 
