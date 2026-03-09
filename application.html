@@ -1,197 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Talk to an Expert | Capvia</title>
-  <meta name="description" content="Submit a full deal scenario for review. We'll assess structure, deal type, and financing options within 24 hours."/>
-  <link rel="canonical" href="https://www.capvia.com/application.html"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Apply | 46&2 Partners</title>
+<meta name="description" content="Submit your investment deal for review. DSCR, fix-and-flip, and business purpose lending."/>
+<link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-<div class="grain" aria-hidden="true"></div>
-
-<header class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">
-      <span class="logo-mark">C</span>
-      <span class="logo-text">Capvia</span>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-num">46</span>
+      <span class="brand-amp">&amp;</span>
+      <span class="brand-num">2</span>
+      <span class="brand-word">Partners</span>
     </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="index.html#paths">Who We Help</a>
-      <a href="bpl.html" class="nav-gold">What Is BPL?</a>
+    <nav class="nav">
       <a href="index.html#programs">Programs</a>
-      <a href="index.html#faq">FAQ</a>
+      <a href="dscr.html">DSCR</a>
+      <a href="fix-and-flip.html">Fix &amp; Flip</a>
+      <a href="partners.html">Realtors</a>
+      <a href="about.html">About</a>
     </nav>
-    <a href="tel:+1XXXXXXXXXX" class="nav-phone" aria-label="Call us">(XXX) XXX-XXXX</a>
-    <a href="index.html#dealform" class="nav-cta">Review My Deal</a>
-    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">
-      <span></span><span></span>
-    </button>
-  </div>
-  <div class="mobile-drawer" id="drawer">
-    <a href="index.html#paths">Who We Help</a>
-    <a href="bpl.html">What Is BPL?</a>
-    <a href="index.html#programs">Programs</a>
-    <a href="index.html#faq">FAQ</a>
-    <a href="index.html#dealform" class="drawer-cta">Review My Deal →</a>
+    <a href="application.html" class="btn btn-primary">Get Funded</a>
   </div>
 </header>
 
 <main>
-  <section class="form-section" style="padding-top: 120px;" id="application">
+
+  <section class="guide-hero">
     <div class="container">
-      <div class="form-layout">
-
-        <div class="form-copy">
-          <div class="section-label">Full intake</div>
-          <h1 class="form-title">Tell us about<br>your deal.</h1>
-          <p>Use this when you want to give us a fuller picture — property details, strategy, timeline, and financing goals. The more context you share, the more useful our response will be.</p>
-          <div class="form-trust">
-            <div class="trust-item"><span>✓</span> Free, always</div>
-            <div class="trust-item"><span>✓</span> No credit pull</div>
-            <div class="trust-item"><span>✓</span> 24-hour response</div>
-          </div>
-          <div class="form-notes">
-            <p><strong>Have an LLC?</strong> Mention it — it opens up BPL structures most investors don't know they qualify for.</p>
-            <p><strong>Not sure what loan type you need?</strong> Just describe the deal. We'll figure out the structure together.</p>
-            <p><strong>Realtor referring a client?</strong> <a href="partners.html">Join our partner program</a> to be set up properly for referrals.</p>
-          </div>
+      <div class="eyebrow">Deal Application</div>
+      <h1>Submit your deal for <em>review.</em></h1>
+      <p>Complete the form below and we'll review your scenario — usually within one business day. No obligation, no credit pull.</p>
+      <div class="guide-stats">
+        <div>
+          <div class="guide-stat-num">1 day</div>
+          <div class="guide-stat-label">Review turnaround</div>
         </div>
-
-        <div class="form-card">
-          <form id="appForm" novalidate>
-            <div class="section-label" style="margin-bottom:20px;">Deal details</div>
-
-            <div class="field-row">
-              <div class="field">
-                <label for="aname">Your name <span class="req">*</span></label>
-                <input type="text" id="aname" name="name" placeholder="First &amp; last" autocomplete="name" required/>
-              </div>
-              <div class="field">
-                <label for="aemail">Email <span class="req">*</span></label>
-                <input type="email" id="aemail" name="email" placeholder="you@email.com" autocomplete="email" required/>
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field">
-                <label for="aphone">Phone</label>
-                <input type="tel" id="aphone" name="phone" placeholder="(555) 555-5555"/>
-              </div>
-              <div class="field">
-                <label for="adealtype">Deal type</label>
-                <select id="adealtype" name="deal_type">
-                  <option value="">Select</option>
-                  <option>DSCR / Rental purchase</option>
-                  <option>Fix &amp; Flip</option>
-                  <option>Bridge loan</option>
-                  <option>Business Purpose Loan (BPL)</option>
-                  <option>Bank Statement loan</option>
-                  <option>Cash-out refinance</option>
-                  <option>Not sure yet</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field">
-                <label for="aaddress">Property address or city/state</label>
-                <input type="text" id="aaddress" name="address" placeholder="123 Main St or City, State"/>
-              </div>
-              <div class="field">
-                <label for="alisting">Listing URL <em>(optional)</em></label>
-                <input type="url" id="alisting" name="listing_url" placeholder="Zillow, Realtor, Redfin…"/>
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field">
-                <label for="aprice">Purchase / current value</label>
-                <input type="text" id="aprice" name="purchase_price" placeholder="$325,000"/>
-              </div>
-              <div class="field">
-                <label for="aloan">Loan amount needed</label>
-                <input type="text" id="aloan" name="loan_amount" placeholder="$260,000"/>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="anotes">Tell us about the deal</label>
-              <textarea id="anotes" name="notes" placeholder="Timeline, strategy, rehab plans, rental income, questions — anything that helps us give better feedback…" style="min-height:100px;"></textarea>
-            </div>
-
-            <button type="submit" class="btn-primary btn-full">Submit for Review</button>
-            <p class="form-fine">No credit pull · No obligation · 24-hour response</p>
-          </form>
-
-          <div id="appSuccess" style="display:none;" class="form-success" aria-live="polite">
-            <div class="success-check">✓</div>
-            <h3>Deal submitted.</h3>
-            <p>We'll review your scenario and be in touch within 24 hours — often sooner for deals with complete details.</p>
-          </div>
+        <div>
+          <div class="guide-stat-num">10 days</div>
+          <div class="guide-stat-label">Average close</div>
         </div>
-
+        <div>
+          <div class="guide-stat-num">No</div>
+          <div class="guide-stat-label">Obligation to proceed</div>
+        </div>
       </div>
     </div>
   </section>
+
+  <section class="section section-deep">
+    <div class="container">
+      <div class="form-layout">
+        <div class="form-copy">
+          <div class="eyebrow">What to expect</div>
+          <h2>How the review process works.</h2>
+          <p>Submit your deal details below. We review every submission personally — no automated responses, no offshore call center.</p>
+          <div class="copy-points">
+            <div class="copy-point">
+              <strong>Step 1 — Submit</strong>
+              <span>Fill out the form with as much detail as you have. Partial info is fine — we can work with what you have.</span>
+            </div>
+            <div class="copy-point">
+              <strong>Step 2 — Review</strong>
+              <span>Chad reviews your scenario within one business day and identifies the best program fit.</span>
+            </div>
+            <div class="copy-point">
+              <strong>Step 3 — Connect</strong>
+              <span>We schedule a quick call to walk through the deal, confirm details, and move toward a term sheet.</span>
+            </div>
+            <div class="copy-point">
+              <strong>Step 4 — Close</strong>
+              <span>Once terms are confirmed, most deals close in 10 business days.</span>
+            </div>
+          </div>
+          <div style="margin-top:32px; padding:24px; background:var(--navy); border-top:2px solid var(--gold);">
+            <p style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:12px;">Trust Signals</p>
+            <p style="color:var(--text-muted); font-size:14px; font-weight:300; line-height:1.75;">17+ years institutional lending · Direct lender relationships · Florida-based, nationwide · Deal-first approach · No automated review</p>
+          </div>
+        </div>
+        <div class="form-card">
+          <p style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:28px;">Deal Details</p>
+
+          <div class="grid-2">
+            <div class="field"><label>Investor Experience</label>
+              <select><option>First investment deal</option><option>1–3 deals completed</option><option>4–10 deals completed</option><option>10+ deals completed</option></select></div>
+            <div class="field"><label>Loan Type Needed</label>
+              <select><option>DSCR — Long-term rental</option><option>Fix &amp; Flip</option><option>Bridge loan</option><option>Cash-out refinance</option><option>Not sure — need guidance</option></select></div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field"><label>Property Address</label><input type="text" placeholder="123 Main St, Tampa FL 33601"/></div>
+            <div class="field"><label>Listing URL (optional)</label><input type="text" placeholder="Zillow, Realtor, MLS link"/></div>
+          </div>
+
+          <div class="grid-3">
+            <div class="field"><label>Property Type</label>
+              <select><option>Single Family</option><option>Duplex</option><option>Triplex</option><option>Fourplex</option><option>Condo</option><option>5–10 Units</option><option>10+ Units</option><option>Mixed Use</option><option>Commercial</option></select></div>
+            <div class="field"><label>Transaction Type</label>
+              <select><option>Purchase</option><option>Refinance</option><option>Cash-out refinance</option></select></div>
+            <div class="field"><label>Deal Status</label>
+              <select><option>Property identified</option><option>Under contract</option><option>Making offers</option><option>Still searching</option><option>Already own — refi</option></select></div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field"><label>Purchase Price</label><input type="text" placeholder="$325,000"/></div>
+            <div class="field"><label>Estimated Current Value / ARV</label><input type="text" placeholder="$420,000"/></div>
+          </div>
+
+          <div class="grid-3">
+            <div class="field"><label>Loan Amount Needed</label><input type="text" placeholder="$260,000"/></div>
+            <div class="field"><label>Monthly Gross Rent</label><input type="text" placeholder="$2,400"/></div>
+            <div class="field"><label>Rehab Budget</label><input type="text" placeholder="$0 if N/A"/></div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field"><label>Purchasing Entity / LLC Name</label><input type="text" placeholder="XYZ Investments LLC"/></div>
+            <div class="field"><label>Closing Timeline</label>
+              <select><option>ASAP — under contract</option><option>10–30 days</option><option>30–60 days</option><option>60–90 days</option><option>Planning ahead</option></select></div>
+          </div>
+
+          <div style="border-top:1px solid var(--border-faint); margin:24px 0; padding-top:24px;">
+            <p style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;">Your Information</p>
+          </div>
+
+          <div class="grid-2">
+            <div class="field"><label>First Name</label><input type="text" placeholder="Chad"/></div>
+            <div class="field"><label>Last Name</label><input type="text" placeholder="Evers"/></div>
+          </div>
+          <div class="grid-2">
+            <div class="field"><label>Email</label><input type="email" placeholder="you@email.com"/></div>
+            <div class="field"><label>Phone</label><input type="text" placeholder="(XXX) XXX-XXXX"/></div>
+          </div>
+          <div class="grid-2">
+            <div class="field"><label>State You Invest In</label><input type="text" placeholder="Florida"/></div>
+            <div class="field"><label>Credit Score Range (estimate)</label>
+              <select><option>760+</option><option>720–759</option><option>680–719</option><option>660–679</option><option>Below 660</option><option>Not sure</option></select></div>
+          </div>
+
+          <div class="field"><label>Tell Us About the Deal</label>
+            <textarea placeholder="Strategy, timing, questions, concerns — anything that helps us understand the scenario."></textarea></div>
+
+          <div class="field"><label>How Did You Hear About Us?</label>
+            <select><option>Realtor referral</option><option>Google search</option><option>Social media</option><option>Word of mouth</option><option>Chad directly</option><option>Other</option></select></div>
+
+          <button type="button" class="btn btn-primary btn-full" onclick="submitApp()">Submit Deal for Review</button>
+          <p class="form-note">No credit pull. No obligation. We review every submission personally and respond within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<footer class="footer">
+<footer class="site-footer">
   <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span class="logo-mark">C</span>
-        <div><strong>Capvia</strong><span>Investor Capital &amp; Deal Advisory</span></div>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="brand-num">46</span>
+          <span class="brand-amp">&amp;</span>
+          <span class="brand-num">2</span>
+          <span class="brand-word">Partners</span>
+        </div>
+        <p class="footer-copy">Investor capital and deal advisory. Tampa, Florida. Nationwide lending.</p>
       </div>
-      <div class="footer-nav-group">
-        <h4>Investors</h4>
-        <a href="bpl.html">What Is BPL?</a>
+      <div class="footer-col">
+        <h4>Programs</h4>
         <a href="dscr.html">DSCR Loans</a>
         <a href="fix-and-flip.html">Fix &amp; Flip</a>
-        <a href="index.html#dealform">Review My Deal</a>
+        <a href="application.html">Business Purpose</a>
       </div>
-      <div class="footer-nav-group">
-        <h4>Programs</h4>
-        <a href="bpl.html">Business Purpose Loans</a>
-        <a href="dscr.html">DSCR Rental Loans</a>
-        <a href="fix-and-flip.html">Fix &amp; Flip Bridge</a>
-        <a href="index.html#dealform">Bank Statement Loans</a>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Chad Evers</a>
+        <a href="partners.html">Realtor Partners</a>
       </div>
-      <div class="footer-nav-group">
-        <h4>Partners</h4>
-        <a href="partners.html">Realtor Program</a>
-        <a href="partners.html">Refer a Deal</a>
-        <a href="index.html#faq">FAQ</a>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:XXXXXXXXXX">(XXX) XXX-XXXX</a>
+        <a href="mailto:chad@462partners.com">chad@462partners.com</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Capvia. All rights reserved.</span>
-      <span>Not a commitment to lend. Illustrative only.</span>
+      <div class="footer-legal">© 2025 462 Partners LLC · Tampa, Florida</div>
+      <div class="footer-disclaimer">462 Partners LLC is a mortgage broker, not a lender. Not a commitment to lend.</div>
     </div>
   </div>
 </footer>
 
-<div class="mobile-sticky-cta" id="mobileCta">
-  <a href="#application" class="mobile-sticky-btn">Submit My Deal →</a>
-  <a href="tel:+1XXXXXXXXXX" class="mobile-sticky-call">Call Us</a>
-</div>
-
-<script src="script.js" defer></script>
+<script src="script.js"></script>
 <script>
-  document.getElementById('appForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name  = document.getElementById('aname');
-    const email = document.getElementById('aemail');
-    if (!name.value.trim())  { name.focus();  return; }
-    if (!email.value.trim()) { email.focus(); return; }
-    this.style.display = 'none';
-    document.getElementById('appSuccess').style.display = 'block';
-  });
+function submitApp() { window.location.href = 'thanks.html'; }
 </script>
 </body>
 </html>

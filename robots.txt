@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://www.capvia.com/sitemap.xml
+Sitemap: https://462partners.com/sitemap.xml
