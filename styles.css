@@ -451,8 +451,85 @@ body {
   flex-wrap: wrap;
 }
 
-/* Hero right */
-.hero-right {
+/* Hero proof card (replaces stat stack) */
+.hero-proof-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.hero-proof-header {
+  background: var(--ink);
+  padding: 12px 24px;
+}
+
+.hero-proof-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hero-proof-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-proof-item-last {
+  border-bottom: none;
+}
+
+.hero-proof-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--gold-faint2);
+  border: 1px solid var(--gold-faint2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  color: var(--gold);
+  font-style: normal;
+}
+
+.hero-proof-headline {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 3px;
+  line-height: 1.2;
+}
+
+.hero-proof-detail {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.hero-proof-footer {
+  background: var(--cream-dark);
+  padding: 10px 24px;
+  border-top: 1px solid var(--line);
+}
+
+.hero-proof-free {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -988,10 +1065,11 @@ body {
   font-family: var(--font-display);
   font-size: 56px;
   font-weight: 900;
-  color: rgba(28,26,23,0.06);
+  color: var(--gold);
   letter-spacing: -0.04em;
   line-height: 1;
   margin-bottom: 8px;
+  opacity: 0.75;
 }
 
 .how-body h3 {
