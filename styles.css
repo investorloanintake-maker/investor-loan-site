@@ -52,7 +52,7 @@ a { color: inherit; text-decoration: none; }
 
 body {
   font-family: var(--font-body);
-  font-size: 17px;           /* up from 16px */
+  font-size: 18px;
   line-height: 1.7;
   color: var(--ink);
   background: var(--cream);
@@ -141,7 +141,7 @@ body {
   background: var(--ink);
   color: var(--cream);
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.01em;
   padding: 13px 24px;
@@ -165,7 +165,7 @@ body {
   background: transparent;
   color: var(--ink-mid);
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   padding: 13px 24px;
   border: 1.5px solid var(--line);
@@ -186,7 +186,7 @@ body {
   background: var(--gold);
   color: var(--white);
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   padding: 13px 24px;
   border: 1.5px solid var(--gold);
@@ -203,7 +203,7 @@ body {
   background: transparent;
   color: rgba(255,255,255,0.8);
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
   padding: 13px 24px;
   border: 1.5px solid rgba(255,255,255,0.2);
@@ -220,7 +220,7 @@ body {
   background: none;
   border: none;
   color: var(--ink-soft);
-  font-size: 13px;
+  font-size: 15px;
   cursor: pointer;
   padding: 12px 0 0;
   display: block;
@@ -292,7 +292,7 @@ body {
 }
 
 .nav-links a {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
   color: var(--ink-soft);
   text-decoration: none;
@@ -352,7 +352,7 @@ body {
 }
 
 .mobile-drawer a {
-  font-size: 15px;
+  font-size: 18px;
   color: var(--ink-mid);
   padding: 10px 0;
   border-bottom: 1px solid var(--line-soft);
@@ -493,7 +493,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 20px;
   flex-shrink: 0;
   color: var(--gold);
   font-style: normal;
@@ -501,7 +501,7 @@ body {
 
 .hero-proof-headline {
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--ink);
   letter-spacing: -0.01em;
@@ -510,7 +510,7 @@ body {
 }
 
 .hero-proof-detail {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--ink-soft);
   line-height: 1.55;
 }
@@ -703,7 +703,7 @@ body {
 }
 
 .path-card p {
-  font-size: 15px;
+  font-size: 18px;
   color: var(--ink-mid);
   line-height: 1.7;
   margin-bottom: 24px;
@@ -716,7 +716,7 @@ body {
 }
 
 .link-arrow {
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--ink);
   text-decoration: none;
@@ -729,7 +729,7 @@ body {
 .link-arrow:hover { color: var(--gold); gap: 8px; }
 
 .link-plain {
-  font-size: 13px;
+  font-size: 20px;
   color: var(--ink-soft);
   text-decoration: none;
   transition: color .2s;
@@ -783,7 +783,7 @@ body {
 }
 
 .bpl-sub {
-  font-size: 16px;
+  font-size: 20px;
   color: rgba(255,255,255,0.78);
   line-height: 1.75;
   margin-bottom: 14px;
@@ -809,7 +809,7 @@ body {
 
 .bpl-compare-row span {
   padding: 14px 18px;
-  font-size: 13px;
+  font-size: 20px;
   color: rgba(255,255,255,0.55);
   line-height: 1.4;
 }
@@ -869,7 +869,7 @@ body {
 
 .testimonial-stars {
   color: var(--gold);
-  font-size: 13px;
+  font-size: 20px;
   letter-spacing: 2px;
   margin-bottom: 16px;
 }
@@ -896,7 +896,7 @@ body {
   background: var(--ink);
   color: var(--gold);
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -906,7 +906,7 @@ body {
 
 .testimonial footer strong {
   display: block;
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--ink);
 }
@@ -979,7 +979,7 @@ body {
 .program-featured h3 { color: var(--white); }
 
 .program p {
-  font-size: 15px;
+  font-size: 18px;
   color: var(--ink-mid);
   line-height: 1.7;
   margin-bottom: 20px;
@@ -996,7 +996,7 @@ body {
 }
 
 .program li {
-  font-size: 14px;
+  font-size: 17px;
   color: var(--ink-mid);
   padding-left: 16px;
   position: relative;
@@ -1014,7 +1014,7 @@ body {
 .program-featured li::before { color: var(--gold-light); }
 
 .program-link {
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--ink);
   text-decoration: none;
@@ -1082,7 +1082,7 @@ body {
 }
 
 .how-body p {
-  font-size: 14px;
+  font-size: 17px;
   color: var(--ink-soft);
   line-height: 1.7;
 }
@@ -1115,7 +1115,7 @@ body {
 }
 
 .form-copy > p {
-  font-size: 15px;
+  font-size: 18px;
   color: var(--ink-soft);
   margin-bottom: 32px;
   line-height: 1.65;
@@ -1134,7 +1134,7 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 20px;
   color: var(--ink-mid);
   font-weight: 400;
 }
@@ -1147,7 +1147,7 @@ body {
 .form-notes { display: flex; flex-direction: column; gap: 14px; }
 
 .form-notes p {
-  font-size: 13px;
+  font-size: 20px;
   color: var(--ink-soft);
   line-height: 1.6;
 }
@@ -1257,7 +1257,7 @@ body {
   background: var(--cream);
   border: 1px solid var(--line);
   color: var(--ink);
-  font-size: 14px;
+  font-size: 17px;
   font-family: var(--font-body);
   outline: none;
   transition: border-color .2s, background .2s;
@@ -1339,7 +1339,7 @@ body {
 }
 
 .form-success p {
-  font-size: 14px;
+  font-size: 17px;
   color: var(--ink-soft);
   line-height: 1.65;
 }
@@ -1372,7 +1372,7 @@ body {
 }
 
 .partner-copy p {
-  font-size: 15px;
+  font-size: 18px;
   color: var(--ink-soft);
   line-height: 1.7;
 }
@@ -1403,20 +1403,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 17px;
   flex-shrink: 0;
 }
 
 .partner-feat strong {
   display: block;
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--ink);
   margin-bottom: 3px;
 }
 
 .partner-feat p {
-  font-size: 13px;
+  font-size: 20px;
   color: var(--ink-soft);
   line-height: 1.5;
   margin: 0;
@@ -1450,7 +1450,7 @@ body {
 }
 
 .tool-card p {
-  font-size: 13px;
+  font-size: 20px;
   color: var(--ink-soft);
   margin-bottom: 20px;
   line-height: 1.6;
@@ -1461,7 +1461,7 @@ body {
   padding: 14px 16px;
   background: var(--white);
   border: 1px solid var(--line);
-  font-size: 13px;
+  font-size: 20px;
   color: var(--ink-mid);
   line-height: 1.6;
   min-height: 52px;
@@ -1533,7 +1533,7 @@ body {
 .faq-item[open] summary { color: var(--gold); }
 
 .faq-item p {
-  font-size: 15px;
+  font-size: 18px;
   color: var(--ink-mid);
   line-height: 1.8;
   padding: 0 0 24px;
@@ -1581,7 +1581,7 @@ body {
 }
 
 .final-cta p {
-  font-size: 16px;
+  font-size: 20px;
   color: rgba(255,255,255,0.55);
   line-height: 1.65;
   margin-bottom: 36px;
@@ -1662,7 +1662,7 @@ body {
 }
 
 .footer-nav-group a {
-  font-size: 13px;
+  font-size: 15px;
   color: rgba(255,255,255,0.55);
   text-decoration: none;
   padding: 5px 0;
