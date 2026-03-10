@@ -1933,3 +1933,238 @@ body {
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
 }
+
+/* ═══════════════════════════════════════════
+   PARTNER ECOSYSTEM SECTION
+═══════════════════════════════════════════ */
+.ecosystem-section {
+  background: var(--ink);
+  padding: clamp(72px, 9vw, 112px) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.ecosystem-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(184,129,30,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ecosystem-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.ecosystem-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.8vw, 46px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+  max-width: 640px;
+}
+
+.ecosystem-title em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.ecosystem-sub {
+  font-size: clamp(16px, 1.5vw, 18px);
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  max-width: 580px;
+  margin-bottom: 0;
+}
+
+.ecosystem-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 7vw, 96px);
+  align-items: center;
+  margin-top: clamp(48px, 6vw, 72px);
+}
+
+/* Hub graphic */
+.ecosystem-hub {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+}
+
+.eco-center {
+  position: relative;
+  z-index: 10;
+  width: 110px;
+  height: 110px;
+  background: var(--gold);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+}
+
+.eco-center-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(20,18,16,0.65);
+  margin-bottom: 3px;
+}
+
+.eco-center-name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.eco-ring {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.eco-spoke {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0;
+  width: 1px;
+  background: linear-gradient(to right, rgba(184,129,30,0.5), rgba(184,129,30,0.08));
+  z-index: 1;
+}
+
+.eco-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.eco-node-inner {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 10px 14px;
+  text-align: center;
+  min-width: 90px;
+  transition: border-color .2s, background .2s;
+  cursor: default;
+}
+
+.eco-node-inner:hover {
+  border-color: rgba(184,129,30,0.5);
+  background: rgba(184,129,30,0.06);
+}
+
+.eco-node-icon {
+  font-size: 18px;
+  margin-bottom: 4px;
+  line-height: 1;
+}
+
+.eco-node-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+}
+
+/* Right column — partner cards */
+.ecosystem-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.eco-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 22px;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.02);
+  transition: border-color .2s, background .2s;
+  cursor: default;
+}
+
+.eco-card:hover {
+  border-color: rgba(184,129,30,0.35);
+  background: rgba(184,129,30,0.04);
+}
+
+.eco-card-icon {
+  width: 34px;
+  height: 34px;
+  background: rgba(184,129,30,0.12);
+  border: 1px solid rgba(184,129,30,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.eco-card-body strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 3px;
+  letter-spacing: -0.01em;
+}
+
+.eco-card-body p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.ecosystem-cta {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.ecosystem-cta-text {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+  flex: 1;
+  min-width: 200px;
+}
+
+@media (max-width: 900px) {
+  .ecosystem-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .ecosystem-hub {
+    min-height: 300px;
+  }
+  .eco-center {
+    width: 90px;
+    height: 90px;
+  }
+}
+
