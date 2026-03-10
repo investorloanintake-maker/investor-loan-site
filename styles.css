@@ -1925,3 +1925,11 @@ body {
   margin-left: 3px;
 }
 .logo-text { display: flex; align-items: baseline; gap: 0; }
+
+/* ── Brand concept — dor underline ─────────────────────────────── */
+.dor {
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
