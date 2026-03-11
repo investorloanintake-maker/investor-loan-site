@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── HubSpot config — paste your Form GUID below ── */
   const HS_PORTAL_ID  = '245454217';
-  const HS_FORM_GUID  = 'YOUR_FORM_GUID_HERE'; // ← replace with GUID from HubSpot form embed
+  const HS_FORM_GUID  = 'e463e10b-4cb3-4d79-8915-2d6c62d4cc58';
 
   if (submitBtn) {
     submitBtn.addEventListener('click', async () => {
