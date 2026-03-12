@@ -53,27 +53,53 @@ body {
 }
 
 /* NAV */
-nav {
+.nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 50;
-  padding: 16px 48px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background: rgba(10,12,15,0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
 
-.nav-brand {
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 48px;
+  gap: 32px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 34px;
+  height: 34px;
+  background: var(--gold);
+  color: var(--bg);
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-text {
   font-family: 'Playfair Display', serif;
   font-size: 18px;
   font-weight: 700;
   color: var(--gold);
   letter-spacing: 0.02em;
-  text-decoration: none;
 }
+
+.logo-sub { font-weight: 400; }
 
 .nav-links {
   display: flex;
@@ -92,6 +118,15 @@ nav {
 }
 
 .nav-links a:hover { color: var(--gold); }
+.nav-gold { color: var(--gold) !important; }
+
+.nav-phone {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
 
 .nav-cta {
   font-family: 'JetBrains Mono', monospace;
@@ -104,9 +139,50 @@ nav {
   text-decoration: none;
   font-weight: 500;
   transition: opacity 0.2s;
+  white-space: nowrap;
 }
 
 .nav-cta:hover { opacity: 0.85; }
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--text);
+  transition: transform .25s, opacity .25s;
+}
+
+.burger.open span:first-child { transform: translateY(6.5px) rotate(45deg); }
+.burger.open span:last-child  { transform: translateY(-6.5px) rotate(-45deg); }
+
+.mobile-drawer {
+  display: none;
+  flex-direction: column;
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--border);
+  gap: 4px;
+}
+
+.mobile-drawer a {
+  font-size: 16px;
+  color: var(--text-dim);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+}
+
+.mobile-drawer a:last-child { border-bottom: none; }
+.drawer-cta { color: var(--gold) !important; font-weight: 500 !important; }
 
 /* HERO */
 .hero {
@@ -849,8 +925,10 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  nav { padding: 16px 24px; }
-  .nav-links { display: none; }
+  .nav-inner { padding: 16px 24px; }
+  .nav-links, .nav-cta, .nav-phone { display: none; }
+  .burger { display: flex; }
+  .mobile-drawer.open { display: flex; }
   .hero-inner, .page-wrap { padding: 0 24px; }
   .content-layout { grid-template-columns: 1fr; }
   .sidebar { position: static; }
@@ -866,8 +944,8 @@ footer {
 
 <div class="progress-bar" id="progressBar"></div>
 
-<header class="site-header" id="siteHeader">
-  <div class="header-inner">
+<header class="nav" id="nav">
+  <div class="nav-inner">
     <a href="index.html" class="logo">
       <span class="logo-mark">V</span>
       <span class="logo-text">Viador <span class="logo-sub">Partners</span></span>
