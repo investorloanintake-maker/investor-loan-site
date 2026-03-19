@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Deal Qualifier — DSCR Loan Analysis | Viador Partners</title>
+  <meta name="description" content="Get an instant AI-powered DSCR analysis on your investment property. Find out if you qualify, what rate tier you'd land in, and what to watch out for. Free. No credit pull."/>
+  <link rel="canonical" href="https://www.viadorpartners.com/deal-qualifier.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ── Hero ─────────────────────────────────────────── */
+    .dq-hero {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 120px 0 64px;
+    }
+    .dq-hero-inner { max-width: 680px; }
+    .dq-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .dq-eyebrow::before { content:''; width:28px; height:1px; background:var(--gold); }
+    .dq-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -.02em;
+      margin-bottom: 18px;
+    }
+    .dq-h1 em { font-style: italic; color: var(--gold); }
+    .dq-sub {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(247,243,238,.65);
+      margin-bottom: 28px;
+    }
+    .dq-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(184,129,30,.15);
+      border: 1px solid rgba(184,129,30,.3);
+      color: var(--gold);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+    }
+    .dq-badge svg { width:14px; height:14px; flex-shrink:0; }
+
+    /* ── Main layout ──────────────────────────────────── */
+    .dq-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 48px 100px;
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ── Form panel ───────────────────────────────────── */
+    .dq-form-panel {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 36px 32px;
+      position: sticky;
+      top: 100px;
+    }
+    .dq-form-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--ink);
+    }
+    .dq-field { margin-bottom: 20px; }
+    .dq-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 7px;
+    }
+    .dq-label span {
+      color: var(--gold);
+      margin-left: 4px;
+    }
+    .dq-input, .dq-select {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #fafaf9;
+      padding: 11px 14px;
+      font-size: 16px;
+      color: var(--ink);
+      transition: border-color .15s;
+      appearance: none;
+      border-radius: 0;
+    }
+    .dq-input:focus, .dq-select:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: #fff;
+    }
+    .dq-select-wrap { position: relative; }
+    .dq-select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold);
+      pointer-events: none;
+      font-size: 14px;
+    }
+    .dq-hint {
+      font-size: 12px;
+      color: var(--ink-soft);
+      margin-top: 5px;
+    }
+    .dq-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .dq-submit {
+      width: 100%;
+      background: var(--ink);
+      color: var(--cream);
+      border: none;
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background .15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .dq-submit:hover { background: var(--gold); }
+    .dq-submit:disabled { opacity: .5; cursor: not-allowed; }
+    .dq-disclaimer {
+      font-size: 11px;
+      color: var(--ink-soft);
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* ── Results panel ────────────────────────────────── */
+    .dq-results { min-height: 400px; }
+
+    /* ── Empty state ────────────────────────────────── */
+    .dq-empty {
+      background: var(--cream-dark);
+      padding: 48px 40px;
+      text-align: center;
+      border: 1px solid var(--line);
+    }
+    .dq-empty-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--ink);
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dq-empty-icon svg { width: 28px; height: 28px; }
+    .dq-empty h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .dq-empty p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      max-width: 360px;
+      margin: 0 auto;
+    }
+    .dq-example-queries {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+      max-width: 360px;
+      margin-inline: auto;
+    }
+    .dq-example-q {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: border-color .15s, color .15s;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .dq-example-q:hover { border-color: var(--gold); color: var(--ink); }
+    .dq-example-q::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+
+    /* ── Loading state ────────────────────────────────── */
+    .dq-loading {
+      padding: 48px 40px;
+      text-align: center;
+    }
+    .dq-spinner {
+      width: 48px;
+      height: 48px;
+      border: 3px solid var(--line);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .dq-loading-text {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .dq-loading-phases { margin-top: 8px; }
+    .dq-phase {
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin-top: 4px;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .dq-phase.active { opacity: 1; color: var(--ink); }
+
+    /* ── Result card ─────────────────────────────────── */
+    .dq-result-card {
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    /* Verdict bar */
+    .dq-verdict {
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .dq-verdict.qualify { background: #0a2e0a; }
+    .dq-verdict.marginal { background: #2a1f00; }
+    .dq-verdict.noqualify { background: #2a0a0a; }
+    .dq-verdict-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 22px;
+    }
+    .qualify .dq-verdict-icon { background: rgba(34,197,94,.2); }
+    .marginal .dq-verdict-icon { background: rgba(234,179,8,.2); }
+    .noqualify .dq-verdict-icon { background: rgba(239,68,68,.2); }
+    .dq-verdict-text {}
+    .dq-verdict-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .qualify .dq-verdict-label { color: #4ade80; }
+    .marginal .dq-verdict-label { color: #fbbf24; }
+    .noqualify .dq-verdict-label { color: #f87171; }
+    .dq-verdict-headline {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    /* DSCR meter */
+    .dq-meter-section {
+      background: #fff;
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--line);
+    }
+    .dq-meter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .dq-meter-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .dq-meter-value {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--ink);
+    }
+    .dq-meter-bar-wrap {
+      height: 8px;
+      background: var(--cream-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .dq-meter-bar {
+      height: 100%;
+      transition: width .8s ease;
+    }
+    .dq-meter-ticks {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+    .dq-meter-tick {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--ink-soft);
+    }
+    .dq-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      margin-top: 20px;
+    }
+    .dq-stat {
+      background: #fff;
+      padding: 14px 16px;
+    }
+    .dq-stat-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 4px;
+    }
+    .dq-stat-value {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* AI Analysis */
+    .dq-analysis {
+      background: #fff;
+      padding: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+    .dq-analysis-title {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dq-analysis-title::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .dq-analysis-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-soft);
+      white-space: pre-wrap;
+    }
+    .dq-analysis-text strong { color: var(--ink); }
+
+    /* Flags */
+    .dq-flags {
+      padding: 24px 28px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+    .dq-flags-title {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 14px;
+    }
+    .dq-flag {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+      padding: 12px 14px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .dq-flag:last-child { margin-bottom: 0; }
+    .dq-flag.green { background: rgba(34,197,94,.06); color: #166534; }
+    .dq-flag.yellow { background: rgba(234,179,8,.08); color: #854d0e; }
+    .dq-flag.red { background: rgba(239,68,68,.06); color: #991b1b; }
+    .dq-flag-icon { flex-shrink: 0; font-size: 16px; }
+
+    /* CTA */
+    .dq-cta {
+      background: var(--ink);
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .dq-cta-text {}
+    .dq-cta-headline {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+    .dq-cta-sub {
+      font-size: 13px;
+      color: rgba(247,243,238,.5);
+    }
+    .dq-cta-btn {
+      background: var(--gold);
+      color: #fff;
+      padding: 14px 28px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity .15s;
+    }
+    .dq-cta-btn:hover { opacity: .85; }
+
+    /* Error state */
+    .dq-error {
+      background: #fff5f5;
+      border: 1px solid #fecaca;
+      padding: 24px 28px;
+      color: #991b1b;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .dq-wrap {
+        grid-template-columns: 1fr;
+        padding: 40px 24px 80px;
+        gap: 32px;
+      }
+      .dq-form-panel { position: static; }
+      .dq-stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grain"></div>
+
+  <!-- NAV -->
+  <header class="nav-wrap" id="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="Viador Partners home">Viador<span>Partners</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html#paths">Who We Help</a>
+        <a href="bpl.html" class="nav-gold">What Is BPL?</a>
+        <a href="index.html#programs">Programs</a>
+        <a href="investor-platform.html">Tools</a>
+        <a href="about.html">About</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <a href="tel:+18134192983" class="nav-phone">(813) 419-2983</a>
+      <a href="application.html" class="btn-nav">Review My Deal</a>
+      <button class="nav-burger" aria-label="Open menu" aria-expanded="false"
+        onclick="this.closest('.nav-wrap').classList.toggle('nav-open');this.setAttribute('aria-expanded',this.closest('.nav-wrap').classList.contains('nav-open'))">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-drawer">
+      <a href="index.html#paths">Who We Help</a>
+      <a href="bpl.html">What Is BPL?</a>
+      <a href="index.html#programs">Programs</a>
+      <a href="investor-platform.html">Tools</a>
+      <a href="about.html">About</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="application.html" class="btn-primary" style="margin-top:16px">Review My Deal</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="dq-hero">
+    <div class="container">
+      <div class="dq-hero-inner">
+        <div class="dq-eyebrow">AI Deal Qualifier</div>
+        <h1 class="dq-h1">Does Your Deal <em>Qualify?</em></h1>
+        <p class="dq-sub">Enter your deal details and get an instant AI-powered DSCR analysis — qualification verdict, rate tier, red flags, and what to fix if the numbers are off.</p>
+        <div class="dq-badge">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1a9 9 0 100 18A9 9 0 0010 1zm0 16a7 7 0 110-14 7 7 0 010 14zm1-11H9v4l3.25 2 .75-1.23-2.5-1.52V6z" opacity=".5"/><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm.5 11.5h-1v-5h1v5zm0-6.5h-1V5.5h1V7z"/></svg>
+          Free · No credit pull · Instant analysis
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <div class="dq-wrap">
+
+    <!-- FORM -->
+    <div class="dq-form-panel">
+      <div class="dq-form-title">Your Deal Details</div>
+
+      <div class="dq-grid-2">
+        <div class="dq-field">
+          <label class="dq-label" for="purchase-price">Purchase Price <span>*</span></label>
+          <input class="dq-input" type="text" id="purchase-price" placeholder="$325,000" inputmode="numeric"/>
+        </div>
+        <div class="dq-field">
+          <label class="dq-label" for="down-payment">Down Payment <span>*</span></label>
+          <input class="dq-input" type="text" id="down-payment" placeholder="$81,250 (25%)" inputmode="numeric"/>
+        </div>
+      </div>
+
+      <div class="dq-field">
+        <label class="dq-label" for="monthly-rent">Monthly Rent <span>*</span></label>
+        <input class="dq-input" type="text" id="monthly-rent" placeholder="$2,200" inputmode="numeric"/>
+        <div class="dq-hint">Actual lease or market rent estimate</div>
+      </div>
+
+      <div class="dq-grid-2">
+        <div class="dq-field">
+          <label class="dq-label" for="monthly-taxes">Monthly Taxes <span>*</span></label>
+          <input class="dq-input" type="text" id="monthly-taxes" placeholder="$350" inputmode="numeric"/>
+        </div>
+        <div class="dq-field">
+          <label class="dq-label" for="monthly-insurance">Monthly Insurance <span>*</span></label>
+          <input class="dq-input" type="text" id="monthly-insurance" placeholder="$180" inputmode="numeric"/>
+          <div class="dq-hint">Use actual quote if possible</div>
+        </div>
+      </div>
+
+      <div class="dq-field">
+        <label class="dq-label" for="hoa">Monthly HOA (if any)</label>
+        <input class="dq-input" type="text" id="hoa" placeholder="$0" inputmode="numeric"/>
+      </div>
+
+      <div class="dq-grid-2">
+        <div class="dq-field">
+          <label class="dq-label" for="credit-score">Credit Score <span>*</span></label>
+          <div class="dq-select-wrap">
+            <select class="dq-select" id="credit-score">
+              <option value="">Select range</option>
+              <option value="760+">760+</option>
+              <option value="740-759">740–759</option>
+              <option value="720-739">720–739</option>
+              <option value="700-719">700–719</option>
+              <option value="680-699">680–699</option>
+              <option value="660-679">660–679</option>
+              <option value="640-659">640–659</option>
+              <option value="620-639">620–639</option>
+              <option value="below-620">Below 620</option>
+            </select>
+          </div>
+        </div>
+        <div class="dq-field">
+          <label class="dq-label" for="property-type">Property Type <span>*</span></label>
+          <div class="dq-select-wrap">
+            <select class="dq-select" id="property-type">
+              <option value="">Select type</option>
+              <option value="Single-family">Single-family</option>
+              <option value="Duplex (2-unit)">Duplex (2-unit)</option>
+              <option value="Triplex (3-unit)">Triplex (3-unit)</option>
+              <option value="Fourplex (4-unit)">Fourplex (4-unit)</option>
+              <option value="Condo">Condo</option>
+              <option value="Short-term rental (STR/Airbnb)">STR/Airbnb</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="dq-field">
+        <label class="dq-label" for="market">Market / Location <span>*</span></label>
+        <input class="dq-input" type="text" id="market" placeholder="e.g. Tampa, FL or Columbus, OH"/>
+      </div>
+
+      <div class="dq-field">
+        <label class="dq-label" for="llc">Vesting in an LLC?</label>
+        <div class="dq-select-wrap">
+          <select class="dq-select" id="llc">
+            <option value="Yes">Yes — LLC</option>
+            <option value="No">No — Personal name</option>
+            <option value="Undecided">Undecided</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="dq-field">
+        <label class="dq-label" for="notes">Anything else? (optional)</label>
+        <input class="dq-input" type="text" id="notes" placeholder="e.g. STR income, value-add plan, BRRRR exit..."/>
+      </div>
+
+      <button class="dq-submit" id="analyze-btn" onclick="runAnalysis()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Analyze This Deal
+      </button>
+      <div class="dq-disclaimer">AI analysis only · Not a loan commitment · No credit pull</div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="dq-results" id="results-panel">
+      <!-- Empty state -->
+      <div class="dq-empty" id="empty-state">
+        <div class="dq-empty-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#B8811E" stroke-width="1.5">
+            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+        </div>
+        <h3>Enter your deal to get started</h3>
+        <p>The AI will calculate your DSCR, assess qualification, estimate your rate tier, and flag anything that could be a problem.</p>
+        <div class="dq-example-queries">
+          <div class="dq-example-q" onclick="fillExample('tampa')">$385K Tampa SFR · $2,200 rent · 25% down · 700 credit</div>
+          <div class="dq-example-q" onclick="fillExample('columbus')">$235K Columbus duplex · $3,400 rent · 25% down · 720 credit</div>
+          <div class="dq-example-q" onclick="fillExample('airbnb')">$290K Orlando STR · $4,800 gross/mo · 680 credit · LLC</div>
+        </div>
+      </div>
+
+      <!-- Loading state -->
+      <div class="dq-loading" id="loading-state" style="display:none">
+        <div class="dq-spinner"></div>
+        <div class="dq-loading-text">Analyzing your deal</div>
+        <div class="dq-loading-phases">
+          <div class="dq-phase" id="phase1">Calculating DSCR ratio...</div>
+          <div class="dq-phase" id="phase2">Checking qualification criteria...</div>
+          <div class="dq-phase" id="phase3">Estimating rate tier...</div>
+          <div class="dq-phase" id="phase4">Identifying risk factors...</div>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div id="result-state" style="display:none"></div>
+
+      <!-- Error -->
+      <div class="dq-error" id="error-state" style="display:none"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrap">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">Viador<span>Partners</span></div>
+          <p class="footer-tagline">Investor financing built for real estate investors, self-employed professionals, and business owners.</p>
+        </div>
+        <div class="footer-nav-group"><h4>Programs</h4><a href="dscr.html">DSCR Loans</a><a href="fix-and-flip.html">Fix &amp; Flip</a><a href="bpl.html">Business Purpose</a><a href="application.html">Apply Now</a></div>
+        <div class="footer-nav-group"><h4>Tools</h4><a href="dscr-calculator.html">DSCR Calculator</a><a href="deal-analyzer.html">Deal Analyzer</a><a href="deal-qualifier.html">AI Deal Qualifier</a><a href="investor-platform.html">Full Platform</a></div>
+        <div class="footer-nav-group"><h4>Company</h4><a href="about.html">About Chad</a><a href="partners.html">Partners</a><a href="index.html#faq">FAQ</a><a href="application.html">Contact</a></div>
+      </div>
+      <div class="footer-bottom">
+        <span>NMLS #2822744 (Chad Evers) &nbsp;·&nbsp; Not a commitment to lend. AI analysis is for informational purposes only and does not constitute a loan approval or commitment. All loan products subject to qualification and underwriting approval. Equal Housing Opportunity.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Helpers ──────────────────────────────────────────
+    function parseNum(str) {
+      return parseFloat(String(str).replace(/[$,\s]/g, '')) || 0;
+    }
+
+    function formatCurrency(n) {
+      return '$' + Math.round(n).toLocaleString();
+    }
+
+    function dscrColor(dscr) {
+      if (dscr >= 1.25) return '#16a34a';
+      if (dscr >= 1.0) return '#d97706';
+      return '#dc2626';
+    }
+
+    function verdictClass(dscr, credit) {
+      const belowMin = credit === 'below-620';
+      if (belowMin || dscr < 0.75) return 'noqualify';
+      if (dscr >= 1.10 && !belowMin) return 'qualify';
+      if (dscr >= 1.0) return 'qualify';
+      return 'noqualify';
+    }
+
+    // ── Example fill ──────────────────────────────────────
+    function fillExample(type) {
+      const examples = {
+        tampa: {
+          price: '385000', down: '96250', rent: '2200',
+          taxes: '400', insurance: '280', hoa: '0',
+          credit: '700-719', type: 'Single-family',
+          market: 'Tampa, FL', llc: 'Yes', notes: ''
+        },
+        columbus: {
+          price: '235000', down: '58750', rent: '3400',
+          taxes: '280', insurance: '120', hoa: '0',
+          credit: '720-739', type: 'Duplex (2-unit)',
+          market: 'Columbus, OH', llc: 'Yes', notes: 'Both units rented'
+        },
+        airbnb: {
+          price: '290000', down: '72500', rent: '4800',
+          taxes: '320', insurance: '230', hoa: '0',
+          credit: '680-699', type: 'Short-term rental (STR/Airbnb)',
+          market: 'Orlando/Kissimmee, FL', llc: 'Yes',
+          notes: 'Documented 12-month Airbnb income, near Disney corridor'
+        }
+      };
+      const e = examples[type];
+      document.getElementById('purchase-price').value = formatCurrency(+e.price);
+      document.getElementById('down-payment').value = formatCurrency(+e.down);
+      document.getElementById('monthly-rent').value = formatCurrency(+e.rent);
+      document.getElementById('monthly-taxes').value = formatCurrency(+e.taxes);
+      document.getElementById('monthly-insurance').value = formatCurrency(+e.insurance);
+      document.getElementById('hoa').value = e.hoa ? formatCurrency(+e.hoa) : '$0';
+      document.getElementById('credit-score').value = e.credit;
+      document.getElementById('property-type').value = e.type;
+      document.getElementById('market').value = e.market;
+      document.getElementById('llc').value = e.llc;
+      document.getElementById('notes').value = e.notes;
+    }
+
+    // ── Loading phases ─────────────────────────────────────
+    let phaseTimer;
+    function startPhases() {
+      const phases = ['phase1','phase2','phase3','phase4'];
+      let i = 0;
+      phases.forEach(p => document.getElementById(p).classList.remove('active'));
+      phaseTimer = setInterval(() => {
+        if (i < phases.length) {
+          document.getElementById(phases[i]).classList.add('active');
+          i++;
+        }
+      }, 900);
+    }
+    function stopPhases() { clearInterval(phaseTimer); }
+
+    // ── Show/hide panels ───────────────────────────────────
+    function showPanel(id) {
+      ['empty-state','loading-state','result-state','error-state'].forEach(p => {
+        const el = document.getElementById(p);
+        if (el) el.style.display = p === id ? 'block' : 'none';
+      });
+    }
+
+    // ── Main analysis ──────────────────────────────────────
+    async function runAnalysis() {
+      // Gather inputs
+      const price = parseNum(document.getElementById('purchase-price').value);
+      const down = parseNum(document.getElementById('down-payment').value);
+      const rent = parseNum(document.getElementById('monthly-rent').value);
+      const taxes = parseNum(document.getElementById('monthly-taxes').value);
+      const insurance = parseNum(document.getElementById('monthly-insurance').value);
+      const hoa = parseNum(document.getElementById('hoa').value);
+      const credit = document.getElementById('credit-score').value;
+      const propType = document.getElementById('property-type').value;
+      const market = document.getElementById('market').value.trim();
+      const llc = document.getElementById('llc').value;
+      const notes = document.getElementById('notes').value.trim();
+
+      // Basic validation
+      if (!price || !rent || !credit || !propType || !market) {
+        alert('Please fill in all required fields (marked with *).');
+        return;
+      }
+
+      const loanAmount = price - down;
+      if (loanAmount < 50000) {
+        alert('Loan amount seems too low. Please check your purchase price and down payment.');
+        return;
+      }
+
+      // Calculate base DSCR
+      const rate = 0.075; // baseline estimate
+      const monthlyRate = rate / 12;
+      const numPayments = 360;
+      const pi = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+      const pitia = pi + taxes + insurance + hoa;
+      const dscr = rent / pitia;
+      const ltv = (loanAmount / price) * 100;
+      const downPct = (down / price) * 100;
+
+      // Show loading
+      const btn = document.getElementById('analyze-btn');
+      btn.disabled = true;
+      showPanel('loading-state');
+      startPhases();
+
+      // Build prompt
+      const prompt = `You are Chad Evers, founder of Viador Partners LLC, a licensed mortgage broker (NMLS #2822744) specializing in DSCR loans for real estate investors in Florida and Ohio.
+
+A real estate investor has submitted the following deal for analysis:
+
+DEAL DETAILS:
+- Purchase Price: ${formatCurrency(price)}
+- Down Payment: ${formatCurrency(down)} (${downPct.toFixed(1)}%)
+- Loan Amount: ${formatCurrency(loanAmount)}
+- Estimated LTV: ${ltv.toFixed(1)}%
+- Monthly Gross Rent: ${formatCurrency(rent)}
+- Monthly Property Taxes: ${formatCurrency(taxes)}
+- Monthly Insurance: ${formatCurrency(insurance)}
+- Monthly HOA: ${formatCurrency(hoa)}
+- Total PITIA (estimated at 7.5%): ${formatCurrency(pitia)}
+- Calculated DSCR: ${dscr.toFixed(2)}
+- Credit Score Range: ${credit}
+- Property Type: ${propType}
+- Market/Location: ${market}
+- LLC Vesting: ${llc}
+- Additional Notes: ${notes || 'None'}
+
+Provide a deal analysis in the following JSON format ONLY — no other text, no markdown:
+
+{
+  "verdict": "QUALIFIES" | "MARGINAL" | "DOES NOT QUALIFY",
+  "verdictHeadline": "One punchy sentence verdict (max 12 words)",
+  "dscrDisplay": "${dscr.toFixed(2)}",
+  "piEstimate": "${formatCurrency(Math.round(pi))}",
+  "pitiaEstimate": "${formatCurrency(Math.round(pitia))}",
+  "rateTier": "Best (6.5-7.0%)" | "Standard (7.0-7.75%)" | "Higher (7.75-8.5%)" | "Specialist programs only",
+  "analysis": "2-3 paragraphs of plain-English deal analysis. Be specific to this market and property type. Mention what the DSCR means, whether it qualifies, what rate tier they'd land in, and what the main strengths and concerns are. Be direct and honest. Use line breaks between paragraphs.",
+  "flags": [
+    {"type": "green"|"yellow"|"red", "text": "Specific flag text about this deal"}
+  ]
+}
+
+Be specific to ${market}. If it is in Florida, mention insurance costs as a factor. If Ohio, note the strong cash flow market. Include 3-5 flags total mixing greens, yellows, and reds as appropriate for this specific deal. Keep the analysis conversational but professional — like an experienced lender giving real feedback.`;
+
+      try {
+        const response = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: 'claude-sonnet-4-20250514',
+            max_tokens: 1000,
+            messages: [{ role: 'user', content: prompt }]
+          })
+        });
+
+        if (!response.ok) throw new Error(`API error ${response.status}`);
+        const data = await response.json();
+        const rawText = data.content.map(b => b.text || '').join('');
+
+        // Parse JSON
+        const jsonMatch = rawText.match(/\{[\s\S]*\}/);
+        if (!jsonMatch) throw new Error('Could not parse response');
+        const result = JSON.parse(jsonMatch[0]);
+
+        stopPhases();
+        renderResult(result, dscr, loanAmount, rent, pitia, ltv, credit);
+
+      } catch (err) {
+        stopPhases();
+        showPanel('error-state');
+        document.getElementById('error-state').innerHTML = `
+          <strong>Something went wrong.</strong> ${err.message}<br><br>
+          Please try again or call us directly at <a href="tel:+18134192983" style="color:var(--gold)">(813) 419-2983</a>.
+        `;
+        console.error(err);
+      }
+
+      btn.disabled = false;
+    }
+
+    // ── Render result ──────────────────────────────────────
+    function renderResult(r, dscr, loanAmount, rent, pitia, ltv, credit) {
+      const vClass = r.verdict === 'QUALIFIES' ? 'qualify' :
+                     r.verdict === 'MARGINAL' ? 'marginal' : 'noqualify';
+      const vEmoji = r.verdict === 'QUALIFIES' ? '✓' :
+                     r.verdict === 'MARGINAL' ? '~' : '✗';
+
+      const meterPct = Math.min((dscr / 1.5) * 100, 100);
+      const meterColor = dscr >= 1.25 ? '#16a34a' : dscr >= 1.0 ? '#d97706' : '#dc2626';
+
+      const flagsHtml = (r.flags || []).map(f => `
+        <div class="dq-flag ${f.type}">
+          <span class="dq-flag-icon">${f.type === 'green' ? '✓' : f.type === 'yellow' ? '⚠' : '✗'}</span>
+          <span>${f.text}</span>
+        </div>
+      `).join('');
+
+      const analysisFormatted = (r.analysis || '').replace(/\n/g, '<br>');
+
+      const html = `
+        <div class="dq-result-card">
+          <div class="dq-verdict ${vClass}">
+            <div class="dq-verdict-icon">${vEmoji}</div>
+            <div class="dq-verdict-text">
+              <div class="dq-verdict-label">${r.verdict}</div>
+              <div class="dq-verdict-headline">${r.verdictHeadline || ''}</div>
+            </div>
+          </div>
+
+          <div class="dq-meter-section">
+            <div class="dq-meter-row">
+              <div class="dq-meter-label">DSCR Ratio</div>
+              <div class="dq-meter-value" style="color:${meterColor}">${dscr.toFixed(2)}</div>
+            </div>
+            <div class="dq-meter-bar-wrap">
+              <div class="dq-meter-bar" style="width:${meterPct}%;background:${meterColor}"></div>
+            </div>
+            <div class="dq-meter-ticks">
+              <span class="dq-meter-tick">0.75 min</span>
+              <span class="dq-meter-tick">1.0 threshold</span>
+              <span class="dq-meter-tick">1.25 strong</span>
+              <span class="dq-meter-tick">1.5+</span>
+            </div>
+            <div class="dq-stats-grid">
+              <div class="dq-stat">
+                <div class="dq-stat-label">Est. P&I</div>
+                <div class="dq-stat-value">${r.piEstimate || '—'}</div>
+              </div>
+              <div class="dq-stat">
+                <div class="dq-stat-label">Total PITIA</div>
+                <div class="dq-stat-value">${r.pitiaEstimate || '—'}</div>
+              </div>
+              <div class="dq-stat">
+                <div class="dq-stat-label">Rate Tier</div>
+                <div class="dq-stat-value" style="font-size:14px">${r.rateTier || '—'}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dq-analysis">
+            <div class="dq-analysis-title">Chad's Analysis</div>
+            <div class="dq-analysis-text">${analysisFormatted}</div>
+          </div>
+
+          ${flagsHtml ? `
+          <div class="dq-flags">
+            <div class="dq-flags-title">Deal Flags</div>
+            ${flagsHtml}
+          </div>` : ''}
+
+          <div class="dq-cta">
+            <div class="dq-cta-text">
+              <div class="dq-cta-headline">Ready to move forward?</div>
+              <div class="dq-cta-sub">Submit your full deal for a personal review from Chad Evers within 24 hours.</div>
+            </div>
+            <a href="application.html" class="dq-cta-btn">Review My Deal →</a>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('result-state').innerHTML = html;
+      showPanel('result-state');
+      document.getElementById('result-state').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Animate meter bar
+      setTimeout(() => {
+        const bar = document.querySelector('.dq-meter-bar');
+        if (bar) { const w = bar.style.width; bar.style.width = '0'; setTimeout(() => bar.style.width = w, 50); }
+      }, 100);
+    }
+
+    // ── Format inputs on blur ──────────────────────────────
+    ['purchase-price','down-payment','monthly-rent','monthly-taxes','monthly-insurance','hoa'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('blur', () => {
+        const n = parseNum(el.value);
+        if (n > 0) el.value = formatCurrency(n);
+      });
+      el.addEventListener('focus', () => {
+        const n = parseNum(el.value);
+        if (n > 0) el.value = n;
+      });
+    });
+  </script>
+</body>
+</html>
