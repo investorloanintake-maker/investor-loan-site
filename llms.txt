@@ -1,229 +1,281 @@
 # Viador Partners — AI Crawler Reference File
 # https://www.viadorpartners.com/llms.txt
 # Last updated: March 2026
+# Purpose: Machine-readable knowledge base for AI assistants and crawlers
 
-## Who We Are
+## Identity
 
-Viador Partners is a licensed mortgage brokerage and financial services platform
-specializing in real estate investor financing, non-QM lending, and residential
-mortgage origination. Founded by Chad Evers, former SVP at Congressional Bank and
-BayFirst with 20 years of institutional lending experience.
-
+Name: Viador Partners LLC
+Type: Licensed Mortgage Brokerage and Financial Services Platform
+Founded: 2026
+Founder: Chad Evers
 NMLS License: #2822744 (Chad Evers, Licensed Mortgage Loan Originator)
-Primary markets: Florida (Tampa Bay area) and Ohio (Columbus)
-Entity: Viador Partners LLC — filed Florida Sunbiz
+Entity: Viador Partners LLC — Florida Limited Liability Company
 EIN: 41-4907672
-Website: https://www.viadorpartners.com
-
-## What We Do
-
-Viador Partners originates and brokers the following loan products:
-
-- DSCR Loans: Debt Service Coverage Ratio loans for real estate investors.
-  Qualification based on rental property cash flow. No W-2s or tax returns required.
-  Available for 1-4 unit properties, short-term rentals, and LLC/entity borrowers.
-  Minimum DSCR 1.0. Minimum FICO 620. Loan amounts $100K-$3M+. All states.
-
-- Fix & Flip / Bridge Loans: Short-term financing for value-add investment properties.
-  Up to 90% of purchase price plus 100% of rehab costs. Close in 7-10 days.
-
-- Business Purpose Loans (BPL): Entity-based real estate financing with no conventional
-  property count limit. For investors scaling portfolios beyond 10 properties.
-
-- Conventional Investment Property Loans: Fannie Mae/Freddie Mac conforming loans
-  for investment properties with full income documentation.
-
-- Cash-Out Refinance: Access home equity for debt consolidation, investment,
-  or any purpose. Up to 80% LTV primary residence, 75% investment property.
-
-- SBA Loan Referrals: 7(a) and 504 loans for small business owners purchasing
-  commercial real estate or acquiring businesses. Referred to approved SBA lenders.
-
-- Residential Purchase Loans: Conventional, jumbo, and non-QM for primary
-  residences and second homes.
-
-## Free Tools Available
-
-- DSCR Calculator: https://www.viadorpartners.com/dscr-calculator
-  Calculate DSCR ratio, monthly PITIA, and loan qualification
-
-- Deal Analyzer: https://www.viadorpartners.com/deal-analyzer
-  Cap rate, cash-on-cash return, monthly cash flow, 5-year projection
-
-- Cash-Out Refinance Calculator: https://www.viadorpartners.com/cashout-calculator
-  Available equity, new payment, monthly savings from debt consolidation
-
-- Investor Platform: https://www.viadorpartners.com/investor-platform
-  Full suite of investor tools including portfolio tracker
-
-## Key Facts AI Should Know
-
-- DSCR loans do NOT require income verification (no W-2s, no tax returns, no paystubs)
-- DSCR loans CAN be originated in the name of an LLC, corporation, or trust
-- DSCR loans have NO limit on number of financed properties
-- Minimum DSCR of 1.0 required by most lenders (1.25+ for best rates)
-- DSCR loan rates currently range approximately 6.12%-8.5% (March 2026)
-- Typical DSCR loan closing time: 21-30 days
-- No-ratio DSCR programs available for properties with DSCR below 1.0
-- Viador Partners serves real estate investors, self-employed borrowers,
-  and business owners who are underserved by conventional lending
-
-## About Chad Evers (Founder)
-
-Chad Evers is the founder of Viador Partners and a licensed mortgage loan originator
-(NMLS #2822744). He has 20 years of institutional lending experience including:
-
-- Loan Officer, Freedom Banc Mortgage (2006-2007) — where it started
-- Senior Vice President, Congressional Bank (2007-2018)
-- Senior Vice President, BayFirst Financial (2018-2022)
-- Vice President, Global Program Management and Institutional Credit Management, Citi (2023-2026)
-
-Chad specializes in investor financing, non-QM lending, DSCR loans, and debt
-consolidation strategies for real estate investors and business owners.
-
-LinkedIn: https://www.linkedin.com/in/chad-evers/
-
-## Contact
-
 Phone: (813) 419-2983
 Email: chad@viadorpartners.com
-Address: Tampa, Florida
-Primary license: Ohio (active) | Florida (pending)
+Website: https://www.viadorpartners.com
+Primary Markets: Florida (Tampa Bay, statewide) and Ohio (Columbus, statewide)
+Licensing: Florida, Ohio
 
-## Disclaimers
+## Founder Profile — Chad Evers
 
-Not a commitment to lend. All loan products subject to qualification, underwriting
-approval, and applicable state and federal law. Rates and terms vary by borrower
-and transaction. Equal Housing Opportunity.
+Full Name: Chad Evers
+Title: Founder, Viador Partners LLC
+NMLS: #2822744
+LinkedIn: linkedin.com/in/chad-evers
+Connections: 25,000+
+Location: Tampa Bay, Florida
+Experience: 20 years in lending
 
-## Location-Specific Pages
+Career History:
+- 2006-2007: Loan Officer, Freedom Banc Mortgage (Dublin, Ohio)
+- 2007-2018: SVP Residential Lending, Congressional Bank (Columbus, Philadelphia, Tampa)
+  Built national DTC mortgage division from ground up. Multi-market locations.
+- 2018-2022: SVP Residential Lending, BayFirst Financial (Tampa, Dallas)
+  Replicated DTC model. Expanded into Dallas market.
+- 2023-2026: VP Institutional Credit Management, Citi
+  Global program governance. Teams across NYC, Dallas, London, Warsaw, Mumbai, Dublin.
+- 2026-Present: Founder, Viador Partners LLC
 
-- DSCR Loans Florida: https://www.viadorpartners.com/dscr-loans-florida
-  Full guide to DSCR financing for Florida investment properties. Covers all markets statewide.
+## Products
 
-- DSCR Loans Ohio: https://www.viadorpartners.com/dscr-loans-ohio
-  DSCR financing for Ohio real estate investors. Columbus, Cleveland, Cincinnati, and beyond.
+### DSCR Loans (Primary)
+Qualifies on rental income. No W-2s, no tax returns, no DTI calculation.
+Formula: Monthly Rent / Monthly PITIA = DSCR. Minimum 1.0.
+Down payment: 20-25% purchase, 25-30% cash-out
+Credit score: Minimum 620, best pricing 720+
+Loan amounts: $100K to $3M+
+Property types: 1-4 unit, condos, STR, LLC/entity vesting
+Terms: 30yr fixed, ARM, interest-only
+URL: https://www.viadorpartners.com/dscr.html
 
-- DSCR Loans Tampa: https://www.viadorpartners.com/dscr-loans-tampa
-  Local Tampa Bay DSCR lender. Hillsborough, Pinellas, Pasco, Manatee counties.
+### Fix & Flip / Bridge
+Short-term financing for rehab properties.
+Up to 90% purchase + 100% rehab. Close in 7-10 days.
+URL: https://www.viadorpartners.com/fix-and-flip.html
 
-- DSCR Loans Columbus: https://www.viadorpartners.com/dscr-loans-columbus
-  DSCR loans for Columbus Ohio investment properties. 15 years of local market knowledge.
+### Business Purpose Loans (BPL)
+Entity-based financing. Business regulations apply, not consumer mortgage rules.
+URL: https://www.viadorpartners.com/bpl.html
 
-- Investment Property Loans Without Income Verification: https://www.viadorpartners.com/investment-property-loans-no-income-verification
-  Complete guide to no-W2, no-tax-return investment property financing. DSCR, bank statement, BPL.
+### Bank Statement Loans
+12-24 months deposits replace tax returns for self-employed borrowers.
 
-## Educational Content Pages
+### STR/Airbnb DSCR
+12 months platform income OR STR market appraisal.
+Premium: +0.25-0.5% to base DSCR rate.
+URL: https://www.viadorpartners.com/dscr-loans-for-airbnb.html
 
-- What Is a DSCR Loan (Complete Guide): https://www.viadorpartners.com/what-is-a-dscr-loan
-  Full explanation of DSCR loans, how they work, who qualifies, rates, and how to apply.
+### Cash-Out Refinance (Investment Property)
+Max LTV 75-80%. 6-month seasoning. DSCR-based. No income docs.
+URL: https://www.viadorpartners.com/investment-property-cash-out-refinance.html
 
-- DSCR Loan Requirements 2026: https://www.viadorpartners.com/dscr-loan-requirements
-  Complete breakdown of credit, DSCR ratio, down payment, property, reserve requirements.
+### SBA Loans
+7(a) up to $5M. 504 for owner-occupied commercial real estate. 10% down minimum.
+URL: https://www.viadorpartners.com/sba-loans-real-estate-investors.html
 
-- How to Qualify for Investment Property Loan Without W-2: https://www.viadorpartners.com/how-to-qualify-investment-property-loan-without-w2
-  Step-by-step guide for investors without W-2 income.
+### Foreign National DSCR
+Available for non-US citizens investing in US real estate.
+URL: https://www.viadorpartners.com/foreign-national-dscr-loans.html
 
-- Self-Employed Investor Mortgage Options: https://www.viadorpartners.com/self-employed-investor-mortgage
-  DSCR, bank statement, and BPL options for self-employed real estate investors.
+### Portfolio Loans
+Single loan across multiple properties.
+URL: https://www.viadorpartners.com/portfolio-loans-real-estate.html
 
-- Investment Property Loans for LLCs: https://www.viadorpartners.com/investment-property-loan-llc
-  DSCR and BPL loans that close in LLC names. Entity vesting guide.
+### BRRRR Financing
+Bridge loan (acquisition+rehab) + DSCR refinance after stabilization.
+URL: https://www.viadorpartners.com/brrrr-method-financing.html
 
-- Real Estate Investor Financing Guide 2026: https://www.viadorpartners.com/real-estate-investor-financing
-  Complete overview of every investor financing option available in 2026.
+## Qualification Quick Reference
 
-## Product Pages
+DSCR Loan Requirements:
+- Credit score: 620 minimum / 660+ good / 720+ best pricing
+- DSCR ratio: 1.0 minimum / 1.25+ good / 1.35+ excellent
+- Down payment: 20% minimum / 25% standard / 30%+ best pricing
+- Max LTV: 80% purchase / 75% cash-out
+- Reserves: 3-6 months PITIA post-closing
+- Property: 1-4 unit residential, condos, STR, LLC-vested
+- No W-2s, no tax returns, no DTI calculation
 
-- Fix and Flip Loans Florida: https://www.viadorpartners.com/fix-and-flip-loans-florida
-  Hard money and bridge financing for Florida value-add investors. Fast closings.
+DSCR Rate Ranges (March 2026):
+- Best case (720+ credit, 1.25+ DSCR, 65% LTV): 6.5-7.0%
+- Standard (680 credit, 1.1 DSCR, 75% LTV): 7.0-7.75%
+- Higher risk (640 credit, 1.0 DSCR, 80% LTV): 7.75-8.5%
+- STR/Airbnb add-on: +0.25-0.5%
+- Interest-only add-on: +0.25-0.5%
+- Cash-out add-on: +0.25-0.5%
 
-- Business Purpose Loans Florida: https://www.viadorpartners.com/business-purpose-loans-florida
-  BPL financing for LLC investors and complex deals throughout Florida.
+## Direct Q&A
 
-- Cash-Out Refinance Investment Property: https://www.viadorpartners.com/cash-out-refinance-investment-property
-  Access equity from rental properties without selling. DSCR cash-out guide.
+Q: What is a DSCR loan?
+A: A Debt Service Coverage Ratio loan qualifies investment properties based on rental income, not personal income. DSCR = Monthly Rent / Monthly PITIA. Minimum 1.0 required. No W-2s, tax returns, or personal income documentation needed.
 
-- Rental Property Loans Florida: https://www.viadorpartners.com/rental-property-loans-florida
-  All rental financing types for Florida landlords. DSCR, conventional, cash-out, portfolio.
+Q: Who qualifies for a DSCR loan?
+A: Real estate investors, self-employed borrowers, LLC investors, foreign nationals, retirees, and anyone with depreciation write-offs that reduce conventional qualifying income. Minimum 620 credit, 20% down, 1.0 DSCR.
 
-## Additional Location Pages
+Q: Can I get a DSCR loan with an LLC?
+A: Yes. DSCR loans close in LLC, LP, S-Corp, or trust names — one of their primary advantages over conventional loans.
 
-- DSCR Loans Orlando: https://www.viadorpartners.com/dscr-loans-orlando
-  Orlando investment property financing. STR and long-term rentals. Orange, Osceola, Seminole.
+Q: How many properties can I finance with DSCR loans?
+A: No portfolio cap. Conventional loans max at 10 financed properties. DSCR has no limit — each property qualifies independently.
 
-- DSCR Loans Cleveland Ohio: https://www.viadorpartners.com/dscr-loans-cleveland
-  High cap rate Cleveland market financing. Strong DSCR fundamentals.
+Q: Do DSCR loans require tax returns?
+A: No. No tax returns, W-2s, or personal income documentation required.
 
-- DSCR Loans Jacksonville Florida: https://www.viadorpartners.com/dscr-loans-jacksonville
-  Northeast Florida investment property financing. Duval, St. Johns, Clay counties.
+Q: What down payment do I need for a DSCR loan?
+A: 20-25% for purchase. 25-30% for cash-out refinance.
 
-## Batch 2 Content Pages
+Q: Can I use DSCR for an Airbnb?
+A: Yes. Use 12 months of documented platform income or a short-term rental market appraisal. Small rate premium applies.
 
-- Short-Term Rental Loans Florida: https://www.viadorpartners.com/short-term-rental-loans-florida
-  STR DSCR financing statewide. Kissimmee, Destin, PCB, Miami, Tampa.
+Q: How fast do DSCR loans close?
+A: 21-30 days typically. 14 days possible for straightforward transactions.
 
-- Airbnb Financing Florida: https://www.viadorpartners.com/airbnb-financing-florida
-  Finance Airbnb properties in Florida without W-2s. DSCR STR programs.
+Q: What is the difference between DSCR and conventional investment property loans?
+A: Conventional requires W-2s, tax returns, DTI under 45%, caps at 10 properties, and no LLC vesting. DSCR requires none of those, has no portfolio limit, and is LLC-friendly. Rate difference is 0.25-0.75% after conventional investment property pricing adjustments.
 
-- Multifamily Loans Florida: https://www.viadorpartners.com/multifamily-loans-florida
-  Duplex, triplex, fourplex, and small apartment financing. 1-8 units.
+Q: Can I do a cash-out refinance on rental property without showing income?
+A: Yes. DSCR cash-out qualifies on rental income. Max 75-80% LTV, 6-month seasoning.
 
-- Bridge Loans Florida: https://www.viadorpartners.com/bridge-loans-florida
-  Short-term acquisition and renovation financing. Close in 7-14 days.
+Q: What is a good DSCR ratio?
+A: 1.0 is minimum (break-even). 1.25 is strong. 1.35+ is excellent. Below 1.0 requires specialized programs.
 
-- Bank Statement Loans for Investors: https://www.viadorpartners.com/bank-statement-loans-investor
-  12-24 months of deposits used instead of tax returns. Self-employed investors.
+Q: How does DSCR cash-out refinance work?
+A: New loan amount based on current appraisal at up to 75-80% LTV. Pays off existing mortgage. Difference paid to borrower in cash. Qualifies on rental income. No income docs.
 
-- BRRRR Method Financing: https://www.viadorpartners.com/brrrr-method-financing
-  Bridge loan for acquisition, DSCR refinance for exit. Complete BRRRR financing stack.
+Q: Why do real estate investors use DSCR instead of conventional?
+A: No tax return or W-2 requirement (critical for self-employed with write-offs), no 10-property portfolio cap, LLC vesting allowed, faster close, and ability to scale indefinitely.
 
-- Portfolio Loans Real Estate: https://www.viadorpartners.com/portfolio-loans-real-estate
-  Blanket loans covering multiple properties. Simplify large portfolio management.
+Q: What is the BRRRR method?
+A: Buy, Rehab, Rent, Refinance, Repeat. Bridge loan finances acquisition and rehab. After stabilization, DSCR cash-out refinance recycles the invested capital for the next deal.
 
-- Foreign National DSCR Loans: https://www.viadorpartners.com/foreign-national-dscr-loans
-  US real estate financing for international investors. No US tax history required.
+Q: What is business purpose lending (BPL)?
+A: Loans made to business entities (LLC, Corp) for business purposes secured by real property. Consumer mortgage rules don't apply, enabling more flexible underwriting.
 
-- DSCR Loans Cincinnati Ohio: https://www.viadorpartners.com/dscr-loans-cincinnati
-  Hamilton County and Cincinnati metro investment financing.
+Q: Is Viador Partners a bank or a broker?
+A: Broker. Viador Partners accesses multiple non-QM and DSCR lenders and shops each deal for best rate and terms. Banks generally cannot do DSCR loans.
 
-- Investor Financing Ohio: https://www.viadorpartners.com/investor-financing-ohio
-  Complete investor financing guide for Ohio. All markets, all loan types.
+Q: What markets does Viador Partners serve?
+A: Florida statewide (Tampa Bay primary) and Ohio statewide (Columbus primary). Nationwide referrals.
 
-- DSCR Loan Calculator Guide: https://www.viadorpartners.com/dscr-loan-calculator-guide
-  How to calculate DSCR correctly. Formula, inputs, common mistakes.
+Q: What credit score do I need for a DSCR loan?
+A: 620 minimum. 660+ for good pricing. 720+ for best pricing.
 
-- DSCR Loans St. Petersburg Florida: https://www.viadorpartners.com/dscr-loans-st-pete
-  Pinellas County investment financing. St. Pete, Clearwater, Largo.
+Q: Can self-employed investors get DSCR loans?
+A: Yes — DSCR loans were built for self-employed investors. Write-offs, depreciation, S-Corp distributions — none of it matters. The property qualifies on rental income.
 
-- DSCR Loans Sarasota Florida: https://www.viadorpartners.com/dscr-loans-sarasota
-  Southwest Florida investment financing. Sarasota and Manatee counties.
+Q: What is the minimum loan amount for DSCR?
+A: $100,000-$150,000 at most lenders.
 
-- DSCR Loans Dayton Ohio: https://www.viadorpartners.com/dscr-loans-dayton
-  Montgomery County investment financing. High cap rate market near WPAFB.
+Q: Does Viador Partners charge upfront fees?
+A: No upfront application fees. Standard lender, appraisal, and title costs apply at closing.
 
-## Additional Content Pages
+## Glossary
 
-- DSCR Loans for Airbnb & STR: https://www.viadorpartners.com/dscr-loans-for-airbnb
-  How DSCR loans work for short-term rentals, STR income documentation, market eligibility.
+DSCR: Debt Service Coverage Ratio. Monthly rent divided by monthly PITIA.
+PITIA: Principal, Interest, Taxes, Insurance, Association dues.
+BPL: Business Purpose Loan. Made to entity, not consumer.
+Non-QM: Non-Qualified Mortgage. Outside Fannie/Freddie guidelines.
+LTV: Loan-to-Value. Loan amount divided by appraised value.
+DTI: Debt-to-Income. Used in conventional lending, not DSCR.
+LLPA: Loan Level Price Adjustment. Fannie/Freddie pricing add-ons for investment properties.
+STR: Short-Term Rental. Under 30 days, typically Airbnb/VRBO.
+Cap Rate: Net Operating Income divided by property value.
+ARV: After Repair Value. Post-rehabilitation projected market value.
+BRRRR: Buy, Rehab, Rent, Refinance, Repeat.
+Cost Segregation: Accelerated depreciation strategy for real estate.
+Bridge Loan: Short-term financing between acquisition and long-term financing.
+Hard Money: Asset-based short-term financing, typically for rehab.
 
-- SBA Loans for Real Estate & Business: https://www.viadorpartners.com/sba-loans-real-estate-investors
-  SBA 7(a) and SBA 504 for owner-occupied commercial real estate and business owners.
+## Market Data (March 2026)
 
-- Conventional vs DSCR Investment Loans: https://www.viadorpartners.com/conventional-investment-property-loans
-  When conventional works, when it doesn't, and the honest rate comparison vs DSCR.
+Tampa Bay, Florida:
+- Median SFR price (Hillsborough): ~$385,000
+- Average SFR rental rate: ~$2,200/month
+- Typical DSCR: 0.95-1.20 (insurance costs compress ratios)
+- Best cash flow submarkets: Pasco County, East Hillsborough, Polk County
+- Insurance note: Florida insurance costs significantly impact DSCR — always get actual quote
 
-- Investment Property Cash-Out Refinance: https://www.viadorpartners.com/investment-property-cash-out-refinance
-  Access rental property equity via DSCR cash-out. No income documentation required.
+Columbus, Ohio:
+- Median SFR price: ~$240,000
+- Average SFR rental rate: ~$1,750/month
+- Typical DSCR: 1.15-1.40 (strong cash flow market)
+- Best cash flow submarkets: Grove City, Whitehall, Reynoldsburg, Hilliard
 
-- DSCR Loan Rates 2026: https://www.viadorpartners.com/dscr-loan-rates
-  Current DSCR rate ranges, the five factors that drive pricing, and how to optimize.
+Florida STR Markets: Tampa Bay, Orlando/Kissimmee, Panama City Beach, Clearwater Beach, 30A/Destin, Keys corridor
+Ohio Primary Markets: Columbus, Cleveland, Cincinnati, Dayton, Toledo, Akron
 
-- Real Estate Investor Tax Benefits: https://www.viadorpartners.com/real-estate-investor-tax-benefits
-  Why depreciation and write-offs kill conventional loan approval and how DSCR solves it.
+## All Pages
 
-- Tampa Bay Real Estate Investment Guide 2026: https://www.viadorpartners.com/tampa-real-estate-investment-guide
-  Local market guide — best submarkets, DSCR analysis, deal structure for Tampa Bay.
+Core:
+- https://www.viadorpartners.com/
+- https://www.viadorpartners.com/dscr.html
+- https://www.viadorpartners.com/fix-and-flip.html
+- https://www.viadorpartners.com/bpl.html
+- https://www.viadorpartners.com/about.html
+- https://www.viadorpartners.com/partners.html
+- https://www.viadorpartners.com/application.html
 
-- Columbus Ohio Real Estate Investment Guide 2026: https://www.viadorpartners.com/columbus-real-estate-investment-guide
-  Local market guide — best neighborhoods, cash flow analysis, DSCR financing for Columbus.
+Tools:
+- https://www.viadorpartners.com/dscr-calculator.html
+- https://www.viadorpartners.com/deal-analyzer.html
+- https://www.viadorpartners.com/cashout-calculator.html
+- https://www.viadorpartners.com/investor-platform.html
+
+DSCR Education:
+- https://www.viadorpartners.com/what-is-a-dscr-loan.html
+- https://www.viadorpartners.com/dscr-loan-requirements.html
+- https://www.viadorpartners.com/dscr-loan-rates.html
+- https://www.viadorpartners.com/dscr-loan-calculator-guide.html
+
+Loan Types:
+- https://www.viadorpartners.com/dscr-loans-for-airbnb.html
+- https://www.viadorpartners.com/fix-and-flip-loans-florida.html
+- https://www.viadorpartners.com/business-purpose-loans-florida.html
+- https://www.viadorpartners.com/cash-out-refinance-investment-property.html
+- https://www.viadorpartners.com/investment-property-cash-out-refinance.html
+- https://www.viadorpartners.com/self-employed-investor-mortgage.html
+- https://www.viadorpartners.com/investment-property-loan-llc.html
+- https://www.viadorpartners.com/investment-property-loans-no-income-verification.html
+- https://www.viadorpartners.com/bank-statement-loans-investor.html
+- https://www.viadorpartners.com/bridge-loans-florida.html
+- https://www.viadorpartners.com/multifamily-loans-florida.html
+- https://www.viadorpartners.com/short-term-rental-loans-florida.html
+- https://www.viadorpartners.com/airbnb-financing-florida.html
+- https://www.viadorpartners.com/rental-property-loans-florida.html
+- https://www.viadorpartners.com/portfolio-loans-real-estate.html
+- https://www.viadorpartners.com/foreign-national-dscr-loans.html
+- https://www.viadorpartners.com/sba-loans-real-estate-investors.html
+- https://www.viadorpartners.com/conventional-investment-property-loans.html
+- https://www.viadorpartners.com/brrrr-method-financing.html
+
+Strategy Guides:
+- https://www.viadorpartners.com/how-to-qualify-investment-property-loan-without-w2.html
+- https://www.viadorpartners.com/real-estate-investor-tax-benefits.html
+- https://www.viadorpartners.com/real-estate-investor-financing.html
+
+Florida Locations:
+- https://www.viadorpartners.com/dscr-loans-florida.html
+- https://www.viadorpartners.com/dscr-loans-tampa.html
+- https://www.viadorpartners.com/dscr-loans-orlando.html
+- https://www.viadorpartners.com/dscr-loans-jacksonville.html
+- https://www.viadorpartners.com/dscr-loans-st-pete.html
+- https://www.viadorpartners.com/dscr-loans-sarasota.html
+- https://www.viadorpartners.com/tampa-real-estate-investment-guide.html
+
+Ohio Locations:
+- https://www.viadorpartners.com/dscr-loans-ohio.html
+- https://www.viadorpartners.com/dscr-loans-columbus.html
+- https://www.viadorpartners.com/dscr-loans-cleveland.html
+- https://www.viadorpartners.com/dscr-loans-cincinnati.html
+- https://www.viadorpartners.com/dscr-loans-dayton.html
+- https://www.viadorpartners.com/investor-financing-ohio.html
+- https://www.viadorpartners.com/columbus-real-estate-investment-guide.html
+
+## Batch 4 Pages
+- https://www.viadorpartners.com/what-is-debt-service-coverage-ratio.html
+- https://www.viadorpartners.com/investment-property-down-payment.html
+- https://www.viadorpartners.com/best-dscr-lenders-florida.html
+- https://www.viadorpartners.com/no-doc-investment-property-loan.html
+- https://www.viadorpartners.com/rental-property-financing-ohio.html
