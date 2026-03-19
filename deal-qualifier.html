@@ -862,12 +862,10 @@ Provide a deal analysis in the following JSON format ONLY — no other text, no 
 Be specific to ${market}. If it is in Florida, mention insurance costs as a factor. If Ohio, note the strong cash flow market. Include 3-5 flags total mixing greens, yellows, and reds as appropriate for this specific deal. Keep the analysis conversational but professional — like an experienced lender giving real feedback.`;
 
       try {
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
+        const response = await fetch('https://viador-ai-proxy.chad-7f6.workers.dev', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            model: 'claude-sonnet-4-20250514',
-            max_tokens: 1000,
             messages: [{ role: 'user', content: prompt }]
           })
         });
