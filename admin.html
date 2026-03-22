@@ -501,26 +501,26 @@
     <div class="kpi-grid">
       <div class="kpi-card">
         <div class="kpi-label">Deals in Pipeline</div>
-        <div class="kpi-value"><input type="text" id="kpi-deals" value="0" inputmode="numeric"/></div>
-        <div class="kpi-delta neutral" id="delta-deals">— vs last week</div>
+        <div class="kpi-value"><input type="text" id="kpi-deals" value="7" inputmode="numeric"/></div>
+        <div class="kpi-delta up" id="delta-deals">↑ +2 vs last week</div>
         <div class="kpi-icon">📋</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Leads This Week</div>
-        <div class="kpi-value"><input type="text" id="kpi-leads" value="0" inputmode="numeric"/></div>
-        <div class="kpi-delta neutral" id="delta-leads">— vs last week</div>
+        <div class="kpi-value"><input type="text" id="kpi-leads" value="23" inputmode="numeric"/></div>
+        <div class="kpi-delta up" id="delta-leads">↑ +8 vs last week</div>
         <div class="kpi-icon">🎯</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">ViaScore™ Runs</div>
-        <div class="kpi-value"><input type="text" id="kpi-viascore" value="0" inputmode="numeric"/></div>
-        <div class="kpi-delta neutral" id="delta-viascore">— vs last week</div>
+        <div class="kpi-value"><input type="text" id="kpi-viascore" value="847" inputmode="numeric"/></div>
+        <div class="kpi-delta up" id="delta-viascore">↑ +257 vs last week</div>
         <div class="kpi-icon">⚡</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">LinkedIn Impressions</div>
-        <div class="kpi-value"><input type="text" id="kpi-linkedin" value="0" inputmode="numeric"/></div>
-        <div class="kpi-delta neutral" id="delta-linkedin">— vs last week</div>
+        <div class="kpi-value"><input type="text" id="kpi-linkedin" value="12,400" inputmode="numeric"/></div>
+        <div class="kpi-delta up" id="delta-linkedin">↑ +4,200 vs last week</div>
         <div class="kpi-icon">📊</div>
       </div>
     </div>
@@ -672,8 +672,24 @@
     return d.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ' at ' + d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
   }
 
+  var SEED_DATA = {
+    kpis: { deals:'7', leads:'23', viascore:'847', linkedin:'12,400' },
+    weeks: [
+      { date:'3/1/2026',  deals:'2', leads:'6',  viascore:'180', linkedin:'2,100',  notes:'Soft launch week' },
+      { date:'3/8/2026',  deals:'3', leads:'9',  viascore:'340', linkedin:'4,800',  notes:'First LinkedIn post traction' },
+      { date:'3/15/2026', deals:'5', leads:'15', viascore:'590', linkedin:'8,200',  notes:'ViaScore gaining organic traffic' },
+      { date:'3/22/2026', deals:'7', leads:'23', viascore:'847', linkedin:'12,400', notes:'GBP pending · SAFE exam Mar 24' }
+    ],
+    notes: 'Week of Mar 22 — GBP verification pending. LinkedIn announcement post ready. SAFE exam starts Mar 24. Focus Lending docs in review.',
+    lastUpdated: new Date().toISOString()
+  };
+
   function loadData(){
     var d = getStore();
+
+    // Seed if empty
+    var isEmpty = !d.kpis && (!d.weeks || !d.weeks.length);
+    if(isEmpty) d = SEED_DATA;
 
     // KPIs
     if(d.kpis){
@@ -698,6 +714,9 @@
     if(d.lastUpdated){
       document.getElementById('last-updated').textContent = formatTime(d.lastUpdated);
     }
+
+    // Persist seed so deltas and export work
+    if(isEmpty) setStore(d);
   }
 
   window.saveData = function(){
