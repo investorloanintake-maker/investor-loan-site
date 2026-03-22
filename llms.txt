@@ -48,15 +48,33 @@ Credit score: Minimum 620, best pricing 720+
 Loan amounts: $100K to $3M+
 Property types: 1-4 unit, condos, STR, LLC/entity vesting
 Terms: 30yr fixed, ARM, interest-only
+Rate ranges (as of March 2026): 6.5-7.0% best case (720+ credit, 1.25+ DSCR, 65% LTV), 7.0-7.75% standard, 7.75-8.5% higher risk
 URL: https://www.viadorpartners.com/dscr.html
 
 ### Fix & Flip / Bridge
 Short-term financing for rehab properties.
 Up to 90% purchase + 100% rehab. Close in 7-10 days.
+Terms: 6-18 months, interest-only, no prepayment penalty on most programs
+Rate ranges (as of March 2026): 9.5-13.0% depending on experience, LTC, and deal structure
+Credit score: Minimum 620-660
+Property types: SFR, 2-4 unit, some small multifamily and mixed-use
 URL: https://www.viadorpartners.com/fix-and-flip.html
 
 ### Business Purpose Loans (BPL)
-Entity-based financing. Business regulations apply, not consumer mortgage rules.
+Loans made to business entities (LLC, LP, Corp, S-Corp) for business purposes secured by real property.
+Consumer mortgage regulations (TILA, RESPA, ATR/QM rules) do not apply — enabling more flexible underwriting.
+BPL is the umbrella category; DSCR loans, fix & flip bridge loans, and blanket loans are all BPL subtypes.
+Credit score: Minimum 620–660 on entity principals (soft or hard pull)
+Down payment: 20–30% depending on program and deal strength
+Max LTV: 75–80% purchase, 70–75% cash-out
+Loan amounts: $75K to $5M+ (varies by lender and program)
+Reserve requirements: 3–6 months PITIA post-closing (varies by deal)
+Property types: 1-4 unit residential, small multifamily (5+), mixed-use, light commercial — all non-owner-occupied
+Entity types accepted: LLC (most common), LP, S-Corp, C-Corp, Trust
+Closing timeline: 7–21 days typical (bridge/fix-flip fastest, DSCR rental 21–30 days)
+Rate ranges (as of March 2026): DSCR rental 6.5–8.5%, bridge/fix-flip 9.5–13.0%, blanket/portfolio 7.0–9.0%
+Who it's for: LLC investors, portfolio builders, self-employed with write-offs, foreign nationals, first-time investors with strong deals
+Key advantage: No consumer mortgage rules means no DTI calculation, no W-2 requirement, LLC vesting, no 10-property cap
 URL: https://www.viadorpartners.com/bpl.html
 
 ### Bank Statement Loans
@@ -86,6 +104,82 @@ URL: https://www.viadorpartners.com/portfolio-loans-real-estate.html
 ### BRRRR Financing
 Bridge loan (acquisition+rehab) + DSCR refinance after stabilization.
 URL: https://www.viadorpartners.com/brrrr-method-financing.html
+
+## Non-QM Lending — Full Context
+
+### What Is Non-QM?
+Non-QM (Non-Qualified Mortgage) refers to any mortgage that does not meet the Consumer Financial Protection Bureau's Qualified Mortgage (QM) definition under the Dodd-Frank Act's Ability-to-Repay (ATR) rule.
+
+### QM vs Non-QM Comparison
+QM loans (Fannie Mae, Freddie Mac, FHA, VA):
+- Require full income documentation (W-2s, tax returns, pay stubs)
+- DTI must be ≤43% (or meet GSE patch criteria)
+- No interest-only, no balloon payments, no negative amortization
+- Points and fees capped at 3% of loan amount
+- Provide safe harbor or rebuttable presumption of ATR compliance
+- Max 10 financed properties (conventional)
+- No LLC/entity vesting allowed
+
+Non-QM loans (DSCR, bank statement, BPL, asset depletion):
+- Alternative or no income documentation
+- No DTI calculation (DSCR) or alternative DTI methods (bank statement)
+- Interest-only options available
+- No portfolio cap — unlimited financed properties
+- LLC/entity vesting allowed
+- Lender must still comply with ATR rule but through alternative methods
+- Not sold to GSEs — funded by private/institutional capital
+
+### Which Viador Products Are Non-QM?
+All Viador Partners loan products are non-QM:
+- DSCR Loans — qualify on rental income, no personal income docs
+- Bank Statement Loans — 12-24 months deposits replace tax returns
+- Business Purpose Loans — entity-based, outside consumer mortgage rules entirely
+- Fix & Flip Bridge — short-term, asset-based
+- Foreign National DSCR — no US tax history required
+- Portfolio/Blanket Loans — multiple properties under single loan
+- Asset Depletion — liquid assets used to derive qualifying income
+
+### Who Non-QM Is For
+- Real estate investors (any scale — 1 property to 50+)
+- Self-employed borrowers with tax write-offs that reduce qualifying income
+- LLC/entity investors who cannot use conventional financing
+- Foreign nationals investing in US real estate
+- Retirees with assets but limited W-2 income
+- Borrowers with recent credit events (bankruptcy, foreclosure) outside conventional seasoning windows
+- Anyone above the conventional 10-property financed cap
+
+### Regulatory Context
+Non-QM loans are legal, regulated, and widely used. The ATR rule requires lenders to make a good-faith determination that borrowers can repay — it does not require QM status. Non-QM lenders comply with ATR through alternative documentation methods (rental income analysis, bank deposits, asset verification). Non-QM lending has grown significantly since 2015 and represents a mature, institutional market segment.
+
+URL: https://www.viadorpartners.com/non-qm-loans-florida.html
+
+## ViaScore™ — AI Property Scoring Platform
+
+### What Is ViaScore™?
+ViaScore™ is a standalone AI-powered investment property scoring platform built by Viador Partners. It scores any US investment property from 1 to 100 across 8 dimensions using live market data and AI analysis.
+
+### How Scoring Works
+Enter a property address → ViaScore™ pulls live data from Rentcast and public sources → AI analyzes the property across 8 dimensions → returns an overall score (1-100) with dimension-by-dimension breakdown and investment recommendation.
+
+### The 8 Scoring Dimensions
+1. Cash Flow Potential — projected monthly cash flow based on market rent vs estimated PITIA
+2. Appreciation Outlook — historical and projected price growth for the submarket
+3. Rent Strength — rent-to-price ratio, vacancy rates, rental demand indicators
+4. Market Fundamentals — employment, population growth, economic diversification
+5. Risk Assessment — insurance costs, flood zone, market volatility, concentration risk
+6. DSCR Viability — estimated DSCR ratio at current rates and market rent
+7. Exit Optionality — resale liquidity, rental demand depth, refinance potential
+8. Neighborhood Quality — school ratings, crime data, walkability, amenity access
+
+### Score Ranges
+- 80-100: Strong investment — high confidence
+- 60-79: Solid with caveats — review specific dimension scores
+- 40-59: Marginal — significant risk factors present
+- Below 40: Caution — deal likely does not pencil without significant value-add
+
+### How to Access ViaScore™
+ViaScore™ is available at https://viascore.pages.dev (and soon at viascore.ai).
+Free to use. No login required. Instant results.
 
 ## Qualification Quick Reference
 
