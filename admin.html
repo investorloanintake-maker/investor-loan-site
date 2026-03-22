@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Command Center | Viador Partners</title>
+  <meta name="robots" content="noindex, nofollow"/>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --bg:       #1A1C24;
+      --bg2:      #22252F;
+      --bg3:      #2A2D38;
+      --gold:     #B8811E;
+      --gold-lt:  #D9A84A;
+      --gold-f:   rgba(184,129,30,0.12);
+      --text:     #E8E4DF;
+      --text-dim: rgba(255,255,255,0.45);
+      --text-mid: rgba(255,255,255,0.65);
+      --line:     rgba(255,255,255,0.08);
+      --green:    #3ECF8E;
+      --red:      #E5534B;
+      --blue:     #58A6FF;
+      --font:     'DM Sans', system-ui, sans-serif;
+      --font-d:   'Fraunces', Georgia, serif;
+      --font-m:   'DM Mono', monospace;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ── Password Gate ──────────────────────────────── */
+    #gate {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .gate-box {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 48px 40px;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    .gate-mark {
+      width: 56px;
+      height: 56px;
+      background: var(--gold);
+      color: var(--bg);
+      font-family: var(--font-d);
+      font-size: 28px;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .gate-title {
+      font-family: var(--font-d);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .gate-sub {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 28px;
+    }
+    .gate-input {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 15px;
+      outline: none;
+      transition: border-color .2s;
+      margin-bottom: 16px;
+    }
+    .gate-input:focus { border-color: var(--gold); }
+    .gate-input::placeholder { color: var(--text-dim); }
+    .gate-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .gate-btn:hover { background: var(--gold-lt); }
+    .gate-err {
+      color: var(--red);
+      font-size: 13px;
+      margin-top: 12px;
+      display: none;
+    }
+
+    /* ── Dashboard Shell ────────────────────────────── */
+    #dash { display: none; }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 10;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 14px; }
+    .topbar-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--gold);
+      color: var(--bg);
+      font-family: var(--font-d);
+      font-size: 18px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .topbar-title {
+      font-family: var(--font-d);
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .topbar-title span { color: var(--gold); }
+    .topbar-right { display: flex; align-items: center; gap: 16px; }
+    .topbar-date {
+      font-family: var(--font-m);
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+    .topbar-logout {
+      padding: 7px 16px;
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--text-dim);
+      font-family: var(--font);
+      font-size: 12px;
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .topbar-logout:hover { border-color: var(--gold); color: var(--gold); }
+
+    .dash-body { max-width: 1280px; margin: 0 auto; padding: 32px; }
+
+    /* ── Section Headers ────────────────────────────── */
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .section-head h2 {
+      font-family: var(--font-d);
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+    .section-label {
+      font-family: var(--font-m);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── Status Bar ─────────────────────────────────── */
+    .status-bar {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 14px 20px;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+    .status-text { font-size: 13px; color: var(--text-mid); }
+    .status-text strong { color: var(--text); font-weight: 500; }
+
+    /* ── KPI Cards Grid ─────────────────────────────── */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .kpi-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      position: relative;
+      transition: border-color .2s;
+    }
+    .kpi-card:hover { border-color: rgba(184,129,30,0.3); }
+    .kpi-label {
+      font-family: var(--font-m);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+    .kpi-value {
+      font-family: var(--font-d);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .kpi-value input {
+      font-family: var(--font-d);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--gold);
+      background: transparent;
+      border: none;
+      border-bottom: 2px dashed rgba(184,129,30,0.3);
+      width: 100%;
+      outline: none;
+      line-height: 1.1;
+      padding: 0;
+    }
+    .kpi-value input:focus { border-bottom-color: var(--gold); }
+    .kpi-delta {
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .kpi-delta.up { color: var(--green); }
+    .kpi-delta.down { color: var(--red); }
+    .kpi-delta.neutral { color: var(--text-dim); }
+    .kpi-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 20px;
+      opacity: 0.5;
+    }
+
+    /* ── Quick Links Grid ───────────────────────────── */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .link-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      padding: 28px 20px;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color .2s, transform .15s;
+    }
+    .link-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .link-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .link-icon.hs  { background: rgba(255,122,69,0.12); color: #FF7A45; }
+    .link-icon.ga  { background: rgba(88,166,255,0.12); color: #58A6FF; }
+    .link-icon.gsc { background: rgba(62,207,142,0.12); color: #3ECF8E; }
+    .link-icon.gbp { background: rgba(184,129,30,0.12); color: var(--gold); }
+    .link-name { font-size: 14px; font-weight: 500; }
+    .link-desc { font-size: 11px; color: var(--text-dim); text-align: center; line-height: 1.5; }
+
+    /* ── Weekly Log ──────────────────────────────────── */
+    .log-section { margin-bottom: 40px; }
+    .log-table {
+      width: 100%;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      border-collapse: collapse;
+    }
+    .log-table thead { background: var(--bg3); }
+    .log-table th {
+      font-family: var(--font-m);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 14px 20px;
+      text-align: left;
+      font-weight: 400;
+    }
+    .log-table td {
+      padding: 14px 20px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+    }
+    .log-table input {
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 13px;
+      width: 100%;
+      outline: none;
+      padding: 2px 0;
+      border-bottom: 1px dashed transparent;
+      transition: border-color .2s;
+    }
+    .log-table input:focus { border-bottom-color: var(--gold); }
+    .log-table .row-date {
+      font-family: var(--font-m);
+      color: var(--text-dim);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .log-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .log-btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .2s;
+      border: none;
+    }
+    .log-btn.primary { background: var(--gold); color: #fff; }
+    .log-btn.primary:hover { background: var(--gold-lt); }
+    .log-btn.secondary { background: var(--bg3); color: var(--text-mid); border: 1px solid var(--line); }
+    .log-btn.secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── Notes ───────────────────────────────────────── */
+    .notes-box {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+    .notes-box textarea {
+      width: 100%;
+      min-height: 120px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 14px;
+      line-height: 1.6;
+      resize: vertical;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .notes-box textarea:focus { border-color: var(--gold); }
+    .notes-label {
+      font-family: var(--font-m);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+    .notes-saved {
+      font-size: 12px;
+      color: var(--green);
+      margin-top: 10px;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    /* ── Footer ──────────────────────────────────────── */
+    .dash-footer {
+      text-align: center;
+      padding: 32px;
+      font-size: 11px;
+      color: var(--text-dim);
+      border-top: 1px solid var(--line);
+    }
+
+    /* ── Responsive ──────────────────────────────────── */
+    @media (max-width: 900px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .links-grid { grid-template-columns: repeat(2, 1fr); }
+      .topbar { padding: 14px 20px; }
+      .dash-body { padding: 24px 16px; }
+    }
+    @media (max-width: 540px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+      .links-grid { grid-template-columns: 1fr; }
+      .log-table { font-size: 12px; }
+      .log-table th, .log-table td { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════
+     PASSWORD GATE
+     ════════════════════════════════════════════════════ -->
+<div id="gate">
+  <div class="gate-box">
+    <div class="gate-mark">V</div>
+    <div class="gate-title">Command Center</div>
+    <div class="gate-sub">Viador Partners — Internal Dashboard</div>
+    <form id="gate-form" onsubmit="return handleLogin()">
+      <input type="password" class="gate-input" id="gate-pw" placeholder="Enter password" autocomplete="off"/>
+      <button type="submit" class="gate-btn">Unlock</button>
+      <div class="gate-err" id="gate-err">Incorrect password. Try again.</div>
+    </form>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     DASHBOARD
+     ════════════════════════════════════════════════════ -->
+<div id="dash">
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-mark">V</div>
+      <div class="topbar-title">Viador <span>Command Center</span></div>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-date" id="topbar-date"></div>
+      <button class="topbar-logout" onclick="handleLogout()">Lock</button>
+    </div>
+  </div>
+
+  <div class="dash-body">
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <div class="status-dot"></div>
+      <div class="status-text"><strong>All systems operational</strong></div>
+      <div class="status-text" style="margin-left:auto">Last updated: <strong id="last-updated">—</strong></div>
+    </div>
+
+    <!-- ── KPI Cards ──────────────────────────────── -->
+    <div class="section-head">
+      <span class="section-label">Weekly KPIs</span>
+      <div class="section-line"></div>
+      <span class="section-label" id="kpi-week"></span>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Deals in Pipeline</div>
+        <div class="kpi-value"><input type="text" id="kpi-deals" value="0" inputmode="numeric"/></div>
+        <div class="kpi-delta neutral" id="delta-deals">— vs last week</div>
+        <div class="kpi-icon">📋</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Leads This Week</div>
+        <div class="kpi-value"><input type="text" id="kpi-leads" value="0" inputmode="numeric"/></div>
+        <div class="kpi-delta neutral" id="delta-leads">— vs last week</div>
+        <div class="kpi-icon">🎯</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">ViaScore™ Runs</div>
+        <div class="kpi-value"><input type="text" id="kpi-viascore" value="0" inputmode="numeric"/></div>
+        <div class="kpi-delta neutral" id="delta-viascore">— vs last week</div>
+        <div class="kpi-icon">⚡</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">LinkedIn Impressions</div>
+        <div class="kpi-value"><input type="text" id="kpi-linkedin" value="0" inputmode="numeric"/></div>
+        <div class="kpi-delta neutral" id="delta-linkedin">— vs last week</div>
+        <div class="kpi-icon">📊</div>
+      </div>
+    </div>
+
+    <!-- ── Quick Links ────────────────────────────── -->
+    <div class="section-head">
+      <span class="section-label">Dashboards</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="links-grid">
+      <a href="https://app.hubspot.com/contacts/245454217" target="_blank" rel="noopener" class="link-card">
+        <div class="link-icon hs">🟠</div>
+        <div class="link-name">HubSpot CRM</div>
+        <div class="link-desc">Contacts, deals, form submissions &amp; pipeline</div>
+      </a>
+      <a href="https://analytics.google.com/analytics/web/#/p/G-LQWW7XCPVS" target="_blank" rel="noopener" class="link-card">
+        <div class="link-icon ga">📈</div>
+        <div class="link-name">Google Analytics 4</div>
+        <div class="link-desc">Sessions, page views, traffic sources &amp; behavior</div>
+      </a>
+      <a href="https://search.google.com/search-console" target="_blank" rel="noopener" class="link-card">
+        <div class="link-icon gsc">🔍</div>
+        <div class="link-name">Search Console</div>
+        <div class="link-desc">Rankings, impressions, clicks &amp; indexing</div>
+      </a>
+      <a href="https://business.google.com/" target="_blank" rel="noopener" class="link-card">
+        <div class="link-icon gbp">📍</div>
+        <div class="link-name">Business Profile</div>
+        <div class="link-desc">Google Maps listing, reviews &amp; local visibility</div>
+      </a>
+    </div>
+
+    <!-- ── Weekly Log ─────────────────────────────── -->
+    <div class="section-head">
+      <span class="section-label">Weekly Tracker</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="log-section">
+      <table class="log-table">
+        <thead>
+          <tr>
+            <th style="width:120px">Week</th>
+            <th>Deals</th>
+            <th>Leads</th>
+            <th>ViaScore™ Runs</th>
+            <th>LI Impressions</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="log-body"></tbody>
+      </table>
+      <div class="log-actions">
+        <button class="log-btn primary" onclick="addWeekRow()">+ Add This Week</button>
+        <button class="log-btn secondary" onclick="exportCSV()">Export CSV</button>
+        <button class="log-btn secondary" onclick="saveData()">Save All</button>
+      </div>
+    </div>
+
+    <!-- ── Notes ──────────────────────────────────── -->
+    <div class="section-head">
+      <span class="section-label">Notes &amp; Priorities</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="notes-box">
+      <div class="notes-label">This Week's Focus</div>
+      <textarea id="notes" placeholder="What are you focused on this week? Key deals, outreach targets, content ideas..."></textarea>
+      <div class="notes-saved" id="notes-saved">Saved</div>
+    </div>
+
+  </div>
+
+  <div class="dash-footer">
+    Viador Partners LLC &middot; Internal Use Only &middot; NMLS #2822744
+  </div>
+</div>
+
+<script>
+(function(){
+  /* ── Auth ──────────────────────────────────────── */
+  var PW_HASH = '33f4aafb'; // simple hash of "viador2026"
+  function simpleHash(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0;}return(h>>>0).toString(16).slice(0,8);}
+
+  var isAuthed = sessionStorage.getItem('vcc_auth') === '1';
+  if(isAuthed) showDash();
+
+  window.handleLogin = function(){
+    var pw = document.getElementById('gate-pw').value;
+    if(simpleHash(pw) === PW_HASH){
+      sessionStorage.setItem('vcc_auth','1');
+      showDash();
+    } else {
+      document.getElementById('gate-err').style.display = 'block';
+      document.getElementById('gate-pw').value = '';
+      document.getElementById('gate-pw').focus();
+    }
+    return false;
+  };
+
+  window.handleLogout = function(){
+    sessionStorage.removeItem('vcc_auth');
+    document.getElementById('dash').style.display = 'none';
+    document.getElementById('gate').style.display = 'flex';
+    document.getElementById('gate-pw').value = '';
+    document.getElementById('gate-err').style.display = 'none';
+  };
+
+  function showDash(){
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('dash').style.display = 'block';
+    initDash();
+  }
+
+  /* ── Dashboard Init ────────────────────────────── */
+  function initDash(){
+    // Date display
+    var now = new Date();
+    var opts = {weekday:'long', year:'numeric', month:'long', day:'numeric'};
+    document.getElementById('topbar-date').textContent = now.toLocaleDateString('en-US', opts);
+
+    // Week label
+    var weekStart = new Date(now);
+    weekStart.setDate(now.getDate() - now.getDay());
+    document.getElementById('kpi-week').textContent = 'Week of ' + (weekStart.getMonth()+1) + '/' + weekStart.getDate();
+
+    loadData();
+    setupAutoSave();
+  }
+
+  /* ── Data Persistence (localStorage) ───────────── */
+  var STORAGE_KEY = 'vcc_data';
+
+  function getStore(){
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+    catch(e){ return {}; }
+  }
+
+  function setStore(d){
+    d.lastUpdated = new Date().toISOString();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(d));
+    var el = document.getElementById('last-updated');
+    if(el) el.textContent = formatTime(d.lastUpdated);
+  }
+
+  function formatTime(iso){
+    var d = new Date(iso);
+    return d.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ' at ' + d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+  }
+
+  function loadData(){
+    var d = getStore();
+
+    // KPIs
+    if(d.kpis){
+      ['deals','leads','viascore','linkedin'].forEach(function(k){
+        var el = document.getElementById('kpi-'+k);
+        if(el && d.kpis[k] !== undefined) el.value = d.kpis[k];
+      });
+    }
+
+    // Weekly log
+    if(d.weeks && d.weeks.length){
+      d.weeks.forEach(function(w){ renderWeekRow(w); });
+      updateDeltas(d);
+    }
+
+    // Notes
+    if(d.notes){
+      document.getElementById('notes').value = d.notes;
+    }
+
+    // Last updated
+    if(d.lastUpdated){
+      document.getElementById('last-updated').textContent = formatTime(d.lastUpdated);
+    }
+  }
+
+  window.saveData = function(){
+    var d = getStore();
+
+    // KPIs
+    d.kpis = {};
+    ['deals','leads','viascore','linkedin'].forEach(function(k){
+      d.kpis[k] = document.getElementById('kpi-'+k).value;
+    });
+
+    // Weeks
+    d.weeks = [];
+    var rows = document.querySelectorAll('#log-body tr');
+    rows.forEach(function(row){
+      var inputs = row.querySelectorAll('input');
+      d.weeks.push({
+        date: row.querySelector('.row-date').textContent,
+        deals: inputs[0].value,
+        leads: inputs[1].value,
+        viascore: inputs[2].value,
+        linkedin: inputs[3].value,
+        notes: inputs[4].value
+      });
+    });
+
+    // Notes
+    d.notes = document.getElementById('notes').value;
+
+    setStore(d);
+    flashSaved();
+  };
+
+  function flashSaved(){
+    var el = document.getElementById('notes-saved');
+    el.textContent = 'All changes saved';
+    el.style.opacity = '1';
+    setTimeout(function(){ el.style.opacity = '0'; }, 2000);
+  }
+
+  function setupAutoSave(){
+    // Auto-save on any input change
+    document.addEventListener('input', function(e){
+      if(e.target.closest('#dash')){
+        clearTimeout(window._saveTimer);
+        window._saveTimer = setTimeout(function(){ saveData(); }, 1500);
+      }
+    });
+  }
+
+  /* ── Weekly Log ────────────────────────────────── */
+  window.addWeekRow = function(){
+    var now = new Date();
+    var weekStart = new Date(now);
+    weekStart.setDate(now.getDate() - now.getDay());
+    var label = (weekStart.getMonth()+1) + '/' + weekStart.getDate() + '/' + weekStart.getFullYear();
+
+    // Check if this week already exists
+    var existing = document.querySelectorAll('#log-body .row-date');
+    for(var i=0;i<existing.length;i++){
+      if(existing[i].textContent === label){ return; }
+    }
+
+    renderWeekRow({date:label, deals:'', leads:'', viascore:'', linkedin:'', notes:''});
+    saveData();
+  };
+
+  function renderWeekRow(w){
+    var tbody = document.getElementById('log-body');
+    var tr = document.createElement('tr');
+    tr.innerHTML =
+      '<td class="row-date">' + w.date + '</td>' +
+      '<td><input type="text" value="' + esc(w.deals) + '" inputmode="numeric"/></td>' +
+      '<td><input type="text" value="' + esc(w.leads) + '" inputmode="numeric"/></td>' +
+      '<td><input type="text" value="' + esc(w.viascore) + '" inputmode="numeric"/></td>' +
+      '<td><input type="text" value="' + esc(w.linkedin) + '" inputmode="numeric"/></td>' +
+      '<td><input type="text" value="' + esc(w.notes) + '" placeholder="—"/></td>';
+    tbody.insertBefore(tr, tbody.firstChild);
+  }
+
+  function esc(s){ return String(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+
+  function updateDeltas(d){
+    if(!d.weeks || d.weeks.length < 2) return;
+    var curr = d.weeks[d.weeks.length - 1];
+    var prev = d.weeks[d.weeks.length - 2];
+    ['deals','leads','viascore','linkedin'].forEach(function(k){
+      var c = parseInt(curr[k]) || 0;
+      var p = parseInt(prev[k]) || 0;
+      var diff = c - p;
+      var el = document.getElementById('delta-' + k);
+      if(!el) return;
+      if(diff > 0){
+        el.textContent = '↑ +' + diff + ' vs last week';
+        el.className = 'kpi-delta up';
+      } else if(diff < 0){
+        el.textContent = '↓ ' + diff + ' vs last week';
+        el.className = 'kpi-delta down';
+      } else {
+        el.textContent = '— no change';
+        el.className = 'kpi-delta neutral';
+      }
+    });
+  }
+
+  /* ── CSV Export ─────────────────────────────────── */
+  window.exportCSV = function(){
+    var d = getStore();
+    if(!d.weeks || !d.weeks.length){ alert('No data to export.'); return; }
+    var csv = 'Week,Deals,Leads,ViaScore Runs,LinkedIn Impressions,Notes\n';
+    d.weeks.forEach(function(w){
+      csv += [w.date, w.deals, w.leads, w.viascore, w.linkedin, '"'+String(w.notes||'').replace(/"/g,'""')+'"'].join(',') + '\n';
+    });
+    var blob = new Blob([csv], {type:'text/csv'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'viador-kpi-' + new Date().toISOString().slice(0,10) + '.csv';
+    a.click();
+  };
+
+})();
+</script>
+</body>
+</html>
