@@ -424,6 +424,109 @@
       transition: opacity .3s;
     }
 
+    /* ── AI Advisor Panel ────────────────────────────── */
+    .ai-panel {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ai-panel.loading {
+      animation: border-pulse 2s ease-in-out infinite;
+    }
+    @keyframes border-pulse {
+      0%, 100% { border-color: rgba(184,129,30,0.15); }
+      50% { border-color: rgba(184,129,30,0.6); }
+    }
+    .ai-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .ai-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-m);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .ai-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .ai-panel.loading .ai-dot { animation: pulse 1s ease-in-out infinite; }
+    .ai-btn {
+      padding: 10px 22px;
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .2s, opacity .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ai-btn:hover { background: var(--gold-lt); }
+    .ai-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .ai-btn svg { width: 16px; height: 16px; }
+    .ai-output {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 24px;
+      min-height: 60px;
+      display: none;
+    }
+    .ai-output.visible { display: block; }
+    .ai-output h3 {
+      font-family: var(--font-d);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 20px 0 10px;
+    }
+    .ai-output h3:first-child { margin-top: 0; }
+    .ai-output p, .ai-output li {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .ai-output ul { padding-left: 20px; margin: 6px 0 16px; }
+    .ai-output li { margin-bottom: 8px; }
+    .ai-output strong { color: var(--text); font-weight: 500; }
+    .ai-output em { color: var(--gold-lt); font-style: normal; }
+    .ai-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 16px;
+      background: var(--gold);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink 0.6s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .ai-timestamp {
+      font-family: var(--font-m);
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
     /* ── Footer ──────────────────────────────────────── */
     .dash-footer {
       text-align: center;
@@ -582,6 +685,24 @@
       </div>
     </div>
 
+    <!-- ── AI Advisor ─────────────────────────────── -->
+    <div class="section-head">
+      <span class="section-label">AI Advisor</span>
+      <div class="section-line"></div>
+      <span class="section-label">Powered by Claude</span>
+    </div>
+
+    <div class="ai-panel" id="ai-panel">
+      <div class="ai-header">
+        <div class="ai-badge"><div class="ai-dot"></div> AI Business Advisor</div>
+        <button class="ai-btn" id="ai-btn" onclick="runAI()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Get AI Analysis
+        </button>
+      </div>
+      <div class="ai-output" id="ai-output"></div>
+    </div>
+
     <!-- ── Notes ──────────────────────────────────── -->
     <div class="section-head">
       <span class="section-label">Notes &amp; Priorities</span>
@@ -718,6 +839,15 @@
 
     // Persist seed so deltas and export work
     if(isEmpty) setStore(d);
+
+    // Load cached AI analysis
+    if(d.lastAI && d.lastAI.text){
+      var output = document.getElementById('ai-output');
+      var ts = formatTime(d.lastAI.time);
+      output.className = 'ai-output visible';
+      output.innerHTML = markdownToHTML(d.lastAI.text) +
+        '<div class="ai-timestamp">Analysis generated ' + ts + '</div>';
+    }
   }
 
   window.saveData = function(){
@@ -821,6 +951,154 @@
         el.className = 'kpi-delta neutral';
       }
     });
+  }
+
+  /* ── AI Advisor ─────────────────────────────────── */
+  var AI_PROXY = 'https://viador-ai-proxy.chad-7f6.workers.dev';
+  var AI_SYSTEM = 'You are the AI business advisor for Viador Partners, an AI-native real estate investor lending platform. Analyze the provided KPI data and give specific, actionable recommendations. Be direct and specific — reference actual numbers. Focus on revenue impact and platform growth.\n\nFormat your response in exactly this structure using markdown:\n\n### Areas of Attention\n- (3 bullet points analyzing the data — reference specific numbers and percentages)\n\n### Recommended Actions This Week\n- (3 bullet points ranked by revenue impact — be specific and actionable)\n\n### Platform Trajectory\n(One sentence on overall trajectory based on the trend data)';
+
+  window.runAI = function(){
+    var btn = document.getElementById('ai-btn');
+    var panel = document.getElementById('ai-panel');
+    var output = document.getElementById('ai-output');
+
+    // Save current data first
+    saveData();
+    var d = getStore();
+
+    // Build context from KPIs and weekly data
+    var kpiText = 'Current Week KPIs:\n' +
+      '- Deals in Pipeline: ' + (d.kpis && d.kpis.deals || '0') + '\n' +
+      '- Leads This Week: ' + (d.kpis && d.kpis.leads || '0') + '\n' +
+      '- ViaScore Runs: ' + (d.kpis && d.kpis.viascore || '0') + '\n' +
+      '- LinkedIn Impressions: ' + (d.kpis && d.kpis.linkedin || '0') + '\n';
+
+    var weekText = '\nWeekly History:\n';
+    if(d.weeks && d.weeks.length){
+      d.weeks.forEach(function(w){
+        weekText += 'Week of ' + w.date + ': Deals=' + w.deals + ', Leads=' + w.leads +
+          ', ViaScore Runs=' + w.viascore + ', LinkedIn=' + w.linkedin +
+          (w.notes ? ' (' + w.notes + ')' : '') + '\n';
+      });
+    }
+
+    var notesText = d.notes ? '\nOperator Notes: ' + d.notes : '';
+    var userMsg = kpiText + weekText + notesText + '\n\nAnalyze this data and provide your assessment.';
+
+    // UI: loading state
+    btn.disabled = true;
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation:spin 1s linear infinite"><path d="M12 2a10 10 0 1 0 10 10"/></svg> Analyzing...';
+    panel.classList.add('loading');
+    output.className = 'ai-output visible';
+    output.innerHTML = '<span class="ai-cursor"></span>';
+
+    // Add spin keyframes if not already added
+    if(!document.getElementById('spin-style')){
+      var s = document.createElement('style');
+      s.id = 'spin-style';
+      s.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
+      document.head.appendChild(s);
+    }
+
+    fetch(AI_PROXY, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1024,
+        stream: true,
+        system: AI_SYSTEM,
+        messages: [{ role: 'user', content: userMsg }]
+      })
+    }).then(function(res){
+      if(!res.ok) throw new Error('API returned ' + res.status);
+      var reader = res.body.getReader();
+      var decoder = new TextDecoder();
+      var raw = '';
+      var buffer = '';
+
+      function pump(){
+        return reader.read().then(function(result){
+          if(result.done){
+            finishAI(raw);
+            return;
+          }
+          buffer += decoder.decode(result.value, {stream:true});
+          var lines = buffer.split('\n');
+          buffer = lines.pop();
+          lines.forEach(function(line){
+            if(line.startsWith('data: ')){
+              var payload = line.slice(6).trim();
+              if(payload === '[DONE]') return;
+              try {
+                var evt = JSON.parse(payload);
+                if(evt.type === 'content_block_delta' && evt.delta && evt.delta.text){
+                  raw += evt.delta.text;
+                  renderStream(raw);
+                }
+              } catch(e){}
+            }
+          });
+          return pump();
+        });
+      }
+      return pump();
+    }).catch(function(err){
+      output.innerHTML = '<p style="color:var(--red)">Analysis failed: ' + err.message + '. Check that the AI proxy worker is deployed.</p>';
+      resetAIBtn();
+    });
+  };
+
+  function renderStream(raw){
+    var output = document.getElementById('ai-output');
+    output.innerHTML = markdownToHTML(raw) + '<span class="ai-cursor"></span>';
+    output.scrollTop = output.scrollHeight;
+  }
+
+  function finishAI(raw){
+    var output = document.getElementById('ai-output');
+    var ts = new Date();
+    var timeStr = ts.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ' at ' +
+      ts.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+    output.innerHTML = markdownToHTML(raw) +
+      '<div class="ai-timestamp">Analysis generated ' + timeStr + '</div>';
+    resetAIBtn();
+
+    // Cache result
+    var d = getStore();
+    d.lastAI = { text: raw, time: ts.toISOString() };
+    setStore(d);
+  }
+
+  function resetAIBtn(){
+    var btn = document.getElementById('ai-btn');
+    var panel = document.getElementById('ai-panel');
+    btn.disabled = false;
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Get AI Analysis';
+    panel.classList.remove('loading');
+  }
+
+  function markdownToHTML(md){
+    // Simple markdown: ### headings, **bold**, *italic*, - bullets
+    var html = md
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>');
+    // Convert bullet lines to list
+    html = html.replace(/((?:^- .+\n?)+)/gm, function(block){
+      var items = block.trim().split('\n').map(function(l){
+        return '<li>' + l.replace(/^- /,'') + '</li>';
+      }).join('');
+      return '<ul>' + items + '</ul>';
+    });
+    // Remaining lines to paragraphs
+    html = html.split('\n').map(function(line){
+      line = line.trim();
+      if(!line || line.startsWith('<h3>') || line.startsWith('<ul>') || line.startsWith('<li>')) return line;
+      return '<p>' + line + '</p>';
+    }).join('\n');
+    return html;
   }
 
   /* ── CSV Export ─────────────────────────────────── */
