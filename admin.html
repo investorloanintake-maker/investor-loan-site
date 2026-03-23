@@ -528,6 +528,79 @@
       border-top: 1px solid var(--line);
     }
 
+    /* ── Quick Links Compact ───────────────────────── */
+    .ql-group-label {
+      font-family: var(--font-m);
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+    .ql-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .ql-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color .2s, transform .12s;
+    }
+    .ql-card:hover { border-color: var(--gold); transform: translateY(-1px); }
+    .ql-card.disabled {
+      opacity: 0.4;
+      pointer-events: none;
+      cursor: default;
+    }
+    .ql-card.disabled:hover { border-color: var(--line); transform: none; }
+    .ql-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .ql-dot.gold { background: rgba(184,129,30,0.12); }
+    .ql-dot.blue { background: rgba(88,166,255,0.12); }
+    .ql-dot.green { background: rgba(62,207,142,0.12); }
+    .ql-dot.dim { background: rgba(255,255,255,0.04); }
+    .ql-info { flex: 1; min-width: 0; }
+    .ql-name {
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .ql-sub {
+      font-size: 10px;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
+    .ql-badge {
+      font-family: var(--font-m);
+      font-size: 8px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.06);
+      color: var(--text-dim);
+      flex-shrink: 0;
+    }
+
     /* ── Tabs ────────────────────────────────────────── */
     .tab-bar {
       display: flex;
@@ -674,6 +747,7 @@
       .kpi-grid { grid-template-columns: repeat(2, 1fr); }
       .links-grid { grid-template-columns: repeat(2, 1fr); }
       .val-grid { grid-template-columns: 1fr; }
+      .ql-grid { grid-template-columns: 1fr 1fr; }
       .topbar { padding: 14px 20px; }
       .tab-bar { padding: 0 20px; }
       .dash-body { padding: 24px 16px; }
@@ -681,6 +755,7 @@
     @media (max-width: 540px) {
       .kpi-grid { grid-template-columns: 1fr; }
       .links-grid { grid-template-columns: 1fr; }
+      .ql-grid { grid-template-columns: 1fr; }
       .log-table { font-size: 12px; }
       .log-table th, .log-table td { padding: 10px 12px; }
       .pl-table { font-size: 12px; }
@@ -777,7 +852,48 @@
       </div>
     </div>
 
-    <!-- ── Quick Links ────────────────────────────── -->
+    <!-- ── Quick Links (Platforms + Docs) ────────── -->
+    <div class="section-head">
+      <span class="section-label">Quick Links</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="ql-group-label">Our Platforms</div>
+    <div class="ql-grid">
+      <a href="https://viadorpartners.com" target="_blank" rel="noopener" class="ql-card">
+        <div class="ql-dot gold">🏠</div>
+        <div class="ql-info"><div class="ql-name">Viador Partners</div><div class="ql-sub">viadorpartners.com</div></div>
+      </a>
+      <a href="https://viascore.pages.dev" target="_blank" rel="noopener" class="ql-card">
+        <div class="ql-dot gold">⚡</div>
+        <div class="ql-info"><div class="ql-name">ViaScore™</div><div class="ql-sub">viascore.pages.dev</div></div>
+        <span class="ql-badge">Stealth</span>
+      </a>
+      <span class="ql-card disabled">
+        <div class="ql-dot dim">📊</div>
+        <div class="ql-info"><div class="ql-name">Viador Markets</div><div class="ql-sub">viadormarkets.com</div></div>
+        <span class="ql-badge">Coming Soon</span>
+      </span>
+    </div>
+
+    <div class="ql-group-label">Documents</div>
+    <div class="ql-grid">
+      <a href="#" class="ql-card" onclick="event.preventDefault()">
+        <div class="ql-dot blue">📄</div>
+        <div class="ql-info"><div class="ql-name">Master Brief v2.2</div><div class="ql-sub">Upload to update</div></div>
+      </a>
+      <a href="#" class="ql-card" onclick="event.preventDefault();switchTab('pl')">
+        <div class="ql-dot green">📈</div>
+        <div class="ql-info"><div class="ql-name">P&amp;L &amp; Projections</div><div class="ql-sub">Year 1–3 model</div></div>
+      </a>
+      <span class="ql-card disabled">
+        <div class="ql-dot dim">📊</div>
+        <div class="ql-info"><div class="ql-name">Pitch Deck</div><div class="ql-sub">In progress</div></div>
+        <span class="ql-badge">Coming Soon</span>
+      </span>
+    </div>
+
+    <!-- ── Dashboards ────────────────────────────── -->
     <div class="section-head">
       <span class="section-label">Dashboards</span>
       <div class="section-line"></div>
