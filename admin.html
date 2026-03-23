@@ -8,6 +8,7 @@
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
@@ -527,6 +528,138 @@
       border-top: 1px solid var(--line);
     }
 
+    /* ── Tabs ────────────────────────────────────────── */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      padding: 0 32px;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg);
+    }
+    .tab-btn {
+      padding: 14px 24px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--text-dim);
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color .2s, border-color .2s;
+      white-space: nowrap;
+    }
+    .tab-btn:hover { color: var(--text-mid); }
+    .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── P&L Styles ─────────────────────────────────── */
+    .pl-table {
+      width: 100%;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      border-collapse: collapse;
+      margin-bottom: 32px;
+    }
+    .pl-table thead { background: var(--bg3); }
+    .pl-table th {
+      font-family: var(--font-m);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 14px 20px;
+      text-align: left;
+      font-weight: 400;
+    }
+    .pl-table td {
+      padding: 14px 20px;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+      color: var(--text);
+    }
+    .pl-table td:first-child { font-weight: 500; }
+    .pl-table .pl-revenue { color: var(--green); font-weight: 600; }
+    .pl-table .pl-expense { color: var(--text-mid); }
+    .pl-table .pl-net { color: var(--gold); font-weight: 700; font-family: var(--font-d); font-size: 16px; }
+    .pl-table .pl-margin { color: var(--green); font-family: var(--font-m); font-size: 12px; }
+
+    .chart-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .chart-title {
+      font-family: var(--font-m);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+
+    .val-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .val-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+    .val-label {
+      font-family: var(--font-m);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+    .val-amount {
+      font-family: var(--font-d);
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .val-sub {
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+    .val-card.bear { border-color: rgba(229,83,75,0.2); }
+    .val-card.bear .val-amount { color: var(--text-mid); }
+    .val-card.base { border-color: rgba(184,129,30,0.3); }
+    .val-card.bull { border-color: rgba(62,207,142,0.2); }
+    .val-card.bull .val-amount { color: var(--green); }
+
+    .assumptions-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .assumptions-card li {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      padding-left: 8px;
+    }
+    .assumptions-card li::marker { color: var(--gold); }
+
+    .variance-pos { color: var(--green); font-weight: 500; }
+    .variance-neg { color: var(--red); font-weight: 500; }
+
     /* ── Footer ──────────────────────────────────────── */
     .dash-footer {
       text-align: center;
@@ -540,7 +673,9 @@
     @media (max-width: 900px) {
       .kpi-grid { grid-template-columns: repeat(2, 1fr); }
       .links-grid { grid-template-columns: repeat(2, 1fr); }
+      .val-grid { grid-template-columns: 1fr; }
       .topbar { padding: 14px 20px; }
+      .tab-bar { padding: 0 20px; }
       .dash-body { padding: 24px 16px; }
     }
     @media (max-width: 540px) {
@@ -548,6 +683,11 @@
       .links-grid { grid-template-columns: 1fr; }
       .log-table { font-size: 12px; }
       .log-table th, .log-table td { padding: 10px 12px; }
+      .pl-table { font-size: 12px; }
+      .pl-table th, .pl-table td { padding: 10px 12px; }
+      .val-amount { font-size: 24px; }
+      .tab-bar { overflow-x: auto; }
+      .tab-btn { padding: 12px 16px; font-size: 12px; }
     }
   </style>
 </head>
@@ -586,6 +726,14 @@
     </div>
   </div>
 
+  <!-- Tab Bar -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('ops')">Operations</button>
+    <button class="tab-btn" onclick="switchTab('pl')">P&amp;L &amp; Projections</button>
+  </div>
+
+  <!-- ═══ TAB: Operations ═══ -->
+  <div class="tab-panel active" id="tab-ops">
   <div class="dash-body">
 
     <!-- Status Bar -->
@@ -716,6 +864,137 @@
     </div>
 
   </div>
+  </div><!-- /tab-ops -->
+
+  <!-- ═══ TAB: P&L & Projections ═══ -->
+  <div class="tab-panel" id="tab-pl">
+  <div class="dash-body">
+
+    <!-- 3-Year Summary -->
+    <div class="section-head">
+      <span class="section-label">3-Year P&amp;L Summary</span>
+      <div class="section-line"></div>
+    </div>
+
+    <table class="pl-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Year 1 (2026)</th>
+          <th>Year 2 (2027)</th>
+          <th>Year 3 (2028)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Revenue</td>
+          <td class="pl-revenue">$95,250</td>
+          <td class="pl-revenue">$880,800</td>
+          <td class="pl-revenue">$1,814,400</td>
+        </tr>
+        <tr>
+          <td>Expenses</td>
+          <td class="pl-expense">$25,620</td>
+          <td class="pl-expense">$75,600</td>
+          <td class="pl-expense">$97,200</td>
+        </tr>
+        <tr>
+          <td>Net Income</td>
+          <td class="pl-net">$69,630</td>
+          <td class="pl-net">$805,200</td>
+          <td class="pl-net">$1,717,200</td>
+        </tr>
+        <tr>
+          <td>Net Margin</td>
+          <td class="pl-margin">73%</td>
+          <td class="pl-margin">91%</td>
+          <td class="pl-margin">95%</td>
+        </tr>
+        <tr>
+          <td>Loans Closed</td>
+          <td>36</td>
+          <td>120</td>
+          <td>192</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Revenue Chart -->
+    <div class="section-head">
+      <span class="section-label">Year 1 Monthly Revenue Ramp</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="chart-card">
+      <canvas id="revenueChart" height="260"></canvas>
+    </div>
+
+    <!-- Valuation Scenarios -->
+    <div class="section-head">
+      <span class="section-label">Valuation Scenarios (Year 3)</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="val-grid">
+      <div class="val-card bear">
+        <div class="val-label">Bear Case</div>
+        <div class="val-amount">$9.1M</div>
+        <div class="val-sub">5x Revenue Y3</div>
+      </div>
+      <div class="val-card base">
+        <div class="val-label">Base Case</div>
+        <div class="val-amount">$18.1M</div>
+        <div class="val-sub">10x Revenue Y3</div>
+      </div>
+      <div class="val-card bull">
+        <div class="val-label">Bull Case</div>
+        <div class="val-amount">$25.8M</div>
+        <div class="val-sub">15x EBITDA Y3</div>
+      </div>
+    </div>
+
+    <!-- Key Assumptions -->
+    <div class="section-head">
+      <span class="section-label">Key Assumptions</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="assumptions-card">
+      <ol style="padding-left:20px;margin:0">
+        <li>Ohio license April 2026, Florida license June 2026</li>
+        <li>Blended avg <strong style="color:var(--gold)">$7,450/loan</strong> (55% DSCR, 25% Residential, 20% BPL)</li>
+        <li>Ecosystem revenue (ViaScore&#8482;, partner referrals) starts Month 6</li>
+        <li>ViaScore&#8482; API licensing revenue starts Year 2</li>
+        <li>No employees through Year 2 — founder-operated with contractor support</li>
+        <li>Year 2 assumes 10 loans/month avg, Year 3 assumes 16 loans/month avg</li>
+        <li>Expenses include: software/tools, marketing, insurance, legal, licensing fees</li>
+      </ol>
+    </div>
+
+    <!-- Actual vs Projected Tracker -->
+    <div class="section-head">
+      <span class="section-label">Actual vs Projected — Year 1</span>
+      <div class="section-line"></div>
+    </div>
+
+    <table class="pl-table" id="avp-table">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Projected</th>
+          <th>Actual (editable)</th>
+          <th>Variance</th>
+        </tr>
+      </thead>
+      <tbody id="avp-body"></tbody>
+    </table>
+    <div style="display:flex;gap:12px;margin-bottom:32px">
+      <button class="log-btn primary" onclick="saveAvP()">Save Actuals</button>
+      <button class="log-btn secondary" onclick="exportAvPCSV()">Export CSV</button>
+    </div>
+
+  </div>
+  </div><!-- /tab-pl -->
 
   <div class="dash-footer">
     Viador Partners LLC &middot; Internal Use Only &middot; NMLS #2822744
@@ -1113,6 +1392,133 @@
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = 'viador-kpi-' + new Date().toISOString().slice(0,10) + '.csv';
+    a.click();
+  };
+
+  /* ── Tab Switching ──────────────────────────────── */
+  window.switchTab = function(tab){
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+    document.getElementById('tab-'+tab).classList.add('active');
+    // Highlight correct button
+    var btns = document.querySelectorAll('.tab-btn');
+    btns.forEach(function(b){ if((tab==='ops' && b.textContent.indexOf('Operations')>=0)||(tab==='pl' && b.textContent.indexOf('P&L')>=0)) b.classList.add('active'); });
+    // Init chart on first view
+    if(tab==='pl' && !window._chartInit){ initRevenueChart(); initAvPTable(); window._chartInit=true; }
+  };
+
+  /* ── Revenue Chart ─────────────────────────────── */
+  function initRevenueChart(){
+    var ctx = document.getElementById('revenueChart');
+    if(!ctx) return;
+    var projected = [0,0,0,7450,14900,25350,37400,37400,37400,56100,56100,56100];
+    var labels = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    // Load actuals from storage
+    var d = getStore();
+    var actuals = (d.avpActuals || []).map(function(v){ return parseInt(String(v).replace(/\D/g,''))||0; });
+    var datasets = [{
+      label: 'Projected',
+      data: projected,
+      backgroundColor: 'rgba(184,129,30,0.3)',
+      borderColor: '#B8811E',
+      borderWidth: 1.5,
+      borderRadius: 4,
+      order: 2
+    }];
+    if(actuals.some(function(v){return v>0;})){
+      datasets.push({
+        label: 'Actual',
+        data: actuals.concat(Array(12-actuals.length).fill(0)).slice(0,12),
+        backgroundColor: 'rgba(62,207,142,0.4)',
+        borderColor: '#3ECF8E',
+        borderWidth: 1.5,
+        borderRadius: 4,
+        order: 1
+      });
+    }
+    new Chart(ctx, {
+      type: 'bar',
+      data: { labels: labels, datasets: datasets },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: datasets.length > 1, labels: { color: 'rgba(255,255,255,0.45)', font: { family: "'DM Sans'", size: 11 }, boxWidth: 12, padding: 16 } },
+          tooltip: {
+            backgroundColor: '#22252F',
+            titleColor: '#E8E4DF',
+            bodyColor: 'rgba(255,255,255,0.65)',
+            borderColor: 'rgba(255,255,255,0.08)',
+            borderWidth: 1,
+            callbacks: { label: function(c){ return c.dataset.label + ': $' + c.raw.toLocaleString(); } }
+          }
+        },
+        scales: {
+          x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.35)', font: { family: "'DM Mono'", size: 10 } } },
+          y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.35)', font: { family: "'DM Mono'", size: 10 }, callback: function(v){ return '$'+v.toLocaleString(); } } }
+        }
+      }
+    });
+  }
+
+  /* ── Actual vs Projected ───────────────────────── */
+  var AVP_PROJECTED = [0,0,0,7450,14900,25350,37400,37400,37400,56100,56100,56100];
+  var AVP_MONTHS = ['M1 — Jan 2026','M2 — Feb','M3 — Mar','M4 — Apr','M5 — May','M6 — Jun','M7 — Jul','M8 — Aug','M9 — Sep','M10 — Oct','M11 — Nov','M12 — Dec'];
+
+  function initAvPTable(){
+    var d = getStore();
+    var actuals = d.avpActuals || [];
+    var tbody = document.getElementById('avp-body');
+    if(!tbody) return;
+    tbody.innerHTML = '';
+    for(var i=0;i<12;i++){
+      var proj = AVP_PROJECTED[i];
+      var act = actuals[i] || '';
+      var actNum = parseInt(String(act).replace(/\D/g,'')) || 0;
+      var variance = act ? actNum - proj : null;
+      var varHTML = variance === null ? '<span style="color:var(--text-dim)">—</span>' :
+        (variance >= 0 ? '<span class="variance-pos">+$'+variance.toLocaleString()+'</span>' :
+        '<span class="variance-neg">-$'+Math.abs(variance).toLocaleString()+'</span>');
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>'+AVP_MONTHS[i]+'</td><td style="font-family:var(--font-m);font-size:13px">$'+proj.toLocaleString()+'</td><td><input type="text" value="'+esc(act)+'" placeholder="—" data-avp="'+i+'" style="background:transparent;border:none;border-bottom:1px dashed rgba(184,129,30,0.3);color:var(--gold);font-family:var(--font-d);font-size:16px;font-weight:700;width:120px;outline:none;padding:2px 0" oninput="updateVariance(this)"/></td><td class="avp-var" data-var="'+i+'">'+varHTML+'</td>';
+      tbody.appendChild(tr);
+    }
+  }
+
+  window.updateVariance = function(el){
+    var i = parseInt(el.dataset.avp);
+    var proj = AVP_PROJECTED[i];
+    var actNum = parseInt(el.value.replace(/\D/g,'')) || 0;
+    var cell = document.querySelector('[data-var="'+i+'"]');
+    if(!el.value.trim()){ cell.innerHTML = '<span style="color:var(--text-dim)">—</span>'; return; }
+    var diff = actNum - proj;
+    cell.innerHTML = diff >= 0 ? '<span class="variance-pos">+$'+diff.toLocaleString()+'</span>' : '<span class="variance-neg">-$'+Math.abs(diff).toLocaleString()+'</span>';
+  };
+
+  window.saveAvP = function(){
+    var d = getStore();
+    d.avpActuals = [];
+    document.querySelectorAll('[data-avp]').forEach(function(el){
+      d.avpActuals[parseInt(el.dataset.avp)] = el.value;
+    });
+    setStore(d);
+    flashSaved();
+  };
+
+  window.exportAvPCSV = function(){
+    var d = getStore();
+    var actuals = d.avpActuals || [];
+    var csv = 'Month,Projected,Actual,Variance\n';
+    for(var i=0;i<12;i++){
+      var proj = AVP_PROJECTED[i];
+      var act = parseInt(String(actuals[i]||'').replace(/\D/g,'')) || '';
+      var variance = act !== '' ? (act - proj) : '';
+      csv += AVP_MONTHS[i]+','+proj+','+(act||'')+','+(variance!==''?variance:'')+'\n';
+    }
+    var blob = new Blob([csv],{type:'text/csv'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'viador-avp-'+new Date().toISOString().slice(0,10)+'.csv';
     a.click();
   };
 
