@@ -80,7 +80,10 @@
       "Bash(# Save new files\ncp privacy-policy.html /tmp/pp.html 2>/dev/null; cp terms.html /tmp/t.html 2>/dev/null; cp score.html /tmp/score.html 2>/dev/null; cp fix_all.pl /tmp/fix_all.pl\n\n# Hard reset to last commit\ngit checkout HEAD -- . 2>/dev/null\n\n# Restore new files\ncp /tmp/pp.html privacy-policy.html 2>/dev/null; cp /tmp/t.html terms.html 2>/dev/null; cp /tmp/score.html score.html 2>/dev/null; cp /tmp/fix_all.pl fix_all.pl\n\necho \"=== Verify clean footer ===\" && grep \"Equal Housing\" airbnb-financing-florida.html | head -1)",
       "Bash(xxd)",
       "Bash(if ! grep -q \"G-LQWW7XCPVS\" \"$f\")",
-      "Bash(then)"
+      "Bash(then)",
+      "Bash(government databases. Viador Markets is not affiliated with any MLS.)",
+      "Bash(For IDX-sourced listings, data is provided by participating MLS members.\":*)",
+      "Bash(review within 24 hours.\" — no redirect, stays on page:*)"
     ]
   }
 }
