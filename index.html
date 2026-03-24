@@ -1156,5 +1156,60 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
   s.parentNode.insertBefore(b, s);})(window.lintrk);
 </script>
 <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8839754&amp;fmt=gif" /></noscript>
+
+<!-- Exit Intent Popup -->
+<div id="exitIntentOverlay" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.7); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:#fff; max-width:480px; width:90%; margin:0 auto; padding:40px; border-radius:12px; position:relative; text-align:center;">
+    <button onclick="closeExitIntent()" style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:20px; cursor:pointer; color:#888;">&times;</button>
+    <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:#B8811E; margin-bottom:12px; font-family:'DM Sans',sans-serif;">Before You Go</div>
+    <h2 style="font-family:'Fraunces',serif; font-size:1.8rem; color:#1A1C24; margin:0 0 12px;">Score your deal free.</h2>
+    <p style="color:#666; font-size:0.95rem; margin:0 0 24px; line-height:1.6;">No email required. See if your property qualifies in 10 seconds with ViaScore&trade; &mdash; AI deal scoring backtested against 775 real transactions.</p>
+    <a href="/score.html" onclick="closeExitIntent()" style="display:block; background:#1A1C24; color:#fff; padding:14px 24px; border-radius:6px; text-decoration:none; font-weight:600; font-size:1rem; margin-bottom:12px;">Score My Deal &mdash; Free &rarr;</a>
+    <div style="border-top:1px solid #eee; padding-top:16px; margin-top:4px;">
+      <p style="font-size:0.8rem; color:#888; margin:0 0 10px;">Or get the free DSCR &amp; BPL Investor Guide</p>
+      <form id="exitEmailForm" style="display:flex; gap:8px;">
+        <input type="email" id="exitEmail" placeholder="your@email.com" required style="flex:1; padding:10px 14px; border:1px solid #ddd; border-radius:6px; font-size:14px;">
+        <button type="submit" style="padding:10px 16px; background:#B8811E; color:#fff; border:none; border-radius:6px; font-weight:600; cursor:pointer; white-space:nowrap;">Send It</button>
+      </form>
+      <div id="exitEmailSuccess" style="display:none; color:#2d7a2d; font-size:0.85rem; margin-top:8px;">&check; Guide on its way &mdash; check your inbox.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  if (sessionStorage.getItem('exitShown')) return;
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 0) {
+      document.getElementById('exitIntentOverlay').style.display = 'flex';
+      sessionStorage.setItem('exitShown', '1');
+    }
+  });
+})();
+
+function closeExitIntent() {
+  document.getElementById('exitIntentOverlay').style.display = 'none';
+}
+
+document.getElementById('exitEmailForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var email = document.getElementById('exitEmail').value;
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/245454217/e463e10b-4cb3-4d79-8915-2d6c62d4cc58', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      fields: [
+        {name: 'email', value: email},
+        {name: 'message', value: 'Exit intent — DSCR BPL Guide request'}
+      ],
+      context: {pageUri: window.location.href, pageName: 'Viador Partners Homepage'}
+    })
+  });
+  document.getElementById('exitEmailForm').style.display = 'none';
+  document.getElementById('exitEmailSuccess').style.display = 'block';
+  setTimeout(closeExitIntent, 2000);
+});
+</script>
+
 </body>
 </html>
