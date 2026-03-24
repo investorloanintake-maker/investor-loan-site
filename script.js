@@ -123,12 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
         );
 
         if (res.ok) {
-          /* Success — show confirmation */
-          document.getElementById('dealForm').style.display = 'none';
-          if (successEl) {
-            successEl.style.display = 'block';
-            successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }
+          /* Success — redirect to thank you page */
+          window.location.href = 'thank-you.html';
         } else {
           const err = await res.json().catch(() => ({}));
           console.error('HubSpot error:', err);

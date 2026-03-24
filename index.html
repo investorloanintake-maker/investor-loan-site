@@ -579,8 +579,38 @@
 </section>
 
 <!-- ═══════════════════════════════════════════
-     TESTIMONIALS
+     LEAD MAGNET + CREDIBILITY
 ═══════════════════════════════════════════ -->
+<section class="section" style="background:var(--cream-dark);padding:64px 0">
+  <div class="container" style="max-width:800px;text-align:center">
+    <div class="section-label">Free Resource</div>
+    <h2 class="section-title" style="margin-bottom:12px">The Investor's Guide to DSCR &amp; BPL Loans</h2>
+    <p style="font-size:15px;color:var(--ink-soft);margin-bottom:28px;line-height:1.6">Everything you need to know about qualifying for investment property financing without W-2s, tax returns, or DTI calculations.</p>
+    <form id="leadMagnetForm" style="display:flex;gap:10px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center" onsubmit="return submitLeadMagnet(event)">
+      <input type="email" id="lm-email" placeholder="Enter your email" required style="flex:1;min-width:240px;padding:14px 18px;border:1.5px solid var(--line);border-radius:8px;font-family:var(--font-body);font-size:15px;background:var(--cream);outline:none"/>
+      <button type="submit" id="lm-btn" style="padding:14px 28px;background:var(--gold);color:#fff;border:none;border-radius:8px;font-family:var(--font-body);font-size:15px;font-weight:600;cursor:pointer;white-space:nowrap">Send Me The Guide</button>
+    </form>
+    <div id="lm-success" style="display:none;margin-top:16px;font-size:14px;color:var(--gold);font-weight:500">Check your inbox &mdash; we'll send the guide within 24 hours.</div>
+    <p style="font-size:11px;color:var(--ink-soft);margin-top:20px;opacity:0.6">Only 5.3% of properties score Buy or Strong Buy in our backtesting. We give honest assessments, not participation trophies.</p>
+  </div>
+</section>
+<script>
+function submitLeadMagnet(e){
+  e.preventDefault();
+  var email=document.getElementById('lm-email').value.trim();
+  if(!email)return false;
+  var btn=document.getElementById('lm-btn');
+  btn.disabled=true;btn.textContent='Sending...';
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/245454217/e463e10b-4cb3-4d79-8915-2d6c62d4cc58',{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({fields:[{name:'email',value:email},{name:'message',value:'Homepage Lead Magnet — DSCR & BPL Guide'}],context:{pageUri:window.location.href,pageName:'Homepage Lead Magnet'}})
+  }).then(function(r){
+    if(r.ok){document.getElementById('leadMagnetForm').style.display='none';document.getElementById('lm-success').style.display='block';}
+    else{btn.disabled=false;btn.textContent='Send Me The Guide';}
+  }).catch(function(){btn.disabled=false;btn.textContent='Send Me The Guide';});
+  return false;
+}
+</script>
 
 <!-- ═══════════════════════════════════════════
      LOAN PROGRAMS
@@ -1098,5 +1128,6 @@
 </div>
 
 <script src="script.js" defer></script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/245454217.js"></script>
 </body>
 </html>
