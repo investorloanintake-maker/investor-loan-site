@@ -93,6 +93,7 @@ body {
 }
 
 .section { padding: clamp(80px, 10vw, 140px) 0; }
+#paths { padding-top: 40px; }
 
 /* ── Labels / Eyebrows ──────────────────────────────────── */
 .section-label {
