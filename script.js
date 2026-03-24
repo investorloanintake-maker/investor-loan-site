@@ -123,8 +123,16 @@ document.addEventListener('DOMContentLoaded', () => {
         );
 
         if (res.ok) {
-          /* Success — redirect to thank you page */
-          window.location.href = 'thank-you.html';
+          /* Success — redirect to thank you page, fallback to inline */
+          try { window.location.href = 'thank-you.html'; } catch(e) {}
+          var fp = document.querySelector('.form-panel') || document.getElementById('dealForm');
+          if (fp) fp.style.display = 'none';
+          if (successEl) {
+            successEl.style.display = 'block';
+            successEl.style.position = 'relative';
+            successEl.style.opacity = '1';
+            successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
         } else {
           const err = await res.json().catch(() => ({}));
           console.error('HubSpot error:', err);
