@@ -1933,3 +1933,52 @@ body {
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
 }
+
+/* ── Founder trust bar ───────────────────────────────────────── */
+.founder-trust-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 20px 32px;
+  background: #f9f7f4;
+  border: 1px solid #e8e4de;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+}
+.founder-avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+}
+.founder-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.founder-nmls {
+  font-weight: 400;
+  color: #888;
+  font-size: 0.85rem;
+}
+.founder-bio {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 2px;
+}
+.founder-quote {
+  font-style: italic;
+  font-size: 0.875rem;
+  color: #555;
+  border-left: 3px solid #c9a84c;
+  padding-left: 14px;
+  flex-shrink: 0;
+  max-width: 280px;
+}
+@media (max-width: 700px) {
+  .founder-trust-bar { flex-direction: column; text-align: center; }
+  .founder-quote { border-left: none; border-top: 2px solid #c9a84c; padding: 12px 0 0 0; max-width: 100%; }
+}
