@@ -1177,18 +1177,33 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
 </div>
 
 <script>
+function triggerExitIntent() {
+  if (sessionStorage.getItem('exitShown')) return;
+  sessionStorage.setItem('exitShown', '1');
+  var overlay = document.getElementById('exitIntentOverlay');
+  if (overlay) overlay.style.display = 'flex';
+}
+
 (function() {
   if (sessionStorage.getItem('exitShown')) return;
+
+  // Desktop: mouse leaves viewport top
   document.addEventListener('mouseleave', function(e) {
-    if (e.clientY <= 0) {
-      document.getElementById('exitIntentOverlay').style.display = 'flex';
-      sessionStorage.setItem('exitShown', '1');
-    }
+    if (e.clientY <= 0) triggerExitIntent();
   });
+
+  // Mobile: user switches tabs/apps
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) triggerExitIntent();
+  });
+
+  // Mobile: user navigates away (back button)
+  window.addEventListener('pagehide', triggerExitIntent);
 })();
 
 function closeExitIntent() {
-  document.getElementById('exitIntentOverlay').style.display = 'none';
+  var overlay = document.getElementById('exitIntentOverlay');
+  if (overlay) overlay.style.display = 'none';
 }
 
 document.getElementById('exitEmailForm').addEventListener('submit', function(e) {
