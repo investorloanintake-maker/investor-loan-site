@@ -624,7 +624,7 @@ body {
 /* ═══════════════════════════════════════════
    THREE PATHS
 ═══════════════════════════════════════════ */
-.paths-section { background: var(--cream); padding-top: 48px; }
+.paths-section { background: var(--cream); padding-top: 40px; }
 
 .paths-grid {
   display: grid;
