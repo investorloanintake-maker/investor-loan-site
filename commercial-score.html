@@ -158,6 +158,13 @@
     }
     .nav-links a:hover { color: var(--ink); }
     .nav-links a[aria-current="page"] { color: var(--gold); font-weight: 500; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger { cursor: pointer; }
+    .nav-dropdown-trigger::after { content: ' \25BE'; font-size: 10px; opacity: 0.5; }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--cream); border: 1px solid var(--line); border-radius: 8px; padding: 8px 0; min-width: 220px; box-shadow: 0 4px 16px rgba(28,26,23,.08), 0 12px 32px rgba(28,26,23,.06); z-index: 100; }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 10px 20px; font-size: 14px; color: var(--ink-soft); text-decoration: none; white-space: nowrap; transition: background .15s, color .15s; }
+    .nav-dropdown-menu a:hover { background: var(--gold-faint); color: var(--ink); }
 
     .nav-phone {
       font-family: var(--font-mono);
@@ -523,9 +530,15 @@
       <a href="/#paths">Who We Help</a>
       <a href="bpl.html">What Is BPL?</a>
       <a href="/#programs">Programs</a>
-      <a href="commercial-real-estate-loans-florida.html">Commercial</a>
+      <div class="nav-dropdown">
+        <a href="commercial.html" class="nav-dropdown-trigger">Commercial</a>
+        <div class="nav-dropdown-menu">
+          <a href="commercial.html">Commercial Lending</a>
+          <a href="franchise.html">SBA &amp; Franchise</a>
+          <a href="commercial-score.html">ViaScore Commercial&trade;</a>
+        </div>
+      </div>
       <a href="score.html">Score a Deal</a>
-      <a href="commercial-score.html" aria-current="page">Commercial Score</a>
       <a href="about.html">About</a>
     </nav>
     <a href="tel:+18134192983" class="nav-phone">(813) 419-2983</a>
@@ -536,9 +549,10 @@
     <a href="/#paths">Who We Help</a>
     <a href="bpl.html">What Is BPL?</a>
     <a href="/#programs">Programs</a>
-    <a href="commercial-real-estate-loans-florida.html">Commercial</a>
+    <a href="commercial.html">Commercial Lending</a>
+    <a href="franchise.html">SBA &amp; Franchise</a>
+    <a href="commercial-score.html">ViaScore Commercial&trade;</a>
     <a href="score.html">Score a Deal</a>
-    <a href="commercial-score.html">Commercial Score</a>
     <a href="about.html">About</a>
     <a href="application.html" class="drawer-cta">Review My Deal &rarr;</a>
   </div>
@@ -609,8 +623,8 @@
       </div>
       <div class="footer-nav-group">
         <h4>Programs</h4>
-        <a href="commercial-real-estate-loans-florida.html">Commercial</a>
-        <a href="sba-loans-real-estate-investors.html">SBA &amp; Franchise</a>
+        <a href="commercial.html">Commercial</a>
+        <a href="franchise.html">SBA &amp; Franchise</a>
         <a href="dscr.html">DSCR Loans</a>
         <a href="fix-and-flip.html">Fix &amp; Flip</a>
         <a href="application.html">Apply Now</a>
