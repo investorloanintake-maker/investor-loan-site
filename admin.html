@@ -803,6 +803,160 @@
     .variance-pos { color: var(--green); font-weight: 500; }
     .variance-neg { color: var(--red); font-weight: 500; }
 
+    /* ── Brief Status Bar ──────────────────────────── */
+    .brief-bar {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 12px 20px;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    .brief-bar .bb-item { display: flex; align-items: center; gap: 6px; }
+    .brief-bar .bb-val { color: var(--gold); font-family: var(--font-m); font-weight: 400; }
+    .safe-bar {
+      width: 120px;
+      height: 6px;
+      background: var(--bg3);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .safe-bar-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 3px;
+      transition: width 0.5s;
+    }
+
+    /* ── Priority Stack ─────────────────────────────── */
+    .priority-panel {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .priority-panel h3 {
+      font-family: var(--font-d);
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    .priority-item {
+      padding: 8px 0;
+      font-size: 13px;
+      color: var(--text-mid);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .priority-item:last-child { border-bottom: none; }
+    .priority-item.done { color: var(--green); text-decoration: line-through; opacity: 0.7; }
+    .priority-item .pi-check { flex-shrink: 0; width: 16px; text-align: center; }
+
+    /* ── Contact Cards ──────────────────────────────── */
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .contact-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .contact-name {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .contact-role {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+    .contact-status {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+      background: rgba(255,255,255,0.06);
+      color: var(--text-dim);
+    }
+    .contact-status.status-nda_signed { background: rgba(62,207,142,0.12); color: var(--green); }
+    .contact-status.status-call_completed_march_25_enthusiastic { background: rgba(62,207,142,0.12); color: var(--green); }
+    .contact-status.status-sprint_2 { background: var(--gold-f); color: var(--gold); }
+    .contact-status.status-sprint_3 { background: rgba(88,166,255,0.12); color: var(--blue); }
+    .contact-status.status-warm_not_contacted { background: rgba(229,83,75,0.12); color: var(--red); }
+    .contact-action {
+      font-size: 11px;
+      color: var(--gold);
+      margin-top: 4px;
+    }
+
+    /* ── Platform Cards ─────────────────────────────── */
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .platform-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 20px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color .2s;
+    }
+    .platform-card:hover { border-color: var(--gold); }
+    .platform-card .pc-name {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .platform-card .pc-domain {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: var(--font-m);
+      margin-bottom: 8px;
+    }
+    .platform-card .pc-status {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      background: rgba(62,207,142,0.12);
+      color: var(--green);
+    }
+    .platform-card .pc-stat {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 6px;
+    }
+
+    @media (max-width: 900px) {
+      .platform-grid { grid-template-columns: 1fr 1fr; }
+      .contacts-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .platform-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── Setup Guide ────────────────────────────────── */
     .setup-guide {
       background: var(--bg2);
@@ -933,6 +1087,36 @@
       <div class="status-text" style="margin-left:auto">Last updated: <strong id="last-updated">&mdash;</strong></div>
     </div>
 
+    <!-- Brief Status Bar -->
+    <div class="brief-bar" id="brief-bar" style="display:none">
+      <div class="bb-item">Brief <span class="bb-val" id="brief-version">--</span></div>
+      <div class="bb-item">Updated <span class="bb-val" id="brief-date">--</span></div>
+      <div class="bb-item">LinkedIn Post <span class="bb-val" id="linkedin-countdown">--</span></div>
+      <div class="bb-item">
+        SAFE <span class="bb-val" id="safe-label">--</span>
+        <div class="safe-bar"><div class="safe-bar-fill" id="safe-progress" style="width:0%"></div></div>
+      </div>
+    </div>
+
+    <!-- ── Priority Stack ─────────────────────────── -->
+    <div class="priority-panel" id="priority-panel" style="display:none">
+      <h3 style="color:var(--gold)">Today's Priorities</h3>
+      <div id="priority-today"></div>
+      <details style="margin-top:16px">
+        <summary style="font-size:13px;color:var(--text-dim);cursor:pointer">This Week</summary>
+        <div id="priority-week" style="padding-top:8px"></div>
+      </details>
+    </div>
+
+    <!-- ── Platforms ───────────────────────────────── -->
+    <div id="platforms-section" style="display:none">
+      <div class="section-head">
+        <span class="section-label">Platforms</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="platform-grid" id="platform-grid"></div>
+    </div>
+
     <!-- ── KPI Cards ──────────────────────────────── -->
     <div class="section-head">
       <span class="section-label">Weekly KPIs</span>
@@ -1026,6 +1210,49 @@
     <div class="log-actions">
       <button class="log-btn secondary" onclick="exportCSV()">Export CSV</button>
       <span style="font-size:11px;color:var(--text-dim);margin-left:8px">Add data via Google Sheet &rarr; dashboard refreshes automatically</span>
+    </div>
+
+    <!-- ── Key Contacts ────────────────────────────── -->
+    <div id="contacts-section" style="display:none">
+      <div class="section-head">
+        <span class="section-label">Key Contacts</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="contacts-grid" id="contacts-list"></div>
+    </div>
+
+    <!-- ── Financial Summary ──────────────────────── -->
+    <div id="financial-section" style="display:none">
+      <div class="section-head">
+        <span class="section-label">Financial Projections</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="kpi-card">
+          <div class="kpi-label">Y1 Revenue</div>
+          <div class="kpi-value" id="y1-revenue" style="font-size:36px">--</div>
+          <div class="kpi-delta neutral" id="y1-loans">--</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Y2 Revenue</div>
+          <div class="kpi-value" id="y2-revenue" style="font-size:36px">--</div>
+          <div class="kpi-delta neutral" id="y2-loans">--</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Y3 Revenue</div>
+          <div class="kpi-value" id="y3-revenue" style="font-size:36px">--</div>
+          <div class="kpi-delta neutral" id="y3-val">--</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Session Log ────────────────────────────── -->
+    <div id="session-section" style="display:none">
+      <div class="section-head">
+        <span class="section-label">Latest Session</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="notes-feed" id="session-log" style="font-size:13px"></div>
     </div>
 
     <!-- ── AI Advisor ─────────────────────────────── -->
@@ -1344,6 +1571,9 @@
 
     // Load data (Sheets first, fallback to localStorage)
     refreshAllData();
+
+    // Load viador-data.json for brief panels
+    loadViadorData();
 
     // Load local notes
     var d = getStore();
@@ -1826,6 +2056,116 @@
       return '<p>' + line + '</p>';
     }).join('\n');
     return html;
+  }
+
+  /* ── viador-data.json Live Feed ───────────────── */
+  var DATA_URL = '/viador-data.json';
+
+  async function loadViadorData(){
+    try {
+      var res = await fetch(DATA_URL + '?t=' + Date.now());
+      if(!res.ok) throw new Error('HTTP ' + res.status);
+      var data = await res.json();
+      populateDashboard(data);
+    } catch(e){
+      console.log('viador-data.json not available, using defaults');
+    }
+  }
+
+  function populateDashboard(data){
+    // Brief status bar
+    var bar = document.getElementById('brief-bar');
+    bar.style.display = 'flex';
+    document.getElementById('brief-version').textContent = 'v' + data.meta.version;
+    document.getElementById('brief-date').textContent = data.meta.last_updated;
+
+    // LinkedIn countdown
+    var postDate = new Date(data.founder.linkedin_post_target);
+    var today = new Date();
+    var daysLeft = Math.ceil((postDate - today) / (1000 * 60 * 60 * 24));
+    document.getElementById('linkedin-countdown').textContent = daysLeft > 0 ? daysLeft + ' days to post' : 'Post day!';
+
+    // SAFE progress
+    var safePct = (data.licensing.safe_coursework.completed_hours / data.licensing.safe_coursework.required_hours * 100).toFixed(0);
+    document.getElementById('safe-progress').style.width = safePct + '%';
+    document.getElementById('safe-label').textContent = data.licensing.safe_coursework.completed_hours + 'h / ' + data.licensing.safe_coursework.required_hours + 'h';
+
+    // Priority stack
+    var panel = document.getElementById('priority-panel');
+    panel.style.display = 'block';
+    var todayEl = document.getElementById('priority-today');
+    todayEl.innerHTML = data.priority_stack.today.map(function(i){
+      var isDone = i.indexOf('DONE') >= 0 || i.indexOf('SENT') >= 0;
+      return '<div class="priority-item' + (isDone ? ' done' : '') + '">' +
+        '<span class="pi-check">' + (isDone ? '&#10003;' : '&#9679;') + '</span> ' + esc(i) + '</div>';
+    }).join('');
+    var weekEl = document.getElementById('priority-week');
+    weekEl.innerHTML = data.priority_stack.this_week.map(function(i){
+      return '<div class="priority-item"><span class="pi-check">&#9679;</span> ' + esc(i) + '</div>';
+    }).join('');
+
+    // Platforms
+    var platSection = document.getElementById('platforms-section');
+    platSection.style.display = 'block';
+    var platGrid = document.getElementById('platform-grid');
+    var plats = [
+      { key: 'viador_partners', name: 'Viador Partners', icon: '🏠' },
+      { key: 'viascore', name: 'ViaScore', icon: '⚡' },
+      { key: 'viador_markets', name: 'Viador Markets', icon: '📊' }
+    ];
+    platGrid.innerHTML = plats.map(function(p){
+      var d = data.platforms[p.key];
+      var stats = '';
+      if(d.pages) stats = d.pages + ' pages';
+      if(d.backtest_transactions) stats = d.backtest_transactions + ' backtested';
+      if(d.listings_residential) stats = (d.listings_residential + (d.listings_commercial||0)) + ' listings';
+      return '<a href="https://' + (d.domain||'#') + '" target="_blank" class="platform-card">' +
+        '<div class="pc-name">' + p.icon + ' ' + p.name + '</div>' +
+        '<div class="pc-domain">' + (d.domain || 'Future') + '</div>' +
+        '<div class="pc-status">' + (d.status||'').replace(/_/g,' ') + '</div>' +
+        (stats ? '<div class="pc-stat">' + stats + '</div>' : '') +
+      '</a>';
+    }).join('');
+
+    // Contacts
+    var contactsSection = document.getElementById('contacts-section');
+    contactsSection.style.display = 'block';
+    var contactsList = document.getElementById('contacts-list');
+    contactsList.innerHTML = data.contacts.map(function(c){
+      return '<div class="contact-card">' +
+        '<div class="contact-name">' + esc(c.name) + '</div>' +
+        '<div class="contact-role">' + esc(c.role) + '</div>' +
+        '<div class="contact-status status-' + c.status + '">' + c.status.replace(/_/g,' ') + '</div>' +
+        (c.next_action ? '<div class="contact-action">&rarr; ' + esc(c.next_action) + '</div>' : '') +
+        (c.phone ? '<div style="margin-top:6px"><a href="tel:' + c.phone.replace(/[^+0-9]/g,'') + '" style="font-size:11px;color:var(--gold)">' + esc(c.phone) + '</a></div>' : '') +
+      '</div>';
+    }).join('');
+
+    // Financial summary
+    var finSection = document.getElementById('financial-section');
+    finSection.style.display = 'block';
+    var y1 = data.financials.projections.y1;
+    var y2 = data.financials.projections.y2;
+    var y3 = data.financials.projections.y3;
+    document.getElementById('y1-revenue').textContent = '$' + (y1.revenue/1000).toFixed(0) + 'K';
+    document.getElementById('y1-loans').textContent = y1.loans + ' loans | ' + y1.platform_value;
+    document.getElementById('y1-loans').className = 'kpi-delta neutral';
+    document.getElementById('y2-revenue').textContent = '$' + (y2.revenue/1000000).toFixed(1) + 'M';
+    document.getElementById('y2-loans').textContent = y2.loans + ' loans | ' + y2.platform_value;
+    document.getElementById('y2-loans').className = 'kpi-delta neutral';
+    document.getElementById('y3-revenue').textContent = '$' + (y3.revenue/1000000).toFixed(1) + 'M';
+    document.getElementById('y3-val').textContent = y3.loans + ' loans | ' + y3.platform_value;
+    document.getElementById('y3-val').className = 'kpi-delta up';
+
+    // Session log
+    if(data.session_log && data.session_log.length > 0){
+      var sessSection = document.getElementById('session-section');
+      sessSection.style.display = 'block';
+      var latest = data.session_log[data.session_log.length - 1];
+      var logEl = document.getElementById('session-log');
+      logEl.innerHTML = '<div style="font-weight:600;margin-bottom:12px;color:var(--gold)">' + latest.date + '</div>' +
+        latest.key_wins.map(function(w){ return '<div class="note-item" style="padding:6px 0"><span style="color:var(--green)">&#10003;</span> ' + esc(w) + '</div>'; }).join('');
+    }
   }
 
 })();

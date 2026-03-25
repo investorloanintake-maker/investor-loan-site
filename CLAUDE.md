@@ -39,3 +39,22 @@ All content pages follow the same pattern: full `<head>` with SEO meta/OG tags/s
 ## CSS Design Tokens
 
 Color palette uses `--cream`, `--ink`, `--gold` variants. Key breakpoint: most responsive adjustments happen via `clamp()` and media queries within `styles.css`. The `--max: 1160px` token controls content width.
+
+## Living Data Infrastructure
+
+- **`viador-data.json`**: Single source of truth for all Viador Partners data — founder info, platform status, credentials, contacts, licensing, priorities, financials, technology stack. All platforms and dashboard read from this file.
+- **`scripts/update-brief.js`**: Reads `viador-data.json`, updates timestamp, regenerates `BRIEF.md`. Run with `node scripts/update-brief.js`.
+- **`BRIEF.md`**: Auto-generated human-readable summary. Do not edit directly — edit `viador-data.json` instead.
+- **`admin.html`**: Command Center dashboard. Pulls live data from Google Sheets (if configured) with localStorage fallback, and also reads `viador-data.json` for platform status and priority stack.
+
+## END OF SESSION PROTOCOL
+
+At the end of every Claude Code session, automatically run:
+
+```
+node scripts/update-brief.js
+```
+
+This updates `viador-data.json` timestamp and regenerates `BRIEF.md`.
+Always commit and push after running this script.
+The commit message should be: `Session update [DATE] — auto-brief`
