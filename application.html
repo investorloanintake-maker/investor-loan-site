@@ -243,6 +243,16 @@
           <form id="appForm" novalidate>
             <div class="section-label" style="margin-bottom:20px;">Deal details</div>
 
+            <div class="field" id="field-proptype">
+              <label for="aproptype">Property Type</label>
+              <select id="aproptype" name="property_type" onchange="toggleFormFields()">
+                <option value="residential" selected>Residential Investment</option>
+                <option value="commercial">Commercial / Mixed-Use</option>
+                <option value="sba">SBA / Business Purpose</option>
+                <option value="franchise">Franchise Financing</option>
+              </select>
+            </div>
+
             <div class="field-row">
               <div class="field">
                 <label for="aname">Your name <span class="req">*</span></label>
@@ -270,7 +280,8 @@
                   <option value="nonqm">Non-QM</option>
                   <option value="cashout">Cash-Out Refinance</option>
                   <option value="bank-statement">Bank Statement</option>
-                  <option value="sba">SBA (commercial)</option>
+                  <option value="conventional">Conventional</option>
+                  <option value="fha">FHA — Owner-Occupant</option>
                   <option value="unsure">Not sure — help me choose</option>
                 </select>
               </div>
@@ -310,6 +321,62 @@
               <textarea id="anotes" name="notes" placeholder="Timeline, strategy, rehab plans, rental income, questions — anything that helps us give better feedback…" style="min-height:100px;"></textarea>
             </div>
 
+            <!-- Commercial Fields (hidden by default) -->
+            <div id="fields-commercial" style="display:none">
+              <div class="field-row">
+                <div class="field">
+                  <label for="acommtype">Commercial Property Type</label>
+                  <select id="acommtype" name="commercial_type">
+                    <option value="">Select type</option>
+                    <option value="office">Office</option>
+                    <option value="retail">Retail</option>
+                    <option value="industrial">Industrial</option>
+                    <option value="multifamily">Multifamily 5+</option>
+                    <option value="mixed-use">Mixed-Use</option>
+                    <option value="nnn">NNN / Net Lease</option>
+                    <option value="self-storage">Self-Storage</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="anoi">Current NOI (if known)</label>
+                  <input type="text" id="anoi" name="noi" placeholder="$120,000/year"/>
+                </div>
+              </div>
+            </div>
+
+            <!-- SBA/Franchise Fields (hidden by default) -->
+            <div id="fields-sba" style="display:none">
+              <div class="field-row">
+                <div class="field">
+                  <label for="abizname">Business Name</label>
+                  <input type="text" id="abizname" name="business_name" placeholder="Your business or franchise"/>
+                </div>
+                <div class="field">
+                  <label for="afranchise">Franchise Brand (if applicable)</label>
+                  <input type="text" id="afranchise" name="franchise_brand" placeholder="e.g. McDonald's, Anytime Fitness"/>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="aloanpurpose">Loan Purpose</label>
+                  <select id="aloanpurpose" name="loan_purpose">
+                    <option value="">Select purpose</option>
+                    <option value="purchase-building">Purchase building</option>
+                    <option value="franchise-startup">Franchise startup</option>
+                    <option value="expansion">Business expansion</option>
+                    <option value="equipment">Equipment purchase</option>
+                    <option value="working-capital">Working capital</option>
+                    <option value="refinance">Refinance existing</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="abizrevenue">Business Revenue (last 12 months)</label>
+                  <input type="text" id="abizrevenue" name="business_revenue" placeholder="$500,000"/>
+                </div>
+              </div>
+            </div>
+
             <button type="submit" class="btn-primary btn-full">Submit for Review</button>
             <p class="form-fine">No obligation · 24-hour response</p>
           </form>
@@ -341,11 +408,15 @@
         <a href="index.html#dealform">Review My Deal</a>
       </div>
       <div class="footer-nav-group">
-        <h4>Programs</h4>
-        <a href="bpl.html">Business Purpose Loans</a>
-        <a href="dscr.html">DSCR Rental Loans</a>
-        <a href="fix-and-flip.html">Fix &amp; Flip Bridge</a>
-        <a href="index.html#dealform">Bank Statement Loans</a>
+                <h4>Programs</h4>
+        <a href="dscr.html">DSCR Loans</a>
+        <a href="fix-and-flip.html">Fix &amp; Flip</a>
+        <a href="bpl.html">Business Purpose (BPL)</a>
+        <span style="display:block;font-size:10px;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin:8px 0 4px;font-family:var(--font-mono)">Commercial</span>
+        <a href="commercial.html">Small Balance Commercial</a>
+        <a href="commercial.html">SBA 7(a) &amp; 504</a>
+        <a href="franchise.html">Franchise Financing</a>
+        <a href="commercial-score.html">ViaScore Commercial&trade;</a>
       </div>
       <div class="footer-nav-group">
         <h4>Partners</h4>
@@ -371,6 +442,49 @@
 
 <script src="script.js" defer></script>
 <script>
+  function toggleFormFields() {
+    var propType = document.getElementById('aproptype').value;
+    var fieldsCommercial = document.getElementById('fields-commercial');
+    var fieldsSba = document.getElementById('fields-sba');
+    var dealTypeField = document.getElementById('adealtype');
+
+    // Hide all conditional sections first
+    fieldsCommercial.style.display = 'none';
+    fieldsSba.style.display = 'none';
+
+    if (propType === 'commercial') {
+      fieldsCommercial.style.display = 'block';
+      // Update deal type options for commercial
+      dealTypeField.innerHTML = '<option value="small-balance-commercial">Small Balance Commercial</option>' +
+        '<option value="sba-504">SBA 504</option>' +
+        '<option value="sba-7a">SBA 7(a)</option>' +
+        '<option value="multifamily-bridge">Multifamily Bridge (5+ Units)</option>' +
+        '<option value="commercial-bridge">Commercial Bridge</option>' +
+        '<option value="nnn-financing">NNN Lease Financing</option>' +
+        '<option value="construction">Construction & Development</option>' +
+        '<option value="unsure">Not sure — help me choose</option>';
+    } else if (propType === 'sba' || propType === 'franchise') {
+      fieldsSba.style.display = 'block';
+      dealTypeField.innerHTML = '<option value="sba-7a">SBA 7(a) Business Loan</option>' +
+        '<option value="sba-504">SBA 504 Commercial Real Estate</option>' +
+        '<option value="franchise-sba">Franchise Financing (SBA)</option>' +
+        '<option value="unsure">Not sure — help me choose</option>';
+    } else {
+      // Residential - restore default options
+      dealTypeField.innerHTML = '<option value="">Select deal type</option>' +
+        '<option value="dscr">DSCR / Rental</option>' +
+        '<option value="fix-flip">Fix & Flip</option>' +
+        '<option value="bridge">Bridge</option>' +
+        '<option value="bpl">BPL / LLC</option>' +
+        '<option value="nonqm">Non-QM</option>' +
+        '<option value="cashout">Cash-Out Refinance</option>' +
+        '<option value="bank-statement">Bank Statement</option>' +
+        '<option value="conventional">Conventional</option>' +
+        '<option value="fha">FHA — Owner-Occupant</option>' +
+        '<option value="unsure">Not sure — help me choose</option>';
+    }
+  }
+
   document.getElementById('appForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const name  = document.getElementById('aname');
@@ -385,6 +499,26 @@
 
     var parts = name.value.trim().split(' ');
     var val = function(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+    var propType = document.getElementById('aproptype').value;
+
+    var msg = 'Property Type: ' + propType + '\n';
+    msg += 'Deal Type: ' + val('adealtype') + '\n';
+    msg += 'Address: ' + val('aaddress') + '\n';
+    if (propType === 'commercial') {
+      msg += 'Commercial Type: ' + val('acommtype') + '\n';
+      msg += 'NOI: ' + val('anoi') + '\n';
+    }
+    if (propType === 'sba' || propType === 'franchise') {
+      msg += 'Business Name: ' + val('abizname') + '\n';
+      msg += 'Franchise Brand: ' + val('afranchise') + '\n';
+      msg += 'Loan Purpose: ' + val('aloanpurpose') + '\n';
+      msg += 'Business Revenue: ' + val('abizrevenue') + '\n';
+    }
+    msg += 'Listing URL: ' + val('alisting') + '\n';
+    msg += 'Purchase Price: ' + val('aprice') + '\n';
+    msg += 'Loan Amount: ' + val('aloan') + '\n';
+    msg += 'Notes: ' + val('anotes') + '\n';
+    msg += 'Source: Application Form';
 
     try {
       var res = await fetch('https://api.hsforms.com/submissions/v3/integration/submit/245454217/e463e10b-4cb3-4d79-8915-2d6c62d4cc58', {
@@ -396,17 +530,8 @@
             { name: 'lastname', value: parts.slice(1).join(' ') || '' },
             { name: 'email', value: val('aemail') },
             { name: 'phone', value: val('aphone') },
-            { name: 'message', value: [
-              'Deal Type: ' + val('adealtype'),
-              'Address: ' + val('aaddress'),
-              'Listing URL: ' + val('alisting'),
-              'Purchase Price: ' + val('aprice'),
-              'Loan Amount: ' + val('aloan'),
-              'Strategy: ' + val('astrategy'),
-              'Timeline: ' + val('atimeline'),
-              'Notes: ' + val('anotes'),
-              'Source: Application Form'
-            ].join('\n') }
+            { name: 'deal_type_interest', value: propType + ' — ' + val('adealtype') },
+            { name: 'message', value: msg }
           ].filter(function(f) { return f.value; }),
           context: { pageUri: window.location.href, pageName: 'Viador Partners — Application' }
         })
