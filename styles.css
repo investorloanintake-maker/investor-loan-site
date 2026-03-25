@@ -397,6 +397,18 @@ body {
   font-weight: 500 !important;
 }
 
+.drawer-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 12px 0 4px;
+  padding: 0;
+  border-bottom: none !important;
+}
+
 /* ═══════════════════════════════════════════
    AUDIENCE ROUTER
 ═══════════════════════════════════════════ */
@@ -427,9 +439,10 @@ body {
   transition: all 0.2s;
   background: #fff;
   cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 .router-card:hover {
-  border-color: var(--gold);
+  border-color: #B8811E;
   box-shadow: 0 4px 16px rgba(184,129,30,0.15);
   transform: translateY(-2px);
 }
