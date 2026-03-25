@@ -12,6 +12,32 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  GOOGLE SHEET STRUCTURE — "Viador Command Center"
+  ═══════════════════════════════════════════════════════════════
+
+  Tab 1 — "KPIs" (A1:E100):
+  Row 1: Week | Deals Pipeline | Leads This Week | ViaScore Runs | LinkedIn Impressions
+  Row 2+: Weekly data (most recent at top)
+
+  Tab 2 — "Pipeline" (A1:G100):
+  Row 1: Lead Name | Source | Loan Type | Amount | Stage | Next Action | Expected Close
+  Row 2+: Active deals
+
+  Tab 3 — "Marketing" (A1:H100):
+  Row 1: Campaign | Channel | Spend | Leads | CPL | Closed | Revenue | ROI
+  Row 2+: Campaign data
+
+  Tab 4 — "Actuals" (A1:D100):
+  Row 1: Month | Actual Revenue | Projected Revenue | Variance
+  Row 2+: Monthly actuals vs projections
+
+  Tab 5 — "Notes" (A1:B100):
+  Row 1: Date | Note
+  Row 2+: Running notes
+  ═══════════════════════════════════════════════════════════════
+-->
   <style>
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -221,6 +247,40 @@
     .status-text { font-size: 13px; color: var(--text-mid); }
     .status-text strong { color: var(--text); font-weight: 500; }
 
+    /* ── Setup Panel ────────────────────────────────── */
+    .setup-panel {
+      background: var(--bg2);
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .setup-panel h3 {
+      font-family: var(--font-d);
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: var(--gold);
+    }
+    .setup-panel p {
+      font-size: 13px;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+    .setup-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: var(--font-m);
+      font-size: 13px;
+      outline: none;
+      margin: 12px 0;
+    }
+    .setup-input:focus { border-color: var(--gold); }
+    .setup-input::placeholder { color: var(--text-dim); }
+
     /* ── KPI Cards Grid ─────────────────────────────── */
     .kpi-grid {
       display: grid;
@@ -254,20 +314,6 @@
       line-height: 1.1;
       margin-bottom: 10px;
     }
-    .kpi-value input {
-      font-family: var(--font-d);
-      font-size: 52px;
-      font-weight: 900;
-      color: var(--gold);
-      background: transparent;
-      border: none;
-      border-bottom: 2px dashed rgba(184,129,30,0.3);
-      width: 100%;
-      outline: none;
-      line-height: 1.1;
-      padding: 0;
-    }
-    .kpi-value input:focus { border-bottom-color: var(--gold); }
     .kpi-delta {
       font-size: 12px;
       font-weight: 500;
@@ -320,18 +366,18 @@
     .link-name { font-size: 14px; font-weight: 500; }
     .link-desc { font-size: 11px; color: var(--text-dim); text-align: center; line-height: 1.5; }
 
-    /* ── Weekly Log ──────────────────────────────────── */
-    .log-section { margin-bottom: 40px; }
-    .log-table {
+    /* ── Data Tables ────────────────────────────────── */
+    .data-table {
       width: 100%;
       background: var(--bg2);
       border: 1px solid var(--line);
       border-radius: 12px;
       overflow: hidden;
       border-collapse: collapse;
+      margin-bottom: 24px;
     }
-    .log-table thead { background: var(--bg3); }
-    .log-table th {
+    .data-table thead { background: var(--bg3); }
+    .data-table th {
       font-family: var(--font-m);
       font-size: 10px;
       letter-spacing: 0.12em;
@@ -341,34 +387,40 @@
       text-align: left;
       font-weight: 400;
     }
-    .log-table td {
+    .data-table td {
       padding: 14px 20px;
       border-top: 1px solid var(--line);
       font-size: 13px;
     }
-    .log-table input {
-      background: transparent;
-      border: none;
-      color: var(--text);
-      font-family: var(--font);
-      font-size: 13px;
-      width: 100%;
-      outline: none;
-      padding: 2px 0;
-      border-bottom: 1px dashed transparent;
-      transition: border-color .2s;
-    }
-    .log-table input:focus { border-bottom-color: var(--gold); }
-    .log-table .row-date {
+    .data-table .row-date {
       font-family: var(--font-m);
       color: var(--text-dim);
       font-size: 12px;
       white-space: nowrap;
     }
+
+    /* ── Stage Badges ───────────────────────────────── */
+    .stage-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .stage-inquiry { background: rgba(255,255,255,0.08); color: var(--text-dim); }
+    .stage-active { background: var(--gold-f); color: var(--gold); }
+    .stage-submitted { background: rgba(88,166,255,0.12); color: var(--blue); }
+    .stage-approved { background: rgba(62,207,142,0.12); color: var(--green); }
+    .stage-closed { background: rgba(62,207,142,0.2); color: #2aa06d; }
+
+    /* ── Actions ────────────────────────────────────── */
     .log-actions {
       display: flex;
       gap: 12px;
       margin-top: 16px;
+      margin-bottom: 40px;
     }
     .log-btn {
       padding: 10px 20px;
@@ -385,7 +437,32 @@
     .log-btn.secondary { background: var(--bg3); color: var(--text-mid); border: 1px solid var(--line); }
     .log-btn.secondary:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* ── Notes ───────────────────────────────────────── */
+    /* ── Notes Feed ─────────────────────────────────── */
+    .notes-feed {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+    .note-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .note-item:last-child { border-bottom: none; }
+    .note-date {
+      font-family: var(--font-m);
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+    .note-text {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* ── Legacy Notes Box ───────────────────────────── */
     .notes-box {
       background: var(--bg2);
       border: 1px solid var(--line);
@@ -608,6 +685,7 @@
       padding: 0 32px;
       border-bottom: 1px solid var(--line);
       background: var(--bg);
+      overflow-x: auto;
     }
     .tab-btn {
       padding: 14px 24px;
@@ -667,14 +745,6 @@
       padding: 24px;
       margin-bottom: 32px;
     }
-    .chart-title {
-      font-family: var(--font-m);
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-bottom: 16px;
-    }
 
     .val-grid {
       display: grid;
@@ -733,6 +803,38 @@
     .variance-pos { color: var(--green); font-weight: 500; }
     .variance-neg { color: var(--red); font-weight: 500; }
 
+    /* ── Setup Guide ────────────────────────────────── */
+    .setup-guide {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin-bottom: 40px;
+      overflow: hidden;
+    }
+    .setup-guide summary {
+      padding: 16px 24px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-mid);
+    }
+    .setup-guide summary:hover { color: var(--gold); }
+    .setup-guide-body {
+      padding: 0 24px 24px;
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.8;
+    }
+    .setup-guide-body ol { padding-left: 20px; }
+    .setup-guide-body code {
+      background: var(--bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: var(--font-m);
+      font-size: 12px;
+      color: var(--gold);
+    }
+
     /* ── Footer ──────────────────────────────────────── */
     .dash-footer {
       text-align: center;
@@ -756,15 +858,14 @@
       .kpi-grid { grid-template-columns: 1fr; }
       .links-grid { grid-template-columns: 1fr; }
       .ql-grid { grid-template-columns: 1fr; }
-      .log-table { font-size: 12px; }
-      .log-table th, .log-table td { padding: 10px 12px; }
+      .data-table { font-size: 12px; }
+      .data-table th, .data-table td { padding: 10px 12px; }
       .pl-table { font-size: 12px; }
       .pl-table th, .pl-table td { padding: 10px 12px; }
       .val-amount { font-size: 24px; }
-      .tab-bar { overflow-x: auto; }
       .tab-btn { padding: 12px 16px; font-size: 12px; }
     }
-  </style></head>
+  </style></head>
 <body>
 
 <!-- ════════════════════════════════════════════════════
@@ -796,6 +897,7 @@
     </div>
     <div class="topbar-right">
       <div class="topbar-date" id="topbar-date"></div>
+      <button class="log-btn secondary" onclick="refreshAllData()" id="refresh-btn">Refresh Data</button>
       <button class="topbar-logout" onclick="handleLogout()">Lock</button>
     </div>
   </div>
@@ -803,6 +905,9 @@
   <!-- Tab Bar -->
   <div class="tab-bar">
     <button class="tab-btn active" onclick="switchTab('ops')">Operations</button>
+    <button class="tab-btn" onclick="switchTab('pipeline')">Pipeline</button>
+    <button class="tab-btn" onclick="switchTab('marketing')">Marketing</button>
+    <button class="tab-btn" onclick="switchTab('notes')">Notes</button>
     <button class="tab-btn" onclick="switchTab('pl')">P&amp;L &amp; Projections</button>
   </div>
 
@@ -810,11 +915,22 @@
   <div class="tab-panel active" id="tab-ops">
   <div class="dash-body">
 
+    <!-- Setup Panel (shown when no Sheet ID) -->
+    <div class="setup-panel" id="setup-panel" style="display:none">
+      <h3>Connect Your Google Sheet</h3>
+      <p>1. Create a Google Sheet named "Viador Command Center" with 5 tabs: KPIs, Pipeline, Marketing, Actuals, Notes</p>
+      <p>2. Share it as "Anyone with link can view"</p>
+      <p>3. Copy the Sheet ID from the URL (the long string between <code>/d/</code> and <code>/edit</code>)</p>
+      <input class="setup-input" id="sheet-id-input" placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVEwUpPY"/>
+      <button class="log-btn primary" onclick="saveSheetId()">Connect Sheet</button>
+      <button class="log-btn secondary" onclick="dismissSetup()" style="margin-left:8px">Skip — Use Local Data</button>
+    </div>
+
     <!-- Status Bar -->
     <div class="status-bar">
-      <div class="status-dot"></div>
-      <div class="status-text"><strong>All systems operational</strong></div>
-      <div class="status-text" style="margin-left:auto">Last updated: <strong id="last-updated">—</strong></div>
+      <div class="status-dot" id="status-dot"></div>
+      <div class="status-text"><strong id="status-source">Loading...</strong></div>
+      <div class="status-text" style="margin-left:auto">Last updated: <strong id="last-updated">&mdash;</strong></div>
     </div>
 
     <!-- ── KPI Cards ──────────────────────────────── -->
@@ -827,31 +943,31 @@
     <div class="kpi-grid">
       <div class="kpi-card">
         <div class="kpi-label">Deals in Pipeline</div>
-        <div class="kpi-value"><input type="text" id="kpi-deals" value="7" inputmode="numeric"/></div>
-        <div class="kpi-delta up" id="delta-deals">↑ +2 vs last week</div>
+        <div class="kpi-value" id="kpi-deals">--</div>
+        <div class="kpi-delta neutral" id="delta-deals">&mdash;</div>
         <div class="kpi-icon">📋</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Leads This Week</div>
-        <div class="kpi-value"><input type="text" id="kpi-leads" value="23" inputmode="numeric"/></div>
-        <div class="kpi-delta up" id="delta-leads">↑ +8 vs last week</div>
+        <div class="kpi-value" id="kpi-leads">--</div>
+        <div class="kpi-delta neutral" id="delta-leads">&mdash;</div>
         <div class="kpi-icon">🎯</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">ViaScore™ Runs</div>
-        <div class="kpi-value"><input type="text" id="kpi-viascore" value="847" inputmode="numeric"/></div>
-        <div class="kpi-delta up" id="delta-viascore">↑ +257 vs last week</div>
+        <div class="kpi-label">ViaScore Runs</div>
+        <div class="kpi-value" id="kpi-viascore">--</div>
+        <div class="kpi-delta neutral" id="delta-viascore">&mdash;</div>
         <div class="kpi-icon">⚡</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">LinkedIn Impressions</div>
-        <div class="kpi-value"><input type="text" id="kpi-linkedin" value="12,400" inputmode="numeric"/></div>
-        <div class="kpi-delta up" id="delta-linkedin">↑ +4,200 vs last week</div>
+        <div class="kpi-value" id="kpi-linkedin">--</div>
+        <div class="kpi-delta neutral" id="delta-linkedin">&mdash;</div>
         <div class="kpi-icon">📊</div>
       </div>
     </div>
 
-    <!-- ── Quick Links (Platforms + Docs) ────────── -->
+    <!-- ── Quick Links ────────────────────────────── -->
     <div class="section-head">
       <span class="section-label">Quick Links</span>
       <div class="section-line"></div>
@@ -865,87 +981,51 @@
       </a>
       <a href="https://viascore.pages.dev" target="_blank" rel="noopener" class="ql-card">
         <div class="ql-dot gold">⚡</div>
-        <div class="ql-info"><div class="ql-name">ViaScore™</div><div class="ql-sub">viascore.pages.dev</div></div>
-        <span class="ql-badge">Stealth</span>
+        <div class="ql-info"><div class="ql-name">ViaScore</div><div class="ql-sub">viascore.pages.dev</div></div>
       </a>
-      <span class="ql-card disabled">
-        <div class="ql-dot dim">📊</div>
+      <a href="https://viadormarkets.com" target="_blank" rel="noopener" class="ql-card">
+        <div class="ql-dot gold">📊</div>
         <div class="ql-info"><div class="ql-name">Viador Markets</div><div class="ql-sub">viadormarkets.com</div></div>
-        <span class="ql-badge">Coming Soon</span>
-      </span>
+      </a>
     </div>
 
-    <div class="ql-group-label">Documents</div>
+    <div class="ql-group-label">Dashboards</div>
     <div class="ql-grid">
-      <a href="#" class="ql-card" onclick="event.preventDefault()">
-        <div class="ql-dot blue">📄</div>
-        <div class="ql-info"><div class="ql-name">Master Brief v2.2</div><div class="ql-sub">Upload to update</div></div>
+      <a href="https://app.hubspot.com/contacts/245454217" target="_blank" rel="noopener" class="ql-card">
+        <div class="ql-dot blue">🟠</div>
+        <div class="ql-info"><div class="ql-name">HubSpot CRM</div><div class="ql-sub">Contacts &amp; pipeline</div></div>
       </a>
-      <a href="#" class="ql-card" onclick="event.preventDefault();switchTab('pl')">
-        <div class="ql-dot green">📈</div>
-        <div class="ql-info"><div class="ql-name">P&amp;L &amp; Projections</div><div class="ql-sub">Year 1–3 model</div></div>
+      <a href="https://analytics.google.com/analytics/web/#/p/G-LQWW7XCPVS" target="_blank" rel="noopener" class="ql-card">
+        <div class="ql-dot blue">📈</div>
+        <div class="ql-info"><div class="ql-name">Google Analytics 4</div><div class="ql-sub">Traffic &amp; behavior</div></div>
       </a>
-      <span class="ql-card disabled">
-        <div class="ql-dot dim">📊</div>
-        <div class="ql-info"><div class="ql-name">Pitch Deck</div><div class="ql-sub">In progress</div></div>
-        <span class="ql-badge">Coming Soon</span>
-      </span>
-    </div>
-
-    <!-- ── Dashboards ────────────────────────────── -->
-    <div class="section-head">
-      <span class="section-label">Dashboards</span>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="links-grid">
-      <a href="https://app.hubspot.com/contacts/245454217" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon hs">🟠</div>
-        <div class="link-name">HubSpot CRM</div>
-        <div class="link-desc">Contacts, deals, form submissions &amp; pipeline</div>
-      </a>
-      <a href="https://analytics.google.com/analytics/web/#/p/G-LQWW7XCPVS" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon ga">📈</div>
-        <div class="link-name">Google Analytics 4</div>
-        <div class="link-desc">Sessions, page views, traffic sources &amp; behavior</div>
-      </a>
-      <a href="https://search.google.com/search-console" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon gsc">🔍</div>
-        <div class="link-name">Search Console</div>
-        <div class="link-desc">Rankings, impressions, clicks &amp; indexing</div>
-      </a>
-      <a href="https://business.google.com/" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon gbp">📍</div>
-        <div class="link-name">Business Profile</div>
-        <div class="link-desc">Google Maps listing, reviews &amp; local visibility</div>
+      <a href="https://search.google.com/search-console" target="_blank" rel="noopener" class="ql-card">
+        <div class="ql-dot green">🔍</div>
+        <div class="ql-info"><div class="ql-name">Search Console</div><div class="ql-sub">Rankings &amp; indexing</div></div>
       </a>
     </div>
 
-    <!-- ── Weekly Log ─────────────────────────────── -->
+    <!-- ── Weekly Tracker ────────────────────────── -->
     <div class="section-head">
       <span class="section-label">Weekly Tracker</span>
       <div class="section-line"></div>
     </div>
 
-    <div class="log-section">
-      <table class="log-table">
-        <thead>
-          <tr>
-            <th style="width:120px">Week</th>
-            <th>Deals</th>
-            <th>Leads</th>
-            <th>ViaScore™ Runs</th>
-            <th>LI Impressions</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody id="log-body"></tbody>
-      </table>
-      <div class="log-actions">
-        <button class="log-btn primary" onclick="addWeekRow()">+ Add This Week</button>
-        <button class="log-btn secondary" onclick="exportCSV()">Export CSV</button>
-        <button class="log-btn secondary" onclick="saveData()">Save All</button>
-      </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width:120px">Week</th>
+          <th>Deals</th>
+          <th>Leads</th>
+          <th>ViaScore Runs</th>
+          <th>LI Impressions</th>
+        </tr>
+      </thead>
+      <tbody id="log-body"></tbody>
+    </table>
+    <div class="log-actions">
+      <button class="log-btn secondary" onclick="exportCSV()">Export CSV</button>
+      <span style="font-size:11px;color:var(--text-dim);margin-left:8px">Add data via Google Sheet &rarr; dashboard refreshes automatically</span>
     </div>
 
     <!-- ── AI Advisor ─────────────────────────────── -->
@@ -966,26 +1046,89 @@
       <div class="ai-output" id="ai-output"></div>
     </div>
 
-    <!-- ── Notes ──────────────────────────────────── -->
+  </div>
+  </div><!-- /tab-ops -->
+
+  <!-- ═══ TAB: Pipeline ═══ -->
+  <div class="tab-panel" id="tab-pipeline">
+  <div class="dash-body">
+    <div class="section-head">
+      <span class="section-label">Deal Pipeline</span>
+      <div class="section-line"></div>
+      <span class="section-label" id="pipeline-total"></span>
+    </div>
+    <table class="data-table" id="pipeline-table">
+      <thead>
+        <tr>
+          <th>Lead Name</th>
+          <th>Source</th>
+          <th>Loan Type</th>
+          <th>Amount</th>
+          <th>Stage</th>
+          <th>Next Action</th>
+          <th>Expected Close</th>
+        </tr>
+      </thead>
+      <tbody id="pipeline-body">
+        <tr><td colspan="7" style="text-align:center;color:var(--text-dim);padding:40px">Connect Google Sheet to see pipeline data</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11px;color:var(--text-dim);margin-top:8px">Add deals in Google Sheet "Pipeline" tab &rarr; dashboard refreshes automatically</p>
+  </div>
+  </div>
+
+  <!-- ═══ TAB: Marketing ═══ -->
+  <div class="tab-panel" id="tab-marketing">
+  <div class="dash-body">
+    <div class="section-head">
+      <span class="section-label">Marketing Performance</span>
+      <div class="section-line"></div>
+    </div>
+    <table class="data-table" id="marketing-table">
+      <thead>
+        <tr>
+          <th>Campaign</th>
+          <th>Channel</th>
+          <th>Spend</th>
+          <th>Leads</th>
+          <th>CPL</th>
+          <th>Closed</th>
+          <th>Revenue</th>
+          <th>ROI</th>
+        </tr>
+      </thead>
+      <tbody id="marketing-body">
+        <tr><td colspan="8" style="text-align:center;color:var(--text-dim);padding:40px">Connect Google Sheet to see marketing data</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11px;color:var(--text-dim);margin-top:8px">Add campaigns in Google Sheet "Marketing" tab</p>
+  </div>
+  </div>
+
+  <!-- ═══ TAB: Notes ═══ -->
+  <div class="tab-panel" id="tab-notes">
+  <div class="dash-body">
     <div class="section-head">
       <span class="section-label">Notes &amp; Priorities</span>
       <div class="section-line"></div>
     </div>
 
+    <div class="notes-feed" id="notes-feed">
+      <div style="text-align:center;color:var(--text-dim);padding:20px">Connect Google Sheet to see notes</div>
+    </div>
+
     <div class="notes-box">
-      <div class="notes-label">This Week's Focus</div>
+      <div class="notes-label">Quick Note (saved locally)</div>
       <textarea id="notes" placeholder="What are you focused on this week? Key deals, outreach targets, content ideas..."></textarea>
       <div class="notes-saved" id="notes-saved">Saved</div>
     </div>
-
   </div>
-  </div><!-- /tab-ops -->
+  </div>
 
   <!-- ═══ TAB: P&L & Projections ═══ -->
   <div class="tab-panel" id="tab-pl">
   <div class="dash-body">
 
-    <!-- 3-Year Summary -->
     <div class="section-head">
       <span class="section-label">3-Year P&amp;L Summary</span>
       <div class="section-line"></div>
@@ -1001,79 +1144,36 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Revenue</td>
-          <td class="pl-revenue">$95,250</td>
-          <td class="pl-revenue">$880,800</td>
-          <td class="pl-revenue">$1,814,400</td>
-        </tr>
-        <tr>
-          <td>Expenses</td>
-          <td class="pl-expense">$25,620</td>
-          <td class="pl-expense">$75,600</td>
-          <td class="pl-expense">$97,200</td>
-        </tr>
-        <tr>
-          <td>Net Income</td>
-          <td class="pl-net">$69,630</td>
-          <td class="pl-net">$805,200</td>
-          <td class="pl-net">$1,717,200</td>
-        </tr>
-        <tr>
-          <td>Net Margin</td>
-          <td class="pl-margin">73%</td>
-          <td class="pl-margin">91%</td>
-          <td class="pl-margin">95%</td>
-        </tr>
-        <tr>
-          <td>Loans Closed</td>
-          <td>36</td>
-          <td>120</td>
-          <td>192</td>
-        </tr>
+        <tr><td>Revenue</td><td class="pl-revenue">$95,250</td><td class="pl-revenue">$880,800</td><td class="pl-revenue">$1,814,400</td></tr>
+        <tr><td>Expenses</td><td class="pl-expense">$25,620</td><td class="pl-expense">$75,600</td><td class="pl-expense">$97,200</td></tr>
+        <tr><td>Net Income</td><td class="pl-net">$69,630</td><td class="pl-net">$805,200</td><td class="pl-net">$1,717,200</td></tr>
+        <tr><td>Net Margin</td><td class="pl-margin">73%</td><td class="pl-margin">91%</td><td class="pl-margin">95%</td></tr>
+        <tr><td>Loans Closed</td><td>36</td><td>120</td><td>192</td></tr>
       </tbody>
     </table>
 
-    <!-- Revenue Chart -->
     <div class="section-head">
       <span class="section-label">Year 1 Monthly Revenue Ramp</span>
       <div class="section-line"></div>
     </div>
-
     <div class="chart-card">
       <canvas id="revenueChart" height="260"></canvas>
     </div>
 
-    <!-- Valuation Scenarios -->
     <div class="section-head">
       <span class="section-label">Valuation Scenarios (Year 3)</span>
       <div class="section-line"></div>
     </div>
-
     <div class="val-grid">
-      <div class="val-card bear">
-        <div class="val-label">Bear Case</div>
-        <div class="val-amount">$9.1M</div>
-        <div class="val-sub">5x Revenue Y3</div>
-      </div>
-      <div class="val-card base">
-        <div class="val-label">Base Case</div>
-        <div class="val-amount">$18.1M</div>
-        <div class="val-sub">10x Revenue Y3</div>
-      </div>
-      <div class="val-card bull">
-        <div class="val-label">Bull Case</div>
-        <div class="val-amount">$25.8M</div>
-        <div class="val-sub">15x EBITDA Y3</div>
-      </div>
+      <div class="val-card bear"><div class="val-label">Bear Case</div><div class="val-amount">$9.1M</div><div class="val-sub">5x Revenue Y3</div></div>
+      <div class="val-card base"><div class="val-label">Base Case</div><div class="val-amount">$18.1M</div><div class="val-sub">10x Revenue Y3</div></div>
+      <div class="val-card bull"><div class="val-label">Bull Case</div><div class="val-amount">$25.8M</div><div class="val-sub">15x EBITDA Y3</div></div>
     </div>
 
-    <!-- Key Assumptions -->
     <div class="section-head">
       <span class="section-label">Key Assumptions</span>
       <div class="section-line"></div>
     </div>
-
     <div class="assumptions-card">
       <ol style="padding-left:20px;margin:0">
         <li>Ohio license April 2026, Florida license June 2026</li>
@@ -1086,30 +1186,52 @@
       </ol>
     </div>
 
-    <!-- Actual vs Projected Tracker -->
     <div class="section-head">
-      <span class="section-label">Actual vs Projected — Year 1</span>
+      <span class="section-label">Actual vs Projected &mdash; Year 1</span>
       <div class="section-line"></div>
     </div>
-
+    <div class="chart-card" id="avp-chart-card" style="display:none">
+      <canvas id="avpChart" height="260"></canvas>
+    </div>
     <table class="pl-table" id="avp-table">
-      <thead>
-        <tr>
-          <th>Month</th>
-          <th>Projected</th>
-          <th>Actual (editable)</th>
-          <th>Variance</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Month</th><th>Projected</th><th>Actual</th><th>Variance</th></tr></thead>
       <tbody id="avp-body"></tbody>
     </table>
-    <div style="display:flex;gap:12px;margin-bottom:32px">
-      <button class="log-btn primary" onclick="saveAvP()">Save Actuals</button>
-      <button class="log-btn secondary" onclick="exportAvPCSV()">Export CSV</button>
-    </div>
 
   </div>
   </div><!-- /tab-pl -->
+
+  <!-- ── Setup Guide ──────────────────────────────── -->
+  <div style="max-width:1280px;margin:0 auto;padding:0 32px 32px">
+    <details class="setup-guide">
+      <summary>How to connect your Google Sheet</summary>
+      <div class="setup-guide-body">
+        <ol>
+          <li>Go to <strong>sheets.google.com</strong> and create a new spreadsheet</li>
+          <li>Name it: <code>Viador Command Center</code></li>
+          <li>Create 5 tabs at the bottom: <code>KPIs</code> | <code>Pipeline</code> | <code>Marketing</code> | <code>Actuals</code> | <code>Notes</code></li>
+          <li>Add headers in each tab:
+            <br><code>KPIs</code>: Week | Deals Pipeline | Leads This Week | ViaScore Runs | LinkedIn Impressions
+            <br><code>Pipeline</code>: Lead Name | Source | Loan Type | Amount | Stage | Next Action | Expected Close
+            <br><code>Marketing</code>: Campaign | Channel | Spend | Leads | CPL | Closed | Revenue | ROI
+            <br><code>Actuals</code>: Month | Actual Revenue | Projected Revenue | Variance
+            <br><code>Notes</code>: Date | Note
+          </li>
+          <li>Click <strong>Share</strong> &rarr; <strong>Anyone with the link</strong> &rarr; <strong>Viewer</strong></li>
+          <li>Copy the Sheet ID from the URL: <code>docs.google.com/spreadsheets/d/<strong>THIS_PART</strong>/edit</code></li>
+          <li>Paste it in the "Connect Sheet" field at the top of the dashboard</li>
+          <li>Click Connect &mdash; dashboard loads live data immediately</li>
+        </ol>
+        <p style="margin-top:16px"><strong>Manual setup required:</strong></p>
+        <ol>
+          <li>Enable Google Sheets API on GCP project <code>stone-index-490722-r2</code></li>
+          <li>Create an API key restricted to Sheets API</li>
+          <li>Add it as a Cloudflare Worker secret: <code>wrangler secret put GOOGLE_SHEETS_API_KEY</code></li>
+          <li>Deploy the updated worker: <code>wrangler deploy</code></li>
+        </ol>
+      </div>
+    </details>
+  </div>
 
   <div class="dash-footer">
     Viador Partners LLC &middot; Internal Use Only &middot; NMLS #2822744
@@ -1119,7 +1241,7 @@
 <script>
 (function(){
   /* ── Auth ──────────────────────────────────────── */
-  var PW_HASH = '33f4aafb'; // simple hash of "viador2026"
+  var PW_HASH = '33f4aafb';
   function simpleHash(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0;}return(h>>>0).toString(16).slice(0,8);}
 
   var isAuthed = sessionStorage.getItem('vcc_auth') === '1';
@@ -1152,232 +1274,460 @@
     initDash();
   }
 
-  /* ── Dashboard Init ────────────────────────────── */
-  function initDash(){
-    // Date display
-    var now = new Date();
-    var opts = {weekday:'long', year:'numeric', month:'long', day:'numeric'};
-    document.getElementById('topbar-date').textContent = now.toLocaleDateString('en-US', opts);
-
-    // Week label
-    var weekStart = new Date(now);
-    weekStart.setDate(now.getDate() - now.getDay());
-    document.getElementById('kpi-week').textContent = 'Week of ' + (weekStart.getMonth()+1) + '/' + weekStart.getDate();
-
-    loadData();
-    setupAutoSave();
-  }
-
-  /* ── Data Persistence (localStorage) ───────────── */
+  /* ── Constants ──────────────────────────────────── */
+  var WORKER = 'https://viador-ai-proxy.chad-7f6.workers.dev';
   var STORAGE_KEY = 'vcc_data';
+  var SHEET_KEY = 'viador_sheet_id';
+  var _sheetData = {}; // Cache for current session
 
+  /* ── localStorage helpers ───────────────────────── */
   function getStore(){
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
     catch(e){ return {}; }
   }
-
   function setStore(d){
     d.lastUpdated = new Date().toISOString();
     localStorage.setItem(STORAGE_KEY, JSON.stringify(d));
-    var el = document.getElementById('last-updated');
-    if(el) el.textContent = formatTime(d.lastUpdated);
+    updateTimestamp(d.lastUpdated);
   }
-
+  function updateTimestamp(iso){
+    var el = document.getElementById('last-updated');
+    if(el && iso) el.textContent = formatTime(iso);
+  }
   function formatTime(iso){
     var d = new Date(iso);
     return d.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ' at ' + d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
   }
+  function esc(s){ return String(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
 
+  /* ── Google Sheets API ──────────────────────────── */
+  function getSheetId(){ return localStorage.getItem(SHEET_KEY); }
+
+  async function loadSheetData(range){
+    var sheetId = getSheetId();
+    if(!sheetId) return null;
+    try {
+      var res = await fetch(WORKER + '/sheets?sheet_id=' + encodeURIComponent(sheetId) + '&range=' + encodeURIComponent(range));
+      if(!res.ok) return null;
+      var data = await res.json();
+      return data.values || [];
+    } catch(e){
+      console.warn('Sheet fetch failed for ' + range + ':', e);
+      return null;
+    }
+  }
+
+  window.saveSheetId = function(){
+    var val = document.getElementById('sheet-id-input').value.trim();
+    if(!val) return;
+    localStorage.setItem(SHEET_KEY, val);
+    document.getElementById('setup-panel').style.display = 'none';
+    refreshAllData();
+  };
+
+  window.dismissSetup = function(){
+    document.getElementById('setup-panel').style.display = 'none';
+  };
+
+  /* ── Dashboard Init ─────────────────────────────── */
+  function initDash(){
+    var now = new Date();
+    document.getElementById('topbar-date').textContent = now.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+    var weekStart = new Date(now);
+    weekStart.setDate(now.getDate() - now.getDay());
+    document.getElementById('kpi-week').textContent = 'Week of ' + (weekStart.getMonth()+1) + '/' + weekStart.getDate();
+
+    // Show setup panel if no sheet configured
+    if(!getSheetId()){
+      document.getElementById('setup-panel').style.display = 'block';
+    }
+
+    // Load data (Sheets first, fallback to localStorage)
+    refreshAllData();
+
+    // Load local notes
+    var d = getStore();
+    if(d.notes) document.getElementById('notes').value = d.notes;
+
+    // Load cached AI
+    if(d.lastAI && d.lastAI.text){
+      var output = document.getElementById('ai-output');
+      output.className = 'ai-output visible';
+      output.innerHTML = markdownToHTML(d.lastAI.text) + '<div class="ai-timestamp">Analysis generated ' + formatTime(d.lastAI.time) + '</div>';
+    }
+
+    // Auto-save local notes
+    document.getElementById('notes').addEventListener('input', function(){
+      clearTimeout(window._noteTimer);
+      window._noteTimer = setTimeout(function(){
+        var d = getStore();
+        d.notes = document.getElementById('notes').value;
+        setStore(d);
+        var el = document.getElementById('notes-saved');
+        el.textContent = 'Saved'; el.style.opacity = '1';
+        setTimeout(function(){ el.style.opacity = '0'; }, 2000);
+      }, 1500);
+    });
+
+    // Auto-refresh every 5 minutes
+    setInterval(refreshAllData, 5 * 60 * 1000);
+  }
+
+  /* ── Refresh All Data ───────────────────────────── */
+  window.refreshAllData = async function(){
+    var btn = document.getElementById('refresh-btn');
+    btn.textContent = 'Refreshing...';
+    btn.disabled = true;
+
+    var sheetsAvailable = false;
+
+    // Try loading from Google Sheets
+    if(getSheetId()){
+      var kpiRows = await loadSheetData('KPIs!A1:E20');
+      if(kpiRows && kpiRows.length > 1){
+        sheetsAvailable = true;
+        _sheetData.kpis = kpiRows;
+        renderKPIsFromSheets(kpiRows);
+        renderWeeklyFromSheets(kpiRows);
+      }
+
+      var pipeRows = await loadSheetData('Pipeline!A1:G50');
+      if(pipeRows && pipeRows.length > 1){
+        _sheetData.pipeline = pipeRows;
+        renderPipeline(pipeRows);
+      }
+
+      var mktRows = await loadSheetData('Marketing!A1:H20');
+      if(mktRows && mktRows.length > 1){
+        _sheetData.marketing = mktRows;
+        renderMarketing(mktRows);
+      }
+
+      var actRows = await loadSheetData('Actuals!A1:D24');
+      if(actRows && actRows.length > 1){
+        _sheetData.actuals = actRows;
+        renderActuals(actRows);
+      }
+
+      var noteRows = await loadSheetData('Notes!A1:B50');
+      if(noteRows && noteRows.length > 1){
+        _sheetData.notes = noteRows;
+        renderNotes(noteRows);
+      }
+    }
+
+    // Fallback to localStorage
+    if(!sheetsAvailable){
+      loadFromLocalStorage();
+    }
+
+    // Update status
+    var dot = document.getElementById('status-dot');
+    var src = document.getElementById('status-source');
+    if(sheetsAvailable){
+      dot.style.background = 'var(--green)';
+      src.textContent = 'Live — Google Sheets connected';
+    } else if(getSheetId()){
+      dot.style.background = 'var(--red)';
+      src.textContent = 'Sheets unavailable — showing local data';
+    } else {
+      dot.style.background = 'var(--gold)';
+      src.textContent = 'Local mode — connect Google Sheet for live data';
+    }
+
+    updateTimestamp(new Date().toISOString());
+    btn.textContent = 'Refresh Data';
+    btn.disabled = false;
+  };
+
+  /* ── Render from Google Sheets ──────────────────── */
+  function renderKPIsFromSheets(rows){
+    // Row 0 = headers, Row 1 = most recent, Row 2 = previous
+    if(rows.length < 2) return;
+    var curr = rows[1]; // [Week, Deals, Leads, ViaScore, LinkedIn]
+    var prev = rows.length > 2 ? rows[2] : null;
+    var fields = ['deals','leads','viascore','linkedin'];
+    for(var i=0;i<fields.length;i++){
+      var val = curr[i+1] || '0';
+      document.getElementById('kpi-' + fields[i]).textContent = val;
+      if(prev){
+        var c = parseInt(String(val).replace(/,/g,'')) || 0;
+        var p = parseInt(String(prev[i+1]||'0').replace(/,/g,'')) || 0;
+        var diff = c - p;
+        var el = document.getElementById('delta-' + fields[i]);
+        if(diff > 0){ el.textContent = '\u2191 +' + diff.toLocaleString() + ' vs last week'; el.className = 'kpi-delta up'; }
+        else if(diff < 0){ el.textContent = '\u2193 ' + diff.toLocaleString() + ' vs last week'; el.className = 'kpi-delta down'; }
+        else { el.textContent = '\u2014 no change'; el.className = 'kpi-delta neutral'; }
+      }
+    }
+  }
+
+  function renderWeeklyFromSheets(rows){
+    var tbody = document.getElementById('log-body');
+    tbody.innerHTML = '';
+    var max = Math.min(rows.length, 9); // headers + 8 weeks
+    for(var i=1;i<max;i++){
+      var r = rows[i];
+      var tr = document.createElement('tr');
+      var weekClass = i === 1 ? 'font-weight:600;color:var(--gold)' : '';
+      tr.innerHTML = '<td class="row-date">' + esc(r[0]||'') + '</td>' +
+        '<td style="' + weekClass + '">' + esc(r[1]||'') + '</td>' +
+        '<td style="' + weekClass + '">' + esc(r[2]||'') + '</td>' +
+        '<td style="' + weekClass + '">' + esc(r[3]||'') + '</td>' +
+        '<td style="' + weekClass + '">' + esc(r[4]||'') + '</td>';
+      tbody.appendChild(tr);
+    }
+  }
+
+  function renderPipeline(rows){
+    var tbody = document.getElementById('pipeline-body');
+    tbody.innerHTML = '';
+    var totalValue = 0;
+    for(var i=1;i<rows.length;i++){
+      var r = rows[i];
+      if(!r[0]) continue;
+      var amount = r[3] || '';
+      var amtNum = parseInt(String(amount).replace(/[\$,]/g,'')) || 0;
+      totalValue += amtNum;
+      var stage = (r[4]||'').toLowerCase().trim();
+      var stageClass = 'stage-inquiry';
+      if(stage.indexOf('active') >= 0) stageClass = 'stage-active';
+      else if(stage.indexOf('submit') >= 0) stageClass = 'stage-submitted';
+      else if(stage.indexOf('approv') >= 0) stageClass = 'stage-approved';
+      else if(stage.indexOf('close') >= 0) stageClass = 'stage-closed';
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td style="font-weight:500">' + esc(r[0]) + '</td>' +
+        '<td>' + esc(r[1]||'') + '</td>' +
+        '<td>' + esc(r[2]||'') + '</td>' +
+        '<td style="font-family:var(--font-m)">' + esc(amount) + '</td>' +
+        '<td><span class="stage-badge ' + stageClass + '">' + esc(r[4]||'') + '</span></td>' +
+        '<td>' + esc(r[5]||'') + '</td>' +
+        '<td class="row-date">' + esc(r[6]||'') + '</td>';
+      tbody.appendChild(tr);
+    }
+    document.getElementById('pipeline-total').textContent = 'Total: $' + totalValue.toLocaleString();
+  }
+
+  function renderMarketing(rows){
+    var tbody = document.getElementById('marketing-body');
+    tbody.innerHTML = '';
+    for(var i=1;i<rows.length;i++){
+      var r = rows[i];
+      if(!r[0]) continue;
+      var roi = r[7] || '';
+      var roiNum = parseFloat(String(roi).replace(/[%,]/g,''));
+      var roiColor = roiNum > 0 ? 'color:var(--green)' : roiNum < 0 ? 'color:var(--red)' : '';
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td style="font-weight:500">' + esc(r[0]) + '</td>' +
+        '<td>' + esc(r[1]||'') + '</td>' +
+        '<td style="font-family:var(--font-m)">' + esc(r[2]||'') + '</td>' +
+        '<td>' + esc(r[3]||'') + '</td>' +
+        '<td style="font-family:var(--font-m)">' + esc(r[4]||'') + '</td>' +
+        '<td>' + esc(r[5]||'') + '</td>' +
+        '<td style="font-family:var(--font-m)">' + esc(r[6]||'') + '</td>' +
+        '<td style="font-weight:600;' + roiColor + '">' + esc(roi) + '</td>';
+      tbody.appendChild(tr);
+    }
+  }
+
+  function renderActuals(rows){
+    var tbody = document.getElementById('avp-body');
+    tbody.innerHTML = '';
+    for(var i=1;i<rows.length;i++){
+      var r = rows[i];
+      if(!r[0]) continue;
+      var actual = r[1] || '';
+      var proj = r[2] || '';
+      var variance = r[3] || '';
+      var varNum = parseFloat(String(variance).replace(/[\$,]/g,''));
+      var varClass = varNum > 0 ? 'variance-pos' : varNum < 0 ? 'variance-neg' : '';
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + esc(r[0]) + '</td>' +
+        '<td style="font-family:var(--font-m)">' + esc(proj) + '</td>' +
+        '<td style="font-family:var(--font-d);font-weight:700;color:var(--gold)">' + esc(actual) + '</td>' +
+        '<td class="' + varClass + '">' + esc(variance) + '</td>';
+      tbody.appendChild(tr);
+    }
+  }
+
+  function renderNotes(rows){
+    var feed = document.getElementById('notes-feed');
+    feed.innerHTML = '';
+    for(var i=1;i<rows.length;i++){
+      var r = rows[i];
+      if(!r[0] && !r[1]) continue;
+      var div = document.createElement('div');
+      div.className = 'note-item';
+      div.innerHTML = '<div class="note-date">' + esc(r[0]||'') + '</div>' +
+        '<div class="note-text">' + esc(r[1]||'') + '</div>';
+      feed.appendChild(div);
+    }
+    if(feed.children.length === 0){
+      feed.innerHTML = '<div style="text-align:center;color:var(--text-dim);padding:20px">No notes yet</div>';
+    }
+  }
+
+  /* ── localStorage Fallback ──────────────────────── */
   var SEED_DATA = {
     kpis: { deals:'7', leads:'23', viascore:'847', linkedin:'12,400' },
     weeks: [
-      { date:'3/1/2026',  deals:'2', leads:'6',  viascore:'180', linkedin:'2,100',  notes:'Soft launch week' },
-      { date:'3/8/2026',  deals:'3', leads:'9',  viascore:'340', linkedin:'4,800',  notes:'First LinkedIn post traction' },
-      { date:'3/15/2026', deals:'5', leads:'15', viascore:'590', linkedin:'8,200',  notes:'ViaScore gaining organic traffic' },
-      { date:'3/22/2026', deals:'7', leads:'23', viascore:'847', linkedin:'12,400', notes:'GBP pending · SAFE exam Mar 24' }
+      { date:'3/1/2026',  deals:'2', leads:'6',  viascore:'180', linkedin:'2,100' },
+      { date:'3/8/2026',  deals:'3', leads:'9',  viascore:'340', linkedin:'4,800' },
+      { date:'3/15/2026', deals:'5', leads:'15', viascore:'590', linkedin:'8,200' },
+      { date:'3/22/2026', deals:'7', leads:'23', viascore:'847', linkedin:'12,400' }
     ],
-    notes: 'Week of Mar 22 — GBP verification pending. LinkedIn announcement post ready. SAFE exam starts Mar 24. Focus Lending docs in review.',
+    notes: '',
     lastUpdated: new Date().toISOString()
   };
 
-  function loadData(){
+  function loadFromLocalStorage(){
     var d = getStore();
+    if(!d.kpis && (!d.weeks || !d.weeks.length)) d = SEED_DATA;
 
-    // Seed if empty
-    var isEmpty = !d.kpis && (!d.weeks || !d.weeks.length);
-    if(isEmpty) d = SEED_DATA;
-
-    // KPIs
     if(d.kpis){
       ['deals','leads','viascore','linkedin'].forEach(function(k){
-        var el = document.getElementById('kpi-'+k);
-        if(el && d.kpis[k] !== undefined) el.value = d.kpis[k];
+        var el = document.getElementById('kpi-' + k);
+        if(el && d.kpis[k] !== undefined) el.textContent = d.kpis[k];
       });
     }
-
-    // Weekly log
     if(d.weeks && d.weeks.length){
-      d.weeks.forEach(function(w){ renderWeekRow(w); });
-      updateDeltas(d);
-    }
-
-    // Notes
-    if(d.notes){
-      document.getElementById('notes').value = d.notes;
-    }
-
-    // Last updated
-    if(d.lastUpdated){
-      document.getElementById('last-updated').textContent = formatTime(d.lastUpdated);
-    }
-
-    // Persist seed so deltas and export work
-    if(isEmpty) setStore(d);
-
-    // Load cached AI analysis
-    if(d.lastAI && d.lastAI.text){
-      var output = document.getElementById('ai-output');
-      var ts = formatTime(d.lastAI.time);
-      output.className = 'ai-output visible';
-      output.innerHTML = markdownToHTML(d.lastAI.text) +
-        '<div class="ai-timestamp">Analysis generated ' + ts + '</div>';
-    }
-  }
-
-  window.saveData = function(){
-    var d = getStore();
-
-    // KPIs
-    d.kpis = {};
-    ['deals','leads','viascore','linkedin'].forEach(function(k){
-      d.kpis[k] = document.getElementById('kpi-'+k).value;
-    });
-
-    // Weeks
-    d.weeks = [];
-    var rows = document.querySelectorAll('#log-body tr');
-    rows.forEach(function(row){
-      var inputs = row.querySelectorAll('input');
-      d.weeks.push({
-        date: row.querySelector('.row-date').textContent,
-        deals: inputs[0].value,
-        leads: inputs[1].value,
-        viascore: inputs[2].value,
-        linkedin: inputs[3].value,
-        notes: inputs[4].value
+      var tbody = document.getElementById('log-body');
+      tbody.innerHTML = '';
+      d.weeks.slice().reverse().forEach(function(w){
+        var tr = document.createElement('tr');
+        tr.innerHTML = '<td class="row-date">' + esc(w.date) + '</td>' +
+          '<td>' + esc(w.deals) + '</td><td>' + esc(w.leads) + '</td>' +
+          '<td>' + esc(w.viascore) + '</td><td>' + esc(w.linkedin) + '</td>';
+        tbody.appendChild(tr);
       });
-    });
-
-    // Notes
-    d.notes = document.getElementById('notes').value;
-
-    setStore(d);
-    flashSaved();
-  };
-
-  function flashSaved(){
-    var el = document.getElementById('notes-saved');
-    el.textContent = 'All changes saved';
-    el.style.opacity = '1';
-    setTimeout(function(){ el.style.opacity = '0'; }, 2000);
-  }
-
-  function setupAutoSave(){
-    // Auto-save on any input change
-    document.addEventListener('input', function(e){
-      if(e.target.closest('#dash')){
-        clearTimeout(window._saveTimer);
-        window._saveTimer = setTimeout(function(){ saveData(); }, 1500);
+      // Deltas
+      if(d.weeks.length >= 2){
+        var curr = d.weeks[d.weeks.length - 1];
+        var prev = d.weeks[d.weeks.length - 2];
+        ['deals','leads','viascore','linkedin'].forEach(function(k){
+          var c = parseInt(String(curr[k]).replace(/,/g,'')) || 0;
+          var p = parseInt(String(prev[k]).replace(/,/g,'')) || 0;
+          var diff = c - p;
+          var el = document.getElementById('delta-' + k);
+          if(!el) return;
+          if(diff > 0){ el.textContent = '\u2191 +' + diff + ' vs last week'; el.className = 'kpi-delta up'; }
+          else if(diff < 0){ el.textContent = '\u2193 ' + diff + ' vs last week'; el.className = 'kpi-delta down'; }
+          else { el.textContent = '\u2014 no change'; el.className = 'kpi-delta neutral'; }
+        });
       }
-    });
+    }
+    if(d.lastUpdated) updateTimestamp(d.lastUpdated);
+    if(!d.kpis) setStore(SEED_DATA);
   }
 
-  /* ── Weekly Log ────────────────────────────────── */
-  window.addWeekRow = function(){
-    var now = new Date();
-    var weekStart = new Date(now);
-    weekStart.setDate(now.getDate() - now.getDay());
-    var label = (weekStart.getMonth()+1) + '/' + weekStart.getDate() + '/' + weekStart.getFullYear();
-
-    // Check if this week already exists
-    var existing = document.querySelectorAll('#log-body .row-date');
-    for(var i=0;i<existing.length;i++){
-      if(existing[i].textContent === label){ return; }
-    }
-
-    renderWeekRow({date:label, deals:'', leads:'', viascore:'', linkedin:'', notes:''});
-    saveData();
+  /* ── CSV Export ──────────────────────────────────── */
+  window.exportCSV = function(){
+    var rows = document.querySelectorAll('#log-body tr');
+    if(!rows.length){ alert('No data to export.'); return; }
+    var csv = 'Week,Deals,Leads,ViaScore Runs,LinkedIn Impressions\n';
+    rows.forEach(function(tr){
+      var cells = tr.querySelectorAll('td');
+      var vals = [];
+      cells.forEach(function(td){ vals.push('"' + td.textContent.replace(/"/g,'""') + '"'); });
+      csv += vals.join(',') + '\n';
+    });
+    var blob = new Blob([csv], {type:'text/csv'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'viador-kpi-' + new Date().toISOString().slice(0,10) + '.csv';
+    a.click();
   };
 
-  function renderWeekRow(w){
-    var tbody = document.getElementById('log-body');
-    var tr = document.createElement('tr');
-    tr.innerHTML =
-      '<td class="row-date">' + w.date + '</td>' +
-      '<td><input type="text" value="' + esc(w.deals) + '" inputmode="numeric"/></td>' +
-      '<td><input type="text" value="' + esc(w.leads) + '" inputmode="numeric"/></td>' +
-      '<td><input type="text" value="' + esc(w.viascore) + '" inputmode="numeric"/></td>' +
-      '<td><input type="text" value="' + esc(w.linkedin) + '" inputmode="numeric"/></td>' +
-      '<td><input type="text" value="' + esc(w.notes) + '" placeholder="—"/></td>';
-    tbody.insertBefore(tr, tbody.firstChild);
-  }
+  /* ── Tab Switching ──────────────────────────────── */
+  window.switchTab = function(tab){
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+    document.getElementById('tab-' + tab).classList.add('active');
+    var btns = document.querySelectorAll('.tab-btn');
+    var labels = { ops:'Operations', pipeline:'Pipeline', marketing:'Marketing', notes:'Notes', pl:'P&L' };
+    btns.forEach(function(b){
+      if(b.textContent.indexOf(labels[tab]) >= 0) b.classList.add('active');
+    });
+    if(tab === 'pl' && !window._chartInit){ initRevenueChart(); window._chartInit = true; }
+  };
 
-  function esc(s){ return String(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
-
-  function updateDeltas(d){
-    if(!d.weeks || d.weeks.length < 2) return;
-    var curr = d.weeks[d.weeks.length - 1];
-    var prev = d.weeks[d.weeks.length - 2];
-    ['deals','leads','viascore','linkedin'].forEach(function(k){
-      var c = parseInt(curr[k]) || 0;
-      var p = parseInt(prev[k]) || 0;
-      var diff = c - p;
-      var el = document.getElementById('delta-' + k);
-      if(!el) return;
-      if(diff > 0){
-        el.textContent = '↑ +' + diff + ' vs last week';
-        el.className = 'kpi-delta up';
-      } else if(diff < 0){
-        el.textContent = '↓ ' + diff + ' vs last week';
-        el.className = 'kpi-delta down';
-      } else {
-        el.textContent = '— no change';
-        el.className = 'kpi-delta neutral';
+  /* ── Revenue Chart ──────────────────────────────── */
+  function initRevenueChart(){
+    var ctx = document.getElementById('revenueChart');
+    if(!ctx) return;
+    var projected = [0,0,0,7450,14900,25350,37400,37400,37400,56100,56100,56100];
+    var labels = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    new Chart(ctx, {
+      type: 'bar',
+      data: { labels: labels, datasets: [{
+        label: 'Projected',
+        data: projected,
+        backgroundColor: 'rgba(184,129,30,0.3)',
+        borderColor: '#B8811E',
+        borderWidth: 1.5,
+        borderRadius: 4
+      }]},
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.35)', font: { family: "'DM Mono'", size: 10 } } },
+          y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.35)', font: { family: "'DM Mono'", size: 10 }, callback: function(v){ return '$'+v.toLocaleString(); } } }
+        }
       }
     });
   }
 
   /* ── AI Advisor ─────────────────────────────────── */
-  var AI_PROXY = 'https://viador-ai-proxy.chad-7f6.workers.dev';
-  var AI_SYSTEM = 'You are the AI business advisor for Viador Partners, an AI-native real estate investor lending platform. Analyze the provided KPI data and give specific, actionable recommendations. Be direct and specific — reference actual numbers. Focus on revenue impact and platform growth.\n\nFormat your response in exactly this structure using markdown:\n\n### Areas of Attention\n- (3 bullet points analyzing the data — reference specific numbers and percentages)\n\n### Recommended Actions This Week\n- (3 bullet points ranked by revenue impact — be specific and actionable)\n\n### Platform Trajectory\n(One sentence on overall trajectory based on the trend data)';
+  var AI_SYSTEM = 'You are the AI business advisor for Viador Partners, an AI-native real estate investor lending platform. You have access to live KPI data, pipeline data, and marketing performance. Analyze the data and give specific, actionable recommendations. Reference actual numbers. Focus on: what\'s working, what\'s not, and the single highest-ROI action this week.\n\nFormat your response in exactly this structure using markdown:\n\n### Areas of Attention\n- (3 bullet points analyzing the data — reference specific numbers and percentages)\n\n### Recommended Actions This Week\n- (3 bullet points ranked by revenue impact — be specific and actionable)\n\n### Pipeline Health\n- (Brief assessment of deal pipeline if data available)\n\n### Platform Trajectory\n(One sentence on overall trajectory based on the trend data)';
 
   window.runAI = function(){
     var btn = document.getElementById('ai-btn');
     var panel = document.getElementById('ai-panel');
     var output = document.getElementById('ai-output');
 
-    // Save current data first
-    saveData();
-    var d = getStore();
+    // Build context from all available data
+    var context = '';
 
-    // Build context from KPIs and weekly data
-    var kpiText = 'Current Week KPIs:\n' +
-      '- Deals in Pipeline: ' + (d.kpis && d.kpis.deals || '0') + '\n' +
-      '- Leads This Week: ' + (d.kpis && d.kpis.leads || '0') + '\n' +
-      '- ViaScore Runs: ' + (d.kpis && d.kpis.viascore || '0') + '\n' +
-      '- LinkedIn Impressions: ' + (d.kpis && d.kpis.linkedin || '0') + '\n';
+    // KPIs
+    context += 'Current Week KPIs:\n';
+    ['deals','leads','viascore','linkedin'].forEach(function(k){
+      context += '- ' + k + ': ' + (document.getElementById('kpi-' + k).textContent || '0') + '\n';
+    });
 
-    var weekText = '\nWeekly History:\n';
-    if(d.weeks && d.weeks.length){
-      d.weeks.forEach(function(w){
-        weekText += 'Week of ' + w.date + ': Deals=' + w.deals + ', Leads=' + w.leads +
-          ', ViaScore Runs=' + w.viascore + ', LinkedIn=' + w.linkedin +
-          (w.notes ? ' (' + w.notes + ')' : '') + '\n';
+    // Weekly history from table
+    var weekRows = document.querySelectorAll('#log-body tr');
+    if(weekRows.length){
+      context += '\nWeekly History (most recent first):\n';
+      weekRows.forEach(function(tr){
+        var cells = tr.querySelectorAll('td');
+        if(cells.length >= 5){
+          context += 'Week ' + cells[0].textContent + ': Deals=' + cells[1].textContent + ', Leads=' + cells[2].textContent + ', ViaScore=' + cells[3].textContent + ', LinkedIn=' + cells[4].textContent + '\n';
+        }
       });
     }
 
-    var notesText = d.notes ? '\nOperator Notes: ' + d.notes : '';
-    var userMsg = kpiText + weekText + notesText + '\n\nAnalyze this data and provide your assessment.';
+    // Pipeline from sheet data
+    if(_sheetData.pipeline && _sheetData.pipeline.length > 1){
+      context += '\nDeal Pipeline:\n';
+      for(var i=1;i<_sheetData.pipeline.length;i++){
+        var r = _sheetData.pipeline[i];
+        if(r[0]) context += '- ' + r[0] + ' | ' + (r[2]||'') + ' | ' + (r[3]||'') + ' | Stage: ' + (r[4]||'') + '\n';
+      }
+    }
+
+    // Marketing from sheet data
+    if(_sheetData.marketing && _sheetData.marketing.length > 1){
+      context += '\nMarketing Campaigns:\n';
+      for(var i=1;i<_sheetData.marketing.length;i++){
+        var r = _sheetData.marketing[i];
+        if(r[0]) context += '- ' + r[0] + ' (' + (r[1]||'') + '): Spend=' + (r[2]||'') + ', Leads=' + (r[3]||'') + ', ROI=' + (r[7]||'') + '\n';
+      }
+    }
+
+    var localNotes = document.getElementById('notes').value;
+    if(localNotes) context += '\nOperator Notes: ' + localNotes;
+    context += '\n\nAnalyze this data and provide your assessment.';
 
     // UI: loading state
     btn.disabled = true;
@@ -1386,7 +1736,6 @@
     output.className = 'ai-output visible';
     output.innerHTML = '<span class="ai-cursor"></span>';
 
-    // Add spin keyframes if not already added
     if(!document.getElementById('spin-style')){
       var s = document.createElement('style');
       s.id = 'spin-style';
@@ -1394,7 +1743,7 @@
       document.head.appendChild(s);
     }
 
-    fetch(AI_PROXY, {
+    fetch(WORKER, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -1402,7 +1751,7 @@
         max_tokens: 1024,
         stream: true,
         system: AI_SYSTEM,
-        messages: [{ role: 'user', content: userMsg }]
+        messages: [{ role: 'user', content: context }]
       })
     }).then(function(res){
       if(!res.ok) throw new Error('API returned ' + res.status);
@@ -1410,13 +1759,9 @@
       var decoder = new TextDecoder();
       var raw = '';
       var buffer = '';
-
       function pump(){
         return reader.read().then(function(result){
-          if(result.done){
-            finishAI(raw);
-            return;
-          }
+          if(result.done){ finishAI(raw); return; }
           buffer += decoder.decode(result.value, {stream:true});
           var lines = buffer.split('\n');
           buffer = lines.pop();
@@ -1428,7 +1773,8 @@
                 var evt = JSON.parse(payload);
                 if(evt.type === 'content_block_delta' && evt.delta && evt.delta.text){
                   raw += evt.delta.text;
-                  renderStream(raw);
+                  output.innerHTML = markdownToHTML(raw) + '<span class="ai-cursor"></span>';
+                  output.scrollTop = output.scrollHeight;
                 }
               } catch(e){}
             }
@@ -1438,27 +1784,17 @@
       }
       return pump();
     }).catch(function(err){
-      output.innerHTML = '<p style="color:var(--red)">Analysis failed: ' + err.message + '. Check that the AI proxy worker is deployed.</p>';
+      output.innerHTML = '<p style="color:var(--red)">Analysis failed: ' + err.message + '</p>';
       resetAIBtn();
     });
   };
 
-  function renderStream(raw){
-    var output = document.getElementById('ai-output');
-    output.innerHTML = markdownToHTML(raw) + '<span class="ai-cursor"></span>';
-    output.scrollTop = output.scrollHeight;
-  }
-
   function finishAI(raw){
     var output = document.getElementById('ai-output');
     var ts = new Date();
-    var timeStr = ts.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ' at ' +
-      ts.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-    output.innerHTML = markdownToHTML(raw) +
-      '<div class="ai-timestamp">Analysis generated ' + timeStr + '</div>';
+    var timeStr = formatTime(ts.toISOString());
+    output.innerHTML = markdownToHTML(raw) + '<div class="ai-timestamp">Analysis generated ' + timeStr + '</div>';
     resetAIBtn();
-
-    // Cache result
     var d = getStore();
     d.lastAI = { text: raw, time: ts.toISOString() };
     setStore(d);
@@ -1473,20 +1809,17 @@
   }
 
   function markdownToHTML(md){
-    // Simple markdown: ### headings, **bold**, *italic*, - bullets
     var html = md
       .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
       .replace(/^### (.+)$/gm, '<h3>$1</h3>')
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.+?)\*/g, '<em>$1</em>');
-    // Convert bullet lines to list
     html = html.replace(/((?:^- .+\n?)+)/gm, function(block){
       var items = block.trim().split('\n').map(function(l){
         return '<li>' + l.replace(/^- /,'') + '</li>';
       }).join('');
       return '<ul>' + items + '</ul>';
     });
-    // Remaining lines to paragraphs
     html = html.split('\n').map(function(line){
       line = line.trim();
       if(!line || line.startsWith('<h3>') || line.startsWith('<ul>') || line.startsWith('<li>')) return line;
@@ -1494,148 +1827,6 @@
     }).join('\n');
     return html;
   }
-
-  /* ── CSV Export ─────────────────────────────────── */
-  window.exportCSV = function(){
-    var d = getStore();
-    if(!d.weeks || !d.weeks.length){ alert('No data to export.'); return; }
-    var csv = 'Week,Deals,Leads,ViaScore Runs,LinkedIn Impressions,Notes\n';
-    d.weeks.forEach(function(w){
-      csv += [w.date, w.deals, w.leads, w.viascore, w.linkedin, '"'+String(w.notes||'').replace(/"/g,'""')+'"'].join(',') + '\n';
-    });
-    var blob = new Blob([csv], {type:'text/csv'});
-    var a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'viador-kpi-' + new Date().toISOString().slice(0,10) + '.csv';
-    a.click();
-  };
-
-  /* ── Tab Switching ──────────────────────────────── */
-  window.switchTab = function(tab){
-    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
-    document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
-    document.getElementById('tab-'+tab).classList.add('active');
-    // Highlight correct button
-    var btns = document.querySelectorAll('.tab-btn');
-    btns.forEach(function(b){ if((tab==='ops' && b.textContent.indexOf('Operations')>=0)||(tab==='pl' && b.textContent.indexOf('P&L')>=0)) b.classList.add('active'); });
-    // Init chart on first view
-    if(tab==='pl' && !window._chartInit){ initRevenueChart(); initAvPTable(); window._chartInit=true; }
-  };
-
-  /* ── Revenue Chart ─────────────────────────────── */
-  function initRevenueChart(){
-    var ctx = document.getElementById('revenueChart');
-    if(!ctx) return;
-    var projected = [0,0,0,7450,14900,25350,37400,37400,37400,56100,56100,56100];
-    var labels = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    // Load actuals from storage
-    var d = getStore();
-    var actuals = (d.avpActuals || []).map(function(v){ return parseInt(String(v).replace(/\D/g,''))||0; });
-    var datasets = [{
-      label: 'Projected',
-      data: projected,
-      backgroundColor: 'rgba(184,129,30,0.3)',
-      borderColor: '#B8811E',
-      borderWidth: 1.5,
-      borderRadius: 4,
-      order: 2
-    }];
-    if(actuals.some(function(v){return v>0;})){
-      datasets.push({
-        label: 'Actual',
-        data: actuals.concat(Array(12-actuals.length).fill(0)).slice(0,12),
-        backgroundColor: 'rgba(62,207,142,0.4)',
-        borderColor: '#3ECF8E',
-        borderWidth: 1.5,
-        borderRadius: 4,
-        order: 1
-      });
-    }
-    new Chart(ctx, {
-      type: 'bar',
-      data: { labels: labels, datasets: datasets },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: datasets.length > 1, labels: { color: 'rgba(255,255,255,0.45)', font: { family: "'DM Sans'", size: 11 }, boxWidth: 12, padding: 16 } },
-          tooltip: {
-            backgroundColor: '#22252F',
-            titleColor: '#E8E4DF',
-            bodyColor: 'rgba(255,255,255,0.65)',
-            borderColor: 'rgba(255,255,255,0.08)',
-            borderWidth: 1,
-            callbacks: { label: function(c){ return c.dataset.label + ': $' + c.raw.toLocaleString(); } }
-          }
-        },
-        scales: {
-          x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.35)', font: { family: "'DM Mono'", size: 10 } } },
-          y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.35)', font: { family: "'DM Mono'", size: 10 }, callback: function(v){ return '$'+v.toLocaleString(); } } }
-        }
-      }
-    });
-  }
-
-  /* ── Actual vs Projected ───────────────────────── */
-  var AVP_PROJECTED = [0,0,0,7450,14900,25350,37400,37400,37400,56100,56100,56100];
-  var AVP_MONTHS = ['M1 — Jan 2026','M2 — Feb','M3 — Mar','M4 — Apr','M5 — May','M6 — Jun','M7 — Jul','M8 — Aug','M9 — Sep','M10 — Oct','M11 — Nov','M12 — Dec'];
-
-  function initAvPTable(){
-    var d = getStore();
-    var actuals = d.avpActuals || [];
-    var tbody = document.getElementById('avp-body');
-    if(!tbody) return;
-    tbody.innerHTML = '';
-    for(var i=0;i<12;i++){
-      var proj = AVP_PROJECTED[i];
-      var act = actuals[i] || '';
-      var actNum = parseInt(String(act).replace(/\D/g,'')) || 0;
-      var variance = act ? actNum - proj : null;
-      var varHTML = variance === null ? '<span style="color:var(--text-dim)">—</span>' :
-        (variance >= 0 ? '<span class="variance-pos">+$'+variance.toLocaleString()+'</span>' :
-        '<span class="variance-neg">-$'+Math.abs(variance).toLocaleString()+'</span>');
-      var tr = document.createElement('tr');
-      tr.innerHTML = '<td>'+AVP_MONTHS[i]+'</td><td style="font-family:var(--font-m);font-size:13px">$'+proj.toLocaleString()+'</td><td><input type="text" value="'+esc(act)+'" placeholder="—" data-avp="'+i+'" style="background:transparent;border:none;border-bottom:1px dashed rgba(184,129,30,0.3);color:var(--gold);font-family:var(--font-d);font-size:16px;font-weight:700;width:120px;outline:none;padding:2px 0" oninput="updateVariance(this)"/></td><td class="avp-var" data-var="'+i+'">'+varHTML+'</td>';
-      tbody.appendChild(tr);
-    }
-  }
-
-  window.updateVariance = function(el){
-    var i = parseInt(el.dataset.avp);
-    var proj = AVP_PROJECTED[i];
-    var actNum = parseInt(el.value.replace(/\D/g,'')) || 0;
-    var cell = document.querySelector('[data-var="'+i+'"]');
-    if(!el.value.trim()){ cell.innerHTML = '<span style="color:var(--text-dim)">—</span>'; return; }
-    var diff = actNum - proj;
-    cell.innerHTML = diff >= 0 ? '<span class="variance-pos">+$'+diff.toLocaleString()+'</span>' : '<span class="variance-neg">-$'+Math.abs(diff).toLocaleString()+'</span>';
-  };
-
-  window.saveAvP = function(){
-    var d = getStore();
-    d.avpActuals = [];
-    document.querySelectorAll('[data-avp]').forEach(function(el){
-      d.avpActuals[parseInt(el.dataset.avp)] = el.value;
-    });
-    setStore(d);
-    flashSaved();
-  };
-
-  window.exportAvPCSV = function(){
-    var d = getStore();
-    var actuals = d.avpActuals || [];
-    var csv = 'Month,Projected,Actual,Variance\n';
-    for(var i=0;i<12;i++){
-      var proj = AVP_PROJECTED[i];
-      var act = parseInt(String(actuals[i]||'').replace(/\D/g,'')) || '';
-      var variance = act !== '' ? (act - proj) : '';
-      csv += AVP_MONTHS[i]+','+proj+','+(act||'')+','+(variance!==''?variance:'')+'\n';
-    }
-    var blob = new Blob([csv],{type:'text/csv'});
-    var a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'viador-avp-'+new Date().toISOString().slice(0,10)+'.csv';
-    a.click();
-  };
 
 })();
 </script>
