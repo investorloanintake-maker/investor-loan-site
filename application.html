@@ -183,10 +183,17 @@
       <span class="logo-mark">V</span>
       <span class="logo-text">Viador <span class="logo-sub">Partners</span></span>
     </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="index.html#paths">Who We Help</a>
-      <a href="bpl.html">What Is BPL?</a>
-      <a href="index.html#programs">Programs</a>
+        <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown">
+        <a href="index.html#programs" class="nav-dropdown-trigger">Programs</a>
+        <div class="nav-dropdown-menu">
+          <a href="dscr.html">DSCR Loans</a>
+          <a href="fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="bpl.html">Business Purpose Loans</a>
+          <a href="non-qm-loans-florida.html">Non-QM / Bank Statement</a>
+          <a href="conventional-investment-property-loans.html">Conventional</a>
+        </div>
+      </div>
       <div class="nav-dropdown">
         <a href="commercial.html" class="nav-dropdown-trigger">Commercial</a>
         <div class="nav-dropdown-menu">
@@ -195,25 +202,30 @@
           <a href="commercial-score.html">ViaScore Commercial&trade;</a>
         </div>
       </div>
-      <a href="investor-platform.html">Tools</a>
-      <a href="score.html">Score a Deal</a>
+      <div class="nav-dropdown">
+        <a href="investor-platform.html" class="nav-dropdown-trigger">Tools</a>
+        <div class="nav-dropdown-menu">
+          <a href="score.html">Score a Deal</a>
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="dscr-calculator.html">DSCR Calculator</a>
+        </div>
+      </div>
       <a href="about.html">About</a>
-      <a href="index.html#faq">FAQ</a>
     </nav>
-    <a href="tel:+18134192983" class="nav-phone" aria-label="Call us">(813) 419-2983</a>
     <a href="index.html#dealform" class="nav-cta">Review My Deal</a>
     <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">
       <span></span><span></span>
     </button>
   </div>
   <div class="mobile-drawer" id="drawer">
-    <a href="index.html#paths">Who We Help</a>
-    <a href="bpl.html">What Is BPL?</a>
-    <a href="index.html#programs">Programs</a>
+    <a href="dscr.html">DSCR Loans</a>
+    <a href="fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="bpl.html">Business Purpose Loans</a>
     <a href="commercial.html">Commercial Lending</a>
     <a href="franchise.html">SBA &amp; Franchise</a>
-    <a href="commercial-score.html">ViaScore Commercial&trade;</a>
-    <a href="index.html#faq">FAQ</a>
+    <a href="score.html">Score a Deal</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="about.html">About</a>
     <a href="index.html#dealform" class="drawer-cta">Review My Deal →</a>
   </div>
 </header>
@@ -241,17 +253,31 @@
 
         <div class="form-card">
           <form id="appForm" novalidate>
-            <div class="section-label" style="margin-bottom:20px;">Deal details</div>
 
-            <div class="field" id="field-proptype">
-              <label for="aproptype">Property Type</label>
-              <select id="aproptype" name="property_type" onchange="toggleFormFields()">
-                <option value="residential" selected>Residential Investment</option>
-                <option value="commercial">Commercial / Mixed-Use</option>
-                <option value="sba">SBA / Business Purpose</option>
-                <option value="franchise">Franchise Financing</option>
-              </select>
+            <!-- Step 0: Property Type Cards -->
+            <div class="section-label" style="margin-bottom:20px;">What type of financing do you need?</div>
+            <div class="type-cards" id="typeCards">
+              <div class="type-card selected" data-type="residential" onclick="selectTypeCard(this)">
+                <div class="type-card-icon">🏠</div>
+                <div class="type-card-title">Residential Investment</div>
+              </div>
+              <div class="type-card" data-type="commercial" onclick="selectTypeCard(this)">
+                <div class="type-card-icon">🏢</div>
+                <div class="type-card-title">Commercial / Mixed-Use</div>
+              </div>
+              <div class="type-card" data-type="sba" onclick="selectTypeCard(this)">
+                <div class="type-card-icon">🏪</div>
+                <div class="type-card-title">SBA / Franchise</div>
+              </div>
             </div>
+            <select id="aproptype" name="property_type" style="display:none;">
+              <option value="residential" selected>Residential Investment</option>
+              <option value="commercial">Commercial / Mixed-Use</option>
+              <option value="sba">SBA / Business Purpose</option>
+              <option value="franchise">Franchise Financing</option>
+            </select>
+
+            <div class="section-label" style="margin:28px 0 20px;">Deal details</div>
 
             <div class="field-row">
               <div class="field">
@@ -440,8 +466,59 @@
   <a href="tel:+18134192983" class="mobile-sticky-call">Call Us</a>
 </div>
 
+<style>
+  .type-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .type-card {
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    padding: 24px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--cream);
+  }
+  .type-card:hover {
+    border-color: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(184,129,30,0.10);
+  }
+  .type-card.selected {
+    border-color: var(--gold);
+    background: var(--gold-faint);
+    box-shadow: 0 4px 16px rgba(184,129,30,0.15);
+  }
+  .type-card-icon { font-size: 28px; margin-bottom: 10px; }
+  .type-card-title {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  @media (max-width: 600px) {
+    .type-cards { grid-template-columns: 1fr; }
+  }
+</style>
+
 <script src="script.js" defer></script>
 <script>
+  function selectTypeCard(card) {
+    document.querySelectorAll('.type-card').forEach(function(c) { c.classList.remove('selected'); });
+    card.classList.add('selected');
+    var type = card.getAttribute('data-type');
+    var select = document.getElementById('aproptype');
+    if (type === 'sba') {
+      select.value = 'sba';
+    } else {
+      select.value = type;
+    }
+    toggleFormFields();
+  }
+
   function toggleFormFields() {
     var propType = document.getElementById('aproptype').value;
     var fieldsCommercial = document.getElementById('fields-commercial');
