@@ -1076,8 +1076,8 @@
       <p>2. Share it as "Anyone with link can view"</p>
       <p>3. Copy the Sheet ID from the URL (the long string between <code>/d/</code> and <code>/edit</code>)</p>
       <input class="setup-input" id="sheet-id-input" placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVEwUpPY"/>
-      <button class="log-btn primary" onclick="saveSheetId()">Connect Sheet</button>
-      <button class="log-btn secondary" onclick="dismissSetup()" style="margin-left:8px">Skip — Use Local Data</button>
+      <button class="log-btn primary" onclick="if(typeof saveSheetId==='function'){saveSheetId()}else{localStorage.setItem('viador_sheet_id',document.getElementById('sheet-id-input').value.trim());location.reload()}">Connect Sheet</button>
+      <button class="log-btn secondary" onclick="if(typeof dismissSetup==='function'){dismissSetup()}else{document.getElementById('setup-panel').style.display='none'}" style="margin-left:8px">Skip — Use Local Data</button>
     </div>
 
     <!-- Status Bar -->
@@ -1472,7 +1472,7 @@
   function simpleHash(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0;}return(h>>>0).toString(16).slice(0,8);}
 
   var isAuthed = sessionStorage.getItem('vcc_auth') === '1';
-  if(isAuthed) showDash();
+  // Defer showDash to end of IIFE so all window.* functions are defined first
 
   window.handleLogin = function(){
     var pw = document.getElementById('gate-pw').value;
@@ -2167,6 +2167,10 @@
         latest.key_wins.map(function(w){ return '<div class="note-item" style="padding:6px 0"><span style="color:var(--green)">&#10003;</span> ' + esc(w) + '</div>'; }).join('');
     }
   }
+
+  /* ── Deferred Auth Check ─────────────────────────
+     Must be last — all window.* functions are now defined ── */
+  if(isAuthed) showDash();
 
 })();
 </script>
