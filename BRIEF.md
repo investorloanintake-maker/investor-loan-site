@@ -14,7 +14,7 @@
 | Phone | (813) 419-2983 |
 | Email | chad@viadorpartners.com |
 | LinkedIn | 25,106 connections |
-| Background | 20+ years institutional lending — Congressional Bank SVP, BayFirst SVP, Citi VP Global Program Management / Institutional Credit Management |
+| Background | 15 years building national mortgage teams from scratch. SVP leading large-scale lending divisions. Citi — global institutional transformation at scale. |
 | Entity | Viador Partners LLC — Florida Sunbiz |
 | EIN | 41-4907672 |
 
