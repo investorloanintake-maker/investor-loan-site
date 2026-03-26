@@ -163,7 +163,7 @@
 - **Worker endpoints:** /anthropic, /score, /rentcast/property, /rentcast/rent, /rentcast/value, /hud-fmr, /estated, /census, /sheets
 - **AI model:** claude-sonnet-4-20250514
 - **ViaScore backtest:** 775 transactions, 42 zip codes
-- **AVM stack:** Rentcast + HUD FMR + Census ACS
+- **AVM stack:** Rentcast + Homesage.ai + HUD FMR + Census ACS + Walk Score + Estated
 
 ---
 

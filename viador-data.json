@@ -244,7 +244,11 @@
       "streaming": "SSE fixed and deployed March 25 2026"
     },
     "avm_stack": {
-      "current": ["Rentcast", "HUD FMR", "Census ACS"],
+      "current": ["Rentcast", "Homesage.ai", "HUD FMR", "Census ACS", "Walk Score", "Estated"],
+      "pending_keys": {
+        "walkscore_api_key": "get free at walkscore.com/professional/api.php",
+        "homesage_api_key": "get free at homesage.ai"
+      },
       "q3_2026": ["FHFA HPI via FRED API — series IDs: Tampa ATNHPIUS45300Q Columbus ATNHPIUS18140Q", "BLS Employment MSA"],
       "q4_2026": ["VOW sold data — MFRMLS + Columbus Realtors"],
       "2027": ["Direct MLS data license", "PropStream API"],
