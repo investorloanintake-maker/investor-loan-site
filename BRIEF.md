@@ -1,5 +1,5 @@
 # VIADOR PARTNERS — MASTER BRIEF
-**Version 2.8 | Last Updated: 2026-03-25**
+**Version 2.8 | Last Updated: 2026-03-26**
 
 > Load this file at the start of every Claude session.
 > Single source of truth — all platforms and scripts read from viador-data.json
@@ -34,7 +34,7 @@
 ## LICENSING STATUS
 | Item | Status |
 |------|--------|
-| SAFE Coursework | 6.32h done / 20h required |
+| SAFE Coursework | 14.35h done / 20h required |
 | SAFE Exam | pending — week_of_march_31 |
 | Ohio License | pending — target mid_april_2026 |
 | Florida License | pending — target june_2026 |
@@ -87,7 +87,7 @@
 ## PRIORITY STACK
 
 ### Today
-- SAFE coursework — 6h19m done, ~13h40m remaining
+- SAFE coursework — 14h21m done, ~5h39m remaining ✅ on pace
 - Chris Russell IDX email — SENT
 - Cloudflare Worker SSE fix deployed — DONE
 - Commercial buildout all 3 platforms — DONE
