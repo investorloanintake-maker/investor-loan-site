@@ -194,6 +194,10 @@
 - SVG icons replace emoji in audience router
 - Trust copy scaled — 'Every deal gets a real review' replaces personal promise
 - $100M audit — 8 critical fixes deployed across all 3 platforms
+- ViaScore v2.0 institutional-grade scoring engine deployed
+- Suggested Offer Price fixed — AVM-based, never above market
+- Deal Optimizer redesigned — suggested offer, collapsed advanced
+- About page surgical copy fixes — bio, timeline, how-I-work
 
 ---
 
