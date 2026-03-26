@@ -318,7 +318,20 @@
         "MLS national scaling strategy documented — Zillow parallel path",
         "Katie Evers / Viador Realty Year 2-3 plan confirmed",
         "Revised projections — Y3 $50M-$100M valuation",
-        "Living data infrastructure built — viador-data.json single source of truth"
+        "Living data infrastructure built — viador-data.json single source of truth",
+        "Google Sheets Command Center fully operational — live KPI data flowing",
+        "Admin dashboard upgraded — Sheets proxy, brief status bar, contacts, platforms, financials panels",
+        "Complete founder bio + brand voice overhaul across all 3 platforms — definitive version",
+        "New 'Why Viador Exists' conviction section added to homepage",
+        "ViaScore P0 bug fixed — showPostScoreCaptures was undefined, now working",
+        "ViaScore 'What price makes this work?' negotiation tool — turns every PASS into leverage",
+        "Shareable score links + Forward to Agent — every share brings new users",
+        "5.3% stat surfaced above fold on homepage + viascore.ai",
+        "About page walk-away moment expanded — Citi context + conviction",
+        "Thank-you page rewritten — 'Good. Your deal is in the right hands.'",
+        "SVG icons replace emoji in audience router",
+        "Trust copy scaled — 'Every deal gets a real review' replaces personal promise",
+        "$100M audit — 8 critical fixes deployed across all 3 platforms"
       ]
     }
   ]
