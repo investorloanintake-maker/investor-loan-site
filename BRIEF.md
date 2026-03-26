@@ -14,7 +14,8 @@
 | Phone | (813) 419-2983 |
 | Email | chad@viadorpartners.com |
 | LinkedIn | 25,106 connections |
-| Background | 15 years building national mortgage teams from scratch. SVP leading large-scale lending divisions. Citi — global institutional transformation at scale. |
+| Background | Ohio roots. 20 years in lending — originating loans, building national teams, 3 years Citi global experience. Left corporate life to build Viador. |
+| Brand Voice | Conviction over polish. Built for people done waiting for permission. Do it for yourself. |
 | Entity | Viador Partners LLC — Florida Sunbiz |
 | EIN | 41-4907672 |
 
