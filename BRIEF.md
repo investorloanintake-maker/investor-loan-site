@@ -198,6 +198,7 @@
 - Suggested Offer Price fixed — AVM-based, never above market
 - Deal Optimizer redesigned — suggested offer, collapsed advanced
 - About page surgical copy fixes — bio, timeline, how-I-work
+- ViaScore v3.0 — rehab intelligence + interactive scenario calculator + flip analysis
 
 ---
 
