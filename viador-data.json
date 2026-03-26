@@ -257,6 +257,16 @@
       "appreciation_75plus": "16.1%",
       "cashflow_75plus": "$161/mo avg",
       "all_positive_cf": true
+    },
+    "viascore_scoring_system": {
+      "version": "2.0",
+      "type": "institutional_grade",
+      "dimensions": 6,
+      "dimension_names": ["Yield Quality", "Capital Preservation", "Cashflow Durability", "Market Trajectory", "Exit Optionality", "Financing Efficiency"],
+      "outputs": ["intrinsic_value", "offer_intelligence", "viascore", "scenarios", "strategies", "narrative"],
+      "scenario_types": ["bull", "base", "bear"],
+      "expected_irr_weighted": true,
+      "max_tokens": 4096
     }
   },
   "mls_strategy": {
