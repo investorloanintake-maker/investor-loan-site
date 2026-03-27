@@ -163,7 +163,7 @@
 - **Worker endpoints:** /anthropic, /score, /rentcast/property, /rentcast/rent, /rentcast/value, /hud-fmr, /estated, /census, /sheets
 - **AI model:** claude-sonnet-4-20250514
 - **ViaScore backtest:** 775 transactions, 42 zip codes
-- **AVM stack:** Rentcast + Homesage.ai + HUD FMR + Census ACS + Walk Score + Estated
+- **AVM stack:** Rentcast + Homesage.ai + HUD FMR + Census ACS + Walk Score + Estated + Franklin County ArcGIS + Hillsborough County HCPA
 
 ---
 
@@ -199,6 +199,9 @@
 - Deal Optimizer redesigned — suggested offer, collapsed advanced
 - About page surgical copy fixes — bio, timeline, how-I-work
 - ViaScore v3.0 — rehab intelligence + interactive scenario calculator + flip analysis
+- Walk Score API + Nominatim geocoding + county deed APIs (Franklin OH + Hillsborough FL)
+- AVM blending in worker code — lastSalePrice overrides Rentcast when recent
+- Mobile fixes, SVG ring fix, strategy readability, structured panels on Markets
 
 ---
 

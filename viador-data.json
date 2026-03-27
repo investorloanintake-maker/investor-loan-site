@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "2.8",
+    "version": "3.1",
     "last_updated": "2026-03-26",
-    "last_session": "ViaScore v2.0 institutional scoring engine deployed",
+    "last_session": "County API deed data + AVM blending in worker code + Walk Score + rehab intelligence",
     "description": "Single source of truth for Viador Partners. Update after every major session. All platforms and scripts read from this file."
   },
   "founder": {
@@ -354,7 +354,15 @@
         "ViaScore v2.0 institutional-grade scoring engine deployed — 6 dimensions, offer intelligence, 3-scenario stress test, strategy rankings",
         "Suggested Offer Price fixed — AVM-based, never above market value",
         "Deal Optimizer redesigned — suggested offer box, collapsed advanced options, 3 key metrics",
-        "About page surgical copy fixes — tightened bio, timeline, how-I-work section"
+        "About page surgical copy fixes — tightened bio, timeline, how-I-work section",
+        "ViaScore v3 — rehab intelligence, interactive scenario calculator, flip analysis",
+        "Walk Score API integrated — Nominatim geocoding, exit optionality scoring",
+        "Franklin County ArcGIS + Hillsborough County HCPA — free real-time deed data",
+        "AVM blending in worker code — lastSalePrice from county APIs overrides Rentcast",
+        "Score ring SVG distortion fixed — preserveAspectRatio + display:block",
+        "Mobile audit fixes — input visibility, strategy readability, data badge opacity",
+        "Viador Markets analyzeDeal switched to /score endpoint with structured panels",
+        "Known-sales override table for verified properties"
       ]
     }
   ]
