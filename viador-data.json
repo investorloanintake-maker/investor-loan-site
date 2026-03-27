@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "3.3",
+    "version": "3.4",
     "last_updated": "2026-03-27",
-    "last_session": "5 SEO answer pages on viascore.ai/answers/ with full schema markup + content distribution strategy",
+    "last_session": "15 SEO answer pages live with quick answers + citation footers + internal link network. ChatGPT SEO audit completed. Next: data hub + Google Ads + Reddit posts.",
     "description": "Single source of truth for Viador Partners. Update after every major session. All platforms and scripts read from this file."
   },
   "founder": {
@@ -387,7 +387,13 @@
         "5 SEO answer pages built on viascore.ai/answers/: rental property analysis, cap rate Columbus OH, DSCR loans Ohio, best Tampa neighborhoods, fix & flip Ohio",
         "Each page: HowTo + FAQPage + Article JSON-LD schema, AI referral tracking, internal link network",
         "Content distribution strategy: 7-day calendar with 6 reddit/BP posts + LinkedIn post",
-        "viascore.ai/answers/ confirmed as citation content home — CTAs drive to viadormarkets.com + viadorpartners.com"
+        "viascore.ai/answers/ confirmed as citation content home — CTAs drive to viadormarkets.com + viadorpartners.com",
+        "Scaled to 15 answer pages — added: rental-property-akron-ohio, cap-rate-akron-ohio, fix-and-flip-dayton-ohio, best-places-invest-ohio, best-neighborhoods-invest-orlando, investment-property-south-florida, dscr-loans-florida, fix-and-flip-florida, investment-property-dayton-ohio, rental-property-columbus-ohio",
+        "Quick Answer blocks added to all 15 pages — green callout with market-specific summary optimized for AI citation extraction",
+        "Source attribution footer on all 15 pages — links viascore.ai + viadormarkets.com + viadorpartners.com + NMLS",
+        "Internal link network connecting all 15 pages across Ohio and Florida markets",
+        "ChatGPT SEO audit completed — viascore.ai/data/ hub identified as next priority for dataset pages",
+        "Next session: build viascore.ai/data/ with 5 dataset pages, set up Google Ads, execute Reddit posts"
       ]
     }
   ]
