@@ -1,5 +1,5 @@
 # VIADOR PARTNERS — MASTER BRIEF
-**Version 3.3 | Last Updated: 2026-03-27**
+**Version 3.4 | Last Updated: 2026-03-27**
 
 > Load this file at the start of every Claude session.
 > Single source of truth — all platforms and scripts read from viador-data.json
@@ -219,7 +219,14 @@
 - Source attribution footer on all pages — links to viascore.ai, viadormarkets.com, viadorpartners.com
 - 7-day content calendar with 6 copy-paste Reddit/BP posts and LinkedIn post
 - ChatGPT SEO audit completed — data hub (viascore.ai/data/) identified as next priority
-- Next session: build viascore.ai/data/ with 5 dataset pages, set up Google Ads, execute Reddit posts
+- 5 data hub pages live at viascore.ai/data/ — Dataset schema, benchmark tables, formulas
+- answers/index.html live — hub page linking all 15 guides by category
+- Internal link network connecting all 22 pages (15 answers + 5 data + 2 index hubs)
+- Google Ads campaign structure written (3 campaigns — Tool, DSCR, Marketplace)
+- BiggerPockets bio written — copy-paste ready
+- GitHub dataset repo structure + CSVs written
+- 7-day Reddit/BP content calendar with 6 copy-paste posts
+- Next session: 10 cross-market answer pages, RSS feed, page speed check, Medium articles, Google Ads live
 
 ---
 
