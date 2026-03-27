@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "3.2",
+    "version": "3.3",
     "last_updated": "2026-03-27",
-    "last_session": "City search + market pages + FAQ schema + AbortController timeouts + AVM debug + AI referral tracking",
+    "last_session": "5 SEO answer pages on viascore.ai/answers/ with full schema markup + content distribution strategy",
     "description": "Single source of truth for Viador Partners. Update after every major session. All platforms and scripts read from this file."
   },
   "founder": {
@@ -383,7 +383,11 @@
         "Worker: Walk-away price market-aware — appreciation markets floor at 85% AVM",
         "Worker: Sonnet 4.6 model (reverted from Opus for speed)",
         "Worker: Nominatim geocoding for Walk Score (free, no key)",
-        "SVG score ring distortion fix — preserveAspectRatio"
+        "SVG score ring distortion fix — preserveAspectRatio",
+        "5 SEO answer pages built on viascore.ai/answers/: rental property analysis, cap rate Columbus OH, DSCR loans Ohio, best Tampa neighborhoods, fix & flip Ohio",
+        "Each page: HowTo + FAQPage + Article JSON-LD schema, AI referral tracking, internal link network",
+        "Content distribution strategy: 7-day calendar with 6 reddit/BP posts + LinkedIn post",
+        "viascore.ai/answers/ confirmed as citation content home — CTAs drive to viadormarkets.com + viadorpartners.com"
       ]
     }
   ]

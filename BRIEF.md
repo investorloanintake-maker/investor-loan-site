@@ -211,6 +211,9 @@
 - ViaScore: price comma formatting, Edit Price & Re-Score, SVG ring fix
 - Worker: AbortController county API timeouts, AVM debug response, townhouse discount, walk-away market floor
 - robots.txt + sitemap.xml for both viadormarkets.com and viascore.ai
+- 5 SEO answer pages on viascore.ai/answers/: rental analysis, cap rate Columbus, DSCR Ohio, Tampa neighborhoods, fix & flip Ohio
+- Full schema markup (HowTo + FAQPage + Article) + AI referral tracking + internal link network
+- Content distribution strategy: 7-day calendar, reddit/BP posts, LinkedIn
 
 ---
 
