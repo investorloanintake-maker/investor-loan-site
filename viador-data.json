@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "3.1",
-    "last_updated": "2026-03-26",
-    "last_session": "County API deed data + AVM blending in worker code + Walk Score + rehab intelligence",
+    "version": "3.2",
+    "last_updated": "2026-03-27",
+    "last_session": "City search + market pages + FAQ schema + AbortController timeouts + AVM debug + AI referral tracking",
     "description": "Single source of truth for Viador Partners. Update after every major session. All platforms and scripts read from this file."
   },
   "founder": {
@@ -363,6 +363,27 @@
         "Mobile audit fixes — input visibility, strategy readability, data badge opacity",
         "Viador Markets analyzeDeal switched to /score endpoint with structured panels",
         "Known-sales override table for verified properties"
+      ]
+    },
+    {
+      "date": "2026-03-27",
+      "key_wins": [
+        "City search on viadormarkets.com/listings — real-time filter by city/ZIP/address with shareable URLs",
+        "10 SEO market landing pages — Tampa, Orlando, Miami, Jacksonville, Clearwater, St Pete, Columbus, Akron, Dayton, Canton",
+        "Markets index page with auto-generated listing counts and avg scores",
+        "FAQ schema markup — 37 questions across 12 pages for AI search optimization",
+        "AI referral traffic detection — GA4 custom events for ChatGPT, Perplexity, Claude, Gemini referrals on 19 pages",
+        "robots.txt + sitemap.xml for viadormarkets.com and viascore.ai",
+        "SEO meta tags updated across viadormarkets.com, viascore.ai widget",
+        "ViaScore price input — live comma formatting + Edit Price & Re-Score in results",
+        "GA4 custom events — score_started, score_completed, finance_clicked, scenario_adjusted, listing_viewed",
+        "Worker: AbortController 3s timeouts on county API calls — fixes HCPA hanging",
+        "Worker: AVM debug object in score response (_debug) for browser-side troubleshooting",
+        "Worker: Townhouse/Condo 20% AVM discount when Rentcast returns SFR comps",
+        "Worker: Walk-away price market-aware — appreciation markets floor at 85% AVM",
+        "Worker: Sonnet 4.6 model (reverted from Opus for speed)",
+        "Worker: Nominatim geocoding for Walk Score (free, no key)",
+        "SVG score ring distortion fix — preserveAspectRatio"
       ]
     }
   ]

@@ -1,5 +1,5 @@
 # VIADOR PARTNERS — MASTER BRIEF
-**Version 2.8 | Last Updated: 2026-03-26**
+**Version 3.2 | Last Updated: 2026-03-27**
 
 > Load this file at the start of every Claude session.
 > Single source of truth — all platforms and scripts read from viador-data.json
@@ -202,6 +202,15 @@
 - Walk Score API + Nominatim geocoding + county deed APIs (Franklin OH + Hillsborough FL)
 - AVM blending in worker code — lastSalePrice overrides Rentcast when recent
 - Mobile fixes, SVG ring fix, strategy readability, structured panels on Markets
+
+### 2026-03-27
+- City search + 10 SEO market landing pages + markets index on viadormarkets.com
+- FAQ schema (37 questions across 12 pages) for AI search optimization
+- AI referral traffic detection (ChatGPT, Perplexity, Claude, Gemini) on 19 pages
+- GA4 custom events: score_started, score_completed, finance_clicked, scenario_adjusted, listing_viewed
+- ViaScore: price comma formatting, Edit Price & Re-Score, SVG ring fix
+- Worker: AbortController county API timeouts, AVM debug response, townhouse discount, walk-away market floor
+- robots.txt + sitemap.xml for both viadormarkets.com and viascore.ai
 
 ---
 
