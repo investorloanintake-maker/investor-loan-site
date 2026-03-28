@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "3.6",
+    "version": "3.7",
     "last_updated": "2026-03-27",
-    "last_session": "23 pages live + 5 cross-market pages written + RSS feed + 5 Medium articles + 10 Reddit posts + programmatic SEO template. Next: deploy new pages, publish articles, execute posts, Google Ads.",
+    "last_session": "Viador Academy concept added. Full content pipeline ready: 5 cross-market pages, RSS feed, 5 Medium articles, 15 Reddit/BP posts, programmatic SEO template. Next: deploy + publish + Google Ads.",
     "description": "Single source of truth for Viador Partners. Update after every major session. All platforms and scripts read from this file."
   },
   "founder": {
@@ -51,6 +51,12 @@
       "status": "year_2_3",
       "principal": "Katie Evers",
       "notes": "ABA structure — lending + brokerage + title. Katie gets licensed FL + OH. Bring on full time when Y2 revenue justifies salary."
+    },
+    "viador_academy": {
+      "status": "year_2_3",
+      "concept": "Non-QM/BPL/small business lending certification training. Built from Chad's own learning journey. Integrated with ViaScore + Viador Markets as the practical curriculum.",
+      "target_audience": "Originators and investors who want to self-originate",
+      "integration": "ViaScore scoring + Viador Markets listings serve as hands-on curriculum tools"
     }
   },
   "credentials": {

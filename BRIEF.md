@@ -1,5 +1,5 @@
 # VIADOR PARTNERS — MASTER BRIEF
-**Version 3.5 | Last Updated: 2026-03-27**
+**Version 3.6 | Last Updated: 2026-03-27**
 
 > Load this file at the start of every Claude session.
 > Single source of truth — all platforms and scripts read from viador-data.json
@@ -28,6 +28,7 @@
 | ViaScore | viascore.ai | live_stealth |
 | Viador Markets | viadormarkets.com | live_stealth |
 | Viador Realty | Future | year_2_3 |
+| Viador Academy | Future | year_2_3 |
 
 ---
 
@@ -235,6 +236,9 @@
 - Programmatic SEO template written — blueprint for scaling to 200+ pages
 - All files in downloads ready for deployment next session
 - Next session: deploy 5 new pages + RSS feed, publish Medium articles, execute Reddit posts, set up Google Ads
+
+### Next Initiatives
+- **Viador Academy** — non-QM/BPL/small business lending certification training. Built from Chad's own learning journey. Integrated with ViaScore + Viador Markets as the practical curriculum. Target: originators and investors who want to self-originate.
 
 ---
 
