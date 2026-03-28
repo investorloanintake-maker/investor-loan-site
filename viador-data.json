@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "3.5",
+    "version": "3.6",
     "last_updated": "2026-03-27",
-    "last_session": "22 content pages live (15 answers + 5 data + 2 index hubs). Google Ads campaign structure written. Next: 10 cross-market pages, RSS feed, Google Ads live.",
+    "last_session": "23 pages live + 5 cross-market pages written + RSS feed + 5 Medium articles + 10 Reddit posts + programmatic SEO template. Next: deploy new pages, publish articles, execute posts, Google Ads.",
     "description": "Single source of truth for Viador Partners. Update after every major session. All platforms and scripts read from this file."
   },
   "founder": {
@@ -401,7 +401,14 @@
         "BiggerPockets profile bio written — copy-paste ready",
         "GitHub dataset repo structure + CSV files written (ohio_cap_rates, tampa_metrics, florida_insurance, dscr_requirements)",
         "7-day Reddit/BP content calendar with 6 copy-paste posts ready to execute",
-        "Next session: 10 cross-market answer pages, RSS feed, page speed check, Medium articles, Google Ads live"
+        "data/index.html live — DataCatalog schema hub linking all 5 dataset pages",
+        "5 new cross-market answer pages written (in downloads, ready to deploy): what-is-a-good-cap-rate, cap-rate-vs-cash-on-cash-return, what-is-dscr-loan, rental-property-investment-checklist, what-is-noi-real-estate",
+        "5 more cross-market pages outlined: fix-flip-vs-buy-hold, cash-on-cash calculator, what metrics investors use, how lenders evaluate, step-by-step analysis",
+        "RSS feed written (feed.xml) — ready to deploy",
+        "5 Medium articles written in full — ready to publish",
+        "10 additional Reddit/BP posts written (posts 6-15) — copy-paste ready",
+        "Programmatic SEO template written — blueprint for scaling to 200+ pages",
+        "Next session: deploy 5 new pages + RSS feed, publish Medium articles, execute Reddit posts, set up Google Ads"
       ]
     }
   ]

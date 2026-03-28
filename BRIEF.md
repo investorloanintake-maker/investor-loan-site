@@ -1,5 +1,5 @@
 # VIADOR PARTNERS — MASTER BRIEF
-**Version 3.4 | Last Updated: 2026-03-27**
+**Version 3.5 | Last Updated: 2026-03-27**
 
 > Load this file at the start of every Claude session.
 > Single source of truth — all platforms and scripts read from viador-data.json
@@ -226,7 +226,15 @@
 - BiggerPockets bio written — copy-paste ready
 - GitHub dataset repo structure + CSVs written
 - 7-day Reddit/BP content calendar with 6 copy-paste posts
-- Next session: 10 cross-market answer pages, RSS feed, page speed check, Medium articles, Google Ads live
+- data/index.html live — DataCatalog schema hub linking all 5 datasets
+- 5 new cross-market answer pages written (ready to deploy): what-is-a-good-cap-rate, cap-rate-vs-cash-on-cash-return, what-is-dscr-loan, rental-property-investment-checklist, what-is-noi-real-estate
+- 5 more cross-market pages outlined (fix-flip-vs-buy-hold, cash-on-cash calculator, what metrics investors use, how lenders evaluate, step-by-step analysis)
+- RSS feed written (feed.xml) — ready to deploy
+- 5 Medium articles written in full — ready to publish
+- 10 additional Reddit/BP posts written (posts 6–15) — copy-paste ready
+- Programmatic SEO template written — blueprint for scaling to 200+ pages
+- All files in downloads ready for deployment next session
+- Next session: deploy 5 new pages + RSS feed, publish Medium articles, execute Reddit posts, set up Google Ads
 
 ---
 
