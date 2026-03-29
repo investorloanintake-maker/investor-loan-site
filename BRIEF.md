@@ -1,5 +1,5 @@
 # VIADOR PARTNERS — MASTER BRIEF
-**Version 3.6 | Last Updated: 2026-03-27**
+**Version 3.7 | Last Updated: 2026-03-28**
 
 > Load this file at the start of every Claude session.
 > Single source of truth — all platforms and scripts read from viador-data.json
@@ -236,6 +236,19 @@
 - Programmatic SEO template written — blueprint for scaling to 200+ pages
 - All files in downloads ready for deployment next session
 - Next session: deploy 5 new pages + RSS feed, publish Medium articles, execute Reddit posts, set up Google Ads
+
+### 2026-03-28
+- 95 programmatic data pages generated — 19 markets × 5 topics (generate_pages.py/js)
+- Worker: /comps endpoint for web search comparable sales (async, after score)
+- Worker: scoring prompt v4 — 350 input tokens, max_tokens 800, temperature 0
+- Worker: CRITICAL FIX — AbortController replaces Promise.race, fixed 50s response delay
+- Worker: removed HUD/Estated/Census/Homesage from /score (hanging). Rentcast + Walk Score + county only
+- Worker: Cloudflare Cache on /score — instant repeat lookups (24hr TTL)
+- Worker: deterministic fallback score if Sonnet fails, robust v4/legacy format mapping
+- Widget: Comparable Sales card with async loading + AVM divergence note
+- Widget: input text color fix (#1a1a1a on #ffffff)
+- Total pages: 118+ (15 answers + 7 data hub + 95 programmatic + index pages)
+- Next session: Sonnet speed optimization (~14s → target 8s), deploy cross-market pages, RSS feed, Google Ads
 
 ### Next Initiatives
 - **Viador Academy** — non-QM/BPL/small business lending certification training. Built from Chad's own learning journey. Integrated with ViaScore + Viador Markets as the practical curriculum. Target: originators and investors who want to self-originate.

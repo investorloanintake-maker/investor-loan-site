@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "3.7",
-    "last_updated": "2026-03-27",
-    "last_session": "Viador Academy concept added. Full content pipeline ready: 5 cross-market pages, RSS feed, 5 Medium articles, 15 Reddit/BP posts, programmatic SEO template. Next: deploy + publish + Google Ads.",
+    "version": "3.8",
+    "last_updated": "2026-03-28",
+    "last_session": "95 programmatic data pages generated. Worker: web comps /comps endpoint, scoring prompt v4 (350 tokens), AbortController fix, Cloudflare Cache, deterministic fallback. Widget: comps table, input color fix. 118+ total pages live.",
     "description": "Single source of truth for Viador Partners. Update after every major session. All platforms and scripts read from this file."
   },
   "founder": {
@@ -415,6 +415,26 @@
         "10 additional Reddit/BP posts written (posts 6-15) — copy-paste ready",
         "Programmatic SEO template written — blueprint for scaling to 200+ pages",
         "Next session: deploy 5 new pages + RSS feed, publish Medium articles, execute Reddit posts, set up Google Ads"
+      ]
+    },
+    {
+      "date": "2026-03-28",
+      "key_wins": [
+        "95 programmatic data pages generated — 19 markets × 5 topics (cap rate, investment guide, yield benchmarks, DSCR requirements, cash flow)",
+        "Markets covered: Columbus, Akron, Dayton, Cincinnati, Cleveland, Toledo, Youngstown, Canton (OH) + Tampa, Orlando, Miami, Jacksonville, Fort Lauderdale, West Palm Beach, Kissimmee, St Petersburg, Clearwater, Sarasota, Fort Myers (FL)",
+        "generate_pages.py + generate_pages.js generators committed — rerunnable for new markets",
+        "Worker: new /comps endpoint — web search comparable sales via Anthropic web_search tool, called async after score",
+        "Widget: Comparable Sales card with loading skeleton, populates table (Address, Sqft, Sale Price, $/sqft, Date, Distance) + AVM divergence note",
+        "Worker: scoring prompt v4 — 350 input tokens (down from 4500), max_tokens 800, temperature 0",
+        "Worker: deterministic fallback score — returns valid widget-renderable result if Sonnet times out or parse fails",
+        "Worker: CRITICAL FIX — AbortController replaces Promise.race for all external fetches, eliminating 50s response delay from dangling I/O",
+        "Worker: removed HUD, Estated, Census, Homesage APIs from /score (hanging connections). Stack now: Rentcast + Walk Score + county deed APIs only",
+        "Worker: Cloudflare Cache on /score — cache key btoa(address+price+type), 24hr TTL, instant repeat lookups with _cached flag",
+        "Worker: robust JSON mapping handles both v4 flat format and legacy nested format, uses ?? for numeric fields",
+        "Worker: markdown code fence stripping + raw Sonnet output logging on all paths",
+        "Widget: input text color fixed — #1a1a1a on #ffffff, placeholder #999999",
+        "Total content pages: 118+ (15 answers + 7 data hub + 95 programmatic + index pages)",
+        "Next session: speed optimization (Sonnet still ~14s), deploy 5 cross-market answer pages, RSS feed, Google Ads"
       ]
     }
   ]
