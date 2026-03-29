@@ -1,5 +1,5 @@
 # VIADOR PARTNERS — MASTER BRIEF
-**Version 3.7 | Last Updated: 2026-03-28**
+**Version 3.8 | Last Updated: 2026-03-29**
 
 > Load this file at the start of every Claude session.
 > Single source of truth — all platforms and scripts read from viador-data.json
@@ -87,13 +87,13 @@
 
 ## PRIORITY STACK
 
-### Today
-- SAFE coursework — 14h21m done, ~5h39m remaining ✅ on pace
-- Chris Russell IDX email — SENT
-- Cloudflare Worker SSE fix deployed — DONE
-- Commercial buildout all 3 platforms — DONE
-- UX audit + 8 conversion fixes — DONE
-- Living data infrastructure — IN PROGRESS
+### Tomorrow (March 30)
+1. Switch to GPT-4o mini (OpenAI API key needed)
+2. Google Workspace Starter ($6/mo, chad@viadorpartners.com)
+3. Deploy 5 cross-market answer pages
+4. RSS feed
+5. Google Ads go live
+6. Reddit post #1
 
 ### This Week
 - Complete SAFE coursework by March 30
@@ -161,10 +161,45 @@
 ---
 
 ## TECHNOLOGY
-- **Worker endpoints:** /anthropic, /score, /rentcast/property, /rentcast/rent, /rentcast/value, /hud-fmr, /estated, /census, /sheets
+- **Worker endpoints:** /anthropic, /score, /rentcast/property, /rentcast/rent, /rentcast/value, /hud-fmr, /estated, /census, /sheets, /comps
 - **AI model:** claude-sonnet-4-20250514
 - **ViaScore backtest:** 775 transactions, 42 zip codes
 - **AVM stack:** Rentcast + Homesage.ai + HUD FMR + Census ACS + Walk Score + Estated + Franklin County ArcGIS + Hillsborough County HCPA
+
+### Scoring Model
+- **Current:** Claude Sonnet 4.6 — REPLACE TOMORROW
+- **Target:** GPT-4o mini (OpenAI API, native JSON mode, 3-5s, $0.0005/score vs $0.012 Sonnet)
+- **Switch:** `wrangler secret put OPENAI_API_KEY`, then update model in worker.js
+
+---
+
+## PERFORMANCE
+*Score endpoint timing (as of March 28):*
+- **dataPhase:** ~500ms ✅
+- **Sonnet:** 14-17s ❌ (switching to OpenAI)
+- **AbortController fix deployed** — no 60s hangs
+- **Cloudflare Cache on /score** — repeat scores instant (24hr TTL)
+- **/comps endpoint** — async comparable sales
+
+---
+
+## CONTENT
+- **118 total pages** live on viascore.ai
+- **95 programmatic pages** (19 markets × 5 topics)
+- **15 answer pages**, **5 data hubs**
+- **7-day Reddit/BP calendar** ready (6 posts copy-paste)
+- **Google Ads structure** written (3 campaigns)
+
+---
+
+## FEATURES TO BUILD
+*Priority order:*
+1. **Email capture → HubSpot** (token already saved)
+2. **Score sharing URLs** (viascore.ai/score/[slug])
+3. **Lender match CTA** (dynamic based on score)
+4. **Submit Deal flow** for Viador Markets
+5. **Deal alerts** (email when listings match criteria)
+6. **ViaScore API white-label** ($99-499/month/seat)
 
 ---
 
@@ -248,7 +283,8 @@
 - Widget: Comparable Sales card with async loading + AVM divergence note
 - Widget: input text color fix (#1a1a1a on #ffffff)
 - Total pages: 118+ (15 answers + 7 data hub + 95 programmatic + index pages)
-- Next session: Sonnet speed optimization (~14s → target 8s), deploy cross-market pages, RSS feed, Google Ads
+- GPT-4o mini switch planned — $0.0005/score vs $0.012 Sonnet, 3-5s vs 14-17s
+- Next session: switch scoring model, deploy cross-market pages, RSS feed, Google Ads
 
 ### Next Initiatives
 - **Viador Academy** — non-QM/BPL/small business lending certification training. Built from Chad's own learning journey. Integrated with ViaScore + Viador Markets as the practical curriculum. Target: originators and investors who want to self-originate.
