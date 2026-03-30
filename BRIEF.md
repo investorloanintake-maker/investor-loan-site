@@ -1,5 +1,5 @@
 # VIADOR PARTNERS — MASTER BRIEF
-**Version 3.8 | Last Updated: 2026-03-29**
+**Version 3.9 | Last Updated: 2026-03-30**
 
 > Load this file at the start of every Claude session.
 > Single source of truth — all platforms and scripts read from viador-data.json
@@ -161,7 +161,7 @@
 ---
 
 ## TECHNOLOGY
-- **Worker endpoints:** /anthropic, /score, /rentcast/property, /rentcast/rent, /rentcast/value, /hud-fmr, /estated, /census, /sheets, /comps
+- **Worker endpoints:** /anthropic, /score, /score-full, /offer/create, /offer/[code], /hubspot-contact, /comps, /rentcast/*, /hud-fmr, /estated, /census, /sheets, /walkscore
 - **AI model:** claude-sonnet-4-20250514
 - **ViaScore backtest:** 775 transactions, 42 zip codes
 - **AVM stack:** Rentcast + Homesage.ai + HUD FMR + Census ACS + Walk Score + Estated + Franklin County ArcGIS + Hillsborough County HCPA
@@ -184,9 +184,9 @@
 ---
 
 ## CONTENT
-- **118 total pages** live on viascore.ai
+- **136+ total pages** live on viascore.ai
 - **95 programmatic pages** (19 markets × 5 topics)
-- **15 answer pages**, **5 data hubs**
+- **21 answer pages**, **5 data hubs**, **1 about page**
 - **7-day Reddit/BP calendar** ready (6 posts copy-paste)
 - **Google Ads structure** written (3 campaigns)
 
@@ -285,6 +285,36 @@
 - Total pages: 118+ (15 answers + 7 data hub + 95 programmatic + index pages)
 - GPT-4o mini switch planned — $0.0005/score vs $0.012 Sonnet, 3-5s vs 14-17s
 - Next session: switch scoring model, deploy cross-market pages, RSS feed, Google Ads
+
+### 2026-03-29 / 2026-03-30 (Marathon Session)
+- GPT-4o mini scoring model deployed — switched from Claude Sonnet to OpenAI ($0.0005/score)
+- Two-phase scoring: /score (fast ~4s) + /score-full (full ~12s) sequential flow
+- Strategy Fit Engine — deterministic math for 4 strategies (DSCR Rental, Fix & Flip, STR, Wholesale)
+- Smart Price Range — DSCR breakeven + sweet spot calculation
+- Strategy cards rendering in ViaScore widget (DOM append after renderResults)
+- AVM fallback waterfall — GPT web search + last sale appreciation + asking price proxy (never returns 0)
+- All external API fetches have AbortController timeouts (5s Rentcast, 3s WalkScore, 20s OpenAI)
+- 25s hard timeout wrapper on /score handler (Promise.race)
+- CORS: Access-Control-Max-Age 86400 on all worker responses
+- HubSpot contact proxy endpoint (/hubspot-contact) — API key server-side
+- KV-backed offer codes: POST /offer/create → 6-char code, GET /offer/[code], 90-day TTL
+- BPL Refi Analyzer live at viadorpartners.com/refi — equity, savings, prepay breakeven, verdict
+- Refi offer page live at viadorpartners.com/refi-offer.html — personalized shareable analysis
+- Conversion-optimized offer page: 48px hero numbers, urgency lines, inline review form, sticky mobile CTA
+- Free & clear detection: properties with no loan auto-qualify with equity deployment analysis
+- Google Apps Script batch scorer (refi-prospector.gs) for Google Sheets portfolio scoring
+- Google Places autocomplete (AutocompleteService pattern) on refi page
+- 6 BPL refi answer pages deployed on viascore.ai for AI citation (AEO/GEO):
+  - answers/what-is-bpl-refi — FinancialProduct + HowTo + FAQPage + SpeakableSpecification
+  - answers/how-to-refinance-rental-property-without-w2 — DSCR vs conventional comparison
+  - answers/should-i-refi-my-rental-property-2026 — 5-question decision framework
+  - answers/cash-out-refinance-rental-property — equity formula + scenarios
+  - answers/prepayment-penalty-dscr-loan — structures + vintage status tables
+  - about/index.html — Organization + Person + SoftwareApplication schema
+- Total viascore.ai pages: 136+ (118 + 6 answer pages + about + data hubs + indexes)
+- LinkedIn Insight Tag (8839754) deployed on refi pages
+- AI referral tracking on all new pages
+- Next: submit 6 pages to GSC, SoftwareApplication schema on refi.html, Bing Webmaster Tools, Wikidata entity, Reddit/BP posts linking to answer pages
 
 ### Next Initiatives
 - **Viador Academy** — non-QM/BPL/small business lending certification training. Built from Chad's own learning journey. Integrated with ViaScore + Viador Markets as the practical curriculum. Target: originators and investors who want to self-originate.
