@@ -91,39 +91,63 @@
   var PROXY = 'https://viador-ai-proxy.chad-7f6.workers.dev';
   var container = document.getElementById('offer-content');
 
-  // Parse offer code from URL: /refi-offer.html?c=BASE64 or hash #BASE64
-  var code = new URLSearchParams(window.location.search).get('c') || window.location.hash.substring(1);
-  if (!code) {
+  // Parse offer code from URL: ?code=ABC123 or ?c=BASE64 or #BASE64
+  var params = new URLSearchParams(window.location.search);
+  var kvCode = params.get('code');
+  var b64Code = params.get('c') || window.location.hash.substring(1);
+
+  if (!kvCode && !b64Code) {
     container.innerHTML = '<div class="offer-error"><h2>Analysis not found</h2><p style="color:rgba(255,255,255,0.5)">This link may have expired. <a href="refi.html" style="color:var(--gold)">Run a new refi analysis &rarr;</a></p></div>';
     return;
   }
 
-  var data;
-  try {
-    data = JSON.parse(atob(code));
-  } catch(e) {
-    container.innerHTML = '<div class="offer-error"><h2>Invalid analysis link</h2><p style="color:rgba(255,255,255,0.5)">This link appears to be corrupted. <a href="refi.html" style="color:var(--gold)">Run a new refi analysis &rarr;</a></p></div>';
-    return;
+  // Load data — KV code takes priority, then fall back to base64
+  loadOfferData();
+  async function loadOfferData() {
+  var data = null;
+
+  if (kvCode) {
+    try {
+      var res = await fetch(PROXY + '/offer/' + encodeURIComponent(kvCode));
+      var json = await res.json();
+      if (json.error) throw new Error(json.error);
+      data = json;
+    } catch(e) {
+      container.innerHTML = '<div class="offer-error"><h2>Offer not found or expired</h2><p style="color:rgba(255,255,255,0.5)">' + (e.message || '') + '</p><p style="margin-top:12px"><a href="refi.html" style="color:var(--gold)">Run a new refi analysis &rarr;</a></p></div>';
+      return;
+    }
+  } else {
+    try { data = JSON.parse(atob(b64Code)); } catch(e) {
+      container.innerHTML = '<div class="offer-error"><h2>Invalid analysis link</h2><p style="color:rgba(255,255,255,0.5)"><a href="refi.html" style="color:var(--gold)">Run a new refi analysis &rarr;</a></p></div>';
+      return;
+    }
   }
 
-  if (typeof gtag === 'function') gtag('event', 'refi_offer_viewed', { address: data.address, verdict: data.verdict });
+  if (typeof gtag === 'function') gtag('event', 'refi_offer_viewed', { address: data.address, verdict: data.verdict, code: kvCode || '' });
 
   var fmt$ = function(n) { return '$' + Math.round(n).toLocaleString(); };
 
   // Street View image
   var photoUrl = 'https://maps.googleapis.com/maps/api/streetview?size=680x220&location=' + encodeURIComponent(data.address || '') + '&key=AIzaSyCSEIZTzvhi03BeXx9pGZV_o7oJEu2gAV8&return_error_code=true';
 
-  // Verdict
+  // Verdict — support both old strings and new enum values
   var vClass, vText;
-  if (data.verdict === 'REFI NOW') {
-    vClass = 'green'; vText = 'REFI NOW \u2014 Your prepay window is open';
-  } else if (data.verdict && data.verdict.indexOf('WAIT') >= 0) {
-    vClass = 'yellow'; vText = data.verdict;
+  var v = (data.verdict || '').toLowerCase();
+  if (v === 'refi_now' || v === 'refi now' || data.verdict === 'REFI NOW') {
+    vClass = 'green'; vText = '\u2705 REFI NOW \u2014 Your prepay window is open';
+  } else if (v.indexOf('wait') >= 0) {
+    vClass = 'yellow'; vText = '\u26a0\ufe0f ' + (data.verdict || 'WAIT') + (data.prepay_months ? ' \u2014 Window opens in ~' + data.prepay_months + ' months' : '');
   } else {
-    vClass = 'red'; vText = 'NOT WORTH IT \u2014 Breakeven too long';
+    vClass = 'red'; vText = '\u274c NOT WORTH IT \u2014 Breakeven too long';
   }
 
   var html = '';
+
+  // Prepared date
+  if (data.created) {
+    var d = new Date(data.created);
+    html += '<div style="text-align:center;font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:16px">Analysis prepared ' + d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) + '</div>';
+  }
 
   // Property
   html += '<img class="offer-photo" src="' + photoUrl + '" alt="Property" onerror="this.style.display=\'none\'"/>';
@@ -144,23 +168,42 @@
   // Verdict
   html += '<div class="offer-card full" style="margin-bottom:24px"><div class="offer-verdict ' + vClass + '">' + vText + '</div></div>';
 
-  // Portfolio (multi-property)
-  if (data.portfolio && data.portfolio.count > 1) {
-    var p = data.portfolio;
+  // Portfolio (multi-property) — supports both old .portfolio and new .all_properties
+  var allProps = data.all_properties || [];
+  if (allProps.length > 1 || (data.portfolio && data.portfolio.count > 1)) {
     html += '<div class="offer-portfolio">';
-    html += '<div style="font-family:\'DM Mono\',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px">PORTFOLIO OPPORTUNITY</div>';
-    html += '<div style="font-size:15px;margin-bottom:8px">We identified <strong>' + p.count + ' additional properties</strong> in your portfolio with refi potential.</div>';
-    html += '<div style="display:flex;justify-content:center;gap:32px;margin-top:12px">';
-    html += '<div><div style="font-size:11px;color:rgba(255,255,255,0.4)">Total Equity</div><div style="font-family:\'Fraunces\',serif;font-size:24px;color:#4ade80;font-weight:700">' + fmt$(p.totalEquity || 0) + '</div></div>';
-    html += '<div><div style="font-size:11px;color:rgba(255,255,255,0.4)">Total Monthly Savings</div><div style="font-family:\'Fraunces\',serif;font-size:24px;color:#4ade80;font-weight:700">' + fmt$(p.totalSavings || 0) + '/mo</div></div>';
-    html += '</div></div>';
+    html += '<div style="font-family:\'DM Mono\',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">YOUR FULL PORTFOLIO</div>';
+    if (allProps.length > 1) {
+      html += '<table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:14px">';
+      html += '<tr style="border-bottom:1px solid rgba(255,255,255,0.1);text-align:left"><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;font-weight:400;font-family:\'DM Mono\',monospace">Address</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:right">Est. Value</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:right">Equity</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:right">Savings</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:center">Verdict</th></tr>';
+      var totEquity = 0, totSavings = 0;
+      allProps.forEach(function(prop) {
+        var pEquity = Math.round((prop.avm || 0) * 0.75);
+        totEquity += pEquity;
+        totSavings += (prop.savings || 0);
+        var pv = (prop.verdict || '').toLowerCase();
+        var pvColor = pv.indexOf('refi') >= 0 ? '#4ade80' : pv.indexOf('wait') >= 0 ? '#fde68a' : '#fca5a5';
+        html += '<tr style="border-bottom:1px solid rgba(255,255,255,0.06)"><td style="padding:8px;color:#fff;font-size:12px">' + (prop.address || '') + '</td><td style="padding:8px;text-align:right">' + fmt$(prop.avm || 0) + '</td><td style="padding:8px;text-align:right;color:#4ade80">' + fmt$(pEquity) + '</td><td style="padding:8px;text-align:right">' + fmt$(prop.savings || 0) + '/mo</td><td style="padding:8px;text-align:center;color:' + pvColor + ';font-size:11px;font-weight:600">' + (prop.verdict || '') + '</td></tr>';
+      });
+      html += '<tr style="font-weight:700"><td style="padding:8px">Total (' + allProps.length + ' properties)</td><td></td><td style="padding:8px;text-align:right;color:#4ade80">' + fmt$(totEquity) + '</td><td style="padding:8px;text-align:right;color:#4ade80">' + fmt$(totSavings) + '/mo</td><td></td></tr>';
+      html += '</table>';
+    } else if (data.portfolio) {
+      var p = data.portfolio;
+      html += '<div style="font-size:15px;margin-bottom:8px">We identified <strong>' + p.count + ' additional properties</strong> in your portfolio with refi potential.</div>';
+      html += '<div style="display:flex;justify-content:center;gap:32px;margin-top:12px">';
+      html += '<div><div style="font-size:11px;color:rgba(255,255,255,0.4)">Total Equity</div><div style="font-family:\'Fraunces\',serif;font-size:24px;color:#4ade80;font-weight:700">' + fmt$(p.totalEquity || 0) + '</div></div>';
+      html += '<div><div style="font-size:11px;color:rgba(255,255,255,0.4)">Total Monthly Savings</div><div style="font-family:\'Fraunces\',serif;font-size:24px;color:#4ade80;font-weight:700">' + fmt$(p.totalSavings || 0) + '/mo</div></div>';
+      html += '</div>';
+    }
+    html += '</div>';
   }
 
   // Primary CTA
   html += '<div class="offer-cta-box">';
-  html += '<h3>Talk to Chad</h3>';
-  html += '<p>Every BPL refi file is reviewed within 24 hours.<br>NMLS #2822744 &middot; (813) 419-2983</p>';
-  html += '<a href="tel:8134192983" class="offer-cta-btn">Schedule a 15-Min Call &rarr;</a>';
+  html += '<h3>Schedule a Free 15-Min Call</h3>';
+  html += '<p>Every BPL refi file is reviewed within 24 hours.<br>NMLS #2822744 &middot; chad@viadorpartners.com &middot; (813) 419-2983</p>';
+  html += '<a href="https://calendly.com/chad-viador/refi-review" target="_blank" class="offer-cta-btn">Schedule a Free 15-Min Call &rarr;</a>';
+  html += '<div style="margin-top:10px"><a href="tel:8134192983" style="color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none">Or call now: (813) 419-2983</a></div>';
   html += '</div>';
 
   // Secondary CTA
@@ -201,6 +244,7 @@
     document.getElementById('offer-email-msg').textContent = 'You\'re on the list. We\'ll notify you when it\'s time to move.';
     document.querySelector('.offer-email-row').style.display = 'none';
   };
+  } // end loadOfferData
 })();
 </script>
 </body>
