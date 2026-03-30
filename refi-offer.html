@@ -132,13 +132,16 @@
 
   // Verdict — support both old strings and new enum values
   var vClass, vText;
-  var v = (data.verdict || '').toLowerCase();
-  if (v === 'refi_now' || v === 'refi now' || data.verdict === 'REFI NOW') {
+  var v = (data.verdict || '').toLowerCase().replace(/[\s\u2014—-]+/g, '_');
+  var bkMonths = data.prepay_months || data.breakeven || 0;
+  if (v === 'refi_now' || v === 'refi now' || v.indexOf('refi') >= 0) {
     vClass = 'green'; vText = '\u2705 REFI NOW \u2014 Your prepay window is open';
-  } else if (v.indexOf('wait') >= 0) {
-    vClass = 'yellow'; vText = '\u26a0\ufe0f ' + (data.verdict || 'WAIT') + (data.prepay_months ? ' \u2014 Window opens in ~' + data.prepay_months + ' months' : '');
-  } else {
+  } else if (v === 'wait' || v.indexOf('wait') >= 0 || v === 'wait___check_timing') {
+    vClass = 'yellow'; vText = '\u26a0\ufe0f WAIT' + (bkMonths ? ' \u2014 Window opens in ~' + bkMonths + ' months' : ' \u2014 CHECK TIMING');
+  } else if (v === 'not_worth_it' || v.indexOf('not') >= 0) {
     vClass = 'red'; vText = '\u274c NOT WORTH IT \u2014 Breakeven too long';
+  } else {
+    vClass = 'yellow'; vText = '\u26a0\ufe0f ' + (data.verdict || 'REVIEW NEEDED');
   }
 
   var html = '';
@@ -161,8 +164,10 @@
   html += '<div class="offer-card"><div class="offer-card-label">Accessible Equity</div><div class="offer-card-val" style="color:#4ade80">' + fmt$(data.equity || 0) + '</div><div class="offer-card-note">At 75% LTV</div></div>';
   html += '<div class="offer-card"><div class="offer-card-label">Est. Current Rate</div><div class="offer-card-val">' + (data.currentRate || '~9.0%') + '</div></div>';
   html += '<div class="offer-card"><div class="offer-card-label">Today\'s DSCR Rate</div><div class="offer-card-val" style="color:#4ade80">' + (data.newRate || '7.25% \u2013 7.75%') + '</div></div>';
-  html += '<div class="offer-card"><div class="offer-card-label">Monthly Savings</div><div class="offer-card-val" style="color:#4ade80">' + fmt$(data.savings || 0) + '/mo</div><div class="offer-card-note">' + fmt$((data.savings || 0) * 12) + ' annually</div></div>';
-  html += '<div class="offer-card"><div class="offer-card-label">Prepay Breakeven</div><div class="offer-card-val">' + (data.breakeven || '?') + ' months</div></div>';
+  var savingsVal = data.monthly_savings || data.savings || 0;
+  var breakevenVal = data.prepay_months || data.breakeven || 0;
+  html += '<div class="offer-card"><div class="offer-card-label">Monthly Savings</div><div class="offer-card-val" style="color:#4ade80">' + fmt$(savingsVal) + '/mo</div><div class="offer-card-note">' + fmt$(savingsVal * 12) + ' annually</div></div>';
+  html += '<div class="offer-card"><div class="offer-card-label">Prepay Breakeven</div><div class="offer-card-val">' + (breakevenVal || '?') + ' months</div></div>';
   html += '</div>';
 
   // Verdict
