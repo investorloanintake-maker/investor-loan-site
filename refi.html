@@ -74,7 +74,6 @@
     @keyframes progressPulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
     .refi-progress-step { animation: progressPulse 1.5s ease-in-out infinite; }
     /* Google Places dropdown styling */
-    /* Google Places dropdown is custom-built via AutocompleteService — no .pac-container */
   </style>
 </head>
 <body class="refi-page">
@@ -101,9 +100,7 @@
     <p class="refi-sub">Tampa Bay investors who bought 2020&ndash;2022 are sitting on an average of $87K in accessible equity. Find out what yours is worth in 60 seconds. Free. No obligation.</p>
     <div class="refi-form">
       <label for="refi-address" style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:6px;display:block;font-family:'DM Mono',monospace">Enter your investment property address</label>
-      <div id="refi-address-wrapper" style="position:relative">
-        <input type="text" id="refi-address" class="refi-input" placeholder="123 Main St, Tampa, FL 33609" autocomplete="off"/>
-      </div>
+      <input type="text" id="refi-address" class="refi-input" placeholder="123 Main St, Tampa, FL 33609"/>
       <button id="refi-btn" class="refi-btn" onclick="runRefiAnalysis()">Run My Free Refi Analysis &rarr;</button>
     </div>
   </div>
@@ -214,33 +211,9 @@
 </footer>
 
 <script src="script.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSEIZTzvhi03BeXx9pGZV_o7oJEu2gAV8&libraries=places" async defer></script>
 <script>
 var PROXY = 'https://viador-ai-proxy.chad-7f6.workers.dev';
 var refiData = {};
-
-function prefetchScore(address) {
-  var parts = address.split(',').map(function(s){return s.trim()});
-  var lastPart = (parts[parts.length-1]||'').trim();
-  var szm = lastPart.match(/([A-Z]{2})\s*(\d{5})/i);
-  var body = {
-    address: parts[0] || address,
-    city: parts[1] || '',
-    state: szm ? szm[1].toUpperCase() : (parts[2]||'').split(' ')[0].toUpperCase(),
-    zip: szm ? szm[2] : (address.match(/\d{5}/)||[''])[0],
-    askingPrice: 0,
-    estimatedRent: 0,
-    propertyType: 'Single Family'
-  };
-  var ctrl = new AbortController();
-  var timer = setTimeout(function() { ctrl.abort(); }, 20000);
-  refiData._prefetch = fetch(PROXY + '/score', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-    signal: ctrl.signal
-  }).then(function(r){ clearTimeout(timer); return r.json(); }).catch(function(){ clearTimeout(timer); return null; });
-}
 
 async function runRefiAnalysis() {
   var address = document.getElementById('refi-address').value.trim();
@@ -268,17 +241,28 @@ async function runRefiAnalysis() {
     await new Promise(function(r){setTimeout(r, 600)});
   }
 
-  // Get data from prefetch or fetch fresh (with 20s timeout)
+  // Fetch score from worker (with 20s timeout)
   var data = null;
   try {
-    if (refiData._prefetch) {
-      data = await refiData._prefetch;
-      refiData._prefetch = null;
-    }
-    if (!data || !data._consensusAVM) {
-      prefetchScore(address);
-      data = refiData._prefetch ? await refiData._prefetch : null;
-    }
+    var parts = address.split(',').map(function(s){return s.trim()});
+    var lastPart = (parts[parts.length-1]||'').trim();
+    var szm = lastPart.match(/([A-Z]{2})\s*(\d{5})/i);
+    var ctrl = new AbortController();
+    var timer = setTimeout(function() { ctrl.abort(); }, 20000);
+    var res = await fetch(PROXY + '/score', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        address: parts[0] || address,
+        city: parts[1] || '',
+        state: szm ? szm[1].toUpperCase() : (parts[2]||'').split(' ')[0].toUpperCase(),
+        zip: szm ? szm[2] : (address.match(/\d{5}/)||[''])[0],
+        askingPrice: 0, estimatedRent: 0, propertyType: 'Single Family'
+      }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    data = await res.json();
   } catch(fetchErr) {
     console.error('Refi fetch error:', fetchErr);
     data = null;
@@ -428,56 +412,6 @@ function runPrepayCalc() {
     '<div class="refi-calc-row"><span>Months to break even</span><span>' + (penaltyPct === 0 ? '0' : breakeven) + '</span></div>' +
     '<div style="margin-top:12px;padding:10px 14px;border-radius:6px;background:rgba(255,255,255,0.04);text-align:center;font-weight:600;color:' + recColor + '">' + recLabel + '</div>';
 }
-</script>
-<script>
-function waitForMaps() {
-  if (!window.google || !window.google.maps || !window.google.maps.places) {
-    setTimeout(waitForMaps, 200);
-    return;
-  }
-  var input = document.getElementById('refi-address');
-  var box = document.createElement('div');
-  box.id = 'refi-suggestions';
-  box.style.cssText = 'display:none;position:absolute;top:100%;left:0;right:0;background:#1a1a1a;border:1px solid #B8811E;border-radius:0 0 6px 6px;z-index:9999;max-height:200px;overflow-y:auto';
-  input.parentElement.style.position = 'relative';
-  input.parentElement.appendChild(box);
-  var svc = new google.maps.places.AutocompleteService();
-  var t;
-  input.addEventListener('input', function() {
-    clearTimeout(t);
-    if (input.value.trim().length < 3) { box.style.display='none'; return; }
-    t = setTimeout(function() {
-      svc.getPlacePredictions(
-        { input: input.value.trim(), types: ['address'], componentRestrictions: { country: 'us' } },
-        function(preds, status) {
-          box.innerHTML = '';
-          if (status !== 'OK' || !preds) { box.style.display='none'; return; }
-          preds.forEach(function(p) {
-            var d = document.createElement('div');
-            d.textContent = p.description;
-            d.style.cssText = 'padding:10px 14px;cursor:pointer;color:#fff;border-top:1px solid rgba(255,255,255,0.08);font-size:14px';
-            d.addEventListener('mousedown', function(e) {
-              e.preventDefault();
-              input.value = p.description;
-              box.style.display = 'none';
-              if (typeof prefetchScore === 'function') prefetchScore(p.description);
-              if (typeof gtag === 'function') gtag('event', 'refi_analyzer_started', { address: p.description });
-            });
-            d.addEventListener('mouseover', function() { d.style.background='rgba(184,129,30,0.15)'; });
-            d.addEventListener('mouseout', function() { d.style.background=''; });
-            box.appendChild(d);
-          });
-          box.style.display = 'block';
-        }
-      );
-    }, 250);
-  });
-  document.addEventListener('mousedown', function(e) {
-    if (!input.contains(e.target) && !box.contains(e.target)) box.style.display='none';
-  });
-  console.log('autocomplete ready');
-}
-waitForMaps();
 </script>
 </body>
 </html>
