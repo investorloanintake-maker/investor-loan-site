@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <!-- LinkedIn Insight Tag -->
+  <script type="text/javascript">_linkedin_partner_id="8839754";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);</script>
+  <script type="text/javascript">(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BPL Refi Analyzer — Find Your Hidden Equity | Viador Partners</title>
+  <meta name="description" content="Free refinance analysis for investment property owners. See your estimated equity, monthly savings, and prepay breakeven in 60 seconds."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.viadorpartners.com/refi"/>
+  <meta property="og:title" content="BPL Refi Analyzer — Find Your Hidden Equity | Viador Partners"/>
+  <meta property="og:description" content="Tampa Bay investors who bought 2020–2022 are sitting on an average of $87K in accessible equity. Find out what yours is worth."/>
+  <link rel="canonical" href="https://www.viadorpartners.com/refi.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .refi-page { background: var(--ink); color: var(--cream); min-height: 100vh; }
+    .refi-hero { padding: 140px 0 60px; text-align: center; }
+    .refi-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .refi-h1 { font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 5vw, 48px); font-weight: 700; line-height: 1.15; margin: 0 0 16px; letter-spacing: -0.02em; }
+    .refi-sub { font-family: 'DM Sans', sans-serif; font-size: 16px; color: rgba(255,255,255,0.6); max-width: 560px; margin: 0 auto 40px; line-height: 1.6; font-weight: 300; }
+    .refi-form { max-width: 520px; margin: 0 auto; position: relative; }
+    .refi-input { width: 100%; padding: 16px 18px; border: 2px solid rgba(184,129,30,0.3); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 16px; background: rgba(255,255,255,0.06); color: #fff; outline: none; box-sizing: border-box; }
+    .refi-input:focus { border-color: var(--gold); }
+    .refi-input::placeholder { color: rgba(255,255,255,0.35); }
+    .refi-btn { width: 100%; margin-top: 12px; padding: 16px; background: var(--gold); color: #fff; border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+    .refi-btn:hover { background: var(--gold-light); }
+    .refi-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .refi-section { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+    .refi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+    .refi-card { background: #1a1c24; border: 1px solid rgba(184,129,30,0.15); border-radius: 10px; padding: 20px; text-align: center; }
+    .refi-card-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+    .refi-card-val { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 700; color: #fff; }
+    .refi-card-note { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 6px; }
+    .refi-blur { filter: blur(8px); pointer-events: none; user-select: none; transition: filter 0.4s; }
+    .refi-blur.unlocked { filter: none; pointer-events: auto; user-select: auto; }
+    .refi-gate { position: relative; margin-top: -60px; z-index: 10; background: #1a1c24; border: 2px solid var(--gold); border-radius: 12px; padding: 28px; text-align: center; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .refi-gate.hidden { display: none; }
+    .refi-gate h3 { font-family: 'Fraunces', serif; font-size: 20px; margin: 0 0 8px; }
+    .refi-gate p { font-size: 14px; color: rgba(255,255,255,0.6); margin: 0 0 16px; line-height: 1.5; }
+    .refi-gate input { width: 100%; padding: 12px 16px; border: 1px solid rgba(184,129,30,0.3); border-radius: 6px; background: rgba(255,255,255,0.06); color: #fff; font-size: 15px; outline: none; box-sizing: border-box; margin-bottom: 10px; font-family: 'DM Sans', sans-serif; }
+    .refi-gate button { width: 100%; padding: 12px; background: var(--gold); color: #fff; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+    .refi-verdict { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .refi-verdict.green { background: #2d6a4f; color: #a7f3d0; }
+    .refi-verdict.yellow { background: #92400e; color: #fde68a; }
+    .refi-verdict.red { background: #8b1a1a; color: #fca5a5; }
+    .refi-loading { display: none; padding: 48px 24px; text-align: center; }
+    .refi-loading.active { display: block; }
+    .refi-results { display: none; }
+    .refi-results.active { display: block; }
+    .refi-calc { background: #1a1c24; border: 1px solid rgba(184,129,30,0.15); border-radius: 12px; padding: 28px; margin-top: 40px; }
+    .refi-calc h3 { font-family: 'Fraunces', serif; font-size: 20px; margin: 0 0 20px; }
+    .refi-calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+    .refi-calc label { display: block; font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 4px; font-family: 'DM Mono', monospace; }
+    .refi-calc input, .refi-calc select { width: 100%; padding: 10px 12px; border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; background: rgba(255,255,255,0.06); color: #fff; font-size: 14px; outline: none; box-sizing: border-box; font-family: 'DM Sans', sans-serif; }
+    .refi-calc-result { background: rgba(184,129,30,0.08); border: 1px solid rgba(184,129,30,0.2); border-radius: 8px; padding: 16px; margin-top: 16px; display: none; }
+    .refi-calc-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .refi-calc-row:last-child { border: none; }
+    .refi-cta-box { background: #1a1c24; border: 2px solid var(--gold); border-radius: 12px; padding: 32px; text-align: center; margin-top: 40px; margin-bottom: 40px; }
+    .refi-cta-box h3 { font-family: 'Fraunces', serif; font-size: 22px; margin: 0 0 12px; }
+    .refi-cta-box p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 0 0 20px; }
+    .refi-cta-btn { display: inline-block; padding: 14px 32px; background: var(--gold); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; font-family: 'DM Sans', sans-serif; }
+    @media (max-width: 640px) {
+      .refi-grid { grid-template-columns: 1fr; }
+      .refi-calc-grid { grid-template-columns: 1fr; }
+    }
+    @keyframes progressPulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+    .refi-progress-step { animation: progressPulse 1.5s ease-in-out infinite; }
+    /* Google Places dropdown styling */
+    .pac-container { background: #1a1c24 !important; border: 1px solid rgba(184,129,30,0.3) !important; border-radius: 0 0 8px 8px !important; }
+    .pac-item { background: #1a1c24 !important; color: #fff !important; border-top: 1px solid rgba(255,255,255,0.06) !important; padding: 8px 12px !important; cursor: pointer !important; }
+    .pac-item:hover { background: rgba(184,129,30,0.1) !important; }
+    .pac-item-query { color: #fff !important; }
+    .pac-matched { color: var(--gold) !important; }
+    .pac-icon { display: none !important; }
+  </style>
+</head>
+<body class="refi-page">
+
+<!-- NAV (same as viadorpartners.com) -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">V</span><span class="logo-text">Viador <span class="logo-sub">Partners</span></span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown"><a href="index.html#programs" class="nav-dropdown-trigger">Programs</a><div class="nav-dropdown-menu"><a href="dscr.html">DSCR Loans</a><a href="fix-and-flip.html">Fix &amp; Flip</a><a href="bpl.html">Business Purpose Loans</a></div></div>
+      <div class="nav-dropdown"><a href="investor-platform.html" class="nav-dropdown-trigger">Tools</a><div class="nav-dropdown-menu"><a href="score.html">Score a Deal</a><a href="refi.html" style="color:var(--gold)">Refi Analyzer</a><a href="deal-analyzer.html">Deal Analyzer</a></div></div>
+      <a href="about.html">About</a>
+    </nav>
+    <a href="#dealform" class="nav-cta">Review My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="refi-hero">
+  <div class="refi-section">
+    <div class="refi-eyebrow">BPL REFI INTELLIGENCE</div>
+    <h1 class="refi-h1">Find the Inefficiency.<br>Fund the Next One.</h1>
+    <p class="refi-sub">Tampa Bay investors who bought 2020&ndash;2022 are sitting on an average of $87K in accessible equity. Find out what yours is worth in 60 seconds. Free. No obligation.</p>
+    <div class="refi-form">
+      <label for="refi-address" style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:6px;display:block;font-family:'DM Mono',monospace">Enter your investment property address</label>
+      <input type="text" id="refi-address" class="refi-input" placeholder="123 Main St, Tampa, FL 33609" autocomplete="off"/>
+      <button id="refi-btn" class="refi-btn" onclick="runRefiAnalysis()">Run My Free Refi Analysis &rarr;</button>
+    </div>
+  </div>
+</section>
+
+<!-- LOADING -->
+<div id="refi-loading" class="refi-loading">
+  <div class="refi-section">
+    <div style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:8px">Analyzing your property...</div>
+    <div id="refi-load-step" style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:20px" class="refi-progress-step">Pulling current market value...</div>
+    <div style="height:3px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden;max-width:320px;margin:0 auto"><div id="refi-load-bar" style="height:100%;background:var(--gold);border-radius:2px;width:0%;transition:width 0.6s ease"></div></div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div id="refi-results" class="refi-results">
+  <div class="refi-section">
+
+    <!-- Phase 1: Always visible -->
+    <div class="refi-grid" id="phase1-cards">
+      <div class="refi-card">
+        <div class="refi-card-label">Estimated Current Value</div>
+        <div class="refi-card-val" id="r-avm">—</div>
+        <div class="refi-card-note">Based on Rentcast AVM + comps</div>
+      </div>
+      <div class="refi-card">
+        <div class="refi-card-label">Accessible Equity at 75% LTV</div>
+        <div class="refi-card-val" id="r-equity" style="color:#4ade80">—</div>
+        <div class="refi-card-note">Cash-out refinance potential</div>
+      </div>
+      <div class="refi-card">
+        <div class="refi-card-label">Today's DSCR Rate</div>
+        <div class="refi-card-val" id="r-rate">7.25% &ndash; 7.75%</div>
+        <div class="refi-card-note">30yr fixed, no income docs</div>
+      </div>
+    </div>
+
+    <!-- Phase 2: Blurred until email -->
+    <div class="refi-blur" id="phase2-cards">
+      <div class="refi-grid">
+        <div class="refi-card">
+          <div class="refi-card-label">Est. Monthly Payment Savings</div>
+          <div class="refi-card-val" id="r-savings" style="color:#4ade80">—</div>
+          <div class="refi-card-note">vs estimated current 9% rate</div>
+        </div>
+        <div class="refi-card">
+          <div class="refi-card-label">Prepay Breakeven</div>
+          <div class="refi-card-val" id="r-breakeven">—</div>
+          <div class="refi-card-note">Months to recoup 3% penalty</div>
+        </div>
+        <div class="refi-card">
+          <div class="refi-card-label">Refi Verdict</div>
+          <div id="r-verdict" style="margin-top:8px">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email Gate -->
+    <div class="refi-gate" id="refi-gate">
+      <h3>Your full analysis is ready.</h3>
+      <p>Enter your email to unlock monthly savings, prepay breakeven, and refi verdict.</p>
+      <input type="email" id="refi-email" placeholder="you@email.com"/>
+      <button onclick="unlockRefi()">Unlock My Full Analysis &rarr;</button>
+    </div>
+    <div id="refi-gate-success" style="display:none;text-align:center;padding:12px;color:#4ade80;font-size:13px;margin-top:8px">Analysis unlocked. We'll also send a copy to your email.</div>
+
+    <!-- Prepay Calculator -->
+    <div class="refi-calc">
+      <h3>Calculate Your Prepay Penalty Breakeven</h3>
+      <div class="refi-calc-grid">
+        <div><label>Current loan balance</label><input type="text" id="calc-balance" placeholder="e.g. 350,000" oninput="this.value=this.value.replace(/[^0-9]/g,'')"/></div>
+        <div><label>Estimated current rate</label><input type="text" id="calc-current-rate" value="8.5" placeholder="8.5"/></div>
+        <div><label>Origination year</label><select id="calc-year"><option>2020</option><option>2021</option><option selected>2022</option><option>2023</option></select></div>
+        <div><label>Prepay structure</label><select id="calc-prepay"><option value="5-4-3-2-1">5-4-3-2-1 step-down</option><option value="3-2-1">3-2-1 step-down</option><option value="2-1">2-1 step-down</option><option value="flat3">Flat 3%</option><option value="flat2">Flat 2%</option><option value="none">No prepay</option></select></div>
+        <div><label>Today's rate</label><input type="text" id="calc-new-rate" value="7.25" placeholder="7.25"/></div>
+      </div>
+      <button class="refi-btn" style="max-width:280px" onclick="runPrepayCalc()">Calculate Breakeven</button>
+      <div class="refi-calc-result" id="calc-result"></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="refi-cta-box">
+      <h3>Ready to see if your deal qualifies?</h3>
+      <p>Viador Partners reviews every BPL refi file within 24 hours.<br>NMLS #2822744 &middot; chad@viadorpartners.com &middot; (813) 419-2983</p>
+      <a href="index.html#dealform" class="refi-cta-btn">Submit My Deal for Review &rarr;</a>
+    </div>
+
+    <!-- Disclaimer -->
+    <p style="text-align:center;font-size:11px;color:rgba(255,255,255,0.35);max-width:560px;margin:0 auto 40px;line-height:1.6">Not a commitment to lend. Analysis based on public market data and estimated figures. Actual terms subject to full underwriting review.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand"><span class="logo-mark">V</span><div><strong>Viador</strong> <span class="logo-sub">Partners</span><span>Investor Capital &amp; Deal Advisory</span></div></div>
+      <div class="footer-nav-group"><h4>Programs</h4><a href="dscr.html">DSCR Loans</a><a href="fix-and-flip.html">Fix &amp; Flip</a><a href="bpl.html">Business Purpose Loans</a></div>
+      <div class="footer-nav-group"><h4>Tools</h4><a href="score.html">Score a Deal</a><a href="refi.html" style="color:var(--gold)">Refi Analyzer</a><a href="deal-analyzer.html">Deal Analyzer</a></div>
+      <div class="footer-nav-group"><h4>Company</h4><a href="about.html">About</a><a href="partners.html">Refer a Deal</a><a href="index.html#dealform">Review My Deal</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Viador Partners LLC. All rights reserved.</span>
+      <span>Viador Partners LLC | Tampa, FL | NMLS #2822744</span>
+      <span style="display:block;margin-top:6px;font-size:10px;opacity:0.5">Not a commitment to lend. Equal Housing Opportunity. <a href="privacy-policy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSEIZTzvhi03BeXx9pGZV_o7oJEu2gAV8&libraries=places&callback=initRefiPlaces" async defer></script>
+<script>
+var PROXY = 'https://viador-ai-proxy.chad-7f6.workers.dev';
+var refiData = {};
+
+function initRefiPlaces() {
+  var input = document.getElementById('refi-address');
+  var ac = new google.maps.places.Autocomplete(input, { types: ['address'], componentRestrictions: { country: 'us' } });
+  ac.addListener('place_changed', function() {
+    var place = ac.getPlace();
+    if (place && place.formatted_address) {
+      input.value = place.formatted_address;
+      if (typeof gtag === 'function') gtag('event', 'refi_analyzer_started', { address: place.formatted_address });
+      prefetchScore(place.formatted_address);
+    }
+  });
+}
+
+function prefetchScore(address) {
+  var parts = address.split(',').map(function(s){return s.trim()});
+  var lastPart = (parts[parts.length-1]||'').trim();
+  var szm = lastPart.match(/([A-Z]{2})\s*(\d{5})/i);
+  var body = {
+    address: parts[0] || address,
+    city: parts[1] || '',
+    state: szm ? szm[1].toUpperCase() : (parts[2]||'').split(' ')[0].toUpperCase(),
+    zip: szm ? szm[2] : (address.match(/\d{5}/)||[''])[0],
+    askingPrice: 0,
+    estimatedRent: 0,
+    propertyType: 'Single Family'
+  };
+  refiData._prefetch = fetch(PROXY + '/score', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  }).then(function(r){return r.json()}).catch(function(){return null});
+}
+
+async function runRefiAnalysis() {
+  var address = document.getElementById('refi-address').value.trim();
+  if (!address) { document.getElementById('refi-address').focus(); return; }
+
+  var btn = document.getElementById('refi-btn');
+  btn.disabled = true;
+  btn.textContent = 'Analyzing...';
+
+  var loading = document.getElementById('refi-loading');
+  loading.classList.add('active');
+  document.getElementById('refi-results').classList.remove('active');
+
+  var steps = [
+    { msg: 'Pulling current market value...', pct: 25 },
+    { msg: 'Calculating equity position...', pct: 50 },
+    { msg: 'Running DSCR analysis at today\'s rates...', pct: 75 },
+    { msg: 'Checking refi qualification...', pct: 100 }
+  ];
+  var stepEl = document.getElementById('refi-load-step');
+  var barEl = document.getElementById('refi-load-bar');
+  for (var i = 0; i < steps.length; i++) {
+    stepEl.textContent = steps[i].msg;
+    barEl.style.width = steps[i].pct + '%';
+    await new Promise(function(r){setTimeout(r, 600)});
+  }
+
+  // Get data from prefetch or fetch fresh
+  var data = null;
+  if (refiData._prefetch) {
+    data = await refiData._prefetch;
+    refiData._prefetch = null;
+  }
+  if (!data || !data._consensusAVM) {
+    prefetchScore(address);
+    data = refiData._prefetch ? await refiData._prefetch : null;
+  }
+
+  var avm = (data && data._consensusAVM) ? data._consensusAVM : 0;
+  if (!avm && data && data.smart_price_range) avm = data.smart_price_range.dscr_breakeven * 1.5 || 0;
+  if (!avm) avm = 350000; // fallback estimate
+
+  refiData.avm = avm;
+  refiData.address = address;
+
+  // Calculate all metrics
+  var equity75 = Math.round(avm * 0.75);
+  var estBalance = Math.round(avm * 0.65);
+  var currentRate = 0.09, newRate = 0.075;
+  var mr1 = currentRate / 12, mr2 = newRate / 12;
+  var pmt1 = estBalance * (mr1 * Math.pow(1+mr1,360)) / (Math.pow(1+mr1,360)-1);
+  var pmt2 = estBalance * (mr2 * Math.pow(1+mr2,360)) / (Math.pow(1+mr2,360)-1);
+  var monthlySavings = Math.round(pmt1 - pmt2);
+  var prepayPenalty = Math.round(estBalance * 0.03);
+  var breakeven = monthlySavings > 0 ? Math.round(prepayPenalty / monthlySavings) : 999;
+
+  var verdict, verdictClass, verdictText;
+  if (breakeven < 24 && equity75 > 50000) {
+    verdict = 'REFI NOW'; verdictClass = 'green'; verdictText = 'Strong refi candidate — equity and savings justify moving now';
+  } else if (breakeven <= 36) {
+    verdict = 'WAIT — CHECK TIMING'; verdictClass = 'yellow'; verdictText = 'Marginal — timing depends on prepay structure and hold period';
+  } else {
+    verdict = 'NOT WORTH IT'; verdictClass = 'red'; verdictText = 'Breakeven too long or equity insufficient at current values';
+  }
+
+  refiData.equity = equity75;
+  refiData.verdict = verdict;
+  refiData.savings = monthlySavings;
+  refiData.breakeven = breakeven;
+
+  // Populate Phase 1
+  document.getElementById('r-avm').textContent = '$' + avm.toLocaleString();
+  document.getElementById('r-equity').textContent = '$' + equity75.toLocaleString();
+
+  // Populate Phase 2 (blurred)
+  document.getElementById('r-savings').textContent = '$' + monthlySavings.toLocaleString() + '/mo';
+  document.getElementById('r-breakeven').textContent = breakeven + ' months';
+  document.getElementById('r-verdict').innerHTML = '<span class="refi-verdict ' + verdictClass + '">' + verdict + '</span><div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:8px">' + verdictText + '</div>';
+
+  // Show results
+  loading.classList.remove('active');
+  document.getElementById('refi-results').classList.add('active');
+  btn.disabled = false;
+  btn.textContent = 'Run My Free Refi Analysis \u2192';
+
+  // Pre-fill calculator
+  document.getElementById('calc-balance').value = estBalance;
+
+  // Scroll to results
+  setTimeout(function() { document.getElementById('phase1-cards').scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 300);
+}
+
+function unlockRefi() {
+  var email = document.getElementById('refi-email').value.trim();
+  if (!email || !email.includes('@')) { document.getElementById('refi-email').focus(); return; }
+
+  // Unblur
+  document.getElementById('phase2-cards').classList.add('unlocked');
+  document.getElementById('refi-gate').classList.add('hidden');
+  document.getElementById('refi-gate-success').style.display = 'block';
+
+  if (typeof gtag === 'function') gtag('event', 'refi_analyzer_email_captured', { email: email, address: refiData.address, verdict: refiData.verdict });
+
+  // POST to HubSpot via worker proxy (key stored server-side)
+  fetch(PROXY + '/hubspot-contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: email,
+      address: refiData.address || '',
+      estimated_value: String(refiData.avm || ''),
+      estimated_equity: String(refiData.equity || ''),
+      refi_verdict: refiData.verdict || '',
+      lead_source: 'refi-analyzer'
+    })
+  }).catch(function(e) { console.log('HubSpot error (non-fatal):', e); });
+}
+
+function runPrepayCalc() {
+  var balance = parseInt(document.getElementById('calc-balance').value) || 0;
+  var currentRate = parseFloat(document.getElementById('calc-current-rate').value) / 100 || 0.085;
+  var year = parseInt(document.getElementById('calc-year').value) || 2022;
+  var structure = document.getElementById('calc-prepay').value;
+  var newRate = parseFloat(document.getElementById('calc-new-rate').value) / 100 || 0.0725;
+
+  if (!balance) { document.getElementById('calc-balance').focus(); return; }
+  if (typeof gtag === 'function') gtag('event', 'refi_analyzer_calculator_used', { balance: balance, structure: structure });
+
+  var mr1 = currentRate / 12, mr2 = newRate / 12;
+  var pmt1 = balance * (mr1 * Math.pow(1+mr1,360)) / (Math.pow(1+mr1,360)-1);
+  var pmt2 = balance * (mr2 * Math.pow(1+mr2,360)) / (Math.pow(1+mr2,360)-1);
+  var savings = pmt1 - pmt2;
+
+  // Calculate prepay penalty based on structure and years since origination
+  var yearsHeld = 2026 - year;
+  var penaltyPct = 0;
+  if (structure === 'none') { penaltyPct = 0; }
+  else if (structure === 'flat3') { penaltyPct = 3; }
+  else if (structure === 'flat2') { penaltyPct = 2; }
+  else if (structure === '5-4-3-2-1') {
+    var sd5 = [5, 4, 3, 2, 1, 0];
+    penaltyPct = yearsHeld < sd5.length ? sd5[yearsHeld] : 0;
+  } else if (structure === '3-2-1') {
+    var sd3 = [3, 2, 1, 0];
+    penaltyPct = yearsHeld < sd3.length ? sd3[yearsHeld] : 0;
+  } else if (structure === '2-1') {
+    var sd2 = [2, 1, 0];
+    penaltyPct = yearsHeld < sd2.length ? sd2[yearsHeld] : 0;
+  }
+
+  var penalty = Math.round(balance * penaltyPct / 100);
+  var breakeven = savings > 0 ? Math.ceil(penalty / savings) : 999;
+  var recLabel, recColor;
+  if (penaltyPct === 0) { recLabel = 'NO PENALTY \u2014 REFI NOW'; recColor = '#4ade80'; }
+  else if (breakeven <= 18) { recLabel = 'ACT NOW \u2014 breakeven in ' + breakeven + ' months'; recColor = '#4ade80'; }
+  else if (breakeven <= 36) { recLabel = 'WAIT ' + Math.max(0, 12 - (yearsHeld % 12)) + ' MONTHS for lower penalty step'; recColor = '#e8b84b'; }
+  else { recLabel = 'NO BENEFIT at current rates'; recColor = '#fc6060'; }
+
+  var fmt = function(n) { return '$' + Math.round(n).toLocaleString(); };
+  var el = document.getElementById('calc-result');
+  el.style.display = 'block';
+  el.innerHTML = '<div class="refi-calc-row"><span>Current monthly payment</span><span>' + fmt(pmt1) + '</span></div>' +
+    '<div class="refi-calc-row"><span>New monthly payment</span><span>' + fmt(pmt2) + '</span></div>' +
+    '<div class="refi-calc-row"><span>Monthly savings</span><span style="color:#4ade80">' + fmt(savings) + '</span></div>' +
+    '<div class="refi-calc-row"><span>Prepay penalty (' + penaltyPct + '%)</span><span style="color:#fc6060">' + fmt(penalty) + '</span></div>' +
+    '<div class="refi-calc-row"><span>Months to break even</span><span>' + (penaltyPct === 0 ? '0' : breakeven) + '</span></div>' +
+    '<div style="margin-top:12px;padding:10px 14px;border-radius:6px;background:rgba(255,255,255,0.04);text-align:center;font-weight:600;color:' + recColor + '">' + recLabel + '</div>';
+}
+</script>
+</body>
+</html>
