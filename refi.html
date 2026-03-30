@@ -219,72 +219,75 @@
 var PROXY = 'https://viador-ai-proxy.chad-7f6.workers.dev';
 var refiData = {};
 
-var refiDropdown = null;
-var refiDebounce = null;
-var refiActiveIdx = -1;
-
 function initRefiPlaces() {
   var input = document.getElementById('refi-address');
-  if (!input) return;
   var wrapper = document.getElementById('refi-address-wrapper');
-  refiDropdown = document.createElement('div');
-  refiDropdown.id = 'refi-suggestions';
-  refiDropdown.style.cssText = 'display:none;position:absolute;top:100%;left:0;right:0;background:#1a1a1a;border:1.5px solid #B8811E;border-top:none;border-radius:0 0 8px 8px;box-shadow:0 8px 24px rgba(0,0,0,0.3);z-index:9999;max-height:240px;overflow-y:auto;';
-  wrapper.appendChild(refiDropdown);
+
+  if (!input || !wrapper) {
+    setTimeout(initRefiPlaces, 100);
+    return;
+  }
+  if (!window.google || !window.google.maps || !window.google.maps.places) {
+    setTimeout(initRefiPlaces, 100);
+    return;
+  }
+
+  var suggestionsDiv = document.createElement('div');
+  suggestionsDiv.id = 'refi-suggestions';
+  suggestionsDiv.style.cssText = 'display:none;position:absolute;top:100%;left:0;right:0;background:#1a1a1a;border:1.5px solid #B8811E;border-top:none;border-radius:0 0 8px 8px;box-shadow:0 8px 24px rgba(0,0,0,0.3);z-index:9999;max-height:240px;overflow-y:auto;';
+  wrapper.appendChild(suggestionsDiv);
   input.setAttribute('autocomplete', 'off');
 
-  input.addEventListener('input', function() {
-    var val = input.value.trim();
-    clearTimeout(refiDebounce);
-    if (val.length < 3) { refiDropdown.style.display = 'none'; return; }
-    refiDebounce = setTimeout(function() { fetchRefiSuggestions(val); }, 250);
-  });
+  var service = new google.maps.places.AutocompleteService();
+  var debounce = null;
 
-  input.addEventListener('keydown', function(e) {
-    var items = refiDropdown.querySelectorAll('.refi-sug');
-    if (e.key === 'ArrowDown') { e.preventDefault(); refiActiveIdx = Math.min(refiActiveIdx+1, items.length-1); items.forEach(function(el,i){el.style.background=i===refiActiveIdx?'rgba(184,129,30,0.15)':''}); }
-    else if (e.key === 'ArrowUp') { e.preventDefault(); refiActiveIdx = Math.max(refiActiveIdx-1, -1); items.forEach(function(el,i){el.style.background=i===refiActiveIdx?'rgba(184,129,30,0.15)':''}); }
-    else if (e.key === 'Enter') { e.preventDefault(); if (refiActiveIdx >= 0 && items[refiActiveIdx]) items[refiActiveIdx].click(); }
-    else if (e.key === 'Escape') { refiDropdown.style.display = 'none'; }
+  input.addEventListener('input', function() {
+    clearTimeout(debounce);
+    var val = input.value.trim();
+    if (val.length < 3) { suggestionsDiv.style.display = 'none'; suggestionsDiv.innerHTML = ''; return; }
+    debounce = setTimeout(function() {
+      service.getPlacePredictions(
+        { input: val, types: ['address'], componentRestrictions: { country: 'us' } },
+        function(predictions, status) {
+          suggestionsDiv.innerHTML = '';
+          if (status !== 'OK' || !predictions) { suggestionsDiv.style.display = 'none'; return; }
+          predictions.forEach(function(p) {
+            var item = document.createElement('div');
+            item.style.cssText = 'padding:10px 14px;cursor:pointer;color:#ffffff;border-top:1px solid rgba(255,255,255,0.08);font-size:14px;';
+            var main = (p.structured_formatting && p.structured_formatting.main_text) || p.description;
+            var sec = (p.structured_formatting && p.structured_formatting.secondary_text) || '';
+            item.innerHTML = '<div style="font-weight:500;color:#fff">' + main + '</div>' + (sec ? '<div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:1px">' + sec + '</div>' : '');
+            item.addEventListener('mousedown', function(e) {
+              e.preventDefault();
+              input.value = p.description;
+              suggestionsDiv.style.display = 'none';
+              if (typeof gtag === 'function') gtag('event', 'refi_analyzer_started', { address: p.description });
+              prefetchScore(p.description);
+            });
+            item.addEventListener('mouseover', function() { item.style.background = 'rgba(184,129,30,0.15)'; });
+            item.addEventListener('mouseout', function() { item.style.background = ''; });
+            suggestionsDiv.appendChild(item);
+          });
+          suggestionsDiv.style.display = 'block';
+        }
+      );
+    }, 250);
   });
 
   document.addEventListener('mousedown', function(e) {
-    if (!wrapper.contains(e.target)) refiDropdown.style.display = 'none';
+    if (!input.contains(e.target) && !suggestionsDiv.contains(e.target)) {
+      suggestionsDiv.style.display = 'none';
+    }
   });
+
+  console.log('initRefiPlaces: autocomplete attached to #refi-address');
 }
 
-function fetchRefiSuggestions(query) {
-  if (!window.google || !google.maps || !google.maps.places) return;
-  var svc = new google.maps.places.AutocompleteService();
-  svc.getPlacePredictions(
-    { input: query, types: ['address'], componentRestrictions: { country: 'us' } },
-    function(predictions, status) {
-      if (!refiDropdown) return;
-      refiDropdown.innerHTML = '';
-      refiActiveIdx = -1;
-      if (status !== 'OK' || !predictions || !predictions.length) { refiDropdown.style.display = 'none'; return; }
-      predictions.forEach(function(p) {
-        var item = document.createElement('div');
-        item.className = 'refi-sug';
-        item.style.cssText = 'padding:10px 14px;font-size:13px;cursor:pointer;border-top:1px solid rgba(255,255,255,0.08);line-height:1.4;color:#fff;';
-        var main = (p.structured_formatting && p.structured_formatting.main_text) || p.description;
-        var sec = (p.structured_formatting && p.structured_formatting.secondary_text) || '';
-        item.innerHTML = '<div style="font-weight:500;color:#fff">' + main + '</div>' + (sec ? '<div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:1px">' + sec + '</div>' : '');
-        item.addEventListener('mousedown', function(e) {
-          e.preventDefault();
-          document.getElementById('refi-address').value = p.description;
-          refiDropdown.style.display = 'none';
-          refiActiveIdx = -1;
-          if (typeof gtag === 'function') gtag('event', 'refi_analyzer_started', { address: p.description });
-          prefetchScore(p.description);
-        });
-        item.addEventListener('mouseover', function() { item.style.background = 'rgba(184,129,30,0.15)'; });
-        item.addEventListener('mouseout', function() { item.style.background = ''; });
-        refiDropdown.appendChild(item);
-      });
-      refiDropdown.style.display = 'block';
-    }
-  );
+// Call on Maps callback AND as fallback
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initRefiPlaces);
+} else {
+  initRefiPlaces();
 }
 
 function prefetchScore(address) {
