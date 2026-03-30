@@ -248,11 +248,14 @@ function prefetchScore(address) {
     estimatedRent: 0,
     propertyType: 'Single Family'
   };
+  var ctrl = new AbortController();
+  var timer = setTimeout(function() { ctrl.abort(); }, 20000);
   refiData._prefetch = fetch(PROXY + '/score', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
-  }).then(function(r){return r.json()}).catch(function(){return null});
+    body: JSON.stringify(body),
+    signal: ctrl.signal
+  }).then(function(r){ clearTimeout(timer); return r.json(); }).catch(function(){ clearTimeout(timer); return null; });
 }
 
 async function runRefiAnalysis() {
@@ -281,20 +284,45 @@ async function runRefiAnalysis() {
     await new Promise(function(r){setTimeout(r, 600)});
   }
 
-  // Get data from prefetch or fetch fresh
+  // Get data from prefetch or fetch fresh (with 20s timeout)
   var data = null;
-  if (refiData._prefetch) {
-    data = await refiData._prefetch;
-    refiData._prefetch = null;
-  }
-  if (!data || !data._consensusAVM) {
-    prefetchScore(address);
-    data = refiData._prefetch ? await refiData._prefetch : null;
+  try {
+    if (refiData._prefetch) {
+      data = await refiData._prefetch;
+      refiData._prefetch = null;
+    }
+    if (!data || !data._consensusAVM) {
+      prefetchScore(address);
+      data = refiData._prefetch ? await refiData._prefetch : null;
+    }
+  } catch(fetchErr) {
+    console.error('Refi fetch error:', fetchErr);
+    data = null;
   }
 
-  var avm = (data && data._consensusAVM) ? data._consensusAVM : 0;
-  if (!avm && data && data.smart_price_range) avm = data.smart_price_range.dscr_breakeven * 1.5 || 0;
-  if (!avm) avm = 350000; // fallback estimate
+  // Hide loading, show results regardless
+  loading.classList.remove('active');
+  document.getElementById('refi-results').classList.add('active');
+  btn.disabled = false;
+  btn.textContent = 'Run My Free Refi Analysis \u2192';
+
+  // If worker call failed, show error but still show calculator
+  if (!data || (!data._consensusAVM && !data.score)) {
+    document.getElementById('r-avm').textContent = 'Unavailable';
+    document.getElementById('r-equity').textContent = 'Unavailable';
+    document.getElementById('r-avm').parentElement.insertAdjacentHTML('afterend',
+      '<div style="grid-column:1/-1;text-align:center;padding:16px;background:rgba(232,184,75,0.08);border:1px solid rgba(232,184,75,0.2);border-radius:8px;margin-top:12px">' +
+      '<div style="font-size:14px;color:#e8b84b;font-weight:500;margin-bottom:6px">Analysis temporarily unavailable</div>' +
+      '<div style="font-size:13px;color:rgba(255,255,255,0.5)">Use the prepay calculator below, or call us directly: <a href="tel:8134192983" style="color:var(--gold);text-decoration:none;font-weight:600">(813) 419-2983</a></div>' +
+      '</div>');
+    refiData.address = address;
+    setTimeout(function() { document.querySelector('.refi-calc').scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 300);
+    return;
+  }
+
+  var avm = data._consensusAVM || 0;
+  if (!avm && data.smart_price_range) avm = Math.round((data.smart_price_range.dscr_breakeven || 0) * 1.5) || 0;
+  if (!avm) avm = 350000;
 
   refiData.avm = avm;
   refiData.address = address;
@@ -312,9 +340,9 @@ async function runRefiAnalysis() {
 
   var verdict, verdictClass, verdictText;
   if (breakeven < 24 && equity75 > 50000) {
-    verdict = 'REFI NOW'; verdictClass = 'green'; verdictText = 'Strong refi candidate — equity and savings justify moving now';
+    verdict = 'REFI NOW'; verdictClass = 'green'; verdictText = 'Strong refi candidate \u2014 equity and savings justify moving now';
   } else if (breakeven <= 36) {
-    verdict = 'WAIT — CHECK TIMING'; verdictClass = 'yellow'; verdictText = 'Marginal — timing depends on prepay structure and hold period';
+    verdict = 'WAIT \u2014 CHECK TIMING'; verdictClass = 'yellow'; verdictText = 'Marginal \u2014 timing depends on prepay structure and hold period';
   } else {
     verdict = 'NOT WORTH IT'; verdictClass = 'red'; verdictText = 'Breakeven too long or equity insufficient at current values';
   }
@@ -332,12 +360,6 @@ async function runRefiAnalysis() {
   document.getElementById('r-savings').textContent = '$' + monthlySavings.toLocaleString() + '/mo';
   document.getElementById('r-breakeven').textContent = breakeven + ' months';
   document.getElementById('r-verdict').innerHTML = '<span class="refi-verdict ' + verdictClass + '">' + verdict + '</span><div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:8px">' + verdictText + '</div>';
-
-  // Show results
-  loading.classList.remove('active');
-  document.getElementById('refi-results').classList.add('active');
-  btn.disabled = false;
-  btn.textContent = 'Run My Free Refi Analysis \u2192';
 
   // Pre-fill calculator
   document.getElementById('calc-balance').value = estBalance;
