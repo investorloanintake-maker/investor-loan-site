@@ -154,9 +154,12 @@
 
   // Verdict — support both old strings and new enum values
   var vClass, vText;
-  var v = (data.verdict || '').toLowerCase().replace(/[\s\u2014—-]+/g, '_');
+  var v = (data.verdict || '').toLowerCase().replace(/[\s\u2014\u2014-]+/g, '_');
   var bkMonths = data.prepay_months || data.breakeven || 0;
-  if (v === 'refi_now' || v === 'refi now' || v.indexOf('refi') >= 0) {
+  var isFreeAndClear = data.free_and_clear === true;
+  if (isFreeAndClear) {
+    vClass = 'green'; vText = '\u2705 FREE & CLEAR \u2014 ' + fmt$(data.equity || 0) + ' in accessible equity ready to deploy';
+  } else if (v === 'refi_now' || v === 'refi now' || v.indexOf('refi') >= 0) {
     vClass = 'green'; vText = '\u2705 REFI NOW \u2014 Your prepay window is open';
   } else if (v === 'wait' || v.indexOf('wait') >= 0 || v === 'wait___check_timing') {
     vClass = 'yellow'; vText = '\u26a0\ufe0f WAIT' + (bkMonths ? ' \u2014 Window opens in ~' + bkMonths + ' months' : ' \u2014 CHECK TIMING');
@@ -184,24 +187,36 @@
   var breakevenVal = data.prepay_months || data.breakeven || 0;
 
   // Hero numbers — equity and savings dominate
+  var savingsCardLabel = isFreeAndClear ? 'Monthly Income from New Acquisition' : 'Monthly Savings';
+  var savingsCardNote = isFreeAndClear ? 'Deploying equity into a new DSCR rental' : fmt$(savingsVal * 12) + ' annually';
   html += '<div class="offer-grid">';
   html += '<div class="offer-card" style="text-align:center"><div class="offer-card-label">Accessible Equity</div><div class="offer-card-val hero-num" style="color:#B8811E">' + fmt$(data.equity || 0) + '</div><div class="offer-card-note">At 75% LTV</div></div>';
-  html += '<div class="offer-card" style="text-align:center"><div class="offer-card-label">Monthly Savings</div><div class="offer-card-val hero-num" style="color:#4ade80">' + fmt$(savingsVal) + '/mo</div><div class="offer-card-note">' + fmt$(savingsVal * 12) + ' annually</div></div>';
+  html += '<div class="offer-card" style="text-align:center"><div class="offer-card-label">' + savingsCardLabel + '</div><div class="offer-card-val hero-num" style="color:#4ade80">' + fmt$(savingsVal) + '/mo</div><div class="offer-card-note">' + savingsCardNote + '</div></div>';
   html += '</div>';
 
   // Secondary metrics
   html += '<div class="offer-grid">';
   html += '<div class="offer-card"><div class="offer-card-label">Current Est. Value</div><div class="offer-card-val">' + fmt$(data.avm || 0) + '</div></div>';
-  html += '<div class="offer-card"><div class="offer-card-label">Est. Current Rate</div><div class="offer-card-val">' + (data.currentRate || '~9.0%') + '</div></div>';
+  if (isFreeAndClear) {
+    html += '<div class="offer-card"><div class="offer-card-label">Loan Status</div><div class="offer-card-val" style="color:#4ade80">Free & Clear</div></div>';
+  } else {
+    html += '<div class="offer-card"><div class="offer-card-label">Est. Current Rate</div><div class="offer-card-val">' + (data.currentRate || '~9.0%') + '</div></div>';
+  }
   html += '<div class="offer-card"><div class="offer-card-label">Today\'s DSCR Rate</div><div class="offer-card-val" style="color:#4ade80">' + (data.newRate || '7.25% \u2013 7.75%') + '</div></div>';
-  html += '<div class="offer-card"><div class="offer-card-label">Prepay Breakeven</div><div class="offer-card-val">' + (breakevenVal || '?') + ' months</div></div>';
+  if (isFreeAndClear) {
+    html += '<div class="offer-card"><div class="offer-card-label">Prepay Penalty</div><div class="offer-card-val" style="color:#4ade80">None</div></div>';
+  } else {
+    html += '<div class="offer-card"><div class="offer-card-label">Prepay Breakeven</div><div class="offer-card-val">' + (breakevenVal || '?') + ' months</div></div>';
+  }
   html += '</div>';
 
   // Verdict
   html += '<div class="offer-card full" style="margin-bottom:8px"><div class="offer-verdict ' + vClass + '">' + vText + '</div></div>';
 
   // Urgency line
-  if (vClass === 'green' && savingsVal > 0) {
+  if (isFreeAndClear) {
+    html += '<div class="offer-urgency">Every month you wait is another month this equity sits idle instead of funding your next acquisition.</div>';
+  } else if (vClass === 'green' && savingsVal > 0) {
     html += '<div class="offer-urgency">Every month at your current rate costs you <strong>' + fmt$(savingsVal) + '</strong> you don\'t have to spend. Your prepay window is open now.</div>';
   } else if (vClass === 'yellow' && breakevenVal > 0) {
     html += '<div class="offer-urgency" style="color:#fbbf24">Your prepay penalty drops in ~' + breakevenVal + ' months. We\'ll alert you when the window opens.</div>';

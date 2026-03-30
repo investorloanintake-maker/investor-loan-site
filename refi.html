@@ -384,21 +384,50 @@ async function runRefiAnalysis() {
   // Calculate all metrics
   var equity75 = Math.round(avm * 0.75);
   var estBalance = Math.round(avm * 0.65);
+  var freeAndClear = estBalance === 0 || equity75 > avm * 0.90;
   var currentRate = 0.09, newRate = 0.075;
-  var mr1 = currentRate / 12, mr2 = newRate / 12;
-  var pmt1 = estBalance * (mr1 * Math.pow(1+mr1,360)) / (Math.pow(1+mr1,360)-1);
-  var pmt2 = estBalance * (mr2 * Math.pow(1+mr2,360)) / (Math.pow(1+mr2,360)-1);
-  var monthlySavings = Math.round(pmt1 - pmt2);
-  var prepayPenalty = Math.round(estBalance * 0.03);
-  var breakeven = monthlySavings > 0 ? Math.round(prepayPenalty / monthlySavings) : 999;
-
+  var monthlySavings, prepayPenalty, breakeven;
   var verdict, verdictClass, verdictText;
-  if (breakeven < 24 && equity75 > 50000) {
-    verdict = 'REFI NOW'; verdictClass = 'green'; verdictText = 'Strong refi candidate \u2014 equity and savings justify moving now';
-  } else if (breakeven <= 36) {
-    verdict = 'WAIT \u2014 CHECK TIMING'; verdictClass = 'yellow'; verdictText = 'Marginal \u2014 timing depends on prepay structure and hold period';
+  var savingsLabel = 'Est. Monthly Payment Savings';
+  var savingsNote = 'vs estimated current 9% rate';
+  var breakevenLabel = 'Prepay Breakeven';
+
+  if (freeAndClear) {
+    // Free & clear — equity deployment opportunity
+    // Estimate cash flow from deploying equity into a new DSCR property
+    // Assume: buy property at equity75 value, 75% LTV, 7.5% rate, rent = 0.8% of value/mo
+    var deployAVM = equity75;
+    var deployRent = Math.round(deployAVM * 0.008);
+    var deployLoan = Math.round(deployAVM * 0.75);
+    var dmr = 0.075 / 12;
+    var deployPmt = deployLoan * (dmr * Math.pow(1+dmr,360)) / (Math.pow(1+dmr,360)-1);
+    var deployCF = Math.round(deployRent - deployPmt - (deployAVM * 0.012 / 12) - 100);
+    monthlySavings = Math.max(deployCF, Math.round(deployRent * 0.4));
+    prepayPenalty = 0;
+    breakeven = 0;
+    verdict = 'REFI NOW';
+    verdictClass = 'green';
+    verdictText = 'Your property is free and clear \u2014 $' + equity75.toLocaleString() + ' in accessible equity ready to deploy';
+    savingsLabel = 'Est. Income from New Acquisition';
+    savingsNote = 'Deploying equity into a new DSCR rental';
+    breakevenLabel = 'Prepay Penalty';
+    refiData.freeAndClear = true;
   } else {
-    verdict = 'NOT WORTH IT'; verdictClass = 'red'; verdictText = 'Breakeven too long or equity insufficient at current values';
+    var mr1 = currentRate / 12, mr2 = newRate / 12;
+    var pmt1 = estBalance * (mr1 * Math.pow(1+mr1,360)) / (Math.pow(1+mr1,360)-1);
+    var pmt2 = estBalance * (mr2 * Math.pow(1+mr2,360)) / (Math.pow(1+mr2,360)-1);
+    monthlySavings = Math.round(pmt1 - pmt2);
+    prepayPenalty = Math.round(estBalance * 0.03);
+    breakeven = monthlySavings > 0 ? Math.round(prepayPenalty / monthlySavings) : 999;
+
+    if (breakeven < 24 && equity75 > 50000) {
+      verdict = 'REFI NOW'; verdictClass = 'green'; verdictText = 'Strong refi candidate \u2014 equity and savings justify moving now';
+    } else if (breakeven <= 36) {
+      verdict = 'WAIT \u2014 CHECK TIMING'; verdictClass = 'yellow'; verdictText = 'Marginal \u2014 timing depends on prepay structure and hold period';
+    } else {
+      verdict = 'NOT WORTH IT'; verdictClass = 'red'; verdictText = 'Breakeven too long or equity insufficient at current values';
+    }
+    refiData.freeAndClear = false;
   }
 
   refiData.equity = equity75;
@@ -411,12 +440,18 @@ async function runRefiAnalysis() {
   document.getElementById('r-equity').textContent = '$' + equity75.toLocaleString();
 
   // Populate Phase 2 (blurred)
+  document.querySelector('#r-savings').parentElement.querySelector('.refi-card-label').textContent = savingsLabel;
   document.getElementById('r-savings').textContent = '$' + monthlySavings.toLocaleString() + '/mo';
-  document.getElementById('r-breakeven').textContent = breakeven + ' months';
+  document.querySelector('#r-savings').parentElement.querySelector('.refi-card-note').textContent = savingsNote;
+  document.querySelector('#r-breakeven').parentElement.querySelector('.refi-card-label').textContent = breakevenLabel;
+  document.getElementById('r-breakeven').textContent = freeAndClear ? 'None' : breakeven + ' months';
   document.getElementById('r-verdict').innerHTML = '<span class="refi-verdict ' + verdictClass + '">' + verdict + '</span><div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:8px">' + verdictText + '</div>';
+  if (freeAndClear) {
+    document.getElementById('r-verdict').innerHTML += '<div style="font-size:13px;color:#f97316;margin-top:8px">Every month you wait is another month this equity sits idle instead of funding your next acquisition.</div>';
+  }
 
   // Pre-fill calculator
-  document.getElementById('calc-balance').value = estBalance;
+  document.getElementById('calc-balance').value = freeAndClear ? 0 : estBalance;
 
   // Show share button
   document.getElementById('refi-share').style.display = 'block';
@@ -517,7 +552,8 @@ async function shareRefiAnalysis() {
         monthly_savings: refiData.savings || 0,
         breakeven: refiData.breakeven || 0,
         verdict: refiData.verdict || '',
-        prepay_months: refiData.breakeven || 0
+        prepay_months: refiData.breakeven || 0,
+        free_and_clear: refiData.freeAndClear || false
       })
     });
     var result = await res.json();
