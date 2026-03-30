@@ -441,13 +441,50 @@ function runPrepayCalc() {
 }
 </script>
 <script>
-function fixPlacesStyle() {
-  var s = document.createElement('style');
-  s.textContent = '.pac-container{background-color:#1a1a1a!important;border:1px solid #B8811E!important;border-radius:6px!important;margin-top:4px!important;font-family:"DM Sans",sans-serif!important;z-index:99999!important}.pac-item{color:#fff!important;border-top:1px solid rgba(255,255,255,0.08)!important;padding:10px 14px!important;cursor:pointer!important;font-size:13px!important}.pac-item:hover,.pac-item-selected{background-color:rgba(184,129,30,0.15)!important}.pac-item-query{color:#B8811E!important;font-size:14px!important}.pac-icon{display:none!important}.pac-matched{color:#fff!important;font-weight:600!important}';
-  document.head.appendChild(s);
-}
-fixPlacesStyle();
-window.addEventListener('load', fixPlacesStyle);
+(function() {
+  function hidePacIcons() {
+    var icons = document.querySelectorAll('.pac-icon, .pac-icon-marker');
+    icons.forEach(function(icon) {
+      icon.style.display = 'none';
+      icon.style.width = '0';
+      icon.style.margin = '0';
+      icon.style.padding = '0';
+    });
+    var container = document.querySelector('.pac-container');
+    if (container) {
+      container.style.backgroundColor = '#1a1a1a';
+      container.style.border = '1px solid #B8811E';
+      container.style.borderRadius = '6px';
+      container.style.zIndex = '99999';
+    }
+    var items = document.querySelectorAll('.pac-item');
+    items.forEach(function(item) {
+      item.style.color = '#ffffff';
+      item.style.padding = '10px 14px';
+      item.style.borderTop = '1px solid rgba(255,255,255,0.08)';
+    });
+    var queries = document.querySelectorAll('.pac-item-query');
+    queries.forEach(function(q) {
+      q.style.color = '#B8811E';
+    });
+  }
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      mutation.addedNodes.forEach(function(node) {
+        if (node.classList && node.classList.contains('pac-container')) {
+          hidePacIcons();
+        }
+      });
+    });
+    hidePacIcons();
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+  document.addEventListener('keyup', function() {
+    setTimeout(hidePacIcons, 50);
+    setTimeout(hidePacIcons, 150);
+    setTimeout(hidePacIcons, 300);
+  });
+})();
 </script>
 </body>
 </html>
