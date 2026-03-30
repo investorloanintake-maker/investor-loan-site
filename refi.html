@@ -184,6 +184,12 @@
     </div>
 
     <!-- CTA -->
+    <!-- Share link -->
+    <div id="refi-share" style="display:none;text-align:center;margin-top:20px;margin-bottom:20px">
+      <button onclick="shareRefiAnalysis()" style="padding:10px 24px;background:rgba(184,129,30,0.12);border:1px solid rgba(184,129,30,0.25);border-radius:6px;color:#d4a843;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;border:1px solid rgba(184,129,30,0.3)">Share This Analysis &rarr;</button>
+      <div id="refi-share-msg" style="display:none;color:#4ade80;font-size:12px;margin-top:8px"></div>
+    </div>
+
     <div class="refi-cta-box">
       <h3>Ready to see if your deal qualifies?</h3>
       <p>Viador Partners reviews every BPL refi file within 24 hours.<br>NMLS #2822744 &middot; chad@viadorpartners.com &middot; (813) 419-2983</p>
@@ -412,6 +418,9 @@ async function runRefiAnalysis() {
   // Pre-fill calculator
   document.getElementById('calc-balance').value = estBalance;
 
+  // Show share button
+  document.getElementById('refi-share').style.display = 'block';
+
   // Scroll to results
   setTimeout(function() { document.getElementById('phase1-cards').scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 300);
 }
@@ -491,6 +500,29 @@ function runPrepayCalc() {
     '<div class="refi-calc-row"><span>Prepay penalty (' + penaltyPct + '%)</span><span style="color:#fc6060">' + fmt(penalty) + '</span></div>' +
     '<div class="refi-calc-row"><span>Months to break even</span><span>' + (penaltyPct === 0 ? '0' : breakeven) + '</span></div>' +
     '<div style="margin-top:12px;padding:10px 14px;border-radius:6px;background:rgba(255,255,255,0.04);text-align:center;font-weight:600;color:' + recColor + '">' + recLabel + '</div>';
+}
+
+function shareRefiAnalysis() {
+  if (!refiData.address) return;
+  var payload = {
+    address: refiData.address,
+    avm: refiData.avm || 0,
+    equity: refiData.equity || 0,
+    savings: refiData.savings || 0,
+    breakeven: refiData.breakeven || 0,
+    verdict: refiData.verdict || '',
+    currentRate: '~9.0%',
+    newRate: '7.25% - 7.75%'
+  };
+  var code = btoa(JSON.stringify(payload));
+  var url = window.location.origin + '/refi-offer.html?c=' + code;
+  navigator.clipboard.writeText(url).then(function() {
+    var msg = document.getElementById('refi-share-msg');
+    msg.style.display = 'block';
+    msg.textContent = 'Link copied to clipboard!';
+  }).catch(function() {
+    prompt('Copy this link:', url);
+  });
 }
 </script>
 </body>
