@@ -99,6 +99,16 @@
     </div>
   </div>
 
+  <!-- Mortgage Balance Input -->
+  <div class="tto-section">
+    <div class="tto-label">Your Current Mortgage</div>
+    <div class="tto-card">
+      <div style="font-size:14px;color:#fff;font-weight:600;margin-bottom:8px">What's your current mortgage balance?</div>
+      <input type="text" id="mortgage-balance" class="tto-debt-input" placeholder="e.g. 285,000" style="width:100%;font-size:16px;padding:12px 14px" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+      <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:6px">Approximate is fine &mdash; you can adjust anytime. Check your last statement for accuracy.</div>
+    </div>
+  </div>
+
   <!-- SECTION 3: Debt Consolidation -->
   <div class="tto-section">
     <div class="tto-label">Add Your High-Interest Debt</div>
@@ -262,6 +272,32 @@ document.getElementById('tto-address').addEventListener('keydown',function(e){
   if(e.key==='Enter'){e.preventDefault();document.getElementById('tto-go').click();}
 });
 
+// Check for offer code on load — pre-populate from KV payload
+(async function(){
+  var p=new URLSearchParams(location.search);
+  var code=p.get('code');
+  if(!code)return;
+  try{
+    var res=await fetch(PROXY+'/offer/'+code);
+    if(!res.ok)return;
+    var payload=await res.json();
+    // Pre-fill from PropStream data
+    if(payload.loan&&payload.loan.balance>0){
+      var mbEl=document.getElementById('mortgage-balance');
+      if(mbEl)mbEl.value=Math.round(payload.loan.balance);
+      D.loan1Rate=payload.loan.rate||9.0;
+    }
+    if(payload.property&&payload.property.address){
+      var addrEl=document.getElementById('tto-address');
+      if(addrEl){
+        addrEl.value=payload.property.address+(payload.property.city?', '+payload.property.city:'')+(payload.property.state?', '+payload.property.state:'');
+        var btn=document.getElementById('tto-go');
+        if(btn){btn.disabled=false;btn.style.opacity='1';}
+      }
+    }
+  }catch(e){console.log('Offer code load error:',e);}
+})();
+
 async function runTermToOwn(){
   var addr=document.getElementById('tto-address').value.trim();
   if(!addr)return;
@@ -297,7 +333,10 @@ async function runTermToOwn(){
 }
 
 function calcTermToOwn(){
-  var curBal=D.balance||200000,curRate=9.0,newRate=7.25;
+  var userBal=parseInt(document.getElementById('mortgage-balance')?.value?.replace(/[^0-9]/g,''))||0;
+  var curBal=userBal>0?userBal:Math.round((D.avm||350000)*0.55);
+  D.balance=curBal;
+  var curRate=D.loan1Rate||9.0,newRate=7.25;
   var cc=parseInt(document.getElementById('d-cc-bal')?.value)||0;
   var ccR=parseFloat(document.getElementById('d-cc-rate')?.value)||22;
   var au=parseInt(document.getElementById('d-auto-bal')?.value)||0;
