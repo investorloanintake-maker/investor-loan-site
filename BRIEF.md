@@ -1,5 +1,5 @@
 # VIADOR PARTNERS — MASTER BRIEF
-**Version 3.9 | Last Updated: 2026-03-30**
+**Version 4.0 | Last Updated: 2026-03-31**
 
 > Load this file at the start of every Claude session.
 > Single source of truth — all platforms and scripts read from viador-data.json
@@ -184,9 +184,9 @@
 ---
 
 ## CONTENT
-- **136+ total pages** live on viascore.ai
+- **148+ total pages** live on viascore.ai
 - **95 programmatic pages** (19 markets × 5 topics)
-- **21 answer pages**, **5 data hubs**, **1 about page**
+- **26 answer pages**, **5 data hubs**, **1 about page**, **1 RSS feed**
 - **7-day Reddit/BP calendar** ready (6 posts copy-paste)
 - **Google Ads structure** written (3 campaigns)
 
@@ -285,6 +285,22 @@
 - Total pages: 118+ (15 answers + 7 data hub + 95 programmatic + index pages)
 - GPT-4o mini switch planned — $0.0005/score vs $0.012 Sonnet, 3-5s vs 14-17s
 - Next session: switch scoring model, deploy cross-market pages, RSS feed, Google Ads
+
+### 2026-03-31
+- /refi rebuilt as "Term to Own" universal wealth calculator (debt consolidation + accelerated payoff)
+- /investor-refi created for PropStream campaign (DSCR language + prepay table + offer code pre-fill)
+- your-analysis.html deployed — personalized property analysis landing page with before/after flip card
+- 50 offer codes generated from Wave 1 distressed list → viador_distressed_wave1_with_codes.xlsx
+- Admin Marketing tab rebuilt: campaign strategy dashboard, 7 campaigns, cohort pipeline, PropStream pull strategy
+- Admin P&L tab rebuilt: 3-scenario proforma, BayFirst 2018 comparison, monthly tracker, personal budget
+- Admin Notes tab rebuilt: platform decision matrix, 6 contact cards, calls checklist
+- Admin Pipeline tab: Client Lifecycle Tracker with flywheel status, trigger alerts, lifetime value
+- 5 cross-market answer pages deployed: cap-rate, cap-rate-vs-coc, dscr-loan, investment-checklist, noi
+- RSS feed live at viascore.ai/feed.xml (11 items)
+- Google Places autocomplete on /refi and /investor-refi
+- Mortgage balance + current rate inputs on both refi pages
+- Total viascore.ai pages: 148+
+- Next: Bing Webmaster Tools, GSC indexing on all new pages, Reddit post 1, DSCR Second Mortgage option
 
 ### 2026-03-29 / 2026-03-30 (Marathon Session)
 - GPT-4o mini scoring model deployed — switched from Claude Sonnet to OpenAI ($0.0005/score)
