@@ -183,6 +183,112 @@
       <div class="refi-calc-result" id="calc-result"></div>
     </div>
 
+    <!-- Term to Own Calculator -->
+    <div id="tto-section" style="display:none;margin-top:40px">
+      <div style="margin-bottom:20px">
+        <div style="font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--gold);margin-bottom:6px">Term to Own</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.6;max-width:540px">Roll your high-interest debt into your refi, apply the savings to principal, and own your investment free and clear years sooner &mdash; at a lower blended rate than you're paying today.</div>
+      </div>
+
+      <!-- Step 1: Debt Input -->
+      <div style="background:#1a1c24;border:1px solid rgba(184,129,30,0.15);border-radius:10px;padding:20px;margin-bottom:16px">
+        <div style="font-size:12px;color:var(--gold);font-weight:600;margin-bottom:14px">Add any high-interest debt to consolidate</div>
+        <div style="display:grid;grid-template-columns:1fr 2fr 1fr;gap:8px;align-items:center;margin-bottom:8px">
+          <div style="font-size:12px;color:rgba(255,255,255,0.5)">Credit Cards</div>
+          <input type="text" id="tto-cc-bal" placeholder="Balance" style="padding:8px 10px;background:#fff;border:1px solid rgba(0,0,0,0.15);border-radius:6px;color:#1a1a1a;font-size:14px;outline:none" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+          <div style="display:flex;align-items:center;gap:4px"><span style="font-size:12px;color:rgba(255,255,255,0.4)">at</span><input type="text" id="tto-cc-rate" value="22" style="width:50px;padding:8px 6px;background:#fff;border:1px solid rgba(0,0,0,0.15);border-radius:6px;color:#1a1a1a;font-size:14px;outline:none;text-align:center"><span style="font-size:12px;color:rgba(255,255,255,0.4)">%</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 2fr 1fr;gap:8px;align-items:center;margin-bottom:8px">
+          <div style="font-size:12px;color:rgba(255,255,255,0.5)">Auto / Business</div>
+          <input type="text" id="tto-auto-bal" placeholder="Balance" style="padding:8px 10px;background:#fff;border:1px solid rgba(0,0,0,0.15);border-radius:6px;color:#1a1a1a;font-size:14px;outline:none" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+          <div style="display:flex;align-items:center;gap:4px"><span style="font-size:12px;color:rgba(255,255,255,0.4)">at</span><input type="text" id="tto-auto-rate" value="8" style="width:50px;padding:8px 6px;background:#fff;border:1px solid rgba(0,0,0,0.15);border-radius:6px;color:#1a1a1a;font-size:14px;outline:none;text-align:center"><span style="font-size:12px;color:rgba(255,255,255,0.4)">%</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 2fr 1fr;gap:8px;align-items:center;margin-bottom:14px">
+          <div style="font-size:12px;color:rgba(255,255,255,0.5)">Other Debt</div>
+          <input type="text" id="tto-other-bal" placeholder="Balance" style="padding:8px 10px;background:#fff;border:1px solid rgba(0,0,0,0.15);border-radius:6px;color:#1a1a1a;font-size:14px;outline:none" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+          <div style="display:flex;align-items:center;gap:4px"><span style="font-size:12px;color:rgba(255,255,255,0.4)">at</span><input type="text" id="tto-other-rate" value="0" style="width:50px;padding:8px 6px;background:#fff;border:1px solid rgba(0,0,0,0.15);border-radius:6px;color:#1a1a1a;font-size:14px;outline:none;text-align:center"><span style="font-size:12px;color:rgba(255,255,255,0.4)">%</span></div>
+        </div>
+        <button onclick="runTTO()" style="padding:12px 24px;background:var(--gold);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">Calculate My Full Picture &rarr;</button>
+      </div>
+
+      <!-- Step 2: Results (hidden until calculate) -->
+      <div id="tto-results" style="display:none">
+
+        <!-- Card 1: Blended Rate Comparison -->
+        <div style="background:#1a1c24;border:1px solid rgba(184,129,30,0.15);border-radius:10px;padding:20px;margin-bottom:16px">
+          <div style="font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px">Blended Rate Comparison</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+            <div style="background:rgba(192,57,43,0.08);border:1px solid rgba(192,57,43,0.2);border-radius:8px;padding:14px">
+              <div style="font-size:10px;color:#e74c3c;font-weight:700;text-transform:uppercase;margin-bottom:8px">Before</div>
+              <div id="tto-before-items" style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.8"></div>
+              <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:8px;margin-top:8px">
+                <div style="font-size:12px;color:rgba(255,255,255,0.5)">Total monthly out</div>
+                <div style="font-family:monospace;font-size:18px;font-weight:700;color:#e74c3c" id="tto-before-total"></div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px">Blended rate: <span id="tto-before-blend" style="color:#e74c3c;font-weight:700"></span></div>
+              </div>
+            </div>
+            <div style="background:rgba(39,102,74,0.08);border:1px solid rgba(39,102,74,0.2);border-radius:8px;padding:14px">
+              <div style="font-size:10px;color:#4ade80;font-weight:700;text-transform:uppercase;margin-bottom:8px">After Refi</div>
+              <div id="tto-after-items" style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.8"></div>
+              <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:8px;margin-top:8px">
+                <div style="font-size:12px;color:rgba(255,255,255,0.5)">Total monthly out</div>
+                <div style="font-family:monospace;font-size:18px;font-weight:700;color:#4ade80" id="tto-after-total"></div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px">Blended rate: <span id="tto-after-blend" style="color:#4ade80;font-weight:700"></span></div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center;padding:12px;background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.12);border-radius:8px">
+            <div style="font-size:16px;font-weight:700;color:#4ade80" id="tto-blend-headline"></div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px" id="tto-savings-headline"></div>
+          </div>
+        </div>
+
+        <!-- Card 2: Term to Own (accelerated payoff) -->
+        <div style="background:#1a1c24;border:1px solid rgba(184,129,30,0.15);border-radius:10px;padding:20px;margin-bottom:16px">
+          <div style="font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px">Accelerated Payoff</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+            <div style="font-size:12px;color:rgba(255,255,255,0.5);min-width:180px">Apply to principal each month:</div>
+            <input type="range" id="tto-extra-slider" min="0" max="1000" step="25" value="0" oninput="updateTTO()" style="flex:1;accent-color:var(--gold)">
+            <div style="font-family:monospace;font-size:14px;font-weight:600;color:var(--gold);min-width:70px;text-align:right" id="tto-extra-val">$0</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:12px;text-align:center">
+              <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-bottom:4px">STANDARD PAYOFF</div>
+              <div style="font-family:monospace;font-size:16px;font-weight:700;color:rgba(255,255,255,0.5)" id="tto-standard-date">30 years</div>
+            </div>
+            <div style="background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.12);border-radius:8px;padding:12px;text-align:center">
+              <div style="font-size:10px;color:#4ade80;margin-bottom:4px">YOUR ACCELERATED PAYOFF</div>
+              <div style="font-family:monospace;font-size:16px;font-weight:700;color:#4ade80" id="tto-accel-date">30 years</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;margin-bottom:12px">
+            <div style="flex:1;text-align:center"><div style="font-size:10px;color:rgba(255,255,255,0.4)">YEARS SAVED</div><div style="font-family:monospace;font-size:22px;font-weight:700;color:#4ade80" id="tto-years-saved">0</div></div>
+            <div style="flex:1;text-align:center"><div style="font-size:10px;color:rgba(255,255,255,0.4)">INTEREST SAVED</div><div style="font-family:monospace;font-size:22px;font-weight:700;color:#4ade80" id="tto-interest-saved">$0</div></div>
+          </div>
+          <!-- Timeline bar -->
+          <div style="position:relative;height:8px;background:#333;border-radius:4px;overflow:hidden;margin-top:8px">
+            <div id="tto-timeline-accel" style="position:absolute;left:0;top:0;height:100%;background:#4ade80;border-radius:4px;transition:width 0.3s;width:100%"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px"><span>Now</span><span id="tto-timeline-label">Accelerated payoff</span><span>30yr standard</span></div>
+        </div>
+
+        <!-- Card 3: Summary Box -->
+        <div style="background:#1a1c24;border:2px solid var(--gold);border-radius:10px;padding:20px;margin-bottom:16px">
+          <div style="font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px">Your Term to Own Picture</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px">
+            <div style="color:rgba(255,255,255,0.5)">Monthly savings:</div><div style="color:#4ade80;font-weight:600;text-align:right" id="tto-sum-savings"></div>
+            <div style="color:rgba(255,255,255,0.5)">Apply to principal:</div><div style="color:var(--gold);font-weight:600;text-align:right" id="tto-sum-extra"></div>
+            <div style="grid-column:1/-1;height:1px;background:rgba(255,255,255,0.06);margin:4px 0"></div>
+            <div style="color:rgba(255,255,255,0.5)">Payoff date:</div><div style="color:#fff;font-weight:600;text-align:right" id="tto-sum-date"></div>
+            <div style="color:rgba(255,255,255,0.5)">Years saved:</div><div style="color:#4ade80;font-weight:600;text-align:right" id="tto-sum-years"></div>
+            <div style="color:rgba(255,255,255,0.5)">Total interest saved:</div><div style="color:#4ade80;font-weight:600;text-align:right" id="tto-sum-interest"></div>
+            <div style="color:rgba(255,255,255,0.5)">Blended rate:</div><div style="color:var(--gold);font-weight:600;text-align:right" id="tto-sum-blend"></div>
+          </div>
+          <button onclick="document.getElementById('refi-gate')?.classList?.contains('hidden')?document.querySelector('.refi-cta-box').scrollIntoView({behavior:'smooth'}):document.getElementById('refi-email')?.focus()" style="width:100%;margin-top:14px;padding:14px;background:var(--gold);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">Get My Term to Own Analysis &rarr;</button>
+        </div>
+      </div>
+    </div>
+
     <!-- CTA -->
     <!-- Share link -->
     <div id="refi-share" style="display:none;text-align:center;margin-top:20px;margin-bottom:20px">
@@ -455,6 +561,7 @@ async function runRefiAnalysis() {
 
   // Show share button
   document.getElementById('refi-share').style.display = 'block';
+  document.getElementById('tto-section').style.display = 'block';
 
   // Scroll to results
   setTimeout(function() { document.getElementById('phase1-cards').scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 300);
@@ -484,6 +591,112 @@ function unlockRefi() {
       lead_source: 'refi-analyzer'
     })
   }).catch(function(e) { console.log('HubSpot error (non-fatal):', e); });
+}
+
+// ── Term to Own Calculator ──
+var ttoData = {};
+function runTTO() {
+  var curBal = refiData.avm ? Math.round(refiData.avm * 0.65) : parseInt(document.getElementById('calc-balance')?.value) || 200000;
+  var curRate = 9.0;
+  var newRate = 7.25;
+  var ccBal = parseInt(document.getElementById('tto-cc-bal')?.value) || 0;
+  var ccRate = parseFloat(document.getElementById('tto-cc-rate')?.value) || 22;
+  var autoBal = parseInt(document.getElementById('tto-auto-bal')?.value) || 0;
+  var autoRate = parseFloat(document.getElementById('tto-auto-rate')?.value) || 8;
+  var otherBal = parseInt(document.getElementById('tto-other-bal')?.value) || 0;
+  var otherRate = parseFloat(document.getElementById('tto-other-rate')?.value) || 0;
+
+  var totalDebt = curBal + ccBal + autoBal + otherBal;
+  var weightedInt = (curBal * curRate / 100) + (ccBal * ccRate / 100) + (autoBal * autoRate / 100) + (otherBal * otherRate / 100);
+  var blendedBefore = totalDebt > 0 ? (weightedInt / totalDebt) * 100 : curRate;
+
+  var newLoanAmt = totalDebt;
+  var mr = newRate / 100 / 12;
+  var newPmt = newLoanAmt * mr / (1 - Math.pow(1 + mr, -360));
+
+  // Current monthly payments (mortgage + min payments on debts)
+  var curMR = curRate / 100 / 12;
+  var curMortPmt = curBal * curMR / (1 - Math.pow(1 + curMR, -360));
+  var ccMinPmt = ccBal > 0 ? Math.max(ccBal * 0.02, 25) : 0; // 2% min or $25
+  var autoMinPmt = autoBal > 0 ? autoBal * (autoRate / 100 / 12) / (1 - Math.pow(1 + autoRate / 100 / 12, -60)) : 0; // 5yr auto
+  var otherMinPmt = otherBal > 0 ? otherBal * 0.03 : 0;
+  var curTotalMonthly = curMortPmt + ccMinPmt + autoMinPmt + otherMinPmt;
+
+  var monthlySavings = Math.round(curTotalMonthly - newPmt);
+
+  ttoData = { curBal, curRate, newRate, newLoanAmt, newPmt, curTotalMonthly, monthlySavings, blendedBefore, ccBal, ccRate, autoBal, autoRate, otherBal, otherRate, curMortPmt, ccMinPmt, autoMinPmt, otherMinPmt };
+
+  var fmt = function(n) { return '$' + Math.abs(Math.round(n)).toLocaleString(); };
+
+  // Before items
+  var beforeHTML = 'Mortgage: ' + fmt(curBal) + ' @ ' + curRate + '%<br>';
+  if (ccBal > 0) beforeHTML += 'Credit cards: ' + fmt(ccBal) + ' @ ' + ccRate + '%<br>';
+  if (autoBal > 0) beforeHTML += 'Auto/Business: ' + fmt(autoBal) + ' @ ' + autoRate + '%<br>';
+  if (otherBal > 0) beforeHTML += 'Other: ' + fmt(otherBal) + ' @ ' + otherRate + '%<br>';
+  document.getElementById('tto-before-items').innerHTML = beforeHTML;
+  document.getElementById('tto-before-total').textContent = fmt(curTotalMonthly) + '/mo';
+  document.getElementById('tto-before-blend').textContent = blendedBefore.toFixed(1) + '%';
+
+  var afterHTML = 'New mortgage: ' + fmt(newLoanAmt) + ' @ ' + newRate + '%<br>';
+  if (ccBal + autoBal + otherBal > 0) afterHTML += 'All other debt: $0 (consolidated)<br>';
+  document.getElementById('tto-after-items').innerHTML = afterHTML;
+  document.getElementById('tto-after-total').textContent = fmt(newPmt) + '/mo';
+  document.getElementById('tto-after-blend').textContent = newRate.toFixed(2) + '%';
+
+  document.getElementById('tto-blend-headline').textContent = 'Blended rate drops from ' + blendedBefore.toFixed(1) + '% to ' + newRate + '%';
+  document.getElementById('tto-savings-headline').textContent = monthlySavings > 0 ? 'You save ~' + fmt(monthlySavings) + '/mo immediately' : 'Payment stays similar — but at a fixed 30yr rate';
+
+  // Set slider max
+  var slider = document.getElementById('tto-extra-slider');
+  slider.max = Math.max(monthlySavings, 100);
+  slider.value = Math.round(Math.max(monthlySavings, 0) * 0.5);
+
+  document.getElementById('tto-results').style.display = 'block';
+  updateTTO();
+  document.getElementById('tto-results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateTTO() {
+  if (!ttoData.newLoanAmt) return;
+  var extra = parseInt(document.getElementById('tto-extra-slider')?.value) || 0;
+  var fmt = function(n) { return '$' + Math.abs(Math.round(n)).toLocaleString(); };
+  document.getElementById('tto-extra-val').textContent = fmt(extra);
+
+  var r = ttoData.newRate / 100 / 12;
+  var totalPmt = ttoData.newPmt + extra;
+  var monthsToPayoff = 360;
+  if (extra > 0 && totalPmt > ttoData.newLoanAmt * r) {
+    monthsToPayoff = Math.ceil(-Math.log(1 - (ttoData.newLoanAmt * r) / totalPmt) / Math.log(1 + r));
+    if (isNaN(monthsToPayoff) || monthsToPayoff < 0) monthsToPayoff = 360;
+  }
+
+  var standardDate = new Date(); standardDate.setMonth(standardDate.getMonth() + 360);
+  var accelDate = new Date(); accelDate.setMonth(accelDate.getMonth() + monthsToPayoff);
+  var yearsSaved = Math.round((360 - monthsToPayoff) / 12 * 10) / 10;
+  var monthsSaved = (360 - monthsToPayoff) % 12;
+
+  var standardInterest = (ttoData.newPmt * 360) - ttoData.newLoanAmt;
+  var accelInterest = (totalPmt * monthsToPayoff) - ttoData.newLoanAmt;
+  var interestSaved = Math.max(0, standardInterest - accelInterest);
+
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  document.getElementById('tto-standard-date').textContent = months[standardDate.getMonth()] + ' ' + standardDate.getFullYear();
+  document.getElementById('tto-accel-date').textContent = months[accelDate.getMonth()] + ' ' + accelDate.getFullYear();
+  document.getElementById('tto-years-saved').textContent = yearsSaved > 0 ? yearsSaved.toFixed(1) + ' yrs' : '0';
+  document.getElementById('tto-interest-saved').textContent = fmt(interestSaved);
+
+  // Timeline bar
+  var pct = Math.round((monthsToPayoff / 360) * 100);
+  document.getElementById('tto-timeline-accel').style.width = pct + '%';
+  document.getElementById('tto-timeline-label').textContent = monthsToPayoff < 360 ? months[accelDate.getMonth()] + ' ' + accelDate.getFullYear() : 'Same as standard';
+
+  // Summary
+  document.getElementById('tto-sum-savings').textContent = ttoData.monthlySavings > 0 ? fmt(ttoData.monthlySavings) + '/mo' : '$0/mo';
+  document.getElementById('tto-sum-extra').textContent = fmt(extra) + '/mo';
+  document.getElementById('tto-sum-date').textContent = months[accelDate.getMonth()] + ' ' + accelDate.getFullYear();
+  document.getElementById('tto-sum-years').textContent = yearsSaved > 0 ? yearsSaved.toFixed(1) + ' years sooner' : 'Standard 30yr';
+  document.getElementById('tto-sum-interest').textContent = fmt(interestSaved);
+  document.getElementById('tto-sum-blend').textContent = ttoData.blendedBefore.toFixed(1) + '% \u2192 ' + ttoData.newRate + '%';
 }
 
 function runPrepayCalc() {
