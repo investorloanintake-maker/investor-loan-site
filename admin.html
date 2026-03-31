@@ -1522,6 +1522,52 @@
   <div class="tab-panel" id="tab-notes">
   <div class="dash-body">
 
+    <!-- TODAY'S WINS -->
+    <details open style="background:rgba(184,129,30,0.08);border:2px solid rgba(184,129,30,0.3);border-radius:8px;padding:0;margin-bottom:20px">
+      <summary style="padding:14px 16px;cursor:pointer;font-size:14px;font-weight:700;color:#B8811E;list-style:none;display:flex;align-items:center;gap:8px">&#127942; TODAY'S WINS &mdash; March 31, 2026</summary>
+      <div style="padding:0 16px 16px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <div style="font-size:11px;color:#B8811E;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">SEO &amp; Content</div>
+          <div style="font-size:12px;color:#E8E8E8;line-height:1.8">
+            &#10003; Bing Webmaster &mdash; all 3 domains verified<br>
+            <span style="color:#888;margin-left:16px">viascore.ai: 131 URLs | viadorpartners.com: 92 URLs | viadormarkets.com: 14 URLs</span><br>
+            &#10003; ChatGPT citation window opens April 7-14<br>
+            &#10003; viascore.ai &mdash; 148+ pages live incl. /answers/ hub<br>
+            &#10003; 10 content pages live on viadorpartners.com<br>
+            <span style="color:#888;margin-left:16px">tampa-dscr, florida-dscr, ohio-dscr, rates-2026, dscr-vs-conventional, requirements, no-income, tampa-market, fix-flip-fl, how-to-calc-dscr</span><br>
+            &#10003; RSS feed live on viascore.ai<br>
+            &#10003; Reddit u/ViaScore created &mdash; aging (2 weeks)<br>
+            &#10003; ATTOM API + HouseCanary identified as AVM upgrades
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;color:#B8811E;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Revenue &amp; Leads</div>
+          <div style="font-size:12px;color:#E8E8E8;line-height:1.8">
+            &#10003; 703 rate urgency leads scored<br>
+            <span style="color:#888;margin-left:16px">Hillsborough 324 + Pinellas 379</span><br>
+            &#10003; Wave 2 Top 50 exported<br>
+            <span style="color:#888;margin-left:16px">Avg savings: $1,056/mo | Avg equity: $607K</span><br>
+            &#10003; Term to Own page live (/refi)<br>
+            &#10003; Investor Refi page live (/investor-refi)<br>
+            &#10003; DSCR Second Mortgage product identified<br>
+            <span style="color:#888;margin-left:16px">Deephaven Equity Advantage &mdash; ~9.25% | 2.00% + $695</span><br>
+            <span style="color:#888;margin-left:16px">Unlocks 9,078 equity deployer leads</span><br>
+            &#10003; BPL state eligibility &mdash; FL LLC leads eligible NOW<br>
+            &#10003; Platform decision matrix complete<br>
+            &#10003; Deephaven full product stack mapped
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Rate Watch Box -->
+    <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.3);border-radius:8px;padding:14px 16px;margin-bottom:20px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;align-items:center">
+      <div><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px">DSCR Market Rate</div><input type="text" id="rw-dscr" value="6.25" onchange="saveRateWatch()" style="background:#0D0F12;border:1px solid #333;border-radius:4px;color:#B8811E;padding:4px 6px;width:60px;font-size:14px;font-weight:700;text-align:center"><span style="color:#888;font-size:12px"> %</span></div>
+      <div><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px">DSCR Second Rate</div><input type="text" id="rw-second" value="9.25" onchange="saveRateWatch()" style="background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:4px 6px;width:60px;font-size:14px;font-weight:700;text-align:center"><span style="color:#888;font-size:12px"> %</span></div>
+      <div><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px">Refi Trigger</div><div style="font-size:12px;color:#4ade80">Market &le; 6.0%</div></div>
+      <div><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px">Next Rate Check</div><input type="date" id="rw-next" onchange="saveRateWatch()" style="background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:4px 6px;font-size:11px"></div>
+    </div>
+
     <!-- SECTION 1: Platform Decision -->
     <div class="section-head"><span class="section-label">Origination Platform Decision</span><div class="section-line"></div></div>
     <div style="display:inline-block;padding:3px 10px;border-radius:10px;font-size:10px;font-weight:700;background:#92400e;color:#fde68a;margin-bottom:12px">PENDING &mdash; Decision needed before first loan closes</div>
@@ -1577,8 +1623,8 @@
       </div>
     </div>
 
-    <!-- SECTION 3: Calls to Make -->
-    <div class="section-head"><span class="section-label">Calls to Make</span><div class="section-line"></div></div>
+    <!-- SECTION 3: Next Steps -->
+    <div class="section-head"><span class="section-label">Next Steps</span><div class="section-line"></div></div>
     <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;margin-bottom:24px">
       <div id="notes-checklist" style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#E8E8E8"></div>
     </div>
@@ -1876,16 +1922,39 @@
     document.getElementById('cl-avg-rev').textContent=cls.length>0?fmt(Math.round(totalRev/cls.length)):'$0';
   }
 
+  // ── Rate Watch persistence ──
+  function saveRateWatch(){
+    var d={dscr:document.getElementById('rw-dscr')?.value||'6.25',second:document.getElementById('rw-second')?.value||'9.25',next:document.getElementById('rw-next')?.value||''};
+    localStorage.setItem('viador_rate_watch',JSON.stringify(d));
+  }
+  function loadRateWatch(){
+    try{var d=JSON.parse(localStorage.getItem('viador_rate_watch'))||{};
+    if(d.dscr){var e=document.getElementById('rw-dscr');if(e)e.value=d.dscr;}
+    if(d.second){var e2=document.getElementById('rw-second');if(e2)e2.value=d.second;}
+    if(d.next){var e3=document.getElementById('rw-next');if(e3)e3.value=d.next;}
+    }catch(e){}
+  }
+
   // ── Notes Tab: Calls Checklist ──
   var NOTES_CHECKS_KEY = 'viador_notes_checks';
   var notesCheckItems = [
-    'Call Paul Blaylock \u2014 LoanFlight comp, brand, DSCR products, OBA policy',
-    'Message Ed Stratton (LinkedIn) \u2014 Luminate structure, peer to peer',
-    'Sign FHM agreement with non-solicitation amendment (exclude PropStream pipeline)',
-    'Start UMortgage Go Broker application',
-    'Call Keith Brewer \u2014 Presidential OBA policy',
-    'Schedule NMLS Prometric exam (Prometric.com)',
-    'Register sending subdomain for email warm-up'
+    '\ud83d\udd34 Deploy 5 pending SEO pages + resubmit Bing sitemap',
+    '\ud83d\udd34 Call Paul Blaylock \u2014 LoanFlight comp + brand + DSCR',
+    '\ud83d\udd34 Message Ed Stratton \u2014 Luminate structure (LinkedIn)',
+    '\ud83d\udd34 Schedule NMLS Prometric exam (prometric.com)',
+    '\ud83d\udd34 Google Ads campaign live ($900/mo)',
+    '\ud83d\udd34 Register sending subdomain for email warm-up',
+    '\ud83d\udd34 BiggerPockets first post',
+    '\ud83d\udd34 ATTOM free trial \u2014 test AVM accuracy',
+    '\ud83d\udd34 Wikidata entity \u2014 establish Viador as AI entity',
+    '\ud83d\udfe1 Pull Pasco owner-occupied 7%+ leads',
+    '\ud83d\udfe1 Pull Manatee + Sarasota rate urgency',
+    '\ud83d\udfe1 Generate Wave 2 offer codes (Top 50)',
+    '\ud83d\udfe1 Sign FHM agreement with non-solicitation amendment',
+    '\ud83d\udfe1 Apply Lima One + Visio broker approval',
+    '\ud83d\udfe1 Start UMortgage Go Broker application',
+    '\ud83d\udfe1 Wikidata entity creation (30 min)',
+    '\ud83d\udfe1 Medium article 1 \u2014 publish'
   ];
   function initNotesChecklist() {
     var el = document.getElementById('notes-checklist');
@@ -1986,7 +2055,7 @@
     loadCampStatuses();
     initMktChecklist();
     loadPL();initMT();calcPF();
-    initNotesChecklist();
+    initNotesChecklist();loadRateWatch();
     var mr=localStorage.getItem('viador_market_rate');if(mr){var el=document.getElementById('cl-market-rate');if(el)el.value=mr;}
     renderClients();
   }
