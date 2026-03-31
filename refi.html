@@ -204,6 +204,22 @@
 
 <script src="script.js"></script>
 <script>
+function initAutocomplete(){
+  var input=document.getElementById('tto-address');
+  if(!input||!window.google||!google.maps||!google.maps.places)return;
+  var ac=new google.maps.places.Autocomplete(input,{types:['address'],componentRestrictions:{country:'us'}});
+  ac.addListener('place_changed',function(){
+    var place=ac.getPlace();
+    if(place&&place.formatted_address){
+      input.value=place.formatted_address;
+      var btn=document.getElementById('tto-go');
+      if(btn){btn.disabled=false;btn.style.opacity='1';}
+    }
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSEIZTzvhi03BeXx9pGZV_o7oJEu2gAV8&libraries=places&callback=initAutocomplete" async defer></script>
+<script>
 var PROXY='https://viador-ai-proxy.chad-7f6.workers.dev';
 var D={avm:0,equity:0,balance:0};
 var fmt=function(n){return'$'+Math.abs(Math.round(n)).toLocaleString()};
