@@ -1497,20 +1497,83 @@
   <!-- ═══ TAB: Notes ═══ -->
   <div class="tab-panel" id="tab-notes">
   <div class="dash-body">
-    <div class="section-head">
-      <span class="section-label">Notes &amp; Priorities</span>
-      <div class="section-line"></div>
+
+    <!-- SECTION 1: Platform Decision -->
+    <div class="section-head"><span class="section-label">Origination Platform Decision</span><div class="section-line"></div></div>
+    <div style="display:inline-block;padding:3px 10px;border-radius:10px;font-size:10px;font-weight:700;background:#92400e;color:#fde68a;margin-bottom:12px">PENDING &mdash; Decision needed before first loan closes</div>
+    <div style="overflow-x:auto">
+    <table class="data-table" style="font-size:11px">
+      <thead><tr><th>Option</th><th>Charter</th><th>DSCR</th><th>Brand</th><th>OBA</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td style="color:#E8E8E8;font-weight:600">UMortgage Go Broker</td><td>Non-bank</td><td style="color:#4ade80">&#10003;</td><td style="color:#4ade80">&#10003; Viador</td><td style="color:#4ade80">&#10003;</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#2d6a4f;color:#a7f3d0">APPLY &mdash; 275bps-$995</span></td></tr>
+        <tr><td style="color:#E8E8E8;font-weight:600">FHM (Jason McBride)</td><td>Non-bank</td><td style="color:#4ade80">&#10003;</td><td style="color:#4ade80">&#10003; Viador</td><td style="color:#4ade80">&#10003;</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#92400e;color:#fde68a">SIGNED &mdash; pending amendment</span></td></tr>
+        <tr><td style="color:#E8E8E8;font-weight:600">Luminate Bank</td><td style="color:#4ade80">FDIC bank</td><td style="color:#4ade80">&#10003;</td><td style="color:#888">Ask Ed</td><td style="color:#888">Unknown</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:rgba(184,129,30,0.3);color:#B8811E">CALL Ed Stratton</span></td></tr>
+        <tr><td style="color:#E8E8E8;font-weight:600">LoanFlight (Paul Blaylock)</td><td>Non-bank</td><td style="color:#4ade80">&#10003;</td><td style="color:#4ade80">Likely &#10003;</td><td style="color:#4ade80">Likely &#10003;</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#166534;color:#4ade80">PRIORITY CALL</span></td></tr>
+        <tr><td style="color:#E8E8E8;font-weight:600">Cogent Bank (Brandon Roth)</td><td style="color:#4ade80">FDIC bank</td><td style="color:#fc6060">&#10007;</td><td style="color:#888">By-book</td><td style="color:#888">Unclear</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#333;color:#888">No DSCR &mdash; relationship</span></td></tr>
+        <tr><td style="color:#E8E8E8;font-weight:600">Presidential (Keith Brewer)</td><td style="color:#4ade80">FDIC bank</td><td style="color:#888">Unknown</td><td style="color:#888">Unknown</td><td style="color:#888">OBA likely OK</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#333;color:#888">Worth asking</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div style="background:rgba(184,129,30,0.08);border:1px solid rgba(184,129,30,0.2);border-radius:8px;padding:14px;margin:12px 0 24px;font-size:12px;color:#E8E8E8;line-height:1.6">
+      <strong style="color:#B8811E">FDIC bank = federal NMLS registration only</strong>, no individual state licenses. Key for team scaling. LoanFlight + UMortgage = state-by-state but full brand independence.
     </div>
 
-    <div class="notes-feed" id="notes-feed">
-      <div style="text-align:center;color:var(--text-dim);padding:20px">Connect Google Sheet to see notes</div>
+    <!-- SECTION 2: Key Contacts -->
+    <div class="section-head"><span class="section-label">Key Contacts</span><div class="section-line"></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px">
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#B8811E">Paul Blaylock</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#166534;color:#4ade80">PRIORITY CALL</span></div>
+        <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">LoanFlight Lending (owner) &middot; NMLS #1522344</div>
+        <div style="font-size:11px;color:#888;line-height:1.6">Tampa, FL &mdash; same city. Prior working relationship. Privately held, tech-forward, DSCR confirmed. Likely flexible on Viador brand + OBA. SE + Midwest + Mid-Atlantic + CA licensed.</div>
+      </div>
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#B8811E">Ed Stratton</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:rgba(184,129,30,0.3);color:#B8811E">CALL THIS WEEK</span></div>
+        <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">Luminate Bank &middot; Cape Coral, FL</div>
+        <div style="font-size:11px;color:#888;line-height:1.6">Good prior relationship. Stud producer. Under Shawn Fewell. Luminate FDIC = 50-state, federal reg only. Need to confirm: comp model, Viador brand, OBA policy on viascore.ai.</div>
+      </div>
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#B8811E">Jason McBride</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#92400e;color:#fde68a">AGREEMENT PENDING</span></div>
+        <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">Focus Home Mortgage (CEO) &middot; 614-362-8801 ext 2</div>
+        <div style="font-size:11px;color:#888;line-height:1.6">Call completed Mar 30. MLO agreement in hand: 100bps broker / 150bps non-del. FHM not yet FL licensed. Non-solicitation clause needs amendment to exclude PropStream pipeline.</div>
+      </div>
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#B8811E">Keith Brewer</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#1e3a5f;color:#60a5fa">WARM &mdash; EXPLORE</span></div>
+        <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">Presidential Bank</div>
+        <div style="font-size:11px;color:#888;line-height:1.6">Close former colleague. Runs branch AND independent insurance company &mdash; signals bank flexible on OBA. Unknown if Presidential does net branch. Worth one conversation.</div>
+      </div>
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#888">Brandon Roth</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#333;color:#888">RELATIONSHIP ONLY</span></div>
+        <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">Cogent Bank (Tampa)</div>
+        <div style="font-size:11px;color:#888;line-height:1.6">Recruited Chad to BayFirst 2018. Strong relationship. Conservative FDIC bank &mdash; no DSCR or non-QM visible. Valuable for conventional referrals and future product expansion.</div>
+      </div>
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#888">Shawn Fewell</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#8b1a1a;color:#fca5a5">AVOID DIRECT</span></div>
+        <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">Luminate Bank (recruiter)</div>
+        <div style="font-size:11px;color:#888;line-height:1.6">Ed Stratton and Chris Fewell both work under him. Do NOT approach directly &mdash; he clips an override on recruited production. Go through Ed or Luminate corporate.</div>
+      </div>
     </div>
 
-    <div class="notes-box">
-      <div class="notes-label">Quick Note (saved locally)</div>
-      <textarea id="notes" placeholder="What are you focused on this week? Key deals, outreach targets, content ideas..."></textarea>
-      <div class="notes-saved" id="notes-saved">Saved</div>
+    <!-- SECTION 3: Calls to Make -->
+    <div class="section-head"><span class="section-label">Calls to Make</span><div class="section-line"></div></div>
+    <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;margin-bottom:24px">
+      <div id="notes-checklist" style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#E8E8E8"></div>
     </div>
+
+    <!-- SECTION 4: Master Brief Status -->
+    <div style="background:rgba(184,129,30,0.08);border:2px solid rgba(184,129,30,0.3);border-radius:8px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div><span style="font-size:16px">&#9888;&#65039;</span> <strong style="color:#B8811E">Master Brief v3.0 needs update</strong><span style="font-size:12px;color:#888;display:block;margin-top:2px">Platform decision, lender contacts, and PropStream pull strategy added March 31.</span></div>
+      <a href="BRIEF.md" style="padding:8px 16px;background:var(--gold);color:#fff;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap">View Brief &rarr;</a>
+    </div>
+
+    <!-- Quick Note (kept from original) -->
+    <div style="margin-top:24px">
+      <div class="notes-box">
+        <div class="notes-label">Quick Note (saved locally)</div>
+        <textarea id="notes" placeholder="What are you focused on this week? Key deals, outreach targets, content ideas..."></textarea>
+        <div class="notes-saved" id="notes-saved">Saved</div>
+      </div>
+    </div>
+
   </div>
   </div>
 
@@ -1729,6 +1792,37 @@
     initMktChecklist();
   }
 
+  // ── Notes Tab: Calls Checklist ──
+  var NOTES_CHECKS_KEY = 'viador_notes_checks';
+  var notesCheckItems = [
+    'Call Paul Blaylock \u2014 LoanFlight comp, brand, DSCR products, OBA policy',
+    'Message Ed Stratton (LinkedIn) \u2014 Luminate structure, peer to peer',
+    'Sign FHM agreement with non-solicitation amendment (exclude PropStream pipeline)',
+    'Start UMortgage Go Broker application',
+    'Call Keith Brewer \u2014 Presidential OBA policy',
+    'Schedule NMLS Prometric exam (Prometric.com)',
+    'Register sending subdomain for email warm-up'
+  ];
+  function initNotesChecklist() {
+    var el = document.getElementById('notes-checklist');
+    if (!el) return;
+    var saved = {}; try { saved = JSON.parse(localStorage.getItem(NOTES_CHECKS_KEY)) || {}; } catch(e) {}
+    el.innerHTML = '';
+    notesCheckItems.forEach(function(item, i) {
+      var checked = saved['nc-'+i] ? 'checked' : '';
+      var lbl = document.createElement('label');
+      lbl.style.cssText = 'display:flex;align-items:center;gap:8px;cursor:pointer;padding:4px 0;';
+      lbl.innerHTML = '<input type="checkbox" '+checked+' onchange="saveNotesCheck('+i+',this.checked)" style="accent-color:#B8811E;width:15px;height:15px;cursor:pointer"><span style="'+(checked?'text-decoration:line-through;color:#666':'')+'">'+item+'</span>';
+      el.appendChild(lbl);
+    });
+  }
+  function saveNotesCheck(i, val) {
+    var d = {}; try { d = JSON.parse(localStorage.getItem(NOTES_CHECKS_KEY)) || {}; } catch(e) {}
+    d['nc-'+i] = val;
+    localStorage.setItem(NOTES_CHECKS_KEY, JSON.stringify(d));
+    initNotesChecklist();
+  }
+
   // ── P&L Proforma + Monthly Tracker ──
   var PL_KEY='viador_pl';
   function savePL(){var d={};document.querySelectorAll('.pf-in').forEach(function(el){d[el.id]=el.value});document.querySelectorAll('.mt-in').forEach(function(el){d[el.id]=el.value});d['pb-burn']=document.getElementById('pb-burn')?.value||'8000';try{localStorage.setItem(PL_KEY,JSON.stringify(d))}catch(e){}}
@@ -1808,6 +1902,7 @@
     loadCampStatuses();
     initMktChecklist();
     loadPL();initMT();calcPF();
+    initNotesChecklist();
   }
 
   /* ── Constants ──────────────────────────────────── */
