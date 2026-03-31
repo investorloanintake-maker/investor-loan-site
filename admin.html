@@ -1279,28 +1279,52 @@
   <!-- ═══ TAB: Pipeline ═══ -->
   <div class="tab-panel" id="tab-pipeline">
   <div class="dash-body">
-    <div class="section-head">
-      <span class="section-label">Deal Pipeline</span>
-      <div class="section-line"></div>
-      <span class="section-label" id="pipeline-total"></span>
+
+    <!-- Rate Watch -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:12px 16px">
+      <div style="font-size:12px;color:#888">Today's DSCR market rate:</div>
+      <input type="text" id="cl-market-rate" value="7.25" onchange="saveClients()" style="background:#0D0F12;border:1px solid #333;border-radius:4px;color:#B8811E;padding:4px 8px;width:60px;font-size:14px;font-weight:700;text-align:center">
+      <div style="font-size:12px;color:#888">%</div>
+      <div style="margin-left:auto;font-size:11px;color:#888">Clients below threshold flagged automatically</div>
     </div>
-    <table class="data-table" id="pipeline-table">
-      <thead>
-        <tr>
-          <th>Lead Name</th>
-          <th>Source</th>
-          <th>Loan Type</th>
-          <th>Amount</th>
-          <th>Stage</th>
-          <th>Next Action</th>
-          <th>Expected Close</th>
-        </tr>
-      </thead>
-      <tbody id="pipeline-body">
-        <tr><td colspan="7" style="text-align:center;color:var(--text-dim);padding:40px">Connect Google Sheet to see pipeline data</td></tr>
-      </tbody>
-    </table>
-    <p style="font-size:11px;color:var(--text-dim);margin-top:8px">Add deals in Google Sheet "Pipeline" tab &rarr; dashboard refreshes automatically</p>
+
+    <!-- Lifetime Value Summary -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px">
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Total Clients</div><div style="font-size:22px;font-weight:700;color:#E8E8E8" id="cl-total-clients">0</div></div>
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Total Closed Revenue</div><div style="font-size:22px;font-weight:700;color:#4ade80" id="cl-total-rev">$0</div></div>
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Avg Per Client</div><div style="font-size:22px;font-weight:700;color:#B8811E" id="cl-avg-rev">$0</div></div>
+    </div>
+
+    <!-- Client Lifecycle -->
+    <div class="section-head"><span class="section-label">Client Lifecycle</span><div class="section-line"></div></div>
+    <div style="font-size:12px;color:#888;margin-bottom:12px">Every investor is a multi-transaction relationship. Track where each one is in the flywheel.</div>
+
+    <button onclick="showAddClient()" style="padding:8px 16px;background:var(--gold);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;margin-bottom:16px">+ Add Client</button>
+
+    <!-- Add Client Form (hidden) -->
+    <div id="cl-form" style="display:none;background:#1A1C24;border:1px solid rgba(184,129,30,0.3);border-radius:8px;padding:16px;margin-bottom:16px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Client / LLC Name</label><input type="text" id="cl-name" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px"></div>
+        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Property Address</label><input type="text" id="cl-addr" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-bottom:8px">
+        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Loan Type</label><select id="cl-ltype" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 4px;font-size:12px"><option>DSCR First</option><option>DSCR Second</option><option>Conventional</option><option>Bridge</option><option>Other</option></select></div>
+        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Rate (%)</label><input type="text" id="cl-rate" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px"></div>
+        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Balance ($)</label><input type="text" id="cl-bal" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px" oninput="this.value=this.value.replace(/[^0-9]/g,'')"></div>
+        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Est. Equity ($)</label><input type="text" id="cl-equity" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px" oninput="this.value=this.value.replace(/[^0-9]/g,'')"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px">
+        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Prepay Expires</label><input type="month" id="cl-prepay" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:12px"></div>
+        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Next Opportunity</label><select id="cl-next" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 4px;font-size:12px"><option>DSCR Second</option><option>Rate/Term Refi</option><option>Cash-Out Refi</option><option>DSCR Acquisition</option><option>Watching</option><option>Referred Out</option></select></div>
+        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Lifetime Revenue ($)</label><input type="text" id="cl-ltrev" value="0" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px" oninput="this.value=this.value.replace(/[^0-9]/g,'')"></div>
+      </div>
+      <div style="margin-bottom:8px"><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Notes</label><input type="text" id="cl-notes" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px"></div>
+      <div style="display:flex;gap:8px"><button onclick="addClient()" style="padding:6px 16px;background:var(--gold);color:#fff;border:none;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer">Save Client</button><button onclick="document.getElementById('cl-form').style.display='none'" style="padding:6px 16px;background:#333;color:#888;border:none;border-radius:4px;font-size:12px;cursor:pointer">Cancel</button></div>
+    </div>
+
+    <!-- Client Cards -->
+    <div id="cl-cards"></div>
+
   </div>
   </div>
 
@@ -1792,6 +1816,66 @@
     initMktChecklist();
   }
 
+  // ── Pipeline: Client Lifecycle ──
+  var CL_KEY='viador_clients';
+  function getClients(){try{return JSON.parse(localStorage.getItem(CL_KEY))||[]}catch(e){return[]}}
+  function saveClients(){
+    // save market rate
+    var mr=document.getElementById('cl-market-rate');
+    if(mr)localStorage.setItem('viador_market_rate',mr.value);
+  }
+  function showAddClient(){document.getElementById('cl-form').style.display='block';document.getElementById('cl-name').focus();}
+  function addClient(){
+    var c={id:Date.now(),name:document.getElementById('cl-name').value.trim(),addr:document.getElementById('cl-addr').value.trim(),ltype:document.getElementById('cl-ltype').value,rate:parseFloat(document.getElementById('cl-rate').value)||0,balance:parseInt(document.getElementById('cl-bal').value)||0,equity:parseInt(document.getElementById('cl-equity').value)||0,prepay:document.getElementById('cl-prepay').value||'',next:document.getElementById('cl-next').value,ltrev:parseInt(document.getElementById('cl-ltrev').value)||0,notes:document.getElementById('cl-notes').value.trim(),txns:0,created:new Date().toISOString()};
+    if(!c.name){alert('Enter client name');return}
+    var cls=getClients();cls.push(c);localStorage.setItem(CL_KEY,JSON.stringify(cls));
+    document.getElementById('cl-form').style.display='none';
+    ['cl-name','cl-addr','cl-rate','cl-bal','cl-equity','cl-notes'].forEach(function(id){var e=document.getElementById(id);if(e)e.value=''});
+    document.getElementById('cl-ltrev').value='0';
+    renderClients();
+  }
+  function deleteClient(id){if(!confirm('Delete this client?'))return;var cls=getClients().filter(function(c){return c.id!==id});localStorage.setItem(CL_KEY,JSON.stringify(cls));renderClients();}
+  function renderClients(){
+    var cls=getClients(),el=document.getElementById('cl-cards');if(!el)return;
+    var marketRate=parseFloat(document.getElementById('cl-market-rate')?.value)||7.25;
+    var fmt=function(n){return'$'+Math.round(n).toLocaleString()};
+    var totalRev=0;
+    el.innerHTML='';
+    if(cls.length===0){el.innerHTML='<div style="text-align:center;color:#888;padding:24px;font-size:13px">No clients yet. Click "+ Add Client" to start tracking.</div>';document.getElementById('cl-total-clients').textContent='0';document.getElementById('cl-total-rev').textContent='$0';document.getElementById('cl-avg-rev').textContent='$0';return}
+    cls.forEach(function(c){
+      totalRev+=c.ltrev||0;
+      // Flywheel status
+      var fw='&#127793; NEW',fwBg='#333',fwColor='#888';
+      if(c.ltrev>=15000||c.txns>=3){fw='&#11088; VIP';fwBg='#92400e';fwColor='#fde68a';}
+      else if(c.txns>=2){fw='&#128176; RECURRING';fwBg='#2d6a4f';fwColor='#4ade80';}
+      else if(c.txns>=1||c.ltrev>0){fw='&#128260; ACTIVE';fwBg='rgba(184,129,30,0.3)';fwColor='#B8811E';}
+      // Alerts
+      var alerts=[];
+      if(c.prepay){var pp=new Date(c.prepay+'-01'),now=new Date(),diff=Math.round((pp-now)/(30.44*86400000));if(diff>0&&diff<=3)alerts.push('Prepay expires in '+diff+' months');else if(diff<=0)alerts.push('Prepay expired \u2014 ready to refi');}
+      if(c.rate>0&&marketRate<c.rate-1.0)alerts.push('Rate dropped '+((c.rate-marketRate).toFixed(1))+'% since origination');
+      var html='<div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px;margin-bottom:10px">';
+      html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:15px;font-weight:700;color:#B8811E">'+c.name+'</div><div style="display:flex;gap:6px;align-items:center"><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:'+fwBg+';color:'+fwColor+'">'+fw+'</span><button onclick="deleteClient('+c.id+')" style="background:none;border:none;color:#666;cursor:pointer;font-size:14px">&times;</button></div></div>';
+      html+='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;font-size:11px;color:#888;line-height:1.6">';
+      html+='<div>Property: <span style="color:#E8E8E8">'+(c.addr||'\u2014')+'</span></div>';
+      html+='<div>Loan: <span style="color:#E8E8E8">'+c.ltype+'</span> @ <span style="color:#E8E8E8">'+(c.rate||'\u2014')+'%</span></div>';
+      html+='<div>Balance: <span style="color:#E8E8E8">'+fmt(c.balance)+'</span></div>';
+      html+='<div>Equity: <span style="color:#4ade80">'+fmt(c.equity)+'</span></div>';
+      html+='<div>Prepay: <span style="color:#E8E8E8">'+(c.prepay||'N/A')+'</span></div>';
+      html+='<div>Next: <span style="color:#B8811E">'+c.next+'</span></div>';
+      html+='</div>';
+      html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid #333">';
+      html+='<div style="font-size:11px;color:#888">Lifetime: <span style="color:'+(c.ltrev>=10000?'#4ade80':'#E8E8E8')+';font-weight:700">'+fmt(c.ltrev)+'</span></div>';
+      if(c.notes)html+='<div style="font-size:11px;color:#666;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+c.notes+'</div>';
+      html+='</div>';
+      if(alerts.length){html+='<div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">';alerts.forEach(function(a){html+='<span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:rgba(184,129,30,0.2);color:#B8811E">'+a+'</span>'});html+='</div>';}
+      html+='</div>';
+      el.innerHTML+=html;
+    });
+    document.getElementById('cl-total-clients').textContent=cls.length;
+    document.getElementById('cl-total-rev').textContent=fmt(totalRev);
+    document.getElementById('cl-avg-rev').textContent=cls.length>0?fmt(Math.round(totalRev/cls.length)):'$0';
+  }
+
   // ── Notes Tab: Calls Checklist ──
   var NOTES_CHECKS_KEY = 'viador_notes_checks';
   var notesCheckItems = [
@@ -1903,6 +1987,8 @@
     initMktChecklist();
     loadPL();initMT();calcPF();
     initNotesChecklist();
+    var mr=localStorage.getItem('viador_market_rate');if(mr){var el=document.getElementById('cl-market-rate');if(el)el.value=mr;}
+    renderClients();
   }
 
   /* ── Constants ──────────────────────────────────── */
