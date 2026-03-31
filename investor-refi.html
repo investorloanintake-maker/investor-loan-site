@@ -5,9 +5,9 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Term to Own | Unlock Your Equity & Build Real Wealth | Viador Partners</title>
-  <meta name="description" content="Use your property's equity to eliminate high-interest debt, lower your blended rate, and own your home free and clear — years sooner."/>
-  <link rel="canonical" href="https://www.viadorpartners.com/refi.html"/>
+  <title>Investment Property Refi | Lower Your Rate to 6.25-7.25% DSCR | Viador Partners</title>
+  <meta name="description" content="Investment property owners with rates above 7% can refinance to 6.25-7.25% DSCR — no income verification, no tax returns. Closes in 21 days."/>
+  <link rel="canonical" href="https://www.viadorpartners.com/investor-refi.html"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
@@ -67,12 +67,12 @@
 
 <!-- SECTION 1: Hero -->
 <section class="tto-hero">
-  <h1 class="tto-h1">Term to Own</h1>
-  <p class="tto-sub">Use your property's equity to eliminate high-interest debt, lower your blended rate, and own your home free and clear &mdash; years sooner.</p>
+  <h1 class="tto-h1">Your Rate Is Costing You</h1>
+  <p class="tto-sub">Investment property owners with rates above 7% can refinance to 6.25&ndash;7.25% DSCR &mdash; no income verification, no tax returns.</p>
   <div class="tto-props">
-    <div class="tto-prop"><span class="tto-prop-icon">&#x1F3E6;</span> Lower your blended rate</div>
-    <div class="tto-prop"><span class="tto-prop-icon">&#x1F4C9;</span> Eliminate high-interest debt</div>
-    <div class="tto-prop"><span class="tto-prop-icon">&#x1F3E0;</span> Own free &amp; clear years sooner</div>
+    <div class="tto-prop"><span class="tto-prop-icon">&#x1F4B0;</span> Today's DSCR rate: <strong style="color:#4ade80">6.25&ndash;7.25%</strong></div>
+    <div class="tto-prop"><span class="tto-prop-icon">&#10003;</span> No W-2 required</div>
+    <div class="tto-prop"><span class="tto-prop-icon">&#9889;</span> Closes in 21 days</div>
   </div>
   <div class="tto-form">
     <input type="text" id="tto-address" class="tto-input" placeholder="Enter your property address"/>
@@ -108,6 +108,33 @@
       <div class="tto-debt-row"><div class="tto-debt-label">Auto / Business</div><input type="text" id="d-auto-bal" class="tto-debt-input" placeholder="Balance" oninput="this.value=this.value.replace(/[^0-9]/g,'')"><div class="tto-debt-rate">at <input type="text" id="d-auto-rate" value="8"> %</div></div>
       <div class="tto-debt-row"><div class="tto-debt-label">Other Debt</div><input type="text" id="d-other-bal" class="tto-debt-input" placeholder="Balance" oninput="this.value=this.value.replace(/[^0-9]/g,'')"><div class="tto-debt-rate">at <input type="text" id="d-other-rate" value="0"> %</div></div>
       <button class="tto-btn" style="margin-top:14px" onclick="calcTermToOwn()">Calculate My Term to Own Picture &rarr;</button>
+    </div>
+  </div>
+
+  <!-- Investor-specific: DSCR + Prepay info -->
+  <div class="tto-section">
+    <div class="tto-card" style="border-color:rgba(74,222,128,0.15)">
+      <div style="font-size:12px;color:#4ade80;font-weight:600;margin-bottom:10px">DSCR Refinance &mdash; No Income Docs</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7">
+        &bull; Qualifies on rental income only &mdash; no W-2, no tax returns<br>
+        &bull; LLC vesting allowed &mdash; keep liability separation<br>
+        &bull; No limit on number of financed properties<br>
+        &bull; 30-year fixed rates: 6.25&ndash;7.25% for DSCR &ge; 1.25x<br>
+        &bull; Cash-out available up to 75% LTV<br>
+        &bull; Typical close: 21&ndash;30 days
+      </div>
+    </div>
+    <div class="tto-card">
+      <div style="font-size:12px;color:var(--gold);font-weight:600;margin-bottom:10px">Prepay Penalty Check</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:10px">Most DSCR/bridge loans have step-down penalties. Check yours:</div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;text-align:center;font-size:11px">
+        <div style="background:rgba(255,255,255,0.03);border-radius:4px;padding:6px"><div style="color:rgba(255,255,255,0.4)">Yr 1</div><div style="color:#fc6060;font-weight:700">5%</div></div>
+        <div style="background:rgba(255,255,255,0.03);border-radius:4px;padding:6px"><div style="color:rgba(255,255,255,0.4)">Yr 2</div><div style="color:#fc6060;font-weight:700">4%</div></div>
+        <div style="background:rgba(255,255,255,0.03);border-radius:4px;padding:6px"><div style="color:rgba(255,255,255,0.4)">Yr 3</div><div style="color:#e8b84b;font-weight:700">3%</div></div>
+        <div style="background:rgba(255,255,255,0.03);border-radius:4px;padding:6px"><div style="color:rgba(255,255,255,0.4)">Yr 4</div><div style="color:#4ade80;font-weight:700">2%</div></div>
+        <div style="background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.12);border-radius:4px;padding:6px"><div style="color:rgba(255,255,255,0.4)">Yr 5+</div><div style="color:#4ade80;font-weight:700">0%</div></div>
+      </div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px">2020&ndash;2021 loans: penalties fully expired. 2022 loans: 2% remaining. 2023: 3% &mdash; evaluate breakeven.</div>
     </div>
   </div>
 
@@ -187,9 +214,9 @@
 
   <!-- SECTION 6: CTA -->
   <div class="tto-cta-box">
-    <div style="font-family:'Fraunces',serif;font-size:22px;color:#fff;margin-bottom:8px">Ready to get started?</div>
-    <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:20px;line-height:1.5">Viador Partners reviews every file within 24 hours.<br>NMLS #2822744 &middot; chad@viadorpartners.com</div>
-    <a href="index.html#dealform" style="display:inline-block;padding:14px 32px;background:var(--gold);color:#fff;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;font-family:'DM Sans',sans-serif">Review My Deal with Viador &rarr;</a>
+    <div style="font-family:'Fraunces',serif;font-size:22px;color:#fff;margin-bottom:8px">Ready to lock in a lower DSCR rate?</div>
+    <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:20px;line-height:1.5">Viador Partners specializes in DSCR refinancing for rental property investors.<br>No W-2. No tax returns. 24-hour file review.<br>NMLS #2822744 &middot; chad@viadorpartners.com</div>
+    <a href="index.html#dealform" style="display:inline-block;padding:14px 32px;background:var(--gold);color:#fff;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;font-family:'DM Sans',sans-serif">Submit My Investment Property for Review &rarr;</a>
     <div style="margin-top:12px"><a href="tel:8134192983" style="color:rgba(255,255,255,0.4);font-size:14px;text-decoration:none">(813) 419-2983</a></div>
   </div>
 
@@ -224,7 +251,7 @@ async function runTermToOwn(){
   if(!addr)return;
   var btn=document.getElementById('tto-go');
   btn.disabled=true;btn.textContent='Analyzing...';
-  if(typeof gtag==='function')gtag('event','tto_started',{address:addr});
+  if(typeof gtag==='function')gtag('event','investor_refi_started',{address:addr});
 
   var parts=addr.split(',').map(function(s){return s.trim()});
   var last=(parts[parts.length-1]||'').trim();
@@ -246,7 +273,7 @@ async function runTermToOwn(){
   document.getElementById('tto-prop-meta').textContent=(parts[1]||'')+', '+(szm?szm[1]:'');
   document.getElementById('tto-avm').textContent=fmt(D.avm);
   document.getElementById('tto-equity').textContent=fmt(D.equity);
-  document.getElementById('tto-equity-msg').textContent='You have '+fmt(D.equity)+' in equity available. Here\u2019s how to put it to work.';
+  document.getElementById('tto-equity-msg').textContent='Your investment property has '+fmt(D.equity)+' in accessible equity. No income docs required to refinance.';
 
   document.getElementById('tto-results').style.display='block';
   btn.disabled=false;btn.textContent='Calculate My Opportunity \u2192';
@@ -343,7 +370,7 @@ function captureEmail(){
     body:JSON.stringify({email:email,address:document.getElementById('tto-address')?.value||'',
       estimated_value:String(D.avm||''),estimated_equity:String(D.equity||''),
       blended_before:String(D.blendBefore?.toFixed(1)||''),monthly_savings:String(D.savings||''),
-      lead_source:'term-to-own'})}).catch(function(){});
+      lead_source:'investor-refi-targeted'})}).catch(function(){});
   document.getElementById('tto-email-msg').style.display='block';
   document.getElementById('tto-email-msg').textContent='\u2705 Sent! We\u2019ll follow up if there\u2019s a better option for your situation.';
   document.querySelector('.tto-email-row').style.display='none';
