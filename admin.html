@@ -1518,74 +1518,86 @@
   <div class="tab-panel" id="tab-pl">
   <div class="dash-body">
 
-    <div class="section-head">
-      <span class="section-label">3-Year P&amp;L Summary</span>
-      <div class="section-line"></div>
-    </div>
+    <!-- SECTION 1: Viador Proforma -->
+    <div class="section-head"><span class="section-label">Viador Partners &mdash; Year 1 Proforma</span><div class="section-line"></div></div>
+    <div style="font-size:12px;color:#888;margin-bottom:16px">Solo operator model. No office. No employees. Tech replaces overhead.</div>
 
-    <table class="pl-table">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Year 1 (2026)</th>
-          <th>Year 2 (2027)</th>
-          <th>Year 3 (2028)</th>
-        </tr>
-      </thead>
+    <div style="overflow-x:auto">
+    <table class="data-table" style="font-size:12px" id="pf-table">
+      <thead><tr><th></th><th style="color:#888">Conservative</th><th style="color:#B8811E">Target</th><th style="color:#4ade80">Optimistic</th></tr></thead>
       <tbody>
-        <tr><td>Revenue</td><td class="pl-revenue">$95,250</td><td class="pl-revenue">$880,800</td><td class="pl-revenue">$1,814,400</td></tr>
-        <tr><td>Expenses</td><td class="pl-expense">$25,620</td><td class="pl-expense">$75,600</td><td class="pl-expense">$97,200</td></tr>
-        <tr><td>Net Income</td><td class="pl-net">$69,630</td><td class="pl-net">$805,200</td><td class="pl-net">$1,717,200</td></tr>
-        <tr><td>Net Margin</td><td class="pl-margin">73%</td><td class="pl-margin">91%</td><td class="pl-margin">95%</td></tr>
-        <tr><td>Loans Closed</td><td>36</td><td>120</td><td>192</td></tr>
+        <tr><td style="color:#888">Loans closed/yr</td><td><input type="number" class="pf-in" id="pf-loans-1" value="20" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-loans-2" value="40" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-loans-3" value="60" onchange="calcPF()"></td></tr>
+        <tr><td style="color:#888">Avg loan size</td><td><input type="number" class="pf-in" id="pf-size-1" value="350000" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-size-2" value="350000" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-size-3" value="400000" onchange="calcPF()"></td></tr>
+        <tr><td style="color:#888">Total volume</td><td id="pf-vol-1"></td><td id="pf-vol-2"></td><td id="pf-vol-3"></td></tr>
+        <tr><td style="color:#888">Comp rate (bps)</td><td><input type="number" class="pf-in" id="pf-bps-1" value="250" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-bps-2" value="275" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-bps-3" value="275" onchange="calcPF()"></td></tr>
+        <tr><td style="color:#888">Flat fee/file</td><td><input type="number" class="pf-in" id="pf-fee-1" value="995" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-fee-2" value="995" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-fee-3" value="995" onchange="calcPF()"></td></tr>
+        <tr style="border-top:2px solid #333"><td style="color:#B8811E;font-weight:700">Gross Revenue</td><td style="font-weight:700" id="pf-rev-1"></td><td style="font-weight:700;color:#B8811E" id="pf-rev-2"></td><td style="font-weight:700;color:#4ade80" id="pf-rev-3"></td></tr>
+        <tr><td style="color:#888">Annual Expenses</td><td colspan="3" style="color:#fc6060" id="pf-exp"></td></tr>
+        <tr style="border-top:2px solid #333"><td style="color:#4ade80;font-weight:700">Net Pre-Tax Income</td><td style="font-weight:700" id="pf-net-1"></td><td style="font-weight:700;color:#B8811E" id="pf-net-2"></td><td style="font-weight:700;color:#4ade80" id="pf-net-3"></td></tr>
+        <tr><td style="color:#888">Break-even loans</td><td id="pf-be-1"></td><td id="pf-be-2"></td><td id="pf-be-3"></td></tr>
       </tbody>
     </table>
+    </div>
+    <style>.pf-in{background:#1A1C24;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:4px 6px;width:80px;font-size:12px;text-align:right;font-family:inherit}</style>
 
-    <div class="section-head">
-      <span class="section-label">Year 1 Monthly Revenue Ramp</span>
-      <div class="section-line"></div>
-    </div>
-    <div class="chart-card">
-      <canvas id="revenueChart" height="260"></canvas>
-    </div>
-
-    <div class="section-head">
-      <span class="section-label">Valuation Scenarios (Year 3)</span>
-      <div class="section-line"></div>
-    </div>
-    <div class="val-grid">
-      <div class="val-card bear"><div class="val-label">Bear Case</div><div class="val-amount">$9.1M</div><div class="val-sub">5x Revenue Y3</div></div>
-      <div class="val-card base"><div class="val-label">Base Case</div><div class="val-amount">$18.1M</div><div class="val-sub">10x Revenue Y3</div></div>
-      <div class="val-card bull"><div class="val-label">Bull Case</div><div class="val-amount">$25.8M</div><div class="val-sub">15x EBITDA Y3</div></div>
-    </div>
-
-    <div class="section-head">
-      <span class="section-label">Key Assumptions</span>
-      <div class="section-line"></div>
-    </div>
-    <div class="assumptions-card">
-      <ol style="padding-left:20px;margin:0">
-        <li>Ohio license April 2026, Florida license June 2026</li>
-        <li>Blended avg <strong style="color:var(--gold)">$7,450/loan</strong> (55% DSCR, 25% Residential, 20% BPL)</li>
-        <li>Ecosystem revenue (ViaScore&#8482;, partner referrals) starts Month 6</li>
-        <li>ViaScore&#8482; API licensing revenue starts Year 2</li>
-        <li>No employees through Year 2 — founder-operated with contractor support</li>
-        <li>Year 2 assumes 10 loans/month avg, Year 3 assumes 16 loans/month avg</li>
-        <li>Expenses include: software/tools, marketing, insurance, legal, licensing fees</li>
-      </ol>
+    <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px;margin:16px 0">
+      <div style="font-size:11px;color:#B8811E;font-weight:700;margin-bottom:8px">Annual Expenses Breakdown</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px 16px;font-size:11px;color:#888">
+        <div>PropStream Pro</div><div style="text-align:right">$199/mo</div><div style="text-align:right;color:#E8E8E8">$2,388</div>
+        <div>Google Ads</div><div style="text-align:right">$900/mo</div><div style="text-align:right;color:#E8E8E8">$10,800</div>
+        <div>Email marketing</div><div style="text-align:right">$70/mo</div><div style="text-align:right;color:#E8E8E8">$840</div>
+        <div>Direct mail</div><div style="text-align:right">$90/mo</div><div style="text-align:right;color:#E8E8E8">$1,080</div>
+        <div>HubSpot</div><div style="text-align:right">$50/mo</div><div style="text-align:right;color:#E8E8E8">$600</div>
+        <div>Hosting/Cloudflare</div><div style="text-align:right">$20/mo</div><div style="text-align:right;color:#E8E8E8">$240</div>
+        <div>AI tools</div><div style="text-align:right">$74/mo</div><div style="text-align:right;color:#E8E8E8">$888</div>
+        <div>NMLS licensing</div><div style="text-align:right">&mdash;</div><div style="text-align:right;color:#E8E8E8">$500</div>
+        <div>E&amp;O Insurance</div><div style="text-align:right">$100/mo</div><div style="text-align:right;color:#E8E8E8">$1,200</div>
+        <div>Misc/software</div><div style="text-align:right">$100/mo</div><div style="text-align:right;color:#E8E8E8">$1,200</div>
+        <div style="grid-column:1/-1;border-top:1px solid #333;padding-top:4px;margin-top:4px;display:flex;justify-content:space-between"><span style="color:#B8811E;font-weight:700">Total</span><span style="color:#fc6060;font-weight:700">$19,736/yr</span></div>
+      </div>
     </div>
 
-    <div class="section-head">
-      <span class="section-label">Actual vs Projected &mdash; Year 1</span>
-      <div class="section-line"></div>
-    </div>
-    <div class="chart-card" id="avp-chart-card" style="display:none">
-      <canvas id="avpChart" height="260"></canvas>
-    </div>
-    <table class="pl-table" id="avp-table">
-      <thead><tr><th>Month</th><th>Projected</th><th>Actual</th><th>Variance</th></tr></thead>
-      <tbody id="avp-body"></tbody>
+    <!-- SECTION 2: BayFirst Reference -->
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Reference: BayFirst 2018 Model</span><div class="section-line"></div></div>
+    <div style="font-size:12px;color:#888;margin-bottom:12px">Same SVP role. 65 LOs, 2 offices, full ops team. Shows why lean wins.</div>
+    <div style="overflow-x:auto">
+    <table class="data-table" style="font-size:12px">
+      <thead><tr><th>Line Item</th><th>BayFirst 2018</th><th>Viador 2026</th></tr></thead>
+      <tbody>
+        <tr><td style="color:#888">Annual Volume</td><td>$247M</td><td id="bf-vol" style="color:#B8811E"></td></tr>
+        <tr><td style="color:#888">Total Revenue</td><td>$8.88M (371 bps)</td><td id="bf-rev" style="color:#B8811E"></td></tr>
+        <tr><td style="color:#888">Salaries</td><td style="color:#fc6060">$4.49M (188 bps)</td><td style="color:#4ade80">$0</td></tr>
+        <tr><td style="color:#888">Marketing/leads</td><td style="color:#fc6060">$2.16M (90 bps)</td><td style="color:#4ade80">~$20K (6 bps)</td></tr>
+        <tr><td style="color:#888">Occupancy</td><td style="color:#fc6060">$289K (12 bps)</td><td style="color:#4ade80">$0</td></tr>
+        <tr><td style="color:#888">Total Expenses</td><td style="color:#fc6060">$7.53M (315 bps)</td><td id="bf-exp"></td></tr>
+        <tr><td style="color:#888">Net Income</td><td>$674K (28 bps)</td><td id="bf-net" style="color:#4ade80"></td></tr>
+        <tr><td style="color:#888">Your take</td><td style="color:#888">$674K (28 bps)</td><td style="color:#4ade80;font-weight:700">100% yours</td></tr>
+      </tbody>
     </table>
+    </div>
+    <div style="background:rgba(184,129,30,0.08);border:1px solid rgba(184,129,30,0.2);border-radius:8px;padding:14px;margin:12px 0;font-size:12px;color:#E8E8E8;line-height:1.6">
+      <strong style="color:#B8811E">The BayFirst model netted 28 bps</strong> after $4.5M in salaries and $2.1M in marketing. Viador's tech stack replaces the marketing spend entirely. At 40 loans you keep <strong style="color:#4ade80">~250+ bps</strong> vs 28 bps.
+    </div>
+
+    <!-- SECTION 3: Monthly Tracker -->
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Monthly Tracker &mdash; Year 1</span><div class="section-line"></div></div>
+    <div style="overflow-x:auto">
+    <table class="data-table" style="font-size:11px" id="mt-table">
+      <thead><tr><th>Month</th><th>Loans</th><th>Volume</th><th>Revenue</th><th>Expenses</th><th>Net</th><th>Cumulative</th></tr></thead>
+      <tbody id="mt-body"></tbody>
+      <tfoot><tr style="font-weight:700;border-top:2px solid #B8811E"><td>Total</td><td id="mt-t-loans"></td><td id="mt-t-vol"></td><td id="mt-t-rev"></td><td id="mt-t-exp"></td><td id="mt-t-net"></td><td></td></tr></tfoot>
+    </table>
+    </div>
+
+    <!-- SECTION 4: Personal Budget -->
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Personal Budget Integration</span><div class="section-line"></div></div>
+    <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+        <div style="font-size:13px;color:#888">Monthly personal expenses:</div>
+        <div style="display:flex;align-items:center;gap:4px"><span style="color:#888">$</span><input type="number" id="pb-burn" value="8000" onchange="calcPF();savePL()" style="background:#1A1C24;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;width:80px;font-size:14px;text-align:right"><span style="color:#888">/mo</span></div>
+      </div>
+      <div style="font-size:13px;color:#E8E8E8;line-height:1.7" id="pb-msg"></div>
+    </div>
 
   </div>
   </div><!-- /tab-pl -->
@@ -1717,12 +1729,85 @@
     initMktChecklist();
   }
 
+  // ── P&L Proforma + Monthly Tracker ──
+  var PL_KEY='viador_pl';
+  function savePL(){var d={};document.querySelectorAll('.pf-in').forEach(function(el){d[el.id]=el.value});document.querySelectorAll('.mt-in').forEach(function(el){d[el.id]=el.value});d['pb-burn']=document.getElementById('pb-burn')?.value||'8000';try{localStorage.setItem(PL_KEY,JSON.stringify(d))}catch(e){}}
+  function loadPL(){try{var d=JSON.parse(localStorage.getItem(PL_KEY))||{};for(var k in d){var el=document.getElementById(k);if(el)el.value=d[k]}}catch(e){}}
+  function fmt$(n){return'$'+Math.round(n).toLocaleString()}
+  function calcPF(){
+    var exp=19736;
+    document.getElementById('pf-exp').textContent=fmt$(exp)+'/yr';
+    for(var i=1;i<=3;i++){
+      var loans=parseInt(document.getElementById('pf-loans-'+i)?.value)||0;
+      var size=parseInt(document.getElementById('pf-size-'+i)?.value)||0;
+      var bps=parseInt(document.getElementById('pf-bps-'+i)?.value)||0;
+      var fee=parseInt(document.getElementById('pf-fee-'+i)?.value)||0;
+      var vol=loans*size;
+      var rev=(vol*bps/10000)-(loans*fee);
+      var net=rev-exp;
+      var be=((size*bps/10000)-fee)>0?Math.ceil(exp/((size*bps/10000)-fee)):999;
+      document.getElementById('pf-vol-'+i).textContent=fmt$(vol);
+      document.getElementById('pf-rev-'+i).textContent=fmt$(rev);
+      document.getElementById('pf-net-'+i).textContent=fmt$(net);
+      document.getElementById('pf-net-'+i).style.color=net>=0?'#4ade80':'#fc6060';
+      document.getElementById('pf-be-'+i).innerHTML='<span style="color:'+(be<=12?'#4ade80':be<=24?'#B8811E':'#fc6060')+'">'+be+' loans/yr</span>';
+      if(i===2){
+        document.getElementById('bf-vol').textContent=fmt$(vol);
+        var bpsNet=vol>0?Math.round(rev/vol*10000):0;
+        document.getElementById('bf-rev').textContent=fmt$(rev)+' ('+bpsNet+' bps)';
+        document.getElementById('bf-exp').textContent=fmt$(exp)+' ('+(vol>0?Math.round(exp/vol*10000):0)+' bps)';
+        var netBps=vol>0?Math.round(net/vol*10000):0;
+        document.getElementById('bf-net').textContent=fmt$(net)+' ('+netBps+' bps)';
+      }
+    }
+    // Personal budget
+    var burn=parseInt(document.getElementById('pb-burn')?.value)||8000;
+    var annualBurn=burn*12;
+    var tgtSize=parseInt(document.getElementById('pf-size-2')?.value)||350000;
+    var tgtBps=parseInt(document.getElementById('pf-bps-2')?.value)||275;
+    var tgtFee=parseInt(document.getElementById('pf-fee-2')?.value)||995;
+    var perLoan=(tgtSize*tgtBps/10000)-tgtFee;
+    var loansNeeded=perLoan>0?Math.ceil(annualBurn/perLoan):999;
+    var moNeeded=Math.ceil(loansNeeded/12*10)/10;
+    document.getElementById('pb-msg').innerHTML='At <strong style="color:#B8811E">'+fmt$(burn)+'/mo</strong> personal burn you need <strong style="color:#E8E8E8">'+fmt$(annualBurn)+'/year</strong> from Viador.<br>That\'s <strong style="color:#B8811E">'+loansNeeded+' loans/year</strong> (~'+moNeeded+'/mo) at '+tgtBps+'bps on '+fmt$(tgtSize)+' avg.';
+    savePL();
+    calcMT();
+  }
+  function initMT(){
+    var months=['Apr 2026','May 2026','Jun 2026','Jul 2026','Aug 2026','Sep 2026','Oct 2026','Nov 2026','Dec 2026','Jan 2027','Feb 2027','Mar 2027'];
+    var tb=document.getElementById('mt-body');if(!tb)return;
+    tb.innerHTML='';
+    months.forEach(function(m,i){
+      tb.innerHTML+='<tr><td style="color:#888">'+m+'</td><td><input type="number" class="mt-in pf-in" id="mt-loans-'+i+'" value="0" onchange="calcMT();savePL()" style="width:50px"></td><td id="mt-vol-'+i+'"></td><td id="mt-rev-'+i+'"></td><td id="mt-exp-'+i+'"></td><td id="mt-net-'+i+'"></td><td id="mt-cum-'+i+'"></td></tr>';
+    });
+  }
+  function calcMT(){
+    var cum=0,tLoans=0,tVol=0,tRev=0,tExp=0,tNet=0;
+    var size=parseInt(document.getElementById('pf-size-2')?.value)||350000;
+    var bps=parseInt(document.getElementById('pf-bps-2')?.value)||275;
+    var fee=parseInt(document.getElementById('pf-fee-2')?.value)||995;
+    var moExp=Math.round(19736/12);
+    for(var i=0;i<12;i++){
+      var loans=parseInt(document.getElementById('mt-loans-'+i)?.value)||0;
+      var vol=loans*size;var rev=(vol*bps/10000)-(loans*fee);var net=rev-moExp;cum+=net;
+      tLoans+=loans;tVol+=vol;tRev+=rev;tExp+=moExp;tNet+=net;
+      var el=function(id,v,c){var e=document.getElementById(id);if(e){e.textContent=v;if(c)e.style.color=c}};
+      el('mt-vol-'+i,fmt$(vol));el('mt-rev-'+i,fmt$(rev));el('mt-exp-'+i,fmt$(moExp));
+      el('mt-net-'+i,fmt$(net),net>=0?'#4ade80':'#fc6060');
+      el('mt-cum-'+i,fmt$(cum),cum>=0?'#4ade80':'#fc6060');
+    }
+    var s=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v};
+    s('mt-t-loans',tLoans);s('mt-t-vol',fmt$(tVol));s('mt-t-rev',fmt$(tRev));s('mt-t-exp',fmt$(tExp));
+    var tn=document.getElementById('mt-t-net');if(tn){tn.textContent=fmt$(tNet);tn.style.color=tNet>=0?'#4ade80':'#fc6060'}
+  }
+
   function showDash(){
     document.getElementById('gate').style.display = 'none';
     document.getElementById('dash').style.display = 'block';
     initDash();
     loadCampStatuses();
     initMktChecklist();
+    loadPL();initMT();calcPF();
   }
 
   /* ── Constants ──────────────────────────────────── */
