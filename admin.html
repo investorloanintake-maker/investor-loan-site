@@ -1307,28 +1307,145 @@
   <!-- ═══ TAB: Marketing ═══ -->
   <div class="tab-panel" id="tab-marketing">
   <div class="dash-body">
-    <div class="section-head">
-      <span class="section-label">Marketing Performance</span>
-      <div class="section-line"></div>
+
+    <!-- SECTION 1: Campaign Overview -->
+    <div class="section-head"><span class="section-label">BPL Refi Campaign Strategy</span><div class="section-line"></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px">
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;text-align:center">
+        <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Total Budget</div>
+        <div style="font-size:24px;font-weight:700;color:#B8811E">$1,189<span style="font-size:13px;color:#888">/mo</span></div>
+      </div>
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;text-align:center">
+        <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Total Leads</div>
+        <div style="font-size:24px;font-weight:700;color:#E8E8E8">9,416</div>
+      </div>
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;text-align:center">
+        <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Target CPL</div>
+        <div style="font-size:24px;font-weight:700;color:#4ade80">$23&ndash;$45</div>
+      </div>
     </div>
-    <table class="data-table" id="marketing-table">
-      <thead>
+    <div style="display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:140px;background:#1A1C24;border-radius:6px;padding:10px 14px;border-left:3px solid #4ade80">
+        <div style="font-size:10px;color:#4ade80;font-weight:700;text-transform:uppercase;letter-spacing:0.5px">Phase 1 (NOW)</div>
+        <div style="font-size:12px;color:#E8E8E8;margin-top:2px">Infrastructure &#10003;</div>
+      </div>
+      <div style="flex:1;min-width:140px;background:#1A1C24;border-radius:6px;padding:10px 14px;border-left:3px solid #B8811E">
+        <div style="font-size:10px;color:#B8811E;font-weight:700;text-transform:uppercase;letter-spacing:0.5px">Phase 2 (Wk 3)</div>
+        <div style="font-size:12px;color:#E8E8E8;margin-top:2px">First Email Send &#9203;</div>
+      </div>
+      <div style="flex:1;min-width:140px;background:#1A1C24;border-radius:6px;padding:10px 14px;border-left:3px solid #888">
+        <div style="font-size:10px;color:#888;font-weight:700;text-transform:uppercase;letter-spacing:0.5px">Phase 3 (Month 2)</div>
+        <div style="font-size:12px;color:#E8E8E8;margin-top:2px">Scale + Paid &#9203;</div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: 7 Campaigns Table -->
+    <div class="section-head"><span class="section-label">Active Campaigns</span><div class="section-line"></div></div>
+    <div style="overflow-x:auto">
+    <table class="data-table" style="font-size:12px">
+      <thead><tr><th>Campaign</th><th>Status</th><th>Monthly Spend</th><th>Leads Est.</th><th>CPL Target</th><th>CPFL Target</th><th>Start</th><th>Actions</th></tr></thead>
+      <tbody>
         <tr>
-          <th>Campaign</th>
-          <th>Channel</th>
-          <th>Spend</th>
-          <th>Leads</th>
-          <th>CPL</th>
-          <th>Closed</th>
-          <th>Revenue</th>
-          <th>ROI</th>
+          <td style="font-weight:600;color:#E8E8E8">Direct Mail (PropStream)</td>
+          <td><span id="camp-1-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#2d6a4f;color:#a7f3d0">READY</span></td>
+          <td>$90</td><td>8&ndash;12</td><td>$7&ndash;12</td><td>$45</td><td>Now</td>
+          <td><select onchange="saveCampStatus(1,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>READY</option><option>ACTIVE</option><option>PENDING</option><option>PAUSED</option></select></td>
         </tr>
-      </thead>
-      <tbody id="marketing-body">
-        <tr><td colspan="8" style="text-align:center;color:var(--text-dim);padding:40px">Connect Google Sheet to see marketing data</td></tr>
+        <tr>
+          <td style="font-weight:600;color:#E8E8E8">HubSpot Email &mdash; 311 distressed</td>
+          <td><span id="camp-2-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#92400e;color:#fde68a">PENDING</span></td>
+          <td>$70</td><td>10&ndash;20</td><td>$3&ndash;7</td><td>$23</td><td>Wk 3</td>
+          <td><select onchange="saveCampStatus(2,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>PENDING</option><option>READY</option><option>ACTIVE</option><option>PAUSED</option></select></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;color:#E8E8E8">HubSpot Email &mdash; 421 rate-trapped</td>
+          <td><span id="camp-3-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#92400e;color:#fde68a">PENDING</span></td>
+          <td>$0</td><td>12&ndash;25</td><td>$0</td><td>$0</td><td>Wk 3</td>
+          <td><select onchange="saveCampStatus(3,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>PENDING</option><option>READY</option><option>ACTIVE</option><option>PAUSED</option></select></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;color:#E8E8E8">Google Ads &mdash; DSCR refi keywords</td>
+          <td><span id="camp-4-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#333;color:#888">NOT STARTED</span></td>
+          <td>$900</td><td>3&ndash;6</td><td>$150&ndash;300</td><td>$1,800&ndash;3,000</td><td>Now</td>
+          <td><select onchange="saveCampStatus(4,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>NOT STARTED</option><option>READY</option><option>ACTIVE</option><option>PAUSED</option></select></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;color:#E8E8E8">ViaScore Organic Engine</td>
+          <td><span id="camp-5-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:rgba(184,129,30,0.3);color:#B8811E">IN PROGRESS</span></td>
+          <td>$0</td><td>organic</td><td>$0</td><td>$0</td><td>Wk 2</td>
+          <td><select onchange="saveCampStatus(5,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>IN PROGRESS</option><option>ACTIVE</option><option>PAUSED</option></select></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;color:#E8E8E8">PropStream Smart List Auto-Mailer</td>
+          <td><span id="camp-6-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#1A1C24;color:#666;border:1px solid #333">PLANNED</span></td>
+          <td>$90</td><td>2&ndash;4</td><td>$22&ndash;45</td><td>$225&ndash;450</td><td>Month 2</td>
+          <td><select onchange="saveCampStatus(6,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>PLANNED</option><option>READY</option><option>ACTIVE</option><option>PAUSED</option></select></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;color:#E8E8E8">Google Customer Match</td>
+          <td><span id="camp-7-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#1A1C24;color:#666;border:1px solid #333">PLANNED</span></td>
+          <td>$150</td><td>1&ndash;3</td><td>$50&ndash;150</td><td>$750&ndash;1,500</td><td>Wk 3</td>
+          <td><select onchange="saveCampStatus(7,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>PLANNED</option><option>READY</option><option>ACTIVE</option><option>PAUSED</option></select></td>
+        </tr>
       </tbody>
     </table>
-    <p style="font-size:11px;color:var(--text-dim);margin-top:8px">Add campaigns in Google Sheet "Marketing" tab</p>
+    </div>
+
+    <!-- SECTION 3: Lead Pipeline by Cohort -->
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Lead Pipeline by Cohort</span><div class="section-line"></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px">
+        <div style="font-size:14px;font-weight:700;color:#E8E8E8;margin-bottom:8px">Rate-Trapped</div>
+        <div style="font-size:12px;color:#888;line-height:1.6">201 leads<br>Median savings $249/mo<br>Status: <span style="color:#4ade80">READY</span><br>Wave 1: 50 sent</div>
+      </div>
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px">
+        <div style="font-size:14px;font-weight:700;color:#E8E8E8;margin-bottom:8px">Balloon Maturing</div>
+        <div style="font-size:12px;color:#888;line-height:1.6">114 leads<br>Median equity $226K<br>Status: <span style="color:#4ade80">READY</span><br>Wave 1: 50 queued</div>
+      </div>
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px">
+        <div style="font-size:14px;font-weight:700;color:#E8E8E8;margin-bottom:8px">Distressed</div>
+        <div style="font-size:12px;color:#888;line-height:1.6">311 leads<br>144 negative cash flow<br>Status: <span style="color:#4ade80">READY</span><br>Wave 1: 50 sent</div>
+      </div>
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px">
+        <div style="font-size:14px;font-weight:700;color:#E8E8E8;margin-bottom:8px">Equity Deployers</div>
+        <div style="font-size:12px;color:#888;line-height:1.6">9,078 leads<br>~3% avg rate<br>Status: <span style="color:#888">PLANNED</span><br>Product TBD</div>
+      </div>
+    </div>
+
+    <!-- Next Steps Checklist -->
+    <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;margin-bottom:16px">
+      <div style="font-size:11px;color:#B8811E;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px">Next Steps</div>
+      <div id="mkt-checklist" style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#E8E8E8"></div>
+    </div>
+
+    <!-- SECTION 4: Year 1 Projections -->
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Year 1 Projections</span><div class="section-line"></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:8px">
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;text-align:center">
+        <div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Low</div>
+        <div style="font-size:20px;font-weight:700;color:#E8E8E8;margin-bottom:4px">40 loans</div>
+        <div style="font-size:14px;color:#4ade80;font-weight:600">$77K revenue</div>
+        <div style="font-size:11px;color:#888;margin-top:4px">CPFL: $590</div>
+      </div>
+      <div style="background:#1A1C24;border:2px solid #B8811E;border-radius:8px;padding:16px;text-align:center">
+        <div style="font-size:10px;color:#B8811E;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Mid (Target)</div>
+        <div style="font-size:20px;font-weight:700;color:#E8E8E8;margin-bottom:4px">60 loans</div>
+        <div style="font-size:14px;color:#4ade80;font-weight:600">$140K revenue</div>
+        <div style="font-size:11px;color:#888;margin-top:4px">CPFL: $375</div>
+      </div>
+      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;text-align:center">
+        <div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">High</div>
+        <div style="font-size:20px;font-weight:700;color:#E8E8E8;margin-bottom:4px">80 loans</div>
+        <div style="font-size:14px;color:#4ade80;font-weight:600">$206K revenue</div>
+        <div style="font-size:11px;color:#888;margin-top:4px">CPFL: $160</div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:#888;line-height:1.6;margin-bottom:16px">Based on $3,500 avg origination at 100bps broker (FHM). UMortgage at 275bps would 2.5x these numbers on DSCR volume.</div>
+    <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:12px;color:#888">Loans closed: <span id="proj-loans" style="color:#E8E8E8;font-weight:600">0</span> / 60</span><span style="font-size:11px;color:#B8811E">0%</span></div>
+      <div style="height:6px;background:#333;border-radius:3px;overflow:hidden"><div id="proj-bar" style="height:100%;background:#B8811E;border-radius:3px;width:0%;transition:width 0.4s"></div></div>
+    </div>
+
   </div>
   </div>
 
@@ -1495,10 +1612,74 @@
     document.getElementById('gate-err').style.display = 'none';
   };
 
+  // ── Marketing Tab: Campaign Status + Checklist persistence ──
+  var MKT_CAMPS_KEY = 'viador_camp_statuses';
+  var MKT_CHECKS_KEY = 'viador_mkt_checks';
+  var statusColors = {
+    'READY': {bg:'#2d6a4f',color:'#a7f3d0'}, 'ACTIVE': {bg:'#166534',color:'#4ade80'},
+    'IN PROGRESS': {bg:'rgba(184,129,30,0.3)',color:'#B8811E'}, 'PENDING': {bg:'#92400e',color:'#fde68a'},
+    'NOT STARTED': {bg:'#333',color:'#888'}, 'PLANNED': {bg:'#1A1C24',color:'#666',border:'1px solid #333'},
+    'PAUSED': {bg:'#8b1a1a',color:'#fca5a5'}
+  };
+  function saveCampStatus(id, val) {
+    var d = {}; try { d = JSON.parse(localStorage.getItem(MKT_CAMPS_KEY)) || {}; } catch(e) {}
+    d['camp-'+id] = val;
+    localStorage.setItem(MKT_CAMPS_KEY, JSON.stringify(d));
+    var badge = document.getElementById('camp-'+id+'-badge');
+    if (badge) {
+      var sc = statusColors[val] || statusColors['PLANNED'];
+      badge.textContent = val;
+      badge.style.background = sc.bg; badge.style.color = sc.color;
+      badge.style.border = sc.border || 'none';
+    }
+  }
+  function loadCampStatuses() {
+    var d = {}; try { d = JSON.parse(localStorage.getItem(MKT_CAMPS_KEY)) || {}; } catch(e) {}
+    for (var k in d) {
+      var id = k.replace('camp-','');
+      var badge = document.getElementById(k+'-badge');
+      var sel = badge?.parentElement?.parentElement?.querySelector('select');
+      if (badge && d[k]) { saveCampStatus(id, d[k]); if (sel) sel.value = d[k]; }
+    }
+  }
+  var mktCheckItems = [
+    'Schedule NMLS exam (Prometric \u2014 earliest Mon/Tue)',
+    'Sign FHM MLO agreement (non-solicitation amendment)',
+    'Register sending subdomain for email warm-up',
+    'Start email warm-up (2-3 weeks before send)',
+    'Apply Lima One broker approval (online, 20 min)',
+    'Apply Visio Lending broker approval (online, 20 min)',
+    'Pull Pinellas County PropStream data (6-10K leads)',
+    'UMortgage Go Broker application',
+    'Google Ads campaign setup ($900/mo)',
+    'Add HubSpot CTA to ViaScore results page'
+  ];
+  function initMktChecklist() {
+    var el = document.getElementById('mkt-checklist');
+    if (!el) return;
+    var saved = {}; try { saved = JSON.parse(localStorage.getItem(MKT_CHECKS_KEY)) || {}; } catch(e) {}
+    el.innerHTML = '';
+    mktCheckItems.forEach(function(item, i) {
+      var checked = saved['chk-'+i] ? 'checked' : '';
+      var lbl = document.createElement('label');
+      lbl.style.cssText = 'display:flex;align-items:center;gap:8px;cursor:pointer;padding:4px 0;';
+      lbl.innerHTML = '<input type="checkbox" '+checked+' onchange="saveMktCheck('+i+',this.checked)" style="accent-color:#B8811E;width:15px;height:15px;cursor:pointer"><span style="'+(checked?'text-decoration:line-through;color:#666':'')+'">'+item+'</span>';
+      el.appendChild(lbl);
+    });
+  }
+  function saveMktCheck(i, val) {
+    var d = {}; try { d = JSON.parse(localStorage.getItem(MKT_CHECKS_KEY)) || {}; } catch(e) {}
+    d['chk-'+i] = val;
+    localStorage.setItem(MKT_CHECKS_KEY, JSON.stringify(d));
+    initMktChecklist();
+  }
+
   function showDash(){
     document.getElementById('gate').style.display = 'none';
     document.getElementById('dash').style.display = 'block';
     initDash();
+    loadCampStatuses();
+    initMktChecklist();
   }
 
   /* ── Constants ──────────────────────────────────── */
