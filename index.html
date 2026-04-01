@@ -399,8 +399,9 @@
 
       <div class="hero-actions">
         <a href="#dealform" class="btn-primary">Review My Deal — Free</a>
-        <a href="bpl.html" class="btn-ghost">What is BPL? →</a>
+        <a href="#dealform" class="btn-ghost">Not sure which program fits? &rarr;</a>
       </div>
+      <p style="font-size:13px;color:var(--ink-soft);margin-top:10px">Or call: <a href="tel:+18134192983" style="color:var(--ink);font-weight:500;text-decoration:none">(813) 419-2983</a> &mdash; real person, real answers.</p>
 
       <div class="cta-trust">
         <span>&#10003; Every deal gets a real review</span>
@@ -497,6 +498,11 @@
     <div class="proof-number">NMLS</div>
     <div class="proof-label">#2822744 — Verified</div>
   </div>
+</div>
+
+<!-- Geo Trust Line -->
+<div style="background:var(--cream-dark,#f5f0e8);padding:10px 32px;text-align:center;">
+  <p style="font-family:'DM Sans',sans-serif;font-size:12px;color:var(--ink-soft,#52504C);margin:0;letter-spacing:0.03em;">Active in Tampa Bay &mdash; Hillsborough, Pinellas, Pasco &middot; Licensed Statewide in FL &amp; OH</p>
 </div>
 
 <!-- ViaScore Active Strip -->
@@ -785,7 +791,7 @@ function submitLeadMagnet(e){
         <div class="how-num">01</div>
         <div class="how-body">
           <h3>Submit your deal</h3>
-          <p>Property, deal type, whether you have an LLC, what state. Takes 90 seconds. The form is built to route your deal to the right structure from the start.</p>
+          <p>Property, deal type, whether you have an LLC, what state. Takes 60 seconds. No obligation. The form is built to route your deal to the right structure from the start.</p>
         </div>
       </div>
 
@@ -915,15 +921,9 @@ function submitLeadMagnet(e){
 
           <!-- STEP 2 -->
           <div id="step2" style="display:none">
-            <div class="field-row">
-              <div class="field">
-                <label for="address">Property address or city/state</label>
-                <input type="text" id="address" name="address" placeholder="123 Main St or City, State"/>
-              </div>
-              <div class="field">
-                <label for="listing">Listing URL <em>(optional)</em></label>
-                <input type="url" id="listing" name="listing_url" placeholder="Zillow, Realtor, Redfin…"/>
-              </div>
+            <div class="field">
+              <label for="address">Property address</label>
+              <input type="text" id="address" name="address" placeholder="123 Main St, City, State"/>
             </div>
 
             <div class="field-row">
@@ -939,36 +939,14 @@ function submitLeadMagnet(e){
                 </select>
               </div>
               <div class="field">
-                <label for="transtype">Transaction type</label>
-                <select id="transtype" name="transaction_type">
-                  <option value="">Select</option>
-                  <option>Purchase</option>
-                  <option>Refinance</option>
-                  <option>Cash-out refinance</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field">
-                <label for="price">Purchase / current value</label>
+                <label for="price">Estimated property value</label>
                 <input type="text" id="price" name="purchase_price" placeholder="$325,000"/>
               </div>
-              <div class="field">
-                <label for="loanamt">Loan amount needed</label>
-                <input type="text" id="loanamt" name="loan_amount" placeholder="$260,000"/>
-              </div>
             </div>
 
-            <div class="field-row">
-              <div class="field">
-                <label for="rent-est">Monthly rent (actual or estimated)</label>
-                <input type="text" id="rent-est" name="monthly_rent" placeholder="$2,400"/>
-              </div>
-              <div class="field">
-                <label for="arv-est">ARV — After Repair Value</label>
-                <input type="text" id="arv-est" name="arv" placeholder="$420,000"/>
-              </div>
+            <div class="field">
+              <label for="loanamt">Loan amount needed</label>
+              <input type="text" id="loanamt" name="loan_amount" placeholder="$260,000"/>
             </div>
 
             <div class="field-divider"></div>
@@ -987,11 +965,6 @@ function submitLeadMagnet(e){
             <div class="field">
               <label for="phone">Phone <em>(optional)</em></label>
               <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" autocomplete="tel"/>
-            </div>
-
-            <div class="field">
-              <label for="notes">Anything else?</label>
-              <textarea id="notes" name="notes" placeholder="Timeline, questions, or context that helps us give better feedback…"></textarea>
             </div>
 
             <button type="button" class="btn-primary btn-full" id="submitDeal">Submit Deal for Review</button>

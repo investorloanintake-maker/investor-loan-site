@@ -5,8 +5,8 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Term to Own | Unlock Your Equity & Build Real Wealth | Viador Partners</title>
-  <meta name="description" content="Use your property's equity to eliminate high-interest debt, lower your blended rate, and own your home free and clear — years sooner."/>
+  <title>Cash-Out Refi for Investors | Your Rental Equity Is Working Capital | Viador Partners</title>
+  <meta name="description" content="A strategic cash-out refi can lower your rate, eliminate high-interest debt, and free up capital for your next acquisition — all in one move."/>
   <link rel="canonical" href="https://www.viadorpartners.com/refi.html"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
@@ -51,6 +51,13 @@
     .tto-email-box{background:#1a1c24;border:1px solid rgba(184,129,30,0.15);border-radius:10px;padding:24px;text-align:center;margin-top:32px}
     .tto-email-row{display:flex;gap:8px;max-width:400px;margin:12px auto 0}
     .tto-cta-box{background:#1a1c24;border:2px solid var(--gold);border-radius:12px;padding:32px;text-align:center;margin-top:32px}
+    .tto-manual-val{background:#1a1c24;border:1px solid rgba(184,129,30,0.25);border-radius:10px;padding:20px;text-align:center;margin-top:16px}
+    .tto-manual-val input{width:220px;padding:14px 16px;background:#fff;border:1px solid rgba(0,0,0,0.15);border-radius:8px;font-size:18px;color:#1a1a1a;text-align:center;font-family:'DM Mono',monospace;outline:none}
+    .tto-mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#111318;border-top:1px solid rgba(184,129,30,0.2);padding:10px 16px;gap:8px}
+    .tto-mobile-sticky a{flex:1;text-align:center;padding:12px 8px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;font-family:'DM Sans',sans-serif}
+    .tto-mobile-sticky .tto-ms-call{background:transparent;border:1px solid rgba(255,255,255,0.2);color:#fff}
+    .tto-mobile-sticky .tto-ms-cta{background:var(--gold);color:#fff}
+    @media(max-width:960px){.tto-mobile-sticky{display:flex}}
     @media(max-width:560px){.tto-grid2{grid-template-columns:1fr}.tto-debt-row{grid-template-columns:1fr 1fr 80px}.tto-props{gap:16px}}
   </style>
 </head>
@@ -67,17 +74,18 @@
 
 <!-- SECTION 1: Hero -->
 <section class="tto-hero">
-  <h1 class="tto-h1">Term to Own</h1>
-  <p class="tto-sub">Use your property's equity to eliminate high-interest debt, lower your blended rate, and own your home free and clear &mdash; years sooner.</p>
+  <h1 class="tto-h1">Your Rental Equity Is Working Capital.</h1>
+  <p class="tto-sub">A strategic cash-out refi can lower your rate, eliminate high-interest debt, and free up capital for your next acquisition &mdash; all in one move.</p>
   <div class="tto-props">
     <div class="tto-prop"><span class="tto-prop-icon">&#x1F3E6;</span> Lower your blended rate</div>
-    <div class="tto-prop"><span class="tto-prop-icon">&#x1F4C9;</span> Eliminate high-interest debt</div>
-    <div class="tto-prop"><span class="tto-prop-icon">&#x1F3E0;</span> Own free &amp; clear years sooner</div>
+    <div class="tto-prop"><span class="tto-prop-icon">&#x1F4B0;</span> Deploy equity into your next deal</div>
+    <div class="tto-prop"><span class="tto-prop-icon">&#x1F4C9;</span> Eliminate high-interest debt in one move</div>
   </div>
   <div class="tto-form">
     <input type="text" id="tto-address" class="tto-input" placeholder="Enter your property address"/>
     <button id="tto-go" class="tto-btn" onclick="runTermToOwn()" disabled style="opacity:0.5">Calculate My Opportunity &rarr;</button>
     <p style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:8px;text-align:center">Free. No signup required. Works for any property.</p>
+    <p style="font-size:10px;color:rgba(255,255,255,0.25);margin-top:6px;text-align:center">Viador Partners LLC &middot; NMLS #2822744 &middot; Tampa, FL &middot; Equal Housing Lender</p>
   </div>
 </section>
 
@@ -97,6 +105,12 @@
       </div>
       <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:12px;text-align:center" id="tto-equity-msg"></div>
     </div>
+    <!-- Manual value fallback when AVM is unavailable -->
+    <div class="tto-manual-val" id="tto-manual-value" style="display:none">
+      <div style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:10px">We couldn't auto-fill your value &mdash; enter your estimated property value:</div>
+      <input type="text" id="manual-value-input" placeholder="$450,000" oninput="formatManualInput(this)">
+      <div style="margin-top:10px"><button class="tto-btn" style="width:auto;padding:12px 28px;display:inline-block" onclick="applyManualValue()">Use This Value &rarr;</button></div>
+    </div>
   </div>
 
   <!-- Mortgage Balance Input -->
@@ -106,6 +120,17 @@
       <div style="font-size:14px;color:#fff;font-weight:600;margin-bottom:8px">What's your current mortgage balance?</div>
       <input type="text" id="mortgage-balance" class="tto-debt-input" placeholder="e.g. 285,000" style="width:100%;font-size:16px;padding:12px 14px" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
       <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:6px">Approximate is fine &mdash; you can adjust anytime. Check your last statement for accuracy.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">
+        <div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:4px">Current rate (%)</div>
+          <input type="text" id="mortgage-rate" class="tto-debt-input" value="9.0" style="width:100%;font-size:14px;padding:10px 12px">
+        </div>
+        <div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:4px">Equity to access ($)</div>
+          <input type="text" id="equity-access" class="tto-debt-input" placeholder="Auto-calculated" style="width:100%;font-size:14px;padding:10px 12px" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+          <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:3px" id="equity-max-label"></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -153,6 +178,45 @@
         </div>
       </div>
 
+      <!-- Tab Toggle: Full Refi vs DSCR Second -->
+      <div style="display:flex;gap:0;margin-bottom:16px;border-bottom:2px solid #333">
+        <button id="tab-refi" onclick="switchRefiTab('refi')" style="flex:1;padding:10px 16px;background:transparent;border:none;border-bottom:2px solid var(--gold);margin-bottom:-2px;color:var(--gold);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Full Cash-Out Refi</button>
+        <button id="tab-second" onclick="switchRefiTab('second')" style="flex:1;padding:10px 16px;background:transparent;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;color:#888;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Keep First + DSCR Second</button>
+      </div>
+
+      <!-- DSCR Second Mortgage Panel (hidden by default) -->
+      <div id="panel-second" style="display:none">
+        <div class="tto-card" style="border-color:rgba(74,222,128,0.15)">
+          <div style="font-size:12px;color:#4ade80;font-weight:600;margin-bottom:14px">DSCR Second Mortgage &mdash; Keep Your Low Rate</div>
+          <div class="tto-grid2" style="margin-bottom:14px">
+            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:14px">
+              <div style="font-size:10px;color:#888;font-weight:700;text-transform:uppercase;margin-bottom:8px">Option A &mdash; Full Refi</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.8">
+                New loan: <span id="s2-refi-loan" style="color:#E8E8E8"></span><br>
+                Rate: 7.25%<br>
+                Payment: <span id="s2-refi-pmt" style="color:#E8E8E8"></span>/mo
+              </div>
+            </div>
+            <div style="background:rgba(74,222,128,0.04);border:1px solid rgba(74,222,128,0.12);border-radius:8px;padding:14px;position:relative">
+              <div style="position:absolute;top:8px;right:8px;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#2d6a4f;color:#a7f3d0" id="s2-rec-badge" style="display:none">RECOMMENDED</div>
+              <div style="font-size:10px;color:#4ade80;font-weight:700;text-transform:uppercase;margin-bottom:8px">Option B &mdash; DSCR Second</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.8">
+                First stays: <span id="s2-first-bal" style="color:#E8E8E8"></span> @ <span id="s2-first-rate" style="color:#4ade80"></span><br>
+                First pmt: <span id="s2-first-pmt" style="color:#E8E8E8"></span>/mo (unchanged)<br>
+                New second: <span id="s2-second-amt" style="color:#E8E8E8"></span> @ <span id="s2-second-rate">9.25%</span><br>
+                Second pmt: <span id="s2-second-pmt" style="color:#E8E8E8"></span>/mo
+              </div>
+            </div>
+          </div>
+          <div class="tto-grid2" style="margin-bottom:14px">
+            <div class="tto-metric"><div class="tto-metric-label">Full Refi Total</div><div class="tto-metric-val" id="s2-total-a"></div></div>
+            <div class="tto-metric" style="background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.12)"><div class="tto-metric-label">Keep First + Second</div><div class="tto-metric-val" id="s2-total-b"></div></div>
+          </div>
+          <div class="tto-highlight" id="s2-callout"></div>
+          <div style="font-size:11px;color:#888;margin-top:10px;text-align:center" id="s2-comp"></div>
+        </div>
+      </div>
+
       <!-- Panel B: Term to Own -->
       <div class="tto-card">
         <div style="font-size:12px;color:var(--gold);font-weight:600;margin-bottom:12px">Accelerated Payoff</div>
@@ -189,8 +253,8 @@
 
   <!-- SECTION 5: Email Capture -->
   <div class="tto-email-box" id="tto-email-section">
-    <div style="font-family:'Fraunces',serif;font-size:18px;color:#fff;margin-bottom:4px">Want a full breakdown sent to you?</div>
-    <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:12px">We'll also reach out if there's a better option for your situation.</div>
+    <div style="font-family:'Fraunces',serif;font-size:18px;color:#fff;margin-bottom:4px">Want this analysis + a custom rate quote?</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:12px">Enter your email &mdash; we'll send the breakdown and a real rate within 24 hours.</div>
     <div class="tto-email-row"><input type="email" id="tto-email" placeholder="you@email.com" style="flex:1;padding:12px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(184,129,30,0.3);border-radius:6px;color:#fff;font-size:15px;outline:none"><button onclick="captureEmail()" style="padding:12px 20px;background:var(--gold);color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap">Send My Analysis &rarr;</button></div>
     <div id="tto-email-msg" style="display:none;color:#4ade80;font-size:13px;margin-top:10px"></div>
   </div>
@@ -210,6 +274,12 @@
   </div>
 
 </div>
+</div>
+
+<!-- Mobile Sticky CTA Bar -->
+<div class="tto-mobile-sticky" id="refiMobileCta">
+  <a href="tel:+18134192983" class="tto-ms-call">(813) 419-2983</a>
+  <a href="https://viadorpartners.com/#dealform" class="tto-ms-cta">Review My Deal &rarr;</a>
 </div>
 
 <script src="script.js"></script>
@@ -265,18 +335,49 @@ async function runTermToOwn(){
     D.avm=data._consensusAVM||0;
   }catch(e){D.avm=350000;}
 
-  D.equity=Math.round(D.avm*0.75);
-  D.balance=Math.round(D.avm*0.65);
-
   document.getElementById('tto-prop-addr').textContent=addr;
   document.getElementById('tto-prop-meta').textContent=(parts[1]||'')+', '+(szm?szm[1]:'');
-  document.getElementById('tto-avm').textContent=fmt(D.avm);
-  document.getElementById('tto-equity').textContent=fmt(D.equity);
-  document.getElementById('tto-equity-msg').textContent='You have '+fmt(D.equity)+' in equity available. Here\u2019s how to put it to work.';
 
+  if(!D.avm||D.avm<=0){
+    // AVM unavailable — show manual input
+    document.getElementById('tto-avm').innerHTML='<span style="color:rgba(255,255,255,0.4);font-size:14px">—</span>';
+    document.getElementById('tto-equity').innerHTML='<span style="color:rgba(255,255,255,0.4);font-size:14px">—</span>';
+    document.getElementById('tto-equity-msg').innerHTML='';
+    var manualDiv=document.getElementById('tto-manual-value');
+    if(manualDiv)manualDiv.style.display='block';
+    document.getElementById('tto-results').style.display='block';
+    btn.disabled=false;btn.textContent='Calculate My Opportunity \u2192';
+    document.getElementById('tto-results').scrollIntoView({behavior:'smooth',block:'start'});
+    return;
+  }
+
+  applyAVM(D.avm);
   document.getElementById('tto-results').style.display='block';
   btn.disabled=false;btn.textContent='Calculate My Opportunity \u2192';
   document.getElementById('tto-results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function applyManualValue(){
+  var raw=document.getElementById('manual-value-input').value.replace(/[^0-9]/g,'');
+  var val=parseInt(raw)||0;
+  if(val<50000){document.getElementById('manual-value-input').focus();return;}
+  D.avm=val;
+  applyAVM(val);
+  document.getElementById('tto-manual-value').style.display='none';
+}
+
+function formatManualInput(el){
+  var raw=el.value.replace(/[^0-9]/g,'');
+  if(raw)el.value=parseInt(raw).toLocaleString();
+}
+
+function applyAVM(avm){
+  D.avm=avm;
+  D.equity=Math.round(avm*0.75);
+  D.balance=Math.round(avm*0.65);
+  document.getElementById('tto-avm').textContent=fmt(avm);
+  document.getElementById('tto-equity').textContent=fmt(D.equity);
+  document.getElementById('tto-equity-msg').textContent='You have '+fmt(D.equity)+' in equity available. Here\u2019s how to put it to work.';
 }
 
 function calcTermToOwn(){
@@ -331,6 +432,8 @@ function calcTermToOwn(){
 
   document.getElementById('tto-calc-results').style.display='block';
   updatePayoff();
+  // Auto-select DSCR second tab if current rate is low
+  if(curRate<5.5)switchRefiTab('second');else switchRefiTab('refi');
   document.getElementById('tto-calc-results').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
@@ -362,6 +465,85 @@ function updatePayoff(){
   document.getElementById('sum-years').textContent=yrsSaved>0?yrsSaved.toFixed(1)+' years sooner':'Standard 30yr';
   document.getElementById('sum-int').textContent=fmt(intSaved);
   document.getElementById('sum-blend').textContent=D.blendBefore.toFixed(1)+'% \u2192 '+D.newRate+'%';
+}
+
+// ── DSCR Second Mortgage Tab ──
+function switchRefiTab(tab){
+  var tRefi=document.getElementById('tab-refi'),tSec=document.getElementById('tab-second');
+  var pSec=document.getElementById('panel-second');
+  if(tab==='second'){
+    tRefi.style.borderBottomColor='transparent';tRefi.style.color='#888';
+    tSec.style.borderBottomColor='var(--gold)';tSec.style.color='var(--gold)';
+    pSec.style.display='block';
+    calcSecond();
+  }else{
+    tRefi.style.borderBottomColor='var(--gold)';tRefi.style.color='var(--gold)';
+    tSec.style.borderBottomColor='transparent';tSec.style.color='#888';
+    pSec.style.display='none';
+  }
+}
+function calcSecond(){
+  if(!D||!D.avm)return;
+  var fmt=function(n){return'$'+Math.abs(Math.round(n)).toLocaleString()};
+  var curBal=D.balance||Math.round(D.avm*0.55);
+  var curRate=parseFloat(document.getElementById('mortgage-rate')?.value)||9.0;
+  var avm=D.avm;
+  var userEquity=parseInt(document.getElementById('equity-access')?.value?.replace(/[^0-9]/g,''))||0;
+
+  // First mortgage payment (stays)
+  var r1=curRate/100/12;
+  var firstPmt=curBal>0&&r1>0?curBal*r1/(1-Math.pow(1+r1,-360)):0;
+
+  // Available for second
+  var maxCLTV=avm*0.80;
+  var equityAvail=Math.min(Math.max(maxCLTV-curBal,0),500000);
+  document.getElementById('equity-max-label').textContent='Max available: '+fmt(equityAvail)+' (80% CLTV)';
+  var secondAmt=userEquity>0?Math.min(userEquity,equityAvail):equityAvail;
+  if(secondAmt<150000&&equityAvail>=150000)secondAmt=150000;
+
+  // Second mortgage payment at 9.25%
+  var r2=9.25/100/12;
+  var secondPmt=secondAmt>0&&r2>0?secondAmt*r2/(1-Math.pow(1+r2,-360)):0;
+  var combinedPmt=firstPmt+secondPmt;
+
+  // Full refi comparison
+  var totalDebt=curBal+secondAmt;
+  var rNew=7.25/100/12;
+  var refiPmt=totalDebt>0?totalDebt*rNew/(1-Math.pow(1+rNew,-360)):0;
+
+  // Blended rate for option B
+  var totalBal=curBal+secondAmt;
+  var blendedB=totalBal>0?((curBal*curRate)+(secondAmt*9.25))/totalBal:curRate;
+
+  var diff=refiPmt-combinedPmt;
+  var secondBetter=diff>0;
+  var comp=Math.round(secondAmt*0.02)+695;
+
+  // Populate
+  document.getElementById('s2-refi-loan').textContent=fmt(totalDebt);
+  document.getElementById('s2-refi-pmt').textContent=fmt(refiPmt);
+  document.getElementById('s2-first-bal').textContent=fmt(curBal);
+  document.getElementById('s2-first-rate').textContent=curRate+'%';
+  document.getElementById('s2-first-pmt').textContent=fmt(firstPmt);
+  document.getElementById('s2-second-amt').textContent=fmt(secondAmt);
+  document.getElementById('s2-second-pmt').textContent=fmt(secondPmt);
+  document.getElementById('s2-total-a').textContent=fmt(refiPmt)+'/mo';
+  document.getElementById('s2-total-a').style.color=secondBetter?'rgba(255,255,255,0.5)':'#4ade80';
+  document.getElementById('s2-total-b').textContent=fmt(combinedPmt)+'/mo';
+  document.getElementById('s2-total-b').style.color=secondBetter?'#4ade80':'rgba(255,255,255,0.5)';
+
+  var badge=document.getElementById('s2-rec-badge');
+  if(badge)badge.style.display=secondBetter?'block':'none';
+
+  var callout=document.getElementById('s2-callout');
+  if(curRate<5.5&&secondBetter){
+    callout.innerHTML='<div style="font-size:15px;font-weight:700;color:#4ade80">Keep your '+curRate+'% first mortgage</div><div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px">Adding a DSCR second saves '+fmt(Math.abs(diff))+'/mo vs a full refinance &mdash; while still accessing '+fmt(secondAmt)+' in equity.</div>';
+  }else if(secondBetter){
+    callout.innerHTML='<div style="font-size:15px;font-weight:700;color:#4ade80">DSCR second saves '+fmt(Math.abs(diff))+'/mo</div><div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px">Blended rate: '+blendedB.toFixed(1)+'% vs 7.25% full refi. Lower combined payment.</div>';
+  }else{
+    callout.innerHTML='<div style="font-size:14px;color:#B8811E">At your current rate of '+curRate+'%, a full cash-out refi saves '+fmt(Math.abs(diff))+'/mo. See the Full Refi tab above.</div>';
+  }
+  document.getElementById('s2-comp').textContent='Viador Partners origination on second mortgage: ~'+fmt(comp)+' (2% of loan + $695)';
 }
 
 function captureEmail(){

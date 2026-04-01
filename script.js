@@ -169,7 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
       Total cost: <strong>$${totalCost.toLocaleString()}</strong> &nbsp;·&nbsp;
       LTC: <strong>${ltv}%</strong><br>
       Gross profit (pre-carry): <strong>$${grossProfit.toLocaleString()}</strong> &nbsp;·&nbsp;
-      Margin: <strong>${margin}%</strong>
+      Margin: <strong>${margin}%</strong><br>
+      <a href="#dealform" onclick="try{document.getElementById('dealtype').value='fix-flip'}catch(e){}" style="display:inline-block;margin-top:10px;color:var(--gold);font-weight:600;font-size:14px;text-decoration:none">This deal may qualify &mdash; submit it for a free review &rarr;</a>
     `;
   };
 
@@ -185,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ratio >= 1.25)      { msg = `✓ Strong — DSCR ${ratio}. Well above typical 1.25 threshold.`;  color = 'var(--gold)'; }
     else if (ratio >= 1.0)  { msg = `~ Marginal — DSCR ${ratio}. Qualifies at some lenders, tighter terms.`; color = 'var(--ink-soft)'; }
     else                    { msg = `⚠ Below 1.0 — DSCR ${ratio}. Property income doesn't cover payment.`; color = '#b45309'; }
-    el.innerHTML = `<strong style="color:${color}">${msg}</strong>`;
+    el.innerHTML = `<strong style="color:${color}">${msg}</strong><br><a href="#dealform" onclick="try{document.getElementById('dealtype').value='dscr'}catch(e){}" style="display:inline-block;margin-top:10px;color:var(--gold);font-weight:600;font-size:14px;text-decoration:none">This deal may qualify &mdash; submit it for a free review &rarr;</a>`;
   };
 
   /* ── Sticky mobile CTA — hide when near form ── */
