@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "3.8",
-    "last_updated": "2026-03-28",
+    "last_updated": "2026-04-01",
     "last_session": "95 programmatic data pages generated. Worker: web comps /comps endpoint, scoring prompt v4 (350 tokens), AbortController fix, Cloudflare Cache, deterministic fallback. Widget: comps table, input color fix. 118+ total pages live.",
     "description": "Single source of truth for Viador Partners. Update after every major session. All platforms and scripts read from this file."
   },
@@ -79,7 +79,11 @@
       "relevance": "NMLS sponsor via Focus Home Mortgage Inc. UWM access. Primary Ohio lending partner.",
       "status": "nda_signed",
       "next_action": "Text to confirm UWM 100% + discuss commercial deal flow",
-      "entities": ["Focus Lending Inc", "Focus DSCR Inc", "Focus Home Mortgage Inc"]
+      "entities": [
+        "Focus Lending Inc",
+        "Focus DSCR Inc",
+        "Focus Home Mortgage Inc"
+      ]
     },
     {
       "name": "Chris Russell",
@@ -88,8 +92,24 @@
       "relevance": "IDX partner. Flat fee MLS. 10 offices across OH/FL/KY/IN. Used twice by Chad for personal home sales.",
       "status": "call_completed_march_25_enthusiastic",
       "next_action": "In-person meeting Tampa. Stellar MLS application. 3801 Cleveland St listing.",
-      "licensed_states": ["Ohio", "Florida", "Kentucky", "Indiana"],
-      "offices": ["Cincinnati HQ", "Dayton", "Columbus", "Athens", "North Central OH", "North East OH", "Florence KY", "Lexington KY", "St Petersburg FL", "Batesville IN"],
+      "licensed_states": [
+        "Ohio",
+        "Florida",
+        "Kentucky",
+        "Indiana"
+      ],
+      "offices": [
+        "Cincinnati HQ",
+        "Dayton",
+        "Columbus",
+        "Athens",
+        "North Central OH",
+        "North East OH",
+        "Florence KY",
+        "Lexington KY",
+        "St Petersburg FL",
+        "Batesville IN"
+      ],
       "stellar_mls": "application_in_progress",
       "idx_email_sent": true
     },
@@ -210,9 +230,24 @@
   },
   "financials": {
     "projections": {
-      "y1": { "revenue": 200000, "net": 150000, "loans": 36, "platform_value": "1M-2M" },
-      "y2": { "revenue": 2000000, "net": 1800000, "loans": 120, "platform_value": "18M-28M" },
-      "y3": { "revenue": 5000000, "net": 4500000, "loans": 192, "platform_value": "50M-100M" }
+      "y1": {
+        "revenue": 200000,
+        "net": 150000,
+        "loans": 36,
+        "platform_value": "1M-2M"
+      },
+      "y2": {
+        "revenue": 2000000,
+        "net": 1800000,
+        "loans": 120,
+        "platform_value": "18M-28M"
+      },
+      "y3": {
+        "revenue": 5000000,
+        "net": 4500000,
+        "loans": 192,
+        "platform_value": "50M-100M"
+      }
     },
     "monthly_expenses": {
       "claude_pro": 20,
@@ -244,21 +279,55 @@
   "technology": {
     "cloudflare_worker": {
       "url": "viador-ai-proxy.chad-7f6.workers.dev",
-      "endpoints": ["/anthropic", "/score", "/rentcast/property", "/rentcast/rent", "/rentcast/value", "/hud-fmr", "/estated", "/census", "/sheets"],
-      "secrets": ["ANTHROPIC_API_KEY", "RENTCAST_API_KEY", "HUDUSER_API_KEY", "ESTATED_API_KEY", "GOOGLE_SHEETS_API_KEY"],
+      "endpoints": [
+        "/anthropic",
+        "/score",
+        "/rentcast/property",
+        "/rentcast/rent",
+        "/rentcast/value",
+        "/hud-fmr",
+        "/estated",
+        "/census",
+        "/sheets"
+      ],
+      "secrets": [
+        "ANTHROPIC_API_KEY",
+        "RENTCAST_API_KEY",
+        "HUDUSER_API_KEY",
+        "ESTATED_API_KEY",
+        "GOOGLE_SHEETS_API_KEY"
+      ],
       "model": "claude-sonnet-4-20250514",
       "streaming": "SSE fixed and deployed March 25 2026"
     },
     "avm_stack": {
-      "current": ["Rentcast", "Homesage.ai", "HUD FMR", "Census ACS", "Walk Score", "Estated"],
+      "2027": [
+        "Direct MLS data license",
+        "PropStream API"
+      ],
+      "2028": [
+        "National MLS coverage",
+        "ViaScore AVM licensable product"
+      ],
+      "current": [
+        "Rentcast",
+        "Homesage.ai",
+        "HUD FMR",
+        "Census ACS",
+        "Walk Score",
+        "Estated"
+      ],
       "pending_keys": {
         "walkscore_api_key": "get free at walkscore.com/professional/api.php",
         "homesage_api_key": "get free at homesage.ai"
       },
-      "q3_2026": ["FHFA HPI via FRED API — series IDs: Tampa ATNHPIUS45300Q Columbus ATNHPIUS18140Q", "BLS Employment MSA"],
-      "q4_2026": ["VOW sold data — MFRMLS + Columbus Realtors"],
-      "2027": ["Direct MLS data license", "PropStream API"],
-      "2028": ["National MLS coverage", "ViaScore AVM licensable product"]
+      "q3_2026": [
+        "FHFA HPI via FRED API — series IDs: Tampa ATNHPIUS45300Q Columbus ATNHPIUS18140Q",
+        "BLS Employment MSA"
+      ],
+      "q4_2026": [
+        "VOW sold data — MFRMLS + Columbus Realtors"
+      ]
     },
     "viascore_backtest": {
       "transactions": 775,
@@ -274,12 +343,35 @@
       "type": "institutional_grade",
       "dimensions": 6,
       "rehab_intelligence": true,
-      "rehab_tiers": ["Minimal", "Light", "Moderate", "Heavy"],
+      "rehab_tiers": [
+        "Minimal",
+        "Light",
+        "Moderate",
+        "Heavy"
+      ],
       "interactive_scenario_calculator": true,
       "street_view_photos": true,
-      "dimension_names": ["Yield Quality", "Capital Preservation", "Cashflow Durability", "Market Trajectory", "Exit Optionality", "Financing Efficiency"],
-      "outputs": ["intrinsic_value", "offer_intelligence", "viascore", "scenarios", "strategies", "narrative"],
-      "scenario_types": ["bull", "base", "bear"],
+      "dimension_names": [
+        "Yield Quality",
+        "Capital Preservation",
+        "Cashflow Durability",
+        "Market Trajectory",
+        "Exit Optionality",
+        "Financing Efficiency"
+      ],
+      "outputs": [
+        "intrinsic_value",
+        "offer_intelligence",
+        "viascore",
+        "scenarios",
+        "strategies",
+        "narrative"
+      ],
+      "scenario_types": [
+        "bull",
+        "base",
+        "bear"
+      ],
       "expected_irr_weighted": true,
       "max_tokens": 4096
     }
@@ -288,7 +380,11 @@
     "phase_1": "Chris Russell IDX — OH + FL + KY + IN active listings via Stellar MLS",
     "phase_2": "VOW status after Chad licensed — adds sold data for better AVM",
     "phase_3": "Direct license MFRMLS + Columbus Realtors",
-    "phase_4_options": ["Chris expands state licenses", "National flat fee broker — Houzeo/ListingSpark/beycome", "Direct MLS board relationships like Zillow model"],
+    "phase_4_options": [
+      "Chris expands state licenses",
+      "National flat fee broker — Houzeo/ListingSpark/beycome",
+      "Direct MLS board relationships like Zillow model"
+    ],
     "viador_realty_path": "Katie licensed FL + OH — qualifies for direct MLS membership"
   },
   "off_market_strategy": {
@@ -307,7 +403,11 @@
     "compliance": "FL Statute 501.1377 — review with attorney before outreach campaigns"
   },
   "commercial": {
-    "pages_live": ["viadorpartners.com/commercial.html", "viadorpartners.com/franchise.html", "viadorpartners.com/commercial-score.html"],
+    "pages_live": [
+      "viadorpartners.com/commercial.html",
+      "viadorpartners.com/franchise.html",
+      "viadorpartners.com/commercial-score.html"
+    ],
     "markets_listings": 33,
     "nav_status": "removed_from_main_nav — in footer only for now. Re-add after residential funnel proven.",
     "jason_commercial": "Has commercial lender outlets — discuss co-broker revenue share on commercial deals",

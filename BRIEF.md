@@ -1,5 +1,5 @@
 # VIADOR PARTNERS — MASTER BRIEF
-**Version 4.0 | Last Updated: 2026-03-31**
+**Version 3.8 | Last Updated: 2026-04-01**
 
 > Load this file at the start of every Claude session.
 > Single source of truth — all platforms and scripts read from viador-data.json
@@ -14,8 +14,7 @@
 | Phone | (813) 419-2983 |
 | Email | chad@viadorpartners.com |
 | LinkedIn | 25,106 connections |
-| Background | Ohio roots. 20 years in lending — originating loans, building national teams, 3 years Citi global experience. Left corporate life to build Viador. |
-| Brand Voice | Conviction over polish. Built for people done waiting for permission. Do it for yourself. |
+| Background | Ohio roots — father built small business, started working young, brothers run it today. Started originating loans. 15 years building national DTC mortgage teams — Congressional Bank SVP, BayFirst SVP. 3 years at Citi gaining global institutional experience. Left corporate life to build Viador — the platform the industry should have built for investors years ago. |
 | Entity | Viador Partners LLC — Florida Sunbiz |
 | EIN | 41-4907672 |
 
@@ -28,7 +27,6 @@
 | ViaScore | viascore.ai | live_stealth |
 | Viador Markets | viadormarkets.com | live_stealth |
 | Viador Realty | Future | year_2_3 |
-| Viador Academy | Future | year_2_3 |
 
 ---
 
@@ -83,17 +81,18 @@
 - **Status:** warm_not_contacted
 - **Next Action:** Text this week
 
+
 ---
 
 ## PRIORITY STACK
 
-### Tomorrow (March 30)
-1. Switch to GPT-4o mini (OpenAI API key needed)
-2. Google Workspace Starter ($6/mo, chad@viadorpartners.com)
-3. Deploy 5 cross-market answer pages
-4. RSS feed
-5. Google Ads go live
-6. Reddit post #1
+### Today
+- SAFE coursework — 14h21m done, ~5h39m remaining ✅ on pace
+- Chris Russell IDX email — SENT
+- Cloudflare Worker SSE fix deployed — DONE
+- Commercial buildout all 3 platforms — DONE
+- UX audit + 8 conversion fixes — DONE
+- Living data infrastructure — IN PROGRESS
 
 ### This Week
 - Complete SAFE coursework by March 30
@@ -161,45 +160,10 @@
 ---
 
 ## TECHNOLOGY
-- **Worker endpoints:** /anthropic, /score, /score-full, /offer/create, /offer/[code], /hubspot-contact, /comps, /rentcast/*, /hud-fmr, /estated, /census, /sheets, /walkscore
+- **Worker endpoints:** /anthropic, /score, /rentcast/property, /rentcast/rent, /rentcast/value, /hud-fmr, /estated, /census, /sheets
 - **AI model:** claude-sonnet-4-20250514
 - **ViaScore backtest:** 775 transactions, 42 zip codes
-- **AVM stack:** Rentcast + Homesage.ai + HUD FMR + Census ACS + Walk Score + Estated + Franklin County ArcGIS + Hillsborough County HCPA
-
-### Scoring Model
-- **Current:** Claude Sonnet 4.6 — REPLACE TOMORROW
-- **Target:** GPT-4o mini (OpenAI API, native JSON mode, 3-5s, $0.0005/score vs $0.012 Sonnet)
-- **Switch:** `wrangler secret put OPENAI_API_KEY`, then update model in worker.js
-
----
-
-## PERFORMANCE
-*Score endpoint timing (as of March 28):*
-- **dataPhase:** ~500ms ✅
-- **Sonnet:** 14-17s ❌ (switching to OpenAI)
-- **AbortController fix deployed** — no 60s hangs
-- **Cloudflare Cache on /score** — repeat scores instant (24hr TTL)
-- **/comps endpoint** — async comparable sales
-
----
-
-## CONTENT
-- **148+ total pages** live on viascore.ai
-- **95 programmatic pages** (19 markets × 5 topics)
-- **26 answer pages**, **5 data hubs**, **1 about page**, **1 RSS feed**
-- **7-day Reddit/BP calendar** ready (6 posts copy-paste)
-- **Google Ads structure** written (3 campaigns)
-
----
-
-## FEATURES TO BUILD
-*Priority order:*
-1. **Email capture → HubSpot** (token already saved)
-2. **Score sharing URLs** (viascore.ai/score/[slug])
-3. **Lender match CTA** (dynamic based on score)
-4. **Submit Deal flow** for Viador Markets
-5. **Deal alerts** (email when listings match criteria)
-6. **ViaScore API white-label** ($99-499/month/seat)
+- **AVM stack:** Rentcast + Homesage.ai + HUD FMR + Census ACS + Walk Score + Estated
 
 ---
 
@@ -230,110 +194,79 @@
 - SVG icons replace emoji in audience router
 - Trust copy scaled — 'Every deal gets a real review' replaces personal promise
 - $100M audit — 8 critical fixes deployed across all 3 platforms
-- ViaScore v2.0 institutional-grade scoring engine deployed
-- Suggested Offer Price fixed — AVM-based, never above market
-- Deal Optimizer redesigned — suggested offer, collapsed advanced
-- About page surgical copy fixes — bio, timeline, how-I-work
-- ViaScore v3.0 — rehab intelligence + interactive scenario calculator + flip analysis
-- Walk Score API + Nominatim geocoding + county deed APIs (Franklin OH + Hillsborough FL)
-- AVM blending in worker code — lastSalePrice overrides Rentcast when recent
-- Mobile fixes, SVG ring fix, strategy readability, structured panels on Markets
+- ViaScore v2.0 institutional-grade scoring engine deployed — 6 dimensions, offer intelligence, 3-scenario stress test, strategy rankings
+- Suggested Offer Price fixed — AVM-based, never above market value
+- Deal Optimizer redesigned — suggested offer box, collapsed advanced options, 3 key metrics
+- About page surgical copy fixes — tightened bio, timeline, how-I-work section
+- ViaScore v3 — rehab intelligence, interactive scenario calculator, flip analysis
+- Walk Score API integrated — Nominatim geocoding, exit optionality scoring
+- Franklin County ArcGIS + Hillsborough County HCPA — free real-time deed data
+- AVM blending in worker code — lastSalePrice from county APIs overrides Rentcast
+- Score ring SVG distortion fixed — preserveAspectRatio + display:block
+- Mobile audit fixes — input visibility, strategy readability, data badge opacity
+- Viador Markets analyzeDeal switched to /score endpoint with structured panels
+- Known-sales override table for verified properties
 
 ### 2026-03-27
-- City search + 10 SEO market landing pages + markets index on viadormarkets.com
-- FAQ schema (37 questions across 12 pages) for AI search optimization
-- AI referral traffic detection (ChatGPT, Perplexity, Claude, Gemini) on 19 pages
-- GA4 custom events: score_started, score_completed, finance_clicked, scenario_adjusted, listing_viewed
-- ViaScore: price comma formatting, Edit Price & Re-Score, SVG ring fix
-- Worker: AbortController county API timeouts, AVM debug response, townhouse discount, walk-away market floor
-- robots.txt + sitemap.xml for both viadormarkets.com and viascore.ai
-- 15 SEO answer pages live at viascore.ai/answers/ (up from 5)
-- All 15 pages: full unique content, FAQPage + Article + HowTo schema, AI referral tracking, citation footer, quick answer block
-- Pages cover: Columbus, Akron, Dayton, Tampa, Orlando, South Florida, DSCR OH, DSCR FL, fix-and-flip OH/FL/Dayton, best places invest OH, rental property Akron/Columbus, investment property Dayton/South FL
-- Internal link network connecting all 15 pages across OH and FL markets
-- Quick Answer blocks on all pages — green callout with market-specific summary for AI citation extraction
-- Source attribution footer on all pages — links to viascore.ai, viadormarkets.com, viadorpartners.com
-- 7-day content calendar with 6 copy-paste Reddit/BP posts and LinkedIn post
-- ChatGPT SEO audit completed — data hub (viascore.ai/data/) identified as next priority
-- 5 data hub pages live at viascore.ai/data/ — Dataset schema, benchmark tables, formulas
-- answers/index.html live — hub page linking all 15 guides by category
-- Internal link network connecting all 22 pages (15 answers + 5 data + 2 index hubs)
-- Google Ads campaign structure written (3 campaigns — Tool, DSCR, Marketplace)
-- BiggerPockets bio written — copy-paste ready
-- GitHub dataset repo structure + CSVs written
-- 7-day Reddit/BP content calendar with 6 copy-paste posts
-- data/index.html live — DataCatalog schema hub linking all 5 datasets
-- 5 new cross-market answer pages written (ready to deploy): what-is-a-good-cap-rate, cap-rate-vs-cash-on-cash-return, what-is-dscr-loan, rental-property-investment-checklist, what-is-noi-real-estate
-- 5 more cross-market pages outlined (fix-flip-vs-buy-hold, cash-on-cash calculator, what metrics investors use, how lenders evaluate, step-by-step analysis)
+- City search on viadormarkets.com/listings — real-time filter by city/ZIP/address with shareable URLs
+- 10 SEO market landing pages — Tampa, Orlando, Miami, Jacksonville, Clearwater, St Pete, Columbus, Akron, Dayton, Canton
+- Markets index page with auto-generated listing counts and avg scores
+- FAQ schema markup — 37 questions across 12 pages for AI search optimization
+- AI referral traffic detection — GA4 custom events for ChatGPT, Perplexity, Claude, Gemini referrals on 19 pages
+- robots.txt + sitemap.xml for viadormarkets.com and viascore.ai
+- SEO meta tags updated across viadormarkets.com, viascore.ai widget
+- ViaScore price input — live comma formatting + Edit Price & Re-Score in results
+- GA4 custom events — score_started, score_completed, finance_clicked, scenario_adjusted, listing_viewed
+- Worker: AbortController 3s timeouts on county API calls — fixes HCPA hanging
+- Worker: AVM debug object in score response (_debug) for browser-side troubleshooting
+- Worker: Townhouse/Condo 20% AVM discount when Rentcast returns SFR comps
+- Worker: Walk-away price market-aware — appreciation markets floor at 85% AVM
+- Worker: Sonnet 4.6 model (reverted from Opus for speed)
+- Worker: Nominatim geocoding for Walk Score (free, no key)
+- SVG score ring distortion fix — preserveAspectRatio
+- 5 SEO answer pages built on viascore.ai/answers/: rental property analysis, cap rate Columbus OH, DSCR loans Ohio, best Tampa neighborhoods, fix & flip Ohio
+- Each page: HowTo + FAQPage + Article JSON-LD schema, AI referral tracking, internal link network
+- Content distribution strategy: 7-day calendar with 6 reddit/BP posts + LinkedIn post
+- viascore.ai/answers/ confirmed as citation content home — CTAs drive to viadormarkets.com + viadorpartners.com
+- Scaled to 15 answer pages — added: rental-property-akron-ohio, cap-rate-akron-ohio, fix-and-flip-dayton-ohio, best-places-invest-ohio, best-neighborhoods-invest-orlando, investment-property-south-florida, dscr-loans-florida, fix-and-flip-florida, investment-property-dayton-ohio, rental-property-columbus-ohio
+- Quick Answer blocks added to all 15 pages — green callout with market-specific summary optimized for AI citation extraction
+- Source attribution footer on all 15 pages — links viascore.ai + viadormarkets.com + viadorpartners.com + NMLS
+- Internal link network connecting all 15 pages across Ohio and Florida markets
+- ChatGPT SEO audit completed — viascore.ai/data/ hub identified as next priority for dataset pages
+- 5 data hub pages built at viascore.ai/data/ — ohio-rental-yield-benchmarks, tampa-investor-metrics, florida-dscr-loan-requirements, ohio-property-analysis-formula, cap-rate-benchmarks-by-city
+- All data pages: Dataset + Article JSON-LD schema, AI referral tracking, source attribution, formula boxes, benchmark tables
+- answers/index.html live — organized hub page linking all 15 investor guides by category
+- Internal link network now connects all 22 pages (15 answers + 5 data + 2 index hubs)
+- Google Ads campaign structure written — 3 campaigns: Tool (viascore.ai), DSCR Loans (viadorpartners.com), Marketplace (viadormarkets.com)
+- BiggerPockets profile bio written — copy-paste ready
+- GitHub dataset repo structure + CSV files written (ohio_cap_rates, tampa_metrics, florida_insurance, dscr_requirements)
+- 7-day Reddit/BP content calendar with 6 copy-paste posts ready to execute
+- data/index.html live — DataCatalog schema hub linking all 5 dataset pages
+- 5 new cross-market answer pages written (in downloads, ready to deploy): what-is-a-good-cap-rate, cap-rate-vs-cash-on-cash-return, what-is-dscr-loan, rental-property-investment-checklist, what-is-noi-real-estate
+- 5 more cross-market pages outlined: fix-flip-vs-buy-hold, cash-on-cash calculator, what metrics investors use, how lenders evaluate, step-by-step analysis
 - RSS feed written (feed.xml) — ready to deploy
 - 5 Medium articles written in full — ready to publish
-- 10 additional Reddit/BP posts written (posts 6–15) — copy-paste ready
+- 10 additional Reddit/BP posts written (posts 6-15) — copy-paste ready
 - Programmatic SEO template written — blueprint for scaling to 200+ pages
-- All files in downloads ready for deployment next session
 - Next session: deploy 5 new pages + RSS feed, publish Medium articles, execute Reddit posts, set up Google Ads
 
 ### 2026-03-28
-- 95 programmatic data pages generated — 19 markets × 5 topics (generate_pages.py/js)
-- Worker: /comps endpoint for web search comparable sales (async, after score)
-- Worker: scoring prompt v4 — 350 input tokens, max_tokens 800, temperature 0
-- Worker: CRITICAL FIX — AbortController replaces Promise.race, fixed 50s response delay
-- Worker: removed HUD/Estated/Census/Homesage from /score (hanging). Rentcast + Walk Score + county only
-- Worker: Cloudflare Cache on /score — instant repeat lookups (24hr TTL)
-- Worker: deterministic fallback score if Sonnet fails, robust v4/legacy format mapping
-- Widget: Comparable Sales card with async loading + AVM divergence note
-- Widget: input text color fix (#1a1a1a on #ffffff)
-- Total pages: 118+ (15 answers + 7 data hub + 95 programmatic + index pages)
-- GPT-4o mini switch planned — $0.0005/score vs $0.012 Sonnet, 3-5s vs 14-17s
-- Next session: switch scoring model, deploy cross-market pages, RSS feed, Google Ads
+- 95 programmatic data pages generated — 19 markets × 5 topics (cap rate, investment guide, yield benchmarks, DSCR requirements, cash flow)
+- Markets covered: Columbus, Akron, Dayton, Cincinnati, Cleveland, Toledo, Youngstown, Canton (OH) + Tampa, Orlando, Miami, Jacksonville, Fort Lauderdale, West Palm Beach, Kissimmee, St Petersburg, Clearwater, Sarasota, Fort Myers (FL)
+- generate_pages.py + generate_pages.js generators committed — rerunnable for new markets
+- Worker: new /comps endpoint — web search comparable sales via Anthropic web_search tool, called async after score
+- Widget: Comparable Sales card with loading skeleton, populates table (Address, Sqft, Sale Price, $/sqft, Date, Distance) + AVM divergence note
+- Worker: scoring prompt v4 — 350 input tokens (down from 4500), max_tokens 800, temperature 0
+- Worker: deterministic fallback score — returns valid widget-renderable result if Sonnet times out or parse fails
+- Worker: CRITICAL FIX — AbortController replaces Promise.race for all external fetches, eliminating 50s response delay from dangling I/O
+- Worker: removed HUD, Estated, Census, Homesage APIs from /score (hanging connections). Stack now: Rentcast + Walk Score + county deed APIs only
+- Worker: Cloudflare Cache on /score — cache key btoa(address+price+type), 24hr TTL, instant repeat lookups with _cached flag
+- Worker: robust JSON mapping handles both v4 flat format and legacy nested format, uses ?? for numeric fields
+- Worker: markdown code fence stripping + raw Sonnet output logging on all paths
+- Widget: input text color fixed — #1a1a1a on #ffffff, placeholder #999999
+- Total content pages: 118+ (15 answers + 7 data hub + 95 programmatic + index pages)
+- Next session: speed optimization (Sonnet still ~14s), deploy 5 cross-market answer pages, RSS feed, Google Ads
 
-### 2026-03-31
-- /refi rebuilt as "Term to Own" universal wealth calculator (debt consolidation + accelerated payoff)
-- /investor-refi created for PropStream campaign (DSCR language + prepay table + offer code pre-fill)
-- your-analysis.html deployed — personalized property analysis landing page with before/after flip card
-- 50 offer codes generated from Wave 1 distressed list → viador_distressed_wave1_with_codes.xlsx
-- Admin Marketing tab rebuilt: campaign strategy dashboard, 7 campaigns, cohort pipeline, PropStream pull strategy
-- Admin P&L tab rebuilt: 3-scenario proforma, BayFirst 2018 comparison, monthly tracker, personal budget
-- Admin Notes tab rebuilt: platform decision matrix, 6 contact cards, calls checklist
-- Admin Pipeline tab: Client Lifecycle Tracker with flywheel status, trigger alerts, lifetime value
-- 5 cross-market answer pages deployed: cap-rate, cap-rate-vs-coc, dscr-loan, investment-checklist, noi
-- RSS feed live at viascore.ai/feed.xml (11 items)
-- Google Places autocomplete on /refi and /investor-refi
-- Mortgage balance + current rate inputs on both refi pages
-- Total viascore.ai pages: 148+
-- Next: Bing Webmaster Tools, GSC indexing on all new pages, Reddit post 1, DSCR Second Mortgage option
-
-### 2026-03-29 / 2026-03-30 (Marathon Session)
-- GPT-4o mini scoring model deployed — switched from Claude Sonnet to OpenAI ($0.0005/score)
-- Two-phase scoring: /score (fast ~4s) + /score-full (full ~12s) sequential flow
-- Strategy Fit Engine — deterministic math for 4 strategies (DSCR Rental, Fix & Flip, STR, Wholesale)
-- Smart Price Range — DSCR breakeven + sweet spot calculation
-- Strategy cards rendering in ViaScore widget (DOM append after renderResults)
-- AVM fallback waterfall — GPT web search + last sale appreciation + asking price proxy (never returns 0)
-- All external API fetches have AbortController timeouts (5s Rentcast, 3s WalkScore, 20s OpenAI)
-- 25s hard timeout wrapper on /score handler (Promise.race)
-- CORS: Access-Control-Max-Age 86400 on all worker responses
-- HubSpot contact proxy endpoint (/hubspot-contact) — API key server-side
-- KV-backed offer codes: POST /offer/create → 6-char code, GET /offer/[code], 90-day TTL
-- BPL Refi Analyzer live at viadorpartners.com/refi — equity, savings, prepay breakeven, verdict
-- Refi offer page live at viadorpartners.com/refi-offer.html — personalized shareable analysis
-- Conversion-optimized offer page: 48px hero numbers, urgency lines, inline review form, sticky mobile CTA
-- Free & clear detection: properties with no loan auto-qualify with equity deployment analysis
-- Google Apps Script batch scorer (refi-prospector.gs) for Google Sheets portfolio scoring
-- Google Places autocomplete (AutocompleteService pattern) on refi page
-- 6 BPL refi answer pages deployed on viascore.ai for AI citation (AEO/GEO):
-  - answers/what-is-bpl-refi — FinancialProduct + HowTo + FAQPage + SpeakableSpecification
-  - answers/how-to-refinance-rental-property-without-w2 — DSCR vs conventional comparison
-  - answers/should-i-refi-my-rental-property-2026 — 5-question decision framework
-  - answers/cash-out-refinance-rental-property — equity formula + scenarios
-  - answers/prepayment-penalty-dscr-loan — structures + vintage status tables
-  - about/index.html — Organization + Person + SoftwareApplication schema
-- Total viascore.ai pages: 136+ (118 + 6 answer pages + about + data hubs + indexes)
-- LinkedIn Insight Tag (8839754) deployed on refi pages
-- AI referral tracking on all new pages
-- Next: submit 6 pages to GSC, SoftwareApplication schema on refi.html, Bing Webmaster Tools, Wikidata entity, Reddit/BP posts linking to answer pages
-
-### Next Initiatives
-- **Viador Academy** — non-QM/BPL/small business lending certification training. Built from Chad's own learning journey. Integrated with ViaScore + Viador Markets as the practical curriculum. Target: originators and investors who want to self-originate.
 
 ---
 
