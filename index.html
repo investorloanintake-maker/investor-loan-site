@@ -35,48 +35,39 @@
   {
     "@context": "https://schema.org",
     "@type": "FinancialService",
-    "name": "Viador Partners",
-    "description": "Real estate investor financing — DSCR loans, fix & flip bridge loans, Business Purpose Loans (BPL), and bank statement loans. Nationwide deal review within 24 hours.",
-    "url": "https://www.viadorpartners.com",
-    "telephone": "(813) 419-2983",
-    "areaServed": "US",
-    "serviceType": [
-      "DSCR Loans",
-      "Fix and Flip Loans",
-      "Business Purpose Loans",
-      "Bridge Loans",
-      "Bank Statement Loans"
+    "name": "Viador Partners LLC",
+    "description": "Real estate investor financing in Tampa Bay. DSCR loans, DSCR second mortgages, BPL refi, fix and flip, and bridge loans for FL and OH investment properties.",
+    "url": "https://viadorpartners.com",
+    "telephone": "+18134192983",
+    "email": "chad@viadorpartners.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tampa",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "areaServed": [
+      {"@type": "AdministrativeArea", "name": "Hillsborough County, FL"},
+      {"@type": "AdministrativeArea", "name": "Pinellas County, FL"},
+      {"@type": "AdministrativeArea", "name": "Pasco County, FL"},
+      {"@type": "AdministrativeArea", "name": "Manatee County, FL"},
+      {"@type": "AdministrativeArea", "name": "Sarasota County, FL"},
+      {"@type": "AdministrativeArea", "name": "Ohio"}
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Real Estate Investor Loan Programs",
+      "name": "Investment Property Loan Programs",
       "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "LoanOrCredit",
-            "name": "DSCR Rental Loan",
-            "description": "Qualify on rental income — no W2 or tax returns required. For investors building long-term portfolios."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "LoanOrCredit",
-            "name": "Fix and Flip Bridge Loan",
-            "description": "Fast capital for value-add deals. Up to 90% purchase plus 100% rehab costs, based on ARV."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "LoanOrCredit",
-            "name": "Business Purpose Loan (BPL)",
-            "description": "Entity-based real estate financing with no conventional property count limit. Borrow through your LLC."
-          }
-        }
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "DSCR Loans", "description": "Debt service coverage ratio loans qualifying on rental income, not personal income"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "DSCR Second Mortgage", "description": "Access equity from investment properties without refinancing your existing low-rate first mortgage"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fix and Flip Bridge Loans", "description": "Short-term financing for value-add real estate deals, up to 90% purchase plus 100% rehab"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Business Purpose Loans (BPL)", "description": "Entity-based investment property financing with no conventional property count limit"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cash-Out Refinance", "description": "Strategic cash-out refi to lower blended rate, eliminate debt, and free up capital for acquisitions"}}
       ]
-    }
+    },
+    "sameAs": [],
+    "knowsAbout": ["DSCR loans", "investment property financing", "fix and flip loans", "bridge loans", "business purpose loans", "cash-out refinance", "real estate investing"],
+    "slogan": "Fund your next deal without a W-2."
   }
   </script>
 
