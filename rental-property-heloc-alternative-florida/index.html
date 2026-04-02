@@ -45,15 +45,15 @@
   }
   </script>
   <style>
-    .guide-hero{background:var(--ink);color:var(--cream);padding:140px 0 72px}
+    .guide-hero{background:var(--cream-dark,#F2EDE6);color:var(--ink);padding:140px 0 72px}
     .guide-hero-inner{max-width:720px}
     .guide-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
     .guide-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
     .guide-h1{font-family:'Fraunces',serif;font-size:clamp(36px,5vw,60px);font-weight:900;line-height:1.08;letter-spacing:-.02em;margin-bottom:20px}
     .guide-h1 em{font-style:italic;color:var(--gold)}
-    .guide-sub{font-size:18px;line-height:1.7;color:rgba(247,243,238,.7);max-width:580px;margin-bottom:36px}
+    .guide-sub{font-size:18px;line-height:1.7;color:var(--ink-soft,#52504C);max-width:580px;margin-bottom:36px}
     .guide-meta{display:flex;gap:24px;flex-wrap:wrap}
-    .guide-meta-item{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,243,238,.4);display:flex;align-items:center;gap:6px}
+    .guide-meta-item{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft,#52504C);display:flex;align-items:center;gap:6px}
     .guide-meta-item::before{content:'·';color:var(--gold)}
     .guide-wrap{max-width:1100px;margin:0 auto;padding:72px 48px 120px;display:grid;grid-template-columns:1fr 260px;gap:72px;align-items:start}
     .guide-article{min-width:0}
@@ -111,10 +111,10 @@
     }
   </style></head>
 <body>
-  <header class="nav-wrap" id="nav">
-    <div class="container">
-      <a href="../index.html" class="nav-logo" aria-label="Viador Partners home">Viador<span>Partners</span></a>
-          <nav class="nav-links" aria-label="Primary">
+  <header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><span class="logo-mark">V</span><span class="logo-text">Viador <span class="logo-sub">Partners</span></span></a>
+    <nav class="nav-links" aria-label="Primary">
       <div class="nav-dropdown">
         <a href="../index.html#programs" class="nav-dropdown-trigger">Programs</a>
         <div class="nav-dropdown-menu">
@@ -135,25 +135,19 @@
       </div>
       <a href="../about.html">About</a>
     </nav>
-      <a href="../application.html" class="btn-nav">Review My Deal</a>
-      <button class="nav-burger" aria-label="Open menu" aria-expanded="false" onclick="this.closest('.nav-wrap').classList.toggle('nav-open');this.setAttribute('aria-expanded',this.closest('.nav-wrap').classList.contains('nav-open'))">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="nav-drawer">
-      <a href="../dscr.html">DSCR Loans</a>
-      <a href="../fix-and-flip.html">Fix &amp; Flip</a>
-      <a href="../bpl.html">Business Purpose Loans</a>
-      <a href="../score.html">Score a Deal</a>
-      <a href="../deal-analyzer.html">Deal Analyzer</a>
-      <a href="../about.html">About</a>
-      <span class="drawer-label" style="display:block;font-size:10px;color:#B8811E;letter-spacing:0.12em;text-transform:uppercase;margin:12px 0 4px;font-family:monospace;border-bottom:none;">Commercial</span>
-      <a href="../commercial.html">Commercial Lending</a>
-      <a href="../franchise.html">SBA &amp; Franchise</a>
-      <a href="../commercial-score.html">ViaScore Commercial&trade;</a>
-      <a href="../application.html" class="btn-primary" style="margin-top:16px">Review My Deal</a>
-    </div>
-  </header>
+    <a href="../index.html#dealform" class="nav-cta">Review My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger"><span></span><span></span></button>
+  </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="../dscr.html">DSCR Loans</a>
+    <a href="../fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="../bpl.html">Business Purpose Loans</a>
+    <a href="../score.html">Score a Deal</a>
+    <a href="../deal-analyzer.html">Deal Analyzer</a>
+    <a href="../about.html">About</a>
+    <a href="../index.html#dealform" class="drawer-cta">Review My Deal →</a>
+  </div>
+</header>
   <section class="guide-hero">
     <div class="container">
       <div class="guide-hero-inner">

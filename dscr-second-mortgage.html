@@ -13,33 +13,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
   <style>
-    .ds{background:var(--ink);color:#fff;min-height:100vh}
+    .ds{background:var(--cream,#FFFFFF);color:var(--ink,#141210);min-height:100vh}
     .ds-wrap{max-width:760px;margin:0 auto;padding:0 20px}
     .ds-hero{padding:120px 20px 60px;text-align:center}
-    .ds-h1{font-family:'Fraunces',serif;font-size:clamp(30px,5.5vw,52px);font-weight:900;color:#fff;margin:0 0 14px;letter-spacing:-0.02em;line-height:1.1}
-    .ds-sub{font-size:17px;color:rgba(255,255,255,0.55);max-width:540px;margin:0 auto 32px;line-height:1.6;font-weight:300}
+    .ds-h1{font-family:'Fraunces',serif;font-size:clamp(30px,5.5vw,52px);font-weight:900;color:var(--ink,#141210);margin:0 0 14px;letter-spacing:-0.02em;line-height:1.1}
+    .ds-sub{font-size:17px;color:var(--ink-soft,#52504C);max-width:540px;margin:0 auto 32px;line-height:1.6;font-weight:300}
     .ds-btn{display:inline-block;padding:16px 32px;background:var(--gold);color:#fff;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:600;cursor:pointer;text-decoration:none}
     .ds-btn:hover{background:var(--gold-light)}
     .ds-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-    .ds-card{background:#1a1c24;border:1px solid rgba(184,129,30,0.15);border-radius:10px;padding:24px;margin-bottom:20px}
+    .ds-card{background:var(--cream-dark,#F2EDE6);border:1px solid var(--line,rgba(20,18,16,0.14));border-radius:10px;padding:24px;margin-bottom:20px}
     .ds-grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     .ds-section{padding:40px 0}
-    .ds-h2{font-family:'Fraunces',serif;font-size:clamp(22px,4vw,34px);font-weight:700;color:#fff;margin:0 0 12px}
-    .ds-muted{color:rgba(255,255,255,0.5);font-size:13px}
-    .ds-green{color:#4ade80!important}
+    .ds-h2{font-family:'Fraunces',serif;font-size:clamp(22px,4vw,34px);font-weight:700;color:var(--ink,#141210);margin:0 0 12px}
+    .ds-muted{color:var(--ink-soft,#52504C);font-size:13px}
+    .ds-green{color:#16a34a!important}
     .ds-gold{color:var(--gold)!important}
-    .ds-red{color:#fc6060!important}
-    .ds-check{color:#4ade80;margin-right:6px}
+    .ds-red{color:#dc2626!important}
+    .ds-check{color:#16a34a;margin-right:6px}
     .ds-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
-    .ds-detail{padding:14px;background:rgba(255,255,255,0.03);border-radius:8px}
-    .ds-detail-label{font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:4px}
-    .ds-detail-val{font-family:'DM Mono',monospace;font-size:16px;font-weight:600;color:#fff}
-    .ds-input{width:100%;padding:14px 16px;background:#fff;border:1px solid rgba(0,0,0,0.15);border-radius:8px;font-size:15px;color:#1a1a1a;outline:none;box-sizing:border-box;font-family:'DM Sans',sans-serif}
+    .ds-detail{padding:14px;background:var(--cream-dark,#F2EDE6);border:1px solid var(--line,rgba(20,18,16,0.14));border-radius:8px}
+    .ds-detail-label{font-size:10px;color:var(--ink-soft,#52504C);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:4px}
+    .ds-detail-val{font-family:'DM Mono',monospace;font-size:16px;font-weight:600;color:var(--ink,#141210)}
+    .ds-input{width:100%;padding:14px 16px;background:#fff;border:1px solid var(--line,rgba(20,18,16,0.14));border-radius:8px;font-size:15px;color:#1a1a1a;outline:none;box-sizing:border-box;font-family:'DM Sans',sans-serif}
     .ds-input::placeholder{color:#999}
     .ds-field{margin-bottom:14px}
-    .ds-field label{display:block;font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:6px}
-    .ds-callout{background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.12);border-radius:10px;padding:20px;text-align:center;margin:24px 0}
-    .ds-mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#111318;border-top:1px solid rgba(184,129,30,0.2);padding:10px 16px;gap:8px}
+    .ds-field label{display:block;font-size:13px;color:var(--ink-soft,#52504C);margin-bottom:6px}
+    .ds-callout{background:rgba(184,129,30,0.06);border:1px solid rgba(184,129,30,0.15);border-radius:10px;padding:20px;text-align:center;margin:24px 0}
+    .ds-mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--ink,#141210);border-top:1px solid rgba(184,129,30,0.2);padding:10px 16px;gap:8px}
     .ds-mobile-sticky a{flex:1;text-align:center;padding:12px 8px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;font-family:'DM Sans',sans-serif}
     @media(max-width:960px){.ds-mobile-sticky{display:flex}}
     @media(max-width:600px){.ds-grid2{grid-template-columns:1fr}.ds-detail-grid{grid-template-columns:1fr}}
@@ -73,18 +73,18 @@
     <p class="ds-muted" style="margin-bottom:24px">Side-by-side comparison on a $400K property with a $250K first mortgage at 3%.</p>
 
     <div class="ds-grid2">
-      <div class="ds-card" style="border-color:rgba(252,96,96,0.15)">
+      <div class="ds-card" style="border-color:rgba(220,38,38,0.2)">
         <div style="font-size:10px;color:#fc6060;font-weight:700;text-transform:uppercase;margin-bottom:12px">Option A &mdash; Full Cash-Out Refi</div>
-        <div style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.8">
+        <div style="font-size:14px;color:var(--ink-soft,#52504C);line-height:1.8">
           <span class="ds-red">You lose your 3% rate</span><br>
           New loan: $400K at 7.25%<br>
           New payment: <strong>$2,729/mo</strong><br>
           Your 3% rate: <span class="ds-red" style="font-weight:700">GONE</span>
         </div>
       </div>
-      <div class="ds-card" style="border-color:rgba(74,222,128,0.2)">
+      <div class="ds-card" style="border-color:rgba(22,163,74,0.2)">
         <div style="font-size:10px;color:#4ade80;font-weight:700;text-transform:uppercase;margin-bottom:12px">Option B &mdash; DSCR Second Mortgage</div>
-        <div style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.8">
+        <div style="font-size:14px;color:var(--ink-soft,#52504C);line-height:1.8">
           <span class="ds-green">You keep your 3% rate</span><br>
           First stays: $250K @ 3% &rarr; $1,054/mo<br>
           Second: $150K @ 9.25% &rarr; $1,234/mo<br>
@@ -97,7 +97,7 @@
 
     <div class="ds-callout">
       <div style="font-size:18px;font-weight:700;color:#4ade80;margin-bottom:6px">Access $150,000 in equity. Keep your low first mortgage.</div>
-      <div style="font-size:14px;color:rgba(255,255,255,0.5)">Save $441/month compared to a full refinance.</div>
+      <div style="font-size:14px;color:var(--ink-soft,#52504C)">Save $441/month compared to a full refinance.</div>
     </div>
   </div>
 
@@ -120,13 +120,13 @@
   <div class="ds-section">
     <div class="ds-label">Who This Is For</div>
     <h2 class="ds-h2">This product is built for investors who:</h2>
-    <div style="font-size:15px;color:rgba(255,255,255,0.65);line-height:2.2;margin-top:16px">
+    <div style="font-size:15px;color:var(--ink-soft,#52504C);line-height:2.2;margin-top:16px">
       <span class="ds-check">&#10003;</span> Have a first mortgage rate below 5.5%<br>
       <span class="ds-check">&#10003;</span> Have built $150,000+ in property equity<br>
       <span class="ds-check">&#10003;</span> Want to access capital without losing their existing rate<br>
       <span class="ds-check">&#10003;</span> Are ready to deploy equity into their next acquisition
     </div>
-    <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:20px;line-height:1.7">Available in <a href="hillsborough-county-dscr-loans" style="color:var(--gold)">Hillsborough County</a>, <a href="pinellas-county-dscr-loans" style="color:var(--gold)">Pinellas County</a>, and statewide in FL &amp; OH. <a href="https://viascore.ai" target="_blank" style="color:var(--gold)">Score your property</a> to check your equity position.</p>
+    <p style="font-size:13px;color:var(--ink-soft,#52504C);margin-top:20px;line-height:1.7">Available in <a href="hillsborough-county-dscr-loans" style="color:var(--gold)">Hillsborough County</a>, <a href="pinellas-county-dscr-loans" style="color:var(--gold)">Pinellas County</a>, and statewide in FL &amp; OH. <a href="https://viascore.ai" target="_blank" style="color:var(--gold)">Score your property</a> to check your equity position.</p>
   </div>
 
   <!-- CALCULATOR -->
@@ -163,7 +163,7 @@
         </div>
         <div class="ds-callout" id="ds-savings-box">
           <div style="font-size:18px;font-weight:700;color:#4ade80" id="ds-savings-msg"></div>
-          <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px" id="ds-savings-sub"></div>
+          <div style="font-size:13px;color:var(--ink-soft,#52504C);margin-top:4px" id="ds-savings-sub"></div>
         </div>
       </div>
     </div>
@@ -184,18 +184,18 @@
       </form>
       <div id="dsFormSuccess" style="display:none;text-align:center;padding:24px 0">
         <div style="font-size:28px;margin-bottom:10px">&#10003;</div>
-        <div style="font-size:18px;font-weight:600;color:#fff;margin-bottom:6px">We're on it.</div>
-        <div style="font-size:14px;color:rgba(255,255,255,0.5)">You'll hear from us within 24 hours.<br><a href="tel:+18134192983" style="color:var(--gold);font-weight:600">(813) 419-2983</a></div>
+        <div style="font-size:18px;font-weight:600;color:var(--ink,#141210);margin-bottom:6px">We're on it.</div>
+        <div style="font-size:14px;color:var(--ink-soft,#52504C)">You'll hear from us within 24 hours.<br><a href="tel:+18134192983" style="color:var(--gold);font-weight:600">(813) 419-2983</a></div>
       </div>
     </div>
   </div>
 
   <div style="text-align:center;margin-top:16px">
-    <a href="investor-refi.html" style="font-size:14px;color:rgba(255,255,255,0.4);text-decoration:none">Considering a full cash-out refi instead? Compare your options &rarr;</a>
+    <a href="investor-refi.html" style="font-size:14px;color:var(--ink-soft,#52504C);text-decoration:none">Considering a full cash-out refi instead? Compare your options &rarr;</a>
   </div>
 
   <!-- TRUST BAR -->
-  <div style="padding:24px 0;border-top:1px solid rgba(255,255,255,0.06);margin-top:32px;text-align:center;font-size:10px;color:rgba(255,255,255,0.3);line-height:1.8">
+  <div style="padding:24px 0;border-top:1px solid var(--line);margin-top:32px;text-align:center;font-size:10px;color:var(--ink-soft,#52504C);line-height:1.8">
     <p>NMLS #2822744 &middot; Viador Partners LLC &middot; Tampa, FL &middot; Equal Housing Lender</p>
     <p style="margin-top:6px">All figures are estimates for informational purposes only. Not a commitment to lend. Actual rates and terms subject to full underwriting review.</p>
   </div>
