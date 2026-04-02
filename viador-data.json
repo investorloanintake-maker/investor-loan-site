@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "3.8",
-    "last_updated": "2026-04-01",
+    "last_updated": "2026-04-02",
     "last_session": "95 programmatic data pages generated. Worker: web comps /comps endpoint, scoring prompt v4 (350 tokens), AbortController fix, Cloudflare Cache, deterministic fallback. Widget: comps table, input color fix. 118+ total pages live.",
     "description": "Single source of truth for Viador Partners. Update after every major session. All platforms and scripts read from this file."
   },
