@@ -312,16 +312,25 @@ body {
 .nav-dropdown-menu {
   display: none;
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
   background: var(--cream);
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 8px 0;
+  padding-top: 16px;
   min-width: 220px;
   box-shadow: 0 4px 16px rgba(28,26,23,.08), 0 12px 32px rgba(28,26,23,.06);
   z-index: 100;
+}
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  height: 8px;
 }
 .nav-dropdown:hover .nav-dropdown-menu { display: block; }
 .nav-dropdown-menu a {
