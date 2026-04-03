@@ -113,10 +113,13 @@
   }
   </script></head>
 <body>
-  <header class="nav-wrap" id="nav">
-    <div class="container">
-      <a href="index.html" class="nav-logo" aria-label="Viador Partners home">Viador<span>Partners</span></a>
-          <nav class="nav-links" aria-label="Primary">
+  <header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">Viador <span class="logo-sub">Partners</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
       <div class="nav-dropdown">
         <a href="index.html#programs" class="nav-dropdown-trigger">Programs</a>
         <div class="nav-dropdown-menu">
@@ -133,29 +136,27 @@
           <a href="score.html">Score a Deal</a>
           <a href="deal-analyzer.html">Deal Analyzer</a>
           <a href="dscr-calculator.html">DSCR Calculator</a>
+          <a href="resources">Resources</a>
         </div>
       </div>
       <a href="about.html">About</a>
     </nav>
-      <a href="application.html" class="btn-nav">Analyze My Deal</a>
-      <button class="nav-burger" aria-label="Open menu" aria-expanded="false" onclick="this.closest('.nav-wrap').classList.toggle('nav-open');this.setAttribute('aria-expanded',this.closest('.nav-wrap').classList.contains('nav-open'))">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="nav-drawer">
-      <a href="dscr.html">DSCR Loans</a>
-      <a href="fix-and-flip.html">Fix &amp; Flip</a>
-      <a href="bpl.html">Business Purpose Loans</a>
-      <a href="score.html">Score a Deal</a>
-      <a href="deal-analyzer.html">Deal Analyzer</a>
-      <a href="about.html">About</a>
-      <span class="drawer-label" style="display:block;font-size:10px;color:#B8811E;letter-spacing:0.12em;text-transform:uppercase;margin:12px 0 4px;font-family:monospace;border-bottom:none;">Commercial</span>
-      <a href="commercial.html">Commercial Lending</a>
-      <a href="franchise.html">SBA &amp; Franchise</a>
-      <a href="commercial-score.html">ViaScore Commercial&trade;</a>
-      <a href="application.html" class="btn-primary" style="margin-top:16px">Analyze My Deal</a>
-    </div>
-  </header>
+    <a href="index.html#dealform" class="nav-cta">Analyze My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="dscr.html">DSCR Loans</a>
+    <a href="fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="bpl.html">Business Purpose Loans</a>
+    <a href="score.html">Score a Deal</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="resources">Resources</a>
+    <a href="about.html">About</a>
+    <a href="index.html#dealform" class="drawer-cta">Analyze My Deal &rarr;</a>
+  </div>
+</header>
   <section class="guide-hero">
     <div class="container">
       <div class="guide-hero-inner">
