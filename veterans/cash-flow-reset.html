@@ -79,7 +79,24 @@
 .cf-trust{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-soft);margin-top:16px;letter-spacing:.03em}
 .cf-trust a{color:var(--gold);text-decoration:none}
 .cf-disclaimer{font-size:11px;color:var(--ink-soft);text-align:center;padding:24px;background:var(--cream-dark);line-height:1.7;margin-top:32px}
-@media(max-width:640px){.cf-hero{padding:80px 20px 64px}.cf-compare{grid-template-columns:1fr}.cf-btn-ghost{margin-left:0;margin-top:12px;display:block}}
+.cf-intake{background:rgba(255,255,255,0.06);border:1px solid rgba(184,129,30,0.25);border-radius:12px;padding:28px;max-width:480px;margin:32px auto 0}
+.cf-intake-title{font-family:'Fraunces',serif;font-size:18px;color:#fff;margin-bottom:4px}
+.cf-intake-sub{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:20px}
+.cf-intake-progress{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.cf-intake-q{font-size:16px;font-weight:600;color:#fff;margin-bottom:16px;line-height:1.4}
+.cf-intake-opts{display:flex;flex-direction:column;gap:8px}
+.cf-intake-opt{display:block;width:100%;padding:14px 16px;background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.12);border-radius:8px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.85);text-align:left;font-family:'DM Sans',sans-serif;transition:all .15s;line-height:1.4}
+.cf-intake-opt:hover{border-color:var(--gold);background:rgba(184,129,30,0.08)}
+.cf-intake-input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.2);border-radius:6px;color:#fff;font-size:15px;font-family:'DM Sans',sans-serif;margin-bottom:10px;outline:none;box-sizing:border-box}
+.cf-intake-input::placeholder{color:rgba(255,255,255,0.35)}
+.cf-intake-submit{width:100%;padding:16px;background:var(--gold);color:#fff;border:none;border-radius:6px;font-size:16px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:4px}
+.cf-intake-submit:hover{background:var(--gold-light)}
+.cf-intake-skip{font-size:13px;color:rgba(255,255,255,0.4);margin-top:16px;text-align:center}
+.cf-intake-skip a{color:var(--gold);text-decoration:none}
+.cf-intake-result{text-align:center;padding:20px 0}
+.cf-intake-result h3{font-family:'Fraunces',serif;font-size:22px;color:#fff;margin-bottom:8px}
+.cf-intake-result p{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:16px}
+@media(max-width:640px){.cf-hero{padding:80px 20px 64px}.cf-compare{grid-template-columns:1fr}.cf-btn-ghost{margin-left:0;margin-top:12px;display:block}.cf-intake{padding:20px}}
 </style>
 </head>
 <body>
@@ -113,8 +130,111 @@
     <div class="cf-check">You own a home with $100,000+ in equity</div>
     <div class="cf-check">You want to simplify your finances after leaving service</div>
   </div>
-  <a href="https://calendly.com/chad-viadorpartners/30min?source=cash-flow-reset&utm_source=viadorpartners&utm_medium=veterans-content&utm_campaign=veteran-cash-flow-reset" target="_blank" class="cf-btn" onclick="gtag('event','cash_flow_reset_cta_hero')">See My Veteran Cash Flow Plan</a>
+  <!-- INLINE INTAKE FORM -->
+  <div class="cf-intake" id="cf-intake">
+    <div class="cf-intake-title">Let's look at your situation.</div>
+    <div class="cf-intake-sub">Five questions. Specific answer. No generic advice.</div>
+
+    <div id="cfi-1">
+      <div class="cf-intake-progress">Step 1 of 5</div>
+      <div class="cf-intake-q">What is your current mortgage rate?</div>
+      <div class="cf-intake-opts">
+        <button class="cf-intake-opt" onclick="cfiAnswer(1,'Under 3%')">Under 3%</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(1,'3% to 4%')">3% to 4%</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(1,'4% to 5.5%')">4% to 5.5%</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(1,'Above 5.5%')">Above 5.5%</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(1,'Not sure')">Not sure</button>
+      </div>
+    </div>
+
+    <div id="cfi-2" style="display:none">
+      <div class="cf-intake-progress">Step 2 of 5</div>
+      <div class="cf-intake-q">Roughly how much equity do you have in your home?</div>
+      <div class="cf-intake-opts">
+        <button class="cf-intake-opt" onclick="cfiAnswer(2,'Under $75,000')">Under $75,000</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(2,'$75,000 to $150,000')">$75,000 to $150,000</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(2,'$150,000 to $300,000')">$150,000 to $300,000</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(2,'Over $300,000')">Over $300,000</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(2,'Not sure')">Not sure</button>
+      </div>
+    </div>
+
+    <div id="cfi-3" style="display:none">
+      <div class="cf-intake-progress">Step 3 of 5</div>
+      <div class="cf-intake-q">Are you carrying high-interest consumer debt (credit cards, personal loans, auto loans)?</div>
+      <div class="cf-intake-opts">
+        <button class="cf-intake-opt" onclick="cfiAnswer(3,'No consumer debt')">No consumer debt</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(3,'Under $20,000')">Under $20,000</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(3,'$20,000 to $50,000')">$20,000 to $50,000</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(3,'Over $50,000')">Over $50,000</button>
+      </div>
+    </div>
+
+    <div id="cfi-4" style="display:none">
+      <div class="cf-intake-progress">Step 4 of 5</div>
+      <div class="cf-intake-q">What are you most trying to accomplish?</div>
+      <div class="cf-intake-opts">
+        <button class="cf-intake-opt" onclick="cfiAnswer(4,'Lower my monthly payments')">Lower my monthly payments</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(4,'Eliminate high-interest debt')">Eliminate high-interest debt</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(4,'Access equity for investment')">Access equity for investment</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(4,'Understand all my options')">Understand all my options</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(4,'Not sure yet')">Not sure yet</button>
+      </div>
+    </div>
+
+    <div id="cfi-5" style="display:none">
+      <div class="cf-intake-progress">Step 5 of 5</div>
+      <div class="cf-intake-q">Where should we send your analysis?</div>
+      <form onsubmit="cfiSubmit(event)">
+        <input type="text" id="cfi-name" class="cf-intake-input" placeholder="First name" required>
+        <input type="email" id="cfi-email" class="cf-intake-input" placeholder="Email address" required>
+        <input type="tel" id="cfi-phone" class="cf-intake-input" placeholder="Phone (optional)">
+        <button type="submit" class="cf-intake-submit">Show Me My Options</button>
+      </form>
+      <div style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:10px;text-align:center;line-height:1.5">We'll review your situation and follow up within 1 business day. No spam. No auto-dialers.</div>
+    </div>
+
+    <div id="cfi-result" style="display:none" class="cf-intake-result">
+      <h3>Got it.</h3>
+      <p>We'll review your situation and reach out within 1 business day with a clear picture of what options make sense &mdash; or if no action is the right call, we'll tell you that too.</p>
+      <a href="https://calendly.com/chad-viadorpartners/30min?source=cash-flow-reset-intake&utm_source=viadorpartners&utm_medium=veterans-content&utm_campaign=veteran-cash-flow-reset" target="_blank" class="cf-btn" style="font-size:14px;padding:12px 24px" onclick="gtag('event','intake_form_calendly_fallback')">Want to talk sooner? Schedule directly &rarr;</a>
+    </div>
+  </div>
+
+  <div class="cf-intake-skip">Prefer to skip ahead? <a href="https://calendly.com/chad-viadorpartners/30min?source=cash-flow-reset&utm_source=viadorpartners&utm_medium=veterans-content&utm_campaign=veteran-cash-flow-reset" target="_blank" onclick="gtag('event','intake_form_calendly_fallback')">Schedule directly</a></div>
 </section>
+
+<script>
+var cfiData = {};
+function cfiAnswer(step, val) {
+  cfiData['step' + step] = val;
+  if (step === 1) gtag('event', 'intake_form_started');
+  else gtag('event', 'intake_form_step_' + step);
+  document.getElementById('cfi-' + step).style.display = 'none';
+  var next = document.getElementById('cfi-' + (step + 1));
+  if (next) next.style.display = 'block';
+}
+function cfiSubmit(e) {
+  e.preventDefault();
+  var name = document.getElementById('cfi-name').value;
+  var email = document.getElementById('cfi-email').value;
+  var phone = document.getElementById('cfi-phone').value;
+  var rate = cfiData.step1 || '';
+  var segment = (rate === 'Under 3%' || rate === '3% to 4%') ? 'stability' : rate === '4% to 5.5%' ? 'transition' : rate === 'Above 5.5%' ? 'rate-urgency' : 'stability';
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/245454217/e463e10b-4cb3-4d79-8915-2d6c62d4cc58', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ fields: [
+      { name: 'firstname', value: name },
+      { name: 'email', value: email },
+      { name: 'phone', value: phone },
+      { name: 'message', value: 'Cash Flow Reset Intake | Rate: ' + rate + ' | Equity: ' + (cfiData.step2||'') + ' | Debt: ' + (cfiData.step3||'') + ' | Goal: ' + (cfiData.step4||'') + ' | Segment: ' + segment }
+    ], context: { pageUri: window.location.href, pageName: 'Cash Flow Reset Intake - ' + segment } })
+  }).catch(function(){});
+  gtag('event', 'intake_form_submitted', { segment: segment });
+  document.getElementById('cfi-5').style.display = 'none';
+  document.getElementById('cfi-result').style.display = 'block';
+}
+</script>
 
 <div class="cf">
 
