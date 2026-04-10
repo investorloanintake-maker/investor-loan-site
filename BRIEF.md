@@ -1,5 +1,5 @@
 # VIADOR PARTNERS — MASTER BRIEF
-**Version 5.2 | Last Updated: 2026-04-10**
+**Version 5.3 | Last Updated: 2026-04-10**
 
 > Load this file at the start of every Claude session.
 > Single source of truth — all platforms and scripts read from viador-data.json
@@ -24,8 +24,8 @@
 | Platform | Domain | Status |
 |----------|--------|--------|
 | Viador Partners | viadorpartners.com | live |
-| ViaScore | viascore.ai | live_stealth |
-| Viador Markets | viadormarkets.com | live_stealth |
+| ViaScore | viascore.ai | stealth_parked |
+| Viador Markets | viadormarkets.com | parked |
 | Viador Realty | Future | year_2_3 |
 
 ---
@@ -285,6 +285,14 @@
 - NDV /about career timeline page — prompt written, ready to deploy
 - VP /about founder NextDutyVet sentence — prompt written, ready to deploy
 - NextDutyVet Facebook page + separate Meta Pixel — needed, not yet created
+
+### 2026-04-10b
+- Strategic pivot — two-platform execution focus: viadorpartners.com + nextdutyvet.com
+- viascore.ai moved to stealth/parked — scoring model rebuild queued as background work, no timeline pressure
+- viadormarkets.com parked until IDX + transaction volume exist
+- ViaScore links and CTAs removal from viadorpartners.com — Claude Code prompt queued
+- Focus Home Mortgage (Jason McBride) confirmed as lending platform — Paul Blaylock / LoanFlight removed entirely
+- Master Brief updated to v5.3
 
 
 ---
