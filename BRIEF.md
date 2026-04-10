@@ -1,5 +1,5 @@
 # VIADOR PARTNERS — MASTER BRIEF
-**Version 5.3 | Last Updated: 2026-04-10**
+**Version 5.4 | Last Updated: 2026-04-10**
 
 > Load this file at the start of every Claude session.
 > Single source of truth — all platforms and scripts read from viador-data.json
@@ -293,6 +293,15 @@
 - ViaScore links and CTAs removal from viadorpartners.com — Claude Code prompt queued
 - Focus Home Mortgage (Jason McBride) confirmed as lending platform — Paul Blaylock / LoanFlight removed entirely
 - Master Brief updated to v5.3
+
+### 2026-04-10c
+- Stealth conversion executed — removed all viascore.ai and viadormarkets.com references from 127 public-facing HTML pages on viadorpartners.com
+- Deleted score.html (viascore iframe embed page)
+- Replaced all score.html nav/footer links with deal-analyzer.html across 114 pages
+- Removed ViaScore brand mentions from homepage — nav, footer, proof strip, hero italic, exit intent
+- Proof strip label changed from 'Deals Backtested in ViaScore' to 'Deals Analyzed'
+- NextDutyVet audited — zero viascore.ai or viadormarkets.com references found, already clean
+- admin.html, BRIEF.md, viador-data.json, llms.txt left untouched as internal/historical records
 
 
 ---

@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "5.3",
+    "version": "5.4",
     "last_updated": "2026-04-10",
-    "last_session": "Strategic pivot — two-platform focus (viadorpartners.com + nextdutyvet.com). viascore.ai + viadormarkets.com moved to stealth/parked. ViaScore links/CTAs removal from VP queued. Scoring model rebuild queued as background work. Focus Home Mortgage confirmed. Master Brief v5.3.",
+    "last_session": "Stealth conversion complete. Removed all viascore.ai + viadormarkets.com references from 127 public HTML pages on viadorpartners.com. Deleted score.html. Replaced score.html nav/footer links with deal-analyzer.html sitewide. Removed all ViaScore brand mentions from homepage. NextDutyVet audited clean — zero references. Master Brief v5.4.",
     "description": "Single source of truth for Viador Partners. Update after every major session. All platforms and scripts read from this file."
   },
   "founder": {
@@ -580,6 +580,18 @@
         "ViaScore links and CTAs removal from viadorpartners.com — Claude Code prompt queued",
         "Focus Home Mortgage (Jason McBride) confirmed as lending platform — Paul Blaylock / LoanFlight removed entirely",
         "Master Brief updated to v5.3"
+      ]
+    },
+    {
+      "date": "2026-04-10c",
+      "key_wins": [
+        "Stealth conversion executed — removed all viascore.ai and viadormarkets.com references from 127 public-facing HTML pages on viadorpartners.com",
+        "Deleted score.html (viascore iframe embed page)",
+        "Replaced all score.html nav/footer links with deal-analyzer.html across 114 pages",
+        "Removed ViaScore brand mentions from homepage — nav, footer, proof strip, hero italic, exit intent",
+        "Proof strip label changed from 'Deals Backtested in ViaScore' to 'Deals Analyzed'",
+        "NextDutyVet audited — zero viascore.ai or viadormarkets.com references found, already clean",
+        "admin.html, BRIEF.md, viador-data.json, llms.txt left untouched as internal/historical records"
       ]
     }
   ]
