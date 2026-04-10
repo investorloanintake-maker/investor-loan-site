@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "3.8",
-    "last_updated": "2026-04-09",
-    "last_session": "95 programmatic data pages generated. Worker: web comps /comps endpoint, scoring prompt v4 (350 tokens), AbortController fix, Cloudflare Cache, deterministic fallback. Widget: comps table, input color fix. 118+ total pages live.",
+    "version": "5.2",
+    "last_updated": "2026-04-10",
+    "last_session": "NDV homepage fully audited — headshot, mid-page capture, hero stat qualified range, WHO BUILT THIS rewritten, scale-proof compliance language sitewide. VP hero + about pages updated with veteran equity credential + NDV cross-references + LinkedIn. Focus Home Mortgage confirmed as lending platform. NDV about page + career timeline ready to deploy.",
     "description": "Single source of truth for Viador Partners. Update after every major session. All platforms and scripts read from this file."
   },
   "founder": {
@@ -36,6 +36,17 @@
       "backtest_transactions": 775,
       "backtest_appreciation": "16.1%",
       "backtest_cashflow": "$161/mo"
+    },
+    "nextdutyvet": {
+      "domain": "nextdutyvet.com",
+      "status": "live",
+      "hosting": "Cloudflare Pages",
+      "pages": 10,
+      "meta_pixel": "1610946826777876",
+      "focus": "VA mortgage strategy, cash flow restructuring, veteran financial advisory",
+      "design_system": "Inter font, olive (#6B745E) / steel (#4A6B82) / charcoal (#1F2326)",
+      "hubspot_forms": true,
+      "ga4": "G-LQWW7XCPVS"
     },
     "viador_markets": {
       "domain": "viadormarkets.com",
@@ -76,9 +87,9 @@
       "name": "Jason McBride",
       "role": "CEO Focus Lending Holdings",
       "phone": "614-362-8701 ext 2",
-      "relevance": "NMLS sponsor via Focus Home Mortgage Inc. UWM access. Primary Ohio lending partner.",
-      "status": "nda_signed",
-      "next_action": "Text to confirm UWM 100% + discuss commercial deal flow",
+      "relevance": "NMLS sponsor via Focus Home Mortgage Inc. UWM access. Primary Ohio lending partner. CONFIRMED as lending platform 2026-04-10.",
+      "status": "platform_confirmed",
+      "next_action": "Finalize agreement terms — FL license timing, comp structure, non-solicitation carve-out, OBA policy",
       "entities": [
         "Focus Lending Inc",
         "Focus DSCR Inc",
@@ -535,6 +546,28 @@
         "Widget: input text color fixed — #1a1a1a on #ffffff, placeholder #999999",
         "Total content pages: 118+ (15 answers + 7 data hub + 95 programmatic + index pages)",
         "Next session: speed optimization (Sonnet still ~14s), deploy 5 cross-market answer pages, RSS feed, Google Ads"
+      ]
+    },
+    {
+      "date": "2026-04-10",
+      "key_wins": [
+        "NextDutyVet homepage fully audited and updated — headshot in WHO BUILT THIS, mid-page email capture added, Tampa scenario card and term reset section removed",
+        "NDV hero stat updated to qualified range ($800-$1,200/month not uncommon)",
+        "NDV WHO BUILT THIS section rewritten with LinkedIn link",
+        "NDV three stat boxes replaced — Licensed/NMLS, Direct Advisory, Start Without Applying",
+        "NDV sitewide compliance language update — all absolute no-application language replaced with scale-proof language",
+        "NDV geographic market references removed from homepage (kept on geo subpages)",
+        "NDV /va-rate-check, /brief, /analysis audited clean",
+        "Viador Partners hero subhead updated with veteran equity mention",
+        "VP veteran financing background credential added to homepage proof section",
+        "VP /about/chad-evers — LinkedIn link added, specialist tagline, NextDutyVet paragraph",
+        "VP /about page — dark page bullets updated with VA + NextDutyVet references, timeline entry with NDV founder reference",
+        "Cross-platform identity confirmed — same person, intentional specialization, veterans-to-investors flywheel visible across both sites",
+        "Focus Home Mortgage (Jason McBride) confirmed as lending platform — Paul Blaylock / LoanFlight removed from consideration",
+        "Agreement terms in negotiation — FL license timing, comp structure, non-solicitation carve-out, OBA policy",
+        "NDV /about career timeline page — prompt written, ready to deploy",
+        "VP /about founder NextDutyVet sentence — prompt written, ready to deploy",
+        "NextDutyVet Facebook page + separate Meta Pixel — needed, not yet created"
       ]
     }
   ]

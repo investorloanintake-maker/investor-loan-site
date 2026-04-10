@@ -1,5 +1,5 @@
 # VIADOR PARTNERS — MASTER BRIEF
-**Version 3.8 | Last Updated: 2026-04-09**
+**Version 5.2 | Last Updated: 2026-04-10**
 
 > Load this file at the start of every Claude session.
 > Single source of truth — all platforms and scripts read from viador-data.json
@@ -43,8 +43,8 @@
 ## KEY CONTACTS
 ### Jason McBride
 - **Role:** CEO Focus Lending Holdings
-- **Status:** nda_signed
-- **Next Action:** Text to confirm UWM 100% + discuss commercial deal flow
+- **Status:** platform_confirmed
+- **Next Action:** Finalize agreement terms — FL license timing, comp structure, non-solicitation carve-out, OBA policy
 
 ### Chris Russell
 - **Role:** Owner, Plumtree Realty
@@ -266,6 +266,25 @@
 - Widget: input text color fixed — #1a1a1a on #ffffff, placeholder #999999
 - Total content pages: 118+ (15 answers + 7 data hub + 95 programmatic + index pages)
 - Next session: speed optimization (Sonnet still ~14s), deploy 5 cross-market answer pages, RSS feed, Google Ads
+
+### 2026-04-10
+- NextDutyVet homepage fully audited and updated — headshot in WHO BUILT THIS, mid-page email capture added, Tampa scenario card and term reset section removed
+- NDV hero stat updated to qualified range ($800-$1,200/month not uncommon)
+- NDV WHO BUILT THIS section rewritten with LinkedIn link
+- NDV three stat boxes replaced — Licensed/NMLS, Direct Advisory, Start Without Applying
+- NDV sitewide compliance language update — all absolute no-application language replaced with scale-proof language
+- NDV geographic market references removed from homepage (kept on geo subpages)
+- NDV /va-rate-check, /brief, /analysis audited clean
+- Viador Partners hero subhead updated with veteran equity mention
+- VP veteran financing background credential added to homepage proof section
+- VP /about/chad-evers — LinkedIn link added, specialist tagline, NextDutyVet paragraph
+- VP /about page — dark page bullets updated with VA + NextDutyVet references, timeline entry with NDV founder reference
+- Cross-platform identity confirmed — same person, intentional specialization, veterans-to-investors flywheel visible across both sites
+- Focus Home Mortgage (Jason McBride) confirmed as lending platform — Paul Blaylock / LoanFlight removed from consideration
+- Agreement terms in negotiation — FL license timing, comp structure, non-solicitation carve-out, OBA policy
+- NDV /about career timeline page — prompt written, ready to deploy
+- VP /about founder NextDutyVet sentence — prompt written, ready to deploy
+- NextDutyVet Facebook page + separate Meta Pixel — needed, not yet created
 
 
 ---
