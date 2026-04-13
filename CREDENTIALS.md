@@ -219,7 +219,7 @@ Sequences loaded:
 | Login | chad@viadorpartners.com |
 | Plan | [CONFIRM] |
 | Primary form ID | e463e10b-4cb3-4d79-8915-2d6c62d4cc58 |
-| Token | REDACTED — stored in environment variable |
+| Token | Stored in viador-data.json locally — do not commit. |
 | Smartlead integration | ⬜ Not yet connected |
 
 Pipeline stages: New Inquiry → Contacted → Docs Requested → Application Submitted → Under Review → Approved → Closed
