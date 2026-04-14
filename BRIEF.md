@@ -1,5 +1,5 @@
 # VIADOR PARTNERS — MASTER BRIEF
-**Version 5.4 | Last Updated: 2026-04-10**
+**Version 6.0 | Last Updated: 2026-04-14**
 
 > Load this file at the start of every Claude session.
 > Single source of truth — all platforms and scripts read from viador-data.json
@@ -34,9 +34,9 @@
 | Item | Status |
 |------|--------|
 | SAFE Coursework | 14.35h done / 20h required |
-| SAFE Exam | pending — week_of_march_31 |
+| SAFE Exam | PASSED — undefined |
 | Ohio License | pending — target mid_april_2026 |
-| Florida License | pending — target june_2026 |
+| Florida License | MU4_pending_submission — target april_2026 |
 
 ---
 
@@ -302,6 +302,29 @@
 - Proof strip label changed from 'Deals Backtested in ViaScore' to 'Deals Analyzed'
 - NextDutyVet audited — zero viascore.ai or viadormarkets.com references found, already clean
 - admin.html, BRIEF.md, viador-data.json, llms.txt left untouched as internal/historical records
+
+### 2026-04-13
+- FL Prometric PASSED April 9 — MU4 FL + OH pending submission
+- NextDutyVet: 20 pages live (was 6 on April 7). 11 military base geo pages fully optimized with FAQPage + FinancialService + BreadcrumbList + Person + WebPage schema
+- NDV geo pages: NAS Jax, Eglin, MacDill, Pensacola, Tyndall (FL), Wright-Patterson (OH), Fort Meade, JBA, Aberdeen, NAS Patuxent River, Walter Reed (MD)
+- NDV: Meta Pixel 1610946826777876 deployed all 20 pages. Custom events on /analysis (analysis_started, analysis_completed, calendly_click, Lead)
+- NDV: Facebook page 'Next Duty Vet' created. Meta Business Portfolio 2726700761035419. Ad account 2045315485875. Meta Ads Playbook v1.0 delivered
+- NDV: Homepage fully audited — scale-proof language, email capture, headshot, authority section. All geo pages: query blocks, title/meta CTR rewrites, Last Updated badges, H2 base name optimization
+- NDV: Footer nav updated across all 20 pages with 11 military base links. Sitemap updated with all geo URLs
+- VP: 19 pages updated or built this week. Foreign national cluster (3 pages: FL-specific, non-US investors, can-foreigners-get-dscr)
+- VP: Maryland cluster (3 pages: state overview, Baltimore, Montgomery County). Ohio expansion (3 pages: Cleveland, Cincinnati, Dayton)
+- VP: Jacksonville investor page + Fort Walton Beach investor page built
+- VP: Title/meta CTR rewrites on 11 pages (landlord-loans-florida, dscr-loans-orlando, hillsborough, pinellas, tampa, florida, ohio, columbus, foreign-national, dscr-second-mortgage)
+- VP: Homepage intent clarity section added — Products (6 links) + Markets (6 links)
+- VP: GSC verified under chad@viadorpartners.com (URL prefix, DNS auto-verification April 13). Both organic clicks to date from homepage
+- VP: First organic lead — Marc Vargas, mgvinvestments@gmail.com, 2607 Live Oak St Houston TX, 6-unit DSCR refi, HubSpot contact 470233732822
+- Authority triangle complete: viascore (33 contextual outbound links to VP) → viadorpartners (5 contextual links to NDV) → NDV (geo cross-links to VP investor pages)
+- Stealth conversion complete — viascore.ai + viadormarkets.com references removed from 127+ VP pages, score.html deleted, ViaScore brand scrubbed from VP homepage
+- Focus Home Mortgage confirmed platform. NMLS 2769672: MD + OH + TN active. FL status — confirm with Jason
+- Smartlead Pro $94/mo active. 3 inboxes warming (chad@viadorpartners, chad@nextdutyvet, hello@nextdutyvet). First safe send ~April 30
+- CREDENTIALS.md created and pushed. HubSpot token redacted. .gitignore added, viador-data.json removed from git tracking
+- Brand system: Viador Partners V2 letterform mark. NDV olive circle mark. LinkedIn rewrite package built. 30-day content calendar ready
+- IndexNow pings sent for all new/updated URLs across both platforms
 
 
 ---
