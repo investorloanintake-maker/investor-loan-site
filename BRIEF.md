@@ -33,10 +33,10 @@
 ## LICENSING STATUS
 | Item | Status |
 |------|--------|
-| SAFE Coursework | 14.35h done / 20h required |
+| SAFE Coursework | 20h done / 20h required |
 | SAFE Exam | PASSED — undefined |
-| Ohio License | pending — target mid_april_2026 |
-| Florida License | MU4_pending_submission — target april_2026 |
+| Ohio License | MU4_submitted — target undefined |
+| Florida License | MU4_filed — target undefined |
 
 ---
 
@@ -87,12 +87,15 @@
 ## PRIORITY STACK
 
 ### Today
-- SAFE coursework — 14h21m done, ~5h39m remaining ✅ on pace
-- Chris Russell IDX email — SENT
-- Cloudflare Worker SSE fix deployed — DONE
-- Commercial buildout all 3 platforms — DONE
-- UX audit + 8 conversion fixes — DONE
-- Living data infrastructure — IN PROGRESS
+- Jason McBride — confirm OH + MD sponsorship approved in NMLS
+- Focus Home Mortgage agreement — comp, carve-out, OBA, FL entity confirmation
+- Marc Vargas — confirm 6 leases at $1,600 each, get Texas BPL path from Jason
+- Submit FL MU4 (waiting on FHM FL license)
+- HubSpot → Smartlead connection
+- P.O. box for CAN-SPAM compliance
+- NDV Facebook — action button, About section, 8 organic posts
+- CPF agreements — Kiavi, Lima One, Visio
+- Continue About page review
 
 ### This Week
 - Complete SAFE coursework by March 30
