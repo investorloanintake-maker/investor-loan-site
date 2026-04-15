@@ -84,16 +84,31 @@
 <main>
 
 <!-- ═══════════════ SECTION 1 — HERO ═══════════════ -->
-<section class="vp-section" style="padding:72px 0 48px;background:var(--vp-bg)">
-  <div class="vp-container" style="max-width:960px">
-    <div class="vp-eyebrow">Chad Evers &middot; NMLS #2822744</div>
-    <h1 class="vp-h1" style="max-width:820px">Investor Deals Don&rsquo;t Break on Rate &mdash; They Break on Structure</h1>
-    <p class="vp-body" style="font-size:18px;color:var(--vp-muted);max-width:720px;margin-top:20px">Built on 20+ years across <strong style="color:var(--vp-charcoal);font-weight:600">Congressional Bank</strong>, <strong style="color:var(--vp-charcoal);font-weight:600">BayFirst</strong>, and <strong style="color:var(--vp-charcoal);font-weight:600">Citi</strong> &mdash; this process applies institutional credit thinking to real estate investor deals, from DSCR to complex capital structures.</p>
-    <p style="font-family:'DM Sans',sans-serif;font-size:13px;letter-spacing:0.04em;color:var(--vp-muted);margin-top:20px">DSCR &middot; Fix &amp; Flip &middot; Business Purpose Lending &middot; Structured deal evaluation within 24 hours</p>
-    <div class="vp-cta-isolate" style="margin:40px 0 0">
-      <a href="../index.html#dealform" class="vp-btn vp-btn--gold vp-btn--large">Analyze My Deal &rarr;</a>
+<section class="vp-section ce-hero" style="padding:clamp(8px,1.5vw,20px) 0 48px;background:var(--vp-bg)">
+  <div class="vp-container ce-hero-inner">
+    <div class="ce-hero-copy">
+      <div class="vp-eyebrow">Chad Evers &middot; NMLS #2822744</div>
+      <h1 class="vp-h1">Investor Deals Don&rsquo;t Break on Rate &mdash; They Break on Structure</h1>
+      <p class="vp-body" style="font-size:18px;color:var(--vp-muted);margin-top:20px">Built on 20+ years across <strong style="color:var(--vp-charcoal);font-weight:600">Congressional Bank</strong>, <strong style="color:var(--vp-charcoal);font-weight:600">BayFirst</strong>, and <strong style="color:var(--vp-charcoal);font-weight:600">Citi</strong> &mdash; this process applies institutional credit thinking to real estate investor deals, from DSCR to complex capital structures.</p>
+      <p style="font-family:'DM Sans',sans-serif;font-size:13px;letter-spacing:0.04em;color:var(--vp-muted);margin-top:20px">DSCR &middot; Fix &amp; Flip &middot; Business Purpose Lending &middot; Structured deal evaluation within 24 hours</p>
+      <div class="vp-cta-isolate" style="margin:40px 0 0">
+        <a href="../index.html#dealform" class="vp-btn vp-btn--gold vp-btn--large">Analyze My Deal &rarr;</a>
+      </div>
+    </div>
+    <div class="ce-hero-photo">
+      <img src="../chad-evers.jpg" alt="Chad Evers — Founder, Viador Partners" onerror="this.onerror=null;this.src='../chad-evers.png';"/>
     </div>
   </div>
+  <style>
+    .ce-hero-inner { display:grid; grid-template-columns:1fr; gap:48px; align-items:center; max-width:1160px; }
+    .ce-hero-photo { display:flex; justify-content:center; align-items:center; }
+    .ce-hero-photo img { width:100%; max-width:360px; aspect-ratio:1/1; max-height:420px; object-fit:cover; border-radius:50%; border:4px solid var(--vp-gold); box-shadow:0 12px 32px rgba(0,0,0,0.08); }
+    @media (min-width:860px) {
+      .ce-hero-inner { grid-template-columns:55% 45%; gap:48px; }
+      .ce-hero-copy { order:1; }
+      .ce-hero-photo { order:2; }
+    }
+  </style>
 </section>
 
 <!-- ═══════════════ SECTION 2 — CORE POSITIONING ═══════════════ -->
