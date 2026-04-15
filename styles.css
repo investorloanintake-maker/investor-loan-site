@@ -264,6 +264,13 @@ body {
   align-items: center;
   gap: 10px;
   text-decoration: none;
+  line-height: 0;
+}
+.logo-img {
+  display: block;
+  height: 40px;
+  width: auto;
+  vertical-align: middle;
 }
 
 .logo-mark {
@@ -543,7 +550,7 @@ body {
    HERO
 ═══════════════════════════════════════════ */
 .hero {
-  padding: clamp(80px, 12vw, 140px) 0 0;
+  padding: clamp(32px, 4vw, 56px) 0 0;
   position: relative;
   overflow: hidden;
 }
