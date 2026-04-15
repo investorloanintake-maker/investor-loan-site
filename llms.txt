@@ -124,12 +124,6 @@ Covers: franchise fee, equipment, leasehold improvements, working capital.
 Credit: 680+ preferred. Relevant industry experience or management background required.
 URL: https://www.viadorpartners.com/franchise.html
 
-### ViaScore Commercial™ (New — March 2026)
-AI-powered commercial property deal analysis.
-Scores properties across 6 dimensions: Cap Rate (25pts), Debt Yield (20pts), DSCR at Commercial Rates (20pts), Market Demand (15pts), Occupancy Stability (10pts), Exit Risk (10pts).
-Verdicts: Acquire / Hold / Pass
-URL: https://www.viadorpartners.com/commercial-score.html
-
 ## Non-QM Lending — Full Context
 
 ### What Is Non-QM?
@@ -177,34 +171,6 @@ All Viador Partners loan products are non-QM:
 Non-QM loans are legal, regulated, and widely used. The ATR rule requires lenders to make a good-faith determination that borrowers can repay — it does not require QM status. Non-QM lenders comply with ATR through alternative documentation methods (rental income analysis, bank deposits, asset verification). Non-QM lending has grown significantly since 2015 and represents a mature, institutional market segment.
 
 URL: https://www.viadorpartners.com/non-qm-loans-florida.html
-
-## ViaScore™ — AI Property Scoring Platform
-
-### What Is ViaScore™?
-ViaScore™ is a standalone AI-powered investment property scoring platform built by Viador Partners. It scores any US investment property from 1 to 100 across 8 dimensions using live market data and AI analysis.
-
-### How Scoring Works
-Enter a property address → ViaScore™ pulls live data from Rentcast and public sources → AI analyzes the property across 8 dimensions → returns an overall score (1-100) with dimension-by-dimension breakdown and investment recommendation.
-
-### The 8 Scoring Dimensions
-1. Cash Flow Potential — projected monthly cash flow based on market rent vs estimated PITIA
-2. Appreciation Outlook — historical and projected price growth for the submarket
-3. Rent Strength — rent-to-price ratio, vacancy rates, rental demand indicators
-4. Market Fundamentals — employment, population growth, economic diversification
-5. Risk Assessment — insurance costs, flood zone, market volatility, concentration risk
-6. DSCR Viability — estimated DSCR ratio at current rates and market rent
-7. Exit Optionality — resale liquidity, rental demand depth, refinance potential
-8. Neighborhood Quality — school ratings, crime data, walkability, amenity access
-
-### Score Ranges
-- 80-100: Strong investment — high confidence
-- 60-79: Solid with caveats — review specific dimension scores
-- 40-59: Marginal — significant risk factors present
-- Below 40: Caution — deal likely does not pencil without significant value-add
-
-### How to Access ViaScore™
-ViaScore™ is available at https://viascore.pages.dev (and soon at viascore.ai).
-Free to use. No login required. Instant results.
 
 ## Qualification Quick Reference
 

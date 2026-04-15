@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
   <meta charset="UTF-8"/>
@@ -28,7 +32,7 @@
     .tto-wrap{max-width:700px;margin:0 auto;padding:0 20px 80px}
     .tto-section{padding-top:32px}
     .tto-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-    .tto-card{background:#1a1c24;border:1px solid rgba(184,129,30,0.15);border-radius:10px;padding:20px;margin-bottom:16px}
+    .tto-card{background:#1a1c24;border:1px solid rgba(191, 144, 32,0.15);border-radius:10px;padding:20px;margin-bottom:16px}
     .tto-grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     .tto-metric{text-align:center;padding:14px;background:rgba(255,255,255,0.03);border-radius:8px}
     .tto-metric-label{font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:4px}
@@ -48,7 +52,7 @@
     .tto-sum-row{display:flex;justify-content:space-between;padding:4px 0;font-size:13px}
     .tto-sum-row .l{color:rgba(255,255,255,0.5)}
     .tto-sum-row .v{font-weight:600;text-align:right}
-    .tto-email-box{background:#1a1c24;border:1px solid rgba(184,129,30,0.15);border-radius:10px;padding:24px;text-align:center;margin-top:32px}
+    .tto-email-box{background:#1a1c24;border:1px solid rgba(191, 144, 32,0.15);border-radius:10px;padding:24px;text-align:center;margin-top:32px}
     .tto-email-row{display:flex;gap:8px;max-width:400px;margin:12px auto 0}
     .tto-cta-box{background:#1a1c24;border:2px solid var(--gold);border-radius:12px;padding:32px;text-align:center;margin-top:32px}
     @media(max-width:560px){.tto-grid2{grid-template-columns:1fr}.tto-debt-row{grid-template-columns:1fr 1fr 80px}.tto-props{gap:16px}}
@@ -58,7 +62,7 @@
 
 <header class="nav" id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="logo"><span class="logo-mark">V</span><span class="logo-text">Viador <span class="logo-sub">Partners</span></span></a>
+    <a href="index.html" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
     <nav class="nav-links" aria-label="Primary"><a href="dscr.html">DSCR Loans</a><a href="about.html">About</a></nav>
     <a href="tel:8134192983" class="nav-cta">(813) 419-2983</a>
     <button class="burger" aria-label="Menu" id="burger"><span></span><span></span></button>
@@ -93,7 +97,7 @@
       <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px" id="tto-prop-meta"></div>
       <div class="tto-grid2">
         <div class="tto-metric"><div class="tto-metric-label">Est. Market Value</div><div class="tto-metric-val" id="tto-avm"></div></div>
-        <div class="tto-metric" style="background:rgba(184,129,30,0.06);border:1px solid rgba(184,129,30,0.12)"><div class="tto-metric-label">Available Equity</div><div class="tto-metric-val tto-gold" id="tto-equity"></div></div>
+        <div class="tto-metric" style="background:rgba(191, 144, 32,0.06);border:1px solid rgba(191, 144, 32,0.12)"><div class="tto-metric-label">Available Equity</div><div class="tto-metric-val tto-gold" id="tto-equity"></div></div>
       </div>
       <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:12px;text-align:center" id="tto-equity-msg"></div>
     </div>
@@ -218,7 +222,7 @@
   <div class="tto-email-box" id="tto-email-section">
     <div style="font-family:'Fraunces',serif;font-size:18px;color:#fff;margin-bottom:4px">Want a full breakdown sent to you?</div>
     <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:12px">We'll also reach out if there's a better option for your situation.</div>
-    <div class="tto-email-row"><input type="email" id="tto-email" placeholder="you@email.com" style="flex:1;padding:12px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(184,129,30,0.3);border-radius:6px;color:#fff;font-size:15px;outline:none"><button onclick="captureEmail()" style="padding:12px 20px;background:var(--gold);color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap">Send My Analysis &rarr;</button></div>
+    <div class="tto-email-row"><input type="email" id="tto-email" placeholder="you@email.com" style="flex:1;padding:12px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(191, 144, 32,0.3);border-radius:6px;color:#fff;font-size:15px;outline:none"><button onclick="captureEmail()" style="padding:12px 20px;background:var(--gold);color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap">Send My Analysis &rarr;</button></div>
     <div id="tto-email-msg" style="display:none;color:#4ade80;font-size:13px;margin-top:10px"></div>
   </div>
 
@@ -232,7 +236,7 @@
 
   <!-- Footer -->
   <div style="padding:24px 0 0;border-top:1px solid rgba(255,255,255,0.06);margin-top:32px;text-align:center;font-size:10px;color:rgba(255,255,255,0.3);line-height:1.8">
-    <p>&copy; 2026 Viador Partners LLC &middot; NMLS #2822744 &middot; Tampa, FL &middot; Equal Housing Lender</p>
+    <p>&copy; 2026 Viador Partners LLC &middot; NMLS #2822744 &middot; Licensed in FL &middot; OH &middot; MD &middot; TN &middot; Equal Housing Lender</p>
     <p style="margin-top:6px">All figures are estimates for informational purposes only. Not a commitment to lend. Actual rates and terms subject to full underwriting review.</p>
   </div>
 

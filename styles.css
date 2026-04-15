@@ -14,10 +14,10 @@
   --ink:        #141210;        /* near-black — stronger than before */
   --ink-mid:    #2E2B27;        /* was too light — now clearly legible */
   --ink-soft:   #52504C;        /* body text secondary — was #6B6560, now darker */
-  --gold:       #B8811E;        /* slightly deeper gold — more contrast on white */
+  --gold:       #BF9020;        /* slightly deeper gold — more contrast on white */
   --gold-light: #D9A84A;
-  --gold-faint: rgba(184,129,30,0.08);
-  --gold-faint2:rgba(184,129,30,0.14);
+  --gold-faint: rgba(191, 144, 32,0.08);
+  --gold-faint2:rgba(191, 144, 32,0.14);
   --charcoal:   #1A1C24;
   --charcoal2:  #22252F;
   --white:      #FFFFFF;
@@ -155,10 +155,10 @@ body {
 }
 
 .btn-primary:hover {
-  background: #B8811E;
-  border-color: #B8811E;
+  background: #BF9020;
+  border-color: #BF9020;
   color: var(--white);
-  box-shadow: 0 4px 16px rgba(184,129,30,0.4);
+  box-shadow: 0 4px 16px rgba(191, 144, 32,0.4);
   transform: translateY(-1px);
 }
 
@@ -442,7 +442,7 @@ body {
   font-family: var(--font-display);
   font-size: 36px;
   font-weight: 700;
-  color: #B8811E;
+  color: #BF9020;
   line-height: 1;
   margin-bottom: 8px;
 }
@@ -515,8 +515,8 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 .router-card:hover {
-  border-color: #B8811E;
-  box-shadow: 0 4px 16px rgba(184,129,30,0.15);
+  border-color: #BF9020;
+  box-shadow: 0 4px 16px rgba(191, 144, 32,0.15);
   transform: translateY(-2px);
 }
 .router-icon {

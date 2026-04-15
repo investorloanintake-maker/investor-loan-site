@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Command Center | Viador Partners</title>
@@ -45,9 +49,9 @@
       --bg:       #1A1C24;
       --bg2:      #22252F;
       --bg3:      #2A2D38;
-      --gold:     #B8811E;
+      --gold:     #BF9020;
       --gold-lt:  #D9A84A;
-      --gold-f:   rgba(184,129,30,0.12);
+      --gold-f:   rgba(191, 144, 32,0.12);
       --text:     #E8E4DF;
       --text-dim: rgba(255,255,255,0.45);
       --text-mid: rgba(255,255,255,0.65);
@@ -296,7 +300,7 @@
       position: relative;
       transition: border-color .2s;
     }
-    .kpi-card:hover { border-color: rgba(184,129,30,0.3); }
+    .kpi-card:hover { border-color: rgba(191, 144, 32,0.3); }
     .kpi-label {
       font-family: var(--font);
       font-size: 18px;
@@ -362,7 +366,7 @@
     .link-icon.hs  { background: rgba(255,122,69,0.12); color: #FF7A45; }
     .link-icon.ga  { background: rgba(88,166,255,0.12); color: #58A6FF; }
     .link-icon.gsc { background: rgba(62,207,142,0.12); color: #3ECF8E; }
-    .link-icon.gbp { background: rgba(184,129,30,0.12); color: var(--gold); }
+    .link-icon.gbp { background: rgba(191, 144, 32,0.12); color: var(--gold); }
     .link-name { font-size: 14px; font-weight: 500; }
     .link-desc { font-size: 11px; color: var(--text-dim); text-align: center; line-height: 1.5; }
 
@@ -516,8 +520,8 @@
       animation: border-pulse 2s ease-in-out infinite;
     }
     @keyframes border-pulse {
-      0%, 100% { border-color: rgba(184,129,30,0.15); }
-      50% { border-color: rgba(184,129,30,0.6); }
+      0%, 100% { border-color: rgba(191, 144, 32,0.15); }
+      50% { border-color: rgba(191, 144, 32,0.6); }
     }
     .ai-header {
       display: flex;
@@ -649,7 +653,7 @@
       font-size: 14px;
       flex-shrink: 0;
     }
-    .ql-dot.gold { background: rgba(184,129,30,0.12); }
+    .ql-dot.gold { background: rgba(191, 144, 32,0.12); }
     .ql-dot.blue { background: rgba(88,166,255,0.12); }
     .ql-dot.green { background: rgba(62,207,142,0.12); }
     .ql-dot.dim { background: rgba(255,255,255,0.04); }
@@ -781,7 +785,7 @@
     }
     .val-card.bear { border-color: rgba(229,83,75,0.2); }
     .val-card.bear .val-amount { color: var(--text-mid); }
-    .val-card.base { border-color: rgba(184,129,30,0.3); }
+    .val-card.base { border-color: rgba(191, 144, 32,0.3); }
     .val-card.bull { border-color: rgba(62,207,142,0.2); }
     .val-card.bull .val-amount { color: var(--green); }
 
@@ -1281,18 +1285,18 @@
   <div class="dash-body">
 
     <!-- Rate Watch -->
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:12px 16px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:12px 16px">
       <div style="font-size:12px;color:#888">Today's DSCR market rate:</div>
-      <input type="text" id="cl-market-rate" value="7.25" onchange="saveClients()" style="background:#0D0F12;border:1px solid #333;border-radius:4px;color:#B8811E;padding:4px 8px;width:60px;font-size:14px;font-weight:700;text-align:center">
+      <input type="text" id="cl-market-rate" value="7.25" onchange="saveClients()" style="background:#0D0F12;border:1px solid #333;border-radius:4px;color:#BF9020;padding:4px 8px;width:60px;font-size:14px;font-weight:700;text-align:center">
       <div style="font-size:12px;color:#888">%</div>
       <div style="margin-left:auto;font-size:11px;color:#888">Clients below threshold flagged automatically</div>
     </div>
 
     <!-- Lifetime Value Summary -->
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px">
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Total Clients</div><div style="font-size:22px;font-weight:700;color:#E8E8E8" id="cl-total-clients">0</div></div>
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Total Closed Revenue</div><div style="font-size:22px;font-weight:700;color:#4ade80" id="cl-total-rev">$0</div></div>
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Avg Per Client</div><div style="font-size:22px;font-weight:700;color:#B8811E" id="cl-avg-rev">$0</div></div>
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Total Clients</div><div style="font-size:22px;font-weight:700;color:#E8E8E8" id="cl-total-clients">0</div></div>
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Total Closed Revenue</div><div style="font-size:22px;font-weight:700;color:#4ade80" id="cl-total-rev">$0</div></div>
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Avg Per Client</div><div style="font-size:22px;font-weight:700;color:#BF9020" id="cl-avg-rev">$0</div></div>
     </div>
 
     <!-- Client Lifecycle -->
@@ -1302,7 +1306,7 @@
     <button onclick="showAddClient()" style="padding:8px 16px;background:var(--gold);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;margin-bottom:16px">+ Add Client</button>
 
     <!-- Add Client Form (hidden) -->
-    <div id="cl-form" style="display:none;background:#1A1C24;border:1px solid rgba(184,129,30,0.3);border-radius:8px;padding:16px;margin-bottom:16px">
+    <div id="cl-form" style="display:none;background:#1A1C24;border:1px solid rgba(191, 144, 32,0.3);border-radius:8px;padding:16px;margin-bottom:16px">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
         <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Client / LLC Name</label><input type="text" id="cl-name" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px"></div>
         <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Property Address</label><input type="text" id="cl-addr" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px"></div>
@@ -1335,15 +1339,15 @@
     <!-- SECTION 1: Campaign Overview -->
     <div class="section-head"><span class="section-label">BPL Refi Campaign Strategy</span><div class="section-line"></div></div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px">
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;text-align:center">
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;text-align:center">
         <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Total Budget</div>
-        <div style="font-size:24px;font-weight:700;color:#B8811E">$1,189<span style="font-size:13px;color:#888">/mo</span></div>
+        <div style="font-size:24px;font-weight:700;color:#BF9020">$1,189<span style="font-size:13px;color:#888">/mo</span></div>
       </div>
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;text-align:center">
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;text-align:center">
         <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Total Leads</div>
         <div style="font-size:24px;font-weight:700;color:#E8E8E8">9,416</div>
       </div>
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;text-align:center">
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;text-align:center">
         <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Target CPL</div>
         <div style="font-size:24px;font-weight:700;color:#4ade80">$23&ndash;$45</div>
       </div>
@@ -1353,8 +1357,8 @@
         <div style="font-size:10px;color:#4ade80;font-weight:700;text-transform:uppercase;letter-spacing:0.5px">Phase 1 (NOW)</div>
         <div style="font-size:12px;color:#E8E8E8;margin-top:2px">Infrastructure &#10003;</div>
       </div>
-      <div style="flex:1;min-width:140px;background:#1A1C24;border-radius:6px;padding:10px 14px;border-left:3px solid #B8811E">
-        <div style="font-size:10px;color:#B8811E;font-weight:700;text-transform:uppercase;letter-spacing:0.5px">Phase 2 (Wk 3)</div>
+      <div style="flex:1;min-width:140px;background:#1A1C24;border-radius:6px;padding:10px 14px;border-left:3px solid #BF9020">
+        <div style="font-size:10px;color:#BF9020;font-weight:700;text-transform:uppercase;letter-spacing:0.5px">Phase 2 (Wk 3)</div>
         <div style="font-size:12px;color:#E8E8E8;margin-top:2px">First Email Send &#9203;</div>
       </div>
       <div style="flex:1;min-width:140px;background:#1A1C24;border-radius:6px;padding:10px 14px;border-left:3px solid #888">
@@ -1395,7 +1399,7 @@
         </tr>
         <tr>
           <td style="font-weight:600;color:#E8E8E8">ViaScore Organic Engine</td>
-          <td><span id="camp-5-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:rgba(184,129,30,0.3);color:#B8811E">IN PROGRESS</span></td>
+          <td><span id="camp-5-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:rgba(191, 144, 32,0.3);color:#BF9020">IN PROGRESS</span></td>
           <td>$0</td><td>organic</td><td>$0</td><td>$0</td><td>Wk 2</td>
           <td><select onchange="saveCampStatus(5,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>IN PROGRESS</option><option>ACTIVE</option><option>PAUSED</option></select></td>
         </tr>
@@ -1418,29 +1422,29 @@
     <!-- SECTION 3: Lead Pipeline by Cohort -->
     <div class="section-head" style="margin-top:24px"><span class="section-label">Lead Pipeline by Cohort</span><div class="section-line"></div></div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px">
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px">
         <div style="font-size:14px;font-weight:700;color:#E8E8E8;margin-bottom:8px">Rate-Trapped</div>
         <div style="font-size:12px;color:#888;line-height:1.6">201 leads<br>Median savings $249/mo<br>Status: <span style="color:#4ade80">READY</span><br>Wave 1: 50 sent</div>
       </div>
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px">
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px">
         <div style="font-size:14px;font-weight:700;color:#E8E8E8;margin-bottom:8px">Balloon Maturing</div>
         <div style="font-size:12px;color:#888;line-height:1.6">114 leads<br>Median equity $226K<br>Status: <span style="color:#4ade80">READY</span><br>Wave 1: 50 queued</div>
       </div>
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px">
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px">
         <div style="font-size:14px;font-weight:700;color:#E8E8E8;margin-bottom:8px">Distressed</div>
         <div style="font-size:12px;color:#888;line-height:1.6">311 leads<br>144 negative cash flow<br>Status: <span style="color:#4ade80">READY</span><br>Wave 1: 50 sent</div>
       </div>
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px">
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px">
         <div style="font-size:14px;font-weight:700;color:#E8E8E8;margin-bottom:8px">Equity Deployers</div>
         <div style="font-size:12px;color:#888;line-height:1.6">9,078 leads<br>~3% avg rate<br>Status: <span style="color:#888">PLANNED</span><br>Product TBD</div>
       </div>
     </div>
 
     <!-- PropStream Pull Strategy -->
-    <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;margin-bottom:16px">
-      <div style="font-size:11px;color:#B8811E;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px">PropStream Pull Strategy</div>
+    <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;margin-bottom:16px">
+      <div style="font-size:11px;color:#BF9020;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px">PropStream Pull Strategy</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(184,129,30,0.1);border-radius:8px;padding:14px">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(191, 144, 32,0.1);border-radius:8px;padding:14px">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
             <div style="font-size:14px;font-weight:700;color:#E8E8E8">Rate Urgency List</div>
             <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#2d6a4f;color:#a7f3d0">ACTIVE</span>
@@ -1449,16 +1453,16 @@
             Monthly target: <span style="color:#E8E8E8">~1,000&ndash;1,500 leads</span><br>
             Budget: <span style="color:#4ade80">$0</span> (included in Pro)<br>
             Counties: Hillsborough + Pinellas + Pasco<br><br>
-            <span style="color:#B8811E;font-weight:600">Key filters:</span><br>
+            <span style="color:#BF9020;font-weight:600">Key filters:</span><br>
             &bull; Loan 1 Rate: &ge;6.50%<br>
             &bull; Loan 1 Date: 2019&ndash;2023<br>
             &bull; Equity: $75K minimum<br>
             &bull; Absentee owner<br>
             &bull; Has email<br><br>
-            <span style="color:#B8811E">Pitch:</span> Rate savings &mdash; $200&ndash;$400/mo
+            <span style="color:#BF9020">Pitch:</span> Rate savings &mdash; $200&ndash;$400/mo
           </div>
         </div>
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(184,129,30,0.1);border-radius:8px;padding:14px">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(191, 144, 32,0.1);border-radius:8px;padding:14px">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
             <div style="font-size:14px;font-weight:700;color:#E8E8E8">Free &amp; Clear Equity List</div>
             <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#2d6a4f;color:#a7f3d0">ACTIVE</span>
@@ -1467,14 +1471,14 @@
             Monthly target: <span style="color:#E8E8E8">~2,000&ndash;3,000 leads</span><br>
             Budget: <span style="color:#4ade80">$0</span> (included in Pro)<br>
             Counties: Hillsborough + Pinellas + Pasco + Manatee<br><br>
-            <span style="color:#B8811E;font-weight:600">Key filters:</span><br>
+            <span style="color:#BF9020;font-weight:600">Key filters:</span><br>
             &bull; Open mortgage balance: $0<br>
             &bull; OR LTV: 0&ndash;15%<br>
             &bull; Equity: $150K minimum<br>
             &bull; Est. value: $250K minimum<br>
             &bull; Last sale: 2012&ndash;2022<br>
             &bull; Has email<br><br>
-            <span style="color:#B8811E">Pitch:</span> Cash-out equity deployment
+            <span style="color:#BF9020">Pitch:</span> Cash-out equity deployment
           </div>
         </div>
       </div>
@@ -1482,27 +1486,27 @@
     </div>
 
     <!-- Next Steps Checklist -->
-    <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;margin-bottom:16px">
-      <div style="font-size:11px;color:#B8811E;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px">Next Steps</div>
+    <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;margin-bottom:16px">
+      <div style="font-size:11px;color:#BF9020;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px">Next Steps</div>
       <div id="mkt-checklist" style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#E8E8E8"></div>
     </div>
 
     <!-- SECTION 4: Year 1 Projections -->
     <div class="section-head" style="margin-top:24px"><span class="section-label">Year 1 Projections</span><div class="section-line"></div></div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:8px">
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;text-align:center">
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;text-align:center">
         <div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Low</div>
         <div style="font-size:20px;font-weight:700;color:#E8E8E8;margin-bottom:4px">40 loans</div>
         <div style="font-size:14px;color:#4ade80;font-weight:600">$77K revenue</div>
         <div style="font-size:11px;color:#888;margin-top:4px">CPFL: $590</div>
       </div>
-      <div style="background:#1A1C24;border:2px solid #B8811E;border-radius:8px;padding:16px;text-align:center">
-        <div style="font-size:10px;color:#B8811E;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Mid (Target)</div>
+      <div style="background:#1A1C24;border:2px solid #BF9020;border-radius:8px;padding:16px;text-align:center">
+        <div style="font-size:10px;color:#BF9020;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Mid (Target)</div>
         <div style="font-size:20px;font-weight:700;color:#E8E8E8;margin-bottom:4px">60 loans</div>
         <div style="font-size:14px;color:#4ade80;font-weight:600">$140K revenue</div>
         <div style="font-size:11px;color:#888;margin-top:4px">CPFL: $375</div>
       </div>
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;text-align:center">
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;text-align:center">
         <div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">High</div>
         <div style="font-size:20px;font-weight:700;color:#E8E8E8;margin-bottom:4px">80 loans</div>
         <div style="font-size:14px;color:#4ade80;font-weight:600">$206K revenue</div>
@@ -1510,9 +1514,9 @@
       </div>
     </div>
     <div style="font-size:11px;color:#888;line-height:1.6;margin-bottom:16px">Based on $3,500 avg origination at 100bps broker (FHM). UMortgage at 275bps would 2.5x these numbers on DSCR volume.</div>
-    <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:12px;color:#888">Loans closed: <span id="proj-loans" style="color:#E8E8E8;font-weight:600">0</span> / 60</span><span style="font-size:11px;color:#B8811E">0%</span></div>
-      <div style="height:6px;background:#333;border-radius:3px;overflow:hidden"><div id="proj-bar" style="height:100%;background:#B8811E;border-radius:3px;width:0%;transition:width 0.4s"></div></div>
+    <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:12px;color:#888">Loans closed: <span id="proj-loans" style="color:#E8E8E8;font-weight:600">0</span> / 60</span><span style="font-size:11px;color:#BF9020">0%</span></div>
+      <div style="height:6px;background:#333;border-radius:3px;overflow:hidden"><div id="proj-bar" style="height:100%;background:#BF9020;border-radius:3px;width:0%;transition:width 0.4s"></div></div>
     </div>
 
   </div>
@@ -1523,11 +1527,11 @@
   <div class="dash-body">
 
     <!-- TODAY'S WINS -->
-    <details open style="background:rgba(184,129,30,0.08);border:2px solid rgba(184,129,30,0.3);border-radius:8px;padding:0;margin-bottom:20px">
-      <summary style="padding:14px 16px;cursor:pointer;font-size:14px;font-weight:700;color:#B8811E;list-style:none;display:flex;align-items:center;gap:8px">&#127942; TODAY'S WINS &mdash; March 31, 2026</summary>
+    <details open style="background:rgba(191, 144, 32,0.08);border:2px solid rgba(191, 144, 32,0.3);border-radius:8px;padding:0;margin-bottom:20px">
+      <summary style="padding:14px 16px;cursor:pointer;font-size:14px;font-weight:700;color:#BF9020;list-style:none;display:flex;align-items:center;gap:8px">&#127942; TODAY'S WINS &mdash; March 31, 2026</summary>
       <div style="padding:0 16px 16px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
         <div>
-          <div style="font-size:11px;color:#B8811E;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">SEO &amp; Content</div>
+          <div style="font-size:11px;color:#BF9020;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">SEO &amp; Content</div>
           <div style="font-size:12px;color:#E8E8E8;line-height:1.8">
             &#10003; Bing Webmaster &mdash; all 3 domains verified<br>
             <span style="color:#888;margin-left:16px">viascore.ai: 131 URLs | viadorpartners.com: 92 URLs | viadormarkets.com: 14 URLs</span><br>
@@ -1541,7 +1545,7 @@
           </div>
         </div>
         <div>
-          <div style="font-size:11px;color:#B8811E;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Revenue &amp; Leads</div>
+          <div style="font-size:11px;color:#BF9020;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Revenue &amp; Leads</div>
           <div style="font-size:12px;color:#E8E8E8;line-height:1.8">
             &#10003; 703 rate urgency leads scored<br>
             <span style="color:#888;margin-left:16px">Hillsborough 324 + Pinellas 379</span><br>
@@ -1561,8 +1565,8 @@
     </details>
 
     <!-- Rate Watch Box -->
-    <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.3);border-radius:8px;padding:14px 16px;margin-bottom:20px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;align-items:center">
-      <div><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px">DSCR Market Rate</div><input type="text" id="rw-dscr" value="6.25" onchange="saveRateWatch()" style="background:#0D0F12;border:1px solid #333;border-radius:4px;color:#B8811E;padding:4px 6px;width:60px;font-size:14px;font-weight:700;text-align:center"><span style="color:#888;font-size:12px"> %</span></div>
+    <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.3);border-radius:8px;padding:14px 16px;margin-bottom:20px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;align-items:center">
+      <div><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px">DSCR Market Rate</div><input type="text" id="rw-dscr" value="6.25" onchange="saveRateWatch()" style="background:#0D0F12;border:1px solid #333;border-radius:4px;color:#BF9020;padding:4px 6px;width:60px;font-size:14px;font-weight:700;text-align:center"><span style="color:#888;font-size:12px"> %</span></div>
       <div><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px">DSCR Second Rate</div><input type="text" id="rw-second" value="9.25" onchange="saveRateWatch()" style="background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:4px 6px;width:60px;font-size:14px;font-weight:700;text-align:center"><span style="color:#888;font-size:12px"> %</span></div>
       <div><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px">Refi Trigger</div><div style="font-size:12px;color:#4ade80">Market &le; 6.0%</div></div>
       <div><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px">Next Rate Check</div><input type="date" id="rw-next" onchange="saveRateWatch()" style="background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:4px 6px;font-size:11px"></div>
@@ -1577,46 +1581,46 @@
       <tbody>
         <tr><td style="color:#E8E8E8;font-weight:600">UMortgage Go Broker</td><td>Non-bank</td><td style="color:#4ade80">&#10003;</td><td style="color:#4ade80">&#10003; Viador</td><td style="color:#4ade80">&#10003;</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#2d6a4f;color:#a7f3d0">APPLY &mdash; 275bps-$995</span></td></tr>
         <tr><td style="color:#E8E8E8;font-weight:600">FHM (Jason McBride)</td><td>Non-bank</td><td style="color:#4ade80">&#10003;</td><td style="color:#4ade80">&#10003; Viador</td><td style="color:#4ade80">&#10003;</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#92400e;color:#fde68a">SIGNED &mdash; pending amendment</span></td></tr>
-        <tr><td style="color:#E8E8E8;font-weight:600">Luminate Bank</td><td style="color:#4ade80">FDIC bank</td><td style="color:#4ade80">&#10003;</td><td style="color:#888">Ask Ed</td><td style="color:#888">Unknown</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:rgba(184,129,30,0.3);color:#B8811E">CALL Ed Stratton</span></td></tr>
+        <tr><td style="color:#E8E8E8;font-weight:600">Luminate Bank</td><td style="color:#4ade80">FDIC bank</td><td style="color:#4ade80">&#10003;</td><td style="color:#888">Ask Ed</td><td style="color:#888">Unknown</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:rgba(191, 144, 32,0.3);color:#BF9020">CALL Ed Stratton</span></td></tr>
         <tr><td style="color:#E8E8E8;font-weight:600">LoanFlight (Paul Blaylock)</td><td>Non-bank</td><td style="color:#4ade80">&#10003;</td><td style="color:#4ade80">Likely &#10003;</td><td style="color:#4ade80">Likely &#10003;</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#166534;color:#4ade80">PRIORITY CALL</span></td></tr>
         <tr><td style="color:#E8E8E8;font-weight:600">Cogent Bank (Brandon Roth)</td><td style="color:#4ade80">FDIC bank</td><td style="color:#fc6060">&#10007;</td><td style="color:#888">By-book</td><td style="color:#888">Unclear</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#333;color:#888">No DSCR &mdash; relationship</span></td></tr>
         <tr><td style="color:#E8E8E8;font-weight:600">Presidential (Keith Brewer)</td><td style="color:#4ade80">FDIC bank</td><td style="color:#888">Unknown</td><td style="color:#888">Unknown</td><td style="color:#888">OBA likely OK</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#333;color:#888">Worth asking</span></td></tr>
       </tbody>
     </table>
     </div>
-    <div style="background:rgba(184,129,30,0.08);border:1px solid rgba(184,129,30,0.2);border-radius:8px;padding:14px;margin:12px 0 24px;font-size:12px;color:#E8E8E8;line-height:1.6">
-      <strong style="color:#B8811E">FDIC bank = federal NMLS registration only</strong>, no individual state licenses. Key for team scaling. LoanFlight + UMortgage = state-by-state but full brand independence.
+    <div style="background:rgba(191, 144, 32,0.08);border:1px solid rgba(191, 144, 32,0.2);border-radius:8px;padding:14px;margin:12px 0 24px;font-size:12px;color:#E8E8E8;line-height:1.6">
+      <strong style="color:#BF9020">FDIC bank = federal NMLS registration only</strong>, no individual state licenses. Key for team scaling. LoanFlight + UMortgage = state-by-state but full brand independence.
     </div>
 
     <!-- SECTION 2: Key Contacts -->
     <div class="section-head"><span class="section-label">Key Contacts</span><div class="section-line"></div></div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px">
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#B8811E">Paul Blaylock</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#166534;color:#4ade80">PRIORITY CALL</span></div>
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#BF9020">Paul Blaylock</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#166534;color:#4ade80">PRIORITY CALL</span></div>
         <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">LoanFlight Lending (owner) &middot; NMLS #1522344</div>
         <div style="font-size:11px;color:#888;line-height:1.6">Tampa, FL &mdash; same city. Prior working relationship. Privately held, tech-forward, DSCR confirmed. Likely flexible on Viador brand + OBA. SE + Midwest + Mid-Atlantic + CA licensed.</div>
       </div>
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#B8811E">Ed Stratton</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:rgba(184,129,30,0.3);color:#B8811E">CALL THIS WEEK</span></div>
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#BF9020">Ed Stratton</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:rgba(191, 144, 32,0.3);color:#BF9020">CALL THIS WEEK</span></div>
         <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">Luminate Bank &middot; Cape Coral, FL</div>
         <div style="font-size:11px;color:#888;line-height:1.6">Good prior relationship. Stud producer. Under Shawn Fewell. Luminate FDIC = 50-state, federal reg only. Need to confirm: comp model, Viador brand, OBA policy on viascore.ai.</div>
       </div>
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#B8811E">Jason McBride</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#92400e;color:#fde68a">AGREEMENT PENDING</span></div>
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#BF9020">Jason McBride</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#92400e;color:#fde68a">AGREEMENT PENDING</span></div>
         <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">Focus Home Mortgage (CEO) &middot; 614-362-8801 ext 2</div>
         <div style="font-size:11px;color:#888;line-height:1.6">Call completed Mar 30. MLO agreement in hand: 100bps broker / 150bps non-del. FHM not yet FL licensed. Non-solicitation clause needs amendment to exclude PropStream pipeline.</div>
       </div>
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#B8811E">Keith Brewer</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#1e3a5f;color:#60a5fa">WARM &mdash; EXPLORE</span></div>
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#BF9020">Keith Brewer</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#1e3a5f;color:#60a5fa">WARM &mdash; EXPLORE</span></div>
         <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">Presidential Bank</div>
         <div style="font-size:11px;color:#888;line-height:1.6">Close former colleague. Runs branch AND independent insurance company &mdash; signals bank flexible on OBA. Unknown if Presidential does net branch. Worth one conversation.</div>
       </div>
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px">
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#888">Brandon Roth</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#333;color:#888">RELATIONSHIP ONLY</span></div>
         <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">Cogent Bank (Tampa)</div>
         <div style="font-size:11px;color:#888;line-height:1.6">Recruited Chad to BayFirst 2018. Strong relationship. Conservative FDIC bank &mdash; no DSCR or non-QM visible. Valuable for conventional referrals and future product expansion.</div>
       </div>
-      <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px">
+      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#888">Shawn Fewell</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#8b1a1a;color:#fca5a5">AVOID DIRECT</span></div>
         <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">Luminate Bank (recruiter)</div>
         <div style="font-size:11px;color:#888;line-height:1.6">Ed Stratton and Chris Fewell both work under him. Do NOT approach directly &mdash; he clips an override on recruited production. Go through Ed or Luminate corporate.</div>
@@ -1625,13 +1629,13 @@
 
     <!-- SECTION 3: Next Steps -->
     <div class="section-head"><span class="section-label">Next Steps</span><div class="section-line"></div></div>
-    <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px;margin-bottom:24px">
+    <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;margin-bottom:24px">
       <div id="notes-checklist" style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#E8E8E8"></div>
     </div>
 
     <!-- SECTION 4: Master Brief Status -->
-    <div style="background:rgba(184,129,30,0.08);border:2px solid rgba(184,129,30,0.3);border-radius:8px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <div><span style="font-size:16px">&#9888;&#65039;</span> <strong style="color:#B8811E">Master Brief v3.0 needs update</strong><span style="font-size:12px;color:#888;display:block;margin-top:2px">Platform decision, lender contacts, and PropStream pull strategy added March 31.</span></div>
+    <div style="background:rgba(191, 144, 32,0.08);border:2px solid rgba(191, 144, 32,0.3);border-radius:8px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div><span style="font-size:16px">&#9888;&#65039;</span> <strong style="color:#BF9020">Master Brief v3.0 needs update</strong><span style="font-size:12px;color:#888;display:block;margin-top:2px">Platform decision, lender contacts, and PropStream pull strategy added March 31.</span></div>
       <a href="BRIEF.md" style="padding:8px 16px;background:var(--gold);color:#fff;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap">View Brief &rarr;</a>
     </div>
 
@@ -1657,24 +1661,24 @@
 
     <div style="overflow-x:auto">
     <table class="data-table" style="font-size:12px" id="pf-table">
-      <thead><tr><th></th><th style="color:#888">Conservative</th><th style="color:#B8811E">Target</th><th style="color:#4ade80">Optimistic</th></tr></thead>
+      <thead><tr><th></th><th style="color:#888">Conservative</th><th style="color:#BF9020">Target</th><th style="color:#4ade80">Optimistic</th></tr></thead>
       <tbody>
         <tr><td style="color:#888">Loans closed/yr</td><td><input type="number" class="pf-in" id="pf-loans-1" value="20" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-loans-2" value="40" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-loans-3" value="60" onchange="calcPF()"></td></tr>
         <tr><td style="color:#888">Avg loan size</td><td><input type="number" class="pf-in" id="pf-size-1" value="350000" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-size-2" value="350000" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-size-3" value="400000" onchange="calcPF()"></td></tr>
         <tr><td style="color:#888">Total volume</td><td id="pf-vol-1"></td><td id="pf-vol-2"></td><td id="pf-vol-3"></td></tr>
         <tr><td style="color:#888">Comp rate (bps)</td><td><input type="number" class="pf-in" id="pf-bps-1" value="250" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-bps-2" value="275" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-bps-3" value="275" onchange="calcPF()"></td></tr>
         <tr><td style="color:#888">Flat fee/file</td><td><input type="number" class="pf-in" id="pf-fee-1" value="995" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-fee-2" value="995" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-fee-3" value="995" onchange="calcPF()"></td></tr>
-        <tr style="border-top:2px solid #333"><td style="color:#B8811E;font-weight:700">Gross Revenue</td><td style="font-weight:700" id="pf-rev-1"></td><td style="font-weight:700;color:#B8811E" id="pf-rev-2"></td><td style="font-weight:700;color:#4ade80" id="pf-rev-3"></td></tr>
+        <tr style="border-top:2px solid #333"><td style="color:#BF9020;font-weight:700">Gross Revenue</td><td style="font-weight:700" id="pf-rev-1"></td><td style="font-weight:700;color:#BF9020" id="pf-rev-2"></td><td style="font-weight:700;color:#4ade80" id="pf-rev-3"></td></tr>
         <tr><td style="color:#888">Annual Expenses</td><td colspan="3" style="color:#fc6060" id="pf-exp"></td></tr>
-        <tr style="border-top:2px solid #333"><td style="color:#4ade80;font-weight:700">Net Pre-Tax Income</td><td style="font-weight:700" id="pf-net-1"></td><td style="font-weight:700;color:#B8811E" id="pf-net-2"></td><td style="font-weight:700;color:#4ade80" id="pf-net-3"></td></tr>
+        <tr style="border-top:2px solid #333"><td style="color:#4ade80;font-weight:700">Net Pre-Tax Income</td><td style="font-weight:700" id="pf-net-1"></td><td style="font-weight:700;color:#BF9020" id="pf-net-2"></td><td style="font-weight:700;color:#4ade80" id="pf-net-3"></td></tr>
         <tr><td style="color:#888">Break-even loans</td><td id="pf-be-1"></td><td id="pf-be-2"></td><td id="pf-be-3"></td></tr>
       </tbody>
     </table>
     </div>
     <style>.pf-in{background:#1A1C24;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:4px 6px;width:80px;font-size:12px;text-align:right;font-family:inherit}</style>
 
-    <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px;margin:16px 0">
-      <div style="font-size:11px;color:#B8811E;font-weight:700;margin-bottom:8px">Annual Expenses Breakdown</div>
+    <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px;margin:16px 0">
+      <div style="font-size:11px;color:#BF9020;font-weight:700;margin-bottom:8px">Annual Expenses Breakdown</div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px 16px;font-size:11px;color:#888">
         <div>PropStream Pro</div><div style="text-align:right">$199/mo</div><div style="text-align:right;color:#E8E8E8">$2,388</div>
         <div>Google Ads</div><div style="text-align:right">$900/mo</div><div style="text-align:right;color:#E8E8E8">$10,800</div>
@@ -1686,7 +1690,7 @@
         <div>NMLS licensing</div><div style="text-align:right">&mdash;</div><div style="text-align:right;color:#E8E8E8">$500</div>
         <div>E&amp;O Insurance</div><div style="text-align:right">$100/mo</div><div style="text-align:right;color:#E8E8E8">$1,200</div>
         <div>Misc/software</div><div style="text-align:right">$100/mo</div><div style="text-align:right;color:#E8E8E8">$1,200</div>
-        <div style="grid-column:1/-1;border-top:1px solid #333;padding-top:4px;margin-top:4px;display:flex;justify-content:space-between"><span style="color:#B8811E;font-weight:700">Total</span><span style="color:#fc6060;font-weight:700">$19,736/yr</span></div>
+        <div style="grid-column:1/-1;border-top:1px solid #333;padding-top:4px;margin-top:4px;display:flex;justify-content:space-between"><span style="color:#BF9020;font-weight:700">Total</span><span style="color:#fc6060;font-weight:700">$19,736/yr</span></div>
       </div>
     </div>
 
@@ -1697,8 +1701,8 @@
     <table class="data-table" style="font-size:12px">
       <thead><tr><th>Line Item</th><th>BayFirst 2018</th><th>Viador 2026</th></tr></thead>
       <tbody>
-        <tr><td style="color:#888">Annual Volume</td><td>$247M</td><td id="bf-vol" style="color:#B8811E"></td></tr>
-        <tr><td style="color:#888">Total Revenue</td><td>$8.88M (371 bps)</td><td id="bf-rev" style="color:#B8811E"></td></tr>
+        <tr><td style="color:#888">Annual Volume</td><td>$247M</td><td id="bf-vol" style="color:#BF9020"></td></tr>
+        <tr><td style="color:#888">Total Revenue</td><td>$8.88M (371 bps)</td><td id="bf-rev" style="color:#BF9020"></td></tr>
         <tr><td style="color:#888">Salaries</td><td style="color:#fc6060">$4.49M (188 bps)</td><td style="color:#4ade80">$0</td></tr>
         <tr><td style="color:#888">Marketing/leads</td><td style="color:#fc6060">$2.16M (90 bps)</td><td style="color:#4ade80">~$20K (6 bps)</td></tr>
         <tr><td style="color:#888">Occupancy</td><td style="color:#fc6060">$289K (12 bps)</td><td style="color:#4ade80">$0</td></tr>
@@ -1708,8 +1712,8 @@
       </tbody>
     </table>
     </div>
-    <div style="background:rgba(184,129,30,0.08);border:1px solid rgba(184,129,30,0.2);border-radius:8px;padding:14px;margin:12px 0;font-size:12px;color:#E8E8E8;line-height:1.6">
-      <strong style="color:#B8811E">The BayFirst model netted 28 bps</strong> after $4.5M in salaries and $2.1M in marketing. Viador's tech stack replaces the marketing spend entirely. At 40 loans you keep <strong style="color:#4ade80">~250+ bps</strong> vs 28 bps.
+    <div style="background:rgba(191, 144, 32,0.08);border:1px solid rgba(191, 144, 32,0.2);border-radius:8px;padding:14px;margin:12px 0;font-size:12px;color:#E8E8E8;line-height:1.6">
+      <strong style="color:#BF9020">The BayFirst model netted 28 bps</strong> after $4.5M in salaries and $2.1M in marketing. Viador's tech stack replaces the marketing spend entirely. At 40 loans you keep <strong style="color:#4ade80">~250+ bps</strong> vs 28 bps.
     </div>
 
     <!-- SECTION 3: Monthly Tracker -->
@@ -1718,13 +1722,13 @@
     <table class="data-table" style="font-size:11px" id="mt-table">
       <thead><tr><th>Month</th><th>Loans</th><th>Volume</th><th>Revenue</th><th>Expenses</th><th>Net</th><th>Cumulative</th></tr></thead>
       <tbody id="mt-body"></tbody>
-      <tfoot><tr style="font-weight:700;border-top:2px solid #B8811E"><td>Total</td><td id="mt-t-loans"></td><td id="mt-t-vol"></td><td id="mt-t-rev"></td><td id="mt-t-exp"></td><td id="mt-t-net"></td><td></td></tr></tfoot>
+      <tfoot><tr style="font-weight:700;border-top:2px solid #BF9020"><td>Total</td><td id="mt-t-loans"></td><td id="mt-t-vol"></td><td id="mt-t-rev"></td><td id="mt-t-exp"></td><td id="mt-t-net"></td><td></td></tr></tfoot>
     </table>
     </div>
 
     <!-- SECTION 4: Personal Budget -->
     <div class="section-head" style="margin-top:24px"><span class="section-label">Personal Budget Integration</span><div class="section-line"></div></div>
-    <div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:16px">
+    <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
         <div style="font-size:13px;color:#888">Monthly personal expenses:</div>
         <div style="display:flex;align-items:center;gap:4px"><span style="color:#888">$</span><input type="number" id="pb-burn" value="8000" onchange="calcPF();savePL()" style="background:#1A1C24;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;width:80px;font-size:14px;text-align:right"><span style="color:#888">/mo</span></div>
@@ -1807,7 +1811,7 @@
   var MKT_CHECKS_KEY = 'viador_mkt_checks';
   var statusColors = {
     'READY': {bg:'#2d6a4f',color:'#a7f3d0'}, 'ACTIVE': {bg:'#166534',color:'#4ade80'},
-    'IN PROGRESS': {bg:'rgba(184,129,30,0.3)',color:'#B8811E'}, 'PENDING': {bg:'#92400e',color:'#fde68a'},
+    'IN PROGRESS': {bg:'rgba(191, 144, 32,0.3)',color:'#BF9020'}, 'PENDING': {bg:'#92400e',color:'#fde68a'},
     'NOT STARTED': {bg:'#333',color:'#888'}, 'PLANNED': {bg:'#1A1C24',color:'#666',border:'1px solid #333'},
     'PAUSED': {bg:'#8b1a1a',color:'#fca5a5'}
   };
@@ -1851,7 +1855,7 @@
       var checked = saved['chk-'+i] ? 'checked' : '';
       var lbl = document.createElement('label');
       lbl.style.cssText = 'display:flex;align-items:center;gap:8px;cursor:pointer;padding:4px 0;';
-      lbl.innerHTML = '<input type="checkbox" '+checked+' onchange="saveMktCheck('+i+',this.checked)" style="accent-color:#B8811E;width:15px;height:15px;cursor:pointer"><span style="'+(checked?'text-decoration:line-through;color:#666':'')+'">'+item+'</span>';
+      lbl.innerHTML = '<input type="checkbox" '+checked+' onchange="saveMktCheck('+i+',this.checked)" style="accent-color:#BF9020;width:15px;height:15px;cursor:pointer"><span style="'+(checked?'text-decoration:line-through;color:#666':'')+'">'+item+'</span>';
       el.appendChild(lbl);
     });
   }
@@ -1894,26 +1898,26 @@
       var fw='&#127793; NEW',fwBg='#333',fwColor='#888';
       if(c.ltrev>=15000||c.txns>=3){fw='&#11088; VIP';fwBg='#92400e';fwColor='#fde68a';}
       else if(c.txns>=2){fw='&#128176; RECURRING';fwBg='#2d6a4f';fwColor='#4ade80';}
-      else if(c.txns>=1||c.ltrev>0){fw='&#128260; ACTIVE';fwBg='rgba(184,129,30,0.3)';fwColor='#B8811E';}
+      else if(c.txns>=1||c.ltrev>0){fw='&#128260; ACTIVE';fwBg='rgba(191, 144, 32,0.3)';fwColor='#BF9020';}
       // Alerts
       var alerts=[];
       if(c.prepay){var pp=new Date(c.prepay+'-01'),now=new Date(),diff=Math.round((pp-now)/(30.44*86400000));if(diff>0&&diff<=3)alerts.push('Prepay expires in '+diff+' months');else if(diff<=0)alerts.push('Prepay expired \u2014 ready to refi');}
       if(c.rate>0&&marketRate<c.rate-1.0)alerts.push('Rate dropped '+((c.rate-marketRate).toFixed(1))+'% since origination');
-      var html='<div style="background:#1A1C24;border:1px solid rgba(184,129,30,0.15);border-radius:8px;padding:14px;margin-bottom:10px">';
-      html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:15px;font-weight:700;color:#B8811E">'+c.name+'</div><div style="display:flex;gap:6px;align-items:center"><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:'+fwBg+';color:'+fwColor+'">'+fw+'</span><button onclick="deleteClient('+c.id+')" style="background:none;border:none;color:#666;cursor:pointer;font-size:14px">&times;</button></div></div>';
+      var html='<div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px;margin-bottom:10px">';
+      html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:15px;font-weight:700;color:#BF9020">'+c.name+'</div><div style="display:flex;gap:6px;align-items:center"><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:'+fwBg+';color:'+fwColor+'">'+fw+'</span><button onclick="deleteClient('+c.id+')" style="background:none;border:none;color:#666;cursor:pointer;font-size:14px">&times;</button></div></div>';
       html+='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;font-size:11px;color:#888;line-height:1.6">';
       html+='<div>Property: <span style="color:#E8E8E8">'+(c.addr||'\u2014')+'</span></div>';
       html+='<div>Loan: <span style="color:#E8E8E8">'+c.ltype+'</span> @ <span style="color:#E8E8E8">'+(c.rate||'\u2014')+'%</span></div>';
       html+='<div>Balance: <span style="color:#E8E8E8">'+fmt(c.balance)+'</span></div>';
       html+='<div>Equity: <span style="color:#4ade80">'+fmt(c.equity)+'</span></div>';
       html+='<div>Prepay: <span style="color:#E8E8E8">'+(c.prepay||'N/A')+'</span></div>';
-      html+='<div>Next: <span style="color:#B8811E">'+c.next+'</span></div>';
+      html+='<div>Next: <span style="color:#BF9020">'+c.next+'</span></div>';
       html+='</div>';
       html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid #333">';
       html+='<div style="font-size:11px;color:#888">Lifetime: <span style="color:'+(c.ltrev>=10000?'#4ade80':'#E8E8E8')+';font-weight:700">'+fmt(c.ltrev)+'</span></div>';
       if(c.notes)html+='<div style="font-size:11px;color:#666;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+c.notes+'</div>';
       html+='</div>';
-      if(alerts.length){html+='<div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">';alerts.forEach(function(a){html+='<span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:rgba(184,129,30,0.2);color:#B8811E">'+a+'</span>'});html+='</div>';}
+      if(alerts.length){html+='<div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">';alerts.forEach(function(a){html+='<span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:rgba(191, 144, 32,0.2);color:#BF9020">'+a+'</span>'});html+='</div>';}
       html+='</div>';
       el.innerHTML+=html;
     });
@@ -1965,7 +1969,7 @@
       var checked = saved['nc-'+i] ? 'checked' : '';
       var lbl = document.createElement('label');
       lbl.style.cssText = 'display:flex;align-items:center;gap:8px;cursor:pointer;padding:4px 0;';
-      lbl.innerHTML = '<input type="checkbox" '+checked+' onchange="saveNotesCheck('+i+',this.checked)" style="accent-color:#B8811E;width:15px;height:15px;cursor:pointer"><span style="'+(checked?'text-decoration:line-through;color:#666':'')+'">'+item+'</span>';
+      lbl.innerHTML = '<input type="checkbox" '+checked+' onchange="saveNotesCheck('+i+',this.checked)" style="accent-color:#BF9020;width:15px;height:15px;cursor:pointer"><span style="'+(checked?'text-decoration:line-through;color:#666':'')+'">'+item+'</span>';
       el.appendChild(lbl);
     });
   }
@@ -1997,7 +2001,7 @@
       document.getElementById('pf-rev-'+i).textContent=fmt$(rev);
       document.getElementById('pf-net-'+i).textContent=fmt$(net);
       document.getElementById('pf-net-'+i).style.color=net>=0?'#4ade80':'#fc6060';
-      document.getElementById('pf-be-'+i).innerHTML='<span style="color:'+(be<=12?'#4ade80':be<=24?'#B8811E':'#fc6060')+'">'+be+' loans/yr</span>';
+      document.getElementById('pf-be-'+i).innerHTML='<span style="color:'+(be<=12?'#4ade80':be<=24?'#BF9020':'#fc6060')+'">'+be+' loans/yr</span>';
       if(i===2){
         document.getElementById('bf-vol').textContent=fmt$(vol);
         var bpsNet=vol>0?Math.round(rev/vol*10000):0;
@@ -2016,7 +2020,7 @@
     var perLoan=(tgtSize*tgtBps/10000)-tgtFee;
     var loansNeeded=perLoan>0?Math.ceil(annualBurn/perLoan):999;
     var moNeeded=Math.ceil(loansNeeded/12*10)/10;
-    document.getElementById('pb-msg').innerHTML='At <strong style="color:#B8811E">'+fmt$(burn)+'/mo</strong> personal burn you need <strong style="color:#E8E8E8">'+fmt$(annualBurn)+'/year</strong> from Viador.<br>That\'s <strong style="color:#B8811E">'+loansNeeded+' loans/year</strong> (~'+moNeeded+'/mo) at '+tgtBps+'bps on '+fmt$(tgtSize)+' avg.';
+    document.getElementById('pb-msg').innerHTML='At <strong style="color:#BF9020">'+fmt$(burn)+'/mo</strong> personal burn you need <strong style="color:#E8E8E8">'+fmt$(annualBurn)+'/year</strong> from Viador.<br>That\'s <strong style="color:#BF9020">'+loansNeeded+' loans/year</strong> (~'+moNeeded+'/mo) at '+tgtBps+'bps on '+fmt$(tgtSize)+' avg.';
     savePL();
     calcMT();
   }
@@ -2451,8 +2455,8 @@
       data: { labels: labels, datasets: [{
         label: 'Projected',
         data: projected,
-        backgroundColor: 'rgba(184,129,30,0.3)',
-        borderColor: '#B8811E',
+        backgroundColor: 'rgba(191, 144, 32,0.3)',
+        borderColor: '#BF9020',
         borderWidth: 1.5,
         borderRadius: 4
       }]},

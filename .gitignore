@@ -1,1 +1,4 @@
 viador-data.json
+node_modules/
+package-lock.json
+assets-v-mark-src.png
