@@ -710,12 +710,6 @@ body {
   color: var(--ink-soft);
 }
 
-
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
 .hero-stat-stack {
   background: var(--white);
   border: 1px solid var(--line);
