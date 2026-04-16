@@ -1071,6 +1071,39 @@
       .tab-btn { min-height:48px; min-width:48px; }
       .gate-btn, .log-btn, #refresh-btn { min-height:48px; }
     }
+
+    /* ── Phase 0 Home Components ─────────────── */
+    .mc-bar { display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap; background:var(--bg2); border:1px solid var(--line); border-radius:10px; padding:16px 24px; margin-bottom:24px; position:sticky; top:80px; z-index:40; }
+    .mc-item { text-align:center; }
+    .mc-val { font-family:var(--font-d); font-size:28px; font-weight:700; color:var(--gold); line-height:1; }
+    .mc-label { font-size:11px; color:var(--text-dim); text-transform:uppercase; letter-spacing:.06em; margin-top:4px; }
+    .mc-pill { display:inline-block; padding:6px 16px; border-radius:99px; font-size:13px; font-weight:600; background:rgba(46,125,50,0.15); color:var(--green); }
+    .lr-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+    .lr-item { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text); padding:8px 12px; background:var(--bg2); border:1px solid rgba(255,255,255,0.04); border-radius:6px; }
+    .lr-icon { font-size:16px; flex-shrink:0; }
+    .inbox-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .inbox-card { background:var(--bg2); border:1px solid var(--line); border-radius:10px; padding:16px; text-align:center; }
+    .inbox-email { font-family:var(--font-m); font-size:12px; color:var(--text-dim); margin-bottom:8px; word-break:break-all; }
+    .inbox-light { font-size:32px; margin-bottom:8px; }
+    .inbox-stats { font-size:12px; color:var(--text-dim); line-height:1.5; }
+    .wave-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .wave-card { background:var(--bg2); border:1px solid var(--line); border-radius:10px; padding:18px; }
+    .wave-name { font-family:var(--font-d); font-size:17px; font-weight:700; color:var(--text); margin-bottom:4px; }
+    .wave-count { font-size:14px; color:var(--gold); font-weight:600; }
+    .wave-date { font-size:12px; color:var(--text-dim); margin:4px 0 10px; }
+    .organic-signal { display:flex; gap:32px; padding:12px 0; font-size:14px; color:var(--text-dim); }
+    .prio-item { display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.04); font-size:14px; color:var(--text); }
+    .prio-num { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; background:var(--gold); color:#fff; font-size:13px; font-weight:700; border-radius:50%; flex-shrink:0; }
+    .pipeline-collapse { background:var(--bg2); border:1px solid var(--line); border-radius:8px; padding:0 16px; }
+    @media(max-width:640px){
+      .mc-bar{flex-direction:column;gap:12px;position:sticky;top:0;padding:12px 16px;}
+      .mc-val{font-size:24px;}
+      .lr-grid{grid-template-columns:1fr;}
+      .inbox-grid{grid-template-columns:1fr;}
+      .wave-grid{grid-template-columns:1fr;}
+      .organic-signal{flex-direction:column;gap:8px;}
+    }
+
   </style></head>
 <body>
 
@@ -1109,735 +1142,264 @@
   </div>
 
   <!-- Tab Bar -->
-  <div class="tab-bar">
-    <button class="tab-btn active" onclick="switchTab('ops')">Operations</button>
+    <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('home')">Home</button>
+    <button class="tab-btn" onclick="switchTab('ndv')">NDV Campaign</button>
     <button class="tab-btn" onclick="switchTab('pipeline')">Pipeline</button>
-    <button class="tab-btn" onclick="switchTab('marketing')">Marketing</button>
-    <button class="tab-btn" onclick="switchTab('notes')">Notes</button>
-    <button class="tab-btn" onclick="switchTab('pl')">P&amp;L &amp; Projections</button>
+    <button class="tab-btn" onclick="switchTab('organic')">Organic Engine</button>
+    <button class="tab-btn" onclick="switchTab('pl')">P&amp;L &amp; Runway</button>
+    <button class="tab-btn" onclick="switchTab('strategy')">Strategy &amp; Notes</button>
   </div>
 
-  <!-- ═══ TAB: Operations ═══ -->
-  <div class="tab-panel active" id="tab-ops">
+  <!-- ═══════════════════════════════════════════════
+       TAB: HOME — Phase 0 Command Center
+       ═══════════════════════════════════════════════ -->
+  <div class="tab-panel active" id="tab-home">
   <div class="dash-body">
 
-    <!-- Setup Panel (shown when no Sheet ID) -->
-    <div class="setup-panel" id="setup-panel" style="display:none">
-      <h3>Connect Your Google Sheet</h3>
-      <p>1. Create a Google Sheet named "Viador Command Center" with 5 tabs: KPIs, Pipeline, Marketing, Actuals, Notes</p>
-      <p>2. Share it as "Anyone with link can view"</p>
-      <p>3. Copy the Sheet ID from the URL (the long string between <code>/d/</code> and <code>/edit</code>)</p>
-      <input class="setup-input" id="sheet-id-input" placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVEwUpPY"/>
-      <button class="log-btn primary" onclick="if(typeof saveSheetId==='function'){saveSheetId()}else{localStorage.setItem('viador_sheet_id',document.getElementById('sheet-id-input').value.trim());location.reload()}">Connect Sheet</button>
-      <button class="log-btn secondary" onclick="if(typeof dismissSetup==='function'){dismissSetup()}else{document.getElementById('setup-panel').style.display='none'}" style="margin-left:8px">Skip — Use Local Data</button>
+    <!-- Row 1: Mission Critical Bar -->
+    <div class="mc-bar" id="mc-bar">
+      <div class="mc-item"><div class="mc-val" id="mc-launch">T-??</div><div class="mc-label">April 30 Launch</div></div>
+      <div class="mc-item"><div class="mc-val" id="mc-close">T-??</div><div class="mc-label">First Close Target</div></div>
+      <div class="mc-item"><div class="mc-pill" id="mc-health">&#x1F7E2; Checking&hellip;</div></div>
     </div>
 
-    <!-- Status Bar -->
-    <div class="status-bar">
-      <div class="status-dot" id="status-dot"></div>
-      <div class="status-text"><strong id="status-source">Loading...</strong></div>
-      <div class="status-text" style="margin-left:auto">Last updated: <strong id="last-updated">&mdash;</strong></div>
+    <!-- Row 2: Launch Readiness Checklist -->
+    <div class="section-head"><span class="section-label">April 30 Launch Readiness</span><div class="section-line"></div></div>
+    <div id="lr-progress" style="margin-bottom:16px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--text-dim);margin-bottom:6px"><span id="lr-count">Loading&hellip;</span><span id="lr-pct"></span></div>
+      <div style="background:var(--bg2);border-radius:99px;height:10px;overflow:hidden"><div id="lr-bar" style="height:100%;background:var(--gold);border-radius:99px;width:0;transition:width .5s"></div></div>
+    </div>
+    <div id="lr-blocked" style="display:none;background:rgba(204,51,51,0.1);border:1px solid rgba(204,51,51,0.3);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--red)"></div>
+    <div class="lr-grid" id="lr-grid"><div class="lp-placeholder">Loading checklist&hellip;</div></div>
+
+    <!-- Row 3: Today's Priority Stack -->
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Priority Stack</span><div class="section-line"></div></div>
+    <div id="priority-auto" class="priority-list"><div class="lp-placeholder">Computing priorities&hellip;</div></div>
+
+    <!-- Row 4: Inbox Health -->
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Inbox Health</span><div class="section-line"></div></div>
+    <div class="inbox-grid" id="inbox-grid">
+      <div class="inbox-card" id="inbox-vp"><div class="inbox-email">chad@viadorpartners.com</div><div class="inbox-light" id="inbox-vp-light">&#x26AA;</div><div class="inbox-stats" id="inbox-vp-stats">Loading&hellip;</div></div>
+      <div class="inbox-card" id="inbox-ndv1"><div class="inbox-email">chad@nextdutyvet.com</div><div class="inbox-light" id="inbox-ndv1-light">&#x26AA;</div><div class="inbox-stats" id="inbox-ndv1-stats">Loading&hellip;</div></div>
+      <div class="inbox-card" id="inbox-ndv2"><div class="inbox-email">hello@nextdutyvet.com</div><div class="inbox-light" id="inbox-ndv2-light">&#x26AA;</div><div class="inbox-stats" id="inbox-ndv2-stats">Loading&hellip;</div></div>
     </div>
 
-    <!-- Brief Status Bar -->
-    <div class="brief-bar" id="brief-bar" style="display:none">
-      <div class="bb-item">Brief <span class="bb-val" id="brief-version">--</span></div>
-      <div class="bb-item">Updated <span class="bb-val" id="brief-date">--</span></div>
-      <div class="bb-item">LinkedIn Post <span class="bb-val" id="linkedin-countdown">--</span></div>
-      <div class="bb-item">
-        SAFE <span class="bb-val" id="safe-label">--</span>
-        <div class="safe-bar"><div class="safe-bar-fill" id="safe-progress" style="width:0%"></div></div>
-      </div>
+    <!-- Row 5: Wave Readiness -->
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Wave Readiness</span><div class="section-line"></div></div>
+    <div class="wave-grid">
+      <div class="wave-card"><div class="wave-name">MD Wave</div><div class="wave-count">489 prime leads</div><div class="wave-date">April 30</div><div class="wave-status lp-badge lp-warn">Ready — pending MU4 approval</div></div>
+      <div class="wave-card"><div class="wave-name">OH Wave</div><div class="wave-count">776 seasoned leads</div><div class="wave-date">May 7</div><div class="wave-status lp-badge lp-dim">Queued</div></div>
+      <div class="wave-card"><div class="wave-name">FL Wave</div><div class="wave-count">4,885 prime leads</div><div class="wave-date">TBD</div><div class="wave-status lp-badge lp-info">Waiting on FL license</div></div>
     </div>
 
-    <!-- ── Priority Stack ─────────────────────────── -->
-    <div class="priority-panel" id="priority-panel" style="display:none">
-      <h3 style="color:var(--gold)">Today's Priorities</h3>
-      <div id="priority-today"></div>
-      <details style="margin-top:16px">
-        <summary style="font-size:13px;color:var(--text-dim);cursor:pointer">This Week</summary>
-        <div id="priority-week" style="padding-top:8px"></div>
-      </details>
-    </div>
+    <!-- Row 6: Organic Engine Signal -->
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Organic Signal</span><div class="section-line"></div></div>
+    <div class="organic-signal" id="organic-signal"><div class="lp-placeholder">Not connected &mdash; configure GA4 service account</div></div>
 
-    <!-- ── Platforms ───────────────────────────────── -->
-    <div id="platforms-section" style="display:none">
-      <div class="section-head">
-        <span class="section-label">Platforms</span>
-        <div class="section-line"></div>
-      </div>
-      <div class="platform-grid" id="platform-grid"></div>
-    </div>
-
-    <!-- ── KPI Cards ──────────────────────────────── -->
-    <div class="section-head">
-      <span class="section-label">Weekly KPIs</span>
-      <div class="section-line"></div>
-      <span class="section-label" id="kpi-week"></span>
-    </div>
-
-    <div class="kpi-grid">
-      <div class="kpi-card">
-        <div class="kpi-label">Deals in Pipeline</div>
-        <div class="kpi-value" id="kpi-deals">--</div>
-        <div class="kpi-delta neutral" id="delta-deals">&mdash;</div>
-        <div class="kpi-icon">📋</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Leads This Week</div>
-        <div class="kpi-value" id="kpi-leads">--</div>
-        <div class="kpi-delta neutral" id="delta-leads">&mdash;</div>
-        <div class="kpi-icon">🎯</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">LinkedIn Impressions</div>
-        <div class="kpi-value" id="kpi-linkedin">--</div>
-        <div class="kpi-delta neutral" id="delta-linkedin">&mdash;</div>
-        <div class="kpi-icon">📊</div>
-      </div>
-    </div>
-
-    <!-- ── LIVE DATA PANELS ───────────────────────── -->
-    <div class="section-head"><span class="section-label">Live Data</span><div class="section-line"></div><span class="section-label" id="live-ts" style="font-size:10px"></span></div>
-
-    <div class="live-grid">
-
-      <!-- Panel 1: Pipeline (HubSpot) -->
-      <div class="live-panel" id="panel-hubspot">
-        <div class="lp-head"><span class="lp-title">Pipeline</span><span class="lp-src">HubSpot</span></div>
-        <div class="lp-body" id="lp-hubspot"><div class="lp-placeholder">Loading&hellip;</div></div>
-      </div>
-
-      <!-- Panel 2: Email (Smartlead) -->
-      <div class="live-panel" id="panel-smartlead">
-        <div class="lp-head"><span class="lp-title">Email Outreach</span><span class="lp-src">Smartlead</span></div>
-        <div class="lp-body" id="lp-smartlead"><div class="lp-placeholder">Loading&hellip;</div></div>
-      </div>
-
-      <!-- Panel 3: SEO (GSC) -->
-      <div class="live-panel" id="panel-gsc">
-        <div class="lp-head"><span class="lp-title">SEO — Search Console</span><span class="lp-src">GSC</span></div>
-        <div class="lp-body" id="lp-gsc"><div class="lp-placeholder">Loading&hellip;</div></div>
-      </div>
-
-      <!-- Panel 4: Traffic (GA4) -->
-      <div class="live-panel" id="panel-ga4">
-        <div class="lp-head"><span class="lp-title">Traffic — GA4</span><span class="lp-src">GA4</span></div>
-        <div class="lp-body" id="lp-ga4"><div class="lp-placeholder">Loading&hellip;</div></div>
-      </div>
-
-      <!-- Panel 5: Meta Ads -->
-      <div class="live-panel" id="panel-meta">
-        <div class="lp-head"><span class="lp-title">Meta Ads</span><span class="lp-src">Meta</span></div>
-        <div class="lp-body" id="lp-meta"><div class="lp-placeholder">Loading&hellip;</div></div>
-      </div>
-
-      <!-- Panel 6: Licensing (Static) -->
-      <div class="live-panel" id="panel-licensing">
-        <div class="lp-head"><span class="lp-title">Licensing Status</span><span class="lp-src">Static</span></div>
-        <div class="lp-body">
-          <div class="lp-row"><span>Ohio</span><span class="lp-badge lp-warn">Pending Temp Authority</span></div>
-          <div class="lp-row"><span>Maryland</span><span class="lp-badge lp-warn">Pending Temp Authority</span></div>
-          <div class="lp-row"><span>Florida</span><span class="lp-badge lp-info">Waiting on FHM FL license</span></div>
-          <div class="lp-row"><span>Tennessee</span><span class="lp-badge lp-dim">Queued</span></div>
-          <div class="lp-divider"></div>
-          <div class="lp-row"><span>First close target</span><span style="color:var(--gold);font-weight:600">May 10–15, 2026</span></div>
-          <div class="lp-row"><span>Focus agreement</span><span style="color:var(--text-dim)">In negotiation</span></div>
-        </div>
-      </div>
-
-      <!-- Panel 7: First Lead (Static) -->
-      <div class="live-panel" id="panel-lead">
-        <div class="lp-head"><span class="lp-title">First Lead</span><span class="lp-src">HubSpot #470233732822</span></div>
-        <div class="lp-body">
-          <div style="font-weight:600;color:var(--text);margin-bottom:8px">Marc Vargas</div>
-          <div class="lp-row"><span>Email</span><span><a href="mailto:mgvinvestments@gmail.com" style="color:var(--gold)">mgvinvestments@gmail.com</a></span></div>
-          <div class="lp-row"><span>Phone</span><span><a href="tel:+19152528219" style="color:var(--gold)">(915) 252-8219</a></span></div>
-          <div class="lp-row"><span>Property</span><span>2607 Live Oak St, Houston TX 77004</span></div>
-          <div class="lp-row"><span>Type</span><span>6-unit multifamily</span></div>
-          <div class="lp-row"><span>Deal</span><span>$840K–$900K DSCR refi</span></div>
-          <div class="lp-row"><span>DSCR</span><span style="color:var(--green);font-weight:600">1.49x</span></div>
-          <div class="lp-row"><span>Status</span><span class="lp-badge lp-warn">Pending lease confirmation + TX BPL path</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── Quick Links ────────────────────────────── -->
-    <div class="section-head">
-      <span class="section-label">Quick Links</span>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="ql-group-label">Our Platforms</div>
-    <div class="ql-grid">
-      <a href="https://viadorpartners.com" target="_blank" rel="noopener" class="ql-card">
-        <div class="ql-dot gold">🏠</div>
-        <div class="ql-info"><div class="ql-name">Viador Partners</div><div class="ql-sub">viadorpartners.com</div></div>
-      </a>
-      <a href="https://nextdutyvet.com" target="_blank" rel="noopener" class="ql-card">
-        <div class="ql-dot green">🎖️</div>
-        <div class="ql-info"><div class="ql-name">Next Duty Vet</div><div class="ql-sub">nextdutyvet.com</div></div>
-      </a>
-    </div>
-
-    <div class="ql-group-label">Dashboards</div>
-    <div class="ql-grid">
-      <a href="https://app.hubspot.com/contacts/245454217" target="_blank" rel="noopener" class="ql-card">
-        <div class="ql-dot blue">🟠</div>
-        <div class="ql-info"><div class="ql-name">HubSpot CRM</div><div class="ql-sub">Contacts &amp; pipeline</div></div>
-      </a>
-      <a href="https://analytics.google.com/analytics/web/#/p/G-LQWW7XCPVS" target="_blank" rel="noopener" class="ql-card">
-        <div class="ql-dot blue">📈</div>
-        <div class="ql-info"><div class="ql-name">Google Analytics 4</div><div class="ql-sub">Traffic &amp; behavior</div></div>
-      </a>
-      <a href="https://search.google.com/search-console" target="_blank" rel="noopener" class="ql-card">
-        <div class="ql-dot green">🔍</div>
-        <div class="ql-info"><div class="ql-name">Search Console</div><div class="ql-sub">Rankings &amp; indexing</div></div>
-      </a>
-    </div>
-
-    <!-- ── Weekly Tracker ────────────────────────── -->
-    <div class="section-head">
-      <span class="section-label">Weekly Tracker</span>
-      <div class="section-line"></div>
-    </div>
-
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th style="width:120px">Week</th>
-          <th>Deals</th>
-          <th>Leads</th>
-                    <th>LI Impressions</th>
-        </tr>
-      </thead>
-      <tbody id="log-body"></tbody>
-    </table>
-    <div class="log-actions">
-      <button class="log-btn secondary" onclick="exportCSV()">Export CSV</button>
-      <span style="font-size:11px;color:var(--text-dim);margin-left:8px">Add data via Google Sheet &rarr; dashboard refreshes automatically</span>
-    </div>
-
-    <!-- ── Key Contacts ────────────────────────────── -->
-    <div id="contacts-section" style="display:none">
-      <div class="section-head">
-        <span class="section-label">Key Contacts</span>
-        <div class="section-line"></div>
-      </div>
-      <div class="contacts-grid" id="contacts-list"></div>
-    </div>
-
-    <!-- ── Financial Summary ──────────────────────── -->
-    <div id="financial-section" style="display:none">
-      <div class="section-head">
-        <span class="section-label">Financial Projections</span>
-        <div class="section-line"></div>
-      </div>
-      <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr)">
-        <div class="kpi-card">
-          <div class="kpi-label">Y1 Revenue</div>
-          <div class="kpi-value" id="y1-revenue" style="font-size:36px">--</div>
-          <div class="kpi-delta neutral" id="y1-loans">--</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Y2 Revenue</div>
-          <div class="kpi-value" id="y2-revenue" style="font-size:36px">--</div>
-          <div class="kpi-delta neutral" id="y2-loans">--</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Y3 Revenue</div>
-          <div class="kpi-value" id="y3-revenue" style="font-size:36px">--</div>
-          <div class="kpi-delta neutral" id="y3-val">--</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── Session Log ────────────────────────────── -->
-    <div id="session-section" style="display:none">
-      <div class="section-head">
-        <span class="section-label">Latest Session</span>
-        <div class="section-line"></div>
-      </div>
-      <div class="notes-feed" id="session-log" style="font-size:13px"></div>
-    </div>
-
-    <!-- ── AI Advisor ─────────────────────────────── -->
-    <div class="section-head">
-      <span class="section-label">AI Advisor</span>
-      <div class="section-line"></div>
-      <span class="section-label">Powered by AI</span>
-    </div>
-
-    <div class="ai-panel" id="ai-panel">
-      <div class="ai-header">
-        <div class="ai-badge"><div class="ai-dot"></div> AI Business Advisor</div>
-        <button class="ai-btn" id="ai-btn" onclick="runAI()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          Get AI Analysis
-        </button>
-      </div>
-      <div class="ai-output" id="ai-output"></div>
-    </div>
-
-  </div>
-  </div><!-- /tab-ops -->
-
-  <!-- ═══ TAB: Pipeline ═══ -->
-  <div class="tab-panel" id="tab-pipeline">
-  <div class="dash-body">
-
-    <!-- Rate Watch -->
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:12px 16px">
-      <div style="font-size:12px;color:#888">Today's DSCR market rate:</div>
-      <input type="text" id="cl-market-rate" value="7.25" onchange="saveClients()" style="background:#0D0F12;border:1px solid #333;border-radius:4px;color:#BF9020;padding:4px 8px;width:60px;font-size:14px;font-weight:700;text-align:center">
-      <div style="font-size:12px;color:#888">%</div>
-      <div style="margin-left:auto;font-size:11px;color:#888">Clients below threshold flagged automatically</div>
-    </div>
-
-    <!-- Lifetime Value Summary -->
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px">
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Total Clients</div><div style="font-size:22px;font-weight:700;color:#E8E8E8" id="cl-total-clients">0</div></div>
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Total Closed Revenue</div><div style="font-size:22px;font-weight:700;color:#4ade80" id="cl-total-rev">$0</div></div>
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Avg Per Client</div><div style="font-size:22px;font-weight:700;color:#BF9020" id="cl-avg-rev">$0</div></div>
-    </div>
-
-    <!-- Client Lifecycle -->
-    <div class="section-head"><span class="section-label">Client Lifecycle</span><div class="section-line"></div></div>
-    <div style="font-size:12px;color:#888;margin-bottom:12px">Every investor is a multi-transaction relationship. Track where each one is in the flywheel.</div>
-
-    <button onclick="showAddClient()" style="padding:8px 16px;background:var(--gold);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;margin-bottom:16px">+ Add Client</button>
-
-    <!-- Add Client Form (hidden) -->
-    <div id="cl-form" style="display:none;background:#1A1C24;border:1px solid rgba(191, 144, 32,0.3);border-radius:8px;padding:16px;margin-bottom:16px">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
-        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Client / LLC Name</label><input type="text" id="cl-name" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px"></div>
-        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Property Address</label><input type="text" id="cl-addr" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px"></div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-bottom:8px">
-        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Loan Type</label><select id="cl-ltype" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 4px;font-size:12px"><option>DSCR First</option><option>DSCR Second</option><option>Conventional</option><option>Bridge</option><option>Other</option></select></div>
-        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Rate (%)</label><input type="text" id="cl-rate" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px"></div>
-        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Balance ($)</label><input type="text" id="cl-bal" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px" oninput="this.value=this.value.replace(/[^0-9]/g,'')"></div>
-        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Est. Equity ($)</label><input type="text" id="cl-equity" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px" oninput="this.value=this.value.replace(/[^0-9]/g,'')"></div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px">
-        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Prepay Expires</label><input type="month" id="cl-prepay" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:12px"></div>
-        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Next Opportunity</label><select id="cl-next" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 4px;font-size:12px"><option>DSCR Second</option><option>Rate/Term Refi</option><option>Cash-Out Refi</option><option>DSCR Acquisition</option><option>Watching</option><option>Referred Out</option></select></div>
-        <div><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Lifetime Revenue ($)</label><input type="text" id="cl-ltrev" value="0" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px" oninput="this.value=this.value.replace(/[^0-9]/g,'')"></div>
-      </div>
-      <div style="margin-bottom:8px"><label style="font-size:10px;color:#888;display:block;margin-bottom:3px">Notes</label><input type="text" id="cl-notes" style="width:100%;background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;font-size:13px"></div>
-      <div style="display:flex;gap:8px"><button onclick="addClient()" style="padding:6px 16px;background:var(--gold);color:#fff;border:none;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer">Save Client</button><button onclick="document.getElementById('cl-form').style.display='none'" style="padding:6px 16px;background:#333;color:#888;border:none;border-radius:4px;font-size:12px;cursor:pointer">Cancel</button></div>
-    </div>
-
-    <!-- Client Cards -->
-    <div id="cl-cards"></div>
-
-  </div>
-  </div>
-
-  <!-- ═══ TAB: Marketing ═══ -->
-  <div class="tab-panel" id="tab-marketing">
-  <div class="dash-body">
-
-    <!-- SECTION 1: Campaign Overview -->
-    <div class="section-head"><span class="section-label">BPL Refi Campaign Strategy</span><div class="section-line"></div></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px">
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;text-align:center">
-        <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Total Budget</div>
-        <div style="font-size:24px;font-weight:700;color:#BF9020">$1,189<span style="font-size:13px;color:#888">/mo</span></div>
-      </div>
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;text-align:center">
-        <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Total Leads</div>
-        <div style="font-size:24px;font-weight:700;color:#E8E8E8">9,416</div>
-      </div>
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;text-align:center">
-        <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Target CPL</div>
-        <div style="font-size:24px;font-weight:700;color:#4ade80">$23&ndash;$45</div>
-      </div>
-    </div>
-    <div style="display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap">
-      <div style="flex:1;min-width:140px;background:#1A1C24;border-radius:6px;padding:10px 14px;border-left:3px solid #4ade80">
-        <div style="font-size:10px;color:#4ade80;font-weight:700;text-transform:uppercase;letter-spacing:0.5px">Phase 1 (NOW)</div>
-        <div style="font-size:12px;color:#E8E8E8;margin-top:2px">Infrastructure &#10003;</div>
-      </div>
-      <div style="flex:1;min-width:140px;background:#1A1C24;border-radius:6px;padding:10px 14px;border-left:3px solid #BF9020">
-        <div style="font-size:10px;color:#BF9020;font-weight:700;text-transform:uppercase;letter-spacing:0.5px">Phase 2 (Wk 3)</div>
-        <div style="font-size:12px;color:#E8E8E8;margin-top:2px">First Email Send &#9203;</div>
-      </div>
-      <div style="flex:1;min-width:140px;background:#1A1C24;border-radius:6px;padding:10px 14px;border-left:3px solid #888">
-        <div style="font-size:10px;color:#888;font-weight:700;text-transform:uppercase;letter-spacing:0.5px">Phase 3 (Month 2)</div>
-        <div style="font-size:12px;color:#E8E8E8;margin-top:2px">Scale + Paid &#9203;</div>
-      </div>
-    </div>
-
-    <!-- SECTION 2: 7 Campaigns Table -->
-    <div class="section-head"><span class="section-label">Active Campaigns</span><div class="section-line"></div></div>
-    <div style="overflow-x:auto">
-    <table class="data-table" style="font-size:12px">
-      <thead><tr><th>Campaign</th><th>Status</th><th>Monthly Spend</th><th>Leads Est.</th><th>CPL Target</th><th>CPFL Target</th><th>Start</th><th>Actions</th></tr></thead>
-      <tbody>
-        <tr>
-          <td style="font-weight:600;color:#E8E8E8">Direct Mail (PropStream)</td>
-          <td><span id="camp-1-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#2d6a4f;color:#a7f3d0">READY</span></td>
-          <td>$90</td><td>8&ndash;12</td><td>$7&ndash;12</td><td>$45</td><td>Now</td>
-          <td><select onchange="saveCampStatus(1,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>READY</option><option>ACTIVE</option><option>PENDING</option><option>PAUSED</option></select></td>
-        </tr>
-        <tr>
-          <td style="font-weight:600;color:#E8E8E8">HubSpot Email &mdash; 311 distressed</td>
-          <td><span id="camp-2-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#92400e;color:#fde68a">PENDING</span></td>
-          <td>$70</td><td>10&ndash;20</td><td>$3&ndash;7</td><td>$23</td><td>Wk 3</td>
-          <td><select onchange="saveCampStatus(2,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>PENDING</option><option>READY</option><option>ACTIVE</option><option>PAUSED</option></select></td>
-        </tr>
-        <tr>
-          <td style="font-weight:600;color:#E8E8E8">HubSpot Email &mdash; 421 rate-trapped</td>
-          <td><span id="camp-3-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#92400e;color:#fde68a">PENDING</span></td>
-          <td>$0</td><td>12&ndash;25</td><td>$0</td><td>$0</td><td>Wk 3</td>
-          <td><select onchange="saveCampStatus(3,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>PENDING</option><option>READY</option><option>ACTIVE</option><option>PAUSED</option></select></td>
-        </tr>
-        <tr>
-          <td style="font-weight:600;color:#E8E8E8">Google Ads &mdash; DSCR refi keywords</td>
-          <td><span id="camp-4-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#333;color:#888">NOT STARTED</span></td>
-          <td>$900</td><td>3&ndash;6</td><td>$150&ndash;300</td><td>$1,800&ndash;3,000</td><td>Now</td>
-          <td><select onchange="saveCampStatus(4,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>NOT STARTED</option><option>READY</option><option>ACTIVE</option><option>PAUSED</option></select></td>
-        </tr>
-        <tr>
-          <td style="font-weight:600;color:#E8E8E8">PropStream Smart List Auto-Mailer</td>
-          <td><span id="camp-6-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#1A1C24;color:#666;border:1px solid #333">PLANNED</span></td>
-          <td>$90</td><td>2&ndash;4</td><td>$22&ndash;45</td><td>$225&ndash;450</td><td>Month 2</td>
-          <td><select onchange="saveCampStatus(6,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>PLANNED</option><option>READY</option><option>ACTIVE</option><option>PAUSED</option></select></td>
-        </tr>
-        <tr>
-          <td style="font-weight:600;color:#E8E8E8">Google Customer Match</td>
-          <td><span id="camp-7-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#1A1C24;color:#666;border:1px solid #333">PLANNED</span></td>
-          <td>$150</td><td>1&ndash;3</td><td>$50&ndash;150</td><td>$750&ndash;1,500</td><td>Wk 3</td>
-          <td><select onchange="saveCampStatus(7,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>PLANNED</option><option>READY</option><option>ACTIVE</option><option>PAUSED</option></select></td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
-    <!-- SECTION 3: Lead Pipeline by Cohort -->
-    <div class="section-head" style="margin-top:24px"><span class="section-label">Lead Pipeline by Cohort</span><div class="section-line"></div></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px">
-        <div style="font-size:14px;font-weight:700;color:#E8E8E8;margin-bottom:8px">Rate-Trapped</div>
-        <div style="font-size:12px;color:#888;line-height:1.6">201 leads<br>Median savings $249/mo<br>Status: <span style="color:#4ade80">READY</span><br>Wave 1: 50 sent</div>
-      </div>
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px">
-        <div style="font-size:14px;font-weight:700;color:#E8E8E8;margin-bottom:8px">Balloon Maturing</div>
-        <div style="font-size:12px;color:#888;line-height:1.6">114 leads<br>Median equity $226K<br>Status: <span style="color:#4ade80">READY</span><br>Wave 1: 50 queued</div>
-      </div>
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px">
-        <div style="font-size:14px;font-weight:700;color:#E8E8E8;margin-bottom:8px">Distressed</div>
-        <div style="font-size:12px;color:#888;line-height:1.6">311 leads<br>144 negative cash flow<br>Status: <span style="color:#4ade80">READY</span><br>Wave 1: 50 sent</div>
-      </div>
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px">
-        <div style="font-size:14px;font-weight:700;color:#E8E8E8;margin-bottom:8px">Equity Deployers</div>
-        <div style="font-size:12px;color:#888;line-height:1.6">9,078 leads<br>~3% avg rate<br>Status: <span style="color:#888">PLANNED</span><br>Product TBD</div>
-      </div>
-    </div>
-
-    <!-- PropStream Pull Strategy -->
-    <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;margin-bottom:16px">
-      <div style="font-size:11px;color:#BF9020;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px">PropStream Pull Strategy</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(191, 144, 32,0.1);border-radius:8px;padding:14px">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-            <div style="font-size:14px;font-weight:700;color:#E8E8E8">Rate Urgency List</div>
-            <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#2d6a4f;color:#a7f3d0">ACTIVE</span>
-          </div>
-          <div style="font-size:12px;color:#888;line-height:1.7">
-            Monthly target: <span style="color:#E8E8E8">~1,000&ndash;1,500 leads</span><br>
-            Budget: <span style="color:#4ade80">$0</span> (included in Pro)<br>
-            Counties: Hillsborough + Pinellas + Pasco<br><br>
-            <span style="color:#BF9020;font-weight:600">Key filters:</span><br>
-            &bull; Loan 1 Rate: &ge;6.50%<br>
-            &bull; Loan 1 Date: 2019&ndash;2023<br>
-            &bull; Equity: $75K minimum<br>
-            &bull; Absentee owner<br>
-            &bull; Has email<br><br>
-            <span style="color:#BF9020">Pitch:</span> Rate savings &mdash; $200&ndash;$400/mo
-          </div>
-        </div>
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(191, 144, 32,0.1);border-radius:8px;padding:14px">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-            <div style="font-size:14px;font-weight:700;color:#E8E8E8">Free &amp; Clear Equity List</div>
-            <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#2d6a4f;color:#a7f3d0">ACTIVE</span>
-          </div>
-          <div style="font-size:12px;color:#888;line-height:1.7">
-            Monthly target: <span style="color:#E8E8E8">~2,000&ndash;3,000 leads</span><br>
-            Budget: <span style="color:#4ade80">$0</span> (included in Pro)<br>
-            Counties: Hillsborough + Pinellas + Pasco + Manatee<br><br>
-            <span style="color:#BF9020;font-weight:600">Key filters:</span><br>
-            &bull; Open mortgage balance: $0<br>
-            &bull; OR LTV: 0&ndash;15%<br>
-            &bull; Equity: $150K minimum<br>
-            &bull; Est. value: $250K minimum<br>
-            &bull; Last sale: 2012&ndash;2022<br>
-            &bull; Has email<br><br>
-            <span style="color:#BF9020">Pitch:</span> Cash-out equity deployment
-          </div>
-        </div>
-      </div>
-      <div style="font-size:11px;color:#666;line-height:1.5">50,000 exports/mo available &mdash; current pulls use ~9,500/mo. Remaining capacity reserved for Orange County + Broward expansion (Month 2).</div>
-    </div>
-
-    <!-- Next Steps Checklist -->
-    <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;margin-bottom:16px">
-      <div style="font-size:11px;color:#BF9020;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px">Next Steps</div>
-      <div id="mkt-checklist" style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#E8E8E8"></div>
-    </div>
-
-    <!-- SECTION 4: Year 1 Projections -->
-    <div class="section-head" style="margin-top:24px"><span class="section-label">Year 1 Projections</span><div class="section-line"></div></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:8px">
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;text-align:center">
-        <div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Low</div>
-        <div style="font-size:20px;font-weight:700;color:#E8E8E8;margin-bottom:4px">40 loans</div>
-        <div style="font-size:14px;color:#4ade80;font-weight:600">$77K revenue</div>
-        <div style="font-size:11px;color:#888;margin-top:4px">CPFL: $590</div>
-      </div>
-      <div style="background:#1A1C24;border:2px solid #BF9020;border-radius:8px;padding:16px;text-align:center">
-        <div style="font-size:10px;color:#BF9020;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Mid (Target)</div>
-        <div style="font-size:20px;font-weight:700;color:#E8E8E8;margin-bottom:4px">60 loans</div>
-        <div style="font-size:14px;color:#4ade80;font-weight:600">$140K revenue</div>
-        <div style="font-size:11px;color:#888;margin-top:4px">CPFL: $375</div>
-      </div>
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;text-align:center">
-        <div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">High</div>
-        <div style="font-size:20px;font-weight:700;color:#E8E8E8;margin-bottom:4px">80 loans</div>
-        <div style="font-size:14px;color:#4ade80;font-weight:600">$206K revenue</div>
-        <div style="font-size:11px;color:#888;margin-top:4px">CPFL: $160</div>
-      </div>
-    </div>
-    <div style="font-size:11px;color:#888;line-height:1.6;margin-bottom:16px">Based on $3,500 avg origination at 100bps broker (FHM). UMortgage at 275bps would 2.5x these numbers on DSCR volume.</div>
-    <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:12px;color:#888">Loans closed: <span id="proj-loans" style="color:#E8E8E8;font-weight:600">0</span> / 60</span><span style="font-size:11px;color:#BF9020">0%</span></div>
-      <div style="height:6px;background:#333;border-radius:3px;overflow:hidden"><div id="proj-bar" style="height:100%;background:#BF9020;border-radius:3px;width:0%;transition:width 0.4s"></div></div>
-    </div>
-
-  </div>
-  </div>
-
-  <!-- ═══ TAB: Notes ═══ -->
-  <div class="tab-panel" id="tab-notes">
-  <div class="dash-body">
-
-    <!-- TODAY'S WINS -->
-    <details open style="background:rgba(191, 144, 32,0.08);border:2px solid rgba(191, 144, 32,0.3);border-radius:8px;padding:0;margin-bottom:20px">
-      <summary style="padding:14px 16px;cursor:pointer;font-size:14px;font-weight:700;color:#BF9020;list-style:none;display:flex;align-items:center;gap:8px">&#127942; TODAY'S WINS &mdash; March 31, 2026</summary>
-      <div style="padding:0 16px 16px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
-        <div>
-          <div style="font-size:11px;color:#BF9020;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">SEO &amp; Content</div>
-          <div style="font-size:12px;color:#E8E8E8;line-height:1.8">
-            &#10003; Bing Webmaster &mdash; all 3 domains verified<br>
-            <span style="color:#888;margin-left:16px">viascore.ai: 131 URLs | viadorpartners.com: 92 URLs | viadormarkets.com: 14 URLs</span><br>
-            &#10003; ChatGPT citation window opens April 7-14<br>
-            &#10003; viascore.ai &mdash; 148+ pages live incl. /answers/ hub<br>
-            &#10003; 10 content pages live on viadorpartners.com<br>
-            <span style="color:#888;margin-left:16px">tampa-dscr, florida-dscr, ohio-dscr, rates-2026, dscr-vs-conventional, requirements, no-income, tampa-market, fix-flip-fl, how-to-calc-dscr</span><br>
-            &#10003; RSS feed live on viascore.ai<br>
-            &#10003; Reddit u/ViaScore created &mdash; aging (2 weeks)<br>
-            &#10003; ATTOM API + HouseCanary identified as AVM upgrades
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11px;color:#BF9020;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Revenue &amp; Leads</div>
-          <div style="font-size:12px;color:#E8E8E8;line-height:1.8">
-            &#10003; 703 rate urgency leads scored<br>
-            <span style="color:#888;margin-left:16px">Hillsborough 324 + Pinellas 379</span><br>
-            &#10003; Wave 2 Top 50 exported<br>
-            <span style="color:#888;margin-left:16px">Avg savings: $1,056/mo | Avg equity: $607K</span><br>
-            &#10003; Term to Own page live (/refi)<br>
-            &#10003; Investor Refi page live (/investor-refi)<br>
-            &#10003; DSCR Second Mortgage product identified<br>
-            <span style="color:#888;margin-left:16px">Deephaven Equity Advantage &mdash; ~9.25% | 2.00% + $695</span><br>
-            <span style="color:#888;margin-left:16px">Unlocks 9,078 equity deployer leads</span><br>
-            &#10003; BPL state eligibility &mdash; FL LLC leads eligible NOW<br>
-            &#10003; Platform decision matrix complete<br>
-            &#10003; Deephaven full product stack mapped
-          </div>
-        </div>
-      </div>
+    <!-- Row 7: Pipeline (collapsed) -->
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Pipeline</span><div class="section-line"></div></div>
+    <details class="pipeline-collapse" id="pipeline-preview">
+      <summary style="cursor:pointer;font-size:14px;color:var(--text-dim);padding:14px 0">Pipeline not active yet &mdash; first send April 30. Click to expand current state.</summary>
+      <div id="pipeline-mini" style="padding:8px 0"><div class="lp-placeholder">Loading&hellip;</div></div>
     </details>
 
-    <!-- Rate Watch Box -->
-    <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.3);border-radius:8px;padding:14px 16px;margin-bottom:20px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;align-items:center">
-      <div><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px">DSCR Market Rate</div><input type="text" id="rw-dscr" value="6.25" onchange="saveRateWatch()" style="background:#0D0F12;border:1px solid #333;border-radius:4px;color:#BF9020;padding:4px 6px;width:60px;font-size:14px;font-weight:700;text-align:center"><span style="color:#888;font-size:12px"> %</span></div>
-      <div><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px">DSCR Second Rate</div><input type="text" id="rw-second" value="9.25" onchange="saveRateWatch()" style="background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:4px 6px;width:60px;font-size:14px;font-weight:700;text-align:center"><span style="color:#888;font-size:12px"> %</span></div>
-      <div><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px">Refi Trigger</div><div style="font-size:12px;color:#4ade80">Market &le; 6.0%</div></div>
-      <div><div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px">Next Rate Check</div><input type="date" id="rw-next" onchange="saveRateWatch()" style="background:#0D0F12;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:4px 6px;font-size:11px"></div>
+  </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       TAB: NDV Campaign
+       ═══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-ndv">
+  <div class="dash-body">
+    <div class="section-head"><span class="section-label">NDV Campaign &mdash; Primary Active</span><div class="section-line"></div></div>
+
+    <div class="live-grid">
+      <!-- Meta Ads Panel -->
+      <div class="live-panel"><div class="lp-head"><span class="lp-title">Meta Ads</span><span class="lp-src">act_1970547536908108</span></div><div class="lp-body" id="ndv-meta"><div class="lp-placeholder">Loading&hellip;</div></div></div>
+      <!-- Smartlead NDV Inboxes -->
+      <div class="live-panel"><div class="lp-head"><span class="lp-title">NDV Email Outreach</span><span class="lp-src">Smartlead</span></div><div class="lp-body" id="ndv-smartlead"><div class="lp-placeholder">Loading&hellip;</div></div></div>
     </div>
 
-    <!-- SECTION 1: Platform Decision -->
-    <div class="section-head"><span class="section-label">Origination Platform Decision</span><div class="section-line"></div></div>
-    <div style="display:inline-block;padding:3px 10px;border-radius:10px;font-size:10px;font-weight:700;background:#92400e;color:#fde68a;margin-bottom:12px">PENDING &mdash; Decision needed before first loan closes</div>
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Wave Deployment</span><div class="section-line"></div></div>
     <div style="overflow-x:auto">
-    <table class="data-table" style="font-size:11px">
-      <thead><tr><th>Option</th><th>Charter</th><th>DSCR</th><th>Brand</th><th>OBA</th><th>Status</th></tr></thead>
+    <table class="data-table" style="font-size:13px">
+      <thead><tr><th>Wave</th><th>State</th><th>Leads</th><th>Send Date</th><th>Product Mix</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td style="color:#E8E8E8;font-weight:600">UMortgage Go Broker</td><td>Non-bank</td><td style="color:#4ade80">&#10003;</td><td style="color:#4ade80">&#10003; Viador</td><td style="color:#4ade80">&#10003;</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#2d6a4f;color:#a7f3d0">APPLY &mdash; 275bps-$995</span></td></tr>
-        <tr><td style="color:#E8E8E8;font-weight:600">FHM (Jason McBride)</td><td>Non-bank</td><td style="color:#4ade80">&#10003;</td><td style="color:#4ade80">&#10003; Viador</td><td style="color:#4ade80">&#10003;</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#92400e;color:#fde68a">SIGNED &mdash; pending amendment</span></td></tr>
-        <tr><td style="color:#E8E8E8;font-weight:600">Luminate Bank</td><td style="color:#4ade80">FDIC bank</td><td style="color:#4ade80">&#10003;</td><td style="color:#888">Ask Ed</td><td style="color:#888">Unknown</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:rgba(191, 144, 32,0.3);color:#BF9020">CALL Ed Stratton</span></td></tr>
-        <tr><td style="color:#E8E8E8;font-weight:600">LoanFlight (Paul Blaylock)</td><td>Non-bank</td><td style="color:#4ade80">&#10003;</td><td style="color:#4ade80">Likely &#10003;</td><td style="color:#4ade80">Likely &#10003;</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#166534;color:#4ade80">PRIORITY CALL</span></td></tr>
-        <tr><td style="color:#E8E8E8;font-weight:600">Cogent Bank (Brandon Roth)</td><td style="color:#4ade80">FDIC bank</td><td style="color:#fc6060">&#10007;</td><td style="color:#888">By-book</td><td style="color:#888">Unclear</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#333;color:#888">No DSCR &mdash; relationship</span></td></tr>
-        <tr><td style="color:#E8E8E8;font-weight:600">Presidential (Keith Brewer)</td><td style="color:#4ade80">FDIC bank</td><td style="color:#888">Unknown</td><td style="color:#888">Unknown</td><td style="color:#888">OBA likely OK</td><td><span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#333;color:#888">Worth asking</span></td></tr>
+        <tr><td style="font-weight:600;color:var(--gold)">Wave 1</td><td>Maryland</td><td>489</td><td>April 30</td><td>IRRRL + Cash-out</td><td><span class="lp-badge lp-warn">Ready</span></td></tr>
+        <tr><td style="font-weight:600;color:var(--gold)">Wave 2</td><td>Ohio</td><td>776</td><td>May 7</td><td>IRRRL + Cash-out</td><td><span class="lp-badge lp-dim">Queued</span></td></tr>
+        <tr><td style="font-weight:600;color:var(--gold)">Wave 3</td><td>Florida</td><td>4,885</td><td>TBD</td><td>IRRRL + Cash-out + DSCR</td><td><span class="lp-badge lp-info">Waiting on license</span></td></tr>
       </tbody>
     </table>
     </div>
-    <div style="background:rgba(191, 144, 32,0.08);border:1px solid rgba(191, 144, 32,0.2);border-radius:8px;padding:14px;margin:12px 0 24px;font-size:12px;color:#E8E8E8;line-height:1.6">
-      <strong style="color:#BF9020">FDIC bank = federal NMLS registration only</strong>, no individual state licenses. Key for team scaling. LoanFlight + UMortgage = state-by-state but full brand independence.
-    </div>
-
-    <!-- SECTION 2: Key Contacts -->
-    <div class="section-head"><span class="section-label">Key Contacts</span><div class="section-line"></div></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px">
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#BF9020">Paul Blaylock</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#166534;color:#4ade80">PRIORITY CALL</span></div>
-        <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">LoanFlight Lending (owner) &middot; NMLS #1522344</div>
-        <div style="font-size:11px;color:#888;line-height:1.6">Tampa, FL &mdash; same city. Prior working relationship. Privately held, tech-forward, DSCR confirmed. Likely flexible on Viador brand + OBA. SE + Midwest + Mid-Atlantic + CA licensed.</div>
-      </div>
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#BF9020">Ed Stratton</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:rgba(191, 144, 32,0.3);color:#BF9020">CALL THIS WEEK</span></div>
-        <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">Luminate Bank &middot; Cape Coral, FL</div>
-        <div style="font-size:11px;color:#888;line-height:1.6">Good prior relationship. Stud producer. Under Shawn Fewell. Luminate FDIC = 50-state, federal reg only. Need to confirm: comp model, Viador brand, OBA policy on viascore.ai.</div>
-      </div>
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#BF9020">Jason McBride</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#92400e;color:#fde68a">AGREEMENT PENDING</span></div>
-        <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">Focus Home Mortgage (CEO) &middot; 614-362-8801 ext 2</div>
-        <div style="font-size:11px;color:#888;line-height:1.6">Call completed Mar 30. MLO agreement in hand: 100bps broker / 150bps non-del. FHM not yet FL licensed. Non-solicitation clause needs amendment to exclude PropStream pipeline.</div>
-      </div>
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#BF9020">Keith Brewer</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#1e3a5f;color:#60a5fa">WARM &mdash; EXPLORE</span></div>
-        <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">Presidential Bank</div>
-        <div style="font-size:11px;color:#888;line-height:1.6">Close former colleague. Runs branch AND independent insurance company &mdash; signals bank flexible on OBA. Unknown if Presidential does net branch. Worth one conversation.</div>
-      </div>
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#888">Brandon Roth</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#333;color:#888">RELATIONSHIP ONLY</span></div>
-        <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">Cogent Bank (Tampa)</div>
-        <div style="font-size:11px;color:#888;line-height:1.6">Recruited Chad to BayFirst 2018. Strong relationship. Conservative FDIC bank &mdash; no DSCR or non-QM visible. Valuable for conventional referrals and future product expansion.</div>
-      </div>
-      <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:14px;font-weight:700;color:#888">Shawn Fewell</div><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:#8b1a1a;color:#fca5a5">AVOID DIRECT</span></div>
-        <div style="font-size:12px;color:#E8E8E8;margin-bottom:2px">Luminate Bank (recruiter)</div>
-        <div style="font-size:11px;color:#888;line-height:1.6">Ed Stratton and Chris Fewell both work under him. Do NOT approach directly &mdash; he clips an override on recruited production. Go through Ed or Luminate corporate.</div>
-      </div>
-    </div>
-
-    <!-- SECTION 3: Next Steps -->
-    <div class="section-head"><span class="section-label">Next Steps</span><div class="section-line"></div></div>
-    <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px;margin-bottom:24px">
-      <div id="notes-checklist" style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#E8E8E8"></div>
-    </div>
-
-    <!-- SECTION 4: Master Brief Status -->
-    <div style="background:rgba(191, 144, 32,0.08);border:2px solid rgba(191, 144, 32,0.3);border-radius:8px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <div><span style="font-size:16px">&#9888;&#65039;</span> <strong style="color:#BF9020">Master Brief v3.0 needs update</strong><span style="font-size:12px;color:#888;display:block;margin-top:2px">Platform decision, lender contacts, and PropStream pull strategy added March 31.</span></div>
-      <a href="BRIEF.md" style="padding:8px 16px;background:var(--gold);color:#fff;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap">View Brief &rarr;</a>
-    </div>
-
-    <!-- Quick Note (kept from original) -->
-    <div style="margin-top:24px">
-      <div class="notes-box">
-        <div class="notes-label">Quick Note (saved locally)</div>
-        <textarea id="notes" placeholder="What are you focused on this week? Key deals, outreach targets, content ideas..."></textarea>
-        <div class="notes-saved" id="notes-saved">Saved</div>
-      </div>
-    </div>
-
   </div>
   </div>
 
-  <!-- ═══ TAB: P&L & Projections ═══ -->
+  <!-- ═══════════════════════════════════════════════
+       TAB: Pipeline
+       ═══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-pipeline">
+  <div class="dash-body">
+    <div class="section-head"><span class="section-label">Pipeline &mdash; HubSpot</span><div class="section-line"></div></div>
+
+    <!-- First Lead: Marc Vargas -->
+    <div class="live-panel" style="margin-bottom:24px">
+      <div class="lp-head"><span class="lp-title">First Lead &mdash; Marc Vargas</span><span class="lp-src">HubSpot #470233732822</span></div>
+      <div class="lp-body">
+        <div class="lp-row"><span>Email</span><span><a href="mailto:mgvinvestments@gmail.com" style="color:var(--gold)">mgvinvestments@gmail.com</a></span></div>
+        <div class="lp-row"><span>Phone</span><span><a href="tel:+19152528219" style="color:var(--gold)">(915) 252-8219</a></span></div>
+        <div class="lp-row"><span>Property</span><span>2607 Live Oak St, Houston TX 77004</span></div>
+        <div class="lp-row"><span>Type</span><span>6-unit multifamily</span></div>
+        <div class="lp-row"><span>Deal</span><span>$840K&ndash;$900K DSCR refi</span></div>
+        <div class="lp-row"><span>DSCR</span><span style="color:var(--green);font-weight:600">1.49x</span></div>
+        <div class="lp-row"><span>Status</span><span class="lp-badge lp-warn">Pending lease confirmation + TX BPL path</span></div>
+      </div>
+    </div>
+
+    <!-- HubSpot Detail -->
+    <div class="live-panel">
+      <div class="lp-head"><span class="lp-title">All Contacts</span><span class="lp-src">HubSpot</span></div>
+      <div class="lp-body" id="pipeline-hubspot"><div class="lp-placeholder">Loading&hellip;</div></div>
+    </div>
+
+    <!-- Sheets Pipeline Table -->
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Pipeline Tracker</span><div class="section-line"></div></div>
+    <div style="overflow-x:auto"><table class="data-table" id="pipeline-table"><thead><tr><th>Lead</th><th>Source</th><th>Loan Type</th><th>Amount</th><th>Stage</th><th>Next Action</th><th>Expected Close</th></tr></thead><tbody id="pipeline-body"></tbody></table></div>
+
+    <!-- Client Lifecycle (existing) -->
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Client Lifecycle</span><div class="section-line"></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px">
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">Total Clients</div><div style="font-size:22px;font-weight:700;color:var(--text)" id="cl-total-clients">0</div></div>
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">Total Revenue</div><div style="font-size:22px;font-weight:700;color:var(--green)" id="cl-total-rev">$0</div></div>
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">Avg Per Client</div><div style="font-size:22px;font-weight:700;color:var(--gold)" id="cl-avg-rev">$0</div></div>
+    </div>
+    <button onclick="showAddClient()" style="padding:8px 16px;background:var(--gold);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;margin-bottom:16px">+ Add Client</button>
+    <div id="cl-form" style="display:none"></div>
+    <div id="cl-cards"></div>
+  </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       TAB: Organic Engine
+       ═══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-organic">
+  <div class="dash-body">
+    <div class="section-head"><span class="section-label">Organic Engine &mdash; NDV | Viador Partners</span><div class="section-line"></div></div>
+    <div id="organic-detail">
+      <div class="lp-placeholder" style="text-align:center;padding:48px 0">Not connected &mdash; configure GA4 and GSC service accounts to see organic performance.<br><br>Tab scaffolding ready. Data will populate when GA4_SERVICE_ACCOUNT_JSON and GSC_SERVICE_ACCOUNT_JSON are set in Worker env.</div>
+    </div>
+
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Search Console</span><div class="section-line"></div></div>
+    <div id="organic-gsc"><div class="lp-placeholder">Not connected &mdash; configure GSC service account</div></div>
+
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Traffic &mdash; GA4</span><div class="section-line"></div></div>
+    <div id="organic-ga4"><div class="lp-placeholder">Not connected &mdash; configure GA4 service account</div></div>
+
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Revenue Chart</span><div class="section-line"></div></div>
+    <div style="background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:20px"><canvas id="revenueChart" height="220"></canvas></div>
+  </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       TAB: P&L & Runway
+       ═══════════════════════════════════════════════ -->
   <div class="tab-panel" id="tab-pl">
   <div class="dash-body">
 
-    <!-- SECTION 1: Viador Proforma -->
     <div class="section-head"><span class="section-label">Viador Partners &mdash; Year 1 Proforma</span><div class="section-line"></div></div>
-    <div style="font-size:12px;color:#888;margin-bottom:16px">Solo operator model. No office. No employees. Tech replaces overhead.</div>
-
+    <div style="font-size:12px;color:var(--text-dim);margin-bottom:16px">Solo operator model. No office. No employees. Tech replaces overhead.</div>
     <div style="overflow-x:auto">
     <table class="data-table" style="font-size:12px" id="pf-table">
-      <thead><tr><th></th><th style="color:#888">Conservative</th><th style="color:#BF9020">Target</th><th style="color:#4ade80">Optimistic</th></tr></thead>
+      <thead><tr><th></th><th style="color:var(--text-dim)">Conservative</th><th style="color:var(--gold)">Target</th><th style="color:var(--green)">Optimistic</th></tr></thead>
       <tbody>
-        <tr><td style="color:#888">Loans closed/yr</td><td><input type="number" class="pf-in" id="pf-loans-1" value="20" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-loans-2" value="40" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-loans-3" value="60" onchange="calcPF()"></td></tr>
-        <tr><td style="color:#888">Avg loan size</td><td><input type="number" class="pf-in" id="pf-size-1" value="350000" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-size-2" value="350000" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-size-3" value="400000" onchange="calcPF()"></td></tr>
-        <tr><td style="color:#888">Total volume</td><td id="pf-vol-1"></td><td id="pf-vol-2"></td><td id="pf-vol-3"></td></tr>
-        <tr><td style="color:#888">Comp rate (bps)</td><td><input type="number" class="pf-in" id="pf-bps-1" value="250" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-bps-2" value="275" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-bps-3" value="275" onchange="calcPF()"></td></tr>
-        <tr><td style="color:#888">Flat fee/file</td><td><input type="number" class="pf-in" id="pf-fee-1" value="995" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-fee-2" value="995" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-fee-3" value="995" onchange="calcPF()"></td></tr>
-        <tr style="border-top:2px solid #333"><td style="color:#BF9020;font-weight:700">Gross Revenue</td><td style="font-weight:700" id="pf-rev-1"></td><td style="font-weight:700;color:#BF9020" id="pf-rev-2"></td><td style="font-weight:700;color:#4ade80" id="pf-rev-3"></td></tr>
-        <tr><td style="color:#888">Annual Expenses</td><td colspan="3" style="color:#fc6060" id="pf-exp"></td></tr>
-        <tr style="border-top:2px solid #333"><td style="color:#4ade80;font-weight:700">Net Pre-Tax Income</td><td style="font-weight:700" id="pf-net-1"></td><td style="font-weight:700;color:#BF9020" id="pf-net-2"></td><td style="font-weight:700;color:#4ade80" id="pf-net-3"></td></tr>
-        <tr><td style="color:#888">Break-even loans</td><td id="pf-be-1"></td><td id="pf-be-2"></td><td id="pf-be-3"></td></tr>
+        <tr><td style="color:var(--text-dim)">Loans closed/yr</td><td><input type="number" class="pf-in" id="pf-loans-1" value="20" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-loans-2" value="40" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-loans-3" value="60" onchange="calcPF()"></td></tr>
+        <tr><td style="color:var(--text-dim)">Avg loan size</td><td><input type="number" class="pf-in" id="pf-size-1" value="350000" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-size-2" value="350000" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-size-3" value="400000" onchange="calcPF()"></td></tr>
+        <tr><td style="color:var(--text-dim)">Total volume</td><td id="pf-vol-1"></td><td id="pf-vol-2"></td><td id="pf-vol-3"></td></tr>
+        <tr><td style="color:var(--text-dim)">Comp rate (bps)</td><td><input type="number" class="pf-in" id="pf-bps-1" value="250" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-bps-2" value="275" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-bps-3" value="275" onchange="calcPF()"></td></tr>
+        <tr><td style="color:var(--text-dim)">Flat fee/file</td><td><input type="number" class="pf-in" id="pf-fee-1" value="995" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-fee-2" value="995" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-fee-3" value="995" onchange="calcPF()"></td></tr>
+        <tr style="border-top:2px solid var(--line)"><td style="color:var(--gold);font-weight:700">Gross Revenue</td><td style="font-weight:700" id="pf-rev-1"></td><td style="font-weight:700;color:var(--gold)" id="pf-rev-2"></td><td style="font-weight:700;color:var(--green)" id="pf-rev-3"></td></tr>
+        <tr><td style="color:var(--text-dim)">Annual Expenses</td><td colspan="3" style="color:var(--red)" id="pf-exp"></td></tr>
+        <tr style="border-top:2px solid var(--line)"><td style="color:var(--green);font-weight:700">Net Pre-Tax</td><td style="font-weight:700" id="pf-net-1"></td><td style="font-weight:700;color:var(--gold)" id="pf-net-2"></td><td style="font-weight:700;color:var(--green)" id="pf-net-3"></td></tr>
+        <tr><td style="color:var(--text-dim)">Break-even loans</td><td id="pf-be-1"></td><td id="pf-be-2"></td><td id="pf-be-3"></td></tr>
       </tbody>
     </table>
     </div>
-    <style>.pf-in{background:#1A1C24;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:4px 6px;width:80px;font-size:12px;text-align:right;font-family:inherit}</style>
+    <style>.pf-in{background:var(--bg);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:var(--text);padding:4px 6px;width:80px;font-size:12px;text-align:right;font-family:inherit}</style>
 
-    <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px;margin:16px 0">
-      <div style="font-size:11px;color:#BF9020;font-weight:700;margin-bottom:8px">Annual Expenses Breakdown</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px 16px;font-size:11px;color:#888">
-        <div>PropStream Pro</div><div style="text-align:right">$199/mo</div><div style="text-align:right;color:#E8E8E8">$2,388</div>
-        <div>Google Ads</div><div style="text-align:right">$900/mo</div><div style="text-align:right;color:#E8E8E8">$10,800</div>
-        <div>Email marketing</div><div style="text-align:right">$70/mo</div><div style="text-align:right;color:#E8E8E8">$840</div>
-        <div>Direct mail</div><div style="text-align:right">$90/mo</div><div style="text-align:right;color:#E8E8E8">$1,080</div>
-        <div>HubSpot</div><div style="text-align:right">$50/mo</div><div style="text-align:right;color:#E8E8E8">$600</div>
-        <div>Hosting/Cloudflare</div><div style="text-align:right">$20/mo</div><div style="text-align:right;color:#E8E8E8">$240</div>
-        <div>AI tools</div><div style="text-align:right">$74/mo</div><div style="text-align:right;color:#E8E8E8">$888</div>
-        <div>NMLS licensing</div><div style="text-align:right">&mdash;</div><div style="text-align:right;color:#E8E8E8">$500</div>
-        <div>E&amp;O Insurance</div><div style="text-align:right">$100/mo</div><div style="text-align:right;color:#E8E8E8">$1,200</div>
-        <div>Misc/software</div><div style="text-align:right">$100/mo</div><div style="text-align:right;color:#E8E8E8">$1,200</div>
-        <div style="grid-column:1/-1;border-top:1px solid #333;padding-top:4px;margin-top:4px;display:flex;justify-content:space-between"><span style="color:#BF9020;font-weight:700">Total</span><span style="color:#fc6060;font-weight:700">$19,736/yr</span></div>
-      </div>
+    <div style="background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:14px;margin:16px 0">
+      <div style="font-size:11px;color:var(--gold);font-weight:700;margin-bottom:8px">Break-Even Reality</div>
+      <div style="font-size:13px;color:var(--text);line-height:1.6">1 IRRRL/mo at ~$350K covers $813/mo overhead. Every close beyond break-even is pure comp.</div>
     </div>
 
-    <!-- SECTION 2: BayFirst Reference -->
-    <div class="section-head" style="margin-top:24px"><span class="section-label">Reference: BayFirst 2018 Model</span><div class="section-line"></div></div>
-    <div style="font-size:12px;color:#888;margin-bottom:12px">Same SVP role. 65 LOs, 2 offices, full ops team. Shows why lean wins.</div>
-    <div style="overflow-x:auto">
-    <table class="data-table" style="font-size:12px">
-      <thead><tr><th>Line Item</th><th>BayFirst 2018</th><th>Viador 2026</th></tr></thead>
-      <tbody>
-        <tr><td style="color:#888">Annual Volume</td><td>$247M</td><td id="bf-vol" style="color:#BF9020"></td></tr>
-        <tr><td style="color:#888">Total Revenue</td><td>$8.88M (371 bps)</td><td id="bf-rev" style="color:#BF9020"></td></tr>
-        <tr><td style="color:#888">Salaries</td><td style="color:#fc6060">$4.49M (188 bps)</td><td style="color:#4ade80">$0</td></tr>
-        <tr><td style="color:#888">Marketing/leads</td><td style="color:#fc6060">$2.16M (90 bps)</td><td style="color:#4ade80">~$20K (6 bps)</td></tr>
-        <tr><td style="color:#888">Occupancy</td><td style="color:#fc6060">$289K (12 bps)</td><td style="color:#4ade80">$0</td></tr>
-        <tr><td style="color:#888">Total Expenses</td><td style="color:#fc6060">$7.53M (315 bps)</td><td id="bf-exp"></td></tr>
-        <tr><td style="color:#888">Net Income</td><td>$674K (28 bps)</td><td id="bf-net" style="color:#4ade80"></td></tr>
-        <tr><td style="color:#888">Your take</td><td style="color:#888">$674K (28 bps)</td><td style="color:#4ade80;font-weight:700">100% yours</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <div style="background:rgba(191, 144, 32,0.08);border:1px solid rgba(191, 144, 32,0.2);border-radius:8px;padding:14px;margin:12px 0;font-size:12px;color:#E8E8E8;line-height:1.6">
-      <strong style="color:#BF9020">The BayFirst model netted 28 bps</strong> after $4.5M in salaries and $2.1M in marketing. Viador's tech stack replaces the marketing spend entirely. At 40 loans you keep <strong style="color:#4ade80">~250+ bps</strong> vs 28 bps.
-    </div>
-
-    <!-- SECTION 3: Monthly Tracker -->
     <div class="section-head" style="margin-top:24px"><span class="section-label">Monthly Tracker &mdash; Year 1</span><div class="section-line"></div></div>
-    <div style="overflow-x:auto">
-    <table class="data-table" style="font-size:11px" id="mt-table">
-      <thead><tr><th>Month</th><th>Loans</th><th>Volume</th><th>Revenue</th><th>Expenses</th><th>Net</th><th>Cumulative</th></tr></thead>
-      <tbody id="mt-body"></tbody>
-      <tfoot><tr style="font-weight:700;border-top:2px solid #BF9020"><td>Total</td><td id="mt-t-loans"></td><td id="mt-t-vol"></td><td id="mt-t-rev"></td><td id="mt-t-exp"></td><td id="mt-t-net"></td><td></td></tr></tfoot>
-    </table>
+    <div style="overflow-x:auto"><table class="data-table" style="font-size:11px" id="mt-table"><thead><tr><th>Month</th><th>Loans</th><th>Volume</th><th>Revenue</th><th>Expenses</th><th>Net</th><th>Cumulative</th></tr></thead><tbody id="mt-body"></tbody><tfoot><tr style="font-weight:700;border-top:2px solid var(--gold)"><td>Total</td><td id="mt-t-loans"></td><td id="mt-t-vol"></td><td id="mt-t-rev"></td><td id="mt-t-exp"></td><td id="mt-t-net"></td><td></td></tr></tfoot></table></div>
+
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Personal Budget</span><div class="section-line"></div></div>
+    <div style="background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:16px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+        <span style="font-size:13px;color:var(--text-dim)">Monthly personal expenses:</span>
+        <span style="color:var(--text-dim)">$</span><input type="number" id="pb-burn" value="8000" onchange="calcPF();savePL()" style="background:var(--bg);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:var(--text);padding:6px 8px;width:80px;font-size:14px;text-align:right"><span style="color:var(--text-dim)">/mo</span>
+      </div>
+      <div style="font-size:13px;color:var(--text);line-height:1.7" id="pb-msg"></div>
+    </div>
+  </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       TAB: Strategy & Notes
+       ═══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-strategy">
+  <div class="dash-body">
+
+    <!-- Licensing Detail -->
+    <div class="section-head"><span class="section-label">Licensing Status</span><div class="section-line"></div></div>
+    <div class="live-panel" style="margin-bottom:24px">
+      <div class="lp-body">
+        <div class="lp-row"><span>Ohio</span><span class="lp-badge lp-warn">MU4 submitted &mdash; pending Jason sponsorship</span></div>
+        <div class="lp-row"><span>Maryland</span><span class="lp-badge lp-warn">MU4 submitted &mdash; pending Jason sponsorship</span></div>
+        <div class="lp-row"><span>Florida</span><span class="lp-badge lp-info">MU4 filed &mdash; waiting on FHM FL company license</span></div>
+        <div class="lp-row"><span>Tennessee</span><span class="lp-badge lp-dim">Queued</span></div>
+        <div class="lp-divider"></div>
+        <div class="lp-row"><span>First close target</span><span style="color:var(--gold);font-weight:600">May 20&ndash;30, 2026</span></div>
+        <div class="lp-row"><span>Focus agreement</span><span style="color:var(--text-dim)">In negotiation</span></div>
+        <div class="lp-row"><span>Sponsor</span><span>Jason McBride &mdash; Focus Home Mortgage Inc (NMLS #2769672)</span></div>
+      </div>
     </div>
 
-    <!-- SECTION 4: Personal Budget -->
-    <div class="section-head" style="margin-top:24px"><span class="section-label">Personal Budget Integration</span><div class="section-line"></div></div>
-    <div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:16px">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-        <div style="font-size:13px;color:#888">Monthly personal expenses:</div>
-        <div style="display:flex;align-items:center;gap:4px"><span style="color:#888">$</span><input type="number" id="pb-burn" value="8000" onchange="calcPF();savePL()" style="background:#1A1C24;border:1px solid #333;border-radius:4px;color:#E8E8E8;padding:6px 8px;width:80px;font-size:14px;text-align:right"><span style="color:#888">/mo</span></div>
+    <!-- Key Relationships -->
+    <div class="section-head"><span class="section-label">Key Relationships</span><div class="section-line"></div></div>
+    <div id="contacts-section" style="display:none"><div id="contacts-list" class="contacts-grid"></div></div>
+
+    <!-- viascore.ai Roadmap Stub -->
+    <div class="section-head" style="margin-top:24px"><span class="section-label">viascore.ai &mdash; Stealth Roadmap</span><div class="section-line"></div></div>
+    <div style="font-size:13px;color:var(--text-dim);padding:12px 0">Scoring model rebuild queued as background work. No timeline pressure. Currently parked/stealth.</div>
+
+    <!-- Notes Feed -->
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Session Notes</span><div class="section-line"></div></div>
+    <div id="notes-feed" class="notes-list"></div>
+    <textarea id="quick-note" placeholder="Quick note&hellip;" style="width:100%;margin-top:12px;background:var(--bg2);border:1px solid var(--line);border-radius:6px;color:var(--text);font-size:13px;padding:12px;height:80px;resize:vertical;font-family:var(--font)"></textarea>
+
+    <!-- Future: BPL Segmentation (collapsed) -->
+    <details style="margin-top:32px;border:1px solid var(--line);border-radius:8px;padding:2px 16px">
+      <summary style="cursor:pointer;font-size:13px;color:var(--text-dim);padding:14px 0">Future: Viador Partners BPL Segmentation (reference only)</summary>
+      <div style="font-size:12px;color:var(--text-dim);line-height:1.7;padding-bottom:16px">
+        <p>Hillsborough County: 9,416 investor leads (PropStream). DSCR second mortgage product notes. Segmentation: rate-trapped, balloon maturing, distressed, equity deployers.</p>
+        <p style="margin-top:8px">This is not active work &mdash; BPL segmentation activates when NDV campaign proves the email-to-close pipeline and FL license is in hand.</p>
       </div>
-      <div style="font-size:13px;color:#E8E8E8;line-height:1.7" id="pb-msg"></div>
+    </details>
+
+    <!-- AI Advisor (existing) -->
+    <div class="section-head" style="margin-top:24px"><span class="section-label">AI Advisor</span><div class="section-line"></div></div>
+    <div style="background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:16px">
+      <button id="ai-btn" onclick="runAI()" style="width:100%;padding:14px;background:var(--gold);color:#fff;border:none;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;margin-bottom:12px">Ask AI: What should I focus on today?</button>
+      <div id="ai-panel" style="display:none"><div id="ai-output" style="color:var(--text);font-size:14px;line-height:1.7"></div><div id="ai-ts" style="font-size:11px;color:var(--text-dim);margin-top:12px"></div></div>
     </div>
 
   </div>
-  </div><!-- /tab-pl -->
+  </div>
 
-  <!-- ── Setup Guide ──────────────────────────────── -->
-  <div style="max-width:1280px;margin:0 auto;padding:0 32px 32px">
-    <details class="setup-guide">
+
+  <details class="setup-guide">
       <summary>How to connect your Google Sheet</summary>
       <div class="setup-guide-body">
         <ol>
@@ -1990,7 +1552,136 @@
       });
   }
 
-  // Defer showDash to end of IIFE so all window.* functions are defined first
+
+  /* ── Phase 0 Homepage Logic ────────────────── */
+  function initCountdowns() {
+    var now = new Date(); now.setHours(0,0,0,0);
+    var launch = new Date('2026-04-30T00:00:00'); var close = new Date('2026-05-20T00:00:00');
+    var dL = Math.ceil((launch-now)/864e5); var dC = Math.ceil((close-now)/864e5);
+    var el1=document.getElementById('mc-launch'); if(el1) el1.textContent = dL<=0?'LAUNCHED':'T-'+dL+' days';
+    var el2=document.getElementById('mc-close'); if(el2) el2.textContent = dC<=0?'ACTIVE':'T-'+dC+' days';
+  }
+
+  function fetchLaunchReadiness() {
+    var sid=getSheetId(); if(!sid){ notConnected('lr-grid','Connect Google Sheet to see launch checklist'); return Promise.resolve(); }
+    return loadSheetData('Launch Readiness!A2:C16').then(function(rows){
+      if(!rows||!rows.length){ notConnected('lr-grid','No launch readiness data in sheet'); return; }
+      var total=rows.length, done=0, blocked=[];
+      var h='';
+      rows.forEach(function(r){
+        var item=r[0]||'', status=(r[1]||'').trim().toUpperCase(), note=r[2]||'';
+        var icon='⬜', cls='lr-none', style='';
+        if(status==='Y'){ icon='✅'; cls='lr-done'; style='text-decoration:line-through;opacity:0.6;'; done++; }
+        else if(status==='WIP'){ icon='🟡'; cls='lr-wip'; style='font-style:italic;'; }
+        else { blocked.push(item); }
+        h += '<div class="lr-item '+cls+'" style="'+style+'"><span class="lr-icon">'+icon+'</span><span>'+esc(item)+'</span></div>';
+      });
+      document.getElementById('lr-grid').innerHTML = h;
+      var pct=Math.round(done/total*100);
+      document.getElementById('lr-count').textContent = done+'/'+total+' complete';
+      document.getElementById('lr-pct').textContent = pct+'%';
+      document.getElementById('lr-bar').style.width = pct+'%';
+      if(blocked.length){
+        var bl=document.getElementById('lr-blocked');
+        bl.style.display='block';
+        bl.innerHTML='<strong>Blocked by:</strong> '+blocked.slice(0,3).map(esc).join(', ')+(blocked.length>3?' + '+(blocked.length-3)+' more':'');
+      }
+      window._lrBlocked = blocked;
+      computeAlerts();
+    }).catch(function(){ notConnected('lr-grid','Error loading launch readiness'); });
+  }
+
+  function fetchInboxHealth() {
+    return workerGet('/api/smartlead/email-accounts').then(function(d){
+      if(d.error) throw new Error(d.error);
+      var accounts = Array.isArray(d)?d:[];
+      var inboxMap = {
+        'chad@viadorpartners.com':{el:'inbox-vp',lEl:'inbox-vp-light',sEl:'inbox-vp-stats'},
+        'chad@nextdutyvet.com':{el:'inbox-ndv1',lEl:'inbox-ndv1-light',sEl:'inbox-ndv1-stats'},
+        'hello@nextdutyvet.com':{el:'inbox-ndv2',lEl:'inbox-ndv2-light',sEl:'inbox-ndv2-stats'}
+      };
+      window._inboxData = {};
+      accounts.forEach(function(a){
+        var m = inboxMap[a.from_email]; if(!m) return;
+        var wd=a.warmup_details||{};
+        var bounce=parseFloat(wd.bounce_rate||a.bounce_rate||0);
+        var open=parseFloat(wd.open_rate||a.open_rate||0);
+        var light='🟢', lightText='Healthy';
+        if(bounce>3||open<20){ light='🔴'; lightText='Critical'; }
+        else if(bounce>2||open<30){ light='🟡'; lightText='Warning'; }
+        document.getElementById(m.lEl).innerHTML = light;
+        document.getElementById(m.sEl).innerHTML = 'Bounce: '+bounce.toFixed(1)+'% &middot; Open: '+open.toFixed(0)+'% &middot; '+lightText;
+        window._inboxData[a.from_email] = {bounce:bounce,open:open,warmup:wd.warmup_reputation||'unknown'};
+      });
+    }).catch(function(e){
+      ['inbox-vp-stats','inbox-ndv1-stats','inbox-ndv2-stats'].forEach(function(id){ var el=document.getElementById(id); if(el) el.textContent='Not connected'; });
+    });
+  }
+
+  function renderPipelineMini() {
+    return fetchHubspot().then(function(){
+      var src=document.getElementById('lp-hubspot');
+      var dest=document.getElementById('pipeline-mini');
+      var src2=document.getElementById('pipeline-hubspot');
+      if(src&&dest) dest.innerHTML=src.innerHTML;
+      if(src&&src2) src2.innerHTML=src.innerHTML;
+    }).catch(function(){});
+  }
+
+  function renderNDVPanels() {
+    fetchMeta().then(function(){
+      var src=document.getElementById('lp-meta');
+      var dest=document.getElementById('ndv-meta');
+      if(src&&dest) dest.innerHTML=src.innerHTML;
+    }).catch(function(){});
+    fetchSmartlead().then(function(){
+      var src=document.getElementById('lp-smartlead');
+      var dest=document.getElementById('ndv-smartlead');
+      if(src&&dest) dest.innerHTML=src.innerHTML;
+    }).catch(function(){});
+  }
+
+  function computeAlerts() {
+    var alerts=[];
+    if(window._lrBlocked&&window._lrBlocked.length) alerts=alerts.concat(window._lrBlocked.slice(0,3).map(function(b){return 'Launch gate: '+b;}));
+    if(window._inboxData){
+      Object.keys(window._inboxData).forEach(function(email){
+        if(window._inboxData[email].bounce>3) alerts.push('Fix '+email+' deliverability (bounce '+window._inboxData[email].bounce.toFixed(1)+'%)');
+      });
+    }
+    var pill=document.getElementById('mc-health');
+    if(!pill)return;
+    if(alerts.length===0) pill.innerHTML='🟢 All systems normal';
+    else pill.innerHTML='⚠️ '+alerts.length+' alert'+(alerts.length>1?'s':'');
+    pill.style.background=alerts.length?'rgba(204,51,51,0.15)':'rgba(46,125,50,0.15)';
+    pill.style.color=alerts.length?'var(--red)':'var(--green)';
+
+    var prioEl=document.getElementById('priority-auto');
+    if(!prioEl)return;
+    if(alerts.length===0){ prioEl.innerHTML='<div style="color:var(--green);font-size:14px">🟢 No urgent actions. Keep executing the checklist.</div>'; return; }
+    prioEl.innerHTML=alerts.slice(0,5).map(function(a,i){return '<div class="prio-item"><span class="prio-num">'+(i+1)+'</span><span>'+esc(a)+'</span></div>';}).join('');
+  }
+
+  function fetchAllHomePanels() {
+    initCountdowns();
+    fetchLaunchReadiness();
+    fetchInboxHealth().then(computeAlerts);
+    renderPipelineMini();
+    renderNDVPanels();
+    fetchGA4().then(function(){
+      var src=document.getElementById('lp-ga4');
+      var dest=document.getElementById('organic-ga4');
+      if(src&&dest) dest.innerHTML=src.innerHTML;
+    });
+    fetchGSC().then(function(){
+      var src=document.getElementById('lp-gsc');
+      var dest=document.getElementById('organic-gsc');
+      if(src&&dest) dest.innerHTML=src.innerHTML;
+    });
+  }
+
+
+    // Defer showDash to end of IIFE so all window.* functions are defined first
 
   window.handleLogin = function(){
     var pw = document.getElementById('gate-pw').value;
@@ -2441,6 +2132,7 @@
 
     // Fetch live data panels (Worker proxy)
     fetchAllLivePanels();
+    fetchAllHomePanels();
   };
 
   /* ── Render from Google Sheets ──────────────────── */
@@ -2645,13 +2337,14 @@
   window.switchTab = function(tab){
     document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
     document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
-    document.getElementById('tab-' + tab).classList.add('active');
+    var panel = document.getElementById('tab-' + tab);
+    if(panel) panel.classList.add('active');
     var btns = document.querySelectorAll('.tab-btn');
-    var labels = { ops:'Operations', pipeline:'Pipeline', marketing:'Marketing', notes:'Notes', pl:'P&L' };
+    var labels = { home:'Home', ndv:'NDV', pipeline:'Pipeline', organic:'Organic', pl:'P&L', strategy:'Strategy' };
     btns.forEach(function(b){
       if(b.textContent.indexOf(labels[tab]) >= 0) b.classList.add('active');
     });
-    if(tab === 'pl' && !window._chartInit){ initRevenueChart(); window._chartInit = true; }
+    if((tab === 'pl' || tab === 'organic') && !window._chartInit){ initRevenueChart(); window._chartInit = true; }
   };
 
   /* ── Revenue Chart ──────────────────────────────── */
