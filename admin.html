@@ -22,7 +22,7 @@
   ═══════════════════════════════════════════════════════════════
 
   Tab 1 — "KPIs" (A1:E100):
-  Row 1: Week | Deals Pipeline | Leads This Week | ViaScore Runs | LinkedIn Impressions
+  Row 1: Week | Deals Pipeline | Leads This Week | LinkedIn Impressions
   Row 2+: Weekly data (most recent at top)
 
   Tab 2 — "Pipeline" (A1:G100):
@@ -46,18 +46,18 @@
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
     :root {
-      --bg:       #1A1C24;
-      --bg2:      #22252F;
-      --bg3:      #2A2D38;
+      --bg:       #1C1C1C;
+      --bg2:      #252525;
+      --bg3:      #2E2E2E;
       --gold:     #BF9020;
       --gold-lt:  #D9A84A;
-      --gold-f:   rgba(191, 144, 32,0.12);
-      --text:     #E8E4DF;
-      --text-dim: rgba(255,255,255,0.45);
+      --gold-f:   rgba(191,144,32,0.12);
+      --text:     #F5F3EE;
+      --text-dim: #888888;
       --text-mid: rgba(255,255,255,0.65);
-      --line:     rgba(255,255,255,0.08);
-      --green:    #3ECF8E;
-      --red:      #E5534B;
+      --line:     rgba(191,144,32,0.2);
+      --green:    #2E7D32;
+      --red:      #CC3333;
       --blue:     #58A6FF;
       --font:     'DM Sans', system-ui, sans-serif;
       --font-d:   'Fraunces', Georgia, serif;
@@ -1023,6 +1023,54 @@
       .val-amount { font-size: 24px; }
       .tab-btn { padding: 12px 16px; font-size: 12px; }
     }
+
+    /* ── Live Data Panels ────────────────────────── */
+    .live-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:32px; }
+    .live-panel { background:var(--bg2); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+    .lp-head { display:flex; justify-content:space-between; align-items:center; padding:14px 18px; border-bottom:1px solid var(--line); }
+    .lp-title { font-family:var(--font-d); font-size:15px; font-weight:700; color:var(--text); }
+    .lp-src { font-family:var(--font-m); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-dim); }
+    .lp-body { padding:16px 18px; }
+    .lp-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.04); font-size:14px; }
+    .lp-row:last-child { border-bottom:none; }
+    .lp-row > span:first-child { color:var(--text-dim); }
+    .lp-row > span:last-child { color:var(--text); font-weight:500; text-align:right; }
+    .lp-badge { display:inline-block; padding:3px 10px; border-radius:99px; font-size:11px; font-weight:600; }
+    .lp-warn { background:rgba(191,144,32,0.2); color:var(--gold); }
+    .lp-info { background:rgba(88,166,255,0.15); color:var(--blue); }
+    .lp-dim { background:rgba(255,255,255,0.06); color:var(--text-dim); }
+    .lp-ok { background:rgba(46,125,50,0.2); color:var(--green); }
+    .lp-err { background:rgba(204,51,51,0.15); color:var(--red); }
+    .lp-placeholder { color:var(--text-dim); font-size:13px; font-style:italic; padding:12px 0; }
+    .lp-divider { border-top:1px solid var(--line); margin:10px 0; }
+    .lp-metric { text-align:center; padding:6px 0; }
+    .lp-metric-val { font-family:var(--font-d); font-size:28px; font-weight:700; color:var(--text); line-height:1; }
+    .lp-metric-label { font-size:11px; color:var(--text-dim); margin-top:4px; text-transform:uppercase; letter-spacing:.06em; }
+    .lp-metrics-row { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; }
+    .lp-side-by-side { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .lp-side-col h4 { font-family:var(--font-m); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+
+    /* ── Refresh Button Upgrade ──────────────────── */
+    #refresh-btn { background:var(--gold); color:#fff; border:none; border-radius:8px; padding:10px 20px; font-weight:600; cursor:pointer; transition:background .15s; }
+    #refresh-btn:hover { background:#a57b18; }
+    #refresh-btn.loading { opacity:0.6; pointer-events:none; }
+
+    /* ── Mobile ──────────────────────────────────── */
+    @media (max-width:640px) {
+      .live-grid { grid-template-columns:1fr; }
+      .lp-metrics-row { grid-template-columns:repeat(2,1fr); }
+      .lp-side-by-side { grid-template-columns:1fr; }
+      .lp-metric-val { font-size:32px; }
+      .lp-row { font-size:13px; }
+      .topbar { position:sticky; top:0; z-index:50; background:var(--bg); padding:12px 16px; }
+      .topbar-title span { display:none; }
+      .kpi-grid { grid-template-columns:1fr !important; }
+      .ql-grid { grid-template-columns:1fr !important; }
+      .platform-grid { grid-template-columns:1fr !important; }
+      .tab-bar { overflow-x:auto; -webkit-overflow-scrolling:touch; flex-wrap:nowrap; white-space:nowrap; }
+      .tab-btn { min-height:48px; min-width:48px; }
+      .gate-btn, .log-btn, #refresh-btn { min-height:48px; }
+    }
   </style></head>
 <body>
 
@@ -1142,16 +1190,75 @@
         <div class="kpi-icon">🎯</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">ViaScore Runs</div>
-        <div class="kpi-value" id="kpi-viascore">--</div>
-        <div class="kpi-delta neutral" id="delta-viascore">&mdash;</div>
-        <div class="kpi-icon">⚡</div>
-      </div>
-      <div class="kpi-card">
         <div class="kpi-label">LinkedIn Impressions</div>
         <div class="kpi-value" id="kpi-linkedin">--</div>
         <div class="kpi-delta neutral" id="delta-linkedin">&mdash;</div>
         <div class="kpi-icon">📊</div>
+      </div>
+    </div>
+
+    <!-- ── LIVE DATA PANELS ───────────────────────── -->
+    <div class="section-head"><span class="section-label">Live Data</span><div class="section-line"></div><span class="section-label" id="live-ts" style="font-size:10px"></span></div>
+
+    <div class="live-grid">
+
+      <!-- Panel 1: Pipeline (HubSpot) -->
+      <div class="live-panel" id="panel-hubspot">
+        <div class="lp-head"><span class="lp-title">Pipeline</span><span class="lp-src">HubSpot</span></div>
+        <div class="lp-body" id="lp-hubspot"><div class="lp-placeholder">Loading&hellip;</div></div>
+      </div>
+
+      <!-- Panel 2: Email (Smartlead) -->
+      <div class="live-panel" id="panel-smartlead">
+        <div class="lp-head"><span class="lp-title">Email Outreach</span><span class="lp-src">Smartlead</span></div>
+        <div class="lp-body" id="lp-smartlead"><div class="lp-placeholder">Loading&hellip;</div></div>
+      </div>
+
+      <!-- Panel 3: SEO (GSC) -->
+      <div class="live-panel" id="panel-gsc">
+        <div class="lp-head"><span class="lp-title">SEO — Search Console</span><span class="lp-src">GSC</span></div>
+        <div class="lp-body" id="lp-gsc"><div class="lp-placeholder">Loading&hellip;</div></div>
+      </div>
+
+      <!-- Panel 4: Traffic (GA4) -->
+      <div class="live-panel" id="panel-ga4">
+        <div class="lp-head"><span class="lp-title">Traffic — GA4</span><span class="lp-src">GA4</span></div>
+        <div class="lp-body" id="lp-ga4"><div class="lp-placeholder">Loading&hellip;</div></div>
+      </div>
+
+      <!-- Panel 5: Meta Ads -->
+      <div class="live-panel" id="panel-meta">
+        <div class="lp-head"><span class="lp-title">Meta Ads</span><span class="lp-src">Meta</span></div>
+        <div class="lp-body" id="lp-meta"><div class="lp-placeholder">Loading&hellip;</div></div>
+      </div>
+
+      <!-- Panel 6: Licensing (Static) -->
+      <div class="live-panel" id="panel-licensing">
+        <div class="lp-head"><span class="lp-title">Licensing Status</span><span class="lp-src">Static</span></div>
+        <div class="lp-body">
+          <div class="lp-row"><span>Ohio</span><span class="lp-badge lp-warn">Pending Temp Authority</span></div>
+          <div class="lp-row"><span>Maryland</span><span class="lp-badge lp-warn">Pending Temp Authority</span></div>
+          <div class="lp-row"><span>Florida</span><span class="lp-badge lp-info">Waiting on FHM FL license</span></div>
+          <div class="lp-row"><span>Tennessee</span><span class="lp-badge lp-dim">Queued</span></div>
+          <div class="lp-divider"></div>
+          <div class="lp-row"><span>First close target</span><span style="color:var(--gold);font-weight:600">May 10–15, 2026</span></div>
+          <div class="lp-row"><span>Focus agreement</span><span style="color:var(--text-dim)">In negotiation</span></div>
+        </div>
+      </div>
+
+      <!-- Panel 7: First Lead (Static) -->
+      <div class="live-panel" id="panel-lead">
+        <div class="lp-head"><span class="lp-title">First Lead</span><span class="lp-src">HubSpot #470233732822</span></div>
+        <div class="lp-body">
+          <div style="font-weight:600;color:var(--text);margin-bottom:8px">Marc Vargas</div>
+          <div class="lp-row"><span>Email</span><span><a href="mailto:mgvinvestments@gmail.com" style="color:var(--gold)">mgvinvestments@gmail.com</a></span></div>
+          <div class="lp-row"><span>Phone</span><span><a href="tel:+19152528219" style="color:var(--gold)">(915) 252-8219</a></span></div>
+          <div class="lp-row"><span>Property</span><span>2607 Live Oak St, Houston TX 77004</span></div>
+          <div class="lp-row"><span>Type</span><span>6-unit multifamily</span></div>
+          <div class="lp-row"><span>Deal</span><span>$840K–$900K DSCR refi</span></div>
+          <div class="lp-row"><span>DSCR</span><span style="color:var(--green);font-weight:600">1.49x</span></div>
+          <div class="lp-row"><span>Status</span><span class="lp-badge lp-warn">Pending lease confirmation + TX BPL path</span></div>
+        </div>
       </div>
     </div>
 
@@ -1167,13 +1274,9 @@
         <div class="ql-dot gold">🏠</div>
         <div class="ql-info"><div class="ql-name">Viador Partners</div><div class="ql-sub">viadorpartners.com</div></div>
       </a>
-      <a href="https://viascore.pages.dev" target="_blank" rel="noopener" class="ql-card">
-        <div class="ql-dot gold">⚡</div>
-        <div class="ql-info"><div class="ql-name">ViaScore</div><div class="ql-sub">viascore.pages.dev</div></div>
-      </a>
-      <a href="https://viadormarkets.com" target="_blank" rel="noopener" class="ql-card">
-        <div class="ql-dot gold">📊</div>
-        <div class="ql-info"><div class="ql-name">Viador Markets</div><div class="ql-sub">viadormarkets.com</div></div>
+      <a href="https://nextdutyvet.com" target="_blank" rel="noopener" class="ql-card">
+        <div class="ql-dot green">🎖️</div>
+        <div class="ql-info"><div class="ql-name">Next Duty Vet</div><div class="ql-sub">nextdutyvet.com</div></div>
       </a>
     </div>
 
@@ -1205,8 +1308,7 @@
           <th style="width:120px">Week</th>
           <th>Deals</th>
           <th>Leads</th>
-          <th>ViaScore Runs</th>
-          <th>LI Impressions</th>
+                    <th>LI Impressions</th>
         </tr>
       </thead>
       <tbody id="log-body"></tbody>
@@ -1396,12 +1498,6 @@
           <td><span id="camp-4-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#333;color:#888">NOT STARTED</span></td>
           <td>$900</td><td>3&ndash;6</td><td>$150&ndash;300</td><td>$1,800&ndash;3,000</td><td>Now</td>
           <td><select onchange="saveCampStatus(4,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>NOT STARTED</option><option>READY</option><option>ACTIVE</option><option>PAUSED</option></select></td>
-        </tr>
-        <tr>
-          <td style="font-weight:600;color:#E8E8E8">ViaScore Organic Engine</td>
-          <td><span id="camp-5-badge" style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:rgba(191, 144, 32,0.3);color:#BF9020">IN PROGRESS</span></td>
-          <td>$0</td><td>organic</td><td>$0</td><td>$0</td><td>Wk 2</td>
-          <td><select onchange="saveCampStatus(5,this.value)" style="background:#1A1C24;color:#E8E8E8;border:1px solid #333;border-radius:4px;padding:2px 4px;font-size:11px"><option>IN PROGRESS</option><option>ACTIVE</option><option>PAUSED</option></select></td>
         </tr>
         <tr>
           <td style="font-weight:600;color:#E8E8E8">PropStream Smart List Auto-Mailer</td>
@@ -1749,7 +1845,7 @@
           <li>Name it: <code>Viador Command Center</code></li>
           <li>Create 5 tabs at the bottom: <code>KPIs</code> | <code>Pipeline</code> | <code>Marketing</code> | <code>Actuals</code> | <code>Notes</code></li>
           <li>Add headers in each tab:
-            <br><code>KPIs</code>: Week | Deals Pipeline | Leads This Week | ViaScore Runs | LinkedIn Impressions
+            <br><code>KPIs</code>: Week | Deals Pipeline | Leads This Week | LinkedIn Impressions
             <br><code>Pipeline</code>: Lead Name | Source | Loan Type | Amount | Stage | Next Action | Expected Close
             <br><code>Marketing</code>: Campaign | Channel | Spend | Leads | CPL | Closed | Revenue | ROI
             <br><code>Actuals</code>: Month | Actual Revenue | Projected Revenue | Variance
@@ -1783,6 +1879,117 @@
   function simpleHash(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0;}return(h>>>0).toString(16).slice(0,8);}
 
   var isAuthed = sessionStorage.getItem('vcc_auth') === '1';
+  /* ── Constants ────────────────────────────────── */
+  var WORKER_BASE = 'https://viador-ai-proxy.chad-7f6.workers.dev';
+  var GA4_PROPERTY_ID_VP = '529429455';
+  var GA4_PROPERTY_ID_NDV = '533328101';
+  var META_AD_ACCOUNT = 'act_1970547536908108';
+
+  /* ── Live Data Fetch Helpers ──────────────────── */
+  function workerGet(path) { return fetch(WORKER_BASE + path).then(function(r){ return r.json(); }); }
+  function workerPost(path, body) { return fetch(WORKER_BASE + path, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){ return r.json(); }); }
+
+  function setPanel(id, html) { var el = document.getElementById(id); if(el) el.innerHTML = html; }
+  function notConnected(id, msg) { setPanel(id, '<div class="lp-placeholder">' + (msg||'Not connected') + '</div>'); }
+  function metricBox(val, label) { return '<div class="lp-metric"><div class="lp-metric-val">' + val + '</div><div class="lp-metric-label">' + label + '</div></div>'; }
+  function lpRow(label, val) { return '<div class="lp-row"><span>' + label + '</span><span>' + val + '</span></div>'; }
+
+  function fetchHubspot() {
+    return workerGet('/api/hubspot/crm/v3/objects/contacts?limit=100&properties=createdate,hs_lead_status,lifecyclestage,firstname,lastname')
+      .then(function(d){
+        if(d.error) throw new Error(d.error);
+        var c = d.results||[], total=c.length, week=Date.now()-7*864e5;
+        var nw = c.filter(function(x){ return new Date(x.properties.createdate).getTime()>week; }).length;
+        var stages={};
+        c.forEach(function(x){ var s=x.properties.lifecyclestage||'other'; stages[s]=(stages[s]||0)+1; });
+        var oldest = c.filter(function(x){ return !x.properties.hs_lead_status||x.properties.hs_lead_status==='NEW'; })
+          .sort(function(a,b){ return new Date(a.properties.createdate)-new Date(b.properties.createdate); })[0];
+        var oStr = oldest ? (oldest.properties.firstname||'')+' '+(oldest.properties.lastname||'')+' — '+new Date(oldest.properties.createdate).toLocaleDateString() : 'None';
+        var h = '<div class="lp-metrics-row">'+metricBox(total,'Total')+metricBox(nw,'New This Week')+metricBox(Object.keys(stages).length,'Stages')+'</div>';
+        h += lpRow('Oldest untouched',oStr);
+        Object.keys(stages).forEach(function(k){ h += lpRow(k, stages[k]); });
+        setPanel('lp-hubspot', h);
+      }).catch(function(e){ notConnected('lp-hubspot','HubSpot: '+e.message); });
+  }
+
+  function fetchSmartlead() {
+    return workerGet('/api/smartlead/email-accounts')
+      .then(function(d){
+        if(d.error) throw new Error(d.error);
+        var a = Array.isArray(d)?d:[];
+        if(!a.length) throw new Error('No email accounts');
+        var inboxes=['chad@viadorpartners.com','chad@nextdutyvet.com','hello@nextdutyvet.com'];
+        var h='';
+        a.forEach(function(x){
+          if(inboxes.indexOf(x.from_email)<0) return;
+          var wd = x.warmup_details||{};
+          var cls = !x.warmup_enabled?'lp-dim': wd.warmup_reputation==='good'?'lp-ok':'lp-warn';
+          var lbl = !x.warmup_enabled?'off': wd.warmup_reputation||'warming';
+          h += lpRow(x.from_email, '<span class="lp-badge '+cls+'">'+lbl+'</span>');
+        });
+        if(a[0] && a[0].total_email_sent != null){
+          h = '<div class="lp-metrics-row">'+metricBox(a.reduce(function(s,x){return s+(x.total_email_sent||0);},0),'Sent')+metricBox((a[0].open_rate||'--')+'%','Open Rate')+metricBox((a[0].reply_rate||'--')+'%','Reply Rate')+'</div>'+h;
+        }
+        setPanel('lp-smartlead', h||'<div class="lp-placeholder">No matching inboxes</div>');
+      }).catch(function(e){ notConnected('lp-smartlead','Smartlead: '+e.message); });
+  }
+
+  function fetchGSC() { notConnected('lp-gsc','Not connected — configure GSC service account'); return Promise.resolve(); }
+
+  function fetchGA4() {
+    var props=[{id:GA4_PROPERTY_ID_VP,name:'Viador Partners'},{id:GA4_PROPERTY_ID_NDV,name:'Next Duty Vet'}];
+    var body={dateRanges:[{startDate:'28daysAgo',endDate:'today'}],metrics:[{name:'sessions'},{name:'activeUsers'}],dimensions:[{name:'sessionDefaultChannelGroup'}]};
+    return Promise.all(props.map(function(p){ return workerPost('/api/ga4/properties/'+p.id+':runReport',body).catch(function(){return null;}); }))
+      .then(function(res){
+        var any=res.some(function(r){return r&&!r.error&&r.rows;});
+        if(!any){ notConnected('lp-ga4','Not connected — configure GA4 service account'); return; }
+        var h='<div class="lp-side-by-side">';
+        res.forEach(function(r,i){
+          h+='<div class="lp-side-col"><h4>'+props[i].name+'</h4>';
+          if(!r||r.error||!r.rows){h+='<div class="lp-placeholder">No data</div></div>';return;}
+          var tot=0; r.rows.forEach(function(row){tot+=parseInt(row.metricValues[0].value)||0;});
+          h+=metricBox(tot.toLocaleString(),'Sessions (28d)');
+          r.rows.slice(0,4).forEach(function(row){h+=lpRow(row.dimensionValues[0].value, parseInt(row.metricValues[0].value).toLocaleString());});
+          h+='</div>';
+        });
+        h+='</div>'; setPanel('lp-ga4',h);
+      }).catch(function(){ notConnected('lp-ga4','Not connected — configure GA4 service account'); });
+  }
+
+  function fetchMeta() {
+    return workerGet('/api/meta/'+META_AD_ACCOUNT+'/campaigns?fields=name,status,insights{spend,impressions,actions}&date_preset=last_30d')
+      .then(function(d){
+        if(d.error) throw new Error(d.error.message||JSON.stringify(d.error));
+        var c=d.data||[];
+        if(!c.length){ notConnected('lp-meta','No active campaigns — launches post April 30'); return; }
+        var h='';
+        c.forEach(function(x){
+          var cls=x.status==='ACTIVE'?'lp-ok':'lp-dim';
+          h+=lpRow(x.name,'<span class="lp-badge '+cls+'">'+x.status+'</span>');
+          if(x.insights&&x.insights.data&&x.insights.data[0]){
+            var ins=x.insights.data[0];
+            h+=lpRow('Spend','$'+parseFloat(ins.spend||0).toFixed(2));
+            h+=lpRow('Impressions',parseInt(ins.impressions||0).toLocaleString());
+          }
+        });
+        setPanel('lp-meta',h);
+      }).catch(function(e){ notConnected('lp-meta','Meta: '+e.message); });
+  }
+
+  function fetchAllLivePanels() {
+    var btn=document.getElementById('refresh-btn');
+    if(btn){btn.classList.add('loading');btn.textContent='Refreshing\u2026';}
+    document.querySelectorAll('.lp-body').forEach(function(el){
+      if(!el.closest('#panel-licensing')&&!el.closest('#panel-lead')) el.innerHTML='<div class="lp-placeholder">Loading\u2026</div>';
+    });
+    Promise.all([fetchHubspot(),fetchSmartlead(),fetchGSC(),fetchGA4(),fetchMeta()])
+      .finally(function(){
+        if(btn){btn.classList.remove('loading');btn.textContent='Refresh Data';}
+        var ts=document.getElementById('live-ts');
+        if(ts) ts.textContent='Updated '+new Date().toLocaleTimeString();
+      });
+  }
+
   // Defer showDash to end of IIFE so all window.* functions are defined first
 
   window.handleLogin = function(){
@@ -1844,7 +2051,7 @@
     'Pull Pinellas County PropStream data (6-10K leads)',
     'UMortgage Go Broker application',
     'Google Ads campaign setup ($900/mo)',
-    'Add HubSpot CTA to ViaScore results page'
+    'Connect HubSpot nurture sequence to deal form'
   ];
   function initMktChecklist() {
     var el = document.getElementById('mkt-checklist');
@@ -2176,7 +2383,7 @@
 
     // Try loading from Google Sheets
     if(getSheetId()){
-      var kpiRows = await loadSheetData('KPIs!A1:E20');
+      var kpiRows = await loadSheetData('KPIs!A1:D20');
       if(kpiRows && kpiRows.length > 1){
         sheetsAvailable = true;
         _sheetData.kpis = kpiRows;
@@ -2231,15 +2438,18 @@
     updateTimestamp(new Date().toISOString());
     btn.textContent = 'Refresh Data';
     btn.disabled = false;
+
+    // Fetch live data panels (Worker proxy)
+    fetchAllLivePanels();
   };
 
   /* ── Render from Google Sheets ──────────────────── */
   function renderKPIsFromSheets(rows){
     // Row 0 = headers, Row 1 = most recent, Row 2 = previous
     if(rows.length < 2) return;
-    var curr = rows[1]; // [Week, Deals, Leads, ViaScore, LinkedIn]
+    var curr = rows[1]; // [Week, Deals, Leads, LinkedIn]
     var prev = rows.length > 2 ? rows[2] : null;
-    var fields = ['deals','leads','viascore','linkedin'];
+    var fields = ['deals','leads','linkedin'];
     for(var i=0;i<fields.length;i++){
       var val = curr[i+1] || '0';
       document.getElementById('kpi-' + fields[i]).textContent = val;
@@ -2362,12 +2572,12 @@
 
   /* ── localStorage Fallback ──────────────────────── */
   var SEED_DATA = {
-    kpis: { deals:'7', leads:'23', viascore:'847', linkedin:'12,400' },
+    kpis: { deals:'7', leads:'23', linkedin:'12,400' },
     weeks: [
-      { date:'3/1/2026',  deals:'2', leads:'6',  viascore:'180', linkedin:'2,100' },
-      { date:'3/8/2026',  deals:'3', leads:'9',  viascore:'340', linkedin:'4,800' },
-      { date:'3/15/2026', deals:'5', leads:'15', viascore:'590', linkedin:'8,200' },
-      { date:'3/22/2026', deals:'7', leads:'23', viascore:'847', linkedin:'12,400' }
+      { date:'3/1/2026',  deals:'2', leads:'6',  linkedin:'2,100' },
+      { date:'3/8/2026',  deals:'3', leads:'9',  linkedin:'4,800' },
+      { date:'3/15/2026', deals:'5', leads:'15', linkedin:'8,200' },
+      { date:'3/22/2026', deals:'7', leads:'23', linkedin:'12,400' }
     ],
     notes: '',
     lastUpdated: new Date().toISOString()
@@ -2378,7 +2588,7 @@
     if(!d.kpis && (!d.weeks || !d.weeks.length)) d = SEED_DATA;
 
     if(d.kpis){
-      ['deals','leads','viascore','linkedin'].forEach(function(k){
+      ['deals','leads','linkedin'].forEach(function(k){
         var el = document.getElementById('kpi-' + k);
         if(el && d.kpis[k] !== undefined) el.textContent = d.kpis[k];
       });
@@ -2390,14 +2600,14 @@
         var tr = document.createElement('tr');
         tr.innerHTML = '<td class="row-date">' + esc(w.date) + '</td>' +
           '<td>' + esc(w.deals) + '</td><td>' + esc(w.leads) + '</td>' +
-          '<td>' + esc(w.viascore) + '</td><td>' + esc(w.linkedin) + '</td>';
+          '<td>' + esc(w.linkedin) + '</td>';
         tbody.appendChild(tr);
       });
       // Deltas
       if(d.weeks.length >= 2){
         var curr = d.weeks[d.weeks.length - 1];
         var prev = d.weeks[d.weeks.length - 2];
-        ['deals','leads','viascore','linkedin'].forEach(function(k){
+        ['deals','leads','linkedin'].forEach(function(k){
           var c = parseInt(String(curr[k]).replace(/,/g,'')) || 0;
           var p = parseInt(String(prev[k]).replace(/,/g,'')) || 0;
           var diff = c - p;
@@ -2417,7 +2627,7 @@
   window.exportCSV = function(){
     var rows = document.querySelectorAll('#log-body tr');
     if(!rows.length){ alert('No data to export.'); return; }
-    var csv = 'Week,Deals,Leads,ViaScore Runs,LinkedIn Impressions\n';
+    var csv = 'Week,Deals,Leads,LinkedIn Impressions\n';
     rows.forEach(function(tr){
       var cells = tr.querySelectorAll('td');
       var vals = [];
@@ -2472,7 +2682,7 @@
   }
 
   /* ── AI Advisor ─────────────────────────────────── */
-  var AI_SYSTEM = 'You are the AI business advisor for Viador Partners, an AI-native real estate investor lending platform. You have access to live KPI data, pipeline data, and marketing performance. Analyze the data and give specific, actionable recommendations. Reference actual numbers. Focus on: what\'s working, what\'s not, and the single highest-ROI action this week.\n\nFormat your response in exactly this structure using markdown:\n\n### Areas of Attention\n- (3 bullet points analyzing the data — reference specific numbers and percentages)\n\n### Recommended Actions This Week\n- (3 bullet points ranked by revenue impact — be specific and actionable)\n\n### Pipeline Health\n- (Brief assessment of deal pipeline if data available)\n\n### Platform Trajectory\n(One sentence on overall trajectory based on the trend data)';
+  var AI_SYSTEM = 'You are the AI business advisor for Viador Partners, a real estate investor lending advisory platform. Active platforms: viadorpartners.com (investor lending) and nextdutyvet.com (veteran financial decisions). You have access to live KPI data, pipeline data, and marketing performance. Analyze the data and give specific, actionable recommendations. Reference actual numbers. Focus on: what\'s working, what\'s not, and the single highest-ROI action this week.\n\nFormat your response in exactly this structure using markdown:\n\n### Areas of Attention\n- (3 bullet points analyzing the data — reference specific numbers and percentages)\n\n### Recommended Actions This Week\n- (3 bullet points ranked by revenue impact — be specific and actionable)\n\n### Pipeline Health\n- (Brief assessment of deal pipeline if data available)\n\n### Platform Trajectory\n(One sentence on overall trajectory based on the trend data)';
 
   window.runAI = function(){
     var btn = document.getElementById('ai-btn');
@@ -2484,7 +2694,7 @@
 
     // KPIs
     context += 'Current Week KPIs:\n';
-    ['deals','leads','viascore','linkedin'].forEach(function(k){
+    ['deals','leads','linkedin'].forEach(function(k){
       context += '- ' + k + ': ' + (document.getElementById('kpi-' + k).textContent || '0') + '\n';
     });
 
@@ -2495,7 +2705,7 @@
       weekRows.forEach(function(tr){
         var cells = tr.querySelectorAll('td');
         if(cells.length >= 5){
-          context += 'Week ' + cells[0].textContent + ': Deals=' + cells[1].textContent + ', Leads=' + cells[2].textContent + ', ViaScore=' + cells[3].textContent + ', LinkedIn=' + cells[4].textContent + '\n';
+          context += 'Week ' + cells[0].textContent + ': Deals=' + cells[1].textContent + ', Leads=' + cells[2].textContent + ', LinkedIn=' + cells[3].textContent + '\n';
         }
       });
     }
@@ -2673,6 +2883,7 @@
     var platGrid = document.getElementById('platform-grid');
     var plats = [
       { key: 'viador_partners', name: 'Viador Partners', icon: '🏠' },
+      { key: 'nextdutyvet', name: 'Next Duty Vet', icon: '🎖️' },
       { key: 'viascore', name: 'ViaScore', icon: '⚡' },
       { key: 'viador_markets', name: 'Viador Markets', icon: '📊' }
     ];
