@@ -1,5 +1,5 @@
 # VIADOR PARTNERS — MASTER BRIEF
-**Version 6.0 | Last Updated: 2026-04-15**
+**Version 6.0 | Last Updated: 2026-04-17**
 
 > Load this file at the start of every Claude session.
 > Single source of truth — all platforms and scripts read from viador-data.json
