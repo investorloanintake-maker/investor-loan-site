@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-17T10:26:00-04:00",
+  "generated_at": "2026-04-17T10:51:00-04:00",
   "generated_by": "cowork-closedown",
 
   "status_strip": {
@@ -8,6 +8,12 @@
     "first_send_market": "Maryland",
     "first_close_target": "May 10-15, 2026",
     "win_condition": "First close May 10-15. Wave 1 send April 30."
+  },
+
+  "mission_critical_dates": {
+    "april_30_launch": "2026-04-30",
+    "may_close_target": "2026-05-10 to 2026-05-15",
+    "win_condition_text": "First close May 10-15. Wave 1 send April 30."
   },
 
   "licensing": {
@@ -150,6 +156,63 @@
     }
   ],
 
+  "wave_readiness": [
+    {
+      "name": "MD Wave",
+      "state": "Maryland",
+      "lead_count": 908,
+      "send_date": "2026-04-30",
+      "status_tag": "BLOCKED",
+      "status_text": "Ready — pending Jason MD sponsorship in NMLS"
+    },
+    {
+      "name": "OH Wave",
+      "state": "Ohio",
+      "lead_count": 1144,
+      "send_date": "2026-05-07",
+      "status_tag": "BLOCKED",
+      "status_text": "Queued for May 7 — pending Jason OH sponsorship + Wave 1 results"
+    },
+    {
+      "name": "FL Wave",
+      "state": "Florida",
+      "lead_count": 3882,
+      "send_date": "TBD",
+      "status_tag": "BLOCKED",
+      "status_text": "Waiting on FL license + FHM FL company entity. Count is NAS Jax Seg 1 only; Hillsborough + Eglin Seg 1 segments not yet pulled — number will grow."
+    }
+  ],
+
+  "inbox_health": [
+    {
+      "email": "chad@viadorpartners.com",
+      "warmup_day": 6,
+      "reputation_score": 78,
+      "status_tag": "INFERRED",
+      "status_text": "Warming Day 6+ · ~78% reputation"
+    },
+    {
+      "email": "chad@nextdutyvet.com",
+      "warmup_day": null,
+      "reputation_score": null,
+      "status_tag": "INFERRED",
+      "status_text": "Warming — day/rep not reported by SmartLead today"
+    },
+    {
+      "email": "hello@nextdutyvet.com",
+      "warmup_day": null,
+      "reputation_score": null,
+      "status_tag": "INFERRED",
+      "status_text": "Warming — day/rep not reported by SmartLead today"
+    }
+  ],
+
+  "organic_signal": {
+    "ga4_status": "not_connected",
+    "gsc_status": "not_connected",
+    "recent_traffic_summary": "Coming soon — needs GA4/GSC service account in Worker"
+  },
+
   "event_log_today": [
     "Adopted 3-layer memory model (canonical / operating state / event log)",
     "Built command center architecture — admin.html reads viador_state.json",
@@ -157,7 +220,18 @@
     "Morning closedown (10:02) — review-only run #1, GitHub push skipped",
     "HubSpot Marc Vargas deal created (14:14) — deal ID 321199075013, Qualifying stage, $870K, close 2026-05-31",
     "HubSpot connector warning retired (14:18) — portal 245454217 verified correct",
-    "Evening closedown (10:26) — full run with GitHub push"
+    "Evening closedown (10:26) — full run with GitHub push attempt; push FAILED (no sandbox creds), commit 0b7a46d local",
+    "Schema v7 — added mission_critical_dates, wave_readiness, inbox_health, organic_signal, recent_event_log, key_relationships"
+  ],
+
+  "recent_event_log": [
+    {"text": "Adopted 3-layer memory model (canonical / operating state / event log)", "tag": "CONFIRMED"},
+    {"text": "Built command center architecture — admin.html reads viador_state.json", "tag": "CONFIRMED"},
+    {"text": "Morning closedown (10:02) — review-only run #1, GitHub push skipped", "tag": "CONFIRMED"},
+    {"text": "HubSpot Marc Vargas deal created (14:14) — deal ID 321199075013, Qualifying stage, $870K", "tag": "CONFIRMED"},
+    {"text": "HubSpot connector warning retired (14:18) — portal 245454217 verified correct", "tag": "CONFIRMED"},
+    {"text": "Evening closedown (10:26) — full run, GitHub push failed (no creds in sandbox), commit 0b7a46d local", "tag": "BLOCKED"},
+    {"text": "Schema v7 — added 6 new dashboard fields (mission_critical_dates, wave_readiness, inbox_health, organic_signal, recent_event_log, key_relationships)", "tag": "CONFIRMED"}
   ],
 
   "blocked_items": [
@@ -169,10 +243,21 @@
     "Email send Wave 1 — dependent on license + agreement (owner: cascaded)",
     "P.O. box for CAN-SPAM compliance (owner: Chad — vendor decision)",
     "ndvmail.com backup domain — not yet registered (owner: Chad)",
-    "HubSpot -> SmartLead integration — must be enabled at campaign creation (owner: campaign build task)"
+    "HubSpot -> SmartLead integration — must be enabled at campaign creation (owner: campaign build task)",
+    "GitHub push from Cowork sandbox — no cached credentials (owner: Chad — push 0b7a46d from Windows)"
   ],
 
   "pending_approvals": [],
+
+  "break_even_overhead_monthly": 1263,
+
+  "key_relationships": [
+    {"name": "Jason McBride", "role": "CEO, Focus Home Mortgage Inc", "tier": 1, "status_tag": "BLOCKED", "context": "Confirmed lending platform. Agreement in negotiation. Open: OH+MD sponsorship, comp, non-sol, OBA, FL entity, TX BPL path.", "phone": "614-362-8801 ext 2"},
+    {"name": "Drew (Focus Home Mortgage)", "role": "Operations / pricing at FHM", "tier": 1, "status_tag": "INFERRED", "context": "Day-to-day pricing, file submission. Route through Jason first.", "phone": null},
+    {"name": "Chris Russell", "role": "Owner, Plumtree Realty", "tier": 1, "status_tag": "CONFIRMED", "context": "IDX partner. Stellar MLS application in progress for viadormarkets.com.", "phone": "(513) 378-4663"},
+    {"name": "Rich Swerbinsky", "role": "Executive Director, Ohio MBA", "tier": 2, "status_tag": "QUEUED", "context": "HOLD until platforms polished + first close metric.", "phone": null},
+    {"name": "Shree Kulkarni", "role": "CEO, Kulkarni Properties / Queen City Opportunity Fund", "tier": 2, "status_tag": "QUEUED", "context": "HOLD until viascore.ai exits stealth. Lead with tech/AI angle only.", "phone": null}
+  ],
 
   "metrics": {
     "smartlead": {
