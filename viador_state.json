@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-17T10:51:00-04:00",
+  "generated_at": "2026-04-17T12:33:00-04:00",
   "generated_by": "cowork-closedown",
 
   "status_strip": {
@@ -7,43 +7,43 @@
     "days_to_first_send": 13,
     "first_send_market": "Maryland",
     "first_close_target": "May 10-15, 2026",
-    "win_condition": "First close May 10-15. Wave 1 send April 30."
+    "win_condition": "First close May 10-15. Wave 1 send April 30 (gated on MD state review)."
   },
 
   "mission_critical_dates": {
     "april_30_launch": "2026-04-30",
     "may_close_target": "2026-05-10 to 2026-05-15",
-    "win_condition_text": "First close May 10-15. Wave 1 send April 30."
+    "win_condition_text": "First close May 10-15. Wave 1 send April 30 (gated on MD state review)."
   },
 
   "licensing": {
     "FL": {"status": "MU4 filed, Prometric passed April 9", "tag": "BLOCKED", "blocker": "FHM FL company entity confirmation"},
-    "OH": {"status": "MU4 filed, fingerprints done", "tag": "BLOCKED", "blocker": "Jason sponsorship in NMLS"},
-    "MD": {"status": "MU4 filed, PE complete (5hr AAA), fingerprints done", "tag": "BLOCKED", "blocker": "Jason sponsorship in NMLS"},
-    "TN": {"status": "Queued after OH+MD active", "tag": "QUEUED", "blocker": "Sequenced after OH+MD"}
+    "OH": {"status": "MLO License ACTIVE from 04/16/2026 (full state license; NMLS Consumer Access: Authorized to Conduct Business: Yes)", "tag": "CONFIRMED", "blocker": null},
+    "MD": {"status": "MU4 filed, PE complete, fingerprints done, Jason sponsorship submitted 2026-04-17", "tag": "BLOCKED", "blocker": "MD state review timeline (est. 3-7 business days)"},
+    "TN": {"status": "Queued after MD active", "tag": "QUEUED", "blocker": "Sequenced after MD"}
   },
 
   "top_priorities": [
     {
       "rank": 1,
-      "tag": "BLOCKED",
-      "text": "Jason McBride confirm OH+MD sponsorship in NMLS",
-      "owner": "Jason",
-      "context": "Unblocks 2 states + Wave 1 send + Marc Vargas Texas BPL question"
+      "tag": "BLOCKED+ACTIVE",
+      "text": "Marc Vargas — parallel-path: Jason commercial check + alternate lender shop",
+      "owner": "Jason + Chad (parallel)",
+      "context": "Path A (Jason passive): commercial structure. Path B (Chad active this week): email Kiavi/Lima One/Visio re master-lease + STR sublet tolerance. Path C (deferred): restructure to 6 individual leases. HubSpot deal 321199075013."
     },
     {
       "rank": 2,
       "tag": "INFERRED",
       "text": "Close Focus Home Mortgage agreement this week",
       "owner": "Chad+Jason",
-      "context": "Open: comp structure, non-sol carve-out, OBA policy, FL entity"
+      "context": "Open: comp, non-sol carve-out, OBA, FL entity (more critical now that OH MLO License is active)"
     },
     {
       "rank": 3,
       "tag": "CONFIRMED",
-      "text": "Marc Vargas confirm 6 leases + Texas BPL path",
+      "text": "Wave 2 OH (May 7) campaign build",
       "owner": "Chad",
-      "context": "$840K-$900K DSCR 1.49x @ 70% LTV, HubSpot contact 470233732822, deal 321199075013"
+      "context": "OH MLO License ACTIVE → real revenue. 1,144 OH Seg 1 IRRRL leads (Columbus 445 + Dayton 366 + Cincinnati 333). Build SmartLead campaign in draft with HubSpot sync ON at creation."
     }
   ],
 
@@ -51,10 +51,10 @@
     {
       "name": "licensing",
       "tag": "BLOCKED",
-      "summary": "All 3 MU4s filed, awaiting Jason sponsorship for OH+MD; FL entity confirmation pending",
+      "summary": "OH MLO License ACTIVE 04/16/2026 (originable upon Focus agreement); MD pushed to state review 2026-04-17 (3-7 bus days); FL entity confirmation still pending",
       "last_update": "2026-04-17",
-      "blocker": "Jason sponsorship in NMLS + FHM FL company entity",
-      "next_action": "Text Jason today re OH+MD sponsorship and FL entity"
+      "blocker": "MD state review timeline + FHM FL company entity",
+      "next_action": "Monitor NMLS for MD state review; push Focus agreement (FL entity more critical now)"
     },
     {
       "name": "lender-agreement",
@@ -106,11 +106,11 @@
     },
     {
       "name": "organic-leads",
-      "tag": "CONFIRMED",
-      "summary": "Marc Vargas 6-unit Houston DSCR refi formal deal record created in HubSpot (321199075013); awaiting lease confirmation + Texas BPL path",
+      "tag": "BLOCKED",
+      "summary": "Marc Vargas initial lender declined master-lease + Airbnb sublet structure. Parallel paths: Jason commercial check (A) + Chad alternate DSCR lender shop (B). Path C (restructure to 6 individual leases) deferred.",
       "last_update": "2026-04-17",
-      "blocker": "Marc: 6-lease confirmation; Jason: Texas BPL origination path",
-      "next_action": "Follow up Marc on lease clarification + include Texas BPL in Jason conversation"
+      "blocker": "Path A Jason commercial check outcome; Path B Chad alternate lender responses",
+      "next_action": "Chad email Kiavi/Lima One/Visio this week with deal summary + initial decline letter as evidence; await Jason commercial path result in parallel"
     },
     {
       "name": "viascore",
@@ -149,7 +149,7 @@
       "product": "DSCR cash-out refi (Houston TX, 6-unit multifamily)",
       "close_date": "2026-05-31",
       "days_in_stage": 0,
-      "blocker": "6-lease confirmation + Texas BPL origination path",
+      "blocker": "Initial DSCR lender declined master-lease + STR sublet structure. Parallel paths: Jason commercial (A) / Chad alt lender shop (B) / restructure deferred (C).",
       "hubspot_id": "470233732822",
       "hubspot_contact_id": "470233732822",
       "hubspot_deal_id": "321199075013"
@@ -163,15 +163,15 @@
       "lead_count": 908,
       "send_date": "2026-04-30",
       "status_tag": "BLOCKED",
-      "status_text": "Ready — pending Jason MD sponsorship in NMLS"
+      "status_text": "Ready — gated on MD state review (est. 3-7 business days from 2026-04-17). If MD approves before April 30 = real revenue; if after = delayed."
     },
     {
       "name": "OH Wave",
       "state": "Ohio",
       "lead_count": 1144,
       "send_date": "2026-05-07",
-      "status_tag": "BLOCKED",
-      "status_text": "Queued for May 7 — pending Jason OH sponsorship + Wave 1 results"
+      "status_tag": "QUEUED",
+      "status_text": "OH MLO License ACTIVE 04/16/2026 — real revenue path. Build SmartLead campaign this week (HubSpot sync ON at creation). Send May 7. Leads: Columbus 445 + Dayton 366 + Cincinnati 333."
     },
     {
       "name": "FL Wave",
@@ -221,30 +221,35 @@
     "HubSpot Marc Vargas deal created (14:14) — deal ID 321199075013, Qualifying stage, $870K, close 2026-05-31",
     "HubSpot connector warning retired (14:18) — portal 245454217 verified correct",
     "Evening closedown (10:26) — full run with GitHub push attempt; push FAILED (no sandbox creds), commit 0b7a46d local",
-    "Schema v7 — added mission_critical_dates, wave_readiness, inbox_health, organic_signal, recent_event_log, key_relationships"
+    "Schema v7 — added mission_critical_dates, wave_readiness, inbox_health, organic_signal, recent_event_log, key_relationships",
+    "v7 dashboard deployed (883876a) — commit local, Chad pushed manually",
+    "OH MLO License ACTIVE from 04/16/2026 (full state license, not Temp Auth) — confirmed via NMLS Consumer Access",
+    "MD sponsorship pushed by Jason — now in MD state review (est. 3-7 business days)",
+    "Marc Vargas initial DSCR decline — lender requires 6 individual leases, Marc's structure is master lease + STR sublet. Parallel paths A/B opened, C deferred.",
+    "Weekly priorities rewritten — Marc Vargas #1 (parallel), Focus agreement #2, Wave 2 OH build #3 (real revenue with OH MLO active)",
+    "break_even_overhead_monthly field added: $1,263 (includes planned Google+Meta ad spend)"
   ],
 
   "recent_event_log": [
-    {"text": "Adopted 3-layer memory model (canonical / operating state / event log)", "tag": "CONFIRMED"},
-    {"text": "Built command center architecture — admin.html reads viador_state.json", "tag": "CONFIRMED"},
-    {"text": "Morning closedown (10:02) — review-only run #1, GitHub push skipped", "tag": "CONFIRMED"},
-    {"text": "HubSpot Marc Vargas deal created (14:14) — deal ID 321199075013, Qualifying stage, $870K", "tag": "CONFIRMED"},
-    {"text": "HubSpot connector warning retired (14:18) — portal 245454217 verified correct", "tag": "CONFIRMED"},
-    {"text": "Evening closedown (10:26) — full run, GitHub push failed (no creds in sandbox), commit 0b7a46d local", "tag": "BLOCKED"},
-    {"text": "Schema v7 — added 6 new dashboard fields (mission_critical_dates, wave_readiness, inbox_health, organic_signal, recent_event_log, key_relationships)", "tag": "CONFIRMED"}
+    {"text": "v7.0 dashboard deployed (commit 883876a) — JSON-driven from viador_state.json", "tag": "CONFIRMED"},
+    {"text": "OH MLO License ACTIVE from 04/16/2026 (full state license)", "tag": "CONFIRMED"},
+    {"text": "MD sponsorship pushed by Jason — now in MD state review (est. 3-7 business days)", "tag": "CONFIRMED"},
+    {"text": "Marc Vargas initial DSCR decline — master-lease + STR sublet not accepted. Parallel paths opened.", "tag": "BLOCKED"},
+    {"text": "Weekly priorities rewritten — Marc parallel #1, Focus agreement #2, Wave 2 OH build #3", "tag": "CONFIRMED"},
+    {"text": "HubSpot Marc Vargas deal created — deal ID 321199075013, $870K, close 2026-05-31", "tag": "CONFIRMED"},
+    {"text": "Schema v7 + break_even_overhead_monthly ($1,263) added to state JSON", "tag": "CONFIRMED"}
   ],
 
   "blocked_items": [
-    "Licensing OH+MD — Jason sponsorship in NMLS (owner: Jason)",
+    "Licensing MD — MD state review timeline (3-7 business days; owner: Maryland state)",
     "Licensing FL — FHM FL company entity confirmation (owner: Jason)",
-    "Focus Home Mortgage agreement — 4 open items (owner: Chad+Jason)",
-    "Marc Vargas deal — 6-lease confirmation (owner: Marc)",
-    "Marc Vargas deal — Texas BPL origination path (owner: Jason)",
-    "Email send Wave 1 — dependent on license + agreement (owner: cascaded)",
+    "Focus Home Mortgage agreement — 4 open items; FL entity more critical now OH MLO active (owner: Chad+Jason)",
+    "Marc Vargas deal — initial DSCR lender declined master-lease + STR sublet (owner: Jason commercial check / Chad alt lender shop in parallel)",
+    "Email send Wave 1 MD — gated on MD state review (if state approves before 2026-04-30 = real revenue; if after = delayed)",
     "P.O. box for CAN-SPAM compliance (owner: Chad — vendor decision)",
     "ndvmail.com backup domain — not yet registered (owner: Chad)",
     "HubSpot -> SmartLead integration — must be enabled at campaign creation (owner: campaign build task)",
-    "GitHub push from Cowork sandbox — no cached credentials (owner: Chad — push 0b7a46d from Windows)"
+    "GitHub push from Cowork sandbox — no cached credentials (deferred per Chad 2026-04-17; current 30-sec manual push acceptable)"
   ],
 
   "pending_approvals": [],
