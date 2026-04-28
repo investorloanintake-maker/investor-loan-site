@@ -35,6 +35,16 @@
       --display:  'Fraunces', Georgia, serif;
       --max:      1200px;
       --radius:   8px;
+
+      /* v8 — aliases so verbatim Sheets-renderer inline styles map onto dark theme */
+      --vp-muted:           var(--text-dim);
+      --vp-body:            var(--text);
+      --vp-charcoal:        var(--text);
+      --vp-card-bg:         var(--bg2);
+      --vp-border:          var(--line);
+      --vp-blocked:         rgba(214, 70, 70, 0.12);
+      --vp-blocked-text:    var(--red);
+      --vp-confirmed-text:  var(--green);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -622,6 +632,148 @@
     }
     @keyframes blink { 50% { opacity: 0; } }
 
+    /* ─── v8 — Sheets-driven sections (added 2026-04-28) ─── */
+
+    /* Section <h2> headers emitted by verbatim renderers — match v7 .section-label look */
+    .dash h2 {
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin: 28px 0 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* Status strip — 4-col stat-card row */
+    .status-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .stat-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .stat-card .label {
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .stat-card .value {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--gold);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .stat-card .sub {
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+    .stat-card.alert .value { color: var(--red); }
+
+    /* Generic list-card (used by Sheets renderers) */
+    .list-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 14px;
+      font-size: 12px;
+      color: var(--text-mid);
+    }
+    .list-card ul { list-style: none; margin: 0; padding: 0; }
+    .list-card li {
+      padding: 6px 0;
+      border-bottom: 1px dotted var(--line);
+      color: var(--text-mid);
+    }
+    .list-card li:last-child { border-bottom: none; }
+    .list-card.empty {
+      color: var(--text-dim);
+      font-style: italic;
+      text-align: center;
+      padding: 18px;
+    }
+
+    /* Two-column layout used by renderOrganic */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* Pipeline card (used by renderFunnelReality) */
+    .pipeline-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    /* Inline blocker callout (red) */
+    .deal-blocker {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 6px 10px;
+      background: rgba(214, 70, 70, 0.12);
+      color: var(--red);
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    /* Funnel reality 3-col grid */
+    .funnel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .funnel-grid .funnel-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+    }
+    .funnel-grid .funnel-value {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+    .funnel-grid .funnel-sub {
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    /* Sheets connection-status footer line */
+    .sheets-footer {
+      margin: 24px 0 8px;
+      padding-top: 12px;
+      border-top: 1px dotted var(--line);
+      font-size: 11px;
+      color: var(--text-dim);
+      text-align: center;
+    }
+
+    /* Uppercase tag aliases (verbatim renderers emit uppercase class names) */
+    .tag-CONFIRMED { background: rgba(46, 184, 114, 0.15); color: var(--green); }
+    .tag-BLOCKED   { background: rgba(214, 70, 70, 0.15); color: var(--red); }
+    .tag-INFERRED  { background: rgba(214, 154, 30, 0.15); color: var(--amber); }
+    .tag-PROPOSED  { background: rgba(74, 143, 214, 0.15); color: var(--blue); }
+    .tag-QUEUED    { background: rgba(123, 126, 132, 0.15); color: var(--text-mid); }
+    .tag-STEALTH   { background: rgba(139, 92, 214, 0.15); color: var(--purple); }
+
     /* ─── Mobile responsive ──────────────────────────── */
     @media (max-width: 768px) {
       .topbar { padding: 12px 16px; flex-wrap: wrap; }
@@ -633,8 +785,13 @@
       .mc-val { font-size: 28px; }
       .grid-3 { grid-template-columns: 1fr; }
       .pipe-header { flex-direction: column; align-items: flex-start; }
+      /* v8 — collapse Sheets-section grids on mobile */
+      .status-strip, .two-col, .funnel-grid { grid-template-columns: 1fr; }
     }
   </style>
+
+  <!-- v8 — PapaParse for Google Sheets CSV parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 </head>
 
 <body>
@@ -746,6 +903,13 @@
           <div class="section-line"></div>
         </div>
         <div class="pipe-mini" id="pipe-mini"><div class="placeholder">Loading pipeline&hellip;</div></div>
+
+        <!-- v8 — Sheets-driven sections (between pipeline and event log) -->
+        <div id="sheets-outbound"></div>
+        <div id="sheets-website"></div>
+        <div id="sheets-organic"></div>
+        <div id="sheets-funnel"></div>
+        <div id="sheets-signals"></div>
 
         <!-- Today's event log -->
         <div class="section-head" style="margin-top:28px">
@@ -938,9 +1102,13 @@
       </div>
     </div>
 
+    <!-- v8 — Sheets connection-status footer (just above static footer) -->
+    <div id="sheets-footer-line"></div>
+
     <!-- Footer -->
     <div class="dash-footer">
-      Viador Partners LLC &middot; Internal Use Only &middot; NMLS #2822744
+      Viador Partners LLC &middot; Internal Use Only &middot; NMLS #2822744<br/>
+      <span style="opacity:0.7">Notion = state of record &middot; Sheets = data layer &middot; admin.html = operator UI</span>
     </div>
 
   </div><!-- /.dash -->
@@ -956,6 +1124,16 @@
     var PW_HASH     = '33f4aafb';  // simpleHash("viador2026")
     var STATE_URL   = 'https://raw.githubusercontent.com/investorloanintake-maker/investor-loan-site/main/viador_state.json';
     var WORKER_BASE = 'https://viador-ai-proxy.chad-7f6.workers.dev';
+
+    /* ─── v8 — Sheets data layer (Notion = state of record, Sheets = data layer) ───
+       Published-to-web CSV URLs from the NDV Campaign Command Center sheet.
+       To re-publish a tab: File > Share > Publish to web > [tab] > CSV. */
+    var CSV_URLS = {
+      dashboard:      'https://docs.google.com/spreadsheets/d/e/2PACX-1vTSjl8K5DCgPhGQCZTyg25LeZRcklx5cFM4kBD814t_1jIQfPoO6i0pSYDitPqMTd86r66OHKsHDDwa/pub?gid=116983809&single=true&output=csv',
+      smartleadClean: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTSjl8K5DCgPhGQCZTyg25LeZRcklx5cFM4kBD814t_1jIQfPoO6i0pSYDitPqMTd86r66OHKsHDDwa/pub?gid=846718042&single=true&output=csv',
+      ga4Clean:       'https://docs.google.com/spreadsheets/d/e/2PACX-1vTSjl8K5DCgPhGQCZTyg25LeZRcklx5cFM4kBD814t_1jIQfPoO6i0pSYDitPqMTd86r66OHKsHDDwa/pub?gid=474709258&single=true&output=csv',
+      ga4Organic:     'https://docs.google.com/spreadsheets/d/e/2PACX-1vTSjl8K5DCgPhGQCZTyg25LeZRcklx5cFM4kBD814t_1jIQfPoO6i0pSYDitPqMTd86r66OHKsHDDwa/pub?gid=1899857927&single=true&output=csv'
+    };
 
     // localStorage keys — preserved verbatim from v6 so existing data carries over
     var STORAGE_KEY = 'vcc_data';
@@ -1002,6 +1180,45 @@
     }
     function formatDate(d){
       return d.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+    }
+
+    /* ─── v8 — Sheets helpers (verbatim from staged hybrid file) ───
+       fetchCSV returns either an Array of rows (Papa.parse) or { error } object.
+       isError() / safeCell() / unavailableSection() / escapeHTML() are used by the
+       5 new render functions defined further below. */
+    async function fetchCSV(url) {
+      if (!url || url.startsWith('PUBLISH_')) {
+        return { error: 'CSV not published yet — set CSV_URLS at top of admin.html' };
+      }
+      try {
+        const res = await fetch(url + (url.includes('?') ? '&' : '?') + 'cb=' + Date.now());
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const text = await res.text();
+        return Papa.parse(text, { skipEmptyLines: false }).data;
+      } catch (e) {
+        return { error: e.message };
+      }
+    }
+
+    function safeCell(rows, r, c, fallback = '—') {
+      if (!Array.isArray(rows)) return fallback;
+      if (!rows[r]) return fallback;
+      const v = rows[r][c];
+      if (v === undefined || v === null || v === '') return fallback;
+      return v;
+    }
+
+    function isError(rows) {
+      return rows && typeof rows === 'object' && !Array.isArray(rows) && rows.error;
+    }
+
+    function unavailableSection(title, errorMsg) {
+      return '<h2>' + title + '</h2><div class="list-card empty">Data unavailable: ' + errorMsg + '</div>';
+    }
+
+    function escapeHTML(s) {
+      if (s === null || s === undefined) return '';
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
     /* ─── localStorage helpers (v6 contract preserved) ─ */
@@ -1112,35 +1329,60 @@
       clearError();
       log('fetching state from', STATE_URL);
 
-      var url = STATE_URL + '?t=' + Date.now();
-      fetch(url, { cache: 'no-store' })
+      // v8 — fetch state JSON + 4 Sheets CSVs in parallel.
+      // State is wrapped to never throw so a state failure does not block CSV rendering.
+      // fetchCSV already swallows its own errors and returns { error }.
+      var stateP = fetch(STATE_URL + '?t=' + Date.now(), { cache: 'no-store' })
         .then(function(res){
           if (!res.ok) throw new Error('HTTP ' + res.status + ' ' + res.statusText);
           return res.json();
         })
-        .then(function(state){
-          log('state loaded; generated_at=' + state.generated_at);
-          window._lastState = state;  // cached for AI Advisor context
-          renderAll(state);
-        })
-        .catch(function(err){
-          warn('state fetch failed', err);
-          showError('Could not load viador_state.json: ' + err.message + '. Sections below show fallback states. Click Refresh Data to retry.');
-          renderAll(null);  // triggers fallback states section-by-section
-        })
-        .finally(function(){
-          if (btn){ btn.classList.remove('refreshing'); btn.textContent = 'Refresh Data'; }
-        });
+        .then(function(s){ return { ok: true, state: s }; })
+        .catch(function(e){ return { ok: false, error: e }; });
+
+      Promise.all([
+        stateP,
+        fetchCSV(CSV_URLS.dashboard),
+        fetchCSV(CSV_URLS.smartleadClean),
+        fetchCSV(CSV_URLS.ga4Clean),
+        fetchCSV(CSV_URLS.ga4Organic)
+      ]).then(function(results){
+        var stateRes = results[0];
+        var sheets = {
+          dashboard: results[1],
+          smartlead: results[2],
+          ga4:       results[3],
+          organic:   results[4]
+        };
+        if (stateRes.ok) {
+          log('state loaded; generated_at=' + stateRes.state.generated_at);
+          window._lastState = stateRes.state;  // cached for AI Advisor context
+          renderAll(stateRes.state, sheets);
+        } else {
+          warn('state fetch failed', stateRes.error);
+          showError('Could not load viador_state.json: ' + stateRes.error.message + '. Sections below show fallback states. Click Refresh Data to retry.');
+          renderAll(null, sheets);  // sheets sections still render
+        }
+      }).catch(function(err){
+        // Only fires if Promise.all itself fails (shouldn't, since all fetches are wrapped).
+        warn('loadState unexpected failure', err);
+        renderAll(null, {});
+      }).finally(function(){
+        if (btn){ btn.classList.remove('refreshing'); btn.textContent = 'Refresh Data'; }
+      });
     }
 
-    function renderAll(state){
+    function renderAll(state, sheets){
+      sheets = sheets || {};
       // Each tab renderer is defensive: if state is null or a field is missing,
       // that section shows an inline error instead of throwing.
-      try { renderHomeTab(state); }     catch(e){ warn('renderHomeTab crashed', e); }
+      try { renderHomeTab(state, sheets); }     catch(e){ warn('renderHomeTab crashed', e); }
       try { renderNDVTab(state); }      catch(e){ warn('renderNDVTab crashed', e); }
       try { renderPipelineTab(state); } catch(e){ warn('renderPipelineTab crashed', e); }
       try { renderStrategyTab(state); } catch(e){ warn('renderStrategyTab crashed', e); }
       try { renderBreakEvenText(state); } catch(e){ warn('renderBreakEvenText crashed', e); }
+      // v8 — Sheets connection-status footer line below dashboard content
+      try { renderSheetsFooterIntoDOM(sheets); } catch(e){ warn('renderSheetsFooterIntoDOM crashed', e); }
       // Organic tab is 100% placeholders, no render needed.
     }
 
@@ -1157,7 +1399,8 @@
     }
 
     /* ─── HOME TAB ───────────────────────────────────── */
-    function renderHomeTab(state){
+    function renderHomeTab(state, sheets){
+      sheets = sheets || {};
       renderMissionCritical(state);
       renderLaunchReadiness(state);
       renderPriorityStack(state);
@@ -1165,7 +1408,28 @@
       renderWaveReadiness(state);
       renderOrganicSignal(state);
       renderPipelineMini(state);
+      // v8 — Sheets-driven sections inserted between pipeline preview and event log
+      renderSheetsSections(sheets);
       renderRecentEventLog(state);
+    }
+
+    // v8 — bind the 5 verbatim Sheets renderers to their container divs
+    function renderSheetsSections(sheets){
+      var setHTML = function(id, html){
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      };
+      setHTML('sheets-outbound', renderOutbound(sheets.dashboard));
+      setHTML('sheets-website',  renderWebsiteBehavior(sheets.dashboard));
+      setHTML('sheets-organic',  renderOrganic(sheets.dashboard, sheets.organic));
+      setHTML('sheets-funnel',   renderFunnelReality(sheets.dashboard));
+      setHTML('sheets-signals',  renderKeySignals(sheets.dashboard));
+    }
+
+    function renderSheetsFooterIntoDOM(sheets){
+      var el = document.getElementById('sheets-footer-line');
+      if (!el) return;
+      el.innerHTML = renderSheetsFooter(sheets || {});
     }
 
     // Mission Critical bar — from mission_critical_dates + status_strip
@@ -1501,6 +1765,217 @@
         warn('renderRelationshipCards error', e);
         el.innerHTML = '<div class="section-error">Render error: ' + esc(e.message) + '</div>';
       }
+    }
+
+    /* ─── v8 — Sheets-driven render functions (verbatim from staged hybrid file) ───
+       These produce HTML strings that renderSheetsSections() writes into the
+       #sheets-outbound / #sheets-website / #sheets-organic / #sheets-funnel /
+       #sheets-signals containers. CSS for the class names below lives in the
+       v8 CSS block at the top of the file. */
+
+    // Section 1 — Outbound Performance
+    // Source: Dashboard tab rows 4-9 (totals) + row 13 (campaign breakdown for bounce)
+    function renderOutbound(rows) {
+      if (isError(rows)) return unavailableSection('Outbound performance', rows.error);
+      const sent      = safeCell(rows, 3, 1, 0);
+      const opened    = safeCell(rows, 4, 1, 0);
+      const clicked   = safeCell(rows, 5, 1, 0);
+      const replied   = safeCell(rows, 6, 1, 0);
+      const replyRate = safeCell(rows, 7, 1);
+      const clickRate = safeCell(rows, 8, 1);
+      const bounced   = safeCell(rows, 12, 5, 0);
+      return '' +
+        '<h2>Outbound performance (SmartLead, last 7d)</h2>' +
+        '<div class="status-strip">' +
+          '<div class="stat-card"><div class="label">Sent</div><div class="value">' + sent + '</div></div>' +
+          '<div class="stat-card"><div class="label">Opened</div><div class="value">' + opened + '</div></div>' +
+          '<div class="stat-card"><div class="label">Clicked</div><div class="value">' + clicked + '</div></div>' +
+          '<div class="stat-card"><div class="label">Replied</div><div class="value">' + replied + '</div></div>' +
+        '</div>' +
+        '<div class="list-card" style="margin-top: -16px; margin-bottom: 16px;">' +
+          '<div style="font-size: 13px;">' +
+            'Reply rate: <strong>' + replyRate + '</strong> · ' +
+            'Click rate: <strong>' + clickRate + '</strong> · ' +
+            'Bounced: <strong>' + bounced + '</strong>' +
+          '</div>' +
+        '</div>';
+    }
+
+    // Section 2 — Website Behavior
+    // Source: Dashboard tab rows 24-29
+    function renderWebsiteBehavior(rows) {
+      if (isError(rows)) return unavailableSection('Website behavior (GA4)', rows.error);
+      const total       = safeCell(rows, 23, 1, 0);
+      const structureSs = safeCell(rows, 24, 1, 0);
+      const cashFlow    = safeCell(rows, 25, 1, 0);
+      const ohWave      = safeCell(rows, 26, 1, 0);
+      const avgEng      = safeCell(rows, 27, 1, 0);
+      const conv        = safeCell(rows, 28, 1, 0);
+      const avgEngFmt   = (typeof avgEng === 'number' ? avgEng.toFixed(0) + 's' : (parseFloat(avgEng) ? parseFloat(avgEng).toFixed(0) + 's' : avgEng));
+      const convNum     = parseFloat(conv) || 0;
+      return '' +
+        '<h2>Website behavior (GA4, last 28d)</h2>' +
+        '<div class="status-strip">' +
+          '<div class="stat-card"><div class="label">Total sessions</div><div class="value">' + total + '</div></div>' +
+          '<div class="stat-card"><div class="label">Avg engagement</div><div class="value">' + avgEngFmt + '</div></div>' +
+          '<div class="stat-card"><div class="label">/structure</div><div class="value">' + structureSs + '</div></div>' +
+          '<div class="stat-card"><div class="label">Wave 1 pages</div><div class="value">' + ohWave + '</div><div class="sub">/oh-wave1 + /lp/oh-wave1</div></div>' +
+        '</div>' +
+        '<div class="list-card" style="margin-top: -16px; margin-bottom: 16px;">' +
+          '<div style="font-size: 13px;">' +
+            '/cash-flow-reset sessions: <strong>' + cashFlow + '</strong> · ' +
+            'Conversions / key events: <strong>' + conv + '</strong>' +
+            (convNum === 0 ? ' <span class="tag tag-INFERRED">Not wired in GA4</span>' : '') +
+          '</div>' +
+        '</div>';
+    }
+
+    // Section 3 — Organic Traffic
+    // Source: Dashboard tab rows 65-67 (By Website) + GA4_Organic_Clean (Top Pages)
+    function renderOrganic(dashRows, organicRows) {
+      if (isError(dashRows)) return unavailableSection('Organic traffic', dashRows.error);
+      const ndvSess     = safeCell(dashRows, 64, 1, 0);
+      const viadorSess  = safeCell(dashRows, 65, 1, 0);
+      const viadorEng   = safeCell(dashRows, 65, 3, '—');
+      const viaScoreNote = safeCell(dashRows, 66, 1, 'no GA4 property');
+      const viadorEngFmt = (typeof viadorEng === 'number' ? viadorEng.toFixed(0) + 's' : (parseFloat(viadorEng) ? parseFloat(viadorEng).toFixed(0) + 's' : viadorEng));
+
+      const byWebsite = '<div class="list-card"><ul>' +
+          '<li><strong>NDV</strong> — ' + ndvSess + ' sessions</li>' +
+          '<li><strong>Viador</strong> — ' + viadorSess + ' sessions · ' + viadorEngFmt + ' avg engagement</li>' +
+          '<li><strong>ViaScore</strong> — ' + escapeHTML(viaScoreNote) + ' <span class="tag tag-BLOCKED">tracking gap</span></li>' +
+        '</ul></div>';
+
+      let topPages = '<div class="list-card empty">Top pages unavailable</div>';
+      if (Array.isArray(organicRows) && organicRows.length > 1) {
+        const data = organicRows.slice(1).filter(function(r) { return r && r[2]; }).slice(0, 5);
+        if (data.length > 0) {
+          const items = data.map(function(r) {
+            const page = escapeHTML(r[2] || '');
+            const site = escapeHTML(r[1] || '');
+            const sess = r[5] || 0;
+            const eng = r[7] || 0;
+            const engNum = parseFloat(eng) || 0;
+            return '<li><strong>' + page + '</strong> <span style="color: var(--vp-muted);">(' + site + ')</span> — ' + sess + ' sessions · ' + engNum.toFixed(0) + 's avg</li>';
+          }).join('');
+          topPages = '<div class="list-card"><ul>' + items + '</ul></div>';
+        }
+      } else if (isError(organicRows)) {
+        topPages = '<div class="list-card empty">Top pages unavailable: ' + escapeHTML(organicRows.error) + '</div>';
+      }
+
+      return '' +
+        '<h2>Organic traffic (GA4, medium=organic, 28d)</h2>' +
+        '<div class="two-col">' +
+          '<div>' +
+            '<div style="font-size: 12px; color: var(--vp-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">By website</div>' +
+            byWebsite +
+          '</div>' +
+          '<div>' +
+            '<div style="font-size: 12px; color: var(--vp-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">Top organic landing pages</div>' +
+            topPages +
+          '</div>' +
+        '</div>';
+    }
+
+    // Section 4 — Funnel Reality Check
+    // Source: Dashboard tab rows 32-35
+    function renderFunnelReality(rows) {
+      if (isError(rows)) return unavailableSection('Funnel reality check', rows.error);
+      const slClicks = safeCell(rows, 31, 1, 0);
+      const ga4Sess  = safeCell(rows, 32, 1, 0);
+      const gap      = safeCell(rows, 33, 1, 0);
+      const flagText = safeCell(rows, 34, 1, '');
+      const slNum    = parseFloat(slClicks) || 0;
+      const gaNum    = parseFloat(ga4Sess) || 0;
+      const showFlag = (gaNum > slNum && gaNum > 1) || /possible link friction/i.test(flagText);
+      const displayFlag = flagText || 'Possible link friction or copy/paste/direct navigation behavior.';
+      return '' +
+        '<h2>Funnel reality check (clicks vs visits)</h2>' +
+        '<div class="pipeline-card">' +
+          '<div class="funnel-grid">' +
+            '<div>' +
+              '<div class="funnel-label">SmartLead clicks</div>' +
+              '<div class="funnel-value">' + slClicks + '</div>' +
+              '<div class="funnel-sub">last 7 days</div>' +
+            '</div>' +
+            '<div>' +
+              '<div class="funnel-label">GA4 campaign-page visits</div>' +
+              '<div class="funnel-value">' + ga4Sess + '</div>' +
+              '<div class="funnel-sub">last 28 days · /oh-wave1 + /lp/oh-wave1</div>' +
+            '</div>' +
+            '<div>' +
+              '<div class="funnel-label">Click-to-visit gap</div>' +
+              '<div class="funnel-value">' + gap + '</div>' +
+              '<div class="funnel-sub">' + (showFlag ? 'flag fired' : 'within tolerance') + '</div>' +
+            '</div>' +
+          '</div>' +
+          (showFlag ? '<div class="deal-blocker">' + escapeHTML(displayFlag) + '</div>' : '') +
+        '</div>';
+    }
+
+    // Section 5 — Key Signals / Alerts
+    // Source: Dashboard tab rows 87-89 (organic flags) + computed signals from rows 4-9 + row 28
+    function renderKeySignals(rows) {
+      if (isError(rows)) return unavailableSection('Key signals', rows.error);
+      const highEng    = safeCell(rows, 87, 1, '');
+      const highTrLow  = safeCell(rows, 86, 1, '');
+      const noConv     = safeCell(rows, 88, 1, '');
+      const ga4Conv    = parseFloat(safeCell(rows, 28, 1, 0)) || 0;
+      const sent       = parseFloat(safeCell(rows, 3, 1, 0)) || 0;
+      const opened     = parseFloat(safeCell(rows, 4, 1, 0)) || 0;
+      const replied    = parseFloat(safeCell(rows, 6, 1, 0)) || 0;
+      const clicked    = parseFloat(safeCell(rows, 5, 1, 0)) || 0;
+
+      const alerts = [];
+
+      // Sheet-derived flags
+      if (highEng && highEng !== '—' && highEng.length > 0) {
+        alerts.push({ tag: 'CONFIRMED', text: 'High-engagement organic pages: ' + escapeHTML(highEng) });
+      }
+      if (highTrLow && highTrLow !== '—' && highTrLow.length > 0) {
+        alerts.push({ tag: 'BLOCKED', text: 'High traffic / low engagement: ' + escapeHTML(highTrLow) });
+      }
+      if (noConv && noConv !== '—' && noConv.length > 0) {
+        alerts.push({ tag: 'BLOCKED', text: 'High-traffic page with no conversions: ' + escapeHTML(noConv) });
+      }
+
+      // Computed signals
+      if (sent > 50 && opened > 0 && replied === 0) {
+        alerts.push({ tag: 'BLOCKED', text: 'High opens (' + opened + ') / zero replies — review email body, CTA, or segment fit' });
+      }
+      if (sent > 50 && clicked > 0 && clicked < (opened * 0.01)) {
+        alerts.push({ tag: 'INFERRED', text: 'Click rate below 1% of opens — possible link friction' });
+      }
+      if (ga4Conv === 0) {
+        alerts.push({ tag: 'INFERRED', text: 'GA4 conversion / key events not wired — cross-reference HubSpot for true conversion intent' });
+      }
+      alerts.push({ tag: 'BLOCKED', text: 'ViaScore GA4 tracking gap — no property installed on viascore.ai' });
+
+      if (alerts.length === 0) {
+        return '<h2>Key signals / alerts</h2><div class="list-card empty">No alerts firing</div>';
+      }
+
+      const items = alerts.map(function(a) {
+        return '<li><span class="tag tag-' + a.tag + '" style="margin-right: 8px;">' + a.tag + '</span> ' + a.text + '</li>';
+      }).join('');
+      return '<h2>Key signals / alerts</h2><div class="list-card"><ul>' + items + '</ul></div>';
+    }
+
+    // Footer line: which Sheets are connected, last fetch
+    function renderSheetsFooter(sheets) {
+      const status = function(label, rows) {
+        if (isError(rows)) return label + ': <span style="color: var(--vp-blocked-text);">' + escapeHTML(rows.error) + '</span>';
+        if (Array.isArray(rows)) return label + ': <span style="color: var(--vp-confirmed-text);">connected (' + rows.length + ' rows)</span>';
+        return label + ': —';
+      };
+      return '<div class="sheets-footer">' +
+        'Sheets data layer · ' +
+        status('Dashboard', sheets.dashboard) + ' · ' +
+        status('SmartLead_Clean', sheets.smartlead) + ' · ' +
+        status('GA4_Clean', sheets.ga4) + ' · ' +
+        status('GA4_Organic_Clean', sheets.organic) +
+        '</div>';
     }
 
     /* ─── P&L & Runway (preserved from v6 verbatim behavior) ─
