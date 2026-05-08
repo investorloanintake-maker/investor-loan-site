@@ -18,25 +18,25 @@
   <style>
     .tto{background:var(--ink);color:var(--cream);min-height:100vh}
     .tto-hero{padding:120px 20px 50px;text-align:center}
-    .tto-h1{font-family:'Fraunces',serif;font-size:clamp(32px,6vw,56px);font-weight:900;color:#fff;margin:0 0 12px;letter-spacing:-0.02em}
+    .tto-h1{font-family:'Inter',system-ui,sans-serif;font-size:clamp(32px,6vw,56px);font-weight: 700;color:#fff;margin:0 0 12px;letter-spacing:-0.02em}
     .tto-sub{font-size:17px;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto 32px;line-height:1.6;font-weight:300}
     .tto-props{display:flex;justify-content:center;gap:32px;margin-bottom:40px;flex-wrap:wrap}
     .tto-prop{display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(255,255,255,0.6)}
     .tto-prop-icon{font-size:20px}
     .tto-form{max-width:480px;margin:0 auto}
-    .tto-input{width:100%;padding:16px 18px;border:1px solid rgba(0,0,0,0.15);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:16px;background:#fff;color:#1a1a1a;outline:none;box-sizing:border-box}
+    .tto-input{width:100%;padding:16px 18px;border:1px solid rgba(0,0,0,0.15);border-radius:8px;font-family:'Inter',system-ui,sans-serif;font-size:16px;background:#fff;color:#1a1a1a;outline:none;box-sizing:border-box}
     .tto-input::placeholder{color:#888}
-    .tto-btn{width:100%;margin-top:12px;padding:16px;background:var(--gold);color:#fff;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:600;cursor:pointer}
+    .tto-btn{width:100%;margin-top:12px;padding:16px;background:var(--gold);color:#fff;border:none;border-radius:8px;font-family:'Inter',system-ui,sans-serif;font-size:16px;font-weight:600;cursor:pointer}
     .tto-btn:hover{background:var(--gold-light)}
     .tto-btn:disabled{opacity:0.5;cursor:not-allowed}
     .tto-wrap{max-width:700px;margin:0 auto;padding:0 20px 80px}
     .tto-section{padding-top:32px}
-    .tto-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+    .tto-label{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
     .tto-card{background:#1a1c24;border:1px solid rgba(191, 144, 32,0.15);border-radius:10px;padding:20px;margin-bottom:16px}
     .tto-grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     .tto-metric{text-align:center;padding:14px;background:rgba(255,255,255,0.03);border-radius:8px}
     .tto-metric-label{font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:4px}
-    .tto-metric-val{font-family:'DM Mono',monospace;font-size:20px;font-weight:700;color:#fff}
+    .tto-metric-val{font-family:'Inter',system-ui,sans-serif;font-size:20px;font-weight:700;color:#fff}
     .tto-green{color:#4ade80!important}
     .tto-gold{color:var(--gold)!important}
     .tto-red{color:#fc6060!important}
@@ -165,7 +165,7 @@
             <div style="font-size:10px;color:#fc6060;font-weight:700;text-transform:uppercase;margin-bottom:8px">Before</div>
             <div id="blend-before-items" style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.8"></div>
             <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:8px;margin-top:8px">
-              <div style="font-family:'DM Mono',monospace;font-size:18px;font-weight:700;color:#fc6060" id="blend-before-total"></div>
+              <div style="font-family:'Inter',system-ui,sans-serif;font-size:18px;font-weight:700;color:#fc6060" id="blend-before-total"></div>
               <div style="font-size:11px;color:rgba(255,255,255,0.4)">Blended: <span id="blend-before-rate" style="color:#fc6060;font-weight:700"></span></div>
             </div>
           </div>
@@ -173,7 +173,7 @@
             <div style="font-size:10px;color:#4ade80;font-weight:700;text-transform:uppercase;margin-bottom:8px">After Refi</div>
             <div id="blend-after-items" style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.8"></div>
             <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:8px;margin-top:8px">
-              <div style="font-family:'DM Mono',monospace;font-size:18px;font-weight:700;color:#4ade80" id="blend-after-total"></div>
+              <div style="font-family:'Inter',system-ui,sans-serif;font-size:18px;font-weight:700;color:#4ade80" id="blend-after-total"></div>
               <div style="font-size:11px;color:rgba(255,255,255,0.4)">Rate: <span style="color:#4ade80;font-weight:700">7.25%</span></div>
             </div>
           </div>
@@ -190,7 +190,7 @@
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
           <div style="font-size:12px;color:rgba(255,255,255,0.5);min-width:160px">Apply to principal:</div>
           <input type="range" id="extra-slider" min="0" max="1000" step="25" value="0" oninput="updatePayoff()" style="flex:1;accent-color:var(--gold)">
-          <div style="font-family:'DM Mono',monospace;font-size:14px;font-weight:600;color:var(--gold);min-width:70px;text-align:right" id="extra-val">$0</div>
+          <div style="font-family:'Inter',system-ui,sans-serif;font-size:14px;font-weight:600;color:var(--gold);min-width:70px;text-align:right" id="extra-val">$0</div>
         </div>
         <div class="tto-grid2" style="margin-bottom:14px">
           <div class="tto-metric"><div class="tto-metric-label">Standard Payoff</div><div class="tto-metric-val" id="std-date" style="color:rgba(255,255,255,0.5)"></div></div>
@@ -220,7 +220,7 @@
 
   <!-- SECTION 5: Email Capture -->
   <div class="tto-email-box" id="tto-email-section">
-    <div style="font-family:'Fraunces',serif;font-size:18px;color:#fff;margin-bottom:4px">Want a full breakdown sent to you?</div>
+    <div style="font-family:'Inter',system-ui,sans-serif;font-size:18px;color:#fff;margin-bottom:4px">Want a full breakdown sent to you?</div>
     <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:12px">We'll also reach out if there's a better option for your situation.</div>
     <div class="tto-email-row"><input type="email" id="tto-email" placeholder="you@email.com" style="flex:1;padding:12px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(191, 144, 32,0.3);border-radius:6px;color:#fff;font-size:15px;outline:none"><button onclick="captureEmail()" style="padding:12px 20px;background:var(--gold);color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap">Send My Analysis &rarr;</button></div>
     <div id="tto-email-msg" style="display:none;color:#4ade80;font-size:13px;margin-top:10px"></div>
@@ -228,9 +228,9 @@
 
   <!-- SECTION 6: CTA -->
   <div class="tto-cta-box">
-    <div style="font-family:'Fraunces',serif;font-size:22px;color:#fff;margin-bottom:8px">Ready to lock in a lower DSCR rate?</div>
+    <div style="font-family:'Inter',system-ui,sans-serif;font-size:22px;color:#fff;margin-bottom:8px">Ready to lock in a lower DSCR rate?</div>
     <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:20px;line-height:1.5">Viador Partners specializes in DSCR refinancing for rental property investors.<br>No W-2. No tax returns. 24-hour file review.<br>NMLS #2822744 &middot; chad@viadorpartners.com</div>
-    <a href="index.html#dealform" style="display:inline-block;padding:14px 32px;background:var(--gold);color:#fff;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;font-family:'DM Sans',sans-serif">Submit My Investment Property for Review &rarr;</a>
+    <a href="index.html#dealform" style="display:inline-block;padding:14px 32px;background:var(--gold);color:#fff;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;font-family:'Inter',system-ui,sans-serif">Submit My Investment Property for Review &rarr;</a>
     <div style="margin-top:12px"><a href="tel:8134192983" style="color:rgba(255,255,255,0.4);font-size:14px;text-decoration:none">(813) 419-2983</a></div>
   </div>
 

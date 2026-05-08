@@ -1,0 +1,2646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Command Center | Viador Partners</title>
+  <meta name="robots" content="noindex, nofollow"/>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  GOOGLE SHEET STRUCTURE — "Viador Command Center"
+  ═══════════════════════════════════════════════════════════════
+
+  Tab 1 — "KPIs" (A1:E100):
+  Row 1: Week | Deals Pipeline | Leads This Week | LinkedIn Impressions
+  Row 2+: Weekly data (most recent at top)
+
+  Tab 2 — "Pipeline" (A1:G100):
+  Row 1: Lead Name | Source | Loan Type | Amount | Stage | Next Action | Expected Close
+  Row 2+: Active deals
+
+  Tab 3 — "Marketing" (A1:H100):
+  Row 1: Campaign | Channel | Spend | Leads | CPL | Closed | Revenue | ROI
+  Row 2+: Campaign data
+
+  Tab 4 — "Actuals" (A1:D100):
+  Row 1: Month | Actual Revenue | Projected Revenue | Variance
+  Row 2+: Monthly actuals vs projections
+
+  Tab 5 — "Notes" (A1:B100):
+  Row 1: Date | Note
+  Row 2+: Running notes
+  ═══════════════════════════════════════════════════════════════
+-->
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --bg:       #1C1C1C;
+      --bg2:      #252525;
+      --bg3:      #2E2E2E;
+      --gold:     #BF9020;
+      --gold-lt:  #D9A84A;
+      --gold-f:   rgba(191,144,32,0.12);
+      --text:     #F5F3EE;
+      --text-dim: #888888;
+      --text-mid: rgba(255,255,255,0.65);
+      --line:     rgba(191,144,32,0.2);
+      --green:    #2E7D32;
+      --red:      #CC3333;
+      --blue:     #58A6FF;
+      --font:     'DM Sans', system-ui, sans-serif;
+      --font-d:   'Fraunces', Georgia, serif;
+      --font-m:   'DM Mono', monospace;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ── Password Gate ──────────────────────────────── */
+    #gate {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .gate-box {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 48px 40px;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    .gate-mark {
+      width: 56px;
+      height: 56px;
+      background: var(--gold);
+      color: var(--bg);
+      font-family: var(--font-d);
+      font-size: 28px;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .gate-title {
+      font-family: var(--font-d);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .gate-sub {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 28px;
+    }
+    .gate-input {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 15px;
+      outline: none;
+      transition: border-color .2s;
+      margin-bottom: 16px;
+    }
+    .gate-input:focus { border-color: var(--gold); }
+    .gate-input::placeholder { color: var(--text-dim); }
+    .gate-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .gate-btn:hover { background: var(--gold-lt); }
+    .gate-err {
+      color: var(--red);
+      font-size: 13px;
+      margin-top: 12px;
+      display: none;
+    }
+
+    /* ── Dashboard Shell ────────────────────────────── */
+    #dash { display: none; }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 10;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 14px; }
+    .topbar-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--gold);
+      color: var(--bg);
+      font-family: var(--font-d);
+      font-size: 18px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .topbar-title {
+      font-family: var(--font-d);
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .topbar-title span { color: var(--gold); }
+    .topbar-right { display: flex; align-items: center; gap: 16px; }
+    .topbar-date {
+      font-family: var(--font-m);
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+    .topbar-logout {
+      padding: 7px 16px;
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--text-dim);
+      font-family: var(--font);
+      font-size: 12px;
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .topbar-logout:hover { border-color: var(--gold); color: var(--gold); }
+
+    .dash-body { max-width: 1280px; margin: 0 auto; padding: 32px; }
+
+    /* ── Section Headers ────────────────────────────── */
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .section-head h2 {
+      font-family: var(--font-d);
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+    .section-label {
+      font-family: var(--font-m);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── Status Bar ─────────────────────────────────── */
+    .status-bar {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 14px 20px;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+    .status-text { font-size: 13px; color: var(--text-mid); }
+    .status-text strong { color: var(--text); font-weight: 500; }
+
+    /* ── Setup Panel ────────────────────────────────── */
+    .setup-panel {
+      background: var(--bg2);
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .setup-panel h3 {
+      font-family: var(--font-d);
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: var(--gold);
+    }
+    .setup-panel p {
+      font-size: 13px;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+    .setup-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: var(--font-m);
+      font-size: 13px;
+      outline: none;
+      margin: 12px 0;
+    }
+    .setup-input:focus { border-color: var(--gold); }
+    .setup-input::placeholder { color: var(--text-dim); }
+
+    /* ── KPI Cards Grid ─────────────────────────────── */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .kpi-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 32px 28px 28px;
+      position: relative;
+      transition: border-color .2s;
+    }
+    .kpi-card:hover { border-color: rgba(191, 144, 32,0.3); }
+    .kpi-label {
+      font-family: var(--font);
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--text-mid);
+      margin-bottom: 16px;
+    }
+    .kpi-value {
+      font-family: var(--font-d);
+      font-size: 52px;
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .kpi-delta {
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .kpi-delta.up { color: var(--green); }
+    .kpi-delta.down { color: var(--red); }
+    .kpi-delta.neutral { color: var(--text-dim); }
+    .kpi-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 20px;
+      opacity: 0.5;
+    }
+
+    /* ── Quick Links Grid ───────────────────────────── */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .link-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      padding: 28px 20px;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color .2s, transform .15s;
+    }
+    .link-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .link-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .link-icon.hs  { background: rgba(255,122,69,0.12); color: #FF7A45; }
+    .link-icon.ga  { background: rgba(88,166,255,0.12); color: #58A6FF; }
+    .link-icon.gsc { background: rgba(62,207,142,0.12); color: #3ECF8E; }
+    .link-icon.gbp { background: rgba(191, 144, 32,0.12); color: var(--gold); }
+    .link-name { font-size: 14px; font-weight: 500; }
+    .link-desc { font-size: 11px; color: var(--text-dim); text-align: center; line-height: 1.5; }
+
+    /* ── Data Tables ────────────────────────────────── */
+    .data-table {
+      width: 100%;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+    }
+    .data-table thead { background: var(--bg3); }
+    .data-table th {
+      font-family: var(--font-m);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 14px 20px;
+      text-align: left;
+      font-weight: 400;
+    }
+    .data-table td {
+      padding: 14px 20px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+    }
+    .data-table .row-date {
+      font-family: var(--font-m);
+      color: var(--text-dim);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    /* ── Stage Badges ───────────────────────────────── */
+    .stage-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .stage-inquiry { background: rgba(255,255,255,0.08); color: var(--text-dim); }
+    .stage-active { background: var(--gold-f); color: var(--gold); }
+    .stage-submitted { background: rgba(88,166,255,0.12); color: var(--blue); }
+    .stage-approved { background: rgba(62,207,142,0.12); color: var(--green); }
+    .stage-closed { background: rgba(62,207,142,0.2); color: #2aa06d; }
+
+    /* ── Actions ────────────────────────────────────── */
+    .log-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      margin-bottom: 40px;
+    }
+    .log-btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .2s;
+      border: none;
+    }
+    .log-btn.primary { background: var(--gold); color: #fff; }
+    .log-btn.primary:hover { background: var(--gold-lt); }
+    .log-btn.secondary { background: var(--bg3); color: var(--text-mid); border: 1px solid var(--line); }
+    .log-btn.secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── Notes Feed ─────────────────────────────────── */
+    .notes-feed {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+    .note-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .note-item:last-child { border-bottom: none; }
+    .note-date {
+      font-family: var(--font-m);
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+    .note-text {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* ── Legacy Notes Box ───────────────────────────── */
+    .notes-box {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+    .notes-box textarea {
+      width: 100%;
+      min-height: 120px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 14px;
+      line-height: 1.6;
+      resize: vertical;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .notes-box textarea:focus { border-color: var(--gold); }
+    .notes-label {
+      font-family: var(--font-m);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+    .notes-saved {
+      font-size: 12px;
+      color: var(--green);
+      margin-top: 10px;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    /* ── AI Advisor Panel ────────────────────────────── */
+    .ai-panel {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ai-panel.loading {
+      animation: border-pulse 2s ease-in-out infinite;
+    }
+    @keyframes border-pulse {
+      0%, 100% { border-color: rgba(191, 144, 32,0.15); }
+      50% { border-color: rgba(191, 144, 32,0.6); }
+    }
+    .ai-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .ai-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-m);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .ai-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .ai-panel.loading .ai-dot { animation: pulse 1s ease-in-out infinite; }
+    .ai-btn {
+      padding: 10px 22px;
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .2s, opacity .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ai-btn:hover { background: var(--gold-lt); }
+    .ai-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .ai-btn svg { width: 16px; height: 16px; }
+    .ai-output {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 24px;
+      min-height: 60px;
+      display: none;
+    }
+    .ai-output.visible { display: block; }
+    .ai-output h3 {
+      font-family: var(--font-d);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 20px 0 10px;
+    }
+    .ai-output h3:first-child { margin-top: 0; }
+    .ai-output p, .ai-output li {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .ai-output ul { padding-left: 20px; margin: 6px 0 16px; }
+    .ai-output li { margin-bottom: 8px; }
+    .ai-output strong { color: var(--text); font-weight: 500; }
+    .ai-output em { color: var(--gold-lt); font-style: normal; }
+    .ai-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 16px;
+      background: var(--gold);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink 0.6s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .ai-timestamp {
+      font-family: var(--font-m);
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    /* ── Quick Links Compact ───────────────────────── */
+    .ql-group-label {
+      font-family: var(--font-m);
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+    .ql-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .ql-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color .2s, transform .12s;
+    }
+    .ql-card:hover { border-color: var(--gold); transform: translateY(-1px); }
+    .ql-card.disabled {
+      opacity: 0.4;
+      pointer-events: none;
+      cursor: default;
+    }
+    .ql-card.disabled:hover { border-color: var(--line); transform: none; }
+    .ql-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .ql-dot.gold { background: rgba(191, 144, 32,0.12); }
+    .ql-dot.blue { background: rgba(88,166,255,0.12); }
+    .ql-dot.green { background: rgba(62,207,142,0.12); }
+    .ql-dot.dim { background: rgba(255,255,255,0.04); }
+    .ql-info { flex: 1; min-width: 0; }
+    .ql-name {
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .ql-sub {
+      font-size: 10px;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
+    .ql-badge {
+      font-family: var(--font-m);
+      font-size: 8px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.06);
+      color: var(--text-dim);
+      flex-shrink: 0;
+    }
+
+    /* ── Tabs ────────────────────────────────────────── */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      padding: 0 32px;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg);
+      overflow-x: auto;
+    }
+    .tab-btn {
+      padding: 14px 24px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--text-dim);
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color .2s, border-color .2s;
+      white-space: nowrap;
+    }
+    .tab-btn:hover { color: var(--text-mid); }
+    .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── P&L Styles ─────────────────────────────────── */
+    .pl-table {
+      width: 100%;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      border-collapse: collapse;
+      margin-bottom: 32px;
+    }
+    .pl-table thead { background: var(--bg3); }
+    .pl-table th {
+      font-family: var(--font-m);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 14px 20px;
+      text-align: left;
+      font-weight: 400;
+    }
+    .pl-table td {
+      padding: 14px 20px;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+      color: var(--text);
+    }
+    .pl-table td:first-child { font-weight: 500; }
+    .pl-table .pl-revenue { color: var(--green); font-weight: 600; }
+    .pl-table .pl-expense { color: var(--text-mid); }
+    .pl-table .pl-net { color: var(--gold); font-weight: 700; font-family: var(--font-d); font-size: 16px; }
+    .pl-table .pl-margin { color: var(--green); font-family: var(--font-m); font-size: 12px; }
+
+    .chart-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .val-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .val-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+    .val-label {
+      font-family: var(--font-m);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+    .val-amount {
+      font-family: var(--font-d);
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .val-sub {
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+    .val-card.bear { border-color: rgba(229,83,75,0.2); }
+    .val-card.bear .val-amount { color: var(--text-mid); }
+    .val-card.base { border-color: rgba(191, 144, 32,0.3); }
+    .val-card.bull { border-color: rgba(62,207,142,0.2); }
+    .val-card.bull .val-amount { color: var(--green); }
+
+    .assumptions-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .assumptions-card li {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      padding-left: 8px;
+    }
+    .assumptions-card li::marker { color: var(--gold); }
+
+    .variance-pos { color: var(--green); font-weight: 500; }
+    .variance-neg { color: var(--red); font-weight: 500; }
+
+    /* ── Brief Status Bar ──────────────────────────── */
+    .brief-bar {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 12px 20px;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    .brief-bar .bb-item { display: flex; align-items: center; gap: 6px; }
+    .brief-bar .bb-val { color: var(--gold); font-family: var(--font-m); font-weight: 400; }
+    .safe-bar {
+      width: 120px;
+      height: 6px;
+      background: var(--bg3);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .safe-bar-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 3px;
+      transition: width 0.5s;
+    }
+
+    /* ── Priority Stack ─────────────────────────────── */
+    .priority-panel {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .priority-panel h3 {
+      font-family: var(--font-d);
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    .priority-item {
+      padding: 8px 0;
+      font-size: 13px;
+      color: var(--text-mid);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .priority-item:last-child { border-bottom: none; }
+    .priority-item.done { color: var(--green); text-decoration: line-through; opacity: 0.7; }
+    .priority-item .pi-check { flex-shrink: 0; width: 16px; text-align: center; }
+
+    /* ── Contact Cards ──────────────────────────────── */
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .contact-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .contact-name {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .contact-role {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+    .contact-status {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+      background: rgba(255,255,255,0.06);
+      color: var(--text-dim);
+    }
+    .contact-status.status-nda_signed { background: rgba(62,207,142,0.12); color: var(--green); }
+    .contact-status.status-call_completed_march_25_enthusiastic { background: rgba(62,207,142,0.12); color: var(--green); }
+    .contact-status.status-sprint_2 { background: var(--gold-f); color: var(--gold); }
+    .contact-status.status-sprint_3 { background: rgba(88,166,255,0.12); color: var(--blue); }
+    .contact-status.status-warm_not_contacted { background: rgba(229,83,75,0.12); color: var(--red); }
+    .contact-action {
+      font-size: 11px;
+      color: var(--gold);
+      margin-top: 4px;
+    }
+
+    /* ── Platform Cards ─────────────────────────────── */
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .platform-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 20px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color .2s;
+    }
+    .platform-card:hover { border-color: var(--gold); }
+    .platform-card .pc-name {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .platform-card .pc-domain {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: var(--font-m);
+      margin-bottom: 8px;
+    }
+    .platform-card .pc-status {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      background: rgba(62,207,142,0.12);
+      color: var(--green);
+    }
+    .platform-card .pc-stat {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 6px;
+    }
+
+    @media (max-width: 900px) {
+      .platform-grid { grid-template-columns: 1fr 1fr; }
+      .contacts-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .platform-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Setup Guide ────────────────────────────────── */
+    .setup-guide {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin-bottom: 40px;
+      overflow: hidden;
+    }
+    .setup-guide summary {
+      padding: 16px 24px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-mid);
+    }
+    .setup-guide summary:hover { color: var(--gold); }
+    .setup-guide-body {
+      padding: 0 24px 24px;
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.8;
+    }
+    .setup-guide-body ol { padding-left: 20px; }
+    .setup-guide-body code {
+      background: var(--bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: var(--font-m);
+      font-size: 12px;
+      color: var(--gold);
+    }
+
+    /* ── Footer ──────────────────────────────────────── */
+    .dash-footer {
+      text-align: center;
+      padding: 32px;
+      font-size: 11px;
+      color: var(--text-dim);
+      border-top: 1px solid var(--line);
+    }
+
+    /* ── Responsive ──────────────────────────────────── */
+    @media (max-width: 900px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .links-grid { grid-template-columns: repeat(2, 1fr); }
+      .val-grid { grid-template-columns: 1fr; }
+      .ql-grid { grid-template-columns: 1fr 1fr; }
+      .topbar { padding: 14px 20px; }
+      .tab-bar { padding: 0 20px; }
+      .dash-body { padding: 24px 16px; }
+    }
+    @media (max-width: 540px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+      .links-grid { grid-template-columns: 1fr; }
+      .ql-grid { grid-template-columns: 1fr; }
+      .data-table { font-size: 12px; }
+      .data-table th, .data-table td { padding: 10px 12px; }
+      .pl-table { font-size: 12px; }
+      .pl-table th, .pl-table td { padding: 10px 12px; }
+      .val-amount { font-size: 24px; }
+      .tab-btn { padding: 12px 16px; font-size: 12px; }
+    }
+
+    /* ── Live Data Panels ────────────────────────── */
+    .live-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:32px; }
+    .live-panel { background:var(--bg2); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+    .lp-head { display:flex; justify-content:space-between; align-items:center; padding:14px 18px; border-bottom:1px solid var(--line); }
+    .lp-title { font-family:var(--font-d); font-size:15px; font-weight:700; color:var(--text); }
+    .lp-src { font-family:var(--font-m); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-dim); }
+    .lp-body { padding:16px 18px; }
+    .lp-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.04); font-size:14px; }
+    .lp-row:last-child { border-bottom:none; }
+    .lp-row > span:first-child { color:var(--text-dim); }
+    .lp-row > span:last-child { color:var(--text); font-weight:500; text-align:right; }
+    .lp-badge { display:inline-block; padding:3px 10px; border-radius:99px; font-size:11px; font-weight:600; }
+    .lp-warn { background:rgba(191,144,32,0.2); color:var(--gold); }
+    .lp-info { background:rgba(88,166,255,0.15); color:var(--blue); }
+    .lp-dim { background:rgba(255,255,255,0.06); color:var(--text-dim); }
+    .lp-ok { background:rgba(46,125,50,0.2); color:var(--green); }
+    .lp-err { background:rgba(204,51,51,0.15); color:var(--red); }
+    .lp-placeholder { color:var(--text-dim); font-size:13px; font-style:italic; padding:12px 0; }
+    .lp-divider { border-top:1px solid var(--line); margin:10px 0; }
+    .lp-metric { text-align:center; padding:6px 0; }
+    .lp-metric-val { font-family:var(--font-d); font-size:28px; font-weight:700; color:var(--text); line-height:1; }
+    .lp-metric-label { font-size:11px; color:var(--text-dim); margin-top:4px; text-transform:uppercase; letter-spacing:.06em; }
+    .lp-metrics-row { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; }
+    .lp-side-by-side { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .lp-side-col h4 { font-family:var(--font-m); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+
+    /* ── Refresh Button Upgrade ──────────────────── */
+    #refresh-btn { background:var(--gold); color:#fff; border:none; border-radius:8px; padding:10px 20px; font-weight:600; cursor:pointer; transition:background .15s; }
+    #refresh-btn:hover { background:#a57b18; }
+    #refresh-btn.loading { opacity:0.6; pointer-events:none; }
+
+    /* ── Mobile ──────────────────────────────────── */
+    @media (max-width:640px) {
+      .live-grid { grid-template-columns:1fr; }
+      .lp-metrics-row { grid-template-columns:repeat(2,1fr); }
+      .lp-side-by-side { grid-template-columns:1fr; }
+      .lp-metric-val { font-size:32px; }
+      .lp-row { font-size:13px; }
+      .topbar { position:sticky; top:0; z-index:50; background:var(--bg); padding:12px 16px; }
+      .topbar-title span { display:none; }
+      .kpi-grid { grid-template-columns:1fr !important; }
+      .ql-grid { grid-template-columns:1fr !important; }
+      .platform-grid { grid-template-columns:1fr !important; }
+      .tab-bar { overflow-x:auto; -webkit-overflow-scrolling:touch; flex-wrap:nowrap; white-space:nowrap; }
+      .tab-btn { min-height:48px; min-width:48px; }
+      .gate-btn, .log-btn, #refresh-btn { min-height:48px; }
+    }
+
+    /* ── Phase 0 Home Components ─────────────── */
+    .mc-bar { display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap; background:var(--bg2); border:1px solid var(--line); border-radius:10px; padding:16px 24px; margin-bottom:24px; position:sticky; top:80px; z-index:40; }
+    .mc-item { text-align:center; }
+    .mc-val { font-family:var(--font-d); font-size:28px; font-weight:700; color:var(--gold); line-height:1; }
+    .mc-label { font-size:11px; color:var(--text-dim); text-transform:uppercase; letter-spacing:.06em; margin-top:4px; }
+    .mc-pill { display:inline-block; padding:6px 16px; border-radius:99px; font-size:13px; font-weight:600; background:rgba(46,125,50,0.15); color:var(--green); }
+    .lr-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+    .lr-item { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text); padding:8px 12px; background:var(--bg2); border:1px solid rgba(255,255,255,0.04); border-radius:6px; }
+    .lr-icon { font-size:16px; flex-shrink:0; }
+    .inbox-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .inbox-card { background:var(--bg2); border:1px solid var(--line); border-radius:10px; padding:16px; text-align:center; }
+    .inbox-email { font-family:var(--font-m); font-size:12px; color:var(--text-dim); margin-bottom:8px; word-break:break-all; }
+    .inbox-light { font-size:32px; margin-bottom:8px; }
+    .inbox-stats { font-size:12px; color:var(--text-dim); line-height:1.5; }
+    .wave-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .wave-card { background:var(--bg2); border:1px solid var(--line); border-radius:10px; padding:18px; }
+    .wave-name { font-family:var(--font-d); font-size:17px; font-weight:700; color:var(--text); margin-bottom:4px; }
+    .wave-count { font-size:14px; color:var(--gold); font-weight:600; }
+    .wave-date { font-size:12px; color:var(--text-dim); margin:4px 0 10px; }
+    .organic-signal { display:flex; gap:32px; padding:12px 0; font-size:14px; color:var(--text-dim); }
+    .prio-item { display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.04); font-size:14px; color:var(--text); }
+    .prio-num { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; background:var(--gold); color:#fff; font-size:13px; font-weight:700; border-radius:50%; flex-shrink:0; }
+    .pipeline-collapse { background:var(--bg2); border:1px solid var(--line); border-radius:8px; padding:0 16px; }
+    @media(max-width:640px){
+      .mc-bar{flex-direction:column;gap:12px;position:sticky;top:0;padding:12px 16px;}
+      .mc-val{font-size:24px;}
+      .lr-grid{grid-template-columns:1fr;}
+      .inbox-grid{grid-template-columns:1fr;}
+      .wave-grid{grid-template-columns:1fr;}
+      .organic-signal{flex-direction:column;gap:8px;}
+    }
+
+  </style></head>
+<body>
+
+<!-- ════════════════════════════════════════════════════
+     PASSWORD GATE
+     ════════════════════════════════════════════════════ -->
+<div id="gate">
+  <div class="gate-box">
+    <div class="gate-mark">V</div>
+    <div class="gate-title">Command Center</div>
+    <div class="gate-sub">Viador Partners — Internal Dashboard</div>
+    <form id="gate-form" onsubmit="return handleLogin()">
+      <input type="password" class="gate-input" id="gate-pw" placeholder="Enter password" autocomplete="off"/>
+      <button type="submit" class="gate-btn">Unlock</button>
+      <div class="gate-err" id="gate-err">Incorrect password. Try again.</div>
+    </form>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     DASHBOARD
+     ════════════════════════════════════════════════════ -->
+<div id="dash">
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-mark">V</div>
+      <div class="topbar-title">Viador <span>Command Center</span></div>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-date" id="topbar-date"></div>
+      <button class="log-btn secondary" onclick="refreshAllData()" id="refresh-btn">Refresh Data</button>
+      <button class="topbar-logout" onclick="handleLogout()">Lock</button>
+    </div>
+  </div>
+
+  <!-- Tab Bar -->
+    <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('home')">Home</button>
+    <button class="tab-btn" onclick="switchTab('ndv')">NDV Campaign</button>
+    <button class="tab-btn" onclick="switchTab('pipeline')">Pipeline</button>
+    <button class="tab-btn" onclick="switchTab('organic')">Organic Engine</button>
+    <button class="tab-btn" onclick="switchTab('pl')">P&amp;L &amp; Runway</button>
+    <button class="tab-btn" onclick="switchTab('strategy')">Strategy &amp; Notes</button>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       TAB: HOME — Phase 0 Command Center
+       ═══════════════════════════════════════════════ -->
+  <div class="tab-panel active" id="tab-home">
+  <div class="dash-body">
+
+    <!-- Row 1: Mission Critical Bar -->
+    <div class="mc-bar" id="mc-bar">
+      <div class="mc-item"><div class="mc-val" id="mc-launch">T-??</div><div class="mc-label">April 30 Launch</div></div>
+      <div class="mc-item"><div class="mc-val" id="mc-close">T-??</div><div class="mc-label">First Close Target</div></div>
+      <div class="mc-item"><div class="mc-pill" id="mc-health">&#x1F7E2; Checking&hellip;</div></div>
+    </div>
+
+    <!-- Row 2: Launch Readiness Checklist -->
+    <div class="section-head"><span class="section-label">April 30 Launch Readiness</span><div class="section-line"></div></div>
+    <div id="lr-progress" style="margin-bottom:16px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--text-dim);margin-bottom:6px"><span id="lr-count">Loading&hellip;</span><span id="lr-pct"></span></div>
+      <div style="background:var(--bg2);border-radius:99px;height:10px;overflow:hidden"><div id="lr-bar" style="height:100%;background:var(--gold);border-radius:99px;width:0;transition:width .5s"></div></div>
+    </div>
+    <div id="lr-blocked" style="display:none;background:rgba(204,51,51,0.1);border:1px solid rgba(204,51,51,0.3);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--red)"></div>
+    <div class="lr-grid" id="lr-grid"><div class="lp-placeholder">Loading checklist&hellip;</div></div>
+
+    <!-- Row 3: Today's Priority Stack -->
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Priority Stack</span><div class="section-line"></div></div>
+    <div id="priority-auto" class="priority-list"><div class="lp-placeholder">Computing priorities&hellip;</div></div>
+
+    <!-- Row 4: Inbox Health -->
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Inbox Health</span><div class="section-line"></div></div>
+    <div class="inbox-grid" id="inbox-grid">
+      <div class="inbox-card" id="inbox-vp"><div class="inbox-email">chad@viadorpartners.com</div><div class="inbox-light" id="inbox-vp-light">&#x26AA;</div><div class="inbox-stats" id="inbox-vp-stats">Loading&hellip;</div></div>
+      <div class="inbox-card" id="inbox-ndv1"><div class="inbox-email">chad@nextdutyvet.com</div><div class="inbox-light" id="inbox-ndv1-light">&#x26AA;</div><div class="inbox-stats" id="inbox-ndv1-stats">Loading&hellip;</div></div>
+      <div class="inbox-card" id="inbox-ndv2"><div class="inbox-email">hello@nextdutyvet.com</div><div class="inbox-light" id="inbox-ndv2-light">&#x26AA;</div><div class="inbox-stats" id="inbox-ndv2-stats">Loading&hellip;</div></div>
+    </div>
+
+    <!-- Row 5: Wave Readiness -->
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Wave Readiness</span><div class="section-line"></div></div>
+    <div class="wave-grid">
+      <div class="wave-card"><div class="wave-name">MD Wave</div><div class="wave-count">489 prime leads</div><div class="wave-date">April 30</div><div class="wave-status lp-badge lp-warn">Ready — pending MU4 approval</div></div>
+      <div class="wave-card"><div class="wave-name">OH Wave</div><div class="wave-count">776 seasoned leads</div><div class="wave-date">May 7</div><div class="wave-status lp-badge lp-dim">Queued</div></div>
+      <div class="wave-card"><div class="wave-name">FL Wave</div><div class="wave-count">4,885 prime leads</div><div class="wave-date">TBD</div><div class="wave-status lp-badge lp-info">Waiting on FL license</div></div>
+    </div>
+
+    <!-- Row 6: Organic Engine Signal -->
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Organic Signal</span><div class="section-line"></div></div>
+    <div class="organic-signal" id="organic-signal"><div class="lp-placeholder">Not connected &mdash; configure GA4 service account</div></div>
+
+    <!-- Row 7: Pipeline (collapsed) -->
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Pipeline</span><div class="section-line"></div></div>
+    <details class="pipeline-collapse" id="pipeline-preview">
+      <summary style="cursor:pointer;font-size:14px;color:var(--text-dim);padding:14px 0">Pipeline not active yet &mdash; first send April 30. Click to expand current state.</summary>
+      <div id="pipeline-mini" style="padding:8px 0"><div class="lp-placeholder">Loading&hellip;</div></div>
+    </details>
+
+  </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       TAB: NDV Campaign
+       ═══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-ndv">
+  <div class="dash-body">
+    <div class="section-head"><span class="section-label">NDV Campaign &mdash; Primary Active</span><div class="section-line"></div></div>
+
+    <div class="live-grid">
+      <!-- Meta Ads Panel -->
+      <div class="live-panel"><div class="lp-head"><span class="lp-title">Meta Ads</span><span class="lp-src">act_1970547536908108</span></div><div class="lp-body" id="ndv-meta"><div class="lp-placeholder">Loading&hellip;</div></div></div>
+      <!-- Smartlead NDV Inboxes -->
+      <div class="live-panel"><div class="lp-head"><span class="lp-title">NDV Email Outreach</span><span class="lp-src">Smartlead</span></div><div class="lp-body" id="ndv-smartlead"><div class="lp-placeholder">Loading&hellip;</div></div></div>
+    </div>
+
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Wave Deployment</span><div class="section-line"></div></div>
+    <div style="overflow-x:auto">
+    <table class="data-table" style="font-size:13px">
+      <thead><tr><th>Wave</th><th>State</th><th>Leads</th><th>Send Date</th><th>Product Mix</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td style="font-weight:600;color:var(--gold)">Wave 1</td><td>Maryland</td><td>489</td><td>April 30</td><td>IRRRL + Cash-out</td><td><span class="lp-badge lp-warn">Ready</span></td></tr>
+        <tr><td style="font-weight:600;color:var(--gold)">Wave 2</td><td>Ohio</td><td>776</td><td>May 7</td><td>IRRRL + Cash-out</td><td><span class="lp-badge lp-dim">Queued</span></td></tr>
+        <tr><td style="font-weight:600;color:var(--gold)">Wave 3</td><td>Florida</td><td>4,885</td><td>TBD</td><td>IRRRL + Cash-out + DSCR</td><td><span class="lp-badge lp-info">Waiting on license</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       TAB: Pipeline
+       ═══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-pipeline">
+  <div class="dash-body">
+    <div class="section-head"><span class="section-label">Pipeline &mdash; HubSpot</span><div class="section-line"></div></div>
+
+    <!-- First Lead: Marc Vargas -->
+    <div class="live-panel" style="margin-bottom:24px">
+      <div class="lp-head"><span class="lp-title">First Lead &mdash; Marc Vargas</span><span class="lp-src">HubSpot #470233732822</span></div>
+      <div class="lp-body">
+        <div class="lp-row"><span>Email</span><span><a href="mailto:mgvinvestments@gmail.com" style="color:var(--gold)">mgvinvestments@gmail.com</a></span></div>
+        <div class="lp-row"><span>Phone</span><span><a href="tel:+19152528219" style="color:var(--gold)">(915) 252-8219</a></span></div>
+        <div class="lp-row"><span>Property</span><span>2607 Live Oak St, Houston TX 77004</span></div>
+        <div class="lp-row"><span>Type</span><span>6-unit multifamily</span></div>
+        <div class="lp-row"><span>Deal</span><span>$840K&ndash;$900K DSCR refi</span></div>
+        <div class="lp-row"><span>DSCR</span><span style="color:var(--green);font-weight:600">1.49x</span></div>
+        <div class="lp-row"><span>Status</span><span class="lp-badge lp-warn">Pending lease confirmation + TX BPL path</span></div>
+      </div>
+    </div>
+
+    <!-- HubSpot Detail -->
+    <div class="live-panel">
+      <div class="lp-head"><span class="lp-title">All Contacts</span><span class="lp-src">HubSpot</span></div>
+      <div class="lp-body" id="pipeline-hubspot"><div class="lp-placeholder">Loading&hellip;</div></div>
+    </div>
+
+    <!-- Sheets Pipeline Table -->
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Pipeline Tracker</span><div class="section-line"></div></div>
+    <div style="overflow-x:auto"><table class="data-table" id="pipeline-table"><thead><tr><th>Lead</th><th>Source</th><th>Loan Type</th><th>Amount</th><th>Stage</th><th>Next Action</th><th>Expected Close</th></tr></thead><tbody id="pipeline-body"></tbody></table></div>
+
+    <!-- Client Lifecycle (existing) -->
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Client Lifecycle</span><div class="section-line"></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px">
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">Total Clients</div><div style="font-size:22px;font-weight:700;color:var(--text)" id="cl-total-clients">0</div></div>
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">Total Revenue</div><div style="font-size:22px;font-weight:700;color:var(--green)" id="cl-total-rev">$0</div></div>
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:14px;text-align:center"><div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">Avg Per Client</div><div style="font-size:22px;font-weight:700;color:var(--gold)" id="cl-avg-rev">$0</div></div>
+    </div>
+    <button onclick="showAddClient()" style="padding:8px 16px;background:var(--gold);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;margin-bottom:16px">+ Add Client</button>
+    <div id="cl-form" style="display:none"></div>
+    <div id="cl-cards"></div>
+  </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       TAB: Organic Engine
+       ═══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-organic">
+  <div class="dash-body">
+    <div class="section-head"><span class="section-label">Organic Engine &mdash; NDV | Viador Partners</span><div class="section-line"></div></div>
+    <div id="organic-detail">
+      <div class="lp-placeholder" style="text-align:center;padding:48px 0">Not connected &mdash; configure GA4 and GSC service accounts to see organic performance.<br><br>Tab scaffolding ready. Data will populate when GA4_SERVICE_ACCOUNT_JSON and GSC_SERVICE_ACCOUNT_JSON are set in Worker env.</div>
+    </div>
+
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Search Console</span><div class="section-line"></div></div>
+    <div id="organic-gsc"><div class="lp-placeholder">Not connected &mdash; configure GSC service account</div></div>
+
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Traffic &mdash; GA4</span><div class="section-line"></div></div>
+    <div id="organic-ga4"><div class="lp-placeholder">Not connected &mdash; configure GA4 service account</div></div>
+
+    <div class="section-head" style="margin-top:32px"><span class="section-label">Revenue Chart</span><div class="section-line"></div></div>
+    <div style="background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:20px"><canvas id="revenueChart" height="220"></canvas></div>
+  </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       TAB: P&L & Runway
+       ═══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-pl">
+  <div class="dash-body">
+
+    <div class="section-head"><span class="section-label">Viador Partners &mdash; Year 1 Proforma</span><div class="section-line"></div></div>
+    <div style="font-size:12px;color:var(--text-dim);margin-bottom:16px">Solo operator model. No office. No employees. Tech replaces overhead.</div>
+    <div style="overflow-x:auto">
+    <table class="data-table" style="font-size:12px" id="pf-table">
+      <thead><tr><th></th><th style="color:var(--text-dim)">Conservative</th><th style="color:var(--gold)">Target</th><th style="color:var(--green)">Optimistic</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--text-dim)">Loans closed/yr</td><td><input type="number" class="pf-in" id="pf-loans-1" value="20" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-loans-2" value="40" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-loans-3" value="60" onchange="calcPF()"></td></tr>
+        <tr><td style="color:var(--text-dim)">Avg loan size</td><td><input type="number" class="pf-in" id="pf-size-1" value="350000" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-size-2" value="350000" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-size-3" value="400000" onchange="calcPF()"></td></tr>
+        <tr><td style="color:var(--text-dim)">Total volume</td><td id="pf-vol-1"></td><td id="pf-vol-2"></td><td id="pf-vol-3"></td></tr>
+        <tr><td style="color:var(--text-dim)">Comp rate (bps)</td><td><input type="number" class="pf-in" id="pf-bps-1" value="250" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-bps-2" value="275" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-bps-3" value="275" onchange="calcPF()"></td></tr>
+        <tr><td style="color:var(--text-dim)">Flat fee/file</td><td><input type="number" class="pf-in" id="pf-fee-1" value="995" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-fee-2" value="995" onchange="calcPF()"></td><td><input type="number" class="pf-in" id="pf-fee-3" value="995" onchange="calcPF()"></td></tr>
+        <tr style="border-top:2px solid var(--line)"><td style="color:var(--gold);font-weight:700">Gross Revenue</td><td style="font-weight:700" id="pf-rev-1"></td><td style="font-weight:700;color:var(--gold)" id="pf-rev-2"></td><td style="font-weight:700;color:var(--green)" id="pf-rev-3"></td></tr>
+        <tr><td style="color:var(--text-dim)">Annual Expenses</td><td colspan="3" style="color:var(--red)" id="pf-exp"></td></tr>
+        <tr style="border-top:2px solid var(--line)"><td style="color:var(--green);font-weight:700">Net Pre-Tax</td><td style="font-weight:700" id="pf-net-1"></td><td style="font-weight:700;color:var(--gold)" id="pf-net-2"></td><td style="font-weight:700;color:var(--green)" id="pf-net-3"></td></tr>
+        <tr><td style="color:var(--text-dim)">Break-even loans</td><td id="pf-be-1"></td><td id="pf-be-2"></td><td id="pf-be-3"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <style>.pf-in{background:var(--bg);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:var(--text);padding:4px 6px;width:80px;font-size:12px;text-align:right;font-family:inherit}</style>
+
+    <div style="background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:14px;margin:16px 0">
+      <div style="font-size:11px;color:var(--gold);font-weight:700;margin-bottom:8px">Break-Even Reality</div>
+      <div style="font-size:13px;color:var(--text);line-height:1.6">1 IRRRL/mo at ~$350K covers $813/mo overhead. Every close beyond break-even is pure comp.</div>
+    </div>
+
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Monthly Tracker &mdash; Year 1</span><div class="section-line"></div></div>
+    <div style="overflow-x:auto"><table class="data-table" style="font-size:11px" id="mt-table"><thead><tr><th>Month</th><th>Loans</th><th>Volume</th><th>Revenue</th><th>Expenses</th><th>Net</th><th>Cumulative</th></tr></thead><tbody id="mt-body"></tbody><tfoot><tr style="font-weight:700;border-top:2px solid var(--gold)"><td>Total</td><td id="mt-t-loans"></td><td id="mt-t-vol"></td><td id="mt-t-rev"></td><td id="mt-t-exp"></td><td id="mt-t-net"></td><td></td></tr></tfoot></table></div>
+
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Personal Budget</span><div class="section-line"></div></div>
+    <div style="background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:16px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+        <span style="font-size:13px;color:var(--text-dim)">Monthly personal expenses:</span>
+        <span style="color:var(--text-dim)">$</span><input type="number" id="pb-burn" value="8000" onchange="calcPF();savePL()" style="background:var(--bg);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:var(--text);padding:6px 8px;width:80px;font-size:14px;text-align:right"><span style="color:var(--text-dim)">/mo</span>
+      </div>
+      <div style="font-size:13px;color:var(--text);line-height:1.7" id="pb-msg"></div>
+    </div>
+  </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       TAB: Strategy & Notes
+       ═══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-strategy">
+  <div class="dash-body">
+
+    <!-- Licensing Detail -->
+    <div class="section-head"><span class="section-label">Licensing Status</span><div class="section-line"></div></div>
+    <div class="live-panel" style="margin-bottom:24px">
+      <div class="lp-body">
+        <div class="lp-row"><span>Ohio</span><span class="lp-badge lp-warn">MU4 submitted &mdash; pending Jason sponsorship</span></div>
+        <div class="lp-row"><span>Maryland</span><span class="lp-badge lp-warn">MU4 submitted &mdash; pending Jason sponsorship</span></div>
+        <div class="lp-row"><span>Florida</span><span class="lp-badge lp-info">MU4 filed &mdash; waiting on FHM FL company license</span></div>
+        <div class="lp-row"><span>Tennessee</span><span class="lp-badge lp-dim">Queued</span></div>
+        <div class="lp-divider"></div>
+        <div class="lp-row"><span>First close target</span><span style="color:var(--gold);font-weight:600">May 20&ndash;30, 2026</span></div>
+        <div class="lp-row"><span>Focus agreement</span><span style="color:var(--text-dim)">In negotiation</span></div>
+        <div class="lp-row"><span>Sponsor</span><span>Jason McBride &mdash; Focus Home Mortgage Inc (NMLS #2769672)</span></div>
+      </div>
+    </div>
+
+    <!-- Key Relationships -->
+    <div class="section-head"><span class="section-label">Key Relationships</span><div class="section-line"></div></div>
+    <div id="contacts-section" style="display:none"><div id="contacts-list" class="contacts-grid"></div></div>
+
+    <!-- viascore.ai Roadmap Stub -->
+    <div class="section-head" style="margin-top:24px"><span class="section-label">viascore.ai &mdash; Stealth Roadmap</span><div class="section-line"></div></div>
+    <div style="font-size:13px;color:var(--text-dim);padding:12px 0">Scoring model rebuild queued as background work. No timeline pressure. Currently parked/stealth.</div>
+
+    <!-- Notes Feed -->
+    <div class="section-head" style="margin-top:24px"><span class="section-label">Session Notes</span><div class="section-line"></div></div>
+    <div id="notes-feed" class="notes-list"></div>
+    <textarea id="quick-note" placeholder="Quick note&hellip;" style="width:100%;margin-top:12px;background:var(--bg2);border:1px solid var(--line);border-radius:6px;color:var(--text);font-size:13px;padding:12px;height:80px;resize:vertical;font-family:var(--font)"></textarea>
+
+    <!-- Future: BPL Segmentation (collapsed) -->
+    <details style="margin-top:32px;border:1px solid var(--line);border-radius:8px;padding:2px 16px">
+      <summary style="cursor:pointer;font-size:13px;color:var(--text-dim);padding:14px 0">Future: Viador Partners BPL Segmentation (reference only)</summary>
+      <div style="font-size:12px;color:var(--text-dim);line-height:1.7;padding-bottom:16px">
+        <p>Hillsborough County: 9,416 investor leads (PropStream). DSCR second mortgage product notes. Segmentation: rate-trapped, balloon maturing, distressed, equity deployers.</p>
+        <p style="margin-top:8px">This is not active work &mdash; BPL segmentation activates when NDV campaign proves the email-to-close pipeline and FL license is in hand.</p>
+      </div>
+    </details>
+
+    <!-- AI Advisor (existing) -->
+    <div class="section-head" style="margin-top:24px"><span class="section-label">AI Advisor</span><div class="section-line"></div></div>
+    <div style="background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:16px">
+      <button id="ai-btn" onclick="runAI()" style="width:100%;padding:14px;background:var(--gold);color:#fff;border:none;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;margin-bottom:12px">Ask AI: What should I focus on today?</button>
+      <div id="ai-panel" style="display:none"><div id="ai-output" style="color:var(--text);font-size:14px;line-height:1.7"></div><div id="ai-ts" style="font-size:11px;color:var(--text-dim);margin-top:12px"></div></div>
+    </div>
+
+  </div>
+  </div>
+
+
+  <details class="setup-guide">
+      <summary>How to connect your Google Sheet</summary>
+      <div class="setup-guide-body">
+        <ol>
+          <li>Go to <strong>sheets.google.com</strong> and create a new spreadsheet</li>
+          <li>Name it: <code>Viador Command Center</code></li>
+          <li>Create 5 tabs at the bottom: <code>KPIs</code> | <code>Pipeline</code> | <code>Marketing</code> | <code>Actuals</code> | <code>Notes</code></li>
+          <li>Add headers in each tab:
+            <br><code>KPIs</code>: Week | Deals Pipeline | Leads This Week | LinkedIn Impressions
+            <br><code>Pipeline</code>: Lead Name | Source | Loan Type | Amount | Stage | Next Action | Expected Close
+            <br><code>Marketing</code>: Campaign | Channel | Spend | Leads | CPL | Closed | Revenue | ROI
+            <br><code>Actuals</code>: Month | Actual Revenue | Projected Revenue | Variance
+            <br><code>Notes</code>: Date | Note
+          </li>
+          <li>Click <strong>Share</strong> &rarr; <strong>Anyone with the link</strong> &rarr; <strong>Viewer</strong></li>
+          <li>Copy the Sheet ID from the URL: <code>docs.google.com/spreadsheets/d/<strong>THIS_PART</strong>/edit</code></li>
+          <li>Paste it in the "Connect Sheet" field at the top of the dashboard</li>
+          <li>Click Connect &mdash; dashboard loads live data immediately</li>
+        </ol>
+        <p style="margin-top:16px"><strong>Manual setup required:</strong></p>
+        <ol>
+          <li>Enable Google Sheets API on GCP project <code>stone-index-490722-r2</code></li>
+          <li>Create an API key restricted to Sheets API</li>
+          <li>Add it as a Cloudflare Worker secret: <code>wrangler secret put GOOGLE_SHEETS_API_KEY</code></li>
+          <li>Deploy the updated worker: <code>wrangler deploy</code></li>
+        </ol>
+      </div>
+    </details>
+  </div>
+
+  <div class="dash-footer">
+    Viador Partners LLC &middot; Internal Use Only &middot; NMLS #2822744
+  </div>
+</div>
+
+<script>
+(function(){
+  /* ── Auth ──────────────────────────────────────── */
+  var PW_HASH = '33f4aafb';
+  function simpleHash(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0;}return(h>>>0).toString(16).slice(0,8);}
+
+  var isAuthed = sessionStorage.getItem('vcc_auth') === '1';
+  /* ── Constants ────────────────────────────────── */
+  var WORKER_BASE = 'https://viador-ai-proxy.chad-7f6.workers.dev';
+  var GA4_PROPERTY_ID_VP = '529429455';
+  var GA4_PROPERTY_ID_NDV = '533328101';
+  var META_AD_ACCOUNT = 'act_1970547536908108';
+
+  /* ── Live Data Fetch Helpers ──────────────────── */
+  function workerGet(path) { return fetch(WORKER_BASE + path).then(function(r){ return r.json(); }); }
+  function workerPost(path, body) { return fetch(WORKER_BASE + path, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){ return r.json(); }); }
+
+  function setPanel(id, html) { var el = document.getElementById(id); if(el) el.innerHTML = html; }
+  function notConnected(id, msg) { setPanel(id, '<div class="lp-placeholder">' + (msg||'Not connected') + '</div>'); }
+  function metricBox(val, label) { return '<div class="lp-metric"><div class="lp-metric-val">' + val + '</div><div class="lp-metric-label">' + label + '</div></div>'; }
+  function lpRow(label, val) { return '<div class="lp-row"><span>' + label + '</span><span>' + val + '</span></div>'; }
+
+  function fetchHubspot() {
+    return workerGet('/api/hubspot/crm/v3/objects/contacts?limit=100&properties=createdate,hs_lead_status,lifecyclestage,firstname,lastname')
+      .then(function(d){
+        if(d.error) throw new Error(d.error);
+        var c = d.results||[], total=c.length, week=Date.now()-7*864e5;
+        var nw = c.filter(function(x){ return new Date(x.properties.createdate).getTime()>week; }).length;
+        var stages={};
+        c.forEach(function(x){ var s=x.properties.lifecyclestage||'other'; stages[s]=(stages[s]||0)+1; });
+        var oldest = c.filter(function(x){ return !x.properties.hs_lead_status||x.properties.hs_lead_status==='NEW'; })
+          .sort(function(a,b){ return new Date(a.properties.createdate)-new Date(b.properties.createdate); })[0];
+        var oStr = oldest ? (oldest.properties.firstname||'')+' '+(oldest.properties.lastname||'')+' — '+new Date(oldest.properties.createdate).toLocaleDateString() : 'None';
+        var h = '<div class="lp-metrics-row">'+metricBox(total,'Total')+metricBox(nw,'New This Week')+metricBox(Object.keys(stages).length,'Stages')+'</div>';
+        h += lpRow('Oldest untouched',oStr);
+        Object.keys(stages).forEach(function(k){ h += lpRow(k, stages[k]); });
+        setPanel('lp-hubspot', h);
+      }).catch(function(e){ notConnected('lp-hubspot','HubSpot: '+e.message); });
+  }
+
+  function fetchSmartlead() {
+    return workerGet('/api/smartlead/email-accounts')
+      .then(function(d){
+        if(d.error) throw new Error(d.error);
+        var a = Array.isArray(d)?d:[];
+        if(!a.length) throw new Error('No email accounts');
+        var inboxes=['chad@viadorpartners.com','chad@nextdutyvet.com','hello@nextdutyvet.com'];
+        var h='';
+        a.forEach(function(x){
+          if(inboxes.indexOf(x.from_email)<0) return;
+          var wd = x.warmup_details||{};
+          var cls = !x.warmup_enabled?'lp-dim': wd.warmup_reputation==='good'?'lp-ok':'lp-warn';
+          var lbl = !x.warmup_enabled?'off': wd.warmup_reputation||'warming';
+          h += lpRow(x.from_email, '<span class="lp-badge '+cls+'">'+lbl+'</span>');
+        });
+        if(a[0] && a[0].total_email_sent != null){
+          h = '<div class="lp-metrics-row">'+metricBox(a.reduce(function(s,x){return s+(x.total_email_sent||0);},0),'Sent')+metricBox((a[0].open_rate||'--')+'%','Open Rate')+metricBox((a[0].reply_rate||'--')+'%','Reply Rate')+'</div>'+h;
+        }
+        setPanel('lp-smartlead', h||'<div class="lp-placeholder">No matching inboxes</div>');
+      }).catch(function(e){ notConnected('lp-smartlead','Smartlead: '+e.message); });
+  }
+
+  function fetchGSC() { notConnected('lp-gsc','Not connected — configure GSC service account'); return Promise.resolve(); }
+
+  function fetchGA4() {
+    var props=[{id:GA4_PROPERTY_ID_VP,name:'Viador Partners'},{id:GA4_PROPERTY_ID_NDV,name:'Next Duty Vet'}];
+    var body={dateRanges:[{startDate:'28daysAgo',endDate:'today'}],metrics:[{name:'sessions'},{name:'activeUsers'}],dimensions:[{name:'sessionDefaultChannelGroup'}]};
+    return Promise.all(props.map(function(p){ return workerPost('/api/ga4/properties/'+p.id+':runReport',body).catch(function(){return null;}); }))
+      .then(function(res){
+        var any=res.some(function(r){return r&&!r.error&&r.rows;});
+        if(!any){ notConnected('lp-ga4','Not connected — configure GA4 service account'); return; }
+        var h='<div class="lp-side-by-side">';
+        res.forEach(function(r,i){
+          h+='<div class="lp-side-col"><h4>'+props[i].name+'</h4>';
+          if(!r||r.error||!r.rows){h+='<div class="lp-placeholder">No data</div></div>';return;}
+          var tot=0; r.rows.forEach(function(row){tot+=parseInt(row.metricValues[0].value)||0;});
+          h+=metricBox(tot.toLocaleString(),'Sessions (28d)');
+          r.rows.slice(0,4).forEach(function(row){h+=lpRow(row.dimensionValues[0].value, parseInt(row.metricValues[0].value).toLocaleString());});
+          h+='</div>';
+        });
+        h+='</div>'; setPanel('lp-ga4',h);
+      }).catch(function(){ notConnected('lp-ga4','Not connected — configure GA4 service account'); });
+  }
+
+  function fetchMeta() {
+    return workerGet('/api/meta/'+META_AD_ACCOUNT+'/campaigns?fields=name,status,insights{spend,impressions,actions}&date_preset=last_30d')
+      .then(function(d){
+        if(d.error) throw new Error(d.error.message||JSON.stringify(d.error));
+        var c=d.data||[];
+        if(!c.length){ notConnected('lp-meta','No active campaigns — launches post April 30'); return; }
+        var h='';
+        c.forEach(function(x){
+          var cls=x.status==='ACTIVE'?'lp-ok':'lp-dim';
+          h+=lpRow(x.name,'<span class="lp-badge '+cls+'">'+x.status+'</span>');
+          if(x.insights&&x.insights.data&&x.insights.data[0]){
+            var ins=x.insights.data[0];
+            h+=lpRow('Spend','$'+parseFloat(ins.spend||0).toFixed(2));
+            h+=lpRow('Impressions',parseInt(ins.impressions||0).toLocaleString());
+          }
+        });
+        setPanel('lp-meta',h);
+      }).catch(function(e){ notConnected('lp-meta','Meta: '+e.message); });
+  }
+
+  function fetchAllLivePanels() {
+    var btn=document.getElementById('refresh-btn');
+    if(btn){btn.classList.add('loading');btn.textContent='Refreshing\u2026';}
+    document.querySelectorAll('.lp-body').forEach(function(el){
+      if(!el.closest('#panel-licensing')&&!el.closest('#panel-lead')) el.innerHTML='<div class="lp-placeholder">Loading\u2026</div>';
+    });
+    Promise.all([fetchHubspot(),fetchSmartlead(),fetchGSC(),fetchGA4(),fetchMeta()])
+      .finally(function(){
+        if(btn){btn.classList.remove('loading');btn.textContent='Refresh Data';}
+        var ts=document.getElementById('live-ts');
+        if(ts) ts.textContent='Updated '+new Date().toLocaleTimeString();
+      });
+  }
+
+
+  /* ── Phase 0 Homepage Logic ────────────────── */
+  function initCountdowns() {
+    var now = new Date(); now.setHours(0,0,0,0);
+    var launch = new Date('2026-04-30T00:00:00'); var close = new Date('2026-05-20T00:00:00');
+    var dL = Math.ceil((launch-now)/864e5); var dC = Math.ceil((close-now)/864e5);
+    var el1=document.getElementById('mc-launch'); if(el1) el1.textContent = dL<=0?'LAUNCHED':'T-'+dL+' days';
+    var el2=document.getElementById('mc-close'); if(el2) el2.textContent = dC<=0?'ACTIVE':'T-'+dC+' days';
+  }
+
+  function fetchLaunchReadiness() {
+    var sid=getSheetId(); if(!sid){ notConnected('lr-grid','Connect Google Sheet to see launch checklist'); return Promise.resolve(); }
+    return loadSheetData('Launch Readiness!A2:C16').then(function(rows){
+      if(!rows||!rows.length){ notConnected('lr-grid','No launch readiness data in sheet'); return; }
+      var total=rows.length, done=0, blocked=[];
+      var h='';
+      rows.forEach(function(r){
+        var item=r[0]||'', status=(r[1]||'').trim().toUpperCase(), note=r[2]||'';
+        var icon='⬜', cls='lr-none', style='';
+        if(status==='Y'){ icon='✅'; cls='lr-done'; style='text-decoration:line-through;opacity:0.6;'; done++; }
+        else if(status==='WIP'){ icon='🟡'; cls='lr-wip'; style='font-style:italic;'; }
+        else { blocked.push(item); }
+        h += '<div class="lr-item '+cls+'" style="'+style+'"><span class="lr-icon">'+icon+'</span><span>'+esc(item)+'</span></div>';
+      });
+      document.getElementById('lr-grid').innerHTML = h;
+      var pct=Math.round(done/total*100);
+      document.getElementById('lr-count').textContent = done+'/'+total+' complete';
+      document.getElementById('lr-pct').textContent = pct+'%';
+      document.getElementById('lr-bar').style.width = pct+'%';
+      if(blocked.length){
+        var bl=document.getElementById('lr-blocked');
+        bl.style.display='block';
+        bl.innerHTML='<strong>Blocked by:</strong> '+blocked.slice(0,3).map(esc).join(', ')+(blocked.length>3?' + '+(blocked.length-3)+' more':'');
+      }
+      window._lrBlocked = blocked;
+      computeAlerts();
+    }).catch(function(){ notConnected('lr-grid','Error loading launch readiness'); });
+  }
+
+  function fetchInboxHealth() {
+    return workerGet('/api/smartlead/email-accounts').then(function(d){
+      if(d.error) throw new Error(d.error);
+      var accounts = Array.isArray(d)?d:[];
+      var inboxMap = {
+        'chad@viadorpartners.com':{el:'inbox-vp',lEl:'inbox-vp-light',sEl:'inbox-vp-stats'},
+        'chad@nextdutyvet.com':{el:'inbox-ndv1',lEl:'inbox-ndv1-light',sEl:'inbox-ndv1-stats'},
+        'hello@nextdutyvet.com':{el:'inbox-ndv2',lEl:'inbox-ndv2-light',sEl:'inbox-ndv2-stats'}
+      };
+      window._inboxData = {};
+      accounts.forEach(function(a){
+        var m = inboxMap[a.from_email]; if(!m) return;
+        var wd=a.warmup_details||{};
+        var bounce=parseFloat(wd.bounce_rate||a.bounce_rate||0);
+        var open=parseFloat(wd.open_rate||a.open_rate||0);
+        var light='🟢', lightText='Healthy';
+        if(bounce>3||open<20){ light='🔴'; lightText='Critical'; }
+        else if(bounce>2||open<30){ light='🟡'; lightText='Warning'; }
+        document.getElementById(m.lEl).innerHTML = light;
+        document.getElementById(m.sEl).innerHTML = 'Bounce: '+bounce.toFixed(1)+'% &middot; Open: '+open.toFixed(0)+'% &middot; '+lightText;
+        window._inboxData[a.from_email] = {bounce:bounce,open:open,warmup:wd.warmup_reputation||'unknown'};
+      });
+    }).catch(function(e){
+      ['inbox-vp-stats','inbox-ndv1-stats','inbox-ndv2-stats'].forEach(function(id){ var el=document.getElementById(id); if(el) el.textContent='Not connected'; });
+    });
+  }
+
+  function renderPipelineMini() {
+    return fetchHubspot().then(function(){
+      var src=document.getElementById('lp-hubspot');
+      var dest=document.getElementById('pipeline-mini');
+      var src2=document.getElementById('pipeline-hubspot');
+      if(src&&dest) dest.innerHTML=src.innerHTML;
+      if(src&&src2) src2.innerHTML=src.innerHTML;
+    }).catch(function(){});
+  }
+
+  function renderNDVPanels() {
+    fetchMeta().then(function(){
+      var src=document.getElementById('lp-meta');
+      var dest=document.getElementById('ndv-meta');
+      if(src&&dest) dest.innerHTML=src.innerHTML;
+    }).catch(function(){});
+    fetchSmartlead().then(function(){
+      var src=document.getElementById('lp-smartlead');
+      var dest=document.getElementById('ndv-smartlead');
+      if(src&&dest) dest.innerHTML=src.innerHTML;
+    }).catch(function(){});
+  }
+
+  function computeAlerts() {
+    var alerts=[];
+    if(window._lrBlocked&&window._lrBlocked.length) alerts=alerts.concat(window._lrBlocked.slice(0,3).map(function(b){return 'Launch gate: '+b;}));
+    if(window._inboxData){
+      Object.keys(window._inboxData).forEach(function(email){
+        if(window._inboxData[email].bounce>3) alerts.push('Fix '+email+' deliverability (bounce '+window._inboxData[email].bounce.toFixed(1)+'%)');
+      });
+    }
+    var pill=document.getElementById('mc-health');
+    if(!pill)return;
+    if(alerts.length===0) pill.innerHTML='🟢 All systems normal';
+    else pill.innerHTML='⚠️ '+alerts.length+' alert'+(alerts.length>1?'s':'');
+    pill.style.background=alerts.length?'rgba(204,51,51,0.15)':'rgba(46,125,50,0.15)';
+    pill.style.color=alerts.length?'var(--red)':'var(--green)';
+
+    var prioEl=document.getElementById('priority-auto');
+    if(!prioEl)return;
+    if(alerts.length===0){ prioEl.innerHTML='<div style="color:var(--green);font-size:14px">🟢 No urgent actions. Keep executing the checklist.</div>'; return; }
+    prioEl.innerHTML=alerts.slice(0,5).map(function(a,i){return '<div class="prio-item"><span class="prio-num">'+(i+1)+'</span><span>'+esc(a)+'</span></div>';}).join('');
+  }
+
+  function fetchAllHomePanels() {
+    initCountdowns();
+    fetchLaunchReadiness();
+    fetchInboxHealth().then(computeAlerts);
+    renderPipelineMini();
+    renderNDVPanels();
+    fetchGA4().then(function(){
+      var src=document.getElementById('lp-ga4');
+      var dest=document.getElementById('organic-ga4');
+      if(src&&dest) dest.innerHTML=src.innerHTML;
+    });
+    fetchGSC().then(function(){
+      var src=document.getElementById('lp-gsc');
+      var dest=document.getElementById('organic-gsc');
+      if(src&&dest) dest.innerHTML=src.innerHTML;
+    });
+  }
+
+
+    // Defer showDash to end of IIFE so all window.* functions are defined first
+
+  window.handleLogin = function(){
+    var pw = document.getElementById('gate-pw').value;
+    if(simpleHash(pw) === PW_HASH){
+      sessionStorage.setItem('vcc_auth','1');
+      showDash();
+    } else {
+      document.getElementById('gate-err').style.display = 'block';
+      document.getElementById('gate-pw').value = '';
+      document.getElementById('gate-pw').focus();
+    }
+    return false;
+  };
+
+  window.handleLogout = function(){
+    sessionStorage.removeItem('vcc_auth');
+    document.getElementById('dash').style.display = 'none';
+    document.getElementById('gate').style.display = 'flex';
+    document.getElementById('gate-pw').value = '';
+    document.getElementById('gate-err').style.display = 'none';
+  };
+
+  // ── Marketing Tab: Campaign Status + Checklist persistence ──
+  var MKT_CAMPS_KEY = 'viador_camp_statuses';
+  var MKT_CHECKS_KEY = 'viador_mkt_checks';
+  var statusColors = {
+    'READY': {bg:'#2d6a4f',color:'#a7f3d0'}, 'ACTIVE': {bg:'#166534',color:'#4ade80'},
+    'IN PROGRESS': {bg:'rgba(191, 144, 32,0.3)',color:'#BF9020'}, 'PENDING': {bg:'#92400e',color:'#fde68a'},
+    'NOT STARTED': {bg:'#333',color:'#888'}, 'PLANNED': {bg:'#1A1C24',color:'#666',border:'1px solid #333'},
+    'PAUSED': {bg:'#8b1a1a',color:'#fca5a5'}
+  };
+  function saveCampStatus(id, val) {
+    var d = {}; try { d = JSON.parse(localStorage.getItem(MKT_CAMPS_KEY)) || {}; } catch(e) {}
+    d['camp-'+id] = val;
+    localStorage.setItem(MKT_CAMPS_KEY, JSON.stringify(d));
+    var badge = document.getElementById('camp-'+id+'-badge');
+    if (badge) {
+      var sc = statusColors[val] || statusColors['PLANNED'];
+      badge.textContent = val;
+      badge.style.background = sc.bg; badge.style.color = sc.color;
+      badge.style.border = sc.border || 'none';
+    }
+  }
+  function loadCampStatuses() {
+    var d = {}; try { d = JSON.parse(localStorage.getItem(MKT_CAMPS_KEY)) || {}; } catch(e) {}
+    for (var k in d) {
+      var id = k.replace('camp-','');
+      var badge = document.getElementById(k+'-badge');
+      var sel = badge?.parentElement?.parentElement?.querySelector('select');
+      if (badge && d[k]) { saveCampStatus(id, d[k]); if (sel) sel.value = d[k]; }
+    }
+  }
+  var mktCheckItems = [
+    'Register sending subdomain for email warm-up',
+    'Start email warm-up (2-3 weeks before send)',
+    'Apply Lima One broker approval (online, 20 min)',
+    'Apply Visio Lending broker approval (online, 20 min)',
+    'Pull Pinellas County PropStream data (6-10K leads)',
+    'UMortgage Go Broker application',
+    'Google Ads campaign setup ($900/mo)',
+    'Connect HubSpot nurture sequence to deal form'
+  ];
+  function initMktChecklist() {
+    var el = document.getElementById('mkt-checklist');
+    if (!el) return;
+    var saved = {}; try { saved = JSON.parse(localStorage.getItem(MKT_CHECKS_KEY)) || {}; } catch(e) {}
+    el.innerHTML = '';
+    mktCheckItems.forEach(function(item, i) {
+      var checked = saved['chk-'+i] ? 'checked' : '';
+      var lbl = document.createElement('label');
+      lbl.style.cssText = 'display:flex;align-items:center;gap:8px;cursor:pointer;padding:4px 0;';
+      lbl.innerHTML = '<input type="checkbox" '+checked+' onchange="saveMktCheck('+i+',this.checked)" style="accent-color:#BF9020;width:15px;height:15px;cursor:pointer"><span style="'+(checked?'text-decoration:line-through;color:#666':'')+'">'+item+'</span>';
+      el.appendChild(lbl);
+    });
+  }
+  function saveMktCheck(i, val) {
+    var d = {}; try { d = JSON.parse(localStorage.getItem(MKT_CHECKS_KEY)) || {}; } catch(e) {}
+    d['chk-'+i] = val;
+    localStorage.setItem(MKT_CHECKS_KEY, JSON.stringify(d));
+    initMktChecklist();
+  }
+
+  // ── Pipeline: Client Lifecycle ──
+  var CL_KEY='viador_clients';
+  function getClients(){try{return JSON.parse(localStorage.getItem(CL_KEY))||[]}catch(e){return[]}}
+  function saveClients(){
+    // save market rate
+    var mr=document.getElementById('cl-market-rate');
+    if(mr)localStorage.setItem('viador_market_rate',mr.value);
+  }
+  function showAddClient(){document.getElementById('cl-form').style.display='block';document.getElementById('cl-name').focus();}
+  function addClient(){
+    var c={id:Date.now(),name:document.getElementById('cl-name').value.trim(),addr:document.getElementById('cl-addr').value.trim(),ltype:document.getElementById('cl-ltype').value,rate:parseFloat(document.getElementById('cl-rate').value)||0,balance:parseInt(document.getElementById('cl-bal').value)||0,equity:parseInt(document.getElementById('cl-equity').value)||0,prepay:document.getElementById('cl-prepay').value||'',next:document.getElementById('cl-next').value,ltrev:parseInt(document.getElementById('cl-ltrev').value)||0,notes:document.getElementById('cl-notes').value.trim(),txns:0,created:new Date().toISOString()};
+    if(!c.name){alert('Enter client name');return}
+    var cls=getClients();cls.push(c);localStorage.setItem(CL_KEY,JSON.stringify(cls));
+    document.getElementById('cl-form').style.display='none';
+    ['cl-name','cl-addr','cl-rate','cl-bal','cl-equity','cl-notes'].forEach(function(id){var e=document.getElementById(id);if(e)e.value=''});
+    document.getElementById('cl-ltrev').value='0';
+    renderClients();
+  }
+  function deleteClient(id){if(!confirm('Delete this client?'))return;var cls=getClients().filter(function(c){return c.id!==id});localStorage.setItem(CL_KEY,JSON.stringify(cls));renderClients();}
+  function renderClients(){
+    var cls=getClients(),el=document.getElementById('cl-cards');if(!el)return;
+    var marketRate=parseFloat(document.getElementById('cl-market-rate')?.value)||7.25;
+    var fmt=function(n){return'$'+Math.round(n).toLocaleString()};
+    var totalRev=0;
+    el.innerHTML='';
+    if(cls.length===0){el.innerHTML='<div style="text-align:center;color:#888;padding:24px;font-size:13px">No clients yet. Click "+ Add Client" to start tracking.</div>';document.getElementById('cl-total-clients').textContent='0';document.getElementById('cl-total-rev').textContent='$0';document.getElementById('cl-avg-rev').textContent='$0';return}
+    cls.forEach(function(c){
+      totalRev+=c.ltrev||0;
+      // Flywheel status
+      var fw='&#127793; NEW',fwBg='#333',fwColor='#888';
+      if(c.ltrev>=15000||c.txns>=3){fw='&#11088; VIP';fwBg='#92400e';fwColor='#fde68a';}
+      else if(c.txns>=2){fw='&#128176; RECURRING';fwBg='#2d6a4f';fwColor='#4ade80';}
+      else if(c.txns>=1||c.ltrev>0){fw='&#128260; ACTIVE';fwBg='rgba(191, 144, 32,0.3)';fwColor='#BF9020';}
+      // Alerts
+      var alerts=[];
+      if(c.prepay){var pp=new Date(c.prepay+'-01'),now=new Date(),diff=Math.round((pp-now)/(30.44*86400000));if(diff>0&&diff<=3)alerts.push('Prepay expires in '+diff+' months');else if(diff<=0)alerts.push('Prepay expired \u2014 ready to refi');}
+      if(c.rate>0&&marketRate<c.rate-1.0)alerts.push('Rate dropped '+((c.rate-marketRate).toFixed(1))+'% since origination');
+      var html='<div style="background:#1A1C24;border:1px solid rgba(191, 144, 32,0.15);border-radius:8px;padding:14px;margin-bottom:10px">';
+      html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:15px;font-weight:700;color:#BF9020">'+c.name+'</div><div style="display:flex;gap:6px;align-items:center"><span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:'+fwBg+';color:'+fwColor+'">'+fw+'</span><button onclick="deleteClient('+c.id+')" style="background:none;border:none;color:#666;cursor:pointer;font-size:14px">&times;</button></div></div>';
+      html+='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;font-size:11px;color:#888;line-height:1.6">';
+      html+='<div>Property: <span style="color:#E8E8E8">'+(c.addr||'\u2014')+'</span></div>';
+      html+='<div>Loan: <span style="color:#E8E8E8">'+c.ltype+'</span> @ <span style="color:#E8E8E8">'+(c.rate||'\u2014')+'%</span></div>';
+      html+='<div>Balance: <span style="color:#E8E8E8">'+fmt(c.balance)+'</span></div>';
+      html+='<div>Equity: <span style="color:#4ade80">'+fmt(c.equity)+'</span></div>';
+      html+='<div>Prepay: <span style="color:#E8E8E8">'+(c.prepay||'N/A')+'</span></div>';
+      html+='<div>Next: <span style="color:#BF9020">'+c.next+'</span></div>';
+      html+='</div>';
+      html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid #333">';
+      html+='<div style="font-size:11px;color:#888">Lifetime: <span style="color:'+(c.ltrev>=10000?'#4ade80':'#E8E8E8')+';font-weight:700">'+fmt(c.ltrev)+'</span></div>';
+      if(c.notes)html+='<div style="font-size:11px;color:#666;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+c.notes+'</div>';
+      html+='</div>';
+      if(alerts.length){html+='<div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">';alerts.forEach(function(a){html+='<span style="padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;background:rgba(191, 144, 32,0.2);color:#BF9020">'+a+'</span>'});html+='</div>';}
+      html+='</div>';
+      el.innerHTML+=html;
+    });
+    document.getElementById('cl-total-clients').textContent=cls.length;
+    document.getElementById('cl-total-rev').textContent=fmt(totalRev);
+    document.getElementById('cl-avg-rev').textContent=cls.length>0?fmt(Math.round(totalRev/cls.length)):'$0';
+  }
+
+  // ── Rate Watch persistence ──
+  function saveRateWatch(){
+    var d={dscr:document.getElementById('rw-dscr')?.value||'6.25',second:document.getElementById('rw-second')?.value||'9.25',next:document.getElementById('rw-next')?.value||''};
+    localStorage.setItem('viador_rate_watch',JSON.stringify(d));
+  }
+  function loadRateWatch(){
+    try{var d=JSON.parse(localStorage.getItem('viador_rate_watch'))||{};
+    if(d.dscr){var e=document.getElementById('rw-dscr');if(e)e.value=d.dscr;}
+    if(d.second){var e2=document.getElementById('rw-second');if(e2)e2.value=d.second;}
+    if(d.next){var e3=document.getElementById('rw-next');if(e3)e3.value=d.next;}
+    }catch(e){}
+  }
+
+  // ── Notes Tab: Calls Checklist ──
+  var NOTES_CHECKS_KEY = 'viador_notes_checks';
+  var notesCheckItems = [
+    '\ud83d\udd34 Deploy 5 pending SEO pages + resubmit Bing sitemap',
+    '\ud83d\udd34 Call Paul Blaylock \u2014 LoanFlight comp + brand + DSCR',
+    '\ud83d\udd34 Message Ed Stratton \u2014 Luminate structure (LinkedIn)',
+    '\ud83d\udd34 Schedule NMLS Prometric exam (prometric.com)',
+    '\ud83d\udd34 Google Ads campaign live ($900/mo)',
+    '\ud83d\udd34 Register sending subdomain for email warm-up',
+    '\ud83d\udd34 BiggerPockets first post',
+    '\ud83d\udd34 ATTOM free trial \u2014 test AVM accuracy',
+    '\ud83d\udd34 Wikidata entity \u2014 establish Viador as AI entity',
+    '\ud83d\udfe1 Pull Pasco owner-occupied 7%+ leads',
+    '\ud83d\udfe1 Pull Manatee + Sarasota rate urgency',
+    '\ud83d\udfe1 Generate Wave 2 offer codes (Top 50)',
+    '\ud83d\udfe1 Sign FHM agreement with non-solicitation amendment',
+    '\ud83d\udfe1 Apply Lima One + Visio broker approval',
+    '\ud83d\udfe1 Start UMortgage Go Broker application',
+    '\ud83d\udfe1 Wikidata entity creation (30 min)',
+    '\ud83d\udfe1 Medium article 1 \u2014 publish'
+  ];
+  function initNotesChecklist() {
+    var el = document.getElementById('notes-checklist');
+    if (!el) return;
+    var saved = {}; try { saved = JSON.parse(localStorage.getItem(NOTES_CHECKS_KEY)) || {}; } catch(e) {}
+    el.innerHTML = '';
+    notesCheckItems.forEach(function(item, i) {
+      var checked = saved['nc-'+i] ? 'checked' : '';
+      var lbl = document.createElement('label');
+      lbl.style.cssText = 'display:flex;align-items:center;gap:8px;cursor:pointer;padding:4px 0;';
+      lbl.innerHTML = '<input type="checkbox" '+checked+' onchange="saveNotesCheck('+i+',this.checked)" style="accent-color:#BF9020;width:15px;height:15px;cursor:pointer"><span style="'+(checked?'text-decoration:line-through;color:#666':'')+'">'+item+'</span>';
+      el.appendChild(lbl);
+    });
+  }
+  function saveNotesCheck(i, val) {
+    var d = {}; try { d = JSON.parse(localStorage.getItem(NOTES_CHECKS_KEY)) || {}; } catch(e) {}
+    d['nc-'+i] = val;
+    localStorage.setItem(NOTES_CHECKS_KEY, JSON.stringify(d));
+    initNotesChecklist();
+  }
+
+  // ── P&L Proforma + Monthly Tracker ──
+  var PL_KEY='viador_pl';
+  function savePL(){var d={};document.querySelectorAll('.pf-in').forEach(function(el){d[el.id]=el.value});document.querySelectorAll('.mt-in').forEach(function(el){d[el.id]=el.value});d['pb-burn']=document.getElementById('pb-burn')?.value||'8000';try{localStorage.setItem(PL_KEY,JSON.stringify(d))}catch(e){}}
+  function loadPL(){try{var d=JSON.parse(localStorage.getItem(PL_KEY))||{};for(var k in d){var el=document.getElementById(k);if(el)el.value=d[k]}}catch(e){}}
+  function fmt$(n){return'$'+Math.round(n).toLocaleString()}
+  function calcPF(){
+    var exp=19736;
+    document.getElementById('pf-exp').textContent=fmt$(exp)+'/yr';
+    for(var i=1;i<=3;i++){
+      var loans=parseInt(document.getElementById('pf-loans-'+i)?.value)||0;
+      var size=parseInt(document.getElementById('pf-size-'+i)?.value)||0;
+      var bps=parseInt(document.getElementById('pf-bps-'+i)?.value)||0;
+      var fee=parseInt(document.getElementById('pf-fee-'+i)?.value)||0;
+      var vol=loans*size;
+      var rev=(vol*bps/10000)-(loans*fee);
+      var net=rev-exp;
+      var be=((size*bps/10000)-fee)>0?Math.ceil(exp/((size*bps/10000)-fee)):999;
+      document.getElementById('pf-vol-'+i).textContent=fmt$(vol);
+      document.getElementById('pf-rev-'+i).textContent=fmt$(rev);
+      document.getElementById('pf-net-'+i).textContent=fmt$(net);
+      document.getElementById('pf-net-'+i).style.color=net>=0?'#4ade80':'#fc6060';
+      document.getElementById('pf-be-'+i).innerHTML='<span style="color:'+(be<=12?'#4ade80':be<=24?'#BF9020':'#fc6060')+'">'+be+' loans/yr</span>';
+      if(i===2){
+        document.getElementById('bf-vol').textContent=fmt$(vol);
+        var bpsNet=vol>0?Math.round(rev/vol*10000):0;
+        document.getElementById('bf-rev').textContent=fmt$(rev)+' ('+bpsNet+' bps)';
+        document.getElementById('bf-exp').textContent=fmt$(exp)+' ('+(vol>0?Math.round(exp/vol*10000):0)+' bps)';
+        var netBps=vol>0?Math.round(net/vol*10000):0;
+        document.getElementById('bf-net').textContent=fmt$(net)+' ('+netBps+' bps)';
+      }
+    }
+    // Personal budget
+    var burn=parseInt(document.getElementById('pb-burn')?.value)||8000;
+    var annualBurn=burn*12;
+    var tgtSize=parseInt(document.getElementById('pf-size-2')?.value)||350000;
+    var tgtBps=parseInt(document.getElementById('pf-bps-2')?.value)||275;
+    var tgtFee=parseInt(document.getElementById('pf-fee-2')?.value)||995;
+    var perLoan=(tgtSize*tgtBps/10000)-tgtFee;
+    var loansNeeded=perLoan>0?Math.ceil(annualBurn/perLoan):999;
+    var moNeeded=Math.ceil(loansNeeded/12*10)/10;
+    document.getElementById('pb-msg').innerHTML='At <strong style="color:#BF9020">'+fmt$(burn)+'/mo</strong> personal burn you need <strong style="color:#E8E8E8">'+fmt$(annualBurn)+'/year</strong> from Viador.<br>That\'s <strong style="color:#BF9020">'+loansNeeded+' loans/year</strong> (~'+moNeeded+'/mo) at '+tgtBps+'bps on '+fmt$(tgtSize)+' avg.';
+    savePL();
+    calcMT();
+  }
+  function initMT(){
+    var months=['Apr 2026','May 2026','Jun 2026','Jul 2026','Aug 2026','Sep 2026','Oct 2026','Nov 2026','Dec 2026','Jan 2027','Feb 2027','Mar 2027'];
+    var tb=document.getElementById('mt-body');if(!tb)return;
+    tb.innerHTML='';
+    months.forEach(function(m,i){
+      tb.innerHTML+='<tr><td style="color:#888">'+m+'</td><td><input type="number" class="mt-in pf-in" id="mt-loans-'+i+'" value="0" onchange="calcMT();savePL()" style="width:50px"></td><td id="mt-vol-'+i+'"></td><td id="mt-rev-'+i+'"></td><td id="mt-exp-'+i+'"></td><td id="mt-net-'+i+'"></td><td id="mt-cum-'+i+'"></td></tr>';
+    });
+  }
+  function calcMT(){
+    var cum=0,tLoans=0,tVol=0,tRev=0,tExp=0,tNet=0;
+    var size=parseInt(document.getElementById('pf-size-2')?.value)||350000;
+    var bps=parseInt(document.getElementById('pf-bps-2')?.value)||275;
+    var fee=parseInt(document.getElementById('pf-fee-2')?.value)||995;
+    var moExp=Math.round(19736/12);
+    for(var i=0;i<12;i++){
+      var loans=parseInt(document.getElementById('mt-loans-'+i)?.value)||0;
+      var vol=loans*size;var rev=(vol*bps/10000)-(loans*fee);var net=rev-moExp;cum+=net;
+      tLoans+=loans;tVol+=vol;tRev+=rev;tExp+=moExp;tNet+=net;
+      var el=function(id,v,c){var e=document.getElementById(id);if(e){e.textContent=v;if(c)e.style.color=c}};
+      el('mt-vol-'+i,fmt$(vol));el('mt-rev-'+i,fmt$(rev));el('mt-exp-'+i,fmt$(moExp));
+      el('mt-net-'+i,fmt$(net),net>=0?'#4ade80':'#fc6060');
+      el('mt-cum-'+i,fmt$(cum),cum>=0?'#4ade80':'#fc6060');
+    }
+    var s=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v};
+    s('mt-t-loans',tLoans);s('mt-t-vol',fmt$(tVol));s('mt-t-rev',fmt$(tRev));s('mt-t-exp',fmt$(tExp));
+    var tn=document.getElementById('mt-t-net');if(tn){tn.textContent=fmt$(tNet);tn.style.color=tNet>=0?'#4ade80':'#fc6060'}
+  }
+
+  function showDash(){
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('dash').style.display = 'block';
+    initDash();
+    loadCampStatuses();
+    initMktChecklist();
+    loadPL();initMT();calcPF();
+    initNotesChecklist();loadRateWatch();
+    var mr=localStorage.getItem('viador_market_rate');if(mr){var el=document.getElementById('cl-market-rate');if(el)el.value=mr;}
+    renderClients();
+  }
+
+  /* ── Constants ──────────────────────────────────── */
+  var WORKER = 'https://viador-ai-proxy.chad-7f6.workers.dev';
+  var STORAGE_KEY = 'vcc_data';
+  var SHEET_KEY = 'viador_sheet_id';
+  var _sheetData = {}; // Cache for current session
+
+  /* ── localStorage helpers ───────────────────────── */
+  function getStore(){
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+    catch(e){ return {}; }
+  }
+  function setStore(d){
+    d.lastUpdated = new Date().toISOString();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(d));
+    updateTimestamp(d.lastUpdated);
+  }
+  function updateTimestamp(iso){
+    var el = document.getElementById('last-updated');
+    if(el && iso) el.textContent = formatTime(iso);
+  }
+  function formatTime(iso){
+    var d = new Date(iso);
+    return d.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ' at ' + d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+  }
+  function esc(s){ return String(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+
+  /* ── Google Sheets API ──────────────────────────── */
+  function getSheetId(){ return localStorage.getItem(SHEET_KEY); }
+
+  async function loadSheetData(range){
+    var sheetId = getSheetId();
+    if(!sheetId) return null;
+    try {
+      var res = await fetch(WORKER + '/sheets?sheet_id=' + encodeURIComponent(sheetId) + '&range=' + encodeURIComponent(range));
+      if(!res.ok) return null;
+      var data = await res.json();
+      return data.values || [];
+    } catch(e){
+      console.warn('Sheet fetch failed for ' + range + ':', e);
+      return null;
+    }
+  }
+
+  window.saveSheetId = function(){
+    var val = document.getElementById('sheet-id-input').value.trim();
+    if(!val) return;
+    localStorage.setItem(SHEET_KEY, val);
+    document.getElementById('setup-panel').style.display = 'none';
+    refreshAllData();
+  };
+
+  window.dismissSetup = function(){
+    document.getElementById('setup-panel').style.display = 'none';
+  };
+
+  /* ── Dashboard Init ─────────────────────────────── */
+  function initDash(){
+    var now = new Date();
+    document.getElementById('topbar-date').textContent = now.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+    var weekStart = new Date(now);
+    weekStart.setDate(now.getDate() - now.getDay());
+    document.getElementById('kpi-week').textContent = 'Week of ' + (weekStart.getMonth()+1) + '/' + weekStart.getDate();
+
+    // Show setup panel if no sheet configured
+    if(!getSheetId()){
+      document.getElementById('setup-panel').style.display = 'block';
+    }
+
+    // Load data (Sheets first, fallback to localStorage)
+    refreshAllData();
+
+    // Load viador-data.json for brief panels
+    loadViadorData();
+
+    // Load local notes
+    var d = getStore();
+    if(d.notes) document.getElementById('notes').value = d.notes;
+
+    // Load cached AI
+    if(d.lastAI && d.lastAI.text){
+      var output = document.getElementById('ai-output');
+      output.className = 'ai-output visible';
+      output.innerHTML = markdownToHTML(d.lastAI.text) + '<div class="ai-timestamp">Analysis generated ' + formatTime(d.lastAI.time) + '</div>';
+    }
+
+    // Auto-save local notes
+    document.getElementById('notes').addEventListener('input', function(){
+      clearTimeout(window._noteTimer);
+      window._noteTimer = setTimeout(function(){
+        var d = getStore();
+        d.notes = document.getElementById('notes').value;
+        setStore(d);
+        var el = document.getElementById('notes-saved');
+        el.textContent = 'Saved'; el.style.opacity = '1';
+        setTimeout(function(){ el.style.opacity = '0'; }, 2000);
+      }, 1500);
+    });
+
+    // Auto-refresh every 5 minutes
+    setInterval(refreshAllData, 5 * 60 * 1000);
+  }
+
+  /* ── Refresh All Data ───────────────────────────── */
+  window.refreshAllData = async function(){
+    var btn = document.getElementById('refresh-btn');
+    btn.textContent = 'Refreshing...';
+    btn.disabled = true;
+
+    var sheetsAvailable = false;
+
+    // Try loading from Google Sheets
+    if(getSheetId()){
+      var kpiRows = await loadSheetData('KPIs!A1:D20');
+      if(kpiRows && kpiRows.length > 1){
+        sheetsAvailable = true;
+        _sheetData.kpis = kpiRows;
+        renderKPIsFromSheets(kpiRows);
+        renderWeeklyFromSheets(kpiRows);
+      }
+
+      var pipeRows = await loadSheetData('Pipeline!A1:G50');
+      if(pipeRows && pipeRows.length > 1){
+        _sheetData.pipeline = pipeRows;
+        renderPipeline(pipeRows);
+      }
+
+      var mktRows = await loadSheetData('Marketing!A1:H20');
+      if(mktRows && mktRows.length > 1){
+        _sheetData.marketing = mktRows;
+        renderMarketing(mktRows);
+      }
+
+      var actRows = await loadSheetData('Actuals!A1:D24');
+      if(actRows && actRows.length > 1){
+        _sheetData.actuals = actRows;
+        renderActuals(actRows);
+      }
+
+      var noteRows = await loadSheetData('Notes!A1:B50');
+      if(noteRows && noteRows.length > 1){
+        _sheetData.notes = noteRows;
+        renderNotes(noteRows);
+      }
+    }
+
+    // Fallback to localStorage
+    if(!sheetsAvailable){
+      loadFromLocalStorage();
+    }
+
+    // Update status
+    var dot = document.getElementById('status-dot');
+    var src = document.getElementById('status-source');
+    if(sheetsAvailable){
+      dot.style.background = 'var(--green)';
+      src.textContent = 'Live — Google Sheets connected';
+    } else if(getSheetId()){
+      dot.style.background = 'var(--red)';
+      src.textContent = 'Sheets unavailable — showing local data';
+    } else {
+      dot.style.background = 'var(--gold)';
+      src.textContent = 'Local mode — connect Google Sheet for live data';
+    }
+
+    updateTimestamp(new Date().toISOString());
+    btn.textContent = 'Refresh Data';
+    btn.disabled = false;
+
+    // Fetch live data panels (Worker proxy)
+    fetchAllLivePanels();
+    fetchAllHomePanels();
+  };
+
+  /* ── Render from Google Sheets ──────────────────── */
+  function renderKPIsFromSheets(rows){
+    // Row 0 = headers, Row 1 = most recent, Row 2 = previous
+    if(rows.length < 2) return;
+    var curr = rows[1]; // [Week, Deals, Leads, LinkedIn]
+    var prev = rows.length > 2 ? rows[2] : null;
+    var fields = ['deals','leads','linkedin'];
+    for(var i=0;i<fields.length;i++){
+      var val = curr[i+1] || '0';
+      document.getElementById('kpi-' + fields[i]).textContent = val;
+      if(prev){
+        var c = parseInt(String(val).replace(/,/g,'')) || 0;
+        var p = parseInt(String(prev[i+1]||'0').replace(/,/g,'')) || 0;
+        var diff = c - p;
+        var el = document.getElementById('delta-' + fields[i]);
+        if(diff > 0){ el.textContent = '\u2191 +' + diff.toLocaleString() + ' vs last week'; el.className = 'kpi-delta up'; }
+        else if(diff < 0){ el.textContent = '\u2193 ' + diff.toLocaleString() + ' vs last week'; el.className = 'kpi-delta down'; }
+        else { el.textContent = '\u2014 no change'; el.className = 'kpi-delta neutral'; }
+      }
+    }
+  }
+
+  function renderWeeklyFromSheets(rows){
+    var tbody = document.getElementById('log-body');
+    tbody.innerHTML = '';
+    var max = Math.min(rows.length, 9); // headers + 8 weeks
+    for(var i=1;i<max;i++){
+      var r = rows[i];
+      var tr = document.createElement('tr');
+      var weekClass = i === 1 ? 'font-weight:600;color:var(--gold)' : '';
+      tr.innerHTML = '<td class="row-date">' + esc(r[0]||'') + '</td>' +
+        '<td style="' + weekClass + '">' + esc(r[1]||'') + '</td>' +
+        '<td style="' + weekClass + '">' + esc(r[2]||'') + '</td>' +
+        '<td style="' + weekClass + '">' + esc(r[3]||'') + '</td>' +
+        '<td style="' + weekClass + '">' + esc(r[4]||'') + '</td>';
+      tbody.appendChild(tr);
+    }
+  }
+
+  function renderPipeline(rows){
+    var tbody = document.getElementById('pipeline-body');
+    tbody.innerHTML = '';
+    var totalValue = 0;
+    for(var i=1;i<rows.length;i++){
+      var r = rows[i];
+      if(!r[0]) continue;
+      var amount = r[3] || '';
+      var amtNum = parseInt(String(amount).replace(/[\$,]/g,'')) || 0;
+      totalValue += amtNum;
+      var stage = (r[4]||'').toLowerCase().trim();
+      var stageClass = 'stage-inquiry';
+      if(stage.indexOf('active') >= 0) stageClass = 'stage-active';
+      else if(stage.indexOf('submit') >= 0) stageClass = 'stage-submitted';
+      else if(stage.indexOf('approv') >= 0) stageClass = 'stage-approved';
+      else if(stage.indexOf('close') >= 0) stageClass = 'stage-closed';
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td style="font-weight:500">' + esc(r[0]) + '</td>' +
+        '<td>' + esc(r[1]||'') + '</td>' +
+        '<td>' + esc(r[2]||'') + '</td>' +
+        '<td style="font-family:var(--font-m)">' + esc(amount) + '</td>' +
+        '<td><span class="stage-badge ' + stageClass + '">' + esc(r[4]||'') + '</span></td>' +
+        '<td>' + esc(r[5]||'') + '</td>' +
+        '<td class="row-date">' + esc(r[6]||'') + '</td>';
+      tbody.appendChild(tr);
+    }
+    document.getElementById('pipeline-total').textContent = 'Total: $' + totalValue.toLocaleString();
+  }
+
+  function renderMarketing(rows){
+    var tbody = document.getElementById('marketing-body');
+    tbody.innerHTML = '';
+    for(var i=1;i<rows.length;i++){
+      var r = rows[i];
+      if(!r[0]) continue;
+      var roi = r[7] || '';
+      var roiNum = parseFloat(String(roi).replace(/[%,]/g,''));
+      var roiColor = roiNum > 0 ? 'color:var(--green)' : roiNum < 0 ? 'color:var(--red)' : '';
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td style="font-weight:500">' + esc(r[0]) + '</td>' +
+        '<td>' + esc(r[1]||'') + '</td>' +
+        '<td style="font-family:var(--font-m)">' + esc(r[2]||'') + '</td>' +
+        '<td>' + esc(r[3]||'') + '</td>' +
+        '<td style="font-family:var(--font-m)">' + esc(r[4]||'') + '</td>' +
+        '<td>' + esc(r[5]||'') + '</td>' +
+        '<td style="font-family:var(--font-m)">' + esc(r[6]||'') + '</td>' +
+        '<td style="font-weight:600;' + roiColor + '">' + esc(roi) + '</td>';
+      tbody.appendChild(tr);
+    }
+  }
+
+  function renderActuals(rows){
+    var tbody = document.getElementById('avp-body');
+    tbody.innerHTML = '';
+    for(var i=1;i<rows.length;i++){
+      var r = rows[i];
+      if(!r[0]) continue;
+      var actual = r[1] || '';
+      var proj = r[2] || '';
+      var variance = r[3] || '';
+      var varNum = parseFloat(String(variance).replace(/[\$,]/g,''));
+      var varClass = varNum > 0 ? 'variance-pos' : varNum < 0 ? 'variance-neg' : '';
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + esc(r[0]) + '</td>' +
+        '<td style="font-family:var(--font-m)">' + esc(proj) + '</td>' +
+        '<td style="font-family:var(--font-d);font-weight:700;color:var(--gold)">' + esc(actual) + '</td>' +
+        '<td class="' + varClass + '">' + esc(variance) + '</td>';
+      tbody.appendChild(tr);
+    }
+  }
+
+  function renderNotes(rows){
+    var feed = document.getElementById('notes-feed');
+    feed.innerHTML = '';
+    for(var i=1;i<rows.length;i++){
+      var r = rows[i];
+      if(!r[0] && !r[1]) continue;
+      var div = document.createElement('div');
+      div.className = 'note-item';
+      div.innerHTML = '<div class="note-date">' + esc(r[0]||'') + '</div>' +
+        '<div class="note-text">' + esc(r[1]||'') + '</div>';
+      feed.appendChild(div);
+    }
+    if(feed.children.length === 0){
+      feed.innerHTML = '<div style="text-align:center;color:var(--text-dim);padding:20px">No notes yet</div>';
+    }
+  }
+
+  /* ── localStorage Fallback ──────────────────────── */
+  var SEED_DATA = {
+    kpis: { deals:'7', leads:'23', linkedin:'12,400' },
+    weeks: [
+      { date:'3/1/2026',  deals:'2', leads:'6',  linkedin:'2,100' },
+      { date:'3/8/2026',  deals:'3', leads:'9',  linkedin:'4,800' },
+      { date:'3/15/2026', deals:'5', leads:'15', linkedin:'8,200' },
+      { date:'3/22/2026', deals:'7', leads:'23', linkedin:'12,400' }
+    ],
+    notes: '',
+    lastUpdated: new Date().toISOString()
+  };
+
+  function loadFromLocalStorage(){
+    var d = getStore();
+    if(!d.kpis && (!d.weeks || !d.weeks.length)) d = SEED_DATA;
+
+    if(d.kpis){
+      ['deals','leads','linkedin'].forEach(function(k){
+        var el = document.getElementById('kpi-' + k);
+        if(el && d.kpis[k] !== undefined) el.textContent = d.kpis[k];
+      });
+    }
+    if(d.weeks && d.weeks.length){
+      var tbody = document.getElementById('log-body');
+      tbody.innerHTML = '';
+      d.weeks.slice().reverse().forEach(function(w){
+        var tr = document.createElement('tr');
+        tr.innerHTML = '<td class="row-date">' + esc(w.date) + '</td>' +
+          '<td>' + esc(w.deals) + '</td><td>' + esc(w.leads) + '</td>' +
+          '<td>' + esc(w.linkedin) + '</td>';
+        tbody.appendChild(tr);
+      });
+      // Deltas
+      if(d.weeks.length >= 2){
+        var curr = d.weeks[d.weeks.length - 1];
+        var prev = d.weeks[d.weeks.length - 2];
+        ['deals','leads','linkedin'].forEach(function(k){
+          var c = parseInt(String(curr[k]).replace(/,/g,'')) || 0;
+          var p = parseInt(String(prev[k]).replace(/,/g,'')) || 0;
+          var diff = c - p;
+          var el = document.getElementById('delta-' + k);
+          if(!el) return;
+          if(diff > 0){ el.textContent = '\u2191 +' + diff + ' vs last week'; el.className = 'kpi-delta up'; }
+          else if(diff < 0){ el.textContent = '\u2193 ' + diff + ' vs last week'; el.className = 'kpi-delta down'; }
+          else { el.textContent = '\u2014 no change'; el.className = 'kpi-delta neutral'; }
+        });
+      }
+    }
+    if(d.lastUpdated) updateTimestamp(d.lastUpdated);
+    if(!d.kpis) setStore(SEED_DATA);
+  }
+
+  /* ── CSV Export ──────────────────────────────────── */
+  window.exportCSV = function(){
+    var rows = document.querySelectorAll('#log-body tr');
+    if(!rows.length){ alert('No data to export.'); return; }
+    var csv = 'Week,Deals,Leads,LinkedIn Impressions\n';
+    rows.forEach(function(tr){
+      var cells = tr.querySelectorAll('td');
+      var vals = [];
+      cells.forEach(function(td){ vals.push('"' + td.textContent.replace(/"/g,'""') + '"'); });
+      csv += vals.join(',') + '\n';
+    });
+    var blob = new Blob([csv], {type:'text/csv'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'viador-kpi-' + new Date().toISOString().slice(0,10) + '.csv';
+    a.click();
+  };
+
+  /* ── Tab Switching ──────────────────────────────── */
+  window.switchTab = function(tab){
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+    var panel = document.getElementById('tab-' + tab);
+    if(panel) panel.classList.add('active');
+    var btns = document.querySelectorAll('.tab-btn');
+    var labels = { home:'Home', ndv:'NDV', pipeline:'Pipeline', organic:'Organic', pl:'P&L', strategy:'Strategy' };
+    btns.forEach(function(b){
+      if(b.textContent.indexOf(labels[tab]) >= 0) b.classList.add('active');
+    });
+    if((tab === 'pl' || tab === 'organic') && !window._chartInit){ initRevenueChart(); window._chartInit = true; }
+  };
+
+  /* ── Revenue Chart ──────────────────────────────── */
+  function initRevenueChart(){
+    var ctx = document.getElementById('revenueChart');
+    if(!ctx) return;
+    var projected = [0,0,0,7450,14900,25350,37400,37400,37400,56100,56100,56100];
+    var labels = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    new Chart(ctx, {
+      type: 'bar',
+      data: { labels: labels, datasets: [{
+        label: 'Projected',
+        data: projected,
+        backgroundColor: 'rgba(191, 144, 32,0.3)',
+        borderColor: '#BF9020',
+        borderWidth: 1.5,
+        borderRadius: 4
+      }]},
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.35)', font: { family: "'DM Mono'", size: 10 } } },
+          y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.35)', font: { family: "'DM Mono'", size: 10 }, callback: function(v){ return '$'+v.toLocaleString(); } } }
+        }
+      }
+    });
+  }
+
+  /* ── AI Advisor ─────────────────────────────────── */
+  var AI_SYSTEM = 'You are the AI business advisor for Viador Partners, a real estate investor lending advisory platform. Active platforms: viadorpartners.com (investor lending) and nextdutyvet.com (veteran financial decisions). You have access to live KPI data, pipeline data, and marketing performance. Analyze the data and give specific, actionable recommendations. Reference actual numbers. Focus on: what\'s working, what\'s not, and the single highest-ROI action this week.\n\nFormat your response in exactly this structure using markdown:\n\n### Areas of Attention\n- (3 bullet points analyzing the data — reference specific numbers and percentages)\n\n### Recommended Actions This Week\n- (3 bullet points ranked by revenue impact — be specific and actionable)\n\n### Pipeline Health\n- (Brief assessment of deal pipeline if data available)\n\n### Platform Trajectory\n(One sentence on overall trajectory based on the trend data)';
+
+  window.runAI = function(){
+    var btn = document.getElementById('ai-btn');
+    var panel = document.getElementById('ai-panel');
+    var output = document.getElementById('ai-output');
+
+    // Build context from all available data
+    var context = '';
+
+    // KPIs
+    context += 'Current Week KPIs:\n';
+    ['deals','leads','linkedin'].forEach(function(k){
+      context += '- ' + k + ': ' + (document.getElementById('kpi-' + k).textContent || '0') + '\n';
+    });
+
+    // Weekly history from table
+    var weekRows = document.querySelectorAll('#log-body tr');
+    if(weekRows.length){
+      context += '\nWeekly History (most recent first):\n';
+      weekRows.forEach(function(tr){
+        var cells = tr.querySelectorAll('td');
+        if(cells.length >= 5){
+          context += 'Week ' + cells[0].textContent + ': Deals=' + cells[1].textContent + ', Leads=' + cells[2].textContent + ', LinkedIn=' + cells[3].textContent + '\n';
+        }
+      });
+    }
+
+    // Pipeline from sheet data
+    if(_sheetData.pipeline && _sheetData.pipeline.length > 1){
+      context += '\nDeal Pipeline:\n';
+      for(var i=1;i<_sheetData.pipeline.length;i++){
+        var r = _sheetData.pipeline[i];
+        if(r[0]) context += '- ' + r[0] + ' | ' + (r[2]||'') + ' | ' + (r[3]||'') + ' | Stage: ' + (r[4]||'') + '\n';
+      }
+    }
+
+    // Marketing from sheet data
+    if(_sheetData.marketing && _sheetData.marketing.length > 1){
+      context += '\nMarketing Campaigns:\n';
+      for(var i=1;i<_sheetData.marketing.length;i++){
+        var r = _sheetData.marketing[i];
+        if(r[0]) context += '- ' + r[0] + ' (' + (r[1]||'') + '): Spend=' + (r[2]||'') + ', Leads=' + (r[3]||'') + ', ROI=' + (r[7]||'') + '\n';
+      }
+    }
+
+    var localNotes = document.getElementById('notes').value;
+    if(localNotes) context += '\nOperator Notes: ' + localNotes;
+    context += '\n\nAnalyze this data and provide your assessment.';
+
+    // UI: loading state
+    btn.disabled = true;
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation:spin 1s linear infinite"><path d="M12 2a10 10 0 1 0 10 10"/></svg> Analyzing...';
+    panel.classList.add('loading');
+    output.className = 'ai-output visible';
+    output.innerHTML = '<span class="ai-cursor"></span>';
+
+    if(!document.getElementById('spin-style')){
+      var s = document.createElement('style');
+      s.id = 'spin-style';
+      s.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
+      document.head.appendChild(s);
+    }
+
+    fetch(WORKER, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1024,
+        stream: true,
+        system: AI_SYSTEM,
+        messages: [{ role: 'user', content: context }]
+      })
+    }).then(function(res){
+      if(!res.ok) throw new Error('API returned ' + res.status);
+      var reader = res.body.getReader();
+      var decoder = new TextDecoder();
+      var raw = '';
+      var buffer = '';
+      function pump(){
+        return reader.read().then(function(result){
+          if(result.done){ finishAI(raw); return; }
+          buffer += decoder.decode(result.value, {stream:true});
+          var lines = buffer.split('\n');
+          buffer = lines.pop();
+          lines.forEach(function(line){
+            if(line.startsWith('data: ')){
+              var payload = line.slice(6).trim();
+              if(payload === '[DONE]') return;
+              try {
+                var evt = JSON.parse(payload);
+                if(evt.type === 'content_block_delta' && evt.delta && evt.delta.text){
+                  raw += evt.delta.text;
+                  output.innerHTML = markdownToHTML(raw) + '<span class="ai-cursor"></span>';
+                  output.scrollTop = output.scrollHeight;
+                }
+              } catch(e){}
+            }
+          });
+          return pump();
+        });
+      }
+      return pump();
+    }).catch(function(err){
+      output.innerHTML = '<p style="color:var(--red)">Analysis failed: ' + err.message + '</p>';
+      resetAIBtn();
+    });
+  };
+
+  function finishAI(raw){
+    var output = document.getElementById('ai-output');
+    var ts = new Date();
+    var timeStr = formatTime(ts.toISOString());
+    output.innerHTML = markdownToHTML(raw) + '<div class="ai-timestamp">Analysis generated ' + timeStr + '</div>';
+    resetAIBtn();
+    var d = getStore();
+    d.lastAI = { text: raw, time: ts.toISOString() };
+    setStore(d);
+  }
+
+  function resetAIBtn(){
+    var btn = document.getElementById('ai-btn');
+    var panel = document.getElementById('ai-panel');
+    btn.disabled = false;
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Get AI Analysis';
+    panel.classList.remove('loading');
+  }
+
+  function markdownToHTML(md){
+    var html = md
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>');
+    html = html.replace(/((?:^- .+\n?)+)/gm, function(block){
+      var items = block.trim().split('\n').map(function(l){
+        return '<li>' + l.replace(/^- /,'') + '</li>';
+      }).join('');
+      return '<ul>' + items + '</ul>';
+    });
+    html = html.split('\n').map(function(line){
+      line = line.trim();
+      if(!line || line.startsWith('<h3>') || line.startsWith('<ul>') || line.startsWith('<li>')) return line;
+      return '<p>' + line + '</p>';
+    }).join('\n');
+    return html;
+  }
+
+  /* ── viador-data.json Live Feed ───────────────── */
+  var DATA_URL = '/viador-data.json';
+
+  async function loadViadorData(){
+    try {
+      var res = await fetch(DATA_URL + '?t=' + Date.now());
+      if(!res.ok) throw new Error('HTTP ' + res.status);
+      var data = await res.json();
+      populateDashboard(data);
+    } catch(e){
+      console.log('viador-data.json not available, using defaults');
+    }
+  }
+
+  function populateDashboard(data){
+    // Brief status bar
+    var bar = document.getElementById('brief-bar');
+    bar.style.display = 'flex';
+    document.getElementById('brief-version').textContent = 'v' + data.meta.version;
+    document.getElementById('brief-date').textContent = data.meta.last_updated;
+
+    // LinkedIn countdown
+    var postDate = new Date(data.founder.linkedin_post_target);
+    var today = new Date();
+    var daysLeft = Math.ceil((postDate - today) / (1000 * 60 * 60 * 24));
+    document.getElementById('linkedin-countdown').textContent = daysLeft > 0 ? daysLeft + ' days to post' : 'Post day!';
+
+    // SAFE progress
+    var safePct = (data.licensing.safe_coursework.completed_hours / data.licensing.safe_coursework.required_hours * 100).toFixed(0);
+    document.getElementById('safe-progress').style.width = safePct + '%';
+    document.getElementById('safe-label').textContent = data.licensing.safe_coursework.completed_hours + 'h / ' + data.licensing.safe_coursework.required_hours + 'h';
+
+    // Priority stack
+    var panel = document.getElementById('priority-panel');
+    panel.style.display = 'block';
+    var todayEl = document.getElementById('priority-today');
+    todayEl.innerHTML = data.priority_stack.today.map(function(i){
+      var isDone = i.indexOf('DONE') >= 0 || i.indexOf('SENT') >= 0;
+      return '<div class="priority-item' + (isDone ? ' done' : '') + '">' +
+        '<span class="pi-check">' + (isDone ? '&#10003;' : '&#9679;') + '</span> ' + esc(i) + '</div>';
+    }).join('');
+    var weekEl = document.getElementById('priority-week');
+    weekEl.innerHTML = data.priority_stack.this_week.map(function(i){
+      return '<div class="priority-item"><span class="pi-check">&#9679;</span> ' + esc(i) + '</div>';
+    }).join('');
+
+    // Platforms
+    var platSection = document.getElementById('platforms-section');
+    platSection.style.display = 'block';
+    var platGrid = document.getElementById('platform-grid');
+    var plats = [
+      { key: 'viador_partners', name: 'Viador Partners', icon: '🏠' },
+      { key: 'nextdutyvet', name: 'Next Duty Vet', icon: '🎖️' },
+      { key: 'viascore', name: 'ViaScore', icon: '⚡' },
+      { key: 'viador_markets', name: 'Viador Markets', icon: '📊' }
+    ];
+    platGrid.innerHTML = plats.map(function(p){
+      var d = data.platforms[p.key];
+      var stats = '';
+      if(d.pages) stats = d.pages + ' pages';
+      if(d.backtest_transactions) stats = d.backtest_transactions + ' backtested';
+      if(d.listings_residential) stats = (d.listings_residential + (d.listings_commercial||0)) + ' listings';
+      return '<a href="https://' + (d.domain||'#') + '" target="_blank" class="platform-card">' +
+        '<div class="pc-name">' + p.icon + ' ' + p.name + '</div>' +
+        '<div class="pc-domain">' + (d.domain || 'Future') + '</div>' +
+        '<div class="pc-status">' + (d.status||'').replace(/_/g,' ') + '</div>' +
+        (stats ? '<div class="pc-stat">' + stats + '</div>' : '') +
+      '</a>';
+    }).join('');
+
+    // Contacts
+    var contactsSection = document.getElementById('contacts-section');
+    contactsSection.style.display = 'block';
+    var contactsList = document.getElementById('contacts-list');
+    contactsList.innerHTML = data.contacts.map(function(c){
+      return '<div class="contact-card">' +
+        '<div class="contact-name">' + esc(c.name) + '</div>' +
+        '<div class="contact-role">' + esc(c.role) + '</div>' +
+        '<div class="contact-status status-' + c.status + '">' + c.status.replace(/_/g,' ') + '</div>' +
+        (c.next_action ? '<div class="contact-action">&rarr; ' + esc(c.next_action) + '</div>' : '') +
+        (c.phone ? '<div style="margin-top:6px"><a href="tel:' + c.phone.replace(/[^+0-9]/g,'') + '" style="font-size:11px;color:var(--gold)">' + esc(c.phone) + '</a></div>' : '') +
+      '</div>';
+    }).join('');
+
+    // Financial summary
+    var finSection = document.getElementById('financial-section');
+    finSection.style.display = 'block';
+    var y1 = data.financials.projections.y1;
+    var y2 = data.financials.projections.y2;
+    var y3 = data.financials.projections.y3;
+    document.getElementById('y1-revenue').textContent = '$' + (y1.revenue/1000).toFixed(0) + 'K';
+    document.getElementById('y1-loans').textContent = y1.loans + ' loans | ' + y1.platform_value;
+    document.getElementById('y1-loans').className = 'kpi-delta neutral';
+    document.getElementById('y2-revenue').textContent = '$' + (y2.revenue/1000000).toFixed(1) + 'M';
+    document.getElementById('y2-loans').textContent = y2.loans + ' loans | ' + y2.platform_value;
+    document.getElementById('y2-loans').className = 'kpi-delta neutral';
+    document.getElementById('y3-revenue').textContent = '$' + (y3.revenue/1000000).toFixed(1) + 'M';
+    document.getElementById('y3-val').textContent = y3.loans + ' loans | ' + y3.platform_value;
+    document.getElementById('y3-val').className = 'kpi-delta up';
+
+    // Session log
+    if(data.session_log && data.session_log.length > 0){
+      var sessSection = document.getElementById('session-section');
+      sessSection.style.display = 'block';
+      var latest = data.session_log[data.session_log.length - 1];
+      var logEl = document.getElementById('session-log');
+      logEl.innerHTML = '<div style="font-weight:600;margin-bottom:12px;color:var(--gold)">' + latest.date + '</div>' +
+        latest.key_wins.map(function(w){ return '<div class="note-item" style="padding:6px 0"><span style="color:var(--green)">&#10003;</span> ' + esc(w) + '</div>'; }).join('');
+    }
+  }
+
+  /* ── Deferred Auth Check ─────────────────────────
+     Must be last — all window.* functions are now defined ── */
+  if(isAuthed) showDash();
+
+})();
+</script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/245454217.js"></script>
+</body>
+</html>

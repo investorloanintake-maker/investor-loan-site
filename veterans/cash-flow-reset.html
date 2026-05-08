@@ -23,19 +23,19 @@
 <style>
 .cf-hero{background:var(--ink,#141210);color:#fff;padding:120px 24px 80px;text-align:center;position:relative;overflow:hidden}
 .cf-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(191, 144, 32,0.12) 0%,transparent 70%);pointer-events:none}
-.cf-hero h1{font-family:'Fraunces',serif;font-size:clamp(28px,4.5vw,46px);font-weight:900;color:#fff;max-width:740px;margin:0 auto 18px;line-height:1.15}
+.cf-hero h1{font-family:'Inter',system-ui,sans-serif;font-size:clamp(28px,4.5vw,46px);font-weight: 700;color:#fff;max-width:740px;margin:0 auto 18px;line-height:1.15}
 .cf-hero .sub{font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,0.65);max-width:620px;margin:0 auto 28px;line-height:1.7}
-.cf-hero .breadcrumb{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:24px;letter-spacing:.05em}
+.cf-hero .breadcrumb{font-family:'Inter',system-ui,sans-serif;font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:24px;letter-spacing:.05em}
 .cf-hero .breadcrumb a{color:rgba(255,255,255,0.3);text-decoration:none}
 .cf-checks{display:flex;flex-direction:column;gap:10px;max-width:480px;margin:0 auto 32px;text-align:left}
 .cf-check{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:rgba(255,255,255,0.75)}
 .cf-check::before{content:'\2713';color:var(--gold,#BF9020);font-weight:700;flex-shrink:0}
-.cf-btn{display:inline-block;padding:18px 40px;background:var(--gold,#BF9020);color:#fff;border-radius:6px;font-weight:700;font-size:17px;text-decoration:none;font-family:'DM Sans',sans-serif;transition:all .2s}
+.cf-btn{display:inline-block;padding:18px 40px;background:var(--gold,#BF9020);color:#fff;border-radius:6px;font-weight:700;font-size:17px;text-decoration:none;font-family:'Inter',system-ui,sans-serif;transition:all .2s}
 .cf-btn:hover{background:var(--gold-light,#D9A84A);transform:translateY(-1px)}
-.cf-btn-ghost{display:inline-block;padding:14px 28px;border:1px solid var(--gold);color:var(--gold);border-radius:6px;font-weight:500;font-size:14px;text-decoration:none;font-family:'DM Sans',sans-serif;margin-left:12px}
+.cf-btn-ghost{display:inline-block;padding:14px 28px;border:1px solid var(--gold);color:var(--gold);border-radius:6px;font-weight:500;font-size:14px;text-decoration:none;font-family:'Inter',system-ui,sans-serif;margin-left:12px}
 .cf{padding:64px 24px;max-width:720px;margin:0 auto}
-.cf-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#BF9020);margin-bottom:10px}
-.cf h2{font-family:'Fraunces',serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--ink,#141210);margin-bottom:14px;line-height:1.2}
+.cf-label{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#BF9020);margin-bottom:10px}
+.cf h2{font-family:'Inter',system-ui,sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--ink,#141210);margin-bottom:14px;line-height:1.2}
 .cf p{font-size:16px;color:var(--ink-soft,#52504C);line-height:1.8;margin-bottom:16px}
 .cf-payment{background:var(--cream-dark,#F2EDE6);border:1px solid var(--line);border-radius:10px;padding:24px;margin:24px 0}
 .cf-payment .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line-soft,rgba(20,18,16,0.08));font-size:15px;color:var(--ink-soft)}
@@ -44,7 +44,7 @@
 .cf-payment .total{border-top:2px solid var(--ink);padding-top:10px;margin-top:4px;font-weight:700;color:var(--ink);font-size:16px}
 .cf-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin:32px 0}
 .cf-step{background:var(--ink,#141210);color:#fff;border-radius:10px;padding:28px 24px;position:relative}
-.cf-step-num{font-family:'Fraunces',serif;font-size:42px;font-weight:900;color:rgba(191, 144, 32,0.2);line-height:1;margin-bottom:8px}
+.cf-step-num{font-family:'Inter',system-ui,sans-serif;font-size:42px;font-weight: 700;color:rgba(191, 144, 32,0.2);line-height:1;margin-bottom:8px}
 .cf-step h3{font-size:18px;font-weight:700;margin-bottom:8px}
 .cf-step p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;margin:0}
 .cf-scenario{background:var(--ink);color:#fff;border-radius:12px;padding:32px;margin:32px 0}
@@ -65,40 +65,40 @@
 .cf-outcome-item{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--ink-soft)}
 .cf-outcome-item::before{content:'\2713';color:#16a34a;font-weight:700;flex-shrink:0}
 .cf-rate-box{background:rgba(191, 144, 32,0.06);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:24px;margin:24px 0}
-.cf-rate-box h3{font-family:'Fraunces',serif;font-size:18px;color:var(--ink);margin-bottom:10px}
+.cf-rate-box h3{font-family:'Inter',system-ui,sans-serif;font-size:18px;color:var(--ink);margin-bottom:10px}
 .cf-rate-box p{font-size:15px;color:var(--ink-soft);line-height:1.7;margin-bottom:10px}
-.cf-authority{background:var(--cream-dark,#F2EDE6);border-radius:10px;padding:24px;margin:32px 0;font-family:'DM Mono',monospace;font-size:13px;color:var(--ink-soft);line-height:1.8}
+.cf-authority{background:var(--cream-dark,#F2EDE6);border-radius:10px;padding:24px;margin:32px 0;font-family:'Inter',system-ui,sans-serif;font-size:13px;color:var(--ink-soft);line-height:1.8}
 .cf-authority strong{color:var(--ink)}
 .cf-call{background:var(--cream-dark,#F2EDE6);border:1px solid var(--line);border-radius:10px;padding:28px;margin:32px 0}
-.cf-call h3{font-family:'Fraunces',serif;font-size:20px;color:var(--ink);margin-bottom:10px}
+.cf-call h3{font-family:'Inter',system-ui,sans-serif;font-size:20px;color:var(--ink);margin-bottom:10px}
 .cf-call ul{list-style:none;padding:0;margin:12px 0 0}
 .cf-call li{display:flex;align-items:flex-start;gap:8px;padding:6px 0;font-size:14px;color:var(--ink-soft);line-height:1.6}
 .cf-call li::before{content:'\2022';color:var(--gold);font-weight:700;flex-shrink:0}
 .cf-faq{border-bottom:1px solid var(--line);padding:18px 0}
-.cf-faq-q{font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.cf-faq-q{font-family:'Inter',system-ui,sans-serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:8px}
 .cf-faq-a{font-size:15px;color:var(--ink-soft);line-height:1.7}
 .cf-final{text-align:center;padding:48px 0;border-top:1px solid var(--line);margin-top:32px}
 .cf-final h2{margin-bottom:8px}
 .cf-final p{max-width:520px;margin:0 auto 24px}
-.cf-trust{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-soft);margin-top:16px;letter-spacing:.03em}
+.cf-trust{font-family:'Inter',system-ui,sans-serif;font-size:11px;color:var(--ink-soft);margin-top:16px;letter-spacing:.03em}
 .cf-trust a{color:var(--gold);text-decoration:none}
 .cf-disclaimer{font-size:11px;color:var(--ink-soft);text-align:center;padding:24px;background:var(--cream-dark);line-height:1.7;margin-top:32px}
 .cf-intake{background:rgba(255,255,255,0.06);border:1px solid rgba(191, 144, 32,0.25);border-radius:12px;padding:28px;max-width:480px;margin:32px auto 0}
-.cf-intake-title{font-family:'Fraunces',serif;font-size:18px;color:#fff;margin-bottom:4px}
+.cf-intake-title{font-family:'Inter',system-ui,sans-serif;font-size:18px;color:#fff;margin-bottom:4px}
 .cf-intake-sub{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:20px}
-.cf-intake-progress{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.cf-intake-progress{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
 .cf-intake-q{font-size:16px;font-weight:600;color:#fff;margin-bottom:16px;line-height:1.4}
 .cf-intake-opts{display:flex;flex-direction:column;gap:8px}
-.cf-intake-opt{display:block;width:100%;padding:14px 16px;background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.12);border-radius:8px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.85);text-align:left;font-family:'DM Sans',sans-serif;transition:all .15s;line-height:1.4}
+.cf-intake-opt{display:block;width:100%;padding:14px 16px;background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.12);border-radius:8px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.85);text-align:left;font-family:'Inter',system-ui,sans-serif;transition:all .15s;line-height:1.4}
 .cf-intake-opt:hover{border-color:var(--gold);background:rgba(191, 144, 32,0.08)}
-.cf-intake-input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.2);border-radius:6px;color:#fff;font-size:15px;font-family:'DM Sans',sans-serif;margin-bottom:10px;outline:none;box-sizing:border-box}
+.cf-intake-input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.2);border-radius:6px;color:#fff;font-size:15px;font-family:'Inter',system-ui,sans-serif;margin-bottom:10px;outline:none;box-sizing:border-box}
 .cf-intake-input::placeholder{color:rgba(255,255,255,0.35)}
-.cf-intake-submit{width:100%;padding:16px;background:var(--gold);color:#fff;border:none;border-radius:6px;font-size:16px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:4px}
+.cf-intake-submit{width:100%;padding:16px;background:var(--gold);color:#fff;border:none;border-radius:6px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Inter',system-ui,sans-serif;margin-top:4px}
 .cf-intake-submit:hover{background:var(--gold-light)}
 .cf-intake-skip{font-size:13px;color:rgba(255,255,255,0.4);margin-top:16px;text-align:center}
 .cf-intake-skip a{color:var(--gold);text-decoration:none}
 .cf-intake-result{text-align:center;padding:20px 0}
-.cf-intake-result h3{font-family:'Fraunces',serif;font-size:22px;color:#fff;margin-bottom:8px}
+.cf-intake-result h3{font-family:'Inter',system-ui,sans-serif;font-size:22px;color:#fff;margin-bottom:8px}
 .cf-intake-result p{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:16px}
 @media(max-width:640px){.cf-hero{padding:80px 20px 64px}.cf-compare{grid-template-columns:1fr}.cf-btn-ghost{margin-left:0;margin-top:12px;display:block}.cf-intake{padding:20px}}
 </style>
@@ -383,13 +383,13 @@ function cfiSubmit(e) {
 <!-- UNIFIED CTA BLOCK -->
 <div id="unified-cta-block" style="background:var(--cream-dark,#F2EDE6);border-top:1px solid var(--line,rgba(20,18,16,0.14));border-bottom:1px solid var(--line,rgba(20,18,16,0.14));padding:48px 24px;text-align:center;margin-top:32px">
   <div style="max-width:580px;margin:0 auto">
-    <h2 style="font-family:'Fraunces',serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--ink,#141210);margin-bottom:12px;line-height:1.2">Want to See What Your Options Actually Look Like?</h2>
+    <h2 style="font-family:'Inter',system-ui,sans-serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--ink,#141210);margin-bottom:12px;line-height:1.2">Want to See What Your Options Actually Look Like?</h2>
     <p style="font-size:15px;color:var(--ink-soft,#52504C);line-height:1.7;margin-bottom:24px">Most veterans with a low-rate VA mortgage assume their only option is to refinance. That's not always true. If you want to understand what actually makes sense in your situation, we run the numbers and walk you through it. No pressure. No obligation. Just a clear picture of your options.</p>
     <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
-      <a href="cash-flow-reset.html" style="display:inline-block;padding:16px 32px;background:var(--gold,#BF9020);color:#fff;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;font-family:'DM Sans',sans-serif" onclick="gtag('event','veteran_cash_flow_reset_cta_run_numbers')">Run My Numbers</a>
-      <a href="https://calendly.com/chad-viadorpartners/30min?source=unified-cta-cash_flow_reset&utm_source=viadorpartners&utm_medium=veterans-content&utm_campaign=unified-cta" target="_blank" style="display:inline-block;padding:14px 28px;border:1px solid var(--gold,#BF9020);color:var(--gold,#BF9020);border-radius:6px;font-weight:500;font-size:14px;text-decoration:none;font-family:'DM Sans',sans-serif" onclick="gtag('event','veteran_cash_flow_reset_cta_schedule')">Schedule a 30-Minute Call</a>
+      <a href="cash-flow-reset.html" style="display:inline-block;padding:16px 32px;background:var(--gold,#BF9020);color:#fff;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;font-family:'Inter',system-ui,sans-serif" onclick="gtag('event','veteran_cash_flow_reset_cta_run_numbers')">Run My Numbers</a>
+      <a href="https://calendly.com/chad-viadorpartners/30min?source=unified-cta-cash_flow_reset&utm_source=viadorpartners&utm_medium=veterans-content&utm_campaign=unified-cta" target="_blank" style="display:inline-block;padding:14px 28px;border:1px solid var(--gold,#BF9020);color:var(--gold,#BF9020);border-radius:6px;font-weight:500;font-size:14px;text-decoration:none;font-family:'Inter',system-ui,sans-serif" onclick="gtag('event','veteran_cash_flow_reset_cta_schedule')">Schedule a 30-Minute Call</a>
     </div>
-    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-soft,#52504C);margin-top:16px;letter-spacing:.03em"><a href="../about/chad-evers" style="color:var(--gold);text-decoration:none">Chad Evers</a> &middot; NMLS #2822744 &middot; Viador Partners LLC &middot; Tampa, FL</div>
+    <div style="font-family:'Inter',system-ui,sans-serif;font-size:11px;color:var(--ink-soft,#52504C);margin-top:16px;letter-spacing:.03em"><a href="../about/chad-evers" style="color:var(--gold);text-decoration:none">Chad Evers</a> &middot; NMLS #2822744 &middot; Viador Partners LLC &middot; Tampa, FL</div>
   </div>
 </div>
 

@@ -22,39 +22,39 @@
 <link rel="stylesheet" href="../styles.css">
 <style>
 .lr-hero{background:var(--ink,#141210);color:#fff;padding:120px 24px 72px;text-align:center}
-.lr-hero h1{font-family:'Fraunces',serif;font-size:clamp(26px,4vw,42px);font-weight:900;color:#fff;max-width:700px;margin:0 auto 20px;line-height:1.15}
+.lr-hero h1{font-family:'Inter',system-ui,sans-serif;font-size:clamp(26px,4vw,42px);font-weight: 700;color:#fff;max-width:700px;margin:0 auto 20px;line-height:1.15}
 .lr-hero .body{font-size:16px;color:rgba(255,255,255,0.65);max-width:620px;margin:0 auto 32px;line-height:1.8}
-.lr-hero .breadcrumb{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:24px;letter-spacing:.05em}
+.lr-hero .breadcrumb{font-family:'Inter',system-ui,sans-serif;font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:24px;letter-spacing:.05em}
 .lr-hero .breadcrumb a{color:rgba(255,255,255,0.3);text-decoration:none}
-.lr-btn{display:inline-block;padding:16px 32px;background:var(--gold,#BF9020);color:#fff;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;font-family:'DM Sans',sans-serif}
+.lr-btn{display:inline-block;padding:16px 32px;background:var(--gold,#BF9020);color:#fff;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;font-family:'Inter',system-ui,sans-serif}
 .lr-btn:hover{background:var(--gold-light,#D9A84A)}
-.lr-btn-ghost{display:inline-block;padding:14px 28px;border:1px solid var(--gold);color:var(--gold);border-radius:6px;font-weight:500;font-size:14px;text-decoration:none;font-family:'DM Sans',sans-serif;margin-left:12px}
+.lr-btn-ghost{display:inline-block;padding:14px 28px;border:1px solid var(--gold);color:var(--gold);border-radius:6px;font-weight:500;font-size:14px;text-decoration:none;font-family:'Inter',system-ui,sans-serif;margin-left:12px}
 .lr{padding:64px 24px;max-width:720px;margin:0 auto}
-.lr-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#BF9020);margin-bottom:10px}
-.lr h2{font-family:'Fraunces',serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--ink,#141210);margin-bottom:14px;line-height:1.2}
+.lr-label{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#BF9020);margin-bottom:10px}
+.lr h2{font-family:'Inter',system-ui,sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--ink,#141210);margin-bottom:14px;line-height:1.2}
 .lr p{font-size:16px;color:var(--ink-soft,#52504C);line-height:1.8;margin-bottom:16px}
 .lr-option{border:1px solid var(--line,rgba(20,18,16,0.14));border-radius:12px;padding:28px;margin-bottom:20px;position:relative}
 .lr-option-a{border-left:4px solid var(--ink-soft,#52504C);background:rgba(82,80,76,0.03)}
 .lr-option-b{border-left:4px solid var(--gold,#BF9020);background:rgba(191, 144, 32,0.03)}
 .lr-option-c{border-left:4px solid #16a34a;background:rgba(22,163,74,0.03)}
-.lr-option .tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
-.lr-option h3{font-family:'Fraunces',serif;font-size:19px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.lr-option .tag{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.lr-option h3{font-family:'Inter',system-ui,sans-serif;font-size:19px;font-weight:700;color:var(--ink);margin-bottom:10px}
 .lr-option p{font-size:14px;color:var(--ink-soft);line-height:1.7;margin-bottom:8px}
 .lr-option ul{list-style:none;padding:0;margin:10px 0}
 .lr-option li{display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--ink-soft);line-height:1.5;padding:4px 0}
 .lr-option li::before{content:'\2022';color:var(--gold);font-weight:700;flex-shrink:0}
 .lr-option .works{font-size:13px;color:var(--ink);font-weight:600;margin-top:10px}
 .lr-blended{background:var(--ink,#141210);color:#fff;border-radius:12px;padding:32px;margin:32px 0;text-align:center}
-.lr-blended h3{font-family:'Fraunces',serif;font-size:22px;color:var(--gold-light,#E8B84B);margin-bottom:16px}
+.lr-blended h3{font-family:'Inter',system-ui,sans-serif;font-size:22px;color:var(--gold-light,#E8B84B);margin-bottom:16px}
 .lr-blended .math{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:400px;margin:0 auto 20px;text-align:left}
 .lr-blended .math-row{padding:10px 14px;background:rgba(255,255,255,0.06);border-radius:6px}
 .lr-blended .math-label{font-size:12px;color:rgba(255,255,255,0.5)}
-.lr-blended .math-val{font-family:'DM Mono',monospace;font-size:18px;font-weight:600;color:#fff}
-.lr-blended .result{font-family:'Fraunces',serif;font-size:20px;color:var(--gold-light);margin-top:4px}
+.lr-blended .math-val{font-family:'Inter',system-ui,sans-serif;font-size:18px;font-weight:600;color:#fff}
+.lr-blended .result{font-family:'Inter',system-ui,sans-serif;font-size:20px;color:var(--gold-light);margin-top:4px}
 .lr-blended .insight{font-size:14px;color:rgba(255,255,255,0.6);max-width:480px;margin:16px auto 0;line-height:1.7}
 .lr-wins{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:24px 0}
 .lr-win{border-radius:10px;padding:20px}
-.lr-win h4{font-family:'Fraunces',serif;font-size:16px;font-weight:700;margin-bottom:10px}
+.lr-win h4{font-family:'Inter',system-ui,sans-serif;font-size:16px;font-weight:700;margin-bottom:10px}
 .lr-win ul{list-style:none;padding:0;margin:0}
 .lr-win li{display:flex;align-items:flex-start;gap:8px;font-size:13px;line-height:1.5;padding:4px 0}
 .lr-win li::before{content:'\2713';font-weight:700;flex-shrink:0}
@@ -77,7 +77,7 @@
 .lr-scenario .note{font-size:12px;color:rgba(255,255,255,0.3);font-style:italic;margin-top:12px}
 .lr-phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0}
 .lr-phase{background:var(--cream-dark,#F2EDE6);border-radius:8px;padding:20px}
-.lr-phase h4{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.lr-phase h4{font-family:'Inter',system-ui,sans-serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px}
 .lr-phase p{font-size:13px;color:var(--ink-soft);line-height:1.6;margin:0}
 .lr-mistakes{list-style:none;padding:0;margin:16px 0}
 .lr-mistakes li{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--line-soft,rgba(20,18,16,0.08));font-size:15px;color:var(--ink-soft);line-height:1.6}
@@ -85,7 +85,7 @@
 .lr-final{text-align:center;padding:48px 0;border-top:1px solid var(--line);margin-top:32px}
 .lr-final h2{margin-bottom:8px}
 .lr-final p{max-width:560px;margin:0 auto 24px}
-.lr-trust{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-soft);margin-top:16px;letter-spacing:.03em}
+.lr-trust{font-family:'Inter',system-ui,sans-serif;font-size:11px;color:var(--ink-soft);margin-top:16px;letter-spacing:.03em}
 .lr-trust a{color:var(--gold);text-decoration:none}
 .lr-disclaimer{font-size:11px;color:var(--ink-soft);text-align:center;padding:24px;background:var(--cream-dark);line-height:1.7;margin-top:32px}
 @media(max-width:640px){.lr-hero{padding:80px 20px 56px}.lr-blended .math{grid-template-columns:1fr}.lr-btn-ghost{margin-left:0;margin-top:12px;display:block}}
@@ -257,13 +257,13 @@
 <!-- UNIFIED CTA BLOCK -->
 <div id="unified-cta-block" style="background:var(--cream-dark,#F2EDE6);border-top:1px solid var(--line,rgba(20,18,16,0.14));border-bottom:1px solid var(--line,rgba(20,18,16,0.14));padding:48px 24px;text-align:center;margin-top:32px">
   <div style="max-width:580px;margin:0 auto">
-    <h2 style="font-family:'Fraunces',serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--ink,#141210);margin-bottom:12px;line-height:1.2">Want to See What Your Options Actually Look Like?</h2>
+    <h2 style="font-family:'Inter',system-ui,sans-serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--ink,#141210);margin-bottom:12px;line-height:1.2">Want to See What Your Options Actually Look Like?</h2>
     <p style="font-size:15px;color:var(--ink-soft,#52504C);line-height:1.7;margin-bottom:24px">Most veterans with a low-rate VA mortgage assume their only option is to refinance. That's not always true. If you want to understand what actually makes sense in your situation, we run the numbers and walk you through it. No pressure. No obligation. Just a clear picture of your options.</p>
     <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
-      <a href="cash-flow-reset.html" style="display:inline-block;padding:16px 32px;background:var(--gold,#BF9020);color:#fff;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;font-family:'DM Sans',sans-serif" onclick="gtag('event','veteran_low_rate_strategy_cta_run_numbers')">Run My Numbers</a>
-      <a href="https://calendly.com/chad-viadorpartners/30min?source=unified-cta-low_rate_strategy&utm_source=viadorpartners&utm_medium=veterans-content&utm_campaign=unified-cta" target="_blank" style="display:inline-block;padding:14px 28px;border:1px solid var(--gold,#BF9020);color:var(--gold,#BF9020);border-radius:6px;font-weight:500;font-size:14px;text-decoration:none;font-family:'DM Sans',sans-serif" onclick="gtag('event','veteran_low_rate_strategy_cta_schedule')">Schedule a 30-Minute Call</a>
+      <a href="cash-flow-reset.html" style="display:inline-block;padding:16px 32px;background:var(--gold,#BF9020);color:#fff;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;font-family:'Inter',system-ui,sans-serif" onclick="gtag('event','veteran_low_rate_strategy_cta_run_numbers')">Run My Numbers</a>
+      <a href="https://calendly.com/chad-viadorpartners/30min?source=unified-cta-low_rate_strategy&utm_source=viadorpartners&utm_medium=veterans-content&utm_campaign=unified-cta" target="_blank" style="display:inline-block;padding:14px 28px;border:1px solid var(--gold,#BF9020);color:var(--gold,#BF9020);border-radius:6px;font-weight:500;font-size:14px;text-decoration:none;font-family:'Inter',system-ui,sans-serif" onclick="gtag('event','veteran_low_rate_strategy_cta_schedule')">Schedule a 30-Minute Call</a>
     </div>
-    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-soft,#52504C);margin-top:16px;letter-spacing:.03em"><a href="../about/chad-evers" style="color:var(--gold);text-decoration:none">Chad Evers</a> &middot; NMLS #2822744 &middot; Viador Partners LLC &middot; Tampa, FL</div>
+    <div style="font-family:'Inter',system-ui,sans-serif;font-size:11px;color:var(--ink-soft,#52504C);margin-top:16px;letter-spacing:.03em"><a href="../about/chad-evers" style="color:var(--gold);text-decoration:none">Chad Evers</a> &middot; NMLS #2822744 &middot; Viador Partners LLC &middot; Tampa, FL</div>
   </div>
 </div>
 

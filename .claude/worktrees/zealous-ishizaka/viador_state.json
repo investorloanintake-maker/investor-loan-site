@@ -1,0 +1,280 @@
+{
+  "generated_at": "2026-04-17T12:33:00-04:00",
+  "generated_by": "cowork-closedown",
+
+  "status_strip": {
+    "days_to_first_close": 23,
+    "days_to_first_send": 13,
+    "first_send_market": "Maryland",
+    "first_close_target": "May 10-15, 2026",
+    "win_condition": "First close May 10-15. Wave 1 send April 30 (gated on MD state review)."
+  },
+
+  "mission_critical_dates": {
+    "april_30_launch": "2026-04-30",
+    "may_close_target": "2026-05-10 to 2026-05-15",
+    "win_condition_text": "First close May 10-15. Wave 1 send April 30 (gated on MD state review)."
+  },
+
+  "licensing": {
+    "FL": {"status": "MU4 filed, Prometric passed April 9", "tag": "BLOCKED", "blocker": "FHM FL company entity confirmation"},
+    "OH": {"status": "MLO License ACTIVE from 04/16/2026 (full state license; NMLS Consumer Access: Authorized to Conduct Business: Yes)", "tag": "CONFIRMED", "blocker": null},
+    "MD": {"status": "MU4 filed, PE complete, fingerprints done, Jason sponsorship submitted 2026-04-17", "tag": "BLOCKED", "blocker": "MD state review timeline (est. 3-7 business days)"},
+    "TN": {"status": "Queued after MD active", "tag": "QUEUED", "blocker": "Sequenced after MD"}
+  },
+
+  "top_priorities": [
+    {
+      "rank": 1,
+      "tag": "BLOCKED+ACTIVE",
+      "text": "Marc Vargas — parallel-path: Jason commercial check + alternate lender shop",
+      "owner": "Jason + Chad (parallel)",
+      "context": "Path A (Jason passive): commercial structure. Path B (Chad active this week): email Kiavi/Lima One/Visio re master-lease + STR sublet tolerance. Path C (deferred): restructure to 6 individual leases. HubSpot deal 321199075013."
+    },
+    {
+      "rank": 2,
+      "tag": "INFERRED",
+      "text": "Close Focus Home Mortgage agreement this week",
+      "owner": "Chad+Jason",
+      "context": "Open: comp, non-sol carve-out, OBA, FL entity (more critical now that OH MLO License is active)"
+    },
+    {
+      "rank": 3,
+      "tag": "CONFIRMED",
+      "text": "Wave 2 OH (May 7) campaign build",
+      "owner": "Chad",
+      "context": "OH MLO License ACTIVE → real revenue. 1,144 OH Seg 1 IRRRL leads (Columbus 445 + Dayton 366 + Cincinnati 333). Build SmartLead campaign in draft with HubSpot sync ON at creation."
+    }
+  ],
+
+  "workstreams": [
+    {
+      "name": "licensing",
+      "tag": "BLOCKED",
+      "summary": "OH MLO License ACTIVE 04/16/2026 (originable upon Focus agreement); MD pushed to state review 2026-04-17 (3-7 bus days); FL entity confirmation still pending",
+      "last_update": "2026-04-17",
+      "blocker": "MD state review timeline + FHM FL company entity",
+      "next_action": "Monitor NMLS for MD state review; push Focus agreement (FL entity more critical now)"
+    },
+    {
+      "name": "lender-agreement",
+      "tag": "INFERRED",
+      "summary": "FHM agreement in active negotiation, 4 open items, target sign this week",
+      "last_update": "2026-04-16",
+      "blocker": "None (actively negotiating)",
+      "next_action": "Get comp structure + non-sol carve-out in writing"
+    },
+    {
+      "name": "viadorpartners",
+      "tag": "CONFIRMED",
+      "summary": "Full rebuild deployed April 15 (commit bf3c4b0), new gold #BF9020, .vp-* typography",
+      "last_update": "2026-04-15",
+      "blocker": "None",
+      "next_action": "Update About page title 'Mortgage Broker' -> 'Investor Lending Advisor'"
+    },
+    {
+      "name": "nextdutyvet",
+      "tag": "CONFIRMED",
+      "summary": "20 pages live, Meta Pixel deployed, 12 organic posts on hold until licensed",
+      "last_update": "2026-04-17",
+      "blocker": "Licensing (for posting with rate references)",
+      "next_action": "Compliance scrub: remove skip-payment + escrow-refund language"
+    },
+    {
+      "name": "email-infra",
+      "tag": "INFERRED",
+      "summary": "3 inboxes warming in SmartLead, sequence written not loaded, first safe send ~April 30",
+      "last_update": "2026-04-16",
+      "blocker": "P.O. box for CAN-SPAM compliance",
+      "next_action": "Build SmartLead campaigns in draft (MD first) with HubSpot sync ON at creation"
+    },
+    {
+      "name": "meta-ads",
+      "tag": "INFERRED",
+      "summary": "Custom Audience uploaded (2,052 leads), campaign planned not built, 5 creatives written (images pending)",
+      "last_update": "2026-04-15",
+      "blocker": "Creative images + Custom Audience match rate verification",
+      "next_action": "Verify match rate then build NDV_VA_Homeowner_Stacked_v1 in Ads Manager draft"
+    },
+    {
+      "name": "leads",
+      "tag": "CONFIRMED",
+      "summary": "20,027 VA leads analyzed; 2,052 Seg 1 IRRRL with email across OH+MD; CSVs ready",
+      "last_update": "2026-04-14",
+      "blocker": "None (sends gated by licensing + agreement)",
+      "next_action": "Wave 1 MD send April 30 (908 leads, avg IRRRL $485,510)"
+    },
+    {
+      "name": "organic-leads",
+      "tag": "BLOCKED",
+      "summary": "Marc Vargas initial lender declined master-lease + Airbnb sublet structure. Parallel paths: Jason commercial check (A) + Chad alternate DSCR lender shop (B). Path C (restructure to 6 individual leases) deferred.",
+      "last_update": "2026-04-17",
+      "blocker": "Path A Jason commercial check outcome; Path B Chad alternate lender responses",
+      "next_action": "Chad email Kiavi/Lima One/Visio this week with deal summary + initial decline letter as evidence; await Jason commercial path result in parallel"
+    },
+    {
+      "name": "viascore",
+      "tag": "STEALTH",
+      "summary": "148+ pages live but unpromoted; scoring model not production-ready",
+      "last_update": "2026-04-10",
+      "blocker": "Scoring model inconsistency on edge cases",
+      "next_action": "No active work this cycle"
+    },
+    {
+      "name": "viadormarkets",
+      "tag": "STEALTH",
+      "summary": "14 pages live, parked pending Stellar MLS IDX via Plumtree Realty",
+      "last_update": "2026-04-10",
+      "blocker": "Stellar MLS application via Chris Russell",
+      "next_action": "No action on Chad's side — wait on IDX"
+    },
+    {
+      "name": "command-center",
+      "tag": "INFERRED",
+      "summary": "admin.html exists with password gate; JSON-driven rebuild designed but not deployed",
+      "last_update": "2026-04-17",
+      "blocker": "None — needs build + deploy session",
+      "next_action": "Build admin.html that fetches viador_state.json from GitHub raw URL"
+    }
+  ],
+
+  "pipeline": [
+    {
+      "deal": "Marc Vargas",
+      "deal_name": "Marc Vargas — 6-unit Houston DSCR refi",
+      "stage": "Qualifying",
+      "amount": 870000,
+      "loan_size_low": 840000,
+      "loan_size_high": 900000,
+      "product": "DSCR cash-out refi (Houston TX, 6-unit multifamily)",
+      "close_date": "2026-05-31",
+      "days_in_stage": 0,
+      "blocker": "Initial DSCR lender declined master-lease + STR sublet structure. Parallel paths: Jason commercial (A) / Chad alt lender shop (B) / restructure deferred (C).",
+      "hubspot_id": "470233732822",
+      "hubspot_contact_id": "470233732822",
+      "hubspot_deal_id": "321199075013"
+    }
+  ],
+
+  "wave_readiness": [
+    {
+      "name": "MD Wave",
+      "state": "Maryland",
+      "lead_count": 908,
+      "send_date": "2026-04-30",
+      "status_tag": "BLOCKED",
+      "status_text": "Ready — gated on MD state review (est. 3-7 business days from 2026-04-17). If MD approves before April 30 = real revenue; if after = delayed."
+    },
+    {
+      "name": "OH Wave",
+      "state": "Ohio",
+      "lead_count": 1144,
+      "send_date": "2026-05-07",
+      "status_tag": "QUEUED",
+      "status_text": "OH MLO License ACTIVE 04/16/2026 — real revenue path. Build SmartLead campaign this week (HubSpot sync ON at creation). Send May 7. Leads: Columbus 445 + Dayton 366 + Cincinnati 333."
+    },
+    {
+      "name": "FL Wave",
+      "state": "Florida",
+      "lead_count": 3882,
+      "send_date": "TBD",
+      "status_tag": "BLOCKED",
+      "status_text": "Waiting on FL license + FHM FL company entity. Count is NAS Jax Seg 1 only; Hillsborough + Eglin Seg 1 segments not yet pulled — number will grow."
+    }
+  ],
+
+  "inbox_health": [
+    {
+      "email": "chad@viadorpartners.com",
+      "warmup_day": 6,
+      "reputation_score": 78,
+      "status_tag": "INFERRED",
+      "status_text": "Warming Day 6+ · ~78% reputation"
+    },
+    {
+      "email": "chad@nextdutyvet.com",
+      "warmup_day": null,
+      "reputation_score": null,
+      "status_tag": "INFERRED",
+      "status_text": "Warming — day/rep not reported by SmartLead today"
+    },
+    {
+      "email": "hello@nextdutyvet.com",
+      "warmup_day": null,
+      "reputation_score": null,
+      "status_tag": "INFERRED",
+      "status_text": "Warming — day/rep not reported by SmartLead today"
+    }
+  ],
+
+  "organic_signal": {
+    "ga4_status": "not_connected",
+    "gsc_status": "not_connected",
+    "recent_traffic_summary": "Coming soon — needs GA4/GSC service account in Worker"
+  },
+
+  "event_log_today": [
+    "Adopted 3-layer memory model (canonical / operating state / event log)",
+    "Built command center architecture — admin.html reads viador_state.json",
+    "Source of truth locked: C:\\Viador\\ local filesystem",
+    "Morning closedown (10:02) — review-only run #1, GitHub push skipped",
+    "HubSpot Marc Vargas deal created (14:14) — deal ID 321199075013, Qualifying stage, $870K, close 2026-05-31",
+    "HubSpot connector warning retired (14:18) — portal 245454217 verified correct",
+    "Evening closedown (10:26) — full run with GitHub push attempt; push FAILED (no sandbox creds), commit 0b7a46d local",
+    "Schema v7 — added mission_critical_dates, wave_readiness, inbox_health, organic_signal, recent_event_log, key_relationships",
+    "v7 dashboard deployed (883876a) — commit local, Chad pushed manually",
+    "OH MLO License ACTIVE from 04/16/2026 (full state license, not Temp Auth) — confirmed via NMLS Consumer Access",
+    "MD sponsorship pushed by Jason — now in MD state review (est. 3-7 business days)",
+    "Marc Vargas initial DSCR decline — lender requires 6 individual leases, Marc's structure is master lease + STR sublet. Parallel paths A/B opened, C deferred.",
+    "Weekly priorities rewritten — Marc Vargas #1 (parallel), Focus agreement #2, Wave 2 OH build #3 (real revenue with OH MLO active)",
+    "break_even_overhead_monthly field added: $1,263 (includes planned Google+Meta ad spend)"
+  ],
+
+  "recent_event_log": [
+    {"text": "v7.0 dashboard deployed (commit 883876a) — JSON-driven from viador_state.json", "tag": "CONFIRMED"},
+    {"text": "OH MLO License ACTIVE from 04/16/2026 (full state license)", "tag": "CONFIRMED"},
+    {"text": "MD sponsorship pushed by Jason — now in MD state review (est. 3-7 business days)", "tag": "CONFIRMED"},
+    {"text": "Marc Vargas initial DSCR decline — master-lease + STR sublet not accepted. Parallel paths opened.", "tag": "BLOCKED"},
+    {"text": "Weekly priorities rewritten — Marc parallel #1, Focus agreement #2, Wave 2 OH build #3", "tag": "CONFIRMED"},
+    {"text": "HubSpot Marc Vargas deal created — deal ID 321199075013, $870K, close 2026-05-31", "tag": "CONFIRMED"},
+    {"text": "Schema v7 + break_even_overhead_monthly ($1,263) added to state JSON", "tag": "CONFIRMED"}
+  ],
+
+  "blocked_items": [
+    "Licensing MD — MD state review timeline (3-7 business days; owner: Maryland state)",
+    "Licensing FL — FHM FL company entity confirmation (owner: Jason)",
+    "Focus Home Mortgage agreement — 4 open items; FL entity more critical now OH MLO active (owner: Chad+Jason)",
+    "Marc Vargas deal — initial DSCR lender declined master-lease + STR sublet (owner: Jason commercial check / Chad alt lender shop in parallel)",
+    "Email send Wave 1 MD — gated on MD state review (if state approves before 2026-04-30 = real revenue; if after = delayed)",
+    "P.O. box for CAN-SPAM compliance (owner: Chad — vendor decision)",
+    "ndvmail.com backup domain — not yet registered (owner: Chad)",
+    "HubSpot -> SmartLead integration — must be enabled at campaign creation (owner: campaign build task)",
+    "GitHub push from Cowork sandbox — no cached credentials (deferred per Chad 2026-04-17; current 30-sec manual push acceptable)"
+  ],
+
+  "pending_approvals": [],
+
+  "break_even_overhead_monthly": 1263,
+
+  "key_relationships": [
+    {"name": "Jason McBride", "role": "CEO, Focus Home Mortgage Inc", "tier": 1, "status_tag": "BLOCKED", "context": "Confirmed lending platform. Agreement in negotiation. Open: OH+MD sponsorship, comp, non-sol, OBA, FL entity, TX BPL path.", "phone": "614-362-8801 ext 2"},
+    {"name": "Drew (Focus Home Mortgage)", "role": "Operations / pricing at FHM", "tier": 1, "status_tag": "INFERRED", "context": "Day-to-day pricing, file submission. Route through Jason first.", "phone": null},
+    {"name": "Chris Russell", "role": "Owner, Plumtree Realty", "tier": 1, "status_tag": "CONFIRMED", "context": "IDX partner. Stellar MLS application in progress for viadormarkets.com.", "phone": "(513) 378-4663"},
+    {"name": "Rich Swerbinsky", "role": "Executive Director, Ohio MBA", "tier": 2, "status_tag": "QUEUED", "context": "HOLD until platforms polished + first close metric.", "phone": null},
+    {"name": "Shree Kulkarni", "role": "CEO, Kulkarni Properties / Queen City Opportunity Fund", "tier": 2, "status_tag": "QUEUED", "context": "HOLD until viascore.ai exits stealth. Lead with tech/AI angle only.", "phone": null}
+  ],
+
+  "metrics": {
+    "smartlead": {
+      "campaigns_live": 0,
+      "warmup_inboxes": 3,
+      "first_send_eligible": "2026-04-30"
+    },
+    "hubspot": {
+      "open_deals": 1,
+      "contacts_last_24h": 0,
+      "portal_id": "245454217",
+      "pipeline_name": "Investor Deal Pipeline"
+    }
+  }
+}

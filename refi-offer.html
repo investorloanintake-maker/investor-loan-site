@@ -15,22 +15,22 @@
   <meta name="description" content="Your personalized BPL refinance analysis prepared by Viador Partners."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
   <style>
     .offer-page { background: var(--ink); color: var(--cream); min-height: 100vh; }
     .offer-wrap { max-width: 680px; margin: 0 auto; padding: 40px 20px 60px; }
     .offer-header { text-align: center; padding: 100px 0 32px; }
-    .offer-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-    .offer-h1 { font-family: 'Fraunces', Georgia, serif; font-size: clamp(24px, 4vw, 36px); font-weight: 700; line-height: 1.2; margin: 0 0 8px; }
+    .offer-eyebrow { font-family:'Inter',system-ui,sans-serif; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .offer-h1 { font-family:'Inter',system-ui,sans-serif; font-size: clamp(24px, 4vw, 36px); font-weight: 700; line-height: 1.2; margin: 0 0 8px; }
     .offer-sub { font-size: 14px; color: rgba(255,255,255,0.45); }
     .offer-photo { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; margin-bottom: 16px; background: #1a1c24; }
-    .offer-prop { font-family: 'Fraunces', serif; font-size: 20px; margin-bottom: 4px; }
+    .offer-prop { font-family:'Inter',system-ui,sans-serif; font-size: 20px; margin-bottom: 4px; }
     .offer-prop-sub { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
     .offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
     .offer-card { background: #1a1c24; border: 1px solid rgba(191, 144, 32,0.15); border-radius: 10px; padding: 16px; }
-    .offer-card-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
-    .offer-card-val { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; }
+    .offer-card-label { font-family:'Inter',system-ui,sans-serif; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+    .offer-card-val { font-family:'Inter',system-ui,sans-serif; font-size: 22px; font-weight: 700; }
     .offer-card-note { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 4px; }
     .offer-card.full { grid-column: 1 / -1; text-align: center; }
     .offer-verdict { display: inline-block; padding: 8px 24px; border-radius: 24px; font-size: 15px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 8px; }
@@ -39,39 +39,39 @@
     .offer-verdict.red { background: #8b1a1a; color: #fca5a5; }
     .offer-portfolio { background: rgba(191, 144, 32,0.08); border: 1px solid rgba(191, 144, 32,0.2); border-radius: 10px; padding: 20px; margin-bottom: 24px; text-align: center; }
     .offer-cta-box { background: #1a1c24; border: 2px solid var(--gold); border-radius: 12px; padding: 32px; text-align: center; margin-bottom: 24px; }
-    .offer-cta-box h3 { font-family: 'Fraunces', serif; font-size: 22px; margin: 0 0 8px; }
+    .offer-cta-box h3 { font-family:'Inter',system-ui,sans-serif; font-size: 22px; margin: 0 0 8px; }
     .offer-cta-box p { font-size: 14px; color: rgba(255,255,255,0.5); margin: 0 0 20px; line-height: 1.5; }
-    .offer-cta-btn { display: inline-block; padding: 14px 36px; background: var(--gold); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; font-family: 'DM Sans', sans-serif; }
+    .offer-cta-btn { display: inline-block; padding: 14px 36px; background: var(--gold); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; font-family:'Inter',system-ui,sans-serif; }
     .offer-cta-btn:hover { background: var(--gold-light); }
     .offer-secondary { background: #1a1c24; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 24px; text-align: center; margin-bottom: 24px; }
-    .offer-secondary h4 { font-family: 'Fraunces', serif; font-size: 17px; margin: 0 0 8px; }
+    .offer-secondary h4 { font-family:'Inter',system-ui,sans-serif; font-size: 17px; margin: 0 0 8px; }
     .offer-secondary p { font-size: 13px; color: rgba(255,255,255,0.5); margin: 0 0 14px; line-height: 1.5; }
     .offer-email-row { display: flex; gap: 8px; max-width: 360px; margin: 0 auto; }
-    .offer-email-input { flex: 1; padding: 10px 14px; border: 1px solid rgba(191, 144, 32,0.3); border-radius: 6px; background: rgba(255,255,255,0.06); color: #fff; font-size: 14px; outline: none; font-family: 'DM Sans', sans-serif; }
-    .offer-email-btn { padding: 10px 18px; background: var(--gold); color: #fff; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; white-space: nowrap; }
+    .offer-email-input { flex: 1; padding: 10px 14px; border: 1px solid rgba(191, 144, 32,0.3); border-radius: 6px; background: rgba(255,255,255,0.06); color: #fff; font-size: 14px; outline: none; font-family:'Inter',system-ui,sans-serif; }
+    .offer-email-btn { padding: 10px 18px; background: var(--gold); color: #fff; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; font-family:'Inter',system-ui,sans-serif; white-space: nowrap; }
     .offer-error { text-align: center; padding: 80px 20px; }
-    .offer-error h2 { font-family: 'Fraunces', serif; font-size: 24px; margin-bottom: 12px; }
+    .offer-error h2 { font-family:'Inter',system-ui,sans-serif; font-size: 24px; margin-bottom: 12px; }
     .offer-card-val.hero-num { font-size: 48px; }
     .offer-urgency { font-size: 14px; color: #f97316; text-align: center; max-width: 440px; margin: -8px auto 24px; line-height: 1.5; }
     .offer-form-box { background: #1a1c24; border: 2px solid var(--gold); border-radius: 12px; padding: 32px; margin-bottom: 24px; }
-    .offer-form-box h3 { font-family: 'Fraunces', serif; font-size: 22px; margin: 0 0 6px; text-align: center; }
+    .offer-form-box h3 { font-family:'Inter',system-ui,sans-serif; font-size: 22px; margin: 0 0 6px; text-align: center; }
     .offer-form-box .sub { font-size: 14px; color: rgba(255,255,255,0.5); margin: 0 0 20px; line-height: 1.5; text-align: center; }
     .offer-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
     .offer-form-grid.full { grid-template-columns: 1fr; }
-    .offer-form-input { width: 100%; padding: 12px 14px; border: 1px solid rgba(191, 144, 32,0.3); border-radius: 6px; background: rgba(255,255,255,0.06); color: #fff; font-size: 15px; outline: none; box-sizing: border-box; font-family: 'DM Sans', sans-serif; }
+    .offer-form-input { width: 100%; padding: 12px 14px; border: 1px solid rgba(191, 144, 32,0.3); border-radius: 6px; background: rgba(255,255,255,0.06); color: #fff; font-size: 15px; outline: none; box-sizing: border-box; font-family:'Inter',system-ui,sans-serif; }
     .offer-form-input::placeholder { color: rgba(255,255,255,0.35); }
-    .offer-form-select { width: 100%; padding: 12px 14px; border: 1px solid rgba(191, 144, 32,0.3); border-radius: 6px; background: #1a1c24; color: #fff; font-size: 15px; outline: none; box-sizing: border-box; font-family: 'DM Sans', sans-serif; }
-    .offer-submit-btn { width: 100%; padding: 14px; background: var(--gold); color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+    .offer-form-select { width: 100%; padding: 12px 14px; border: 1px solid rgba(191, 144, 32,0.3); border-radius: 6px; background: #1a1c24; color: #fff; font-size: 15px; outline: none; box-sizing: border-box; font-family:'Inter',system-ui,sans-serif; }
+    .offer-submit-btn { width: 100%; padding: 14px; background: var(--gold); color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; font-family:'Inter',system-ui,sans-serif; }
     .offer-submit-btn:hover { background: var(--gold-light); }
     .offer-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
     .offer-success { text-align: center; padding: 20px; color: #4ade80; font-size: 15px; line-height: 1.5; display: none; }
     .offer-phone-direct { text-align: center; margin-top: 16px; }
-    .offer-phone-direct a { color: var(--gold); font-family: 'Fraunces', serif; font-size: 24px; text-decoration: none; font-weight: 700; }
+    .offer-phone-direct a { color: var(--gold); font-family:'Inter',system-ui,sans-serif; font-size: 24px; text-decoration: none; font-weight: 700; }
     .sticky-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #141210; border-top: 2px solid var(--gold); padding: 12px 16px; z-index: 9999; }
     .sticky-bar-inner { display: flex; align-items: center; justify-content: space-between; max-width: 680px; margin: 0 auto; gap: 12px; }
     .sticky-bar-text { font-size: 13px; color: #fff; font-weight: 500; }
     .sticky-bar-text span { color: #4ade80; }
-    .sticky-bar-btn { padding: 10px 20px; background: var(--gold); color: #fff; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; font-family: 'DM Sans', sans-serif; }
+    .sticky-bar-btn { padding: 10px 20px; background: var(--gold); color: #fff; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; font-family:'Inter',system-ui,sans-serif; }
     @media (max-width: 768px) { .sticky-bar { display: block; } .offer-wrap { padding-bottom: 80px; } }
     @media (max-width: 520px) { .offer-grid { grid-template-columns: 1fr; } .offer-form-grid { grid-template-columns: 1fr; } .offer-card-val.hero-num { font-size: 36px; } }
   </style>

@@ -4,7 +4,7 @@
    Fonts: Fraunces (display) + DM Sans (body) + DM Mono (labels)
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 /* ── Tokens ─────────────────────────────────────────────── */
 :root {
@@ -2202,4 +2202,113 @@ body {
 .vp-hero-v54-cta { display:flex; flex-wrap:wrap; gap:16px; margin:32px 0 0; }
 .vp-hero-v54-trust { display:flex; flex-wrap:wrap; gap:20px; margin:24px 0 0; font-family:'DM Sans',sans-serif; font-size:14px; color:var(--vp-muted); }
 .vp-hero-v54-trust span::before { content:'\2713'; color:var(--vp-gold); margin-right:6px; font-weight:700; }
+
+/* ═══════════════════════════════════════════════════════════════
+   VIADOR BRAND OVERRIDE — May 2026
+   Olive palette · Inter font · Dark nav
+   Appended to end of file — wins by cascade order + !important
+   DO NOT EDIT original rules above this line
+═══════════════════════════════════════════════════════════════ */
+
+/* 1 ─ TOKEN OVERRIDE — cascade order wins, no !important needed on vars */
+:root {
+  --gold:         #6B745E;
+  --gold-light:   #7A8468;
+  --gold-faint:   rgba(107,116,94,0.08);
+  --gold-faint2:  rgba(107,116,94,0.12);
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'Inter', system-ui, -apple-system, sans-serif;
+  /* vp-prefixed tokens (v5.4 section) */
+  --vp-gold:      #6B745E;
+}
+
+/* 2 ─ HARDCODED GOLD — explicit hex values that var() override won't reach */
+.proof-num                { color: #6B745E !important; }
+.router-card:hover        { border-color: #6B745E !important; box-shadow: 0 4px 16px rgba(107,116,94,0.18) !important; }
+.bpl-col-highlight        { background: rgba(107,116,94,0.16) !important; color: #7A8468 !important; }
+.bpl-sub strong           { color: #7A8468 !important; }
+.mobile-sticky-cta        { border-top-color: #6B745E !important; }
+.hero-urgency             { color: #6B745E !important; background: rgba(107,116,94,0.10) !important; border-color: rgba(107,116,94,0.22) !important; }
+.urgency-dot              { background: #6B745E !important; }
+.tag-dot                  { background: #6B745E !important; }
+/* vp-prefixed hardcoded overrides */
+.vp-btn--gold             { background: #6B745E !important; }
+.vp-btn--gold:hover       { background: #7A8468 !important; }
+.vp-label-badge           { background: rgba(107,116,94,0.08) !important; border-color: rgba(107,116,94,0.20) !important; }
+.hero::before             { background: radial-gradient(ellipse, rgba(107,116,94,0.07) 0%, transparent 70%) !important; }
+.final-cta::before        { background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(107,116,94,0.06) 0%, transparent 70%) !important; }
+
+/* 3 ─ NAV DARK */
+.nav {
+  background:    rgba(20,23,25,0.96) !important;
+  backdrop-filter: blur(14px) !important;
+  border-bottom: 1px solid rgba(244,245,243,0.06) !important;
+}
+.nav-inner { height: 72px !important; }
+.logo-mark {
+  background: #6B745E !important;
+  color: #F4F5F3 !important;
+}
+.logo-sub  { color: rgba(244,245,243,0.55) !important; }
+/* Top-level nav links only — exclude dropdown menu items */
+.nav-links > a,
+.nav-links > .nav-dropdown > .nav-dropdown-trigger,
+.nav-phone        { color: rgba(244,245,243,0.70) !important; }
+.nav-links > a:hover,
+.nav-links > .nav-dropdown > .nav-dropdown-trigger:hover,
+.nav-phone:hover  { color: #F4F5F3 !important; }
+.nav-cta          { background: #6B745E !important; color: #F4F5F3 !important; border-color: #6B745E !important; }
+.nav-cta:hover    { background: #7A8468 !important; }
+.burger span      { background: rgba(244,245,243,0.85) !important; }
+/* Dropdown panel — dark to match nav */
+.nav-dropdown-menu {
+  background: #1A1D1F !important;
+  border: 1px solid rgba(244,245,243,0.10) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45) !important;
+}
+.nav-dropdown-menu a {
+  color: rgba(244,245,243,0.72) !important;
+}
+.nav-dropdown-menu a:hover {
+  background: rgba(107,116,94,0.18) !important;
+  color: #F4F5F3 !important;
+}
+
+/* 4 ─ LOGO FILTER — matches homepage olive treatment */
+.logo-img,
+.viador-logo {
+  filter:         hue-rotate(35deg) saturate(0.78) brightness(1.08) contrast(1.05) !important;
+  -webkit-filter: hue-rotate(35deg) saturate(0.78) brightness(1.08) contrast(1.05) !important;
+  mix-blend-mode: screen !important;   /* dark bg in PNG disappears on dark nav */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* 5 ─ FONT SMOOTHING — ensure Inter renders crisp at all weights */
+body {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* 6 ─ HEADING WEIGHT — Inter 900 is too heavy; 700 reads institutional */
+/* Covers all display heading classes that had font-weight:900 in original */
+.hero-title,
+.form-title,
+.final-cta-title,
+.bpl-title,
+.logo-mark,
+.path-card h3,
+.program h3,
+.partner-copy h2,
+.tool-card h3,
+.hero-proof-headline,
+.section-title,
+.vp-h1, .vp-h2, .vp-h3,
+.vp-proof-num,
+.hero-stat-num { font-weight: 700 !important; }
+
+/* italic sublines — keep italic but moderate weight */
+.hero-title em,
+.vp-h1 em { font-weight: 400 !important; font-style: italic !important; }
 
