@@ -546,7 +546,7 @@ function calcSecond(){
   }else if(secondBetter){
     callout.innerHTML='<div style="font-size:15px;font-weight:700;color:#4ade80">DSCR second saves '+fmt(Math.abs(diff))+'/mo</div><div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px">Blended rate: '+blendedB.toFixed(1)+'% vs 7.25% full refi. Lower combined payment.</div>';
   }else{
-    callout.innerHTML='<div style="font-size:14px;color:#BF9020">At your current rate of '+curRate+'%, a full cash-out refi saves '+fmt(Math.abs(diff))+'/mo. See the Full Refi tab above.</div>';
+    callout.innerHTML='<div style="font-size:14px;color:#6B745E">At your current rate of '+curRate+'%, a full cash-out refi saves '+fmt(Math.abs(diff))+'/mo. See the Full Refi tab above.</div>';
   }
   document.getElementById('s2-comp').textContent='Viador Partners origination on second mortgage: ~'+fmt(comp)+' (2% of loan + $695)';
 }

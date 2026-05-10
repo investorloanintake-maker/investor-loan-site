@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Real Estate Investor Financing Guide for Beginners 2026 | Viador Partners</title>
+  <meta name="description" content="Complete financing guide for beginning real estate investors. What loans you need, how to qualify, DSCR vs conventional, first deal to tenth deal. Written by a licensed MLO."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.viadorpartners.com/real-estate-investor-beginners-guide"/>
+  <meta property="og:title" content="Real Estate Investor Financing Guide for Beginners 2026 | Viador Partners"/>
+  <meta property="og:description" content="Complete financing guide for beginning real estate investors. What loans you need, how to qualify, DSCR vs conventional, first deal to tenth deal. Written by a licensed MLO."/>
+  <meta property="og:image" content="https://www.viadorpartners.com/og-image.jpg"/>
+  <link rel="canonical" href="https://www.viadorpartners.com/real-estate-investor-beginners-guide"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LoanOrCredit",
+        "name": "Real Estate Investor Financing: <em>The Beginner's Guide</em>",
+        "provider": {
+          "@type": "Person",
+          "name": "Chad Evers",
+          "jobTitle": "Licensed Mortgage Loan Originator",
+          "hasCredential": "NMLS #2822744",
+          "worksFor": {"@type":"Organization","name":"Viador Partners LLC"}
+        },
+        "url": "https://www.viadorpartners.com/real-estate-investor-beginners-guide"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":'What loan do I need for my first investment property?',"acceptedAnswer":{"@type":"Answer","text":'For W-2 employees on their first 1-2 properties: conventional investment property loan (20-25% down, full income documentation, 620+ credit). For self-employed, LLC investors, or anyone wanting to skip income documentation: DSCR loan (20-25% down, no W-2s or tax returns, qualifies on rental income).'}},
+    {"@type":"Question","name":'How much money do I need to buy an investment property?',"acceptedAnswer":{"@type":"Answer","text":'Budget for down payment (20-25% of purchase price), closing costs (2-4% of loan amount), and reserves (3-6 months of mortgage payments). On a $250,000 property, plan for approximately $70,000-$85,000 total cash needed.'}},
+    {"@type":"Question","name":'Can I use a home equity loan to fund my first investment property down payment?',"acceptedAnswer":{"@type":"Answer","text":'Yes — using a HELOC or cash-out refinance on your primary residence to fund an investment property down payment is a common strategy. The DSCR lender will see the HELOC payment in your financials. Discuss with your lender before proceeding.'}},
+    {"@type":"Question","name":'Is it better to use an LLC for my first investment property?',"acceptedAnswer":{"@type":"Answer","text":'This is primarily a legal question for your attorney. Using an LLC from the start requires DSCR or BPL financing (conventional loans do not allow LLC vesting) but provides liability protection. Many investors start in their personal name and transfer to an LLC later, though this can trigger the due-on-sale clause — another reason to consult an attorney.'}},
+    {"@type":"Question","name":'How do I know if an investment property will qualify for a DSCR loan?',"acceptedAnswer":{"@type":"Answer","text":'Calculate the DSCR: research market rent for the property using comparable rentals, calculate the proposed PITIA with current rates, and divide rent by PITIA. If the result is 1.0 or above, the property likely qualifies. Use the free DSCR calculator at viadorpartners.com/dscr-calculator.html for a quick analysis.'}},
+    {"@type":"Question","name":'What credit score do I need for an investment property loan?',"acceptedAnswer":{"@type":"Answer","text":'620 minimum for most DSCR programs. 680+ for better pricing. 720+ for best pricing. For conventional investment property loans: 620 minimum but 680+ is practical for competitive rates given Loan Level Price Adjustments.'}}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    .guide-hero{background:var(--ink);color:var(--cream);padding:140px 0 72px}
+    .guide-hero-inner{max-width:720px}
+    .guide-eyebrow{font-family:'Inter',system-ui,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+    .guide-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+    .guide-h1{font-family:'Inter',system-ui,sans-serif;font-size:clamp(36px,5vw,60px);font-weight: 700;line-height:1.08;letter-spacing:-.02em;margin-bottom:20px}
+    .guide-h1 em{font-style:italic;color:var(--gold)}
+    .guide-sub{font-size:18px;line-height:1.7;color:rgba(247,243,238,.7);max-width:580px;margin-bottom:36px}
+    .guide-meta{display:flex;gap:24px;flex-wrap:wrap}
+    .guide-meta-item{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,243,238,.4);display:flex;align-items:center;gap:6px}
+    .guide-meta-item::before{content:'·';color:var(--gold)}
+    .guide-wrap{max-width:1100px;margin:0 auto;padding:72px 48px 120px;display:grid;grid-template-columns:1fr 260px;gap:72px;align-items:start}
+    .guide-article{min-width:0}
+    .guide-sidebar{position:sticky;top:100px}
+    .guide-h2{font-family:'Inter',system-ui,sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--ink);margin:48px 0 16px;line-height:1.2}
+    .guide-p{font-size:16px;line-height:1.8;color:var(--ink-soft);margin-bottom:18px}
+    .guide-ul{margin:0 0 20px 0;padding-left:24px}
+    .guide-ul li{font-size:16px;line-height:1.7;color:var(--ink-soft);margin-bottom:8px}
+    .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+    .stat-card{background:var(--cream);border:1px solid var(--line);padding:24px 20px;text-align:center}
+    .stat-num{font-family:'Inter',system-ui,sans-serif;font-size:36px;font-weight: 700;color:var(--gold);display:block;margin-bottom:4px}
+    .stat-lab{font-size:12px;color:var(--ink-soft)}
+    .callout-box{background:var(--ink);color:var(--cream);padding:32px 36px;margin:32px 0}
+    .callout-box h3{font-family:'Inter',system-ui,sans-serif;font-size:20px;color:var(--gold);margin-bottom:12px}
+    .callout-box p{font-size:15px;line-height:1.7;color:rgba(247,243,238,.8)}
+    .g-toc{background:var(--ink);padding:24px 28px;margin-bottom:20px}
+    .g-toc-title{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+    .g-toc-list{list-style:none}
+    .g-toc-list li{border-bottom:1px solid rgba(255,255,255,.06)}
+    .g-toc-list li:last-child{border-bottom:none}
+    .g-toc-list a{display:block;padding:8px 0;font-size:13px;color:rgba(247,243,238,.6);text-decoration:none;transition:color .15s}
+    .g-toc-list a:hover{color:var(--gold)}
+    .g-cta{background:var(--gold);padding:28px 24px;text-align:center}
+    .g-cta h3{font-family:'Inter',system-ui,sans-serif;font-size:20px;color:#fff;margin-bottom:8px}
+    .g-cta p{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:16px}
+    .g-cta a{display:block;background:#fff;color:var(--gold);font-weight:700;padding:12px;font-size:14px;text-decoration:none}
+    .faq-section{margin:48px 0}
+    .faq-item{border-bottom:1px solid var(--line)}
+    .faq-q{width:100%;text-align:left;background:none;border:none;padding:20px 0;font-family:'Inter',system-ui,sans-serif;font-size:17px;font-weight:700;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .faq-q::after{content:'+';font-size:22px;color:var(--gold);flex-shrink:0;transition:transform .2s}
+    .faq-q.open::after{transform:rotate(45deg)}
+    .faq-a{display:none;padding:0 0 20px}
+    .faq-a.open{display:block}
+    .faq-a p{font-size:15px;line-height:1.8;color:var(--ink-soft)}
+    .related-links{margin:48px 0 0}
+    .related-links h3{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+    .related-link{display:block;font-size:14px;color:var(--gold);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--line)}
+    .related-link:hover{color:var(--ink)}
+    .cta-band{background:var(--ink);padding:80px 0;text-align:center}
+    .cta-band h2{font-family:'Inter',system-ui,sans-serif;font-size:clamp(28px,4vw,44px);color:var(--cream);margin-bottom:16px}
+    .cta-band p{font-size:16px;color:rgba(247,243,238,.6);max-width:500px;margin:0 auto 32px}
+    @media(max-width:768px){
+      .guide-wrap{grid-template-columns:1fr;padding:40px 24px 80px;gap:40px}
+      .guide-sidebar{position:static}
+      .stat-grid{grid-template-columns:1fr 1fr}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".guide-h1", ".guide-sub", ".guide-h2", ".guide-p:first-of-type", ".callout-box h3"]
+  }
+  </script>
+</head>
+<body>
+  <header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+    <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown">
+        <a href="index.html#programs" class="nav-dropdown-trigger">Programs</a>
+        <div class="nav-dropdown-menu">
+          <a href="dscr.html">DSCR Loans</a>
+          <a href="fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="bpl.html">Business Purpose Loans</a>
+          <a href="non-qm-loans-florida.html">Non-QM / Bank Statement</a>
+          <a href="conventional-investment-property-loans.html">Conventional</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="investor-platform.html" class="nav-dropdown-trigger">Tools</a>
+        <div class="nav-dropdown-menu">
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="dscr-calculator.html">DSCR Calculator</a>
+          <a href="resources">Resources</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+    </nav>
+    <a href="index.html#dealform" class="nav-cta">Analyze My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="dscr.html">DSCR Loans</a>
+    <a href="fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="bpl.html">Business Purpose Loans</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="resources">Resources</a>
+    <a href="about.html">About</a>
+    <a href="index.html#dealform" class="drawer-cta">Analyze My Deal &rarr;</a>
+  </div>
+</header>
+  <section class="guide-hero">
+    <div class="container">
+      <div class="guide-hero-inner">
+        <div class="guide-eyebrow">Investor Education · Beginner's Guide</div>
+        <h1 class="guide-h1">Real Estate Investor Financing: <em>The Beginner's Guide</em></h1>
+        <p class="guide-sub">From your first investment property to your tenth. What loans are available, how to qualify, and the financing evolution every serious investor goes through.</p>
+        <div class="guide-meta">
+          <span class="guide-meta-item">Viador Partners, NMLS #2822744</span>
+          <span class="guide-meta-item">20 Years Lending Experience</span>
+          <span class="guide-meta-item">Viador Partners LLC</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="guide-wrap">
+    <article class="guide-article">
+      <p class="guide-p">Most people who want to invest in real estate have two misconceptions about financing: that it works the same as buying a home, and that the conventional system is the only option. Neither is true. Investment property financing is a completely different category with different programs, different qualification standards, and a different strategic logic. This guide covers everything a beginning investor needs to understand to make smart financing decisions from the first deal forward.</p>
+      
+      <h2 class="guide-h2">The Financing Journey: First Deal to Tenth</h2>
+      <p class="guide-p">Most investors go through a predictable financing evolution. Understanding where you are in that journey helps you make the right decisions now:</p>
+      <ul class="guide-ul">
+        <li><strong>Deal 1–2: Conventional financing</strong> — If you have W-2 income, good credit, and manageable debt, conventional investment property loans offer the lowest rates. Requirements: 620+ credit, 20-25% down, W-2 documentation, DTI under 45%. This works well until it doesn't.</li>
+        <li><strong>Deal 3–5: Transition zone</strong> — Conventional DTI tightens as you add properties. Tax write-offs on your investment properties start reducing qualifying income. DSCR becomes increasingly attractive. Many investors make the switch here.</li>
+        <li><strong>Deal 6–10: DSCR primary</strong> — DSCR is the right tool. No income documentation, no DTI limit, LLC-friendly, no portfolio cap. Each property qualifies on its own rental income.</li>
+        <li><strong>Deal 10+: Portfolio and commercial</strong> — Portfolio loans covering multiple properties, commercial DSCR for 5+ units, blanket loans. The strategy gets more sophisticated as the portfolio grows.</li>
+      </ul>
+      <h2 class="guide-h2">Your First Investment Property — What to Expect</h2>
+      <p class="guide-p">First-time investment property buyers are often surprised by how different the process is from buying a home:</p>
+      <ul class="guide-ul">
+        <li><strong>Higher down payment</strong> — Investment properties require 15–25% down vs 3–5% for primary residences. Budget for 20-25% plus closing costs of 2-4%.</li>
+        <li><strong>Higher rate</strong> — Investment property rates carry a premium of 0.5–1.5% over primary residence rates. This is normal and expected.</li>
+        <li><strong>Rental income is discounted</strong> — Conventional lenders only count 75% of rental income toward qualification, and only if you have a signed lease or prior rental history.</li>
+        <li><strong>Reserves required</strong> — Most lenders require 2-6 months of mortgage payments in liquid savings after closing.</li>
+        <li><strong>Property must qualify</strong> — The lender will appraise the investment property and may have condition requirements. Fixer-uppers may require bridge financing first.</li>
+      </ul>
+      <div class="callout-box"><h3>Should Your First Investment Property Use DSCR or Conventional?</h3><p>If you have a W-2 job, strong income, and this is your first or second investment property, conventional may offer a slightly lower rate. If you are self-employed, have write-offs that reduce your taxable income, or want to hold in an LLC, start with DSCR from deal one. The documentation difference is significant and the rate difference is often smaller than expected.</p></div>
+      <h2 class="guide-h2">Key Terms Every Investor Needs to Know</h2>
+      <p class="guide-p">Investment property financing has its own vocabulary. The essentials:</p>
+      <ul class="guide-ul">
+        <li><strong>DSCR</strong> — Debt Service Coverage Ratio. Rent ÷ PITIA. The number DSCR lenders use to qualify you.</li>
+        <li><strong>PITIA</strong> — Principal, Interest, Taxes, Insurance, Association dues. Your total monthly housing expense.</li>
+        <li><strong>Cap Rate</strong> — Net Operating Income ÷ Property Value. Measures return independent of financing.</li>
+        <li><strong>Cash-on-Cash Return</strong> — Annual cash flow ÷ Cash invested. Measures actual yield on your money.</li>
+        <li><strong>LTV</strong> — Loan-to-Value. Your loan as a percentage of the appraised value.</li>
+        <li><strong>Non-QM</strong> — Non-Qualified Mortgage. Loans outside Fannie/Freddie guidelines, including DSCR.</li>
+        <li><strong>DTI</strong> — Debt-to-Income. Your total monthly debts as a percentage of income. Used in conventional, not DSCR.</li>
+        <li><strong>ARV</strong> — After Repair Value. What a property will be worth after renovation.</li>
+        <li><strong>BRRRR</strong> — Buy, Rehab, Rent, Refinance, Repeat. A portfolio scaling strategy.</li>
+      </ul>
+      <h2 class="guide-h2">The Most Common First-Timer Financing Mistakes</h2>
+      <p class="guide-p">The mistakes that cost beginning investors time and money:</p>
+      <ul class="guide-ul">
+        <li><strong>Not accounting for insurance accurately</strong> — Especially in Florida, insurance costs can be 2–3x what an online calculator estimates. Always get a real quote before running your numbers.</li>
+        <li><strong>Using primary residence financing for an investment property</strong> — Conventional lenders check occupancy. Misrepresenting a property as a primary residence to get a better rate is mortgage fraud. Use the correct product.</li>
+        <li><strong>Ignoring reserves</strong> — Closing with nothing left in savings sets you up for failure. Always maintain 3-6 months of PITIA in reserves after closing.</li>
+        <li><strong>Not getting pre-qualified before making offers</strong> — Know your financing ceiling before you start shopping. Nothing is worse than finding the right deal and losing it because your financing wasn't ready.</li>
+        <li><strong>Assuming conventional is always cheaper than DSCR</strong> — Once Loan Level Price Adjustments are applied to conventional investment property loans, the rate gap is often 0.25-0.5% — not worth the documentation burden for most investors.</li>
+      </ul>
+
+      <div class="faq-section">
+        <h2 class="guide-h2">Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">What loan do I need for my first investment property?</button>
+          <div class="faq-a"><p>For W-2 employees on their first 1-2 properties: conventional investment property loan (20-25% down, full income documentation, 620+ credit). For self-employed, LLC investors, or anyone wanting to skip income documentation: DSCR loan (20-25% down, no W-2s or tax returns, qualifies on rental income).</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">How much money do I need to buy an investment property?</button>
+          <div class="faq-a"><p>Budget for down payment (20-25% of purchase price), closing costs (2-4% of loan amount), and reserves (3-6 months of mortgage payments). On a $250,000 property, plan for approximately $70,000-$85,000 total cash needed.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">Can I use a home equity loan to fund my first investment property down payment?</button>
+          <div class="faq-a"><p>Yes — using a HELOC or cash-out refinance on your primary residence to fund an investment property down payment is a common strategy. The DSCR lender will see the HELOC payment in your financials. Discuss with your lender before proceeding.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">Is it better to use an LLC for my first investment property?</button>
+          <div class="faq-a"><p>This is primarily a legal question for your attorney. Using an LLC from the start requires DSCR or BPL financing (conventional loans do not allow LLC vesting) but provides liability protection. Many investors start in their personal name and transfer to an LLC later, though this can trigger the due-on-sale clause — another reason to consult an attorney.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">How do I know if an investment property will qualify for a DSCR loan?</button>
+          <div class="faq-a"><p>Calculate the DSCR: research market rent for the property using comparable rentals, calculate the proposed PITIA with current rates, and divide rent by PITIA. If the result is 1.0 or above, the property likely qualifies. Use the free DSCR calculator at viadorpartners.com/dscr-calculator.html for a quick analysis.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">What credit score do I need for an investment property loan?</button>
+          <div class="faq-a"><p>620 minimum for most DSCR programs. 680+ for better pricing. 720+ for best pricing. For conventional investment property loans: 620 minimum but 680+ is practical for competitive rates given Loan Level Price Adjustments.</p></div>
+        </div>
+      </div>
+
+      <div class="related-links">
+        <h3>Related Resources</h3>
+        <a href="what-is-a-dscr-loan.html" class="related-link">What Is a DSCR Loan?</a>
+<a href="dscr-loan-requirements.html" class="related-link">DSCR Loan Requirements</a>
+<a href="investment-property-down-payment.html" class="related-link">Investment Property Down Payment Guide</a>
+<a href="dscr-calculator.html" class="related-link">Free DSCR Calculator</a>
+<a href="how-to-scale-rental-property-portfolio.html" class="related-link">How to Scale Your Portfolio</a>
+      </div>
+    </article>
+
+    <aside class="guide-sidebar">
+      <div class="g-toc">
+        <div class="g-toc-title">On This Page</div>
+        <ul class="g-toc-list">
+          <li><a href="#thefinancingjourney:">The Financing Journey: First Deal to Tenth</a></li><li><a href="#yourfirstinvestmentp">Your First Investment Property — What to Expect</a></li><li><a href="#keytermseveryinvesto">Key Terms Every Investor Needs to Know</a></li><li><a href="#themostcommonfirst-t">The Most Common First-Timer Financing Mistakes</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="g-cta">
+        <h3>Analyze My Deal</h3>
+        <p>Submit your scenario and Viador Partners will respond within 24 hours.</p>
+        <a href="application.html">Start Here →</a>
+      </div>
+    </aside>
+  </div>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Ready to Finance Your First (or Next) Investment Property?</h2>
+      <p>Submit your deal for a free review. No obligation. Viador Partners responds within 24 hours.</p>
+      <a href="application.html" class="btn-primary" style="display:inline-block">Analyze My Deal &rarr;</a>
+    </div>
+  </section>
+
+  <footer class="footer-wrap">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">Viador<span>Partners</span></div>
+          <p class="footer-tagline">Investor financing built for real estate investors, self-employed professionals, and business owners.</p>
+        </div>
+        <div class="footer-nav-group"><h4>Programs</h4><a href="dscr.html">DSCR Loans</a><a href="fix-and-flip.html">Fix &amp; Flip</a><a href="bpl.html">Business Purpose (BPL)</a><a href="commercial.html">Commercial</a><a href="franchise.html">SBA &amp; Franchise</a></div>
+        <div class="footer-nav-group"><h4>Calculators</h4><a href="dscr-calculator.html">DSCR Calculator</a><a href="deal-analyzer.html">Deal Analyzer</a><a href="cashout-calculator.html">Cash-Out Refi</a><a href="investor-platform.html">Full Platform</a></div>
+        <div class="footer-nav-group"><h4>Company</h4><a href="about.html">About</a><a href="partners.html">Partners</a><a href="index.html#faq">FAQ</a><a href="application.html">Contact</a></div>
+      </div>
+      <div class="footer-bottom">
+        <span>Viador Partners LLC &#124; NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.7">chad&#64;viadorpartners.com &#124; (813) 419-2983</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.6">NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.5">Not a commitment to lend. Equal Housing Opportunity. <a href="privacy-policy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> &middot; <a href="terms.html" style="color:inherit;text-decoration:underline">Terms of Use</a></span>
+      <span style="display:block;margin-top:10px;font-size:10px;opacity:0.6">Veteran homeowner? Visit <a href="https://nextdutyvet.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">NextDutyVet.com</a></span></div>
+    </div>
+  </footer>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/245454217.js"></script>
+</body>
+</html>

@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FinancialService","name":"Viador Partners LLC","description":"Real estate investor financing in Tampa Bay. DSCR loans, DSCR second mortgages, BPL refi, fix and flip, and bridge loans for FL and OH investment properties.","url":"https://viadorpartners.com","telephone":"+18134192983","email":"chad@viadorpartners.com","address":{"@type":"PostalAddress","addressLocality":"Tampa","addressRegion":"FL","addressCountry":"US"},"areaServed":[{"@type":"AdministrativeArea","name":"Hillsborough County, FL"},{"@type":"AdministrativeArea","name":"Pinellas County, FL"},{"@type":"AdministrativeArea","name":"Pasco County, FL"},{"@type":"AdministrativeArea","name":"Manatee County, FL"},{"@type":"AdministrativeArea","name":"Sarasota County, FL"},{"@type":"AdministrativeArea","name":"Ohio"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Investment Property Loan Programs","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"DSCR Loans","description":"Debt service coverage ratio loans qualifying on rental income, not personal income"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"DSCR Second Mortgage","description":"Access equity from investment properties without refinancing your existing low-rate first mortgage"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Fix and Flip Bridge Loans","description":"Short-term financing for value-add real estate deals, up to 90% purchase plus 100% rehab"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Business Purpose Loans (BPL)","description":"Entity-based investment property financing with no conventional property count limit"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cash-Out Refinance","description":"Strategic cash-out refi to lower blended rate, eliminate debt, and free up capital for acquisitions"}}]},"slogan":"Fund your next deal without a W-2."}</script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DSCR Loans Explained — The Investor's Guide | Viador Partners</title>
+  <meta name="description" content="What is a DSCR loan? How it works, who qualifies, and how to know if your rental property passes the test. Includes a free DSCR quick-check calculator."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.viadorpartners.com/dscr"/>
+  <meta property="og:title" content="DSCR Loans Explained — The Investor's Guide | Viador Partners"/>
+  <meta property="og:description" content="What is a DSCR loan? How it works, who qualifies, and how to know if your rental property passes the test. Includes a free DSCR quick-check calculator."/>
+  <meta property="og:image" content="https://www.viadorpartners.com/og-image.jpg"/>
+  <link rel="canonical" href="https://www.viadorpartners.com/dscr.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* Guide-specific styles */
+    .guide-hero {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 140px 0 72px;
+    }
+    .guide-hero-inner { max-width: 720px; }
+    .guide-eyebrow {
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .guide-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+    .guide-h1 {
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .guide-h1 em { font-style: italic; color: var(--gold); }
+    .guide-sub {
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(247,243,238,0.7);
+      max-width: 580px;
+      margin-bottom: 36px;
+    }
+    .guide-meta {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .guide-meta-item {
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(247,243,238,0.4);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .guide-meta-item::before { content: '·'; color: var(--gold); }
+
+    /* Content layout */
+    .guide-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 72px 48px 120px;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 72px;
+      align-items: start;
+    }
+    .guide-article { min-width: 0; }
+    .guide-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+
+    /* Sidebar */
+    .g-toc {
+      background: var(--ink);
+      padding: 24px 28px;
+      margin-bottom: 20px;
+    }
+    .g-toc-title {
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .g-toc-list { list-style: none; }
+    .g-toc-list li { border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .g-toc-list li:last-child { border-bottom: none; }
+    .g-toc-list a {
+      display: block;
+      padding: 8px 0;
+      font-size: 13px;
+      color: rgba(247,243,238,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-family:'Inter',system-ui,sans-serif;
+    }
+    .g-toc-list a:hover, .g-toc-list a.active { color: var(--gold); }
+
+    .g-sidebar-cta {
+      background: rgba(201,146,58,0.1);
+      border: 1px solid rgba(201,146,58,0.3);
+      padding: 24px 28px;
+    }
+    .g-sidebar-cta-title {
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .g-sidebar-cta-text {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .g-sidebar-cta-btn {
+      display: block;
+      text-align: center;
+      background: var(--gold);
+      color: var(--ink);
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 12px 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .g-sidebar-cta-btn:hover { opacity: 0.85; }
+
+    /* Article sections */
+    .g-section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .g-section:last-child { border-bottom: none; }
+    .g-marker {
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .g-marker::after { content: ''; width: 32px; height: 1px; background: var(--gold); opacity: 0.4; }
+    .g-h2 {
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+    .g-h2 em { font-style: italic; color: var(--gold); }
+    .g-p {
+      font-size: 17px;
+      line-height: 1.85;
+      color: #3a3733;
+      margin-bottom: 18px;
+    }
+    .g-p:last-child { margin-bottom: 0; }
+    .g-p strong { color: var(--ink); font-weight: 500; }
+
+    .g-callout {
+      border-left: 3px solid var(--gold);
+      background: rgba(201,146,58,0.06);
+      padding: 18px 22px;
+      margin: 28px 0;
+    }
+    .g-callout p {
+      font-size: 16px;
+      color: #555;
+      margin: 0;
+      line-height: 1.7;
+      font-style: italic;
+    }
+    .g-callout strong { color: var(--gold); font-style: normal; }
+
+    /* Calculator card */
+    .calc-card {
+      background: var(--ink);
+      padding: 36px;
+      margin: 36px 0;
+    }
+    .calc-title {
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .calc-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .calc-field label {
+      display: block;
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(247,243,238,0.5);
+      margin-bottom: 8px;
+    }
+    .calc-field input {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--cream);
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 16px;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .calc-field input:focus { border-color: var(--gold); }
+    .calc-field input::placeholder { color: rgba(247,243,238,0.2); }
+    .calc-btn {
+      background: var(--gold);
+      color: var(--ink);
+      border: none;
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: opacity 0.2s;
+      width: 100%;
+    }
+    .calc-btn:hover { opacity: 0.85; }
+    .calc-result {
+      margin-top: 20px;
+      padding: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 13px;
+      color: rgba(247,243,238,0.6);
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      line-height: 1.6;
+    }
+
+    /* Stat grid */
+    .g-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin: 32px 0;
+    }
+    .g-stat {
+      background: var(--ink);
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .g-stat-val {
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .g-stat-lbl {
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(247,243,238,0.4);
+      line-height: 1.5;
+    }
+
+    /* Compare table */
+    .g-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 28px 0;
+      font-size: 14px;
+    }
+    .g-table th {
+      background: var(--ink);
+      color: rgba(247,243,238,0.5);
+      padding: 12px 16px;
+      text-align: left;
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .g-table th.hi { background: rgba(201,146,58,0.12); color: var(--gold); }
+    .g-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line);
+      color: #555;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .g-table td.hi { background: rgba(201,146,58,0.04); color: var(--ink); }
+    .g-table tr:last-child td { border-bottom: none; }
+    .g-table .row-lbl { font-family:'Inter',system-ui,sans-serif; font-size: 11px; letter-spacing: 0.05em; color: #999; }
+    .g-check { color: #2d6a4f; }
+    .g-cross { color: #9b2335; }
+
+    /* Process steps */
+    .g-steps { margin: 28px 0; }
+    .g-step {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: start;
+    }
+    .g-step:last-child { border-bottom: none; }
+    .g-step-num {
+      width: 44px; height: 44px;
+      border: 1px solid rgba(201,146,58,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 18px; font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .g-step-title {
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 17px; font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .g-step-desc { font-size: 14px; color: #666; line-height: 1.65; margin: 0; }
+
+    /* Mid-article CTA */
+    .g-mid-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      background: rgba(201,146,58,0.06);
+      border-left: 3px solid var(--gold);
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+    .g-mid-cta p { margin: 0; font-size: 15px; color: #444; line-height: 1.6; }
+    .g-mid-cta strong { color: var(--ink); }
+    .g-mid-cta-btn {
+      flex-shrink: 0;
+      background: var(--gold);
+      color: var(--ink);
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 12px 22px;
+      text-decoration: none;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    /* FAQ */
+    .g-faq-item { border-bottom: 1px solid var(--line); }
+    .g-faq-q {
+      padding: 18px 0;
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      color: var(--ink);
+      transition: color 0.2s;
+      line-height: 1.4;
+    }
+    .g-faq-q:hover { color: var(--gold); }
+    .g-faq-icon { font-family:'Inter',system-ui,sans-serif; font-size: 16px; color: var(--gold); flex-shrink: 0; transition: transform 0.2s; margin-top: 2px; }
+    .g-faq-item.open .g-faq-icon { transform: rotate(45deg); }
+    .g-faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .g-faq-a-inner { padding: 0 0 20px; font-size: 15px; color: #666; line-height: 1.8; }
+    .g-faq-item.open .g-faq-a { max-height: 400px; }
+
+    /* Final CTA */
+    .g-final-cta {
+      background: var(--ink);
+      padding: 56px 48px;
+      text-align: center;
+      margin: 64px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .g-final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,146,58,0.06) 0%, transparent 70%);
+    }
+    .g-final-inner { position: relative; }
+    .g-final-label {
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .g-final-title {
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: clamp(26px, 3.5vw, 42px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+    .g-final-title em { font-style: italic; color: var(--gold); }
+    .g-final-sub { font-size: 16px; color: rgba(247,243,238,0.6); margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+    .g-final-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .g-btn-primary {
+      background: var(--gold); color: var(--ink);
+      font-family:'Inter',system-ui,sans-serif; font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 15px 32px; text-decoration: none; font-weight: 500;
+      transition: opacity 0.2s; display: inline-block;
+    }
+    .g-btn-primary:hover { opacity: 0.85; }
+    .g-btn-ghost {
+      border: 1px solid rgba(255,255,255,0.2); color: rgba(247,243,238,0.6);
+      font-family:'Inter',system-ui,sans-serif; font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 15px 32px; text-decoration: none;
+      transition: border-color 0.2s, color 0.2s; display: inline-block;
+    }
+    .g-btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* Progress bar */
+    .g-progress { position: fixed; top: 0; left: 0; height: 2px; background: var(--gold); z-index: 200; transition: width 0.1s linear; width: 0%; }
+
+    @media (max-width: 860px) {
+      .guide-wrap { grid-template-columns: 1fr; padding: 48px 24px 80px; gap: 0; }
+      .guide-hero { padding: 120px 24px 56px; }
+      .guide-sidebar { position: static; margin-top: 48px; }
+      .g-stat-grid { grid-template-columns: 1fr; gap: 2px; }
+      .calc-row { grid-template-columns: 1fr; }
+      .g-final-cta { padding: 40px 24px; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+  {
+    "@type": "Person",
+    "@id": "https://www.viadorpartners.com/#chad-evers",
+    "name": "Chad Evers",
+    "jobTitle": "Licensed Mortgage Loan Originator",
+    "description": "Ohio roots. 20 years in lending — originating loans, building national mortgage teams from scratch, 3 years gaining global institutional experience at Citi. Left corporate life to build Viador Partners for the people the system was never designed to serve.",
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Mortgage Loan Originator License",
+      "credentialCategory": "NMLS",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Nationwide Multistate Licensing System (NMLS)"
+      },
+      "identifier": "NMLS #2822744"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "@id": "https://www.viadorpartners.com/#viador-partners",
+      "name": "Viador Partners LLC",
+      "url": "https://www.viadorpartners.com",
+      "telephone": "+18134192983",
+      "email": "chad@viadorpartners.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tampa",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Florida",
+        "Ohio"
+      ],
+      "knowsAbout": [
+        "DSCR Loans",
+        "Business Purpose Loans",
+        "Fix and Flip Loans",
+        "Bridge Loans",
+        "SBA Loans",
+        "Non-QM Mortgage",
+        "Investment Property Financing"
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/chad-evers",
+      "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2822744",
+      "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?searchTerm=viador+partners"
+    ],
+    "telephone": "+18134192983",
+    "email": "chad@viadorpartners.com",
+    "knowsAbout": [
+      "DSCR Loans",
+      "Real Estate Investment Financing",
+      "Business Purpose Loans",
+      "Non-QM Mortgage",
+      "Fix and Flip Loans",
+      "Bridge Financing",
+      "SBA Loans",
+      "Investment Property Cash-Out Refinance"
+    ]
+  },
+  {
+    "@type": "Organization",
+    "@id": "https://www.viadorpartners.com/#viador-partners",
+    "name": "Viador Partners LLC",
+    "url": "https://www.viadorpartners.com",
+    "logo": "https://www.viadorpartners.com/logo.png",
+    "telephone": "+18134192983",
+    "email": "chad@viadorpartners.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tampa",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "founder": {
+      "@id": "https://www.viadorpartners.com/#chad-evers"
+    },
+    "areaServed": [
+      "Florida",
+      "Ohio"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Investment Property Loan Programs",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "DSCR Loans",
+          "description": "Qualify on rental income, no W-2s required"
+        },
+        {
+          "@type": "Offer",
+          "name": "Fix and Flip Loans",
+          "description": "Short-term bridge financing for value-add properties"
+        },
+        {
+          "@type": "Offer",
+          "name": "Business Purpose Loans",
+          "description": "Entity-based real estate financing"
+        },
+        {
+          "@type": "Offer",
+          "name": "SBA Loans",
+          "description": "Government-backed loans for owner-occupied commercial real estate"
+        }
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/viador-partners",
+      "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?searchTerm=viador+partners"
+    ]
+  },
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.viadorpartners.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "DSCR Loans Explained \u2014 The Investor's Guide",
+        "item": "https://www.viadorpartners.com/dscr"
+      }
+    ]
+  },
+  {
+    "@type": "WebPage",
+    "@id": "https://www.viadorpartners.com/dscr#webpage",
+    "url": "https://www.viadorpartners.com/dscr",
+    "name": "DSCR Loans Explained \u2014 The Investor's Guide | Viador Partners",
+    "description": "What is a DSCR loan? How it works, who qualifies, and how to know if your rental property passes the test. Includes a free DSCR quick-check calculator.",
+    "author": {
+      "@id": "https://www.viadorpartners.com/#chad-evers"
+    },
+    "publisher": {
+      "@id": "https://www.viadorpartners.com/#viador-partners"
+    },
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://www.viadorpartners.com"
+    }
+  }
+]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What DSCR do I need to qualify?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most lenders want a minimum DSCR of 1.0 to 1.25, with 1.25 being the standard comfort zone. Some programs allow DSCR below 1.0 for strong deals with significant equity — called a no-ratio or sub-1 DSCR program. The exact threshold depends on the lender, property type, and overall deal structure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my personal credit matter for a DSCR loan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but far less than conventional lending. Most DSCR lenders pull credit on the entity principals — a minimum FICO of 620–660 is common. But the property's income picture carries far more weight. Investors with solid deals and decent credit who'd be turned away by conventional lenders often qualify comfortably for DSCR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What property types work for DSCR loans?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Single-family rentals, 2–4 unit properties, condos, and townhomes are the most common. Some lenders also cover 5+ unit multifamily. The property must be non-owner-occupied and used as a rental investment. Primary residences don't qualify."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use projected rent or does the property need to be leased?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many lenders will use market rent from an appraisal or rent schedule for purchase transactions where the property isn't yet leased. If the property is already occupied, the actual lease amount is used. For refinances, existing lease income typically takes precedence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is DSCR lending available nationwide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. DSCR lending is available across the country. Viador Partners originates directly in select markets and works with lender partners everywhere else — so wherever your deal is, we can find a structure that works."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="g-progress" id="gProgress"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+        <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown">
+        <a href="index.html#programs" class="nav-dropdown-trigger">Programs</a>
+        <div class="nav-dropdown-menu">
+          <a href="dscr.html">DSCR Loans</a>
+          <a href="fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="bpl.html">Business Purpose Loans</a>
+          <a href="non-qm-loans-florida.html">Non-QM / Bank Statement</a>
+          <a href="conventional-investment-property-loans.html">Conventional</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="investor-platform.html" class="nav-dropdown-trigger">Tools</a>
+        <div class="nav-dropdown-menu">
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="dscr-calculator.html">DSCR Calculator</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+    </nav>
+    <a href="index.html#dealform" class="nav-cta">Analyze My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="dscr.html">DSCR Loans</a>
+    <a href="fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="bpl.html">Business Purpose Loans</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="about.html">About</a>
+    <span class="drawer-label">Commercial</span>
+    <a href="commercial.html">Commercial Lending</a>
+    <a href="franchise.html">SBA &amp; Franchise</a>
+    <a href="index.html#dealform" class="drawer-cta">Analyze My Deal &rarr;</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="guide-hero">
+  <div class="container">
+    <div class="guide-hero-inner">
+      <div class="guide-eyebrow">DSCR Loans — Investor's Guide</div>
+      <h1 class="guide-h1">Qualify on the<br><em>rent, not your W2.</em></h1>
+      <p class="guide-sub">DSCR loans let rental property investors qualify based on what the property earns — not personal income, not tax returns, not employment history.</p>
+      <div class="guide-meta">
+        <span class="guide-meta-item">8 min read</span>
+        <span class="guide-meta-item">Updated 2025</span>
+        <span class="guide-meta-item">Includes DSCR calculator</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<div class="guide-wrap">
+  <article class="guide-article">
+
+    <!-- WHAT IS DSCR -->
+    <section class="g-section" id="what-is-dscr">
+      <div class="g-marker">What It Is</div>
+      <h2 class="g-h2">The loan that qualifies on<br><em>the deal, not you.</em></h2>
+      <p class="g-p">DSCR stands for <strong>Debt Service Coverage Ratio</strong> — a single number that tells a lender whether a rental property's income covers its loan payment. If the rent covers the payment, the property qualifies. Your personal income is largely irrelevant.</p>
+      <p class="g-p">This is a fundamental shift from how conventional mortgages work. A conventional lender wants your W2s, two years of tax returns, pay stubs, and a full picture of your personal debt load. A DSCR lender asks one question: does this property pay for itself?</p>
+
+      <div class="g-callout">
+        <p><strong>The formula:</strong> DSCR = Monthly Rent ÷ Monthly PITIA (principal, interest, taxes, insurance, association dues). A ratio of 1.0 means the rent exactly covers the payment. Above 1.25 is where most lenders are comfortable.</p>
+      </div>
+
+      <p class="g-p">DSCR loans are structured as <strong>Business Purpose Loans</strong> — meaning the borrower is typically an LLC and the property is a non-owner-occupied investment. This is what removes the need for personal income verification entirely.</p>
+
+      <div class="g-stat-grid">
+        <div class="g-stat">
+          <div class="g-stat-val">1.25</div>
+          <div class="g-stat-lbl">Typical minimum<br>DSCR threshold</div>
+        </div>
+        <div class="g-stat">
+          <div class="g-stat-val">No W2</div>
+          <div class="g-stat-lbl">Income verification<br>required</div>
+        </div>
+        <div class="g-stat">
+          <div class="g-stat-val">30yr</div>
+          <div class="g-stat-lbl">Fixed terms<br>available</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section class="g-section" id="calculator">
+      <div class="g-marker">Quick Check Tool</div>
+      <h2 class="g-h2">Does your rental<br><em>pass the test?</em></h2>
+      <p class="g-p">Use this to get a quick read on where your deal likely stands before submitting for review. This is illustrative only — actual qualification depends on your full scenario.</p>
+
+      <div class="calc-card">
+        <div class="calc-title">DSCR Quick Check</div>
+        <div class="calc-row">
+          <div class="calc-field">
+            <label>Monthly Rent ($)</label>
+            <input type="number" id="dscrRent" placeholder="2600" min="0"/>
+          </div>
+          <div class="calc-field">
+            <label>Monthly PITIA ($)</label>
+            <input type="number" id="dscrPayment" placeholder="2100" min="0"/>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="runDscrGuide()">Check My DSCR</button>
+        <div class="calc-result" id="dscrGuideResult">Enter rent and payment to estimate your DSCR.</div>
+      </div>
+
+      <p class="g-p" style="font-size:14px; color:#888;">PITIA = principal + interest + taxes + insurance + association dues (if applicable). Use your estimated monthly tax and insurance figures if you don't have exact numbers yet.</p>
+    </section>
+
+    <!-- WHO QUALIFIES -->
+    <section class="g-section" id="who-qualifies">
+      <div class="g-marker">Eligibility</div>
+      <h2 class="g-h2">Who DSCR loans<br><em>are built for.</em></h2>
+      <p class="g-p">DSCR loans aren't for everyone — but for the right investor, they remove most of the friction that conventional lenders create.</p>
+
+      <table class="g-table">
+        <thead>
+          <tr>
+            <th>Investor Type</th>
+            <th>Conventional Loan</th>
+            <th class="hi">DSCR Loan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-lbl">Self-employed / complex income</td>
+            <td><span class="g-cross">✗</span> Tax returns often work against you</td>
+            <td class="hi"><span class="g-check">✓</span> Property income qualifies, not personal</td>
+          </tr>
+          <tr>
+            <td class="row-lbl">Investor near the 10-loan limit</td>
+            <td><span class="g-cross">✗</span> Hard cap at 10 (Fannie/Freddie)</td>
+            <td class="hi"><span class="g-check">✓</span> No property count limit</td>
+          </tr>
+          <tr>
+            <td class="row-lbl">LLC borrower</td>
+            <td><span class="g-cross">✗</span> Usually personal name only</td>
+            <td class="hi"><span class="g-check">✓</span> Entity borrowing standard</td>
+          </tr>
+          <tr>
+            <td class="row-lbl">Investor with strong-cash-flow property</td>
+            <td><span class="g-cross">✗</span> Still needs personal income check</td>
+            <td class="hi"><span class="g-check">✓</span> Property pays for itself — that's enough</td>
+          </tr>
+          <tr>
+            <td class="row-lbl">Speed-sensitive deal</td>
+            <td><span class="g-cross">✗</span> 30–60 day close typical</td>
+            <td class="hi"><span class="g-check">✓</span> 14–21 days typical</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="g-mid-cta">
+        <p><strong>Not sure if your deal qualifies?</strong> Submit your scenario — property address, purchase price, estimated rent. We'll tell you where it stands within 24 hours.</p>
+        <a href="index.html#dealform" class="g-mid-cta-btn">Submit My Deal →</a>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="g-section" id="how-it-works">
+      <div class="g-marker">The Process</div>
+      <h2 class="g-h2">How a DSCR loan<br><em>actually works.</em></h2>
+      <p class="g-p">The process is leaner than conventional financing — fewer documents, faster decisions, and no personal income deep-dive.</p>
+
+      <div class="g-steps">
+        <div class="g-step">
+          <div class="g-step-num">1</div>
+          <div>
+            <div class="g-step-title">Have your LLC in place</div>
+            <p class="g-step-desc">DSCR loans are structured as Business Purpose Loans — the borrower is your entity, not you personally. If you don't have an LLC, it's a straightforward setup in most states and the right move for any serious investor anyway.</p>
+          </div>
+        </div>
+        <div class="g-step">
+          <div class="g-step-num">2</div>
+          <div>
+            <div class="g-step-title">Identify the property and run the numbers</div>
+            <p class="g-step-desc">Know your purchase price, estimated monthly rent, and rough taxes and insurance. That's the core of a DSCR scenario — everything else builds from there.</p>
+          </div>
+        </div>
+        <div class="g-step">
+          <div class="g-step-num">3</div>
+          <div>
+            <div class="g-step-title">Submit for review</div>
+            <p class="g-step-desc">Share the deal basics. We review the property, the DSCR math, and the overall structure. Most deals get a preliminary read within 24 hours — experienced investors with complete details often same day.</p>
+          </div>
+        </div>
+        <div class="g-step">
+          <div class="g-step-num">4</div>
+          <div>
+            <div class="g-step-title">Provide entity documentation</div>
+            <p class="g-step-desc">Operating agreement, articles of organization, and ID for the principal. Lighter than a conventional loan package — no W2s, no tax returns, no employment verification.</p>
+          </div>
+        </div>
+        <div class="g-step">
+          <div class="g-step-num">5</div>
+          <div>
+            <div class="g-step-title">Close and hold</div>
+            <p class="g-step-desc">DSCR loans typically close in 14–21 days. Many are structured as 30-year fixed loans — you hold the property, collect rent, and the payment structure is long-term stable.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <section class="g-section" style="padding:48px 0">
+        <h2 class="g-heading" style="margin-bottom:24px">What DSCR Loans Are <em>Not</em> For</h2>
+        <p class="g-text" style="margin-bottom:24px">DSCR loans are built for rental investors — but they're not the right fit for every scenario:</p>
+        <ul style="list-style:none;padding:0;margin:0 0 24px">
+          <li style="padding:12px 16px;border-left:3px solid #E5534B;margin-bottom:12px;background:rgba(229,83,75,0.04);border-radius:0 8px 8px 0"><strong>Primary residences or second homes</strong> — DSCR is for investment properties only. The property must be rented or intended for rental.</li>
+          <li style="padding:12px 16px;border-left:3px solid #E5534B;margin-bottom:12px;background:rgba(229,83,75,0.04);border-radius:0 8px 8px 0"><strong>Properties with negative cash flow</strong> — If the rent doesn't cover the PITIA (DSCR below 1.0), most standard programs won't work. Sub-1 DSCR programs exist but require higher down payments and come with rate premiums.</li>
+          <li style="padding:12px 16px;border-left:3px solid #E5534B;margin-bottom:12px;background:rgba(229,83,75,0.04);border-radius:0 8px 8px 0"><strong>Fix-and-flip projects</strong> — DSCR is for stabilized rental properties. If you're buying to renovate and sell, you need a bridge/fix-and-flip loan. If you're buying to renovate and rent (BRRRR), bridge first, then DSCR refi after stabilization.</li>
+          <li style="padding:12px 16px;border-left:3px solid #E5534B;margin-bottom:12px;background:rgba(229,83,75,0.04);border-radius:0 8px 8px 0"><strong>Vacant land or ground-up construction</strong> — DSCR requires existing rental income or market rent potential. Raw land and new construction require different products.</li>
+          <li style="padding:12px 16px;border-left:3px solid #E5534B;margin-bottom:0;background:rgba(229,83,75,0.04);border-radius:0 8px 8px 0"><strong>Loan amounts under $100K</strong> — Most DSCR lenders have a $100K minimum. Lower-value markets (some rural areas, very small markets) may fall below this threshold.</li>
+        </ul>
+      </section>
+
+    <!-- FAQ -->
+    <section class="g-section" id="faq">
+      <div class="g-marker">FAQ</div>
+      <h2 class="g-h2">Questions investors<br><em>actually ask.</em></h2>
+
+      <div class="g-faq-item">
+        <div class="g-faq-q" onclick="toggleGFaq(this)">What DSCR do I need to qualify? <span class="g-faq-icon">+</span></div>
+        <div class="g-faq-a"><div class="g-faq-a-inner">Most lenders want a minimum DSCR of 1.0 to 1.25, with 1.25 being the standard comfort zone. Some programs allow DSCR below 1.0 for strong deals with significant equity — this is called a "no-ratio" or "sub-1 DSCR" program. The exact threshold depends on the lender, the property type, and the overall deal structure. Submit your numbers and we'll tell you exactly where you stand.</div></div>
+      </div>
+      <div class="g-faq-item">
+        <div class="g-faq-q" onclick="toggleGFaq(this)">Does my personal credit matter? <span class="g-faq-icon">+</span></div>
+        <div class="g-faq-a"><div class="g-faq-a-inner">Yes, but far less than conventional lending. Most DSCR lenders pull credit on the entity principals — a minimum FICO of 620–660 is common. But the property's income picture carries far more weight. Investors with solid deals and decent credit who'd be turned away by conventional lenders often qualify comfortably for DSCR.</div></div>
+      </div>
+      <div class="g-faq-item">
+        <div class="g-faq-q" onclick="toggleGFaq(this)">What property types work for DSCR? <span class="g-faq-icon">+</span></div>
+        <div class="g-faq-a"><div class="g-faq-a-inner">Single-family rentals, 2–4 unit properties, condos, and townhomes are the most common. Some lenders also cover 5+ unit multifamily. The key requirement: the property must be non-owner-occupied and used as a rental investment. Primary residences don't qualify.</div></div>
+      </div>
+      <div class="g-faq-item">
+        <div class="g-faq-q" onclick="toggleGFaq(this)">Can I use projected rent or does it need to be leased? <span class="g-faq-icon">+</span></div>
+        <div class="g-faq-a"><div class="g-faq-a-inner">Many lenders will use market rent (typically from an appraisal or rent schedule) for purchase transactions where the property isn't yet leased. If the property is already occupied, the actual lease amount is used. For refinances, existing lease income typically takes precedence.</div></div>
+      </div>
+      <div class="g-faq-item">
+        <div class="g-faq-q" onclick="toggleGFaq(this)">Is DSCR available nationwide? <span class="g-faq-icon">+</span></div>
+        <div class="g-faq-a"><div class="g-faq-a-inner">Yes. DSCR lending is available across the country. We originate directly in select markets and work with lender partners everywhere else — so wherever your deal is, we can find a structure that works. Submit your scenario with the property state and we'll route it appropriately.</div></div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <div class="g-final-cta">
+      <div class="g-final-inner">
+        <div class="g-final-label">Ready to move?</div>
+        <h2 class="g-final-title">Submit your rental deal.<br><em>We'll run the numbers.</em></h2>
+        <p class="g-final-sub">Tell us the property, purchase price, and estimated rent. We'll give you a straight answer on where your deal stands — no runaround, no pressure.</p>
+        <div class="g-final-btns">
+          <a href="index.html#dealform" class="g-btn-primary">Analyze My Deal &rarr;</a>
+          <a href="bpl.html" class="g-btn-ghost">What Is BPL?</a>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="guide-sidebar">
+    <div class="g-toc">
+      <div class="g-toc-title">In This Guide</div>
+      <ul class="g-toc-list">
+        <li><a href="#what-is-dscr">What Is DSCR?</a></li>
+        <li><a href="#calculator">DSCR Calculator</a></li>
+        <li><a href="#who-qualifies">Who Qualifies</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="g-sidebar-cta">
+      <div class="g-sidebar-cta-title">Have a rental deal in mind?</div>
+      <p class="g-sidebar-cta-text">Submit your scenario — we'll tell you if the DSCR works and what structure fits best.</p>
+      <a href="index.html#dealform" class="g-sidebar-cta-btn">Analyze My Deal &rarr;</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-mark">V</span>
+        <div><strong>Viador</strong> <span class="logo-sub" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:400;">Partners</span><span>Investor Capital &amp; Deal Advisory</span></div>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Investors</h4>
+        <a href="bpl.html">What Is BPL?</a>
+        <a href="dscr.html">DSCR Loans</a>
+        <a href="fix-and-flip.html">Fix &amp; Flip</a>
+        <a href="index.html#dealform">Analyze My Deal</a>
+      </div>
+      <div class="footer-nav-group">
+                <h4>Programs</h4>
+        <a href="dscr.html">DSCR Loans</a>
+        <a href="fix-and-flip.html">Fix &amp; Flip</a>
+        <a href="bpl.html">Business Purpose (BPL)</a>
+        <span style="display:block;font-size:10px;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin:8px 0 4px;font-family:var(--font-mono)">Commercial</span>
+        <a href="commercial.html">Small Balance Commercial</a>
+        <a href="commercial.html">SBA 7(a) &amp; 504</a>
+        <a href="franchise.html">Franchise Financing</a>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Partners</h4>
+        <a href="partners.html">Realtor Program</a>
+        <a href="partners.html">Refer a Deal</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Viador Partners LLC. All rights reserved.</span>
+      <span>Viador Partners LLC &#124; NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.7">chad&#64;viadorpartners.com &#124; (813) 419-2983</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.6">NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.5">Not a commitment to lend. Equal Housing Opportunity. <a href="privacy-policy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> &middot; <a href="terms.html" style="color:inherit;text-decoration:underline">Terms of Use</a></span>
+    <span style="display:block;margin-top:10px;font-size:10px;opacity:0.6">Veteran homeowner? Visit <a href="https://nextdutyvet.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">NextDutyVet.com</a></span></div>
+  </div>
+</footer>
+
+<div class="mobile-sticky-cta" id="mobileCta">
+  <a href="index.html#dealform" class="mobile-sticky-btn">Analyze My Deal →</a>
+  <a href="tel:+18134192983" class="mobile-sticky-call">Call Us</a>
+</div>
+
+<script src="script.js" defer></script>
+<script>
+window.addEventListener('scroll', () => {
+  const d = document.documentElement;
+  const pct = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
+  document.getElementById('gProgress').style.width = pct + '%';
+});
+
+function runDscrGuide() {
+  const rent = parseFloat(document.getElementById('dscrRent').value) || 0;
+  const pay  = parseFloat(document.getElementById('dscrPayment').value) || 0;
+  const el   = document.getElementById('dscrGuideResult');
+  if (!rent || !pay) { el.textContent = 'Enter both rent and payment to check your DSCR.'; return; }
+  const ratio = (rent / pay).toFixed(2);
+  if (ratio >= 1.25)     el.innerHTML = '<span style="color:#4ade80">✓ Strong — DSCR ' + ratio + '. Well above the typical 1.25 threshold. Good candidate for review.</span>';
+  else if (ratio >= 1.0) el.innerHTML = '<span style="color:#d4a843">~ Marginal — DSCR ' + ratio + '. Qualifies at some lenders; terms may vary. Still worth submitting.</span>';
+  else                   el.innerHTML = '<span style="color:#f87171">⚠ Below 1.0 — DSCR ' + ratio + '. Rent doesn\'t cover the payment at this price. Revisit purchase price or explore bridge options.</span>';
+}
+
+function toggleGFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.g-faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+const gSections = document.querySelectorAll('[id]');
+const gLinks = document.querySelectorAll('.g-toc-list a');
+const gObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      gLinks.forEach(l => { l.classList.remove('active'); if (l.getAttribute('href') === '#' + e.target.id) l.classList.add('active'); });
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+gSections.forEach(s => gObs.observe(s));
+</script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/245454217.js"></script>
+<!-- LinkedIn Insight Tag -->
+<script type="text/javascript">
+_linkedin_partner_id = "8839754";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+<script type="text/javascript">
+(function(l) {
+  if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+  window.lintrk.q=[]}
+  var s = document.getElementsByTagName("script")[0];
+  var b = document.createElement("script");
+  b.type = "text/javascript";b.async = true;
+  b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+  s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8839754&amp;fmt=gif" /></noscript>
+</body>
+</html>

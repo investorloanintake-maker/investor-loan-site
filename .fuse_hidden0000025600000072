@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Portfolio Loans for Real Estate Investors -- Blanket Mortgage Guide | Viador Partners</title>
+  <meta name="description" content="Portfolio and blanket loans for real estate investors. Finance multiple properties under one loan. Simplify your portfolio. Florida and Ohio. No income verification available."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.viadorpartners.com/portfolio-loans-real-estate"/>
+  <meta property="og:title" content="Portfolio Loans for Real Estate Investors -- Blanket Mortgage Guide | Viador Partners"/>
+  <meta property="og:description" content="Portfolio and blanket loans for real estate investors. Finance multiple properties under one loan. Simplify your portfolio. Florida and Ohio. No income verification available."/>
+  <meta property="og:image" content="https://www.viadorpartners.com/og-image.jpg"/>
+  <link rel="canonical" href="https://www.viadorpartners.com/portfolio-loans-real-estate"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"WebPage","name":'Portfolio Loans for Real Estate Investors -- Blanket Mortgage Guide | Viador Partners',"url":'https://www.viadorpartners.com/portfolio-loans-real-estate',
+        "author":{"@type":"Person","name":"Chad Evers","hasCredential":"NMLS #2822744",
+          "worksFor":{"@type":"Organization","name":"Viador Partners LLC"}}},
+      {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":'What is a blanket mortgage?',"acceptedAnswer":{"@type":"Answer","text":'A blanket mortgage (also called a portfolio loan) is a single mortgage loan that is secured by multiple properties simultaneously. All properties are cross-collateralized, meaning the lender has a lien on all of them. One monthly payment covers all properties in the portfolio.'}},
+      {"@type":"Question","name":'How many properties do I need for a portfolio loan?',"acceptedAnswer":{"@type":"Answer","text":'Most lenders require a minimum of 5 properties for a portfolio or blanket loan. Some programs start at 3 properties, while others require 10+. The specific minimum depends on the lender and total loan value.'}},
+      {"@type":"Question","name":'Are portfolio loans available without income verification?',"acceptedAnswer":{"@type":"Answer","text":'Yes. Portfolio DSCR programs evaluate qualifying income based on aggregate rental income from all properties in the portfolio rather than personal income. No W-2s or tax returns required for DSCR-based portfolio loans.'}},
+      {"@type":"Question","name":'Can I sell one property if it is in a blanket loan?',"acceptedAnswer":{"@type":"Answer","text":'Yes, if the loan includes release provisions. Release clauses allow individual properties to be sold and the loan to be partially paid down, releasing that property from the blanket lien. Not all portfolio loans include release provisions -- confirm this before committing.'}},
+      {"@type":"Question","name":'Does Viador Partners offer portfolio loans?',"acceptedAnswer":{"@type":"Answer","text":'Yes. Viador Partners can structure portfolio loan solutions for established investors. The right structure depends on portfolio size, geographic concentration, and investor goals. Submit your portfolio details for a free assessment.'}}]}
+    ]
+  }
+  </script>
+  <style>
+    .guide-hero{background:var(--ink);color:var(--cream);padding:140px 0 72px}
+    .guide-hero-inner{max-width:720px}
+    .guide-eyebrow{font-family:"Inter",system-ui,sans-serif,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+    .guide-eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
+    .guide-h1{font-family:"Inter",system-ui,sans-serif,serif;font-size:clamp(36px,5vw,60px);font-weight: 700;line-height:1.08;letter-spacing:-.02em;margin-bottom:20px}
+    .guide-h1 em{font-style:italic;color:var(--gold)}
+    .guide-sub{font-size:18px;line-height:1.7;color:rgba(247,243,238,.7);max-width:580px;margin-bottom:36px}
+    .guide-meta{display:flex;gap:24px;flex-wrap:wrap}
+    .guide-meta-item{font-family:"Inter",system-ui,sans-serif,monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,243,238,.4);display:flex;align-items:center;gap:6px}
+    .guide-meta-item::before{content:"·";color:var(--gold)}
+    .guide-wrap{max-width:1100px;margin:0 auto;padding:72px 48px 120px;display:grid;grid-template-columns:1fr 260px;gap:72px;align-items:start}
+    .guide-article{min-width:0}
+    .guide-sidebar{position:sticky;top:100px}
+    .guide-h2{font-family:"Inter",system-ui,sans-serif,serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--ink);margin:48px 0 16px;line-height:1.2}
+    .guide-h3{font-family:"Inter",system-ui,sans-serif,serif;font-size:20px;font-weight:700;color:var(--ink);margin:28px 0 10px}
+    .guide-p{font-size:16px;line-height:1.8;color:var(--ink-soft);margin-bottom:18px}
+    .guide-ul{margin:0 0 20px 0;padding-left:24px}
+    .guide-ul li{font-size:16px;line-height:1.7;color:var(--ink-soft);margin-bottom:8px}
+    .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+    .stat-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:32px 0}
+    .stat-card{background:var(--cream);border:1px solid var(--line);padding:24px 20px;text-align:center}
+    .stat-num{font-family:"Inter",system-ui,sans-serif,serif;font-size:36px;font-weight: 700;color:var(--gold);display:block;margin-bottom:4px}
+    .stat-lab{font-size:12px;color:var(--ink-soft)}
+    .callout-box{background:var(--ink);color:var(--cream);padding:32px 36px;margin:32px 0;border-left:4px solid var(--gold)}
+    .callout-box h3{font-family:"Inter",system-ui,sans-serif,serif;font-size:20px;color:var(--gold);margin-bottom:12px}
+    .callout-box p{font-size:15px;line-height:1.7;color:rgba(247,243,238,.8)}
+    .callout-light{background:var(--cream);border:1px solid var(--line);border-left:4px solid var(--gold);padding:24px 28px;margin:24px 0}
+    .callout-light h3{font-family:"Inter",system-ui,sans-serif,serif;font-size:18px;color:var(--ink);margin-bottom:8px}
+    .callout-light p{font-size:15px;line-height:1.7;color:var(--ink-soft)}
+    .compare-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+    .compare-table th{background:var(--ink);color:var(--cream);padding:12px 16px;text-align:left;font-family:"Inter",system-ui,sans-serif,monospace;font-size:11px;letter-spacing:.08em}
+    .compare-table td{padding:11px 16px;border-bottom:1px solid var(--line);color:var(--ink-soft);vertical-align:top}
+    .compare-table tr:nth-child(even) td{background:var(--cream)}
+    .compare-table .good{color:#1A5C38;font-weight:500}
+    .compare-table .bad{color:#8B1A1A}
+    .step-list{counter-reset:steps;list-style:none;padding:0;margin:0 0 20px}
+    .step-list li{counter-increment:steps;display:flex;gap:16px;margin-bottom:20px;align-items:flex-start}
+    .step-list li::before{content:counter(steps);background:var(--gold);color:#fff;font-family:"Inter",system-ui,sans-serif,serif;font-size:16px;font-weight: 700;min-width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+    .step-body h4{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px}
+    .step-body p{font-size:14px;color:var(--ink-soft);line-height:1.6;margin:0}
+    .g-toc{background:var(--ink);padding:24px 28px;margin-bottom:20px}
+    .g-toc-title{font-family:"Inter",system-ui,sans-serif,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+    .g-toc-list{list-style:none}
+    .g-toc-list li{border-bottom:1px solid rgba(255,255,255,.06)}
+    .g-toc-list li:last-child{border-bottom:none}
+    .g-toc-list a{display:block;padding:8px 0;font-size:13px;color:rgba(247,243,238,.6);text-decoration:none;transition:color .15s}
+    .g-toc-list a:hover{color:var(--gold)}
+    .g-cta{background:var(--gold);padding:28px 24px;text-align:center;margin-bottom:20px}
+    .g-cta h3{font-family:"Inter",system-ui,sans-serif,serif;font-size:20px;color:#fff;margin-bottom:8px}
+    .g-cta p{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:16px}
+    .g-cta a{display:block;background:#fff;color:var(--gold);font-weight:700;padding:12px;font-size:14px;text-decoration:none}
+    .g-tools{background:var(--cream);border:1px solid var(--line);padding:20px 24px}
+    .g-tools-title{font-family:"Inter",system-ui,sans-serif,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+    .g-tools a{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink);text-decoration:none;padding:7px 0;border-bottom:1px solid var(--line)}
+    .g-tools a:last-child{border-bottom:none}
+    .g-tools a::before{content:"→";color:var(--gold);font-size:12px}
+    .faq-section{margin:48px 0}
+    .faq-item{border-bottom:1px solid var(--line)}
+    .faq-q{width:100%;text-align:left;background:none;border:none;padding:20px 0;font-family:"Inter",system-ui,sans-serif,serif;font-size:17px;font-weight:700;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;line-height:1.3}
+    .faq-q::after{content:"+";font-size:22px;color:var(--gold);flex-shrink:0;transition:transform .2s}
+    .faq-q.open::after{transform:rotate(45deg)}
+    .faq-a{display:none;padding:0 0 20px}
+    .faq-a.open{display:block}
+    .faq-a p{font-size:15px;line-height:1.8;color:var(--ink-soft);margin-bottom:8px}
+    .related-links{margin:48px 0 0;padding:24px 0;border-top:1px solid var(--line)}
+    .related-links h3{font-family:"Inter",system-ui,sans-serif,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+    .related-link{display:block;font-size:14px;color:var(--gold);text-decoration:none;padding:7px 0;border-bottom:1px solid var(--line)}
+    .related-link:hover{color:var(--ink)}
+    .cta-band{background:var(--ink);padding:80px 0;text-align:center}
+    .cta-band h2{font-family:"Inter",system-ui,sans-serif,serif;font-size:clamp(28px,4vw,44px);color:var(--cream);margin-bottom:16px}
+    .cta-band p{font-size:16px;color:rgba(247,243,238,.6);max-width:500px;margin:0 auto 32px}
+    @media(max-width:768px){
+      .guide-wrap{grid-template-columns:1fr;padding:40px 24px 80px;gap:40px}
+      .guide-sidebar{position:static}
+      .stat-grid{grid-template-columns:1fr 1fr}
+      .stat-grid-2{grid-template-columns:1fr}
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+  {
+    "@type": "Person",
+    "@id": "https://www.viadorpartners.com/#chad-evers",
+    "name": "Chad Evers",
+    "jobTitle": "Licensed Mortgage Loan Originator",
+    "description": "Ohio roots. 20 years in lending — originating loans, building national mortgage teams from scratch, 3 years gaining global institutional experience at Citi. Left corporate life to build Viador Partners for the people the system was never designed to serve.",
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Mortgage Loan Originator License",
+      "credentialCategory": "NMLS",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Nationwide Multistate Licensing System (NMLS)"
+      },
+      "identifier": "NMLS #2822744"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "@id": "https://www.viadorpartners.com/#viador-partners",
+      "name": "Viador Partners LLC",
+      "url": "https://www.viadorpartners.com",
+      "telephone": "+18134192983",
+      "email": "chad@viadorpartners.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tampa",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Florida",
+        "Ohio"
+      ],
+      "knowsAbout": [
+        "DSCR Loans",
+        "Business Purpose Loans",
+        "Fix and Flip Loans",
+        "Bridge Loans",
+        "SBA Loans",
+        "Non-QM Mortgage",
+        "Investment Property Financing"
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/chad-evers",
+      "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2822744",
+      "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?searchTerm=viador+partners"
+    ],
+    "telephone": "+18134192983",
+    "email": "chad@viadorpartners.com",
+    "knowsAbout": [
+      "DSCR Loans",
+      "Real Estate Investment Financing",
+      "Business Purpose Loans",
+      "Non-QM Mortgage",
+      "Fix and Flip Loans",
+      "Bridge Financing",
+      "SBA Loans",
+      "Investment Property Cash-Out Refinance"
+    ]
+  },
+  {
+    "@type": "Organization",
+    "@id": "https://www.viadorpartners.com/#viador-partners",
+    "name": "Viador Partners LLC",
+    "url": "https://www.viadorpartners.com",
+    "logo": "https://www.viadorpartners.com/logo.png",
+    "telephone": "+18134192983",
+    "email": "chad@viadorpartners.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tampa",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "founder": {
+      "@id": "https://www.viadorpartners.com/#chad-evers"
+    },
+    "areaServed": [
+      "Florida",
+      "Ohio"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Investment Property Loan Programs",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "DSCR Loans",
+          "description": "Qualify on rental income, no W-2s required"
+        },
+        {
+          "@type": "Offer",
+          "name": "Fix and Flip Loans",
+          "description": "Short-term bridge financing for value-add properties"
+        },
+        {
+          "@type": "Offer",
+          "name": "Business Purpose Loans",
+          "description": "Entity-based real estate financing"
+        },
+        {
+          "@type": "Offer",
+          "name": "SBA Loans",
+          "description": "Government-backed loans for owner-occupied commercial real estate"
+        }
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/viador-partners",
+      "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?searchTerm=viador+partners"
+    ]
+  },
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.viadorpartners.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Portfolio Loans for Real Estate Investors -- Blanket Mortgage Guide",
+        "item": "https://www.viadorpartners.com/portfolio-loans-real-estate"
+      }
+    ]
+  },
+  {
+    "@type": "WebPage",
+    "@id": "https://www.viadorpartners.com/portfolio-loans-real-estate#webpage",
+    "url": "https://www.viadorpartners.com/portfolio-loans-real-estate",
+    "name": "Portfolio Loans for Real Estate Investors -- Blanket Mortgage Guide | Viador Partners",
+    "description": "Portfolio and blanket loans for real estate investors. Finance multiple properties under one loan. Simplify your portfolio. Florida and Ohio. No income verification available.",
+    "author": {
+      "@id": "https://www.viadorpartners.com/#chad-evers"
+    },
+    "publisher": {
+      "@id": "https://www.viadorpartners.com/#viador-partners"
+    },
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://www.viadorpartners.com"
+    }
+  }
+]
+}
+</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".guide-h1", ".guide-sub", ".guide-h2", ".guide-p:first-of-type", ".callout-box h3"]
+  }
+  </script>
+</head>
+<body>
+  <header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+    <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown">
+        <a href="index.html#programs" class="nav-dropdown-trigger">Programs</a>
+        <div class="nav-dropdown-menu">
+          <a href="dscr.html">DSCR Loans</a>
+          <a href="fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="bpl.html">Business Purpose Loans</a>
+          <a href="non-qm-loans-florida.html">Non-QM / Bank Statement</a>
+          <a href="conventional-investment-property-loans.html">Conventional</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="investor-platform.html" class="nav-dropdown-trigger">Tools</a>
+        <div class="nav-dropdown-menu">
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="dscr-calculator.html">DSCR Calculator</a>
+          <a href="resources">Resources</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+    </nav>
+    <a href="index.html#dealform" class="nav-cta">Analyze My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="dscr.html">DSCR Loans</a>
+    <a href="fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="bpl.html">Business Purpose Loans</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="resources">Resources</a>
+    <a href="about.html">About</a>
+    <a href="index.html#dealform" class="drawer-cta">Analyze My Deal &rarr;</a>
+  </div>
+</header>
+  <section class="guide-hero">
+    <div class="container">
+      <div class="guide-hero-inner">
+        <div class="guide-eyebrow">Portfolio Loans -- Investor Financing</div>
+        <h1 class="guide-h1">Portfolio Loans for <em>Real Estate Investors</em></h1>
+        <p class="guide-sub">Multiple properties. One loan. One payment. One closing.</p>
+        <div class="guide-meta">
+          <span class="guide-meta-item">Viador Partners, NMLS #2822744</span>
+          <span class="guide-meta-item">20 Years Lending Experience</span>
+          <span class="guide-meta-item">Florida &amp; Ohio</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="guide-wrap">
+    <article class="guide-article">
+      <p class="guide-p">As a real estate investor builds a portfolio, managing multiple individual mortgages becomes increasingly complex -- multiple payments, multiple servicers, multiple interest rates, multiple sets of documents. Portfolio loans (also called blanket loans) consolidate multiple investment properties under a single loan, simplifying management and often improving overall terms.</p>
+      
+      <h2 class="guide-h2" id="0">What Is a Portfolio Loan?</h2>
+      <p class="guide-p">A portfolio loan -- also called a blanket mortgage -- is a single loan secured by multiple investment properties. Rather than individual mortgages on each property, all properties are cross-collateralized under one note with one monthly payment.</p>
+      <div class="stat-grid-2">
+        <div class="stat-card"><span class="stat-num">5+</span><span class="stat-lab">Typical minimum properties</span></div>
+        <div class="stat-card"><span class="stat-num">1</span><span class="stat-lab">Monthly payment for all</span></div>
+      </div>
+      <p class="guide-p">Portfolio loans are typically held on the lender portfolio rather than sold to Fannie Mae or Freddie Mac -- hence "portfolio" loan. This gives lenders more flexibility in underwriting and structure.</p>
+
+      <h2 class="guide-h2" id="1">Portfolio Loan vs Individual DSCR Loans</h2>
+      <p class="guide-p">Each approach has distinct advantages:</p>
+      <table class="compare-table">
+        <tr><th>Factor</th><th>Portfolio / Blanket Loan</th><th>Individual DSCR Loans</th></tr>
+        <tr><td>Properties per loan</td><td class="good">Multiple (5-50+)</td><td>One each</td></tr>
+        <tr><td>Management simplicity</td><td class="good">One payment, one servicer</td><td>Multiple payments</td></tr>
+        <tr><td>Rate</td><td>Negotiable at portfolio scale</td><td>Standard DSCR rate</td></tr>
+        <tr><td>Flexibility</td><td>Less (one default affects all)</td><td class="good">Each property independent</td></tr>
+        <tr><td>Release provisions</td><td>Can sell individual properties</td><td class="good">Fully independent</td></tr>
+        <tr><td>Best for</td><td>Large established portfolios</td><td class="good">Building portfolios</td></tr>
+      </table>
+
+      <h2 class="guide-h2" id="2">When Portfolio Loans Make Sense</h2>
+      <p class="guide-p">Portfolio loans are best suited for:</p>
+      <ul class="guide-ul">
+        <li><strong>Established investors with 10+ properties</strong> who want to simplify management</li>
+        <li><strong>Refinancing multiple properties at once</strong> -- can consolidate at favorable terms</li>
+        <li><strong>Investors approaching retirement</strong> who want simplified cash flow management</li>
+        <li><strong>Investors with geographic concentration</strong> -- multiple properties in same market often make sense to bundle</li>
+      </ul>
+      <div class="callout-box"><h3>Cross-Collateralization Risk</h3><p>The main downside of portfolio loans is cross-collateralization. If one property has issues -- a problem tenant, major repair, extended vacancy -- the lender has recourse against all properties in the portfolio. Individual DSCR loans isolate each property from the others. For most investors building portfolios, individual DSCR loans offer better risk management until the portfolio is very established.</p></div>
+
+      <h2 class="guide-h2" id="3">Portfolio Loan Requirements</h2>
+      <p class="guide-p">Portfolio loans typically require:</p>
+      <ul class="guide-ul">
+        <li>Minimum 5 properties (some lenders require 10+)</li>
+        <li>Properties in good condition -- no major deferred maintenance</li>
+        <li>Properties generating stable rental income</li>
+        <li>Portfolio-level DSCR typically 1.25+ on aggregate</li>
+        <li>Experienced investor track record</li>
+        <li>LLC or entity structure typical</li>
+      </ul>
+
+      <div class="faq-section">
+        <h2 class="guide-h2" id="faq">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What is a blanket mortgage?</button>
+        <div class="faq-a"><p>A blanket mortgage (also called a portfolio loan) is a single mortgage loan that is secured by multiple properties simultaneously. All properties are cross-collateralized, meaning the lender has a lien on all of them. One monthly payment covers all properties in the portfolio.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">How many properties do I need for a portfolio loan?</button>
+        <div class="faq-a"><p>Most lenders require a minimum of 5 properties for a portfolio or blanket loan. Some programs start at 3 properties, while others require 10+. The specific minimum depends on the lender and total loan value.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Are portfolio loans available without income verification?</button>
+        <div class="faq-a"><p>Yes. Portfolio DSCR programs evaluate qualifying income based on aggregate rental income from all properties in the portfolio rather than personal income. No W-2s or tax returns required for DSCR-based portfolio loans.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Can I sell one property if it is in a blanket loan?</button>
+        <div class="faq-a"><p>Yes, if the loan includes release provisions. Release clauses allow individual properties to be sold and the loan to be partially paid down, releasing that property from the blanket lien. Not all portfolio loans include release provisions -- confirm this before committing.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Does Viador Partners offer portfolio loans?</button>
+        <div class="faq-a"><p>Yes. Viador Partners can structure portfolio loan solutions for established investors. The right structure depends on portfolio size, geographic concentration, and investor goals. Submit your portfolio details for a free assessment.</p></div>
+      </div>
+      </div>
+      <div class="related-links">
+        <h3>Related Resources</h3>
+        <a href="real-estate-investor-financing.html" class="related-link">Complete Investor Financing Guide</a>
+      <a href="what-is-a-dscr-loan.html" class="related-link">What Is a DSCR Loan?</a>
+      <a href="investment-property-loan-llc.html" class="related-link">Investment Property Loans for LLCs</a>
+      <a href="dscr-loans-florida.html" class="related-link">DSCR Loans in Florida</a>
+      <a href="dscr-loans-ohio.html" class="related-link">DSCR Loans in Ohio</a>
+      </div>
+    </article>
+    <aside class="guide-sidebar">
+      <div class="g-toc">
+        <div class="g-toc-title">On This Page</div>
+        <ul class="g-toc-list">
+          <li><a href="#0">What Is a Portfolio Loan</a></li>
+<li><a href="#1">Portfolio vs Individual DSCR</a></li>
+<li><a href="#2">When It Makes Sense</a></li>
+<li><a href="#3">Requirements</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="g-cta">
+        <h3>Analyze My Deal</h3>
+        <p>Submit your scenario. Viador Partners responds within 24 hours.</p>
+        <a href="application.html">Start Here</a>
+      </div>
+      <div class="g-tools"><div class="g-tools-title">Free Tools</div><a href="dscr-calculator.html">DSCR Calculator</a>
+<a href="deal-analyzer.html">Deal Analyzer</a></div>
+    </aside>
+  </div>
+  <section class="cta-band">
+    <div class="container">
+      <h2>Ready to Simplify Your Portfolio?</h2>
+      <p>Submit your portfolio details for a free review and rate comparison.</p>
+      <a href="application.html" class="btn-primary" style="display:inline-block">Analyze My Deal</a>
+    </div>
+  </section>
+  <footer class="footer-wrap">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">Viador<span>Partners</span></div>
+          <p class="footer-tagline">Investor financing built for real estate investors, self-employed professionals, and business owners who do not fit the conventional mold.</p>
+        </div>
+        <div class="footer-nav-group"><h4>Programs</h4><a href="dscr.html">DSCR Loans</a><a href="fix-and-flip.html">Fix &amp; Flip</a><a href="bpl.html">Business Purpose (BPL)</a><a href="commercial.html">Commercial</a><a href="franchise.html">SBA &amp; Franchise</a></div>
+        <div class="footer-nav-group"><h4>Calculators</h4>
+          <a href="dscr-calculator.html">DSCR Calculator</a>
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="cashout-calculator.html">Cash-Out Refi</a>
+          <a href="investor-platform.html">Full Platform</a>
+        </div>
+        <div class="footer-nav-group"><h4>Resources</h4>
+          <a href="what-is-a-dscr-loan.html">What Is a DSCR Loan?</a>
+          <a href="dscr-loan-requirements.html">DSCR Requirements</a>
+          <a href="real-estate-investor-financing.html">Investor Financing Guide</a>
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Viador Partners LLC &#124; NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.7">chad&#64;viadorpartners.com &#124; (813) 419-2983</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.6">NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.5">Not a commitment to lend. Equal Housing Opportunity. <a href="privacy-policy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> &middot; <a href="terms.html" style="color:inherit;text-decoration:underline">Terms of Use</a></span>
+      <span style="display:block;margin-top:10px;font-size:10px;opacity:0.6">Veteran homeowner? Visit <a href="https://nextdutyvet.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">NextDutyVet.com</a></span></div>
+    </div>
+  </footer>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/245454217.js"></script>
+</body>
+</html>

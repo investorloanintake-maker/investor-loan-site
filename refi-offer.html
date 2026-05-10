@@ -194,7 +194,7 @@
   var savingsCardLabel = isFreeAndClear ? 'Monthly Income from New Acquisition' : 'Monthly Savings';
   var savingsCardNote = isFreeAndClear ? 'Deploying equity into a new DSCR rental' : fmt$(savingsVal * 12) + ' annually';
   html += '<div class="offer-grid">';
-  html += '<div class="offer-card" style="text-align:center"><div class="offer-card-label">Accessible Equity</div><div class="offer-card-val hero-num" style="color:#BF9020">' + fmt$(data.equity || 0) + '</div><div class="offer-card-note">At 75% LTV</div></div>';
+  html += '<div class="offer-card" style="text-align:center"><div class="offer-card-label">Accessible Equity</div><div class="offer-card-val hero-num" style="color:#6B745E">' + fmt$(data.equity || 0) + '</div><div class="offer-card-note">At 75% LTV</div></div>';
   html += '<div class="offer-card" style="text-align:center"><div class="offer-card-label">' + savingsCardLabel + '</div><div class="offer-card-val hero-num" style="color:#4ade80">' + fmt$(savingsVal) + '/mo</div><div class="offer-card-note">' + savingsCardNote + '</div></div>';
   html += '</div>';
 

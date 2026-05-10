@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");gtag('event','cash_flow_reset_page_view');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veteran Cash Flow Reset — Fix Monthly Cash Flow After Military Retirement | Viador Partners</title>
+<meta name="description" content="Most veterans retire with a pension, home equity, and high-interest debt draining $800–2,000/month. Here is how veterans restructure their finances to increase monthly cash flow without starting over.">
+<link rel="canonical" href="https://viadorpartners.com/veterans/cash-flow-reset">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Veteran Cash Flow Reset — Fix Monthly Cash Flow After Military Retirement">
+<meta property="og:description" content="Most veterans retire with a pension, home equity, and high-interest debt draining $800–2,000/month. Here is how to restructure.">
+<meta property="og:url" content="https://viadorpartners.com/veterans/cash-flow-reset">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://viadorpartners.com"},{"@type":"ListItem","position":2,"name":"Veterans","item":"https://viadorpartners.com/veterans"},{"@type":"ListItem","position":3,"name":"Veteran Cash Flow Reset","item":"https://viadorpartners.com/veterans/cash-flow-reset"}]},{"@type":"Article","headline":"Veteran Cash Flow Reset — Fix Monthly Cash Flow After Military Retirement","author":{"@type":"Person","name":"Chad Evers","hasCredential":"NMLS #2822744","url":"https://viadorpartners.com/about/chad-evers"},"publisher":{"@type":"Organization","name":"Viador Partners LLC","url":"https://viadorpartners.com"},"datePublished":"2026-04-08","description":"Most veterans retire with a pension, home equity, and high-interest debt draining $800–2,000/month. Here is how veterans restructure their finances to increase monthly cash flow without starting over."},{"@type":"HowTo","name":"The Veteran Cash Flow Reset","step":[{"@type":"HowToStep","name":"Simplify","text":"Combine high-interest debts into one structured payment using home equity."},{"@type":"HowToStep","name":"Stabilize","text":"Reduce monthly obligations and increase available cash flow."},{"@type":"HowToStep","name":"Build","text":"Use freed cash flow to save, invest, or acquire income-producing assets."}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I use my VA loan benefit after leaving the military?","acceptedAnswer":{"@type":"Answer","text":"Yes. VA loan eligibility continues after separation and retirement. Your benefit does not expire."}},{"@type":"Question","name":"Can I refinance if I already used my VA loan on this property?","acceptedAnswer":{"@type":"Answer","text":"Yes. A VA cash-out refinance can replace an existing VA loan or any other loan type on your primary residence."}},{"@type":"Question","name":"What if my current mortgage rate is very low?","acceptedAnswer":{"@type":"Answer","text":"That depends on your total debt picture. When high-interest debt exists, the blended cost across all obligations is often higher than a single restructured VA loan. We model both scenarios before making any recommendation. The VA IRRRL also allows future refinancing to a lower rate with no appraisal if rates drop."}},{"@type":"Question","name":"Does a VA cash-out refinance require mortgage insurance?","acceptedAnswer":{"@type":"Answer","text":"No. VA loans do not require private mortgage insurance regardless of loan-to-value ratio. This is one of the meaningful cost advantages over conventional cash-out refinancing."}}]}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+.cf-hero{background:var(--ink,#141210);color:#fff;padding:120px 24px 80px;text-align:center;position:relative;overflow:hidden}
+.cf-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(191, 144, 32,0.12) 0%,transparent 70%);pointer-events:none}
+.cf-hero h1{font-family:'Inter',system-ui,sans-serif;font-size:clamp(28px,4.5vw,46px);font-weight: 700;color:#fff;max-width:740px;margin:0 auto 18px;line-height:1.15}
+.cf-hero .sub{font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,0.65);max-width:620px;margin:0 auto 28px;line-height:1.7}
+.cf-hero .breadcrumb{font-family:'Inter',system-ui,sans-serif;font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:24px;letter-spacing:.05em}
+.cf-hero .breadcrumb a{color:rgba(255,255,255,0.3);text-decoration:none}
+.cf-checks{display:flex;flex-direction:column;gap:10px;max-width:480px;margin:0 auto 32px;text-align:left}
+.cf-check{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:rgba(255,255,255,0.75)}
+.cf-check::before{content:'\2713';color:var(--gold,#BF9020);font-weight:700;flex-shrink:0}
+.cf-btn{display:inline-block;padding:18px 40px;background:var(--gold,#BF9020);color:#fff;border-radius:6px;font-weight:700;font-size:17px;text-decoration:none;font-family:'Inter',system-ui,sans-serif;transition:all .2s}
+.cf-btn:hover{background:var(--gold-light,#D9A84A);transform:translateY(-1px)}
+.cf-btn-ghost{display:inline-block;padding:14px 28px;border:1px solid var(--gold);color:var(--gold);border-radius:6px;font-weight:500;font-size:14px;text-decoration:none;font-family:'Inter',system-ui,sans-serif;margin-left:12px}
+.cf{padding:64px 24px;max-width:720px;margin:0 auto}
+.cf-label{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#BF9020);margin-bottom:10px}
+.cf h2{font-family:'Inter',system-ui,sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--ink,#141210);margin-bottom:14px;line-height:1.2}
+.cf p{font-size:16px;color:var(--ink-soft,#52504C);line-height:1.8;margin-bottom:16px}
+.cf-payment{background:var(--cream-dark,#F2EDE6);border:1px solid var(--line);border-radius:10px;padding:24px;margin:24px 0}
+.cf-payment .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line-soft,rgba(20,18,16,0.08));font-size:15px;color:var(--ink-soft)}
+.cf-payment .row:last-of-type{border-bottom:none}
+.cf-payment .row .val{font-weight:600;color:var(--ink)}
+.cf-payment .total{border-top:2px solid var(--ink);padding-top:10px;margin-top:4px;font-weight:700;color:var(--ink);font-size:16px}
+.cf-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin:32px 0}
+.cf-step{background:var(--ink,#141210);color:#fff;border-radius:10px;padding:28px 24px;position:relative}
+.cf-step-num{font-family:'Inter',system-ui,sans-serif;font-size:42px;font-weight: 700;color:rgba(191, 144, 32,0.2);line-height:1;margin-bottom:8px}
+.cf-step h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.cf-step p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;margin:0}
+.cf-scenario{background:var(--ink);color:#fff;border-radius:12px;padding:32px;margin:32px 0}
+.cf-scenario .cf-label{color:var(--gold)}
+.cf-scenario .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.08);font-size:15px}
+.cf-scenario .row:last-of-type{border-bottom:none}
+.cf-scenario .lbl{color:rgba(255,255,255,0.6)}
+.cf-scenario .val{font-weight:600;color:#fff}
+.cf-scenario .val.gold{color:var(--gold-light,#E8B84B);font-size:17px}
+.cf-scenario hr{border:none;border-top:1px solid rgba(191, 144, 32,0.3);margin:10px 0}
+.cf-scenario .note{font-size:12px;color:rgba(255,255,255,0.3);font-style:italic;margin-top:14px}
+.cf-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+.cf-before{background:rgba(220,38,38,0.04);border:1px solid rgba(220,38,38,0.15);border-radius:10px;padding:20px}
+.cf-before h4{font-size:12px;color:#dc2626;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+.cf-after{background:rgba(22,163,74,0.04);border:2px solid rgba(22,163,74,0.2);border-radius:10px;padding:20px}
+.cf-after h4{font-size:12px;color:#16a34a;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+.cf-outcome{display:flex;flex-direction:column;gap:8px;margin:20px 0}
+.cf-outcome-item{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--ink-soft)}
+.cf-outcome-item::before{content:'\2713';color:#16a34a;font-weight:700;flex-shrink:0}
+.cf-rate-box{background:rgba(191, 144, 32,0.06);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:24px;margin:24px 0}
+.cf-rate-box h3{font-family:'Inter',system-ui,sans-serif;font-size:18px;color:var(--ink);margin-bottom:10px}
+.cf-rate-box p{font-size:15px;color:var(--ink-soft);line-height:1.7;margin-bottom:10px}
+.cf-authority{background:var(--cream-dark,#F2EDE6);border-radius:10px;padding:24px;margin:32px 0;font-family:'Inter',system-ui,sans-serif;font-size:13px;color:var(--ink-soft);line-height:1.8}
+.cf-authority strong{color:var(--ink)}
+.cf-call{background:var(--cream-dark,#F2EDE6);border:1px solid var(--line);border-radius:10px;padding:28px;margin:32px 0}
+.cf-call h3{font-family:'Inter',system-ui,sans-serif;font-size:20px;color:var(--ink);margin-bottom:10px}
+.cf-call ul{list-style:none;padding:0;margin:12px 0 0}
+.cf-call li{display:flex;align-items:flex-start;gap:8px;padding:6px 0;font-size:14px;color:var(--ink-soft);line-height:1.6}
+.cf-call li::before{content:'\2022';color:var(--gold);font-weight:700;flex-shrink:0}
+.cf-faq{border-bottom:1px solid var(--line);padding:18px 0}
+.cf-faq-q{font-family:'Inter',system-ui,sans-serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.cf-faq-a{font-size:15px;color:var(--ink-soft);line-height:1.7}
+.cf-final{text-align:center;padding:48px 0;border-top:1px solid var(--line);margin-top:32px}
+.cf-final h2{margin-bottom:8px}
+.cf-final p{max-width:520px;margin:0 auto 24px}
+.cf-trust{font-family:'Inter',system-ui,sans-serif;font-size:11px;color:var(--ink-soft);margin-top:16px;letter-spacing:.03em}
+.cf-trust a{color:var(--gold);text-decoration:none}
+.cf-disclaimer{font-size:11px;color:var(--ink-soft);text-align:center;padding:24px;background:var(--cream-dark);line-height:1.7;margin-top:32px}
+.cf-intake{background:rgba(255,255,255,0.06);border:1px solid rgba(191, 144, 32,0.25);border-radius:12px;padding:28px;max-width:480px;margin:32px auto 0}
+.cf-intake-title{font-family:'Inter',system-ui,sans-serif;font-size:18px;color:#fff;margin-bottom:4px}
+.cf-intake-sub{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:20px}
+.cf-intake-progress{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.cf-intake-q{font-size:16px;font-weight:600;color:#fff;margin-bottom:16px;line-height:1.4}
+.cf-intake-opts{display:flex;flex-direction:column;gap:8px}
+.cf-intake-opt{display:block;width:100%;padding:14px 16px;background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.12);border-radius:8px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.85);text-align:left;font-family:'Inter',system-ui,sans-serif;transition:all .15s;line-height:1.4}
+.cf-intake-opt:hover{border-color:var(--gold);background:rgba(191, 144, 32,0.08)}
+.cf-intake-input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.2);border-radius:6px;color:#fff;font-size:15px;font-family:'Inter',system-ui,sans-serif;margin-bottom:10px;outline:none;box-sizing:border-box}
+.cf-intake-input::placeholder{color:rgba(255,255,255,0.35)}
+.cf-intake-submit{width:100%;padding:16px;background:var(--gold);color:#fff;border:none;border-radius:6px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Inter',system-ui,sans-serif;margin-top:4px}
+.cf-intake-submit:hover{background:var(--gold-light)}
+.cf-intake-skip{font-size:13px;color:rgba(255,255,255,0.4);margin-top:16px;text-align:center}
+.cf-intake-skip a{color:var(--gold);text-decoration:none}
+.cf-intake-result{text-align:center;padding:20px 0}
+.cf-intake-result h3{font-family:'Inter',system-ui,sans-serif;font-size:22px;color:#fff;margin-bottom:8px}
+.cf-intake-result p{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:16px}
+@media(max-width:640px){.cf-hero{padding:80px 20px 64px}.cf-compare{grid-template-columns:1fr}.cf-btn-ghost{margin-left:0;margin-top:12px;display:block}.cf-intake{padding:20px}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+    <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown">
+        <a href="../index.html#programs" class="nav-dropdown-trigger">Programs</a>
+        <div class="nav-dropdown-menu">
+          <a href="../dscr.html">DSCR Loans</a>
+          <a href="../fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="../bpl.html">Business Purpose Loans</a>
+        </div>
+      </div>
+      <a href="../about.html">About</a>
+    </nav>
+    <a href="https://calendly.com/chad-viadorpartners/30min?source=cash-flow-reset&utm_source=viadorpartners&utm_medium=veterans-content&utm_campaign=veteran-cash-flow-reset" target="_blank" class="nav-cta">Get My Plan</a>
+    <button class="burger" aria-label="Menu" id="burger"><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="cf-hero">
+  <div class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="../veterans.html">Veterans</a> &rsaquo; Veteran Cash Flow Reset</div>
+  <h1>Retired From The Military But Monthly Cash Flow Still Feels Tight?</h1>
+  <p class="sub">Most veterans retire with a pension and significant home equity &mdash; and still carry high-interest debt that quietly drains $800&ndash;$2,000 every month.</p>
+  <div class="cf-checks">
+    <div class="cf-check">You receive a pension but still feel financially squeezed month to month</div>
+    <div class="cf-check">You carry credit card or personal loan debt at high interest rates</div>
+    <div class="cf-check">You own a home with $100,000+ in equity</div>
+    <div class="cf-check">You want to simplify your finances after leaving service</div>
+  </div>
+  <!-- INLINE INTAKE FORM -->
+  <div class="cf-intake" id="cf-intake">
+    <div class="cf-intake-title">Let's look at your situation.</div>
+    <div class="cf-intake-sub">Five questions. Specific answer. No generic advice.</div>
+
+    <div id="cfi-1">
+      <div class="cf-intake-progress">Step 1 of 5</div>
+      <div class="cf-intake-q">What is your current mortgage rate?</div>
+      <div class="cf-intake-opts">
+        <button class="cf-intake-opt" onclick="cfiAnswer(1,'Under 3%')">Under 3%</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(1,'3% to 4%')">3% to 4%</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(1,'4% to 5.5%')">4% to 5.5%</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(1,'Above 5.5%')">Above 5.5%</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(1,'Not sure')">Not sure</button>
+      </div>
+    </div>
+
+    <div id="cfi-2" style="display:none">
+      <div class="cf-intake-progress">Step 2 of 5</div>
+      <div class="cf-intake-q">Roughly how much equity do you have in your home?</div>
+      <div class="cf-intake-opts">
+        <button class="cf-intake-opt" onclick="cfiAnswer(2,'Under $75,000')">Under $75,000</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(2,'$75,000 to $150,000')">$75,000 to $150,000</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(2,'$150,000 to $300,000')">$150,000 to $300,000</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(2,'Over $300,000')">Over $300,000</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(2,'Not sure')">Not sure</button>
+      </div>
+    </div>
+
+    <div id="cfi-3" style="display:none">
+      <div class="cf-intake-progress">Step 3 of 5</div>
+      <div class="cf-intake-q">Are you carrying high-interest consumer debt (credit cards, personal loans, auto loans)?</div>
+      <div class="cf-intake-opts">
+        <button class="cf-intake-opt" onclick="cfiAnswer(3,'No consumer debt')">No consumer debt</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(3,'Under $20,000')">Under $20,000</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(3,'$20,000 to $50,000')">$20,000 to $50,000</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(3,'Over $50,000')">Over $50,000</button>
+      </div>
+    </div>
+
+    <div id="cfi-4" style="display:none">
+      <div class="cf-intake-progress">Step 4 of 5</div>
+      <div class="cf-intake-q">What are you most trying to accomplish?</div>
+      <div class="cf-intake-opts">
+        <button class="cf-intake-opt" onclick="cfiAnswer(4,'Lower my monthly payments')">Lower my monthly payments</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(4,'Eliminate high-interest debt')">Eliminate high-interest debt</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(4,'Access equity for investment')">Access equity for investment</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(4,'Understand all my options')">Understand all my options</button>
+        <button class="cf-intake-opt" onclick="cfiAnswer(4,'Not sure yet')">Not sure yet</button>
+      </div>
+    </div>
+
+    <div id="cfi-5" style="display:none">
+      <div class="cf-intake-progress">Step 5 of 5</div>
+      <div class="cf-intake-q">Where should we send your analysis?</div>
+      <form onsubmit="cfiSubmit(event)">
+        <input type="text" id="cfi-name" class="cf-intake-input" placeholder="First name" required>
+        <input type="email" id="cfi-email" class="cf-intake-input" placeholder="Email address" required>
+        <input type="tel" id="cfi-phone" class="cf-intake-input" placeholder="Phone (optional)">
+        <button type="submit" class="cf-intake-submit">Show Me My Options</button>
+      </form>
+      <div style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:10px;text-align:center;line-height:1.5">We'll review your situation and follow up within 1 business day. No spam. No auto-dialers.</div>
+    </div>
+
+    <div id="cfi-result" style="display:none" class="cf-intake-result">
+      <h3>Got it.</h3>
+      <p>We'll review your situation and reach out within 1 business day with a clear picture of what options make sense &mdash; or if no action is the right call, we'll tell you that too.</p>
+      <a href="https://calendly.com/chad-viadorpartners/30min?source=cash-flow-reset-intake&utm_source=viadorpartners&utm_medium=veterans-content&utm_campaign=veteran-cash-flow-reset" target="_blank" class="cf-btn" style="font-size:14px;padding:12px 24px" onclick="gtag('event','intake_form_calendly_fallback')">Want to talk sooner? Schedule directly &rarr;</a>
+    </div>
+  </div>
+
+  <div class="cf-intake-skip">Prefer to skip ahead? <a href="https://calendly.com/chad-viadorpartners/30min?source=cash-flow-reset&utm_source=viadorpartners&utm_medium=veterans-content&utm_campaign=veteran-cash-flow-reset" target="_blank" onclick="gtag('event','intake_form_calendly_fallback')">Schedule directly</a></div>
+</section>
+
+<script>
+var cfiData = {};
+function cfiAnswer(step, val) {
+  cfiData['step' + step] = val;
+  if (step === 1) gtag('event', 'intake_form_started');
+  else gtag('event', 'intake_form_step_' + step);
+  document.getElementById('cfi-' + step).style.display = 'none';
+  var next = document.getElementById('cfi-' + (step + 1));
+  if (next) next.style.display = 'block';
+}
+function cfiSubmit(e) {
+  e.preventDefault();
+  var name = document.getElementById('cfi-name').value;
+  var email = document.getElementById('cfi-email').value;
+  var phone = document.getElementById('cfi-phone').value;
+  var rate = cfiData.step1 || '';
+  var segment = (rate === 'Under 3%' || rate === '3% to 4%') ? 'stability' : rate === '4% to 5.5%' ? 'transition' : rate === 'Above 5.5%' ? 'rate-urgency' : 'stability';
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/245454217/e463e10b-4cb3-4d79-8915-2d6c62d4cc58', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ fields: [
+      { name: 'firstname', value: name },
+      { name: 'email', value: email },
+      { name: 'phone', value: phone },
+      { name: 'message', value: 'Cash Flow Reset Intake | Rate: ' + rate + ' | Equity: ' + (cfiData.step2||'') + ' | Debt: ' + (cfiData.step3||'') + ' | Goal: ' + (cfiData.step4||'') + ' | Segment: ' + segment }
+    ], context: { pageUri: window.location.href, pageName: 'Cash Flow Reset Intake - ' + segment } })
+  }).catch(function(){});
+  gtag('event', 'intake_form_submitted', { segment: segment });
+  document.getElementById('cfi-5').style.display = 'none';
+  document.getElementById('cfi-result').style.display = 'block';
+}
+</script>
+
+<div class="cf">
+
+  <h2>Why This Happens</h2>
+  <p>Most veterans retire between 38 and 48 years old. Civilian expenses hit fast &mdash; insurance, groceries, kids, private healthcare, taxes, inflation. Even with a pension, multiple high-interest payments quietly reduce your flexibility.</p>
+
+  <div class="cf-payment">
+    <div class="cf-label">Typical veteran household</div>
+    <div class="row"><span>Mortgage</span><span class="val">$1,800</span></div>
+    <div class="row"><span>Credit cards</span><span class="val">$1,200</span></div>
+    <div class="row"><span>Truck payment</span><span class="val">$750</span></div>
+    <div class="row total"><span>Total</span><span>$3,750/month</span></div>
+  </div>
+  <p>Nothing is wrong with the income. The structure of the debt is what creates pressure.</p>
+
+  <div style="margin-top:48px">
+    <div class="cf-label">The Framework</div>
+    <h2>The Veteran Cash Flow Reset</h2>
+    <div class="cf-steps">
+      <div class="cf-step">
+        <div class="cf-step-num">01</div>
+        <h3>Simplify</h3>
+        <p>Combine high-interest debts into one structured payment using home equity. <a href="reduce-monthly-payments.html" style="color:var(--gold)">See how payment restructuring works.</a></p>
+      </div>
+      <div class="cf-step">
+        <div class="cf-step-num">02</div>
+        <h3>Stabilize</h3>
+        <p>Reduce monthly obligations and increase available cash flow.</p>
+      </div>
+      <div class="cf-step">
+        <div class="cf-step-num">03</div>
+        <h3>Build</h3>
+        <p>Use the freed cash flow to save, invest, or acquire <a href="rental-strategy-macdill-afb.html" style="color:var(--gold)">income-producing assets</a>.</p>
+      </div>
+    </div>
+    <p style="text-align:center;font-style:italic;color:var(--ink-soft)">The refinance is not the end goal. It is the first move that creates flexibility.</p>
+  </div>
+
+  <div style="margin-top:48px" id="scenario">
+    <div class="cf-scenario">
+      <div class="cf-label">Hypothetical scenario &mdash; for illustration only, not a guarantee of outcome</div>
+      <p style="color:rgba(255,255,255,0.7);font-size:15px;margin-bottom:16px">Recently retired O-4, Tampa area.</p>
+      <div class="row"><span class="lbl">Home value</span><span class="val">$420,000</span></div>
+      <div class="row"><span class="lbl">Mortgage balance</span><span class="val">$240,000</span></div>
+      <div class="row"><span class="lbl">Available equity</span><span class="val gold">$180,000</span></div>
+      <hr>
+      <div class="row"><span class="lbl">Credit cards</span><span class="val">$48,000 at 22%</span></div>
+      <div class="row"><span class="lbl">Auto loan</span><span class="val">$32,000 at 7%</span></div>
+    </div>
+
+    <div class="cf-compare">
+      <div class="cf-before">
+        <h4>Before</h4>
+        <div style="font-size:14px;color:var(--ink-soft);line-height:2">
+          Mortgage: $1,750<br>
+          Credit cards: $1,100<br>
+          Auto loan: $680<br>
+          <strong style="color:var(--ink);font-size:16px">Total: $3,530/month</strong>
+        </div>
+      </div>
+      <div class="cf-after">
+        <h4>After <a href="va-cash-out-refinance-tampa.html" style="color:#16a34a">VA Cash-Out Refinance</a></h4>
+        <div style="font-size:14px;color:var(--ink-soft);line-height:2">
+          New single payment: ~$2,450/month<br>
+          <strong style="color:#16a34a;font-size:18px">Monthly improvement: $1,080</strong><br>
+          Debt eliminated. Simplified.
+        </div>
+      </div>
+    </div>
+
+    <div class="cf-outcome">
+      <div class="cf-outcome-item">$38,880 in cumulative cash flow improvement over three years</div>
+      <div class="cf-outcome-item">No revolving debt</div>
+      <div class="cf-outcome-item">Positioned for next financial step</div>
+    </div>
+    <div style="font-size:12px;color:var(--ink-soft);font-style:italic">Hypothetical example. Actual results depend on qualification, rates, and debt balances.</div>
+  </div>
+
+  <div style="margin-top:48px" id="rate-concern">
+    <div class="cf-rate-box">
+      <h3>The Rate Concern</h3>
+      <p>Many veterans hesitate to give up a low mortgage rate. That concern is valid, but it is only part of the equation.</p>
+      <p>When high-interest debt is involved, the blended cost of all debt &mdash; mortgage, credit cards, and loans &mdash; is often between 10% and 14%. A single VA loan at today's rate frequently costs less than maintaining a low-rate mortgage while paying 18&ndash;24% on consumer debt.</p>
+      <p>VA loans also allow future refinancing through the <a href="va-cash-out-refinance-tampa.html" style="color:var(--gold)">Interest Rate Reduction Refinance Loan (IRRRL)</a>. If rates drop, you can refinance into a lower rate without an appraisal. Choosing a higher rate today is not permanent.</p>
+      <p>We run both scenarios before recommending anything. Sometimes the right move is a <a href="../veterans.html" style="color:var(--gold)">home equity loan</a> that preserves the existing mortgage rate. Sometimes restructuring everything produces a stronger outcome. The math decides &mdash; not a rule. <a href="low-rate-va-loan-strategy.html" style="color:var(--gold)">See the full decision framework here.</a> You can also see how your VA loan structure compares at <a href="https://nextdutyvet.com/analysis" target="_blank" rel="noopener">NextDutyVet's VA Loan Analysis</a>.</p>
+    </div>
+  </div>
+
+  <div class="cf-authority">
+    <strong>Chad Evers</strong> &middot; NMLS #2822744<br>
+    20 years in institutional lending<br>
+    Focused on veteran financial transition near <a href="pcs-macdill-sell-or-rent.html" style="color:var(--gold)">MacDill AFB</a> and Wright-Patterson AFB
+  </div>
+
+  <div class="cf-call">
+    <h3>What the Strategy Call Covers</h3>
+    <p style="font-size:15px;color:var(--ink-soft);margin-bottom:8px">This is not a loan application. It is a structured review of your numbers.</p>
+    <ul>
+      <li>Your current mortgage rate and balance</li>
+      <li>Existing debt and monthly payments</li>
+      <li>Available home equity</li>
+      <li>Total cost of capital across all obligations</li>
+      <li>What restructuring does to your monthly cash flow</li>
+    </ul>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:12px">You leave with a clear recommendation &mdash; whether restructuring makes sense, which option fits, and what the numbers look like before any application is submitted.</p>
+    <div style="text-align:center;margin-top:20px">
+      <a href="https://calendly.com/chad-viadorpartners/30min?source=cash-flow-reset&utm_source=viadorpartners&utm_medium=veterans-content&utm_campaign=veteran-cash-flow-reset" target="_blank" class="cf-btn" onclick="gtag('event','cash_flow_reset_cta_strategy_call')">Schedule Your Veteran Cash Flow Strategy Call</a>
+    </div>
+  </div>
+
+  <div style="margin-top:48px" id="faq">
+    <div class="cf-label">FAQ</div>
+    <h2>Common Questions</h2>
+    <div class="cf-faq">
+      <div class="cf-faq-q">Can I use my <a href="../veterans.html" style="color:var(--gold);text-decoration:none">VA loan benefit</a> after leaving the military?</div>
+      <div class="cf-faq-a">Yes. VA loan eligibility continues after separation and retirement. Your benefit does not expire.</div>
+    </div>
+    <div class="cf-faq">
+      <div class="cf-faq-q">Can I refinance if I already used my VA loan on this property?</div>
+      <div class="cf-faq-a">Yes. A VA cash-out refinance can replace an existing VA loan or any other loan type on your primary residence.</div>
+    </div>
+    <div class="cf-faq">
+      <div class="cf-faq-q">What if my current mortgage rate is very low?</div>
+      <div class="cf-faq-a">That depends on your total debt picture. When high-interest debt exists, the blended cost across all obligations is often higher than a single restructured VA loan. We model both scenarios before making any recommendation. The VA IRRRL also allows future refinancing to a lower rate with no appraisal if rates drop.</div>
+    </div>
+    <div class="cf-faq">
+      <div class="cf-faq-q">Does a VA cash-out refinance require mortgage insurance?</div>
+      <div class="cf-faq-a">No. VA loans do not require private mortgage insurance regardless of loan-to-value ratio. This is one of the meaningful cost advantages over conventional cash-out refinancing.</div>
+    </div>
+  </div>
+
+  <div class="cf-final">
+    <h2>The Goal Is a Clear Plan</h2>
+    <p>Most veterans spend 20 years serving with very little guidance on what comes next financially. The pension is the foundation. The home equity is the tool. The goal is a clear plan &mdash; not another product pitch.</p>
+    <a href="https://calendly.com/chad-viadorpartners/30min?source=cash-flow-reset&utm_source=viadorpartners&utm_medium=veterans-content&utm_campaign=veteran-cash-flow-reset" target="_blank" class="cf-btn" onclick="gtag('event','cash_flow_reset_cta_final')">Schedule Your Veteran Cash Flow Strategy Call</a>
+    <div class="cf-trust"><a href="../about/chad-evers">Chad Evers</a> &middot; NMLS #2822744 &middot; Viador Partners LLC &middot; Tampa, FL</div>
+  </div>
+
+</div>
+
+
+<!-- UNIFIED CTA BLOCK -->
+<div id="unified-cta-block" style="background:var(--cream-dark,#F2EDE6);border-top:1px solid var(--line,rgba(20,18,16,0.14));border-bottom:1px solid var(--line,rgba(20,18,16,0.14));padding:48px 24px;text-align:center;margin-top:32px">
+  <div style="max-width:580px;margin:0 auto">
+    <h2 style="font-family:'Inter',system-ui,sans-serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--ink,#141210);margin-bottom:12px;line-height:1.2">Want to See What Your Options Actually Look Like?</h2>
+    <p style="font-size:15px;color:var(--ink-soft,#52504C);line-height:1.7;margin-bottom:24px">Most veterans with a low-rate VA mortgage assume their only option is to refinance. That's not always true. If you want to understand what actually makes sense in your situation, we run the numbers and walk you through it. No pressure. No obligation. Just a clear picture of your options.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
+      <a href="cash-flow-reset.html" style="display:inline-block;padding:16px 32px;background:var(--gold,#BF9020);color:#fff;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;font-family:'Inter',system-ui,sans-serif" onclick="gtag('event','veteran_cash_flow_reset_cta_run_numbers')">Run My Numbers</a>
+      <a href="https://calendly.com/chad-viadorpartners/30min?source=unified-cta-cash_flow_reset&utm_source=viadorpartners&utm_medium=veterans-content&utm_campaign=unified-cta" target="_blank" style="display:inline-block;padding:14px 28px;border:1px solid var(--gold,#BF9020);color:var(--gold,#BF9020);border-radius:6px;font-weight:500;font-size:14px;text-decoration:none;font-family:'Inter',system-ui,sans-serif" onclick="gtag('event','veteran_cash_flow_reset_cta_schedule')">Schedule a 30-Minute Call</a>
+    </div>
+    <div style="font-family:'Inter',system-ui,sans-serif;font-size:11px;color:var(--ink-soft,#52504C);margin-top:16px;letter-spacing:.03em"><a href="../about/chad-evers" style="color:var(--gold);text-decoration:none">Chad Evers</a> &middot; NMLS #2822744 &middot; Viador Partners LLC &middot; Tampa, FL</div>
+  </div>
+</div>
+
+
+<script>
+(function(){var tracked=false;window.addEventListener('scroll',function(){if(tracked)return;var el=document.getElementById('unified-cta-block');if(el){var r=el.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0){gtag('event','veteran_cash_flow_reset_cta_viewed');tracked=true;}}},{passive:true});})();
+</script>
+
+<div class="cf-disclaimer">This page is for informational purposes only and does not constitute financial, investment, or legal advice. All loan products subject to qualification and lender approval. VA loan products subject to VA eligibility requirements. Viador Partners LLC &middot; NMLS #2822744 &middot; Equal Housing Lender.</div>
+
+<footer class="footer">
+  <div class="container">
+    <div style="text-align:center;padding:32px 0;font-size:12px;color:var(--ink-soft)">
+      <p>&copy; 2026 Viador Partners LLC &middot; NMLS #2822744 &middot; Equal Housing Lender</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+<script>
+var st=false,rt=false,ft=false;
+window.addEventListener('scroll',function(){
+  if(!st){var e=document.getElementById('scenario');if(e){var r=e.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0){gtag('event','cash_flow_reset_scenario_viewed');st=true;}}}
+  if(!rt){var e2=document.getElementById('rate-concern');if(e2){var r2=e2.getBoundingClientRect();if(r2.top<window.innerHeight&&r2.bottom>0){gtag('event','cash_flow_reset_rate_concern_viewed');rt=true;}}}
+  if(!ft){var e3=document.getElementById('faq');if(e3){var r3=e3.getBoundingClientRect();if(r3.top<window.innerHeight&&r3.bottom>0){gtag('event','cash_flow_reset_faq_viewed');ft=true;}}}
+},{passive:true});
+</script>
+</body>
+</html>

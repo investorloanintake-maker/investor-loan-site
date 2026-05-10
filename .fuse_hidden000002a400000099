@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Property Analysis — Viador Partners NMLS #2822744</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#1B2A4A;--navy-mid:#243556;--gold:#C9A84C;--gold-pale:#FBF4E3;
+  --red:#C0392B;--red-bg:#FEF0EE;--green:#27664A;--green-bg:#EAF5EE;
+  --white:#FFFFFF;--off:#F8F6F1;--border:#E8E4DC;--muted:#8A8070;
+  --text:#1E1C18;--r:12px;--r-sm:8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);font-size:16px;line-height:1.6;}
+#loading{position:fixed;inset:0;background:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;z-index:99;transition:opacity 0.3s;}
+#loading.hide{opacity:0;pointer-events:none;}
+.ld-logo{font-family:'Lora',serif;font-size:22px;color:var(--navy);letter-spacing:1px;}
+.ld-bar{width:120px;height:2px;background:var(--border);border-radius:1px;overflow:hidden;}
+.ld-fill{height:100%;background:var(--gold);animation:ldfill 1s ease forwards;}
+@keyframes ldfill{from{width:0}to{width:100%}}
+#error-state{display:none;min-height:100vh;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:40px;text-align:center;}
+#main{display:none;}
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40;}
+.nav-brand{display:flex;align-items:center;gap:9px;}
+.nav-mark{width:28px;height:28px;border-radius:6px;background:var(--navy);display:grid;place-items:center;font-family:'Lora',serif;font-size:14px;color:var(--gold);font-weight:600;}
+.nav-name{font-size:14px;font-weight:600;color:var(--navy);}
+.nav-nmls{font-size:10px;color:var(--muted);letter-spacing:0.3px;}
+.nav-tag{font-size:11px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:3px 10px;}
+.hero{background:var(--off);padding:40px 20px 0;border-bottom:1px solid var(--border);}
+.hero-inner{max-width:640px;margin:0 auto;}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;margin-bottom:16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);}
+.eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink 2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-h{font-family:'Lora',serif;font-size:clamp(22px,5vw,34px);color:var(--navy);line-height:1.2;margin-bottom:8px;font-weight:600;}
+.hero-h .red{color:var(--red);}
+.hero-sub{font-size:15px;color:var(--muted);margin-bottom:28px;max-width:500px;}
+.flip-card{background:var(--white);border-radius:var(--r) var(--r) 0 0;border:1px solid var(--border);border-bottom:none;overflow:hidden;}
+.flip-addr{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.fa-addr{font-weight:600;font-size:15px;color:var(--navy);}
+.fa-meta{font-size:12px;color:var(--muted);margin-top:1px;}
+.fa-lender{font-size:11px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:3px 10px;white-space:nowrap;flex-shrink:0;}
+.flip-grid{display:grid;grid-template-columns:1fr 1fr;}
+.flip-col{padding:20px;}
+.flip-col.before{background:var(--red-bg);border-right:1px solid #F5C6C2;}
+.flip-col.after{background:var(--green-bg);}
+.fc-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:12px;}
+.fc-label.red{color:var(--red);}
+.fc-label.green{color:var(--green);}
+.fc-row{margin-bottom:10px;}
+.fc-row:last-child{margin-bottom:0;}
+.fc-row .r-lbl{font-size:11px;color:var(--muted);margin-bottom:2px;}
+.fc-row .r-val{font-family:'Source Code Pro',monospace;font-size:clamp(15px,3vw,20px);font-weight:600;line-height:1.1;}
+.fc-row .r-val.red{color:var(--red);}
+.fc-row .r-val.green{color:var(--green);}
+.flip-diff{display:flex;align-items:center;justify-content:center;border-top:1px solid var(--border);}
+.fd-before{flex:1;padding:14px 20px;background:var(--red-bg);text-align:center;border-right:1px solid #F5C6C2;}
+.fd-after{flex:1;padding:14px 20px;background:var(--green-bg);text-align:center;}
+.fd-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:3px;}
+.fd-lbl.red{color:var(--red);}
+.fd-lbl.green{color:var(--green);}
+.fd-val{font-family:'Source Code Pro',monospace;font-size:clamp(22px,5vw,32px);font-weight:600;line-height:1;}
+.fd-val.red{color:var(--red);}
+.fd-val.green{color:var(--green);}
+.fd-sub{font-size:11px;color:var(--muted);margin-top:3px;}
+.savings-bar{background:var(--navy);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.sb-left{font-size:13px;color:rgba(255,255,255,0.6);}
+.sb-right{font-family:'Source Code Pro',monospace;font-size:20px;font-weight:600;color:var(--gold);}
+.sb-sub{font-size:11px;color:rgba(255,255,255,0.35);}
+.rate-disclaimer{font-size:10px;color:var(--muted);border-top:1px solid var(--border);padding:10px 20px 0;margin-top:0;line-height:1.6;background:var(--white);padding-bottom:14px;}
+.page-body{max-width:640px;margin:0 auto;padding:0 16px 100px;background:var(--white);}
+.section{padding-top:28px;}
+.sec-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);margin-bottom:12px;}
+.changes-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.change-card{background:var(--off);border-radius:var(--r-sm);border:1px solid var(--border);padding:14px;text-align:center;}
+.cc-icon{font-size:20px;margin-bottom:6px;}
+.cc-title{font-size:12px;font-weight:600;color:var(--navy);margin-bottom:3px;}
+.cc-val{font-size:13px;color:var(--green);font-weight:700;}
+.cc-sub{font-size:11px;color:var(--muted);}
+.cta-section{background:var(--navy);border-radius:var(--r);padding:24px 20px;margin-top:10px;}
+.cta-eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:rgba(255,255,255,0.4);margin-bottom:8px;}
+.cta-h{font-family:'Lora',serif;font-size:clamp(18px,4vw,24px);color:var(--white);margin-bottom:6px;font-weight:600;}
+.cta-sub{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:20px;line-height:1.5;}
+.form-row{margin-bottom:10px;}
+.form-row label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:rgba(255,255,255,0.4);margin-bottom:5px;}
+.form-row input,.form-row select{width:100%;padding:12px 14px;background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.1);border-radius:var(--r-sm);font-size:15px;color:var(--white);font-family:'Source Sans 3',sans-serif;transition:border-color 0.2s;-webkit-appearance:none;}
+.form-row input::placeholder{color:rgba(255,255,255,0.2);}
+.form-row input:focus,.form-row select:focus{outline:none;border-color:var(--gold);}
+.form-row select{color:rgba(255,255,255,0.6);}
+.form-row select option{background:var(--navy);}
+.form-two{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.btn-submit{width:100%;padding:15px;margin-top:6px;background:var(--gold);color:var(--navy);border:none;border-radius:var(--r-sm);font-size:15px;font-weight:700;font-family:'Source Sans 3',sans-serif;cursor:pointer;letter-spacing:0.2px;transition:background 0.15s,transform 0.1s;}
+.btn-submit:hover{background:#D4B05A;}
+.btn-submit:active{transform:scale(0.99);}
+.form-trust{text-align:center;font-size:11px;color:rgba(255,255,255,0.25);margin-top:10px;}
+#form-success{display:none;text-align:center;padding:16px 0;}
+#form-success .check{width:52px;height:52px;border-radius:50%;background:rgba(39,102,74,0.3);display:grid;place-items:center;margin:0 auto 12px;font-size:24px;}
+#form-success h3{font-family:'Lora',serif;color:var(--white);font-size:20px;margin-bottom:6px;}
+#form-success p{color:rgba(255,255,255,0.45);font-size:13px;line-height:1.5;}
+.eco-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+.eco-card{border:1px solid var(--border);border-radius:var(--r);padding:14px;text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px;background:var(--white);transition:border-color 0.2s;}
+.eco-card:hover{border-color:var(--navy);}
+.eco-ic{width:36px;height:36px;border-radius:8px;background:var(--off);display:grid;place-items:center;font-size:17px;flex-shrink:0;}
+.eco-t{font-size:12px;font-weight:600;color:var(--navy);}
+.eco-s{font-size:11px;color:var(--muted);}
+.page-footer{padding:24px 0 0;border-top:1px solid var(--border);margin-top:28px;}
+.page-footer p{font-size:10px;color:var(--muted);line-height:1.8;text-align:center;}
+.page-footer a{color:var(--muted);}
+.sticky{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:2px solid var(--green);padding:10px 20px;display:none;align-items:center;gap:14px;z-index:40;box-shadow:0 -4px 20px rgba(0,0,0,0.08);}
+.sticky-info{flex:1;}
+.sticky-lbl{font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;}
+.sticky-val{font-family:'Source Code Pro',monospace;font-size:20px;font-weight:600;color:var(--green);line-height:1.1;}
+.sticky-sub{font-size:11px;color:var(--muted);}
+.sticky-btn{background:var(--green);color:var(--white);border:none;border-radius:var(--r-sm);padding:12px 20px;font-size:13px;font-weight:700;font-family:'Source Sans 3',sans-serif;cursor:pointer;white-space:nowrap;transition:background 0.15s;}
+.sticky-btn:hover{background:#1E5038;}
+.reveal{opacity:0;transform:translateY(10px);transition:opacity 0.45s ease,transform 0.45s ease;}
+.reveal.in{opacity:1;transform:none;}
+.d1{transition-delay:0.05s;}.d2{transition-delay:0.12s;}.d3{transition-delay:0.18s;}.d4{transition-delay:0.25s;}
+@media(max-width:520px){
+  .flip-grid{grid-template-columns:1fr;}
+  .flip-col.before{border-right:none;border-bottom:1px solid #F5C6C2;}
+  .changes-grid{grid-template-columns:1fr 1fr;}
+  .change-card:last-child{grid-column:1/-1;}
+  .eco-row{grid-template-columns:1fr;}
+  .form-two{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div id="loading">
+  <div class="ld-logo">Viador Partners</div>
+  <div class="ld-bar"><div class="ld-fill"></div></div>
+</div>
+
+<div id="error-state" style="display:none;color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+  <h2 style="font-family:'Lora',serif;color:var(--navy);margin-bottom:8px;">Analysis not found</h2>
+  <p style="color:var(--muted);font-size:14px;">This link may have expired.<br>Contact <a href="mailto:chad@viadorpartners.com" style="color:var(--navy);">chad@viadorpartners.com</a></p>
+</div>
+
+<div id="main">
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-mark">V</div>
+    <div>
+      <div class="nav-name">Viador Partners</div>
+      <div class="nav-nmls">NMLS #2822744</div>
+    </div>
+  </div>
+  <div class="nav-tag">Portfolio Optimizers</div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow reveal d1">
+      <span class="eyebrow-dot"></span>
+      <span id="eyebrow-text">Rate analysis ready</span>
+    </div>
+    <h1 class="hero-h reveal d1" id="hero-h">Your property analysis is ready.</h1>
+    <p class="hero-sub reveal d2" id="hero-sub">Prepared by Viador Partners &middot; NMLS #2822744</p>
+
+    <div class="reveal d2">
+      <div class="flip-card">
+        <div class="flip-addr">
+          <div>
+            <div class="fa-addr" id="fa-addr">&mdash;</div>
+            <div class="fa-meta" id="fa-meta">&mdash;</div>
+          </div>
+          <div class="fa-lender" id="fa-lender">&mdash;</div>
+        </div>
+        <div class="flip-grid">
+          <div class="flip-col before">
+            <div class="fc-label red">Right now</div>
+            <div class="fc-row"><div class="r-lbl">Your rate</div><div class="r-val red" id="b-rate">&mdash;</div></div>
+            <div class="fc-row"><div class="r-lbl">Monthly payment</div><div class="r-val red" id="b-pmt">&mdash;</div></div>
+            <div class="fc-row"><div class="r-lbl">Property cash flow</div><div class="r-val red" id="b-cf">&mdash;</div></div>
+          </div>
+          <div class="flip-col after">
+            <div class="fc-label green">Est. after refi at 6.25%*</div>
+            <div class="fc-row"><div class="r-lbl">Est. new rate*</div><div class="r-val green">6.25%*</div></div>
+            <div class="fc-row"><div class="r-lbl">Est. new payment</div><div class="r-val green" id="a-pmt">&mdash;</div></div>
+            <div class="fc-row"><div class="r-lbl">Est. new cash flow</div><div class="r-val green" id="a-cf">&mdash;</div></div>
+          </div>
+        </div>
+        <div class="flip-diff">
+          <div class="fd-before">
+            <div class="fd-lbl red">Now</div>
+            <div class="fd-val red" id="fd-before">&mdash;</div>
+            <div class="fd-sub">per month</div>
+          </div>
+          <div class="fd-after">
+            <div class="fd-lbl green">Est. after</div>
+            <div class="fd-val green" id="fd-after">&mdash;</div>
+            <div class="fd-sub">per month</div>
+          </div>
+        </div>
+        <div class="savings-bar">
+          <div class="sb-left" id="sb-left">Est. annual savings at 6.25%*</div>
+          <div>
+            <div class="sb-right" id="sb-right">&mdash;</div>
+            <div class="sb-sub">estimated &mdash; subject to qualification</div>
+          </div>
+        </div>
+        <div class="rate-disclaimer">
+          *Rate of 6.25% shown for illustrative purposes only. Actual interest rate, APR, and monthly payment depend on credit score, debt-service coverage ratio (DSCR), loan-to-value ratio, loan amount, and property type. APR will be higher than the interest rate shown. Rates subject to change without notice. All figures are estimates based on public record data and are not guaranteed. This is not a commitment to lend.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-body">
+
+  <div class="section reveal d3">
+    <div class="sec-label">What a refinance could do</div>
+    <div class="changes-grid">
+      <div class="change-card">
+        <div class="cc-icon">&#x1F4C9;</div>
+        <div class="cc-title">Rate</div>
+        <div class="cc-val" id="chg-rate">&mdash;</div>
+        <div class="cc-sub">est. 30-yr fixed DSCR</div>
+      </div>
+      <div class="change-card">
+        <div class="cc-icon">&#x1F4B5;</div>
+        <div class="cc-title">Est. monthly savings</div>
+        <div class="cc-val" id="chg-save">&mdash;</div>
+        <div class="cc-sub">subject to qualification</div>
+      </div>
+      <div class="change-card">
+        <div class="cc-icon">&#x1F4C8;</div>
+        <div class="cc-title">Est. cash flow</div>
+        <div class="cc-val" id="chg-cf">&mdash;</div>
+        <div class="cc-sub" id="chg-cf-sub">new monthly position</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal d3">
+    <div class="sec-label">Adjust your scenario</div>
+    <div style="background:var(--off);border:1px solid var(--border);border-radius:var(--r);padding:18px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <label style="font-size:12px;color:var(--muted);flex:1;">Target rate</label>
+        <input type="range" id="sl-rate" min="575" max="800" step="25" oninput="recalc()" style="flex:2;-webkit-appearance:none;height:3px;background:var(--border);border-radius:2px;outline:none;">
+        <div style="font-family:'Source Code Pro',monospace;font-size:13px;font-weight:600;min-width:54px;text-align:right;color:var(--navy);" id="sl-rate-v">6.25%</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <label style="font-size:12px;color:var(--muted);flex:1;">Cash-out amount</label>
+        <input type="range" id="sl-co" min="0" max="150000" step="5000" oninput="recalc()" style="flex:2;-webkit-appearance:none;height:3px;background:var(--border);border-radius:2px;outline:none;">
+        <div style="font-family:'Source Code Pro',monospace;font-size:13px;font-weight:600;min-width:54px;text-align:right;color:var(--navy);" id="sl-co-v">$0</div>
+      </div>
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div>
+          <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Est. new payment</div>
+          <div style="font-family:'Source Code Pro',monospace;font-size:18px;font-weight:600;color:var(--navy);" id="sc-pmt">&mdash;</div>
+        </div>
+        <div>
+          <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Est. new cash flow</div>
+          <div style="font-family:'Source Code Pro',monospace;font-size:18px;font-weight:600;color:var(--green);" id="sc-cf">&mdash;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal d4">
+    <div class="sec-label">Schedule your free review</div>
+    <div class="cta-section">
+      <div class="cta-eyebrow">Free &middot; No obligation &middot; 24-hour response</div>
+      <h2 class="cta-h" id="cta-h">Let's look at your options.</h2>
+      <p class="cta-sub">15-minute call. We'll pull real quotes from our DSCR lender network and walk through your actual scenario together.</p>
+      <div id="form-wrap">
+        <div class="form-two">
+          <div class="form-row"><label>First name</label><input type="text" id="f-first" placeholder="First name"></div>
+          <div class="form-row"><label>Last name</label><input type="text" id="f-last" placeholder="Last name"></div>
+        </div>
+        <div class="form-row"><label>Best phone</label><input type="tel" id="f-phone" placeholder="(813) 555-0100"></div>
+        <div class="form-row">
+          <label>Best time to call</label>
+          <select id="f-time">
+            <option value="">Select a time&hellip;</option>
+            <option>Morning (8&ndash;10am)</option>
+            <option>Midday (11am&ndash;1pm)</option>
+            <option>Afternoon (2&ndash;5pm)</option>
+            <option>Evening (5&ndash;7pm)</option>
+          </select>
+        </div>
+        <button class="btn-submit" onclick="submitForm()">Schedule My Free 15-Min Call &rarr;</button>
+        <p class="form-trust">Chad Evers &middot; Viador Partners &middot; NMLS #2822744 &middot; Your info is never shared</p>
+      </div>
+      <div id="form-success">
+        <div class="check">&#10003;</div>
+        <h3>You're on the calendar.</h3>
+        <p>Chad will reach out personally within 24 hours with your numbers already pulled.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal d4">
+    <div class="sec-label">The full Viador platform</div>
+    <div class="eco-row">
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <p style="margin-bottom:8px;">&#8962; Equal Housing Lender</p>
+    <p>
+      Viador Partners LLC &middot; NMLS #2822744 &middot; Tampa, FL<br>
+      chad@viadorpartners.com &middot; (813) 419-2983<br><br>
+      All figures shown are <strong>estimates based on public record data</strong> and are for informational purposes only. Rates shown are illustrative. Actual interest rate, APR, monthly payment, and loan terms depend on credit score, debt-service coverage ratio, loan-to-value ratio, loan amount, and property type. APR will be higher than the interest rate shown. Rates subject to change without notice. This is <strong>not a commitment to lend</strong>. All loans subject to underwriting review and approval.<br><br>
+      NMLS Consumer Access: <a href="https://nmlsconsumeraccess.org">nmlsconsumeraccess.org</a> &middot; <a href="https://viadorpartners.com">viadorpartners.com</a>
+    </p>
+  </div>
+
+</div>
+</div>
+
+<div class="sticky" id="sticky">
+  <div class="sticky-info">
+    <div class="sticky-lbl">Est. monthly savings</div>
+    <div class="sticky-val" id="sticky-val">&mdash;</div>
+    <div class="sticky-sub">at 6.25%* &mdash; subject to qualification</div>
+  </div>
+  <button class="sticky-btn" onclick="document.getElementById('f-first').scrollIntoView({behavior:'smooth'})">Schedule Free Call &rarr;</button>
+</div>
+
+<script>
+const WORKER='https://viador-ai-proxy.chad-7f6.workers.dev';
+const HS_PORTAL='245454217';
+const HS_FORM='e463e10b-4cb3-4d79-8915-2d6c62d4cc58';
+let D=null;
+function $(id){return document.getElementById(id);}
+function fmt(n){if(n===null||n===undefined||isNaN(n))return'\u2014';return'$'+Math.abs(Math.round(n)).toLocaleString();}
+function fmtR(r){return r?r.toFixed(2)+'%':'\u2014';}
+function pmtCalc(r,n,b){if(!b||b<=0)return 0;const m=r/100/12;if(m===0)return b/n;return b*m/(1-Math.pow(1+m,-n));}
+function tc(s){return s.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());}
+function cfStr(v){return(v<0?'-':'+')+'$'+Math.abs(Math.round(v)).toLocaleString()+'/mo';}
+
+async function load(){
+  const p=new URLSearchParams(location.search);
+  const code=p.get('code'),b64=p.get('c');
+  try{
+    let data;
+    if(code){const r=await fetch(WORKER+'/offer/'+code);if(!r.ok)throw new Error();data=await r.json();}
+    else if(b64){data=JSON.parse(atob(b64));}
+    else{data=demo();}
+    D=data;render(D);
+    setTimeout(()=>{$('loading').classList.add('hide');setTimeout(()=>$('loading').style.display='none',350);},1100);
+    $('main').style.display='block';
+    $('sticky').style.display='flex';
+    setTimeout(()=>{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));},80);
+  }catch(e){
+    $('loading').style.display='none';
+    $('error-state').style.display='flex';
+  }
+}
+
+function demo(){
+  return{offer_code:'DEMO',
+    investor:{first_name:'Karla',last_name:'Martin',email:'test@viadorpartners.com',phone:'8135550100'},
+    property:{address:'4410 N 29th St',city:'Tampa',state:'FL',zip:'33610',type:'Single Family Residential',beds:3,baths:2,sqft:1420,avm:285000,equity:202997,ltv:28.8},
+    loan:{track:'rate_trapped',lender:'WFK & ASSOCIATES II LLP',loan_type:'Private Money',balance:82003,rate:12.0,rate_type:'fixed',loan_date:'2022-08-01'},
+    cashflow:{monthly_rent:1956,monthly_payment:2030,monthly_cashflow:-74,dscr:0.96},
+    lever1_rate:{applicable:true,new_rate:6.25,rate_savings_mo:339,months_at_current_rate:19,total_overpaid:6441},
+    lever3_acquisition:{applicable:true,cashout_available:129248},
+    totals:{total_monthly_unlock:339,annual_unlock:4068,five_year_value:20340},
+    scoring:{refi_priority:'HIGH'},
+    distress:{dscr:0.96,cashflow:-74,tried_to_sell:false,mls_status:null,foreclosure_factor:'Medium High'}};
+}
+
+function render(d){
+  const loan=d.loan||{},prop=d.property||{},cf=d.cashflow||{},lv1=d.lever1_rate||{},lv3=d.lever3_acquisition||{};
+  const curRate=loan.rate||0,bal=loan.balance||0,rent=cf.monthly_rent||0,curPmt=cf.monthly_payment||0,curCF=cf.monthly_cashflow||0;
+  const savings=lv1.rate_savings_mo||0,newPmt=pmtCalc(6.25,360,bal),newCF=rent-newPmt;
+  const lenderShort=loan.lender?tc(loan.lender).replace(/ Llc$|, Inc$|, Na$|, Lp$/i,'').trim():'Your lender';
+
+  const flags=[];
+  if(curCF<0)flags.push('Negative cash flow');
+  if(curCF>=0&&curCF<200)flags.push('Tight cash flow');
+  if((d.distress?.tried_to_sell)||['ACTIVE','EXPIRED','FAIL','FAILED'].includes(d.distress?.mls_status))flags.push('Previously listed');
+  if(curRate>=9)flags.push('Above-market rate');
+  $('eyebrow-text').textContent=flags.length>0?flags.join(' \u00B7 '):'Rate analysis ready';
+
+  $('hero-h').innerHTML=curCF<0
+    ?'A lower rate on <span style="color:var(--navy);font-style:italic;">'+prop.address+'</span> could change your cash flow picture.'
+    :'Rate analysis ready for <span style="color:var(--navy);font-style:italic;">'+prop.address+'</span>.';
+  $('hero-sub').textContent=(prop.city||'')+', '+(prop.state||'')+' \u00B7 '+(prop.type||'Investment property')+' \u00B7 Viador Partners NMLS #2822744';
+  $('fa-addr').textContent=prop.address;
+  $('fa-meta').textContent=(prop.city||'')+', '+(prop.state||'')+' \u00B7 '+(prop.beds||'\u2014')+'bd/'+(prop.baths||'\u2014')+'ba';
+  $('fa-lender').textContent=lenderShort;
+  $('b-rate').textContent=fmtR(curRate);
+  $('b-pmt').textContent=fmt(curPmt)+'/mo';
+  $('b-cf').textContent=cfStr(curCF);
+  $('a-pmt').textContent='~'+fmt(newPmt)+'/mo';
+  $('a-cf').textContent='~'+cfStr(newCF);
+  $('fd-before').textContent=(curCF<0?'-':'+')+'$'+Math.abs(Math.round(curCF)).toLocaleString();
+  $('fd-after').textContent='~'+(newCF<0?'-':'+')+'$'+Math.abs(Math.round(newCF)).toLocaleString();
+  $('sb-left').textContent=savings>0?'Est. annual savings at 6.25%*':'Estimated annual impact';
+  $('sb-right').textContent=savings>0?'~'+fmt(savings)+'/mo':'Adjust below';
+  $('chg-rate').textContent=fmtR(curRate)+' \u2192 ~6.25%*';
+  $('chg-save').textContent=savings>0?'~'+fmt(savings)+'/mo':'See below';
+  $('chg-cf').textContent='~'+(newCF<0?'-':'+')+'$'+Math.abs(Math.round(newCF)).toLocaleString()+'/mo';
+  $('chg-cf-sub').textContent=newCF>=0?'estimated positive cash flow':'estimated improvement';
+  if(newCF<0)$('chg-cf').style.color='var(--muted)';
+  $('sl-rate').value=625;
+  $('sl-co').max=Math.max(Math.min(lv3.cashout_available||0,150000)+10000,20000);
+  $('sl-co').value=0;
+  recalc();
+  $('cta-h').textContent=savings>0?'A lower rate could add ~'+fmt(savings)+'/mo to your cash flow.':'Let\u2019s explore your options.';
+  if(d.investor?.first_name)$('f-first').value=d.investor.first_name;
+  if(d.investor?.last_name)$('f-last').value=d.investor.last_name;
+  if(d.investor?.phone)$('f-phone').value=d.investor.phone;
+  $('sticky-val').textContent=savings>0?'~'+fmt(savings)+'/mo':fmt(lv3.cashout_available||0);
+  if(lv3?.markets_url)$('eco-markets').href=lv3.markets_url;
+}
+
+function recalc(){
+  if(!D)return;
+  var newR=+$('sl-rate').value/100,co=+$('sl-co').value;
+  var bal=(D.loan?.balance||0)+co,rent=D.cashflow?.monthly_rent||0,curPmt=D.cashflow?.monthly_payment||0;
+  $('sl-rate-v').textContent=(newR*100).toFixed(2)+'%';
+  $('sl-co-v').textContent='$'+Math.round(co).toLocaleString();
+  var newPmtV=pmtCalc(newR*100,360,bal),newCFv=rent-newPmtV,savings=Math.max(0,curPmt-pmtCalc(newR*100,360,D.loan?.balance||0));
+  $('sc-pmt').textContent='~'+fmt(newPmtV)+'/mo';
+  $('sc-cf').textContent='~'+(newCFv<0?'-':'+')+'$'+Math.abs(Math.round(newCFv)).toLocaleString()+'/mo';
+  $('sc-cf').style.color=newCFv>=0?'var(--green)':'var(--red)';
+  $('sticky-val').textContent='~'+fmt(savings)+'/mo';
+}
+
+async function submitForm(){
+  var first=$('f-first').value.trim(),last=$('f-last').value.trim(),phone=$('f-phone').value.trim(),time=$('f-time').value;
+  if(!first||!phone){alert('Please enter your name and phone number.');return;}
+  var btn=document.querySelector('.btn-submit');btn.textContent='Sending\u2026';btn.disabled=true;
+  var addr=D?.property?D.property.address+', '+D.property.city+' '+D.property.state:'';
+  try{
+    await fetch('https://api.hsforms.com/submissions/v3/integration/submit/'+HS_PORTAL+'/'+HS_FORM,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({fields:[
+        {name:'firstname',value:first},{name:'lastname',value:last},
+        {name:'phone',value:phone},
+        {name:'message',value:'Time: '+time+' | '+addr+' | Rate: '+(D?.loan?.rate||'')+'% | CF: $'+(D?.cashflow?.monthly_cashflow||'')+'/mo | Savings: $'+(D?.lever1_rate?.rate_savings_mo||'')+'/mo | Lender: '+(D?.loan?.lender||'')+' | Code: '+(D?.offer_code||'')}
+      ],context:{pageUri:location.href,pageName:'Viador Property Analysis'}})
+    });
+  }catch(e){}
+  $('form-wrap').style.display='none';
+  $('form-success').style.display='block';
+}
+load();
+</script>
+</body>
+</html>

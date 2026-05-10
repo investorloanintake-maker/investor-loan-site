@@ -14,7 +14,7 @@
   --ink:        #141210;        /* near-black — stronger than before */
   --ink-mid:    #2E2B27;        /* was too light — now clearly legible */
   --ink-soft:   #52504C;        /* body text secondary — was #6B6560, now darker */
-  --gold:       #BF9020;        /* slightly deeper gold — more contrast on white */
+  --gold:       #6B745E;        /* slightly deeper gold — more contrast on white */
   --gold-light: #D9A84A;
   --gold-faint: rgba(191, 144, 32,0.08);
   --gold-faint2:rgba(191, 144, 32,0.14);
@@ -155,8 +155,8 @@ body {
 }
 
 .btn-primary:hover {
-  background: #BF9020;
-  border-color: #BF9020;
+  background: #6B745E;
+  border-color: #6B745E;
   color: var(--white);
   box-shadow: 0 4px 16px rgba(191, 144, 32,0.4);
   transform: translateY(-1px);
@@ -449,7 +449,7 @@ body {
   font-family: var(--font-display);
   font-size: 36px;
   font-weight: 700;
-  color: #BF9020;
+  color: #6B745E;
   line-height: 1;
   margin-bottom: 8px;
 }
@@ -522,7 +522,7 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 .router-card:hover {
-  border-color: #BF9020;
+  border-color: #6B745E;
   box-shadow: 0 4px 16px rgba(191, 144, 32,0.15);
   transform: translateY(-2px);
 }
@@ -2118,10 +2118,10 @@ body {
    v5.4 HOMEPAGE REBUILD — typography + spacing system
    ============================================================ */
 :root {
-  --vp-gold: #BF9020;
+  --vp-gold: #6B745E;
   --vp-charcoal: #1C1C1C;
-  --vp-bg: #F5F3EE;
-  --vp-body-col: #2D2D2D;
+  --vp-bg: #F4F5F3;
+  --vp-body-col: #1F2326;
   --vp-muted: #666666;
 }
 .vp-eyebrow { font-family:'DM Mono',monospace; font-size:13px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--vp-gold); margin:0 0 16px; }
@@ -2263,7 +2263,7 @@ body {
 .burger span      { background: rgba(244,245,243,0.85) !important; }
 /* Dropdown panel — dark to match nav */
 .nav-dropdown-menu {
-  background: #1A1D1F !important;
+  background: #1F2326 !important;
   border: 1px solid rgba(244,245,243,0.10) !important;
   box-shadow: 0 8px 32px rgba(0,0,0,0.45) !important;
 }

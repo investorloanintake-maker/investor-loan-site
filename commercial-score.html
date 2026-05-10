@@ -60,7 +60,7 @@
       --ink:        #141210;
       --ink-mid:    #2E2B27;
       --ink-soft:   #52504C;
-      --gold:       #BF9020;
+      --gold:       #6B745E;
       --gold-light: #D9A84A;
       --gold-faint: rgba(191, 144, 32,0.08);
       --charcoal:   #1A1C24;
@@ -808,9 +808,9 @@ function renderCommercialScore(data) {
   var score = data.score || 0;
   var verdict = data.verdict || 'Hold';
 
-  var color = score >= 65 ? '#2ECC71' : score >= 50 ? '#BF9020' : score >= 35 ? '#E08A3C' : '#D94F4F';
+  var color = score >= 65 ? '#2ECC71' : score >= 50 ? '#6B745E' : score >= 35 ? '#E08A3C' : '#D94F4F';
   var verdictBg = verdict === 'Acquire' ? 'rgba(46,204,113,0.12)' : verdict === 'Pass' ? 'rgba(217,79,79,0.12)' : 'rgba(191, 144, 32,0.12)';
-  var verdictColor = verdict === 'Acquire' ? '#2ECC71' : verdict === 'Pass' ? '#D94F4F' : '#BF9020';
+  var verdictColor = verdict === 'Acquire' ? '#2ECC71' : verdict === 'Pass' ? '#D94F4F' : '#6B745E';
 
   var circumference = 2 * Math.PI * 54;
   var offset = circumference - (score / 100) * circumference;
