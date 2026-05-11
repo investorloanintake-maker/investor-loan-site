@@ -546,7 +546,6 @@
         <a href="investor-platform.html" class="nav-dropdown-trigger">Tools</a>
         <div class="nav-dropdown-menu">
           <a href="deal-analyzer.html">Deal Analyzer</a>
-          <a href="deal-analyzer.html">Deal Analyzer</a>
           <a href="dscr-calculator.html">DSCR Calculator</a>
         </div>
       </div>
@@ -559,7 +558,6 @@
     <a href="dscr.html">DSCR Loans</a>
     <a href="fix-and-flip.html">Fix &amp; Flip</a>
     <a href="bpl.html">Business Purpose Loans</a>
-    <a href="deal-analyzer.html">Deal Analyzer</a>
     <a href="deal-analyzer.html">Deal Analyzer</a>
     <a href="about.html">About</a>
     <span class="drawer-label">Commercial</span>
@@ -827,9 +825,9 @@ function renderCommercialScore(data) {
   html += '</svg>';
   html += '<div style="margin-top:-110px;position:relative">';
   html += '<div style="font-family:Fraunces,serif;font-size:48px;font-weight:700;color:var(--ink)">' + score + '</div>';
-  html += '<div style="font-family:\'DM Mono\',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-soft)">ViaScore Commercial</div>';
+  html += '<div style="font-family:\'Inter\',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-soft)">ViaScore Commercial</div>';
   html += '</div>';
-  html += '<div style="display:inline-block;margin-top:16px;padding:6px 16px;border-radius:20px;background:' + verdictBg + ';color:' + verdictColor + ';font-family:\'DM Mono\',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase">' + verdict + '</div>';
+  html += '<div style="display:inline-block;margin-top:16px;padding:6px 16px;border-radius:20px;background:' + verdictBg + ';color:' + verdictColor + ';font-family:\'Inter\',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase">' + verdict + '</div>';
   html += '</div>';
 
   /* Metric Tiles */
@@ -842,7 +840,7 @@ function renderCommercialScore(data) {
   ];
   metrics.forEach(function(m) {
     html += '<div style="background:var(--charcoal);border-radius:10px;padding:20px 16px;text-align:center">';
-    html += '<div style="font-family:\'DM Mono\',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px">' + m.label + '</div>';
+    html += '<div style="font-family:\'Inter\',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px">' + m.label + '</div>';
     html += '<div style="font-family:Fraunces,serif;font-size:22px;color:#fff">' + m.value + '</div>';
     html += '</div>';
   });
@@ -855,8 +853,8 @@ function renderCommercialScore(data) {
       var pct = (d.score / d.max) * 100;
       html += '<div style="margin-bottom:12px">';
       html += '<div style="display:flex;justify-content:space-between;margin-bottom:4px">';
-      html += '<span style="font-family:\'DM Mono\',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-soft)">' + d.name + '</span>';
-      html += '<span style="font-family:\'DM Mono\',monospace;font-size:11px;color:var(--ink-mid)">' + d.score + '/' + d.max + '</span>';
+      html += '<span style="font-family:\'Inter\',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-soft)">' + d.name + '</span>';
+      html += '<span style="font-family:\'Inter\',monospace;font-size:11px;color:var(--ink-mid)">' + d.score + '/' + d.max + '</span>';
       html += '</div>';
       html += '<div style="height:8px;background:var(--cream-dark);border-radius:4px;overflow:hidden">';
       html += '<div style="height:100%;width:' + pct + '%;background:var(--gold);border-radius:4px;transition:width 1s ease"></div>';
@@ -870,7 +868,7 @@ function renderCommercialScore(data) {
   if (data.narrative) {
     var paragraphs = data.narrative.split('\n\n').filter(function(p) { return p.trim(); });
     html += '<div id="cs-narrative" style="max-width:700px;margin:0 auto 40px;padding:32px;background:var(--cream-dark);border-radius:12px">';
-    html += '<div style="font-family:\'DM Mono\',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">AI Analysis</div>';
+    html += '<div style="font-family:\'Inter\',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">AI Analysis</div>';
     paragraphs.forEach(function(p) {
       html += '<p style="margin-bottom:16px;line-height:1.7;color:var(--ink-mid);font-size:15px">' + p + '</p>';
     });

@@ -233,10 +233,10 @@
   var allProps = data.all_properties || [];
   if (allProps.length > 1 || (data.portfolio && data.portfolio.count > 1)) {
     html += '<div class="offer-portfolio">';
-    html += '<div style="font-family:\'DM Mono\',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">YOUR FULL PORTFOLIO</div>';
+    html += '<div style="font-family:\'Inter\',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">YOUR FULL PORTFOLIO</div>';
     if (allProps.length > 1) {
       html += '<table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:14px">';
-      html += '<tr style="border-bottom:1px solid rgba(255,255,255,0.1);text-align:left"><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;font-weight:400;font-family:\'DM Mono\',monospace">Address</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:right">Est. Value</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:right">Equity</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:right">Savings</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:center">Verdict</th></tr>';
+      html += '<tr style="border-bottom:1px solid rgba(255,255,255,0.1);text-align:left"><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;font-weight:400;font-family:\'Inter\',monospace">Address</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:right">Est. Value</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:right">Equity</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:right">Savings</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:center">Verdict</th></tr>';
       var totEquity = 0, totSavings = 0;
       allProps.forEach(function(prop) {
         var pEquity = Math.round((prop.avm || 0) * 0.75);
