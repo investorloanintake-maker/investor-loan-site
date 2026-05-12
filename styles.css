@@ -4028,3 +4028,49 @@ body {
 .logo-img { height: 76px !important; width: auto !important; }
 .vp-lockup-img { height: 76px !important; width: auto !important; }
 .vp-lockup-fallback img { height: 76px !important; }
+
+
+/* ================================================================
+   Section 17 - Optimal viewing pass (2026-05-12)
+   H1 scale, true 100vh hero, tighter content padding, proportion
+   ================================================================ */
+
+/* H1: editorial scale -- wraps to 3 clean lines at 1440px */
+.vp-hero-h1 {
+  font-size: clamp(40px, 3.5vw, 54px) !important;
+  line-height: 1.0 !important;
+  letter-spacing: -0.04em !important;
+  max-width: 640px !important;
+}
+
+/* Hero: full-viewport so the flex centering actually lands mid-screen */
+.vp-hero-cinematic {
+  min-height: 100vh !important;
+}
+
+/* Strip content internal padding -- let flex centering on the section do the work */
+.vp-hero-content {
+  padding: 0 24px !important;
+}
+
+/* Sub copy: slightly larger, more breathing */
+.vp-hero-sub {
+  font-size: 19px !important;
+  line-height: 1.72 !important;
+  max-width: 520px !important;
+}
+
+/* Tags: more visible */
+.vp-hero-tags {
+  font-size: 14px !important;
+  letter-spacing: 0.10em !important;
+  opacity: 1 !important;
+  margin-bottom: 32px !important;
+}
+
+/* Eyebrow: slightly larger tracking */
+.vp-hero-eyebrow {
+  font-size: 12px !important;
+  letter-spacing: 0.24em !important;
+  margin-bottom: 22px !important;
+}
