@@ -4074,3 +4074,162 @@ body {
   letter-spacing: 0.24em !important;
   margin-bottom: 22px !important;
 }
+
+
+/* ================================================================
+   Section 18 - Precision Alignment Pass (2026-05-12)
+   Palantir x Carta x capital markets aesthetic.
+   Header, hero grid, card, typography rhythm. No redesign.
+   ASCII comments only.
+   ================================================================ */
+
+/* ── HEADER: logo scale down ~25% ── */
+.vp-lockup-img  { height: 40px !important; width: auto !important; }
+.logo-img       { height: 40px !important; width: auto !important; }
+.vp-lockup-fallback img { height: 40px !important; }
+
+/* ── HEADER: tighter nav height, unified max-width ── */
+.vp-nav {
+  height: 56px !important;
+}
+.vp-nav-inner {
+  max-width: 1160px !important;
+  padding: 0 24px !important;
+  gap: 28px !important;
+  height: 56px !important;
+  align-items: center !important;
+}
+/* Inner pages: same discipline */
+.nav-inner {
+  height: 56px !important;
+  max-width: 1160px !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+  align-items: center !important;
+}
+
+/* ── HEADER: CTA button — elegant, not heavy ── */
+.vp-nav-cta {
+  padding: 7px 18px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  border-radius: 5px !important;
+  letter-spacing: 0.01em !important;
+}
+/* Inner pages nav CTA */
+.nav-cta {
+  padding: 7px 18px !important;
+  font-size: 13px !important;
+  border-radius: 5px !important;
+}
+
+/* ── HERO GRID: tighter gap, pull card inward ── */
+.vp-hero-content {
+  grid-template-columns: 1fr 300px !important;
+  gap: 56px !important;
+  align-items: center !important;
+  max-width: 1160px !important;
+  margin: 0 auto !important;
+}
+
+/* ── HERO: max-width on headline for elegant line break ── */
+.vp-hero-left  { max-width: 520px !important; }
+.vp-hero-h1    { max-width: 500px !important; }
+
+/* ── HERO TYPOGRAPHY: mathematically intentional rhythm ── */
+.vp-hero-eyebrow {
+  font-size: 11px !important;
+  letter-spacing: 0.22em !important;
+  margin-bottom: 14px !important;
+}
+.vp-hero-h1 {
+  font-size: clamp(38px, 3.2vw, 50px) !important;
+  line-height: 1.0 !important;
+  letter-spacing: -0.04em !important;
+  margin-bottom: 20px !important;
+}
+.vp-hero-sub {
+  font-size: 17px !important;
+  line-height: 1.68 !important;
+  max-width: 460px !important;
+  margin-bottom: 28px !important;
+}
+
+/* ── HERO CTA ROW: baseline alignment ── */
+.vp-hero-actions,
+.vp-hero-ctas {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+  margin-bottom: 20px !important;
+}
+.vp-btn-primary {
+  padding: 11px 24px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  border-radius: 5px !important;
+}
+.vp-btn-ghost {
+  font-size: 14px !important;
+  padding: 11px 0 !important;
+  border: none !important;
+  background: transparent !important;
+  color: var(--vp-muted-on-dark) !important;
+}
+.vp-btn-ghost:hover {
+  color: var(--vp-off-white) !important;
+  background: transparent !important;
+}
+
+/* ── TRUST ROW: align under CTA, consistent spacing ── */
+.vp-hero-trust {
+  display: flex !important;
+  align-items: center !important;
+  gap: 18px !important;
+  flex-wrap: wrap !important;
+}
+.vp-hero-trust span {
+  font-size: 12px !important;
+  color: rgba(244,245,243,0.48) !important;
+  letter-spacing: 0.01em !important;
+  gap: 5px !important;
+}
+
+/* ── FLOATING CARD: dark charcoal glass, warm undertone only ── */
+.vp-hero-panel {
+  background: rgba(12,15,18,0.88) !important;
+  border: 1px solid rgba(244,245,243,0.07) !important;
+  border-radius: 10px !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  box-shadow:
+    0 24px 64px rgba(0,0,0,0.52),
+    0 0 0 1px rgba(139,148,116,0.06) inset !important;
+  padding: 24px 22px !important;
+  gap: 16px !important;
+}
+
+/* Card label: quieter olive ── */
+.vp-panel-label {
+  font-size: 9px !important;
+  letter-spacing: 0.2em !important;
+  color: rgba(139,148,116,0.65) !important;
+}
+
+/* Card heading ── */
+.vp-panel-title,
+h3.vp-panel-heading,
+.vp-hero-panel > *:first-child {
+  font-size: 13px !important;
+}
+
+/* Card body value text ── */
+.vp-panel-value  { font-size: 18px !important; }
+.vp-panel-meta   { font-size: 12px !important; }
+.vp-panel-note   { font-size: 10px !important; }
+.vp-panel-cta    { font-size: 13px !important; padding: 10px 0 !important; border-radius: 5px !important; }
+
+/* ── Hero cinematic: compensate for shorter nav ── */
+.vp-hero-cinematic {
+  padding-top: 56px !important;
+}
