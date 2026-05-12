@@ -4023,3 +4023,8 @@ body {
   text-transform: uppercase;
   color: var(--vp-muted-on-dark);
 }
+
+/* --- Global logo size (all pages) --- */
+.logo-img { height: 60px !important; width: auto !important; }
+.vp-lockup-img { height: 60px !important; width: auto !important; }
+.vp-lockup-fallback img { height: 60px !important; }
