@@ -3696,3 +3696,210 @@ body {
 .vp-section-light .vp-eyebrow-dark {
   color: var(--vp-olive);
 }
+
+/* ================================================================
+   INSTITUTIONAL REFINEMENT PASS — viadorpartners.com 2026-05-11
+   Target: Ramp / Carta / Bloomberg terminal / Anduril aesthetic
+   CSS-only. No structural changes.
+   ================================================================ */
+
+/* ── §1+2: HERO — cinematic image + gradient ── */
+.vp-hero-cinematic {
+  min-height: 800px;
+  background:
+    linear-gradient(
+      to right,
+      rgba(8,11,16,.96) 0%,
+      rgba(8,11,16,.78) 28%,
+      rgba(8,11,16,.18) 52%,
+      rgba(8,11,16,.35) 78%,
+      rgba(8,11,16,.92) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(8,11,16,.18) 0%,
+      rgba(8,11,16,.05) 40%,
+      rgba(8,11,16,.82) 100%
+    ),
+    url('/assets/brand/viador-hero-wide.png') center 40% / cover no-repeat;
+}
+/* hide the old separate bg + overlay divs */
+.vp-hero-bg,
+.vp-hero-overlay { display: none !important; }
+
+/* ── Hero layout: narrow panel, more breathing room ── */
+.vp-hero-content {
+  grid-template-columns: 1fr 350px;
+  gap: 64px;
+  padding: 100px 24px;
+}
+
+/* ── §3: HEADLINE — editorial, not aggressive ── */
+.vp-hero-h1 {
+  font-size: clamp(64px, 5vw, 84px);
+  font-weight: 600;
+  line-height: .96;
+  letter-spacing: -0.04em;
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+.vp-hero-h1 em {
+  font-style: italic;
+  font-weight: 400;
+  opacity: .9;
+}
+
+/* ── §4: BODY COPY ── */
+.vp-hero-sub {
+  font-size: 17px;
+  line-height: 1.65;
+  max-width: 560px;
+  margin-bottom: 40px;
+}
+
+/* ── §5: CTA BUTTONS ── */
+.vp-btn-primary {
+  background: #8B9474;
+  color: #0B0F14 !important;
+  padding: 15px 32px;
+  font-size: 15px;
+  letter-spacing: .01em;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.04),
+    0 10px 30px rgba(139,148,116,.18);
+}
+.vp-btn-primary:hover { background: #97a07e; box-shadow: 0 0 0 1px rgba(255,255,255,.06), 0 14px 36px rgba(139,148,116,.24); }
+
+.vp-btn-secondary {
+  background: transparent;
+  color: var(--vp-off-white);
+  font-size: 15px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  padding: 15px 20px;
+  opacity: .78;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 8px;
+}
+.vp-btn-secondary:hover { opacity: 1; }
+
+/* ── §6: METRIC BAR — Bloomberg density ── */
+.vp-stats-bar { padding: 0; }
+.vp-stat { padding: 22px 36px; gap: 12px; }
+.vp-stat-icon svg { width: 18px !important; height: 18px !important; }
+.vp-stat-num { font-size: 26px; line-height: 1.05; }
+.vp-stat-label { font-size: 11px; margin-top: 1px; letter-spacing: .04em; text-transform: uppercase; }
+
+/* ── §7: THREE STEPS — linear, structured ── */
+.vp-section-light {
+  background: #F4F2EC;
+  padding: 76px 24px;
+  color: var(--vp-charcoal);
+}
+.vp-step-num-circle {
+  background: var(--vp-olive);
+  color: #fff;
+  border: none;
+  width: 36px;
+  height: 36px;
+  font-size: 11px;
+  letter-spacing: .08em;
+  margin-bottom: 14px;
+}
+.vp-step-arrow {
+  color: var(--vp-olive);
+  opacity: 1;
+  padding-top: 42px;
+}
+.vp-step-arrow svg { stroke-width: 2; width: 22px !important; height: 22px !important; }
+.vp-step-body { max-width: 230px; font-size: 14px; line-height: 1.6; }
+.vp-step-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+
+/* ── §8: SCENARIO CARDS — deal-desk aesthetic ── */
+.vp-scenario-card {
+  border: 1px solid rgba(255,255,255,.06);
+  background: linear-gradient(180deg, rgba(255,255,255,.03) 0%, rgba(255,255,255,.01) 100%);
+  border-radius: 22px;
+  padding: 34px;
+}
+.vp-scenario-badge {
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  opacity: .5;
+  margin-bottom: 16px;
+}
+.vp-scenario-title { font-size: 20px; font-weight: 600; margin-bottom: 22px; }
+.vp-scenario-key { font-size: 12px; letter-spacing: .04em; }
+.vp-scenario-val { font-size: 13px; font-weight: 600; }
+.vp-scenario-row { padding: 10px 0; }
+
+/* ── §9: LIGHT SECTIONS — warm ivory (already set on .vp-section-light above) ── */
+/* program tiles stay white so they pop against ivory section */
+.vp-program-tile { background: #ffffff; }
+
+/* ── §10: WHO THIS IS FOR — tighter, higher contrast ── */
+.vp-who-col { padding: 24px 22px; }
+.vp-who-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.vp-who-body { font-size: 14px; line-height: 1.65; color: rgba(196,201,194,.82); }
+
+/* ── §11: FOUNDER — large editorial quote ── */
+.vp-founder-quote {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(34px, 3vw, 52px);
+  line-height: 1.08;
+  font-style: italic;
+  color: var(--vp-off-white);
+  border-left: 3px solid var(--vp-olive);
+  padding-left: 28px;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ── §12: FINAL CTA — "send the deal" energy ── */
+.vp-cta-final { padding: 120px 24px; }
+.vp-cta-final-hed {
+  font-size: clamp(36px, 4vw, 58px);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  color: var(--vp-off-white);
+}
+.vp-cta-final-sub {
+  font-size: 17px;
+  margin-bottom: 40px;
+  max-width: 480px;
+  color: var(--vp-muted-on-dark);
+}
+.vp-cta-final-buttons { gap: 16px; }
+
+/* ── §13: FOOTER — tighter, slightly recessed ── */
+.vp-footer { padding-top: 52px; padding-bottom: 28px; background: var(--vp-deep); }
+.vp-footer-top { padding-bottom: 36px; margin-bottom: 36px; }
+.vp-footer-compliance { font-size: 11px; opacity: .55; }
+
+/* ── §15: MOBILE — typography-first ── */
+@media (max-width: 900px) {
+  .vp-hero-cinematic {
+    min-height: 580px;
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(8,11,16,.72) 0%,
+        rgba(8,11,16,.22) 50%,
+        rgba(8,11,16,.90) 100%
+      ),
+      url('/assets/brand/viador-hero-wide.png') 70% 40% / cover no-repeat;
+  }
+  .vp-hero-content {
+    grid-template-columns: 1fr;
+    padding: 60px 20px;
+  }
+  .vp-hero-h1 { font-size: clamp(40px, 10vw, 58px); }
+  .vp-hero-panel { display: none; }
+  .vp-cta-final { padding: 80px 20px; }
+  .vp-section-light { padding: 60px 20px; }
+  .vp-stat { padding: 18px 20px; }
+}
