@@ -3985,3 +3985,41 @@ body {
 .vp-lockup-img { height: 48px !important; }
 .vp-lockup-fallback img { height: 48px !important; }
 .vp-cta-final { padding: 64px 24px !important; }
+
+/* --- Founder section layout fix (2026-05-12) --- */
+/* Left column wider for bio, right internal grid collapses so quote spans full width */
+.vp-founder-inner {
+  grid-template-columns: 300px 1fr !important;
+  gap: 72px !important;
+  align-items: center !important;
+}
+.vp-founder-right {
+  grid-template-columns: 1fr !important;
+  gap: 0 !important;
+}
+.vp-founder-quote {
+  font-size: clamp(30px, 3.2vw, 50px) !important;
+  line-height: 1.12 !important;
+  margin-bottom: 28px !important;
+}
+.vp-founder-cite {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 0;
+}
+.vp-founder-cite::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--vp-olive);
+  flex-shrink: 0;
+}
+.vp-founder-cite-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--vp-muted-on-dark);
+}
