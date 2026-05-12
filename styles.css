@@ -3903,3 +3903,80 @@ body {
   .vp-section-light { padding: 60px 20px; }
   .vp-stat { padding: 18px 20px; }
 }
+
+
+/* ====================================================================
+   Section 16 - Surgical Polish Pass (2026-05-12)
+   Edits 2,3,6,7,8,9. No structural changes. ASCII only in comments.
+   ==================================================================== */
+
+/* --- Edit 2: Headline size reduction --- */
+.vp-hero-h1 {
+  font-size: clamp(58px, 4.6vw, 76px) !important;
+}
+
+/* --- Edit 3: CTA consistency - both nav and hero use olive-bright + off-white text --- */
+.vp-btn-primary {
+  color: var(--vp-off-white) !important;
+}
+.vp-nav-cta {
+  background: #8B9474 !important;
+  border-color: #8B9474 !important;
+}
+.vp-btn-nav-primary {
+  background: #8B9474 !important;
+}
+.vp-btn-nav-primary:hover {
+  background: #97a07e !important;
+}
+.vp-nav-cta:hover {
+  background: #97a07e !important;
+}
+
+/* --- Edit 6: Hero layout - wider breathing room, narrower panel --- */
+.vp-hero-content {
+  grid-template-columns: 1fr 340px !important;
+  gap: 80px !important;
+}
+
+/* --- Edit 7: Info card - lighter bg, softer border --- */
+.vp-hero-panel {
+  background: rgba(20, 23, 25, 0.62) !important;
+  border: 1px solid rgba(244, 245, 243, 0.06) !important;
+}
+
+/* --- Edit 8: Hero image - right dark zone starts at 78% (was 85%) --- */
+.vp-hero-cinematic {
+  background:
+    linear-gradient(
+      to right,
+      rgba(8,11,16,.96) 0%,
+      rgba(8,11,16,.78) 28%,
+      rgba(8,11,16,.18) 52%,
+      rgba(8,11,16,.18) 65%,
+      rgba(8,11,16,.92) 78%,
+      rgba(8,11,16,.96) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(8,11,16,.18) 0%,
+      rgba(8,11,16,.05) 40%,
+      rgba(8,11,16,.82) 100%
+    ),
+    url('/assets/brand/viador-hero-wide.png') center 40% / cover no-repeat !important;
+}
+
+/* --- Edit 9: Nav - tighter inner gap, softer link transitions --- */
+.vp-nav-inner {
+  gap: 32px !important;
+}
+.vp-nav-links a,
+.vp-dropdown-trigger,
+.vp-nav-link {
+  transition: color .22s ease-out, background .22s ease-out !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+.vp-dropdown-menu {
+  transition: opacity .18s ease-out !important;
+}

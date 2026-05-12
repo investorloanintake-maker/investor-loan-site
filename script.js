@@ -222,4 +222,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /*
+
+  /* --- Edit 4: Nav dropdown delay-close (300ms grace) --- */
+  document.querySelectorAll('.vp-dropdown').forEach(function(dd) {
+    var menu = dd.querySelector('.vp-dropdown-menu');
+    if (!menu) return;
+    var closeTimer;
+    dd.addEventListener('mouseenter', function() {
+      clearTimeout(closeTimer);
+      menu.style.display = 'flex';
+    });
+    dd.addEventListener('mouseleave', function() {
+      closeTimer = setTimeout(function() {
+        menu.style.removeProperty('display');
+      }, 300);
+    });
+  });
+
 });
