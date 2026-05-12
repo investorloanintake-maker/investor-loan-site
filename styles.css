@@ -3980,3 +3980,8 @@ body {
 .vp-dropdown-menu {
   transition: opacity .18s ease-out !important;
 }
+
+/* --- Logo size + CTA section height (2026-05-12 quick fix) --- */
+.vp-lockup-img { height: 48px !important; }
+.vp-lockup-fallback img { height: 48px !important; }
+.vp-cta-final { padding: 64px 24px !important; }
