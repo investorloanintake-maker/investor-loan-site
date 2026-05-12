@@ -3661,3 +3661,38 @@ body {
   .vp-stats-grid { grid-template-columns:repeat(2,1fr); }
   .vp-footer-top { grid-template-columns:1fr; }
 }
+
+/* ============================================================
+   LIGHT-SECTION COLOR OVERRIDE
+   body sets color:--vp-off-white for dark-dominant baseline;
+   light sections must override back to dark text explicitly
+   ============================================================ */
+.vp-section-light,
+.vp-section-light * {
+  color: var(--vp-charcoal);
+}
+/* re-allow explicit overrides inside light sections */
+.vp-section-light .vp-program-desc,
+.vp-section-light .vp-step-body,
+.vp-section-light .vp-sub-light {
+  color: var(--vp-muted-on-light);
+}
+.vp-section-light .vp-program-link-dark,
+.vp-section-light .vp-step-link {
+  color: var(--vp-olive);
+}
+.vp-section-light .vp-program-link-dark:hover {
+  color: var(--vp-olive-hover);
+}
+/* program tiles: white bg so they pop off off-white section */
+.vp-program-tile {
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(31,35,38,.06);
+}
+.vp-program-icon-wrap svg {
+  stroke: var(--vp-olive);
+}
+/* eyebrow on light sections */
+.vp-section-light .vp-eyebrow-dark {
+  color: var(--vp-olive);
+}
