@@ -2526,7 +2526,7 @@ body {
 .vp-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/assets/brand/viador-hero.jpg');
+  background-image: url('/assets/brand/viador-hero-wide.png');
   background-size: cover;
   background-position: center 40%;
   background-repeat: no-repeat;
