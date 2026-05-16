@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foreign National LLC Requirements for US Investment Property | Viador Partners</title>
+  <meta name="description" content="LLC vesting requirements for foreign national investors in US real estate: state tradeoffs, EIN process, operating agreement standards, and how entity structure affects DSCR loan eligibility." />
+  <link rel="canonical" href="https://viadorpartners.com/foreign-national-llc-requirements/" />
+  <meta property="og:title" content="Foreign National LLC Requirements for US Investment Property | Viador Partners" />
+  <meta property="og:description" content="LLC setup guide for non-US-citizen real estate investors: state selection, EIN for foreign-owned entities, operating agreements, and lender documentation requirements." />
+  <meta property="og:url" content="https://viadorpartners.com/foreign-national-llc-requirements/" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    .fn-llc-hero { background: var(--ink); color: #fff; padding: 6rem 1.5rem 4rem; text-align: center; }
+    .fn-llc-hero h1 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 300; margin-bottom: 1.2rem; }
+    .fn-llc-hero p { font-size: 1.1rem; opacity: .85; max-width: 680px; margin: 0 auto 2rem; }
+    .fn-llc-hero .breadcrumb { font-family: 'DM Mono', monospace; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; opacity: .55; margin-bottom: 1.2rem; }
+    .fn-llc-hero .breadcrumb a { color: #fff; text-decoration: none; }
+    .fn-section { max-width: var(--max, 1160px); margin: 0 auto; padding: 3.5rem 1.5rem; }
+    .fn-section h2 { font-family: 'Fraunces', serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 300; margin-bottom: 1.2rem; color: var(--ink); }
+    .fn-section h3 { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; font-weight: 500; margin: 1.8rem 0 .6rem; color: var(--ink); }
+    .aeo-block { background: var(--cream, #f8f6f2); border-left: 3px solid var(--gold, #c9a84c); padding: 1.2rem 1.5rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+    .aeo-block .aeo-q { font-family: 'DM Mono', monospace; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--gold, #c9a84c); margin-bottom: .5rem; }
+    .aeo-block p { margin: 0; font-size: .97rem; line-height: 1.65; }
+    .fn-table-wrap { overflow-x: auto; margin: 1.8rem 0; }
+    .fn-table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+    .fn-table th { background: var(--ink); color: #fff; padding: .7rem 1rem; text-align: left; font-family: 'DM Mono', monospace; font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 400; }
+    .fn-table td { padding: .65rem 1rem; border-bottom: 1px solid #e5e1d8; vertical-align: top; }
+    .fn-table tr:nth-child(even) td { background: var(--cream, #f8f6f2); }
+    .fn-steps { counter-reset: steps; margin: 2rem 0; }
+    .fn-step { display: flex; gap: 1.2rem; margin-bottom: 1.5rem; }
+    .fn-step-num { counter-increment: steps; min-width: 2rem; height: 2rem; border-radius: 50%; background: var(--gold, #c9a84c); color: var(--ink); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: .8rem; font-weight: 600; flex-shrink: 0; margin-top: .2rem; }
+    .fn-step-body h4 { margin: 0 0 .3rem; font-size: 1rem; font-weight: 500; color: var(--ink); }
+    .fn-step-body p { margin: 0; font-size: .93rem; line-height: 1.6; color: #444; }
+    .state-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .state-card { border: 1px solid #ddd; border-radius: 6px; padding: 1.2rem; background: #fff; }
+    .state-card h4 { font-size: .95rem; font-weight: 500; margin: 0 0 .5rem; color: var(--ink); }
+    .state-card p { font-size: .88rem; line-height: 1.55; color: #555; margin: 0; }
+    .state-card .state-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: .65rem; text-transform: uppercase; padding: .15rem .5rem; border-radius: 3px; margin-bottom: .5rem; }
+    .state-tag.popular { background: #e8f0e8; color: #2a6a2a; }
+    .state-tag.caution { background: #f0e8e0; color: #8a4a20; }
+    .fn-cta-stack { background: var(--ink); color: #fff; padding: 3rem 1.5rem; text-align: center; }
+    .fn-cta-stack h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 1.9rem; margin-bottom: .8rem; }
+    .fn-cta-stack p { opacity: .8; margin-bottom: 2rem; }
+    .fn-cta-btns { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .fn-btn-primary { background: var(--gold, #c9a84c); color: var(--ink); padding: .85rem 2rem; border-radius: 4px; font-weight: 500; text-decoration: none; font-size: .95rem; }
+    .fn-btn-secondary { border: 1px solid rgba(255,255,255,.4); color: #fff; padding: .85rem 2rem; border-radius: 4px; text-decoration: none; font-size: .95rem; }
+    .fn-scenario-form { background: #fff; max-width: 520px; margin: 2rem auto 0; padding: 1.8rem; border-radius: 6px; text-align: left; }
+    .fn-scenario-form h3 { color: var(--ink); font-size: 1rem; margin: 0 0 1rem; font-family: 'DM Sans', sans-serif; font-weight: 500; }
+    .fn-scenario-form input, .fn-scenario-form select { width: 100%; padding: .6rem .8rem; border: 1px solid #ddd; border-radius: 4px; font-size: .9rem; margin-bottom: .8rem; box-sizing: border-box; }
+    .fn-scenario-form button { background: var(--gold, #c9a84c); color: var(--ink); border: none; padding: .75rem 1.5rem; border-radius: 4px; font-weight: 500; font-size: .9rem; cursor: pointer; width: 100%; }
+    .fn-faq-section { max-width: var(--max, 1160px); margin: 0 auto; padding: 3.5rem 1.5rem; }
+    .fn-faq-section h2 { font-family: 'Fraunces', serif; font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 300; margin-bottom: 1.5rem; }
+    .fn-faq-item { border-bottom: 1px solid #e5e1d8; padding: 1.2rem 0; }
+    .fn-faq-item h3 { font-size: 1rem; font-weight: 500; margin: 0 0 .5rem; color: var(--ink); }
+    .fn-faq-item p { margin: 0; font-size: .93rem; line-height: 1.65; color: #444; }
+    .fn-related { background: var(--cream, #f8f6f2); padding: 2.5rem 1.5rem; }
+    .fn-related-inner { max-width: var(--max, 1160px); margin: 0 auto; }
+    .fn-related h3 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 1.3rem; margin-bottom: 1rem; }
+    .fn-related-links { display: flex; flex-wrap: wrap; gap: .8rem; }
+    .fn-related-links a { background: #fff; border: 1px solid #ddd; padding: .5rem 1rem; border-radius: 4px; font-size: .88rem; text-decoration: none; color: var(--ink); }
+    .fn-badge { display: inline-block; background: var(--gold, #c9a84c); color: var(--ink); font-size: .7rem; font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .06em; padding: .2rem .6rem; border-radius: 3px; margin-bottom: 1.2rem; }
+    .warning-box { background: #fff8f0; border: 1px solid #e0a858; border-radius: 6px; padding: 1rem 1.2rem; margin: 1.5rem 0; font-size: .92rem; line-height: 1.65; }
+    .warning-box strong { color: #a06010; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can a foreign national take title to US investment property through an LLC?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Foreign nationals can vest US investment property in a single-member or multi-member LLC, including LLCs wholly owned by foreign nationals. Most DSCR programs that offer foreign national lending accept entity vesting. The borrower typically provides a personal guaranty, and the LLC must be properly formed with an EIN, operating agreement, and articles of organization. The LLC does not need to have prior transaction history to qualify."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What state should a foreign national form an LLC in to hold US real estate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For most foreign national investors, the most practical choice is to form the LLC in the state where the property is located. Forming in a different state (Delaware or Wyoming for privacy reasons) and then registering as a foreign entity in the property state adds cost and complexity without meaningful benefit for single-asset holders. Delaware and Wyoming are preferred by investors who hold multiple properties across states or who prioritize charging order protection and privacy. Consult a US attorney before choosing a formation state for multi-property portfolios."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does a foreign-owned LLC need a US EIN to get a mortgage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Lenders require an Employer Identification Number (EIN) for any LLC taking title to real property through a financed transaction. A foreign national-owned LLC obtains an EIN by submitting IRS Form SS-4. Foreign owners without a US SSN or ITIN can apply by fax or mail — the IRS does not allow the online EIN application for LLCs owned by individuals without a US tax identity. EIN processing for foreign-owned entities typically takes 4 to 6 weeks via mail or fax."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does a lender require from a foreign-owned LLC at closing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard lender requirements for a foreign-owned LLC include: articles of organization (or certificate of formation), operating agreement showing ownership and manager authority, EIN confirmation letter (IRS Form SS-4 acceptance notice or 147c letter), and a corporate resolution or authorization to borrow. If the LLC has multiple foreign national members, each member's passport and background documentation is typically required. The personal guaranty is signed by the individual foreign national member(s) with beneficial ownership."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is a single-member or multi-member LLC better for foreign national real estate investment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For a single foreign national investor, a single-member LLC is simpler to administer and equally effective as an asset protection vehicle in most states. Multi-member LLCs are appropriate when two or more investors co-acquire a property and need to formalize ownership percentage, profit distribution, and exit rights. Multi-member structures add complexity to the lending package — all members with beneficial ownership typically require documentation — but are fully permissible under foreign national DSCR programs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does an LLC affect the DSCR calculation for foreign nationals?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. DSCR is a property-level calculation: gross rental income divided by PITIA on the subject loan. The ownership structure — whether individual or LLC — does not change the rental income, loan payment, tax obligation, or insurance premium. An LLC neither improves nor reduces DSCR. The entity structure affects title, liability protection, and estate planning — not the underwriting math."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a personal guaranty in the context of a foreign national LLC DSCR loan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A personal guaranty is a contractual obligation by the individual foreign national borrower to repay the loan if the LLC (the legal borrower) defaults. Nearly all DSCR programs require a personal guaranty from the individual with beneficial ownership, regardless of LLC vesting. The guaranty is a separate document signed at closing and makes the individual personally liable. This is standard for business-purpose real estate loans and does not eliminate the liability protection benefits of the LLC for other purposes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can a foreign national's LLC hold multiple US properties with separate mortgages?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, but lenders and tax advisors often recommend separate single-purpose LLCs for each property rather than one LLC holding multiple properties. Single-purpose LLCs isolate liability: a lawsuit or financial distress related to one property cannot encumber properties held in separate entities. Many DSCR lenders prefer or require single-purpose LLCs for portfolio loan structures. When a single LLC holds multiple financed properties, all outstanding loans may need to be disclosed to lenders on new applications."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do foreign nationals need to file US taxes on LLC rental income?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A single-member LLC owned by a foreign national is treated as a disregarded entity for US tax purposes, meaning rental income flows directly to the individual's NRA (non-resident alien) tax return. A foreign national with US rental income from a domestic LLC is required to file a US Form 1040-NR and may be subject to 30% NRA withholding on gross rental income unless a net income election (Form W-8ECI) is filed. This is a US tax obligation — DSCR lenders do not calculate net-of-tax income for underwriting; they use gross rent."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is FIRPTA and how does it affect a foreign national LLC selling US property?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "FIRPTA (Foreign Investment in Real Property Tax Act) requires the buyer's closing agent to withhold 15% of the gross sales price (not profit) when a foreign national sells US real property. This withholding is remitted to the IRS and credited against the seller's actual capital gains tax liability. The seller can apply for a withholding certificate to reduce or eliminate the withholding if the actual tax liability is lower than 15% of gross proceeds. FIRPTA applies to sales by foreign-owned LLCs in the same manner as sales by individual foreign nationals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does a foreign national LLC affect estate planning for US real property?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Foreign nationals are subject to US estate tax on US-situs assets — including directly held US real property — at rates up to 40%, with only a $60,000 federal estate tax exemption (compared to $13.6 million for US citizens in 2024). Holding US property through a foreign LLC or other cross-border structure can provide estate tax planning opportunities, but the structuring is complex and treaty-dependent. Foreign national investors should consult a US estate attorney specializing in international tax before taking title, as the LLC formation state and ownership structure choices made at acquisition affect estate planning options later."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="/lockup-dark.png" alt="Viador Partners" height="32" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span style="display:none;font-family:'Fraunces',serif;font-weight:300;font-size:1.2rem;color:var(--ink)">Viador Partners</span>
+      </a>
+      <div class="nav-links">
+        <a href="/dscr-loan-requirements/">DSCR Loans</a>
+        <a href="/bpl/">Business Purpose</a>
+        <a href="/bridge/">Bridge</a>
+        <a href="/foreign-national-investor-loans/">Foreign National</a>
+        <a href="/about/">About</a>
+      </div>
+      <a href="/#deal-form" class="nav-cta btn-primary">Get Financing</a>
+      <button class="burger" aria-label="Menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="fn-llc-hero">
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/foreign-national-investor-loans/">Foreign National Loans</a> / LLC Requirements</p>
+    <span class="fn-badge">Entity Structure Guide</span>
+    <h1>Foreign National LLC Requirements<br/>for US Investment Property</h1>
+    <p>LLC vesting, EIN process, state selection tradeoffs, operating agreement standards, and how entity structure interacts with DSCR loan underwriting.</p>
+  </section>
+
+  <!-- SECTION 1: WHY LLC -->
+  <section style="background:#fff;">
+    <div class="fn-section">
+      <h2>Why Foreign Nationals Use LLCs for US Real Estate</h2>
+      <p>The majority of foreign national investors who acquire US investment property use a limited liability company (LLC) as the title-holding entity rather than taking title individually. The LLC structure serves several distinct purposes that are particularly relevant to cross-border investors: liability isolation, privacy, estate tax planning, and operational separation of property finances.</p>
+
+      <div class="aeo-block">
+        <div class="aeo-q">Why do foreign nationals use an LLC to hold US investment property?</div>
+        <p>The primary reasons foreign national investors use LLC vesting are liability protection, US estate tax planning, and operational clarity. Liability protection means personal assets held outside the US are not reachable if a tenant or third party sues over a property-related injury — the LLC limits exposure to the assets inside the entity. For estate tax planning, foreign nationals face a $60,000 federal estate tax exemption on US-situs assets, compared to $13.6 million for US citizens. LLC structures, particularly those involving a foreign parent company, can shift or reduce US estate tax exposure. Operational clarity means rental income, expenses, and bank accounts are separated from personal finances, which simplifies US tax compliance.</p>
+      </div>
+
+      <div class="warning-box">
+        <strong>Note:</strong> LLC formation decisions have significant tax and legal implications that vary by your country of residence, applicable tax treaties, and personal financial situation. This page covers lending and documentation requirements only. Always engage a US attorney and a cross-border tax advisor before forming an entity to hold US real property.
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: STATE SELECTION -->
+  <section style="background:var(--cream, #f8f6f2);">
+    <div class="fn-section">
+      <h2>LLC Formation State: Where to Incorporate</h2>
+
+      <div class="aeo-block">
+        <div class="aeo-q">Should a foreign national form an LLC in Delaware, Wyoming, or the property state?</div>
+        <p>For a single property held in a single state, forming the LLC in the property state is the most straightforward approach. It avoids the cost and administrative burden of registering a Delaware or Wyoming entity as a "foreign entity" doing business in the property state — a step that is required whenever a business formed in one state operates in another. Delaware and Wyoming formations make sense for investors building multi-state portfolios, for those who prioritize charging order protection (Wyoming has particularly strong creditor protection), or for investors whose legal counsel recommends the structure for estate planning. The LLC state of formation does not affect DSCR loan eligibility.</p>
+      </div>
+
+      <div class="state-grid">
+        <div class="state-card">
+          <span class="state-tag popular">Most Common</span>
+          <h4>Florida LLC</h4>
+          <p>Best for FL-only investors. No registered agent premium. Annual report required ($138.75). Strong charging order statute. Public records include member names — limited privacy.</p>
+        </div>
+        <div class="state-card">
+          <span class="state-tag popular">Portfolio Investors</span>
+          <h4>Wyoming LLC</h4>
+          <p>Strongest charging order protection in the US. No state income tax. Low annual fees. No public member disclosure. Requires foreign registration in property state — adds cost for single-state investors.</p>
+        </div>
+        <div class="state-card">
+          <span class="state-tag popular">Common Choice</span>
+          <h4>Delaware LLC</h4>
+          <p>Well-established case law. Privacy — members not listed publicly. No income tax on non-Delaware income. Requires foreign registration in property state. Court of Chancery preferred by institutional investors.</p>
+        </div>
+        <div class="state-card">
+          <span class="state-tag caution">Evaluate Carefully</span>
+          <h4>New Mexico LLC</h4>
+          <p>Low cost, no annual report fee. Anonymous members. Less established legal history than DE/WY. Requires foreign registration in property state. Not commonly recommended by mainstream advisors.</p>
+        </div>
+      </div>
+
+      <h3>Florida-Specific: The Foreign Registration Requirement</h3>
+      <p>A foreign national purchasing property in Florida using a Wyoming or Delaware LLC must register the LLC as a "foreign LLC" with the Florida Division of Corporations before closing. This registration typically costs $125 and requires appointing a Florida registered agent. The registration establishes the LLC's legal standing to do business in Florida, which is required before title can be taken through the entity. Failure to register before closing creates title and lending complications that delay the transaction.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3: EIN PROCESS -->
+  <section style="background:#fff;">
+    <div class="fn-section">
+      <h2>EIN for Foreign-Owned LLCs: The Process</h2>
+
+      <div class="aeo-block">
+        <div class="aeo-q">How does a foreign national get an EIN for a US LLC without a Social Security Number?</div>
+        <p>A foreign national without a US Social Security Number or ITIN obtains an EIN for their LLC by submitting IRS Form SS-4 via fax (to the IRS international fax line at +1 267-941-1099) or by mail (to Internal Revenue Service, Attn: EIN International Operations, Cincinnati, OH 45999). The online EIN application at IRS.gov requires a US SSN or ITIN and is not available to foreign-owned entities without one. Fax applications typically receive the EIN within 4 business days; mail applications take 4 to 6 weeks. A responsible party — the foreign national who controls the LLC — must be named on Form SS-4 with their passport information.</p>
+      </div>
+
+      <div class="fn-steps">
+        <div class="fn-step">
+          <div class="fn-step-num">1</div>
+          <div class="fn-step-body">
+            <h4>Form the LLC</h4>
+            <p>File articles of organization (or certificate of formation) with the chosen state's Secretary of State. Can be done online in most states; some allow foreign-national owners without a US address if a registered agent is named. Filing fee typically $50–$200.</p>
+          </div>
+        </div>
+        <div class="fn-step">
+          <div class="fn-step-num">2</div>
+          <div class="fn-step-body">
+            <h4>Draft Operating Agreement</h4>
+            <p>The operating agreement establishes member ownership percentages, management structure (member-managed vs. manager-managed), and authorization to borrow. Lenders require this document at closing. Use a US attorney — template agreements often omit provisions that lenders require or that affect liability protection.</p>
+          </div>
+        </div>
+        <div class="fn-step">
+          <div class="fn-step-num">3</div>
+          <div class="fn-step-body">
+            <h4>Apply for EIN</h4>
+            <p>Complete IRS Form SS-4 with LLC name, state of formation, foreign national's name and passport number, and business purpose (real estate investment). Fax to +1 267-941-1099. The IRS returns the EIN on the same fax, typically within 4 business days. Keep the confirmation — lenders require it at closing.</p>
+          </div>
+        </div>
+        <div class="fn-step">
+          <div class="fn-step-num">4</div>
+          <div class="fn-step-body">
+            <h4>Open US Business Bank Account</h4>
+            <p>Open a US bank account in the LLC's name using the EIN and articles of organization. Some banks (Mercury, Relay, SVB) allow remote account opening for foreign-owned LLCs without a US in-person visit. A separate LLC bank account is essential for property expense management and lender reserve verification.</p>
+          </div>
+        </div>
+        <div class="fn-step">
+          <div class="fn-step-num">5</div>
+          <div class="fn-step-body">
+            <h4>Register in Property State (if different)</h4>
+            <p>If the LLC is formed in Delaware, Wyoming, or another state different from the property state, register it as a foreign LLC in the property state before closing. Appoint a registered agent in the property state. Confirm registration is complete before the title company files the deed.</p>
+          </div>
+        </div>
+        <div class="fn-step">
+          <div class="fn-step-num">6</div>
+          <div class="fn-step-body">
+            <h4>Provide Entity Package to Lender</h4>
+            <p>Compile: articles of organization, operating agreement, EIN confirmation letter (IRS SS-4 acceptance), certificate of good standing, and — if foreign registered — the foreign registration certificate. Some lenders also require a corporate resolution authorizing the specific loan transaction.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: OPERATING AGREEMENT -->
+  <section style="background:var(--cream, #f8f6f2);">
+    <div class="fn-section">
+      <h2>Operating Agreement Standards for DSCR Lending</h2>
+
+      <div class="aeo-block">
+        <div class="aeo-q">What provisions must a foreign national LLC operating agreement include for a DSCR loan?</div>
+        <p>DSCR lenders review operating agreements for: (1) explicit authorization for the LLC to borrow money and grant liens on real property; (2) identification of the member(s) and their ownership percentages; (3) designation of who has authority to execute loan documents on behalf of the LLC — typically the managing member or a named manager; (4) provisions confirming the LLC is validly organized and in good standing; and (5) absence of restrictions that would prohibit the specific type of financing being sought. Template operating agreements from online services often omit the borrowing-authorization provision, which triggers a lender title objection that delays closing.</p>
+      </div>
+
+      <h3>Manager-Managed vs. Member-Managed</h3>
+      <p>For foreign national LLCs holding US investment property, a member-managed structure is simplest: the foreign national member manages the LLC and executes all documents. Manager-managed structures are appropriate when the investor wants to designate a US-based property manager or attorney as the LLC manager for day-to-day decisions. If a manager-managed LLC is used, the lender will require verification that the manager has authority to execute the loan documents on behalf of the LLC — typically through the operating agreement and a corporate resolution.</p>
+
+      <div class="aeo-block">
+        <div class="aeo-q">Does a foreign national LLC need a US registered agent?</div>
+        <p>Yes. Every US LLC must maintain a registered agent in its state of formation — and in every state where it is registered to do business. The registered agent receives legal process (lawsuits, state notices) on behalf of the LLC. Foreign nationals who do not have a US address use a professional registered agent service, which typically costs $50–$150 per year per state. The registered agent's name and address are publicly listed in the state's business registry and on lender documents. The registered agent is an administrative requirement, not a co-owner or signatory.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: LENDER DOCUMENTATION TABLE -->
+  <section style="background:#fff;">
+    <div class="fn-section">
+      <h2>LLC Documentation Checklist for DSCR Closing</h2>
+
+      <div class="fn-table-wrap">
+        <table class="fn-table">
+          <thead>
+            <tr><th>Document</th><th>What to Provide</th><th>Common Issues</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Articles of Organization</td><td>Certified copy from state of formation</td><td>Uncertified copies sometimes rejected; must match LLC name exactly on title commitment</td></tr>
+            <tr><td>Operating Agreement</td><td>Fully executed; all members must sign</td><td>Template OAs often missing borrowing-authorization language; blanks left unfilled</td></tr>
+            <tr><td>EIN Confirmation</td><td>IRS SS-4 acceptance notice or 147c letter</td><td>147c letter requires phone call to IRS; allow 2–3 weeks for new entities</td></tr>
+            <tr><td>Certificate of Good Standing</td><td>Issued within 90 days of closing by state of formation</td><td>Annual reports must be current; delinquent annual reports invalidate good standing</td></tr>
+            <tr><td>Foreign Registration Certificate</td><td>If LLC formed in different state than property</td><td>Must be completed and returned before title company can close</td></tr>
+            <tr><td>Corporate Resolution</td><td>Authorizing the specific loan transaction and signatory</td><td>Some lenders provide their own form; must be signed by authorized member/manager</td></tr>
+            <tr><td>Personal Guaranty</td><td>Signed by all beneficial owners (typically 20%+ ownership)</td><td>Foreign national passport copy required with guaranty; notarization requirements vary</td></tr>
+            <tr><td>Member Passport Copies</td><td>All pages of valid passport for each member</td><td>Expired passports trigger title hold; must be current through projected closing</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="aeo-block">
+        <div class="aeo-q">How far in advance should a foreign national form an LLC before a real estate closing?</div>
+        <p>Allow at least 6 to 8 weeks before closing to form the LLC and complete all entity documentation. Formation is often completed in 1 to 5 business days (or same-day with expedited filing), but obtaining the EIN for a foreign-owned entity via fax takes 4 business days and via mail takes 4 to 6 weeks. Registering in a property state (if different from formation state) adds another 1 to 3 weeks. Lenders typically request the complete entity package during the initial underwriting phase — not just at closing — so delays in entity setup can affect the entire loan timeline.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:var(--cream, #f8f6f2);">
+    <div class="fn-faq-section">
+      <h2>Foreign National LLC: Frequently Asked Questions</h2>
+
+      <div class="fn-faq-item">
+        <h3>Can a foreign national LLC take title to property before the LLC has a bank account?</h3>
+        <p>Yes — title can vest in the LLC before a bank account is opened. However, closing funds (down payment and closing costs) must be wired from a verified source, and lenders require reserve verification. It is strongly advisable to have the LLC bank account open and funded before closing so that reserves can be demonstrated from the entity's own accounts. Some lenders accept reserves held in the foreign national member's personal accounts, particularly for first transactions, with reserves transferring to the LLC account at or after closing.</p>
+      </div>
+
+      <div class="fn-faq-item">
+        <h3>Is a single-purpose LLC required by DSCR lenders for foreign nationals?</h3>
+        <p>Many non-QM DSCR programs prefer or require a single-purpose entity (SPE) — an LLC that holds only the subject property and has no other business activity, liabilities, or property interests. Single-purpose LLCs simplify title insurance and underwriting. Programs that do not require an SPE may still require disclosure of all properties and liabilities held within the LLC. Building a multi-property portfolio in a single LLC is possible but creates complications on each successive financing transaction; single-purpose structures are more operationally efficient for repeat borrowers.</p>
+      </div>
+
+      <div class="fn-faq-item">
+        <h3>What happens to the US LLC if the foreign national member dies?</h3>
+        <p>LLC ownership transfers according to the operating agreement and applicable state law. If the operating agreement designates a successor or includes transfer provisions, membership interest passes accordingly. Without such provisions, state law governs. For foreign nationals, death triggers both US estate tax exposure (on US-situs assets) and FIRPTA considerations if the estate sells the property. An estate planning attorney should review the operating agreement and ownership structure — particularly for properties with significant equity — before closing.</p>
+      </div>
+
+      <div class="fn-faq-item">
+        <h3>Can a foreign corporation (not an LLC) be used to hold US investment property?</h3>
+        <p>Yes, but foreign corporations introduce complexity for DSCR lending. Most foreign national DSCR programs are structured for individual borrowers or domestic LLCs with individual guarantors. A foreign corporation as the legal borrower requires additional documentation, may not be eligible under standard foreign national programs, and introduces C-corporation tax treatment issues that make rental income reporting and exit taxable events more complicated. Domestic LLC vesting with foreign national ownership is the standard structure for foreign national DSCR lending.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED LINKS -->
+  <section class="fn-related">
+    <div class="fn-related-inner">
+      <h3>Related Resources</h3>
+      <div class="fn-related-links">
+        <a href="/foreign-national-investor-loans/">FN Program Hub</a>
+        <a href="/foreign-national-dscr-lender-matrix/">Lender Program Matrix</a>
+        <a href="/foreign-national-vs-itin-lending-paths/">FN vs. ITIN Paths</a>
+        <a href="/foreign-national-dscr-florida/">Florida FN Guide</a>
+        <a href="/foreign-national-cash-out-refinance/">Cash-Out Refinance</a>
+        <a href="/dscr-loan-requirements/">DSCR Overview</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STACK -->
+  <section class="fn-cta-stack">
+    <h2>Ready to Structure Your Entity and Close?</h2>
+    <p>Viador coordinates entity documentation alongside financing — so the LLC package and the loan package move in parallel.</p>
+    <div class="fn-cta-btns">
+      <a href="[WHATSAPP_LINK]" class="fn-btn-primary">WhatsApp Consultation</a>
+      <a href="[CALENDLY_LINK]" class="fn-btn-secondary">Schedule a Call</a>
+    </div>
+    <div class="fn-scenario-form">
+      <h3>Submit a Scenario</h3>
+      <input type="text" placeholder="Property state" />
+      <input type="text" placeholder="Estimated purchase price" />
+      <select><option>LLC formation status</option><option>Not yet formed</option><option>Formed, no EIN yet</option><option>Formed and EIN obtained</option><option>Using individual title</option></select>
+      <input type="text" placeholder="Country of citizenship" />
+      <button type="button">Submit Scenario</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>Viador Partners LLC | NMLS #2822744 | Loans originated through Focus Home Mortgage Inc. | NMLS #2769672</p>
+      <p>Equal Housing Lender. Not affiliated with any government agency or the US Department of Veterans Affairs.</p>
+      <p>This content is provided for informational purposes only and does not constitute legal, tax, or financial advice. Entity formation, tax planning, and estate considerations involve complex legal issues that vary by individual circumstance. Consult a licensed US attorney and tax advisor before making entity structuring decisions. Lending terms are subject to underwriting review and program availability.</p>
+      <p>&copy; 2026 Viador Partners LLC. All rights reserved. | <a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms</a></p>
+    </div>
+  </footer>
+  <script src="/script.js"></script>
+</body>
+</html>
