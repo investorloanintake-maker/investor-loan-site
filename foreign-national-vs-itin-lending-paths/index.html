@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foreign National vs. ITIN Lending Paths | Viador Partners</title>
+  <meta name="description" content="Foreign national vs. ITIN borrower: understand the two lending paths, document requirements, LTV differences, and how US credit history affects program eligibility." />
+  <link rel="canonical" href="https://viadorpartners.com/foreign-national-vs-itin-lending-paths/" />
+  <meta property="og:title" content="Foreign National vs. ITIN Lending Paths | Viador Partners" />
+  <meta property="og:description" content="Clear comparison of foreign national and ITIN lending paths for investment property: eligibility, documentation, LTV parameters, and credit requirements." />
+  <meta property="og:url" content="https://viadorpartners.com/foreign-national-vs-itin-lending-paths/" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    .fn-vs-hero { background: var(--ink); color: #fff; padding: 6rem 1.5rem 4rem; text-align: center; }
+    .fn-vs-hero h1 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 300; margin-bottom: 1.2rem; }
+    .fn-vs-hero p { font-size: 1.1rem; opacity: .85; max-width: 680px; margin: 0 auto 2rem; }
+    .fn-vs-hero .breadcrumb { font-family: 'DM Mono', monospace; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; opacity: .55; margin-bottom: 1.2rem; }
+    .fn-vs-hero .breadcrumb a { color: #fff; text-decoration: none; }
+    .fn-section { max-width: var(--max, 1160px); margin: 0 auto; padding: 3.5rem 1.5rem; }
+    .fn-section h2 { font-family: 'Fraunces', serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 300; margin-bottom: 1.2rem; color: var(--ink); }
+    .fn-section h3 { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; font-weight: 500; margin: 1.8rem 0 .6rem; color: var(--ink); }
+    .aeo-block { background: var(--cream, #f8f6f2); border-left: 3px solid var(--gold, #c9a84c); padding: 1.2rem 1.5rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+    .aeo-block .aeo-q { font-family: 'DM Mono', monospace; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--gold, #c9a84c); margin-bottom: .5rem; }
+    .aeo-block p { margin: 0; font-size: .97rem; line-height: 1.65; }
+    .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+    @media (max-width: 640px) { .comparison-grid { grid-template-columns: 1fr; } }
+    .comp-card { border: 1px solid #ddd; border-radius: 6px; overflow: hidden; }
+    .comp-card-header { padding: 1rem 1.2rem; font-family: 'DM Mono', monospace; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 500; }
+    .comp-card-header.fn { background: var(--ink); color: #fff; }
+    .comp-card-header.itin { background: var(--gold, #c9a84c); color: var(--ink); }
+    .comp-card-body { padding: 1.2rem; background: #fff; }
+    .comp-card-body ul { margin: 0; padding-left: 1.2rem; line-height: 1.85; font-size: .92rem; }
+    .fn-table-wrap { overflow-x: auto; margin: 1.8rem 0; }
+    .fn-table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+    .fn-table th { background: var(--ink); color: #fff; padding: .7rem 1rem; text-align: left; font-family: 'DM Mono', monospace; font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 400; }
+    .fn-table td { padding: .65rem 1rem; border-bottom: 1px solid #e5e1d8; vertical-align: top; }
+    .fn-table tr:nth-child(even) td { background: var(--cream, #f8f6f2); }
+    .fn-table td.check { color: #2a7a2a; font-weight: 600; }
+    .fn-table td.cross { color: #b03030; font-weight: 600; }
+    .fn-table td.partial { color: #b07a00; font-weight: 600; }
+    .fn-cta-stack { background: var(--ink); color: #fff; padding: 3rem 1.5rem; text-align: center; }
+    .fn-cta-stack h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 1.9rem; margin-bottom: .8rem; }
+    .fn-cta-stack p { opacity: .8; margin-bottom: 2rem; }
+    .fn-cta-btns { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .fn-btn-primary { background: var(--gold, #c9a84c); color: var(--ink); padding: .85rem 2rem; border-radius: 4px; font-weight: 500; text-decoration: none; font-size: .95rem; }
+    .fn-btn-secondary { border: 1px solid rgba(255,255,255,.4); color: #fff; padding: .85rem 2rem; border-radius: 4px; text-decoration: none; font-size: .95rem; }
+    .fn-scenario-form { background: #fff; max-width: 520px; margin: 2rem auto 0; padding: 1.8rem; border-radius: 6px; text-align: left; }
+    .fn-scenario-form h3 { color: var(--ink); font-size: 1rem; margin: 0 0 1rem; font-family: 'DM Sans', sans-serif; font-weight: 500; }
+    .fn-scenario-form input, .fn-scenario-form select { width: 100%; padding: .6rem .8rem; border: 1px solid #ddd; border-radius: 4px; font-size: .9rem; margin-bottom: .8rem; box-sizing: border-box; }
+    .fn-scenario-form button { background: var(--gold, #c9a84c); color: var(--ink); border: none; padding: .75rem 1.5rem; border-radius: 4px; font-weight: 500; font-size: .9rem; cursor: pointer; width: 100%; }
+    .fn-faq-section { max-width: var(--max, 1160px); margin: 0 auto; padding: 3.5rem 1.5rem; }
+    .fn-faq-section h2 { font-family: 'Fraunces', serif; font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 300; margin-bottom: 1.5rem; }
+    .fn-faq-item { border-bottom: 1px solid #e5e1d8; padding: 1.2rem 0; }
+    .fn-faq-item h3 { font-size: 1rem; font-weight: 500; margin: 0 0 .5rem; color: var(--ink); }
+    .fn-faq-item p { margin: 0; font-size: .93rem; line-height: 1.65; color: #444; }
+    .fn-related { background: var(--cream, #f8f6f2); padding: 2.5rem 1.5rem; }
+    .fn-related-inner { max-width: var(--max, 1160px); margin: 0 auto; }
+    .fn-related h3 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 1.3rem; margin-bottom: 1rem; }
+    .fn-related-links { display: flex; flex-wrap: wrap; gap: .8rem; }
+    .fn-related-links a { background: #fff; border: 1px solid #ddd; padding: .5rem 1rem; border-radius: 4px; font-size: .88rem; text-decoration: none; color: var(--ink); }
+    .fn-badge { display: inline-block; background: var(--gold, #c9a84c); color: var(--ink); font-size: .7rem; font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .06em; padding: .2rem .6rem; border-radius: 3px; margin-bottom: 1.2rem; }
+    .path-decision { background: var(--ink); color: #fff; padding: 1.5rem 2rem; border-radius: 6px; margin: 2rem 0; }
+    .path-decision h3 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 1.2rem; margin: 0 0 .8rem; }
+    .path-decision p { margin: 0; opacity: .85; font-size: .95rem; line-height: 1.6; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the difference between a foreign national borrower and an ITIN borrower?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A foreign national borrower is a non-US-citizen who does not have lawful permanent residency and typically does not have a US Social Security Number or established US credit history. An ITIN borrower also lacks permanent residency but has obtained an Individual Taxpayer Identification Number from the IRS, often has filed US tax returns, and may have limited US credit tradelines. ITIN borrowers are commonly non-resident aliens who earn US-source income or have resided in the US on a visa. The lending path differs because ITIN borrowers have a US tax identity that programs can verify, while foreign national programs rely entirely on foreign identity and credit documentation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do foreign national DSCR loans require an ITIN?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Foreign national DSCR programs do not require an Individual Taxpayer Identification Number. The borrower qualifies using a valid foreign passport and visa or visa-exempt entry documentation. Income is documented via rental income (executed lease or appraisal) rather than tax returns, so the absence of a US tax identity does not block qualification. ITIN is an optional enhancement that may improve pricing tiers on some programs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which lending path offers higher LTV — foreign national or ITIN?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ITIN borrowers with established US credit history — typically a FICO score of 680 or above — can access the same LTV parameters as foreign nationals and sometimes modestly higher LTVs on specific programs. The primary advantage of having an ITIN with US credit is pricing (lower rate spread) rather than LTV. Foreign national programs without any US credit typically cap at 75% LTV on standard property types, which matches the ITIN maximum. The difference is more pronounced on credit score floors than on LTV ceilings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What credit documentation is accepted for a foreign national with no US credit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Accepted alternatives to a US credit report for foreign nationals include: a 12-month foreign credit report from the borrower's home country bureau with certified translation, a credentialed reference letter from a foreign bank on institutional letterhead confirming account history and standing, or a Tri-Merge equivalent from an international credit reporting service. Some programs use a VantageScore generated from rent and utility payments if the borrower has a US address history. The no-US-credit path typically adds 0.25 to 0.75 percentage points to the rate compared to a qualified US FICO score."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can an ITIN borrower use the same DSCR loan programs as a foreign national?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In most cases yes — DSCR programs that accept foreign nationals also accept ITIN borrowers, since the ITIN borrower is also a non-permanent-resident alien. ITIN borrowers with established US credit may qualify for a broader range of program tiers. The reverse is not always true: some programs accept ITIN borrowers but not pure foreign national borrowers (those with no US tax identity at all). Program selection depends on the borrower's complete profile rather than a binary foreign national vs. ITIN categorization."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What tax filing documentation do ITIN borrowers need for a DSCR loan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For DSCR loans, income is documented through rental income rather than tax returns, so ITIN borrowers do not need to provide US tax returns (1040-NR) for DSCR qualification. The ITIN itself — confirmed through the IRS-issued ITIN assignment letter — serves as identity verification. Some programs may request the two most recent 1040-NR filings if the borrower has significant US-source income, but this is a program-specific requirement rather than a universal rule for DSCR lending."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does holding a visa change the lending path for a foreign national?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Visa type affects which loan programs are available but does not convert a foreign national into a different borrower category for DSCR purposes. Visa-exempt tourists, B-1/B-2 visitors, and holders of E-2, EB-5, L-1, or O-1 visas all qualify under foreign national programs. Borrowers on H-1B, TN, or other work-authorized visas who have established US credit may qualify for ITIN-path programs or, if they have a Social Security Number, conventional investment property programs with significantly more favorable pricing. The key dividing line is whether the borrower has a valid SSN and US credit — not visa category alone."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the rate difference between foreign national and ITIN DSCR loans?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Foreign national DSCR programs generally carry a rate premium relative to domestic investor DSCR loans due to the added documentation complexity and secondary market liquidity differences. The spread between a foreign national program and a comparable domestic DSCR program typically runs 0.50 to 1.50 percentage points depending on loan amount, LTV, DSCR ratio, and credit documentation quality. ITIN borrowers with strong US credit history (680+ FICO) can compress this spread to 0.25 to 0.75 points. Exact pricing is scenario-specific and not guaranteed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can a foreign national establish US credit to improve future loan terms?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Foreign nationals who plan to invest in US real estate over multiple transactions benefit from building US credit history. Common strategies include opening a US bank account with a credit card product secured by a deposit, becoming an authorized user on a US resident's account, or applying for an ITIN and filing US tax returns to establish tax identity. Tradelines typically need 12 to 24 months of history before a FICO score is generated. Over time, a 700+ FICO score materially improves rate access and program breadth."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does entity ownership (LLC) affect the foreign national vs. ITIN lending path?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Entity vesting through an LLC does not change the borrower's classification as foreign national or ITIN — the personal guarantor's documentation profile drives the program path. A foreign national taking title through a Florida LLC still qualifies under foreign national program parameters; the LLC documents (operating agreement, EIN letter, articles of organization) are additive documentation, not substitutes for the borrower's personal identity and credit package."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What reserve amounts are required for foreign national vs. ITIN DSCR borrowers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Reserve requirements are similar across both paths: 6 to 12 months of PITIA held in verified liquid accounts is standard for loan amounts up to $1,500,000. Above that threshold, 12 to 24 months of reserves are common. ITIN borrowers with US bank accounts have a simpler documentation path since US bank statements are accepted without translation. Foreign national borrowers can use foreign bank statements with certified translations, which adds processing time but does not change the reserve amount required."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="/lockup-dark.png" alt="Viador Partners" height="32" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span style="display:none;font-family:'Fraunces',serif;font-weight:300;font-size:1.2rem;color:var(--ink)">Viador Partners</span>
+      </a>
+      <div class="nav-links">
+        <a href="/dscr-loan-requirements/">DSCR Loans</a>
+        <a href="/bpl/">Business Purpose</a>
+        <a href="/bridge/">Bridge</a>
+        <a href="/foreign-national-investor-loans/">Foreign National</a>
+        <a href="/about/">About</a>
+      </div>
+      <a href="/#deal-form" class="nav-cta btn-primary">Get Financing</a>
+      <button class="burger" aria-label="Menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="fn-vs-hero">
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/foreign-national-investor-loans/">Foreign National Loans</a> / FN vs. ITIN</p>
+    <span class="fn-badge">Educational Comparison</span>
+    <h1>Foreign National vs. ITIN<br/>Lending Paths</h1>
+    <p>Two distinct program frameworks serve non-US-citizen investors. Understanding which path applies to your situation determines documentation requirements, LTV access, and program availability.</p>
+  </section>
+
+  <!-- SECTION 1: THE TWO PATHS -->
+  <section style="background:#fff;">
+    <div class="fn-section">
+      <h2>Two Paths, One Outcome: US Investment Property Financing for Non-Citizens</h2>
+      <p>Non-US-citizen investors accessing US real estate financing fall into one of two program frameworks: the <strong>foreign national path</strong> or the <strong>ITIN path</strong>. These are not interchangeable terms — they represent materially different documentation structures, program access profiles, and underwriting methodologies. Getting the classification right at the start of the process prevents delays and ensures you are presented to the correct capital providers.</p>
+
+      <div class="aeo-block">
+        <div class="aeo-q">What is a foreign national borrower in US mortgage lending?</div>
+        <p>In US non-QM lending, a "foreign national" borrower is a non-US-citizen without lawful permanent residency who has no Social Security Number and no established US credit history. The borrower qualifies for investment property financing using a foreign passport, visa or entry documentation, foreign bank statements for reserves, and rental income to satisfy the debt service coverage ratio. Foreign national programs are specifically designed for investors who have no US tax identity and limited or no US financial footprint.</p>
+      </div>
+
+      <div class="aeo-block">
+        <div class="aeo-q">What is an ITIN borrower and how do they differ from a foreign national borrower?</div>
+        <p>An ITIN (Individual Taxpayer Identification Number) borrower is a non-US-citizen who has obtained a 9-digit tax identification number from the IRS — formatted W7X-XX-XXXX — typically because they earn US-source income, file US tax returns, or have a US business interest. ITIN borrowers often have some US financial history: a bank account, limited tradelines, or prior year tax filings. The ITIN provides a US tax identity that lenders can verify, opening access to a broader range of program tiers than pure foreign national programs, particularly on credit score requirements and rate pricing.</p>
+      </div>
+
+      <div class="comparison-grid">
+        <div class="comp-card">
+          <div class="comp-card-header fn">Foreign National Path</div>
+          <div class="comp-card-body">
+            <ul>
+              <li>No SSN, no ITIN required</li>
+              <li>No US credit history required</li>
+              <li>Valid foreign passport + visa/entry docs</li>
+              <li>Foreign bank statements for reserves</li>
+              <li>Foreign credit report or bank reference letter</li>
+              <li>DSCR income from lease or Form 1007</li>
+              <li>Max LTV: 75% standard property types</li>
+              <li>Rate premium: 0.50–1.50% over domestic DSCR</li>
+              <li>Programs: specialized non-QM FN lenders</li>
+            </ul>
+          </div>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-header itin">ITIN Path</div>
+          <div class="comp-card-body">
+            <ul>
+              <li>IRS-issued ITIN required (no SSN)</li>
+              <li>US credit score possible (680+ preferred)</li>
+              <li>Foreign or US bank statements for reserves</li>
+              <li>ITIN confirmation letter from IRS</li>
+              <li>Tax returns (1040-NR) may or may not be required</li>
+              <li>DSCR income from lease or Form 1007</li>
+              <li>Max LTV: 75–80% with established US credit</li>
+              <li>Rate premium: 0.25–0.75% over domestic DSCR</li>
+              <li>Programs: broader non-QM tier access</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: DETAILED COMPARISON TABLE -->
+  <section style="background:var(--cream, #f8f6f2);">
+    <div class="fn-section">
+      <h2>Side-by-Side Program Comparison</h2>
+
+      <div class="fn-table-wrap">
+        <table class="fn-table">
+          <thead>
+            <tr><th>Parameter</th><th>Foreign National</th><th>ITIN (No US Credit)</th><th>ITIN (680+ US FICO)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Tax Identity Required</td><td class="cross">None required</td><td class="check">ITIN required</td><td class="check">ITIN required</td></tr>
+            <tr><td>US Credit Score</td><td class="cross">Not applicable</td><td class="partial">Not established</td><td class="check">680+ FICO</td></tr>
+            <tr><td>Credit Alternative</td><td class="check">Foreign CR or bank reference</td><td class="check">Foreign CR or bank reference</td><td class="cross">Not required — FICO used</td></tr>
+            <tr><td>Max LTV (SFR Purchase)</td><td>75%</td><td>75%</td><td>75–80%</td></tr>
+            <tr><td>Max LTV (Cash-Out)</td><td>70%</td><td>70%</td><td>70–75%</td></tr>
+            <tr><td>Min DSCR</td><td>1.00x</td><td>1.00x</td><td>1.00x</td></tr>
+            <tr><td>Reserve Documentation</td><td>Foreign bank statements + translation</td><td>Foreign or US bank statements</td><td>US bank statements preferred</td></tr>
+            <tr><td>Rate Spread vs. Domestic DSCR</td><td>+0.50–1.50%</td><td>+0.50–1.00%</td><td>+0.25–0.75%</td></tr>
+            <tr><td>Program Breadth</td><td>Specialized FN programs only</td><td>FN programs + broader non-QM</td><td>Broadest non-QM access</td></tr>
+            <tr><td>LLC Vesting Allowed</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+            <tr><td>2-4 Unit Eligible</td><td class="check">Yes (70% LTV)</td><td class="check">Yes (70% LTV)</td><td class="check">Yes (70–75% LTV)</td></tr>
+            <tr><td>Closing Timeline</td><td>35–50 days (translation adds time)</td><td>30–45 days</td><td>25–40 days</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="aeo-block">
+        <div class="aeo-q">Which path is better — foreign national or ITIN — for a non-resident investor?</div>
+        <p>There is no universally superior path — the right framework depends on the investor's existing US financial footprint. Investors with no US presence and no ITIN should proceed under the foreign national path, which is fully capable of closing DSCR investment property loans. Investors who already have an ITIN and have filed US tax returns should explore whether existing US financial accounts have generated tradelines, since even limited US credit history can compress rate spread meaningfully. The path that generates the best pricing on a specific scenario is the right one, and Viador evaluates both before making a program recommendation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: CREDIT DOCUMENTATION -->
+  <section style="background:#fff;">
+    <div class="fn-section">
+      <h2>Credit Documentation: What Each Path Requires</h2>
+
+      <h3>Foreign National: Establishing Creditworthiness Without US Credit</h3>
+      <p>The most common question from first-time foreign national borrowers is how creditworthiness is established without a US credit score. The answer is a layered approach that substitutes foreign documentation:</p>
+
+      <div class="aeo-block">
+        <div class="aeo-q">How do foreign nationals prove creditworthiness for a US investment property loan?</div>
+        <p>Foreign national programs accept credit evidence through one of three routes: (1) a 12-month foreign credit report from the borrower's home country credit bureau, translated and certified, showing no material derogatory history; (2) a reference letter from a recognized foreign bank on institutional letterhead, confirming the borrower's account standing, tenure, and credit history in good standing; or (3) an international credit report from a credentialing service that compiles cross-border credit data. These alternatives do not produce a FICO score — instead, underwriters review the qualitative credit narrative and reserve documentation to assess repayment capacity.</p>
+      </div>
+
+      <h3>ITIN: Building Toward a US FICO Score</h3>
+      <p>ITIN holders who have been in the US financial system for at least 12 months may have generated a US credit score even without knowing it. Authorized user accounts, secured credit cards from US banks, and credit builder products all create tradelines under the ITIN number. Before assuming a foreign national program is required, ITIN holders should pull a US tri-merge credit report to see if a score exists — even a thin-file score in the 660 range may qualify for more favorable program tiers.</p>
+
+      <div class="aeo-block">
+        <div class="aeo-q">How does a foreign national get a US FICO score?</div>
+        <p>Generating a US FICO score as a foreign national requires establishing tradelines under a US Social Security Number or ITIN. The most common paths: (1) open a US bank account and apply for a secured credit card with a deposit — the card reports monthly to US bureaus; (2) apply for an ITIN and become an authorized user on a US resident's existing credit card account; (3) apply for a credit-builder loan from a US credit union. After 12–24 months of consistent payment history, a FICO score is typically generated. Foreign nationals planning repeat US investments benefit from starting this process early.</p>
+      </div>
+
+      <h3>The Role of Reserves in Credit Assessment</h3>
+      <p>For both foreign national and ITIN programs, substantial liquid reserves serve a compensating-factor role when credit documentation is thin or non-traditional. Borrowers with 18–24 months of PITIA in verified liquid accounts — even in foreign financial institutions — present a materially stronger credit narrative than borrowers with minimal reserves regardless of credit path. Reserve depth is the most reliable compensating factor in non-QM foreign national underwriting.</p>
+
+      <div class="aeo-block">
+        <div class="aeo-q">Do foreign national DSCR lenders require US tax returns?</div>
+        <p>No. DSCR loans qualify on rental income from the subject property — not on the borrower's personal income or tax returns. Neither a foreign national nor an ITIN borrower needs to provide US tax returns (Form 1040-NR or otherwise) to qualify for a DSCR investment property loan. The income calculation is entirely property-level: does the property generate enough gross rent to cover PITIA? This makes DSCR structurally accessible to foreign investors with no US tax filing history.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: WHICH PATH APPLIES -->
+  <section style="background:var(--cream, #f8f6f2);">
+    <div class="fn-section">
+      <h2>Determining Your Lending Path</h2>
+      <p>In practice, most borrowers know their situation quickly. Use the decision framework below to identify your starting point before contacting a capital advisor.</p>
+
+      <div class="path-decision">
+        <h3>You are on the Foreign National Path if:</h3>
+        <p>You have a valid foreign passport, no US Social Security Number, no ITIN, no US credit history, and assets held primarily in a foreign financial institution. You are investing in US real estate without US residency or employment income. This is the most common profile among first-time international investors in US real estate.</p>
+      </div>
+
+      <div class="path-decision" style="background:var(--gold, #c9a84c); color:var(--ink);">
+        <h3>You are on the ITIN Path if:</h3>
+        <p>You have already obtained an ITIN from the IRS — typically because you file US tax returns, have US-source income, or have a US business entity. You may have a US bank account or limited US credit tradelines. Your primary residence is outside the US but you have an established US tax identity.</p>
+      </div>
+
+      <div class="aeo-block">
+        <div class="aeo-q">Can a foreign national convert to the ITIN lending path?</div>
+        <p>Yes. A foreign national can apply for an ITIN at any time by filing IRS Form W-7 with supporting identification documentation. The ITIN is typically issued within 7 to 11 weeks. Obtaining an ITIN does not by itself generate US credit — that requires opening tradeline-reporting accounts — but it creates the tax identity that enables future access to a broader program tier. Foreign nationals planning multiple US acquisitions over 3–5 years benefit from obtaining an ITIN early in their investment program even if the first transaction closes under foreign national parameters.</p>
+      </div>
+
+      <h3>Borrowers Who May Qualify Under Standard Domestic Programs</h3>
+      <p>Foreign nationals on H-1B, L-1, O-1, TN, or E-3 work-authorized visas who have a Social Security Number and 2+ years of US credit history may qualify for conventional investment property programs (Fannie Mae or non-QM domestic investor products) at significantly more favorable pricing than either the foreign national or ITIN-path alternative. If you have a US SSN, the foreign national and ITIN paths are likely suboptimal — a domestic investor DSCR program should be evaluated first.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:#fff;">
+    <div class="fn-faq-section">
+      <h2>FN vs. ITIN Lending: Frequently Asked Questions</h2>
+
+      <div class="fn-faq-item">
+        <h3>Can a married couple use one foreign national path and one ITIN path?</h3>
+        <p>Yes, and this is a structuring consideration worth exploring. If one borrower has established US credit (680+ FICO) and the other does not, using the credit-qualified borrower as the primary borrower may allow the file to qualify under more favorable program parameters, even if the other borrower remains on the foreign national profile. Program rules vary — some require all borrowers to meet the credit standard, while others qualify the file on the strongest borrower's profile. Viador evaluates the full borrower set before recommending structure.</p>
+      </div>
+
+      <div class="fn-faq-item">
+        <h3>Does having a Green Card change the lending path?</h3>
+        <p>Yes, significantly. Lawful Permanent Residents (Green Card holders) are treated as domestic borrowers by most lenders, not as foreign nationals. If you have an active Green Card (Form I-551), you access the full range of domestic investment property programs including Fannie Mae-eligible products and standard non-QM investor DSCR at domestic pricing. The foreign national and ITIN paths are not applicable — and using them would mean leaving significant pricing value on the table.</p>
+      </div>
+
+      <div class="fn-faq-item">
+        <h3>Can a foreign national DSCR loan be refinanced to a better product later?</h3>
+        <p>Yes. Foreign national DSCR loans are refinanceable. As the borrower builds US credit history and reserves, they may qualify for better program tiers on refinance. Prepayment penalties — common on non-QM foreign national programs — should be modeled against the expected refinance timing. A 5/4/3/2/1 step-down penalty means full payoff in year one incurs a 5% penalty on the outstanding balance; holding through the penalty period before refinancing materially improves the economics of the rate improvement.</p>
+      </div>
+
+      <div class="fn-faq-item">
+        <h3>Are there countries whose nationals are ineligible for US DSCR loans?</h3>
+        <p>Yes. OFAC (Office of Foreign Assets Control) sanctions programs prohibit US financial institutions from transacting with nationals of certain designated countries. Additionally, Florida SB 264 restricts property purchase near military installations for nationals of specified countries. The ineligible country list varies by lender and is subject to regulatory updates. Viador reviews borrower country of citizenship at intake and will advise on eligibility before any application is submitted.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED LINKS -->
+  <section class="fn-related">
+    <div class="fn-related-inner">
+      <h3>Related Resources</h3>
+      <div class="fn-related-links">
+        <a href="/foreign-national-investor-loans/">FN Program Hub</a>
+        <a href="/foreign-national-dscr-lender-matrix/">Lender Program Matrix</a>
+        <a href="/foreign-national-llc-requirements/">LLC Requirements</a>
+        <a href="/foreign-national-dscr-florida/">Florida FN Guide</a>
+        <a href="/foreign-national-dscr-tampa/">Tampa FN Guide</a>
+        <a href="/foreign-national-cash-out-refinance/">Cash-Out Refinance</a>
+        <a href="/dscr-loan-requirements/">DSCR Overview</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STACK -->
+  <section class="fn-cta-stack">
+    <h2>Know Your Path. Structure the Deal Right.</h2>
+    <p>Viador reviews your full borrower profile before recommending a program — foreign national, ITIN, or domestic investor.</p>
+    <div class="fn-cta-btns">
+      <a href="[WHATSAPP_LINK]" class="fn-btn-primary">WhatsApp Consultation</a>
+      <a href="[CALENDLY_LINK]" class="fn-btn-secondary">Schedule a Call</a>
+    </div>
+    <div class="fn-scenario-form">
+      <h3>Submit a Scenario</h3>
+      <input type="text" placeholder="Property type and state" />
+      <input type="text" placeholder="Estimated purchase price" />
+      <select><option>Borrower type</option><option>Foreign National (no US identity)</option><option>ITIN holder</option><option>Green Card holder</option><option>Work visa (H-1B, L-1, etc.)</option></select>
+      <input type="text" placeholder="Country of citizenship" />
+      <button type="button">Submit Scenario</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>Viador Partners LLC | NMLS #2822744 | Loans originated through Focus Home Mortgage Inc. | NMLS #2769672</p>
+      <p>Equal Housing Lender. Not affiliated with any government agency or the US Department of Veterans Affairs.</p>
+      <p>This content is provided for informational purposes only and does not constitute a commitment to lend. All loan approvals are subject to underwriting review and program availability. Rate spreads cited are illustrative ranges and are not guaranteed. Loan terms vary by program and are subject to change without notice.</p>
+      <p>&copy; 2026 Viador Partners LLC. All rights reserved. | <a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms</a></p>
+    </div>
+  </footer>
+  <script src="/script.js"></script>
+</body>
+</html>
