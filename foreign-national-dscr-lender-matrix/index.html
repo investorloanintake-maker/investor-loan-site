@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foreign National DSCR Lender Program Matrix | Viador Partners</title>
+  <meta name="description" content="Anonymized comparison of 6 foreign national DSCR loan programs: LTV, DSCR minimum, loan amounts, credit requirements, entity vesting, and reserve standards." />
+  <link rel="canonical" href="https://viadorpartners.com/foreign-national-dscr-lender-matrix/" />
+  <meta property="og:title" content="Foreign National DSCR Lender Program Matrix | Viador Partners" />
+  <meta property="og:description" content="Side-by-side comparison of 6 active foreign national DSCR programs: parameters, property types, credit alternatives, and rate spread guidance." />
+  <meta property="og:url" content="https://viadorpartners.com/foreign-national-dscr-lender-matrix/" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    .matrix-hero { background: var(--ink); color: #fff; padding: 6rem 1.5rem 4rem; text-align: center; }
+    .matrix-hero h1 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 300; margin-bottom: 1.2rem; }
+    .matrix-hero p { font-size: 1.1rem; opacity: .85; max-width: 700px; margin: 0 auto 2rem; }
+    .matrix-hero .breadcrumb { font-family: 'DM Mono', monospace; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; opacity: .55; margin-bottom: 1.2rem; }
+    .matrix-hero .breadcrumb a { color: #fff; text-decoration: none; }
+    .fn-section { max-width: var(--max, 1160px); margin: 0 auto; padding: 3.5rem 1.5rem; }
+    .fn-section h2 { font-family: 'Fraunces', serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 300; margin-bottom: 1.2rem; color: var(--ink); }
+    .fn-section h3 { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; font-weight: 500; margin: 1.8rem 0 .6rem; color: var(--ink); }
+    .aeo-block { background: var(--cream, #f8f6f2); border-left: 3px solid var(--gold, #c9a84c); padding: 1.2rem 1.5rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+    .aeo-block .aeo-q { font-family: 'DM Mono', monospace; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--gold, #c9a84c); margin-bottom: .5rem; }
+    .aeo-block p { margin: 0; font-size: .97rem; line-height: 1.65; }
+    /* Matrix table */
+    .matrix-wrap { overflow-x: auto; margin: 2rem 0; -webkit-overflow-scrolling: touch; }
+    .matrix-table { width: 100%; min-width: 900px; border-collapse: collapse; font-size: .88rem; }
+    .matrix-table th.param { background: var(--ink); color: #fff; padding: .8rem 1rem; text-align: left; font-family: 'DM Mono', monospace; font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 400; min-width: 140px; position: sticky; left: 0; z-index: 2; }
+    .matrix-table th.prog { background: #2a2a2a; color: #fff; padding: .8rem .8rem; text-align: center; font-family: 'DM Mono', monospace; font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 400; }
+    .matrix-table td.param-name { background: var(--cream, #f8f6f2); font-weight: 500; padding: .65rem 1rem; border-bottom: 1px solid #ddd; font-size: .88rem; min-width: 140px; position: sticky; left: 0; z-index: 1; }
+    .matrix-table td.val { padding: .65rem .8rem; border-bottom: 1px solid #e5e1d8; text-align: center; font-size: .86rem; }
+    .matrix-table tr:nth-child(even) td { background: #fafaf7; }
+    .matrix-table tr:nth-child(even) td.param-name { background: #f0ede7; }
+    .prog-header { text-align: center; }
+    .prog-tier { display: inline-block; font-size: .65rem; font-family: 'DM Mono', monospace; padding: .1rem .4rem; border-radius: 3px; margin-top: .2rem; }
+    .tier-a { background: #e8f0e8; color: #2a6a2a; }
+    .tier-b { background: #e8eaf0; color: #2a3a7a; }
+    .tier-c { background: #f0ede0; color: #6a5a2a; }
+    /* Dimension cards */
+    .dim-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; margin: 2rem 0; }
+    .dim-card { border: 1px solid #ddd; border-radius: 6px; padding: 1.2rem; background: #fff; }
+    .dim-card h4 { font-size: .95rem; font-weight: 500; color: var(--ink); margin: 0 0 .5rem; }
+    .dim-card p { font-size: .88rem; line-height: 1.6; color: #555; margin: 0; }
+    /* CTA */
+    .fn-cta-stack { background: var(--ink); color: #fff; padding: 3rem 1.5rem; text-align: center; }
+    .fn-cta-stack h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 1.9rem; margin-bottom: .8rem; }
+    .fn-cta-stack p { opacity: .8; margin-bottom: 2rem; }
+    .fn-cta-btns { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .fn-btn-primary { background: var(--gold, #c9a84c); color: var(--ink); padding: .85rem 2rem; border-radius: 4px; font-weight: 500; text-decoration: none; font-size: .95rem; }
+    .fn-btn-secondary { border: 1px solid rgba(255,255,255,.4); color: #fff; padding: .85rem 2rem; border-radius: 4px; text-decoration: none; font-size: .95rem; }
+    .fn-scenario-form { background: #fff; max-width: 520px; margin: 2rem auto 0; padding: 1.8rem; border-radius: 6px; text-align: left; }
+    .fn-scenario-form h3 { color: var(--ink); font-size: 1rem; margin: 0 0 1rem; }
+    .fn-scenario-form input, .fn-scenario-form select { width: 100%; padding: .6rem .8rem; border: 1px solid #ddd; border-radius: 4px; font-size: .9rem; margin-bottom: .8rem; box-sizing: border-box; }
+    .fn-scenario-form button { background: var(--gold, #c9a84c); color: var(--ink); border: none; padding: .75rem 1.5rem; border-radius: 4px; font-weight: 500; font-size: .9rem; cursor: pointer; width: 100%; }
+    .fn-faq-section { max-width: var(--max, 1160px); margin: 0 auto; padding: 3.5rem 1.5rem; }
+    .fn-faq-section h2 { font-family: 'Fraunces', serif; font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 300; margin-bottom: 1.5rem; }
+    .fn-faq-item { border-bottom: 1px solid #e5e1d8; padding: 1.2rem 0; }
+    .fn-faq-item h3 { font-size: 1rem; font-weight: 500; margin: 0 0 .5rem; color: var(--ink); }
+    .fn-faq-item p { margin: 0; font-size: .93rem; line-height: 1.65; color: #444; }
+    .fn-related { background: var(--cream, #f8f6f2); padding: 2.5rem 1.5rem; }
+    .fn-related-inner { max-width: var(--max, 1160px); margin: 0 auto; }
+    .fn-related h3 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 1.3rem; margin-bottom: 1rem; }
+    .fn-related-links { display: flex; flex-wrap: wrap; gap: .8rem; }
+    .fn-related-links a { background: #fff; border: 1px solid #ddd; padding: .5rem 1rem; border-radius: 4px; font-size: .88rem; text-decoration: none; color: var(--ink); }
+    .fn-badge { display: inline-block; background: var(--gold, #c9a84c); color: var(--ink); font-size: .7rem; font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .06em; padding: .2rem .6rem; border-radius: 3px; margin-bottom: 1.2rem; }
+    .disclaimer-note { font-size: .82rem; color: #777; font-style: italic; margin-top: 1rem; line-height: 1.55; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Foreign National DSCR Lender Program Matrix",
+    "description": "Anonymized comparison of 6 active foreign national DSCR loan programs for US investment property. Parameters include LTV, DSCR minimum, loan amounts, property types, credit alternatives, and reserve requirements.",
+    "url": "https://viadorpartners.com/foreign-national-dscr-lender-matrix/",
+    "creator": { "@type": "Organization", "name": "Viador Partners LLC" },
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "temporalCoverage": "2026"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why are lender names anonymized in foreign national DSCR program comparisons?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Program parameters change frequently — often without public notice — and publishing specific lender names against outdated parameters creates misrepresentation risk. Anonymized comparison tables show the range and structure of available programs without implying that a named lender's current offering matches any specific parameter set. Viador sources actively across these programs and presents current parameters at the scenario level rather than publishing a stale named comparison."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many foreign national DSCR programs are currently active in the US market?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The active foreign national DSCR market in the US includes approximately 15 to 25 distinct programs from non-QM lenders, portfolio lenders, and conduit capital providers. Not all programs are available in all states, and program availability varies with secondary market conditions. Most foreign national investors access 4 to 8 programs that are meaningfully differentiated on LTV, DSCR minimum, credit documentation requirements, or property type eligibility. The matrix on this page reflects 6 representative programs across the current market range."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a Tier A foreign national DSCR program?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Tier A foreign national DSCR program is characterized by the broadest capital access parameters: the highest LTV (typically 75% on standard property types), the lowest DSCR minimum (1.00x), the highest maximum loan amounts (up to $3M or more), and the most flexible credit documentation requirements (accepting foreign credit reports and bank reference letters without US credit). Tier A programs carry the highest rate spread above domestic DSCR products. They are the programs of choice for first-time foreign national investors with no US financial footprint."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a No-Ratio foreign national DSCR program?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A No-Ratio program (sometimes called DSCR Waived) qualifies the loan without calculating a DSCR ratio. Income documentation is not required — the loan is underwritten based on the property value, the borrower's creditworthiness and reserves, and the LTV. No-Ratio programs are used when a property is not yet leased (new construction, vacant acquisition, repositioning), when the borrower prefers not to document income, or when the actual DSCR is below the minimum threshold. No-Ratio programs carry LTV reductions — typically 65% LTV vs. 75% on ratio programs — and higher rate spreads."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the maximum loan amount for foreign national DSCR programs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Foreign national DSCR loan amounts range from $100,000 minimum to $3,000,000 or higher depending on the program. Most programs top out at $2,000,000 to $3,000,000 on a single asset. Loans above $1,500,000 typically require enhanced documentation — more months of reserves (12 to 24), stronger DSCR ratios, and lower LTV. Portfolio loans — where a foreign national holds multiple properties as collateral — can reach higher aggregate balances with individual program approval."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do foreign national DSCR programs allow interest-only payment structures?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Selected programs offer interest-only (IO) payment structures for an initial 5 or 10-year period before converting to a fully amortizing schedule. IO reduces the monthly PITIA during the IO period, which can improve apparent DSCR ratios if lenders calculate coverage on the IO payment. Not all programs offer IO; those that do typically restrict it to lower LTV tiers (65–70%) or DSCR ratios above 1.15x. IO availability for foreign nationals is more limited than for domestic DSCR borrowers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What prepayment penalty structures are common on foreign national DSCR loans?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The most common prepayment structure on foreign national DSCR loans is a step-down percentage penalty: 5/4/3/2/1 (5% of outstanding balance in year one, declining by 1 point per year through year five) or 3/2/1. Some programs offer yield maintenance or defeasance for jumbo amounts. The prepayment period begins at origination — not at first payment. Foreign national investors who anticipate a short hold period or refinance event within the first three years should model prepayment penalty cost against the rate savings of the initial program before committing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do foreign national DSCR lenders verify rental income when there is no existing lease?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When no existing lease is in place — as is common for properties being purchased vacant or converted from owner-occupancy — lenders use a market rent appraisal (Fannie Mae Form 1007 or equivalent) completed by the property appraiser. The Form 1007 provides an estimate of market rent for the subject property based on comparable rental data. This market rent estimate is used as the income input for DSCR calculation. Some lenders apply a small haircut (5–10%) to the Form 1007 figure to account for vacancy risk."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can a foreign national get a DSCR loan for a 5-to-8 unit multifamily property?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most foreign national DSCR programs are designed for 1-to-4 unit residential properties. Five-to-eight unit properties are classified as small commercial multifamily and typically require a commercial loan product rather than a residential DSCR program. Commercial bridge loans and small balance commercial programs are available for foreign national investors in this size range, but at different LTV, documentation, and pricing parameters. Viador sources both residential DSCR and small commercial products depending on the asset."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often do foreign national DSCR program parameters change?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Program parameters change frequently — sometimes monthly — in response to secondary market conditions, capital availability, and lender credit appetite. Rate spreads move with benchmark rate changes and non-QM market liquidity. LTV and DSCR floors may tighten during credit contractions and relax during periods of strong capital market demand. This is the core reason Viador uses live program access rather than a static published rate sheet: the matrix snapshot on this page reflects a point-in-time view; actual available terms are scenario-specific."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="/lockup-dark.png" alt="Viador Partners" height="32" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span style="display:none;font-family:'Fraunces',serif;font-weight:300;font-size:1.2rem;color:var(--ink)">Viador Partners</span>
+      </a>
+      <div class="nav-links">
+        <a href="/dscr-loan-requirements/">DSCR Loans</a>
+        <a href="/bpl/">Business Purpose</a>
+        <a href="/bridge/">Bridge</a>
+        <a href="/foreign-national-investor-loans/">Foreign National</a>
+        <a href="/about/">About</a>
+      </div>
+      <a href="/#deal-form" class="nav-cta btn-primary">Get Financing</a>
+      <button class="burger" aria-label="Menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="matrix-hero">
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/foreign-national-investor-loans/">Foreign National Loans</a> / Lender Matrix</p>
+    <span class="fn-badge">Program Comparison — 6 Programs</span>
+    <h1>Foreign National DSCR<br/>Lender Program Matrix</h1>
+    <p>Anonymized side-by-side comparison of 6 active foreign national DSCR programs. Parameters reflect current market availability — not historical or projected terms.</p>
+  </section>
+
+  <!-- SECTION 1: CONTEXT -->
+  <section style="background:#fff;">
+    <div class="fn-section">
+      <h2>How to Read This Matrix</h2>
+      <p>This matrix compares 6 active program tiers in the current foreign national DSCR market. Lender names are not published because parameters change frequently — naming a lender against a parameter set that shifts in 60 days creates misrepresentation. Instead, programs are designated as tiers (A through F) reflecting their position on the LTV / documentation / rate spectrum.</p>
+
+      <div class="aeo-block">
+        <div class="aeo-q">What is a foreign national DSCR program "tier" and what does it mean for a borrower?</div>
+        <p>Program tiers reflect the trade-off between access parameters and cost. Tier A programs offer the highest LTV, most flexible documentation, and lowest DSCR minimums — at the cost of the highest rate spread above domestic DSCR products. Tier F programs offer more favorable pricing but require stronger credit profiles (US credit score, lower LTV, or higher DSCR). Most foreign national borrowers with no US credit land in Tier A or B. As a borrower builds US credit history and reserve depth, they may migrate to lower-tier (better-priced) programs on future transactions.</p>
+      </div>
+
+      <p class="disclaimer-note">Matrix reflects representative program parameters as of Q2 2026. All parameters are subject to change. This is not a commitment to lend. Actual terms depend on full underwriting review of the specific property, borrower, and market conditions.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: MAIN MATRIX TABLE -->
+  <section style="background:var(--cream, #f8f6f2);">
+    <div class="fn-section">
+      <h2>6-Program Comparison Matrix</h2>
+
+      <div class="matrix-wrap">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th class="param">Parameter</th>
+              <th class="prog"><div class="prog-header">Program A<br/><span class="prog-tier tier-a">Tier A — Broadest Access</span></div></th>
+              <th class="prog"><div class="prog-header">Program B<br/><span class="prog-tier tier-a">Tier A — High LTV Alt Credit</span></div></th>
+              <th class="prog"><div class="prog-header">Program C<br/><span class="prog-tier tier-b">Tier B — ITIN Enhanced</span></div></th>
+              <th class="prog"><div class="prog-header">Program D<br/><span class="prog-tier tier-b">Tier B — No-Ratio</span></div></th>
+              <th class="prog"><div class="prog-header">Program E<br/><span class="prog-tier tier-b">Tier B — STR Eligible</span></div></th>
+              <th class="prog"><div class="prog-header">Program F<br/><span class="prog-tier tier-c">Tier C — US Credit Required</span></div></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="param-name">US Credit Required</td><td class="val">No</td><td class="val">No</td><td class="val">ITIN + thin file ok</td><td class="val">No</td><td class="val">No</td><td class="val">680+ FICO required</td></tr>
+            <tr><td class="param-name">Credit Alternative</td><td class="val">Foreign CR or bank ref</td><td class="val">Bank reference letter</td><td class="val">ITIN + 1 tradeline</td><td class="val">Foreign CR</td><td class="val">Foreign CR or bank ref</td><td class="val">US FICO only</td></tr>
+            <tr><td class="param-name">Max LTV — SFR Purchase</td><td class="val">75%</td><td class="val">75%</td><td class="val">75%</td><td class="val">65% (No DSCR)</td><td class="val">75%</td><td class="val">80%</td></tr>
+            <tr><td class="param-name">Max LTV — Cash-Out Refi</td><td class="val">70%</td><td class="val">65%</td><td class="val">70%</td><td class="val">60%</td><td class="val">70%</td><td class="val">75%</td></tr>
+            <tr><td class="param-name">Min DSCR</td><td class="val">1.00x</td><td class="val">1.00x</td><td class="val">1.00x</td><td class="val">N/A (No-Ratio)</td><td class="val">1.00x</td><td class="val">1.00x</td></tr>
+            <tr><td class="param-name">Min Loan Amount</td><td class="val">$100,000</td><td class="val">$150,000</td><td class="val">$100,000</td><td class="val">$100,000</td><td class="val">$100,000</td><td class="val">$75,000</td></tr>
+            <tr><td class="param-name">Max Loan Amount</td><td class="val">$3,000,000</td><td class="val">$2,000,000</td><td class="val">$2,500,000</td><td class="val">$1,500,000</td><td class="val">$2,000,000</td><td class="val">$3,500,000</td></tr>
+            <tr><td class="param-name">SFR Eligible</td><td class="val">Yes</td><td class="val">Yes</td><td class="val">Yes</td><td class="val">Yes</td><td class="val">Yes</td><td class="val">Yes</td></tr>
+            <tr><td class="param-name">Condo Eligible</td><td class="val">Warrantable only</td><td class="val">Warrantable only</td><td class="val">Warrantable only</td><td class="val">Low-rise only</td><td class="val">Warrantable only</td><td class="val">Warrantable + some non-warrantable</td></tr>
+            <tr><td class="param-name">2–4 Unit Eligible</td><td class="val">Yes (70% LTV)</td><td class="val">Yes (65% LTV)</td><td class="val">Yes (70% LTV)</td><td class="val">No</td><td class="val">Yes (70% LTV)</td><td class="val">Yes (75% LTV)</td></tr>
+            <tr><td class="param-name">STR Income Accepted</td><td class="val">Select markets</td><td class="val">No</td><td class="val">Select markets</td><td class="val">No</td><td class="val">Yes</td><td class="val">Yes</td></tr>
+            <tr><td class="param-name">LLC Vesting</td><td class="val">Yes</td><td class="val">Yes</td><td class="val">Yes</td><td class="val">Yes</td><td class="val">Yes</td><td class="val">Yes</td></tr>
+            <tr><td class="param-name">Reserve Requirement</td><td class="val">6 mo. PITIA</td><td class="val">12 mo. PITIA</td><td class="val">6 mo. PITIA</td><td class="val">12 mo. PITIA</td><td class="val">6 mo. PITIA</td><td class="val">3 mo. PITIA</td></tr>
+            <tr><td class="param-name">Foreign Bank Reserves OK</td><td class="val">Yes</td><td class="val">Yes</td><td class="val">Yes</td><td class="val">Yes</td><td class="val">Yes</td><td class="val">US preferred</td></tr>
+            <tr><td class="param-name">Interest-Only Available</td><td class="val">No</td><td class="val">No</td><td class="val">Selected tiers</td><td class="val">No</td><td class="val">Selected tiers</td><td class="val">Yes</td></tr>
+            <tr><td class="param-name">Prepayment Structure</td><td class="val">5/4/3/2/1</td><td class="val">5/4/3/2/1</td><td class="val">3/2/1</td><td class="val">3/2/1</td><td class="val">3/2/1</td><td class="val">3/2/1 or step-down</td></tr>
+            <tr><td class="param-name">Rate Spread vs. Domestic DSCR</td><td class="val">+1.00–1.50%</td><td class="val">+1.25–1.75%</td><td class="val">+0.50–1.00%</td><td class="val">+1.50–2.25%</td><td class="val">+0.75–1.25%</td><td class="val">+0.25–0.75%</td></tr>
+            <tr><td class="param-name">States Available</td><td class="val">Most states</td><td class="val">FL, TX, CA, NY, CO</td><td class="val">Most states</td><td class="val">FL, TX, AZ, CO</td><td class="val">FL, TX, AZ, CO, TN</td><td class="val">Most states</td></tr>
+            <tr><td class="param-name">Best Fit</td><td class="val">First-time FN, no US credit</td><td class="val">High reserves, less credit</td><td class="val">ITIN + growing US profile</td><td class="val">Vacant property, pre-lease</td><td class="val">STR investors</td><td class="val">FN with established US credit</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="disclaimer-note">Rate spreads are illustrative ranges based on Q2 2026 market observations. Actual rates depend on loan amount, LTV, DSCR ratio, credit documentation, property type, and market conditions at time of lock. Not a commitment to lend.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3: PROGRAM DIMENSION DEEP-DIVES -->
+  <section style="background:#fff;">
+    <div class="fn-section">
+      <h2>Key Differentiation Dimensions</h2>
+      <p>The six programs above differ on several structural dimensions that matter more than any single parameter. Understanding these dimensions helps match the right program to a specific scenario.</p>
+
+      <div class="dim-grid">
+        <div class="dim-card">
+          <h4>Credit Documentation Approach</h4>
+          <p>Programs A, B, D, E accept foreign credit alternatives. Program C requires ITIN with thin US file. Program F requires a 680+ US FICO. The credit path is the first filter — it determines which programs are accessible before pricing is considered.</p>
+        </div>
+        <div class="dim-card">
+          <h4>LTV vs. Rate Trade-Off</h4>
+          <p>Program F offers the highest LTV (80%) and lowest rate spread but requires US credit. Programs A and C offer 75% LTV for borrowers without US credit. Program D (No-Ratio) sacrifices 10 LTV points for income documentation flexibility.</p>
+        </div>
+        <div class="dim-card">
+          <h4>STR vs. LTR Income Treatment</h4>
+          <p>Programs B and D reject short-term rental income. Program E is specifically structured for STR. Programs A, C, F accept STR in select markets with AirDNA or platform history. Property-use strategy drives program selection.</p>
+        </div>
+        <div class="dim-card">
+          <h4>Reserve Depth</h4>
+          <p>Programs B and D require 12 months PITIA in reserves — double the standard 6 months required by A, C, E, F. Investors with strong reserve depth but limited credit access may find Program B competitive despite higher rate spread.</p>
+        </div>
+        <div class="dim-card">
+          <h4>Loan Amount Ceiling</h4>
+          <p>Programs F (up to $3.5M) and A (up to $3M) reach the highest jumbo-tier amounts. Program D caps at $1.5M. Investors targeting higher-priced assets in South Florida, coastal California, or NYC metro need to start with programs A or F.</p>
+        </div>
+        <div class="dim-card">
+          <h4>Prepayment Penalty Horizon</h4>
+          <p>Programs A and B carry a 5-year step-down vs. 3-year on C, D, E, F. For investors targeting a 3-year hold, the 5-year structure adds exit cost. For long-term holds (5+ years), the rate difference between programs often outweighs prepay period differences.</p>
+        </div>
+      </div>
+
+      <div class="aeo-block">
+        <div class="aeo-q">How does Viador select which foreign national DSCR program to recommend?</div>
+        <p>Viador acts as a capital advisor, not a lender, meaning program selection is driven by the investor's scenario rather than a predetermined lender relationship. The selection process evaluates: (1) which programs the borrower qualifies for based on credit documentation; (2) which programs cover the property type, state, and loan amount; (3) which program delivers the best combination of rate, LTV, and prepayment structure given the investor's projected hold period; and (4) which program has the cleanest processing path given documentation available. Most scenarios have 2 to 4 viable programs — Viador presents the top options with explicit trade-off explanation before the borrower commits to an application.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: PROGRAM SELECTION GUIDE -->
+  <section style="background:var(--cream, #f8f6f2);">
+    <div class="fn-section">
+      <h2>Matching Your Scenario to the Right Program</h2>
+
+      <div class="aeo-block">
+        <div class="aeo-q">Which foreign national DSCR program is best for a first-time international buyer in Florida?</div>
+        <p>First-time foreign national buyers in Florida with no US credit history and standard documentation (passport, foreign bank statements, foreign credit report or bank reference letter) typically start with Program A or Program B. Program A is the most broadly accessible — it accepts the widest range of credit documentation and offers 75% LTV on SFR and warrantable condo with a 1.00x DSCR minimum. Program B requires stronger reserve depth (12 months vs. 6) in exchange for slightly more flexible credit documentation. The right choice between A and B depends on the borrower's reserve position and the specific credit evidence available.</p>
+      </div>
+
+      <div class="aeo-block">
+        <div class="aeo-q">Which program applies when a foreign national buys a property that is not yet leased?</div>
+        <p>Program D (No-Ratio) is designed for this scenario. When a property has no lease in place — a vacant purchase, new construction completion, or a unit being converted from owner-occupancy — Program D allows the loan to close without a DSCR calculation. Income documentation is not required. The trade-off is a lower maximum LTV (65%) and a higher rate spread (+1.50–2.25% above domestic DSCR). Once the property is leased and seasoned 12 months, the borrower may refinance into a ratio program at more favorable terms.</p>
+      </div>
+    </div>
+  </section>
+
+
+      <div class="aeo-block">
+        <div class="aeo-q">What credit score tier produces the biggest pricing improvement for foreign nationals?</div>
+        <p>Moving from no US credit (Tier A programs) to a 680–719 US FICO (Program C equivalent) typically compresses rate spread by 0.50 to 1.00 percentage points. Moving from 680–719 to 720+ can produce an additional 0.25 to 0.50 point improvement. The largest pricing jump is the first one — from no US credit to any established US FICO above 680. This represents the clearest ROI argument for foreign nationals building US credit: the rate savings on a $500,000 loan at 0.75% annual improvement run approximately $3,750/year before the prepayment period ends.</p>
+      </div>
+
+      <div class="aeo-block">
+        <div class="aeo-q">How does the DSCR ratio affect which program tier is available?</div>
+        <p>Higher DSCR ratios unlock access to better program parameters within each tier. A borrower with 1.00x DSCR qualifies for the base parameters in Programs A, B, and C. A borrower with 1.20x or above may qualify for LTV improvements (some programs allow 75%→80% at 1.20x+ DSCR with US credit) or rate pricing tiers that reward stronger income coverage. Cash-out refinance programs in particular distinguish between 1.00–1.09x, 1.10–1.19x, and 1.20x+ DSCR bands, with LTV caps tightening at lower coverage ratios.</p>
+      </div>
+
+      <div class="aeo-block">
+        <div class="aeo-q">What is a foreign credit report and which countries have usable credit bureaus?</div>
+        <p>A foreign credit report is a credit history document issued by a borrower's home country credit bureau, covering account payment history, outstanding balances, and derogatory items. Countries with well-established credit bureau systems include Canada (Equifax Canada, TransUnion Canada), United Kingdom (Experian UK, Equifax UK, TransUnion UK), Australia (Equifax AU, Illion), Germany (SCHUFA), Brazil (Serasa), and Mexico (Buró de Crédito). Programs A, C, and E accept translated foreign credit reports from recognized bureaus. Countries without formal bureau systems typically require a bank reference letter instead.</p>
+      </div>
+
+    </div>
+  </section>
+  <!-- FAQ -->
+  <section style="background:#fff;">
+    <div class="fn-faq-section">
+      <h2>Lender Matrix: Frequently Asked Questions</h2>
+
+      <div class="fn-faq-item">
+        <h3>Can a foreign national use multiple programs for different properties in their portfolio?</h3>
+        <p>Yes. Each property transaction is underwritten independently. A foreign national investor can use Program A on their first Florida SFR acquisition, Program E on a Scottsdale short-term rental, and Program C after establishing ITIN and some US credit for a third property — each matched to the optimal program for that asset and the borrower's profile at the time. There is no requirement to use the same program across a portfolio.</p>
+      </div>
+
+      <div class="fn-faq-item">
+        <h3>Do all programs require a personal guaranty?</h3>
+        <p>Yes — all six programs in this matrix require a personal guaranty from the individual foreign national borrower or from each member with 20% or more beneficial ownership in the borrowing LLC. The personal guaranty is a business-purpose lending standard. Programs do not offer non-recourse structures for foreign nationals at the residential DSCR tier. Non-recourse financing for foreign nationals exists in the commercial real estate space (bridge and CMBS products) but not in residential DSCR programs.</p>
+      </div>
+
+      <div class="fn-faq-item">
+        <h3>What happens to program eligibility if the property goes into default?</h3>
+        <p>A default on a foreign national DSCR loan results in the personal guaranty becoming callable — the lender can pursue the individual borrower's personal assets in addition to the property itself. DSCR programs use non-judicial foreclosure in states that allow it (including Florida, Texas, and many others), which can move faster than judicial foreclosure states. Foreign national borrowers should understand that the personal guaranty extends lender recourse beyond the US property to the borrower's global assets, subject to international enforcement limitations.</p>
+      </div>
+    </div>
+  </section>
+
+
+      <div class="aeo-block">
+        <div class="aeo-q">How long does underwriting take for a foreign national DSCR loan?</div>
+        <p>Foreign national DSCR files typically take 5 to 10 business days for initial underwriting review from a complete package submission. Total time from application to clear-to-close averages 30 to 45 days. Factors that extend timelines: international background check results requiring manual review (add 5–10 days), foreign credit report translation and verification (add 3–7 days), condo warrantability review (add 5–15 days), entity documentation gaps (add 1–3 weeks). Submitting a complete documentation package at application — not in pieces — is the single most effective way to shorten the cycle.</p>
+      </div>
+
+      <div class="aeo-block">
+        <div class="aeo-q">Can a foreign national lock a rate before finding a property?</div>
+        <p>Most DSCR programs issue a pre-qualification letter based on a borrower profile review before a specific property is identified. However, rate locks require a specific property, executed purchase contract, and complete appraisal. Pre-qualification confirms the borrower meets program eligibility — it does not lock a rate or commit to specific terms. Rate locks for foreign national DSCR programs are typically available for 30, 45, or 60 days from the lock date, with extension fees available if closing is delayed.</p>
+      </div>
+
+      <div class="aeo-block">
+        <div class="aeo-q">Is appraisal required for all foreign national DSCR programs?</div>
+        <p>Yes. All programs in this matrix require a full property appraisal by a licensed appraiser, typically including a rental market rent appraisal on Form 1007 if no executed lease is in place. Some programs use a "bifurcated appraisal" (desktop appraisal + property data collector inspection) for lower LTV scenarios, but a full interior appraisal is standard for foreign national purchases at 75% LTV. The appraisal establishes both the as-is property value (which drives LTV) and the market rent (which drives DSCR). Both figures must support the loan parameters.</p>
+      </div>
+
+  <!-- RELATED LINKS -->
+  <section class="fn-related">
+    <div class="fn-related-inner">
+      <h3>Related Resources</h3>
+      <div class="fn-related-links">
+        <a href="/foreign-national-investor-loans/">FN Program Hub</a>
+        <a href="/foreign-national-dscr-florida/">Florida FN Guide</a>
+        <a href="/foreign-national-dscr-tampa/">Tampa FN Guide</a>
+        <a href="/foreign-national-vs-itin-lending-paths/">FN vs. ITIN Paths</a>
+        <a href="/foreign-national-llc-requirements/">LLC Requirements</a>
+        <a href="/foreign-national-cash-out-refinance/">Cash-Out Refinance</a>
+        <a href="/dscr-loan-requirements/">DSCR Overview</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="fn-cta-stack">
+    <h2>Find Your Program. Structure Your Deal.</h2>
+    <p>Viador sources across all active foreign national DSCR programs — present your scenario and we build the comparison for your specific asset.</p>
+    <div class="fn-cta-btns">
+      <a href="[WHATSAPP_LINK]" class="fn-btn-primary">WhatsApp Consultation</a>
+      <a href="[CALENDLY_LINK]" class="fn-btn-secondary">Schedule a Call</a>
+    </div>
+    <div class="fn-scenario-form">
+      <h3>Submit a Scenario</h3>
+      <input type="text" placeholder="Property state and type" />
+      <input type="text" placeholder="Purchase price or loan amount" />
+      <select><option>Credit profile</option><option>No US credit (foreign national)</option><option>ITIN, no US credit</option><option>ITIN + limited US credit</option><option>680+ US FICO</option></select>
+      <input type="text" placeholder="Country of citizenship" />
+      <button type="button">Submit Scenario</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>Viador Partners LLC | NMLS #2822744 | Loans originated through Focus Home Mortgage Inc. | NMLS #2769672</p>
+      <p>Equal Housing Lender. Not affiliated with any government agency or the US Department of Veterans Affairs.</p>
+      <p>Program parameters are provided for educational and comparative purposes only. All parameters are subject to change without notice. This content does not constitute a commitment to lend or a rate lock. Actual loan terms require full underwriting review and program approval.</p>
+      <p>&copy; 2026 Viador Partners LLC. All rights reserved. | <a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms</a></p>
+    </div>
+  </footer>
+  <script src="/script.js"></script>
+</body>
+</html>
