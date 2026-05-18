@@ -424,6 +424,66 @@ p,.vp-body{font-family:'Inter',sans-serif;line-height:1.6;color:rgba(244,245,243
 .drawer-cta{background:#6B745E!important;color:#F4F5F3!important;border-radius:6px}
 .burger span{background:#F4F5F3}
 a{color:inherit}
+
+/* Mobile cleanup pass (2026-05-18) -- scoped to homepage only.
+   Wins cascade against styles.css Section 18 via !important. */
+@media (max-width: 768px) {
+  /* Fix 1: hero headline -- restore breathing room, suppress forced breaks */
+  .vp-hero-h1 {
+    font-size: clamp(36px, 9vw, 48px) !important;
+    line-height: 1.05 !important;
+    max-width: 100% !important;
+    margin-bottom: 18px !important;
+  }
+  .vp-hero-h1 br { display: none; }
+
+  /* Fix 2: hero subhead -- reads as prose, not stacked fragments */
+  .vp-hero-sub {
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+    max-width: 100% !important;
+  }
+
+  /* Fix 3: hero CTAs -- flow inline, stack vertically, no overlap */
+  .vp-hero-ctas {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    margin: 24px 0 0 0 !important;
+    width: 100% !important;
+  }
+  .vp-hero-ctas .vp-btn-primary,
+  .vp-hero-ctas .vp-btn-secondary {
+    position: static !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    text-align: center !important;
+  }
+
+  /* Fix 4: hide ghost nav CTA -- keep Logo + Review My Deal + burger */
+  .vp-btn-nav-ghost { display: none !important; }
+
+  /* Fix 6: clearance for sticky bottom CTA */
+  body { padding-bottom: 96px !important; }
+
+  /* Fix 7: founder creds -- separators line-break on mobile, dot hidden */
+  .vp-founder-creds .vp-sep {
+    display: block !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    height: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .vp-hero-h1 {
+    font-size: clamp(32px, 8.5vw, 40px) !important;
+    line-height: 1.05 !important;
+  }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -879,7 +939,7 @@ a{color:inherit}
         <div class="vp-founder-bio">
           <p class="vp-founder-tagline">Built from institutional lending experience.</p>
           <p class="vp-founder-name" id="founder-hed">Chad Evers &middot; Founder</p>
-          <p class="vp-founder-creds">NMLS #2822744 &middot; 20+ years institutional lending<br>Built national mortgage teams &middot; 3 years Citi global experience</p>
+          <p class="vp-founder-creds">NMLS #2822744<span class="vp-sep"> &middot; </span>20+ years institutional lending<br>Built national mortgage teams<span class="vp-sep"> &middot; </span>3 years Citi global experience</p>
           <a href="https://www.linkedin.com/in/chadevers" target="_blank" rel="noopener noreferrer" class="vp-founder-linkedin">Connect on LinkedIn &rarr;</a>
         </div>
       </div>
@@ -961,7 +1021,7 @@ a{color:inherit}
         <div style="margin-bottom:14px">
           <input type="email" id="femail" name="email" placeholder="Email address" autocomplete="email" required style="width:100%;padding:16px 18px;border:1px solid var(--line);border-radius:8px;font-size:16px;font-family:var(--font-body);background:#fff;color:var(--ink);outline:none;box-sizing:border-box"/>
         </div>
-        <button type="button" class="vp-btn vp-btn--gold" id="submitDeal" style="width:100%;padding:18px">Analyze My Deal &rarr;</button>
+        <button type="button" class="vp-btn vp-btn--gold" id="submitDeal" style="width:100%;padding:18px">Review My Deal &rarr;</button>
       </form>
       <div style="text-align:center;margin-top:18px">
         <span style="font-size:14px;color:var(--vp-muted)">Or book a call &rarr; </span>
@@ -1123,7 +1183,7 @@ a{color:inherit}
 
 <!-- STICKY MOBILE CTA -->
 <div class="mobile-sticky-cta" id="mobileCta" aria-label="Quick deal review">
-  <a href="#dealform" class="mobile-sticky-btn">Analyze My Deal →</a>
+  <a href="#dealform" class="mobile-sticky-btn">Review My Deal →</a>
   <a href="tel:+18134192983" class="mobile-sticky-call">Call Us</a>
 </div>
 
