@@ -777,23 +777,22 @@ a{color:inherit}
   display: flex;
   align-items: center;
   overflow: hidden;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background:
-    radial-gradient(ellipse at 78% 30%,
-      rgba(255, 232, 195, 0.65) 0%,
-      rgba(255, 228, 188, 0.40) 25%,
-      rgba(255, 225, 185, 0.18) 55%,
-      rgba(255, 225, 185, 0.00) 80%),
-    linear-gradient(90deg,
-      rgba(247, 245, 239, 0.88) 0%,
-      rgba(247, 245, 239, 0.72) 25%,
-      rgba(247, 245, 239, 0.62) 50%,
-      rgba(247, 245, 239, 0.60) 75%,
-      rgba(247, 245, 239, 0.62) 100%),
-    url('/assets/brand/viador-hero-wide.png') center/cover no-repeat;
   background-color: var(--cream);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      rgba(247, 245, 239, 0.82) 0%,
+      rgba(247, 245, 239, 0.55) 25%,
+      rgba(247, 245, 239, 0.22) 50%,
+      rgba(247, 245, 239, 0.06) 75%,
+      rgba(247, 245, 239, 0.00) 100%),
+    url('/assets/brand/viador-hero-wide.png') center/cover no-repeat;
+  z-index: 0;
 }
 
 .hero-inner {
@@ -1080,17 +1079,18 @@ a{color:inherit}
     padding: 60px 24px;
   }
   .hero-card { max-width: 100%; margin-left: 0; }
-  .hero { min-height: auto; }
   .hero {
+    min-height: auto;
+    background: none;
+    background-color: var(--cream);
+  }
+
+  .hero::before {
     background:
-      radial-gradient(ellipse at 70% 22%,
-        rgba(255, 232, 195, 0.50) 0%,
-        rgba(255, 225, 185, 0.25) 35%,
-        rgba(255, 225, 185, 0.00) 70%),
       linear-gradient(180deg,
-        rgba(247, 245, 239, 0.92) 0%,
-        rgba(247, 245, 239, 0.78) 40%,
-        rgba(247, 245, 239, 0.70) 100%),
+        rgba(247, 245, 239, 0.78) 0%,
+        rgba(247, 245, 239, 0.48) 50%,
+        rgba(247, 245, 239, 0.28) 100%),
       url('/assets/brand/viador-hero-wide.png') center/cover no-repeat;
   }
   .programs-grid { grid-template-columns: repeat(2, 1fr); }
