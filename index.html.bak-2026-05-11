@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
@@ -15,7 +15,7 @@
   <title>Real Estate Investor Financing | DSCR, Fix & Flip, BPL Loans — Viador Partners</title>
   <meta name="description" content="Viador Partners finances real estate investors nationwide — DSCR rental loans, fix & flip bridge loans, and Business Purpose Loans (BPL) with no property count ceiling. Free deal review within 24 hours. No W2s required."/>
   <meta name="keywords" content="real estate investor financing, DSCR loan, fix and flip loan, business purpose loan, BPL loan, bridge loan, no income verification investment loan, rental property loan, LLC real estate loan"/>
-  <link rel="canonical" href="https://viadorpartners.com/"/>
+  <link rel="canonical" href="https://www.viadorpartners.com/"/>
   <meta name="robots" content="index, follow"/>
 
   <!-- ── Open Graph (Facebook, LinkedIn sharing) ── -->
@@ -424,66 +424,6 @@ p,.vp-body{font-family:'Inter',sans-serif;line-height:1.6;color:rgba(244,245,243
 .drawer-cta{background:#6B745E!important;color:#F4F5F3!important;border-radius:6px}
 .burger span{background:#F4F5F3}
 a{color:inherit}
-
-/* Mobile cleanup pass (2026-05-18) -- scoped to homepage only.
-   Wins cascade against styles.css Section 18 via !important. */
-@media (max-width: 768px) {
-  /* Fix 1: hero headline -- restore breathing room, suppress forced breaks */
-  .vp-hero-h1 {
-    font-size: clamp(36px, 9vw, 48px) !important;
-    line-height: 1.05 !important;
-    max-width: 100% !important;
-    margin-bottom: 18px !important;
-  }
-  .vp-hero-h1 br { display: none; }
-
-  /* Fix 2: hero subhead -- reads as prose, not stacked fragments */
-  .vp-hero-sub {
-    font-size: 16px !important;
-    line-height: 1.55 !important;
-    max-width: 100% !important;
-  }
-
-  /* Fix 3: hero CTAs -- flow inline, stack vertically, no overlap */
-  .vp-hero-ctas {
-    position: static !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 12px !important;
-    margin: 24px 0 0 0 !important;
-    width: 100% !important;
-  }
-  .vp-hero-ctas .vp-btn-primary,
-  .vp-hero-ctas .vp-btn-secondary {
-    position: static !important;
-    margin: 0 !important;
-    width: 100% !important;
-    max-width: 320px !important;
-    text-align: center !important;
-  }
-
-  /* Fix 4: hide ghost nav CTA -- keep Logo + Review My Deal + burger */
-  .vp-btn-nav-ghost { display: none !important; }
-
-  /* Fix 6: clearance for sticky bottom CTA */
-  body { padding-bottom: 96px !important; }
-
-  /* Fix 7: founder creds -- separators line-break on mobile, dot hidden */
-  .vp-founder-creds .vp-sep {
-    display: block !important;
-    font-size: 0 !important;
-    line-height: 0 !important;
-    height: 0 !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .vp-hero-h1 {
-    font-size: clamp(32px, 8.5vw, 40px) !important;
-    line-height: 1.05 !important;
-  }
-}
 </style>
 <script type="application/ld+json">
 {
@@ -640,951 +580,332 @@ a{color:inherit}
 ]
 }
 </script>
-
-<!-- ====== NEW HOMEPAGE HERO BLOCK (May 2026 rebuild) — fonts + scoped styles ====== -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-
-<style>
-/* ============================================================
-   VIADOR PARTNERS HOMEPAGE (May 2026 hero rebuild)
-   Palette: charcoal #1F2326 | off-white #F4F5F3 | olive #6B745E
-   Scoped to .nav-wrap / .hero / .programs / .stats-bar so the
-   rest of the page (How We Work and below) is untouched.
-   ============================================================ */
-
-:root {
-  --charcoal: #1F2326;
-  --charcoal-soft: #2A2F33;
-  --off-white: #F4F5F3;
-  --cream: #F7F5EF;
-  --olive: #6B745E;
-  --olive-bright: #8B9474;
-  --border-subtle: rgba(31, 35, 38, 0.08);
-  --border-card: rgba(31, 35, 38, 0.06);
-  --text-muted: #5A6066;
-  --shadow-card: 0 1px 2px rgba(31,35,38,0.04), 0 4px 16px rgba(31,35,38,0.06);
-  --shadow-card-elevated: 0 4px 12px rgba(31,35,38,0.06), 0 16px 48px rgba(31,35,38,0.10);
-  --max-width: 1320px;
-}
-
-/* Scoped reset — only descendants of the new blocks */
-.nav-wrap, .nav-wrap *, .hero, .hero *, .programs, .programs *, .stats-bar, .stats-bar * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* =============== NAV =============== */
-.nav-wrap { background: var(--charcoal); border-bottom: 1px solid rgba(255,255,255,0.04); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-
-.nav-wrap .nav {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 18px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-}
-
-.nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-
-.nav-brand-mark {
-  width: 44px; height: 44px;
-  border: 1.5px solid rgba(255,255,255,0.45);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 13px; letter-spacing: 1px;
-  color: #fff; background: transparent;
-}
-
-.nav-brand-text {
-  color: #fff; font-weight: 700; font-size: 15px;
-  letter-spacing: 1.4px; line-height: 1.1;
-}
-
-.nav-brand-text span {
-  display: block; font-weight: 500; font-size: 11px;
-  letter-spacing: 1.8px; opacity: 0.7; margin-top: 2px;
-}
-
-.nav-wrap .nav-links {
-  display: flex; align-items: center; gap: 36px;
-  list-style: none; flex: 1; justify-content: center;
-}
-
-.nav-wrap .nav-link {
-  color: rgba(255,255,255,0.85);
-  text-decoration: none;
-  font-size: 14px; font-weight: 500; letter-spacing: 0.2px;
-  transition: color 0.15s ease;
-  display: flex; align-items: center; gap: 4px;
-}
-
-.nav-wrap .nav-link:hover { color: #fff; }
-
-.nav-wrap .nav-link.has-caret::after {
-  content: '';
-  display: inline-block;
-  width: 0; height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 4px solid currentColor;
-  margin-left: 4px; opacity: 0.7;
-}
-
-.nav-ctas { display: flex; align-items: center; gap: 12px; }
-
-.nav-wrap .btn, .hero .btn, .programs .btn, .stats-bar .btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: 12px 24px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600; font-size: 14px; letter-spacing: 0.2px;
-  text-decoration: none;
-  border-radius: 4px;
-  border: 1.5px solid transparent;
-  cursor: pointer;
-  transition: all 0.18s ease;
-  white-space: nowrap;
-}
-
-.btn-primary { background: var(--olive); color: #fff; border-color: var(--olive); }
-.btn-primary:hover { background: var(--olive-bright); border-color: var(--olive-bright); }
-
-.btn-secondary-dark {
-  background: transparent; color: #fff;
-  border-color: rgba(255,255,255,0.35);
-}
-.btn-secondary-dark:hover {
-  border-color: rgba(255,255,255,0.7);
-  background: rgba(255,255,255,0.05);
-}
-
-.btn-secondary-light {
-  background: #fff; color: var(--charcoal);
-  border-color: var(--charcoal);
-}
-.btn-secondary-light:hover { background: var(--charcoal); color: #fff; }
-
-.btn-large { padding: 16px 32px; font-size: 15px; }
-
-/* =============== HERO =============== */
-.hero {
-  position: relative;
-  min-height: 680px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background:
-    linear-gradient(90deg,
-      rgba(247, 245, 239, 0.88) 0%,
-      rgba(247, 245, 239, 0.65) 30%,
-      rgba(247, 245, 239, 0.30) 55%,
-      rgba(31, 35, 38, 0.10) 80%,
-      rgba(31, 35, 38, 0.22) 100%),
-    url('/assets/brand/viador-hero.jpg') center/cover no-repeat;
-  background-color: var(--cream);
-}
-
-.hero-inner {
-  position: relative; z-index: 2;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 72px 40px 56px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
-  gap: 56px;
-  align-items: center;
-}
-
-.hero-content { max-width: 640px; }
-
-.hero .eyebrow {
-  font-size: 12px; font-weight: 600;
-  letter-spacing: 2.5px; color: var(--olive);
-  text-transform: uppercase;
-  margin-bottom: 24px;
-}
-
-.hero-headline {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 600;
-  font-size: clamp(40px, 5.2vw, 64px);
-  line-height: 1.08;
-  letter-spacing: -0.01em;
-  color: var(--charcoal);
-  margin-bottom: 28px;
-}
-
-.hero-headline em {
-  font-style: italic; font-weight: 500;
-  color: var(--olive);
-}
-
-.hero-body {
-  font-size: 17px; line-height: 1.65;
-  color: var(--charcoal);
-  max-width: 540px;
-  margin-bottom: 28px;
-}
-
-.product-row {
-  display: flex; flex-wrap: wrap;
-  align-items: center; gap: 10px 18px;
-  margin-bottom: 36px;
-  font-size: 14px; font-weight: 500;
-  color: var(--charcoal);
-}
-
-.product-row .product-item { display: inline-flex; align-items: center; gap: 6px; }
-
-.product-row .check {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 16px; height: 16px;
-  border: 1.5px solid var(--olive);
-  border-radius: 50%;
-  color: var(--olive);
-  font-size: 9px; font-weight: 700;
-}
-
-.product-row .sep { color: rgba(31,35,38,0.25); }
-
-.cta-row { display: flex; gap: 14px; margin-bottom: 24px; flex-wrap: wrap; }
-
-.micro-trust {
-  display: flex; flex-wrap: wrap;
-  align-items: center; gap: 8px 22px;
-  font-size: 13px; color: var(--text-muted);
-  font-weight: 500;
-}
-
-.micro-trust .item { display: inline-flex; align-items: center; gap: 7px; }
-
-.micro-trust .check-mini {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 14px; height: 14px;
-  border: 1.3px solid var(--olive);
-  border-radius: 50%;
-  color: var(--olive);
-  font-size: 8px; font-weight: 700;
-}
-
-/* =============== HERO CARD =============== */
-.hero-card {
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--border-card);
-  border-radius: 6px;
-  padding: 36px 32px;
-  box-shadow: var(--shadow-card-elevated);
-  max-width: 420px;
-  margin-left: auto;
-}
-
-.hero-card-title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 22px; font-weight: 600;
-  color: var(--charcoal);
-  margin-bottom: 28px;
-  letter-spacing: -0.005em;
-}
-
-.card-items { display: flex; flex-direction: column; gap: 20px; }
-
-.card-item { display: flex; gap: 16px; align-items: flex-start; }
-
-.card-icon {
-  flex-shrink: 0;
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  background: var(--off-white);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--charcoal);
-}
-
-.card-icon svg { width: 18px; height: 18px; }
-
-.card-item-body { flex: 1; min-width: 0; }
-
-.card-item-label {
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 1.4px;
-  color: var(--olive);
-  text-transform: uppercase;
-  margin-bottom: 4px; line-height: 1.3;
-}
-
-.card-item-text { font-size: 13.5px; line-height: 1.5; color: var(--charcoal); }
-
-.hero-card-footer {
-  margin-top: 28px; padding-top: 20px;
-  border-top: 1px solid var(--border-subtle);
-  text-align: center;
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 2px; color: var(--olive);
-  text-transform: uppercase;
-}
-
-/* =============== STATS BAR (DARK — KEPT FROM CURRENT SITE, +EHO) =============== */
-.stats-bar { background: var(--charcoal); padding: 38px 40px; font-family: 'Inter', sans-serif; }
-
-.stats-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  align-items: center;
-}
-
-.stat-cell {
-  display: flex; align-items: center; gap: 16px;
-  padding: 4px 8px;
-  border-right: 1px solid rgba(255,255,255,0.08);
-}
-
-.stat-cell:last-child { border-right: none; }
-
-.stat-icon {
-  flex-shrink: 0;
-  width: 38px; height: 38px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.06);
-  display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.85);
-}
-
-.stat-icon svg { width: 18px; height: 18px; }
-
-.stat-body { min-width: 0; }
-
-.stat-num {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 26px; font-weight: 600;
-  color: #fff; line-height: 1.1;
-  margin-bottom: 4px;
-  letter-spacing: -0.005em;
-}
-
-.stat-label {
-  font-size: 10.5px; font-weight: 600;
-  letter-spacing: 1.6px;
-  color: rgba(255,255,255,0.55);
-  text-transform: uppercase;
-  line-height: 1.3;
-}
-
-/* =============== PROGRAMS SECTION =============== */
-.programs { background: var(--cream); padding: 64px 40px 88px; font-family: 'Inter', sans-serif; color: var(--charcoal); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-.programs-inner { max-width: var(--max-width); margin: 0 auto; }
-
-.programs .section-head { text-align: center; margin-bottom: 44px; }
-
-.section-headline {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(32px, 3.8vw, 44px);
-  font-weight: 600; line-height: 1.15;
-  color: var(--charcoal);
-  margin-bottom: 14px;
-  letter-spacing: -0.01em;
-}
-
-.section-sub {
-  font-size: 16.5px; color: var(--text-muted);
-  max-width: 580px; margin: 0 auto;
-  line-height: 1.5;
-}
-
-.programs-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 18px;
-}
-
-.program-card {
-  background: #fff;
-  border: 1px solid var(--border-card);
-  border-radius: 6px;
-  padding: 32px 22px 26px;
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.program-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-card);
-  border-color: rgba(107, 116, 94, 0.25);
-}
-
-.program-icon {
-  width: 56px; height: 56px;
-  border: 1.5px solid var(--border-subtle);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 18px;
-  color: var(--olive);
-}
-
-.program-icon svg { width: 24px; height: 24px; }
-
-.program-title {
-  font-weight: 600; font-size: 16px;
-  color: var(--charcoal);
-  margin-bottom: 12px;
-  letter-spacing: -0.005em;
-}
-
-.program-text {
-  font-size: 13.5px; line-height: 1.55;
-  color: var(--text-muted);
-  margin-bottom: 18px;
-  min-height: 64px;
-}
-
-.program-link {
-  display: inline-block;
-  color: var(--olive);
-  font-size: 13px; font-weight: 600;
-  text-decoration: none;
-  letter-spacing: 0.2px;
-  transition: color 0.15s ease;
-}
-
-.program-link:hover { color: var(--olive-bright); }
-
-/* =============== RESPONSIVE =============== */
-@media (max-width: 1100px) {
-  .nav-wrap .nav-links { gap: 24px; }
-  .nav-wrap .nav { padding: 18px 24px; }
-  .programs-grid { grid-template-columns: repeat(3, 1fr); }
-  .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
-  .stat-cell:nth-child(2) { border-right: none; }
-}
-
-@media (max-width: 900px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 60px 24px;
-  }
-  .hero-card { max-width: 100%; margin-left: 0; }
-  .hero { min-height: auto; }
-  .hero {
-    background:
-      linear-gradient(180deg,
-        rgba(247, 245, 239, 0.92) 0%,
-        rgba(247, 245, 239, 0.78) 60%,
-        rgba(247, 245, 239, 0.60) 100%),
-      url('/assets/brand/viador-hero.jpg') center/cover no-repeat;
-  }
-  .programs-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 720px) {
-  .nav-wrap .nav { flex-wrap: wrap; gap: 16px; padding: 14px 20px; }
-  .nav-wrap .nav-links { display: none; }
-  .nav-ctas { width: 100%; justify-content: flex-end; }
-  .nav-brand-text { font-size: 13px; }
-  .nav-brand-text span { font-size: 10px; }
-
-  .hero-inner { padding: 48px 20px; }
-  .hero-headline { font-size: 38px; }
-  .hero-body { font-size: 16px; }
-  .product-row { font-size: 13px; gap: 8px 14px; }
-
-  .cta-row { flex-direction: column; }
-  .cta-row .btn { width: 100%; }
-
-  .stats-inner { grid-template-columns: 1fr; gap: 20px; }
-  .stat-cell { border-right: none; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .stat-cell:last-child { border-bottom: none; padding-bottom: 4px; }
-
-  .programs { padding: 64px 20px; }
-  .programs-grid { grid-template-columns: 1fr; }
-  .program-text { min-height: 0; }
-
-  .hero-card { padding: 28px 24px; }
-  .hero-card-title { font-size: 19px; }
-}
-</style>
 </head>
 <body>
 
 <!-- GRAIN OVERLAY -->
 <div class="grain" aria-hidden="true"></div>
 
-<!-- =============== NAVIGATION =============== -->
-<header class="nav-wrap">
-  <nav class="nav" aria-label="Primary">
-    <a href="/" class="nav-brand" aria-label="Viador Partners home">
-      <div class="nav-brand-mark">VP</div>
-      <div class="nav-brand-text">
-        VIADOR
-        <span>PARTNERS</span>
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo"><img src="/assets/brand/viador_vp_mark_dark_transparent.png" alt="Viador Partners" class="logo-img viador-logo" onerror="this.style.display='none';this.nextSibling.style.display='flex'" style="height:44px;width:auto;display:block;object-fit:contain"/><span style="display:none;align-items:center;gap:14px;color:#F4F5F3;font-family:'Inter',sans-serif"><span style="font-size:1.25rem;font-weight:600;letter-spacing:.03em;color:#6B745E;line-height:1">V</span><span style="display:flex;flex-direction:column;line-height:1.15;gap:2px"><span style="font-size:.88rem;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:#F4F5F3">VIADOR</span><span style="font-size:.68rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:rgba(244,245,243,0.65)">PARTNERS</span></span></span></a>
+        <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown">
+        <a href="index.html#programs" class="nav-dropdown-trigger">Programs</a>
+        <div class="nav-dropdown-menu">
+          <a href="dscr.html">DSCR Loans</a>
+          <a href="fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="bpl.html">Business Purpose Loans</a>
+          <a href="non-qm-loans-florida.html">Non-QM / Bank Statement</a>
+          <a href="conventional-investment-property-loans.html">Conventional</a>
+        </div>
       </div>
-    </a>
-
-    <ul class="nav-links">
-      <li><a class="nav-link has-caret" href="/programs">Programs</a></li>
-      <li><a class="nav-link has-caret" href="/tools">Tools</a></li>
-      <li><a class="nav-link" href="/about">About</a></li>
-      <li><a class="nav-link" href="/resources">Resources</a></li>
-    </ul>
-
-    <div class="nav-ctas">
-      <a href="/contact" class="btn btn-secondary-dark">Talk to an Expert</a>
-      <a href="/review-my-deal" class="btn btn-primary">Review My Deal</a>
-    </div>
-  </nav>
+      <div class="nav-dropdown">
+        <a href="investor-platform.html" class="nav-dropdown-trigger">Tools</a>
+        <div class="nav-dropdown-menu">
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="dscr-calculator.html">DSCR Calculator</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+    </nav>
+    <a href="#dealform" class="nav-cta">Analyze My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="dscr.html">DSCR Loans</a>
+    <a href="fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="bpl.html">Business Purpose Loans</a>
+    <a href="about.html">About</a>
+    <a href="#dealform" class="drawer-cta">Analyze My Deal &rarr;</a>
+  </div>
 </header>
 
 <main>
 
-<!-- =============== HERO =============== -->
-<section class="hero" aria-labelledby="hero-headline">
-  <div class="hero-inner">
-
-    <div class="hero-content">
-      <div class="eyebrow">Real Estate Investor Lending Advisory</div>
-
-      <h1 id="hero-headline" class="hero-headline">
-        Investor financing built around <em>the property.</em>
-      </h1>
-
-      <p class="hero-body">
-        Financing for rental property acquisitions, refinances, and portfolio growth &mdash; structured around the property, not your tax return.
-      </p>
-
-      <div class="product-row" aria-label="Available programs">
-        <span class="product-item"><span class="check">&#10003;</span> DSCR Loans</span>
-        <span class="sep">&middot;</span>
-        <span class="product-item"><span class="check">&#10003;</span> Bridge</span>
-        <span class="sep">&middot;</span>
-        <span class="product-item"><span class="check">&#10003;</span> BPL &amp; Fix &amp; Flip</span>
-        <span class="sep">&middot;</span>
-        <span class="product-item"><span class="check">&#10003;</span> Portfolio</span>
-        <span class="sep">&middot;</span>
-        <span class="product-item"><span class="check">&#10003;</span> Non-QM</span>
+<!-- ═══════════════ SECTION 1 — HERO ═══════════════ -->
+<section class="vp-hero-v54" aria-labelledby="h1">
+  <div class="vp-hero-v54-inner">
+    <div>
+      <div class="vp-eyebrow">Real Estate Investor Lending Advisory</div>
+      <h1 id="h1" class="vp-h1">Fund your next <em>deal</em> without a W-2.</h1>
+      <p class="vp-hero-v54-sub">DSCR, Fix &amp; Flip, BPL, and cash-out refi for real estate investors &mdash; structured around the deal, not your tax return.</p>
+      <p class="vp-hero-v54-products">DSCR &nbsp;&middot;&nbsp; Bridge &nbsp;&middot;&nbsp; Fix &amp; Flip &nbsp;&middot;&nbsp; Rental Portfolio &nbsp;&middot;&nbsp; Non-QM</p>
+      <div class="vp-hero-v54-cta">
+        <a href="#dealform" class="vp-btn vp-btn--gold vp-btn--large">Analyze My Deal</a>
+        <a href="#dealform" class="vp-btn vp-btn--ghost">Not sure which program fits?</a>
       </div>
-
-      <div class="cta-row">
-        <a href="#dealform" class="btn btn-primary btn-large">Review My Deal</a>
-        <a href="#programs" class="btn btn-secondary-light btn-large">Explore Programs</a>
-      </div>
-
-      <div class="micro-trust">
-        <span class="item"><span class="check-mini">&#10003;</span> No obligation</span>
-        <span class="item"><span class="check-mini">&#10003;</span> 24-hour review</span>
-        <span class="item"><span class="check-mini">&#10003;</span> NMLS #2822744</span>
+      <div class="vp-hero-v54-trust">
+        <span>Real review within 24 hours</span>
+        <span>No obligation</span>
+        <span>NMLS #2822744</span>
       </div>
     </div>
 
-    <!-- HERO CARD -->
-    <aside class="hero-card" aria-label="Why investors choose Viador">
-      <h2 class="hero-card-title">Why Investors Choose Viador</h2>
-
-      <div class="card-items">
-
-        <div class="card-item">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"></circle>
-              <polyline points="12 7 12 12 15 14"></polyline>
-            </svg>
-          </div>
-          <div class="card-item-body">
-            <div class="card-item-label">Deal Reviewed in 24 Hours</div>
-            <div class="card-item-text">Submit today. Know where you stand tomorrow &mdash; not next week.</div>
-          </div>
+    <div class="hero-right">
+      <div class="deal-snapshot" style="display:none">
+        <div class="ds-header">
+          <span class="ds-program-label">Program Overview</span>
+          <span class="ds-program-name">Investor Lending</span>
         </div>
 
-        <div class="card-item">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="3" width="7" height="18"></rect>
-              <rect x="13" y="8" width="7" height="13"></rect>
-              <line x1="7" y1="7" x2="8" y2="7"></line>
-              <line x1="7" y1="11" x2="8" y2="11"></line>
-              <line x1="7" y1="15" x2="8" y2="15"></line>
-              <line x1="16" y1="12" x2="17" y2="12"></line>
-              <line x1="16" y1="16" x2="17" y2="16"></line>
-            </svg>
-          </div>
-          <div class="card-item-body">
-            <div class="card-item-label">Financing for Real Strategies</div>
-            <div class="card-item-text">DSCR, BPL, fix &amp; flip, bridge, and more &mdash; matched to your deal.</div>
-          </div>
+        <div class="ds-group">
+          <div class="ds-group-title">DSCR Loan</div>
+          <div class="ds-row"><span class="ds-key">Purpose</span><span class="ds-val">Purchase / Cash-Out Refi</span></div>
+          <div class="ds-row"><span class="ds-key">Max LTV</span><span class="ds-val">75%</span></div>
+          <div class="ds-row"><span class="ds-key">DSCR Ratio</span><span class="ds-val">1.20x minimum</span></div>
+          <div class="ds-row"><span class="ds-key">Borrower</span><span class="ds-val">LLC or individual</span></div>
+          <div class="ds-row"><span class="ds-key">W-2 Required</span><span class="ds-val ds-val-yes">No</span></div>
         </div>
 
-        <div class="card-item">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="4" y1="20" x2="4" y2="13"></line>
-              <line x1="10" y1="20" x2="10" y2="8"></line>
-              <line x1="16" y1="20" x2="16" y2="11"></line>
-              <line x1="3" y1="20" x2="20" y2="20"></line>
-            </svg>
-          </div>
-          <div class="card-item-body">
-            <div class="card-item-label">No Property Count Limits</div>
-            <div class="card-item-text">Scale your portfolio through your LLC without artificial caps.</div>
+        <div class="ds-group">
+          <div class="ds-group-title">Fix &amp; Flip / Bridge</div>
+          <div class="ds-row"><span class="ds-key">Financing</span><span class="ds-val">Up to 90% purchase</span></div>
+          <div class="ds-row"><span class="ds-key">Rehab</span><span class="ds-val">100% covered</span></div>
+          <div class="ds-row"><span class="ds-key">Qualifies on</span><span class="ds-val">ARV — not income</span></div>
+          <div class="ds-row"><span class="ds-key">Timeline</span><span class="ds-val">Close in ~10 days</span></div>
+        </div>
+
+        <div class="ds-group">
+          <div class="ds-group-title">Business Purpose (BPL)</div>
+          <div class="ds-row"><span class="ds-key">Borrower</span><span class="ds-val">LLC required</span></div>
+          <div class="ds-row"><span class="ds-key">Property count</span><span class="ds-val ds-val-yes">No ceiling</span></div>
+          <div class="ds-row"><span class="ds-key">Income docs</span><span class="ds-val ds-val-yes">Not required</span></div>
+          <div class="ds-row"><span class="ds-key">Structures</span><span class="ds-val">DSCR · Bridge · Blanket</span></div>
+        </div>
+
+        <div class="ds-footer">
+          <span class="ds-footer-text">Free review &middot; No credit pull &middot; 24-hour response</span>
+        </div>
+      </div>
+      <!-- preserve original proof card for fallback/mobile, hidden on desktop via styles.css -->
+      <div class="hero-proof-card">
+        <div class="hero-proof-header">
+          <span class="hero-proof-tag">Why investors work with Viador</span>
+        </div>
+        <div class="hero-proof-item">
+          <div class="hero-proof-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B745E" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="hero-proof-body">
+            <div class="hero-proof-headline">Deal reviewed in 24 hours</div>
+            <div class="hero-proof-detail">Submit today. Know where you stand tomorrow &mdash; not next week.</div>
           </div>
         </div>
-
-        <div class="card-item">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="19" y1="5" x2="5" y2="19"></line>
-              <circle cx="7.5" cy="7.5" r="2.5"></circle>
-              <circle cx="16.5" cy="16.5" r="2.5"></circle>
-            </svg>
-          </div>
-          <div class="card-item-body">
-            <div class="card-item-label">No W-2s. No Tax Returns.</div>
-            <div class="card-item-text">Qualify based on rental income and the property.</div>
+        <div class="hero-proof-item">
+          <div class="hero-proof-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B745E" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <div class="hero-proof-body">
+            <div class="hero-proof-headline">Right financing for every deal</div>
+            <div class="hero-proof-detail">Conventional, DSCR, BPL, fix &amp; flip, bridge &mdash; matched to the deal.</div>
           </div>
         </div>
-
-      </div>
-
-      <div class="hero-card-footer">Free Review &middot; No Obligation</div>
-    </aside>
-
-  </div>
-</section>
-
-<!-- =============== PROGRAMS — 6 cards =============== -->
-<section class="programs" id="programs" aria-labelledby="programs-headline">
-  <div class="programs-inner">
-
-    <div class="section-head">
-      <h2 id="programs-headline" class="section-headline">Financing built for real investor strategies</h2>
-      <p class="section-sub">Flexible solutions for every stage of your investment journey.</p>
-    </div>
-
-    <div class="programs-grid">
-
-      <article class="program-card">
-        <div class="program-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"></path>
-          </svg>
+        <div class="hero-proof-item">
+          <div class="hero-proof-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B745E" stroke-width="1.5" stroke-linecap="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <div class="hero-proof-body">
+            <div class="hero-proof-headline">No property count ceiling</div>
+            <div class="hero-proof-detail">BPL loans through your LLC &mdash; scale past the conventional 10-property limit.</div>
+          </div>
         </div>
-        <h3 class="program-title">DSCR Loans</h3>
-        <p class="program-text">Qualify using the property&rsquo;s rental income &mdash; not your personal income.</p>
-        <a href="dscr.html" class="program-link">Learn more &rarr;</a>
-      </article>
-
-      <article class="program-card">
-        <div class="program-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-16a1 1 0 0 1-1-1z"></path>
-            <path d="M9 21v-6h6v6"></path>
-            <path d="M14.5 6.5l1.5 1.5"></path>
-          </svg>
+        <div class="hero-proof-item hero-proof-item-last">
+          <div class="hero-proof-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B745E" stroke-width="1.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="hero-proof-body">
+            <div class="hero-proof-headline">No W2s. No tax returns.</div>
+            <div class="hero-proof-detail">DSCR qualifies on rental income. BPL qualifies on the deal itself.</div>
+          </div>
         </div>
-        <h3 class="program-title">BRRRR &amp; Rehab</h3>
-        <p class="program-text">Finance the purchase and rehab with options to refinance after stabilization.</p>
-        <a href="brrrr-method-financing.html" class="program-link">Learn more &rarr;</a>
-      </article>
-
-      <article class="program-card">
-        <div class="program-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 16h20"></path>
-            <path d="M4 16V9l8-4 8 4v7"></path>
-            <line x1="6" y1="9" x2="6" y2="16"></line>
-            <line x1="12" y1="7" x2="12" y2="16"></line>
-            <line x1="18" y1="9" x2="18" y2="16"></line>
-          </svg>
+        <div class="hero-proof-footer">
+          <span class="hero-proof-free">Free review &middot; No obligation</span>
         </div>
-        <h3 class="program-title">Bridge Loans</h3>
-        <p class="program-text">Short-term capital to move fast and close with confidence.</p>
-        <a href="bridge-loans-florida.html" class="program-link">Learn more &rarr;</a>
-      </article>
-
-      <article class="program-card">
-        <div class="program-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="4" y="3" width="6" height="18"></rect>
-            <rect x="14" y="8" width="6" height="13"></rect>
-            <line x1="6" y1="7" x2="8" y2="7"></line>
-            <line x1="6" y1="11" x2="8" y2="11"></line>
-            <line x1="6" y1="15" x2="8" y2="15"></line>
-            <line x1="16" y1="12" x2="18" y2="12"></line>
-            <line x1="16" y1="16" x2="18" y2="16"></line>
-          </svg>
-        </div>
-        <h3 class="program-title">Portfolio Loans</h3>
-        <p class="program-text">Scale your portfolio with flexible terms and no loan count limits.</p>
-        <a href="bpl.html" class="program-link">Learn more &rarr;</a>
-      </article>
-
-      <article class="program-card">
-        <div class="program-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-          </svg>
-        </div>
-        <h3 class="program-title">Fix &amp; Flip</h3>
-        <p class="program-text">Competitive financing for fix &amp; flip and ground-up projects.</p>
-        <a href="fix-and-flip.html" class="program-link">Learn more &rarr;</a>
-      </article>
-
-      <article class="program-card">
-        <div class="program-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="19" y1="5" x2="5" y2="19"></line>
-            <circle cx="7.5" cy="7.5" r="2.5"></circle>
-            <circle cx="16.5" cy="16.5" r="2.5"></circle>
-          </svg>
-        </div>
-        <h3 class="program-title">Non-QM Solutions</h3>
-        <p class="program-text">Bank statement, P&amp;L, and other bankable income programs.</p>
-        <a href="non-qm-loans-florida.html" class="program-link">Learn more &rarr;</a>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- =============== STATS BAR (dark) — existing layout + Equal Housing added =============== -->
-<section class="stats-bar" aria-label="Track record and licensing">
-  <div class="stats-inner">
-
-    <div class="stat-cell">
-      <div class="stat-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="12" y1="2" x2="12" y2="22"></line>
-          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-        </svg>
-      </div>
-      <div class="stat-body">
-        <div class="stat-num">$1B+</div>
-        <div class="stat-label">Career Loan Volume Originated</div>
-      </div>
-    </div>
-
-    <div class="stat-cell">
-      <div class="stat-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
-      </div>
-      <div class="stat-body">
-        <div class="stat-num">20+ Years</div>
-        <div class="stat-label">Institutional Lending Experience</div>
-      </div>
-    </div>
-
-    <div class="stat-cell">
-      <div class="stat-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-        </svg>
-      </div>
-      <div class="stat-body">
-        <div class="stat-num">NMLS #2822744</div>
-        <div class="stat-label">Verified Originator</div>
-      </div>
-    </div>
-
-    <div class="stat-cell">
-      <div class="stat-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-16a1 1 0 0 1-1-1z"></path>
-          <line x1="3" y1="11" x2="21" y2="11"></line>
-          <line x1="12" y1="4" x2="12" y2="21"></line>
-        </svg>
-      </div>
-      <div class="stat-body">
-        <div class="stat-num">Equal Housing</div>
-        <div class="stat-label">Equal Housing Opportunity</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- HOW WE WORK light/cream -->
-<section class="vp-section-light" aria-labelledby="how-work-hed">
-  <div class="container">
-    <div class="vp-section-head">
-      <p class="vp-eyebrow-dark">How We Work</p>
-      <h2 class="vp-h2-light" id="how-work-hed">Three steps from first call to close.</h2>
-    </div>
-    <div class="vp-steps">
-      <div class="vp-step">
-        <div class="vp-step-num-circle">01</div>
-        <div class="vp-step-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6B745E" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-        <h3 class="vp-step-title">Analyze</h3>
-        <p class="vp-step-body">We review your deal, property, and financing situation. No application required.</p>
-      </div>
-      <div class="vp-step-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      <div class="vp-step">
-        <div class="vp-step-num-circle">02</div>
-        <div class="vp-step-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6B745E" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
-        <h3 class="vp-step-title">Structure</h3>
-        <p class="vp-step-body">We identify the right loan structure, rate, and terms for your specific scenario.</p>
-      </div>
-      <div class="vp-step-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-      <div class="vp-step">
-        <div class="vp-step-num-circle">03</div>
-        <div class="vp-step-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6B745E" stroke-width="1.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <h3 class="vp-step-title">Execute</h3>
-        <p class="vp-step-body">We move from term sheet to close with no income verification required for investment properties.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EXAMPLE SCENARIOS dark -->
-<section class="vp-section-dark" aria-labelledby="scenarios-hed">
-  <div class="container">
-    <div class="vp-section-head">
-      <p class="vp-eyebrow-olive">Example Scenarios</p>
-      <h2 class="vp-h2-dark" id="scenarios-hed">What this looks like in practice.</h2>
-      <p class="vp-sub-dark">Illustrative scenarios reflecting the kinds of deals we structure every week.</p>
+<!-- ═══════════════ SECTION 2 — PROOF STRIP (dark) ═══════════════ -->
+<section class="vp-section vp-section--dark" style="padding:40px 0">
+  <div class="vp-container">
+    <div class="vp-proof">
+      <div>
+        <div class="vp-proof-num">$1B+</div>
+        <div class="vp-proof-label">Career loan volume originated</div>
+      </div>
+      <div>
+        <div class="vp-proof-num">20+ Years</div>
+        <div class="vp-proof-label">Institutional lending experience</div>
+      </div>
+      <div>
+        <div class="vp-proof-num">NMLS #2822744</div>
+        <div class="vp-proof-label">Verified originator</div>
+      </div>
     </div>
-    <div class="vp-scenarios-grid">
-      <article class="vp-scenario-card">
-        <span class="vp-scenario-badge">Hypothetical Example</span>
-        <h3 class="vp-scenario-title">DSCR Refinance</h3>
-        <div class="vp-scenario-rows">
-          <div class="vp-scenario-row"><span class="vp-scenario-key">Property</span><span class="vp-scenario-val">SFR, Tampa FL</span></div>
-          <div class="vp-scenario-row"><span class="vp-scenario-key">Loan</span><span class="vp-scenario-val">$480K cash-out refi</span></div>
-          <div class="vp-scenario-row"><span class="vp-scenario-key">DSCR</span><span class="vp-scenario-val">1.28x</span></div>
-          <div class="vp-scenario-row"><span class="vp-scenario-key">Income docs</span><span class="vp-scenario-val">None required</span></div>
-          <div class="vp-scenario-row"><span class="vp-scenario-key">Result</span><span class="vp-scenario-val">Closed in 28 days</span></div>
-        </div>
-        <a href="dscr.html" class="vp-scenario-link">View details &rarr;</a>
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 3 — DEAL EXAMPLES ═══════════════ -->
+<section class="vp-section vp-section--white">
+  <div class="vp-container">
+    <div style="text-align:center;max-width:640px;margin:0 auto 48px">
+      <div class="vp-eyebrow">Example Scenarios</div>
+      <h2 class="vp-h2">What this looks like in practice.</h2>
+      <p class="vp-body vp-muted-txt">Illustrative scenarios reflecting the kinds of deals we structure every week.</p>
+    </div>
+    <div class="vp-grid vp-grid-3">
+      <article class="vp-card">
+        <span class="vp-label-badge">Hypothetical Example</span>
+        <h3 class="vp-h3">DSCR Refinance</h3>
+        <div class="vp-example-row"><span>Property</span><span>SFR, Tampa FL</span></div>
+        <div class="vp-example-row"><span>Loan</span><span>$480K cash-out refi</span></div>
+        <div class="vp-example-row"><span>DSCR</span><span>1.28x</span></div>
+        <div class="vp-example-row"><span>Income docs</span><span>None required</span></div>
+        <div class="vp-example-row"><span>Result</span><span>Closed in 28 days</span></div>
       </article>
-      <article class="vp-scenario-card">
-        <span class="vp-scenario-badge">Hypothetical Example</span>
-        <h3 class="vp-scenario-title">DSCR Second Mortgage</h3>
-        <div class="vp-scenario-rows">
-          <div class="vp-scenario-row"><span class="vp-scenario-key">Property</span><span class="vp-scenario-val">Rental, Hillsborough County FL</span></div>
-          <div class="vp-scenario-row"><span class="vp-scenario-key">Loan</span><span class="vp-scenario-val">$210K second mortgage</span></div>
-          <div class="vp-scenario-row"><span class="vp-scenario-key">First rate preserved</span><span class="vp-scenario-val">3.1%</span></div>
-          <div class="vp-scenario-row"><span class="vp-scenario-key">Net monthly improvement</span><span class="vp-scenario-val vp-success">+$640/mo</span></div>
-          <div class="vp-scenario-row"><span class="vp-scenario-key">Result</span><span class="vp-scenario-val">Equity accessed without touching first</span></div>
-        </div>
-        <a href="dscr.html" class="vp-scenario-link">View details &rarr;</a>
+      <article class="vp-card">
+        <span class="vp-label-badge">Hypothetical Example</span>
+        <h3 class="vp-h3">DSCR Second Mortgage</h3>
+        <div class="vp-example-row"><span>Property</span><span>Rental, Hillsborough County FL</span></div>
+        <div class="vp-example-row"><span>Loan</span><span>$210K second mortgage</span></div>
+        <div class="vp-example-row"><span>First rate preserved</span><span>3.1%</span></div>
+        <div class="vp-example-row"><span>Net monthly improvement</span><span>+$640/mo</span></div>
+        <div class="vp-example-row"><span>Result</span><span>Equity accessed without touching first</span></div>
       </article>
-      <article class="vp-scenario-card">
-        <span class="vp-scenario-badge">Hypothetical Example</span>
-        <h3 class="vp-scenario-title">Business Purpose Loan</h3>
-        <div class="vp-scenario-rows">
-          <div class="vp-scenario-row"><span class="vp-scenario-key">Property</span><span class="vp-scenario-val">4-unit, investor LLC</span></div>
-          <div class="vp-scenario-row"><span class="vp-scenario-key">Loan</span><span class="vp-scenario-val">$385K BPL acquisition</span></div>
-          <div class="vp-scenario-row"><span class="vp-scenario-key">Qualification</span><span class="vp-scenario-val">Deal cash flow only</span></div>
-          <div class="vp-scenario-row"><span class="vp-scenario-key">Borrower</span><span class="vp-scenario-val">LLC</span></div>
-          <div class="vp-scenario-row"><span class="vp-scenario-key">Result</span><span class="vp-scenario-val">Closed, no personal income review</span></div>
-        </div>
-        <a href="bpl.html" class="vp-scenario-link">View details &rarr;</a>
+      <article class="vp-card">
+        <span class="vp-label-badge">Hypothetical Example</span>
+        <h3 class="vp-h3">Business Purpose Loan</h3>
+        <div class="vp-example-row"><span>Property</span><span>4-unit, investor LLC</span></div>
+        <div class="vp-example-row"><span>Loan</span><span>$385K BPL acquisition</span></div>
+        <div class="vp-example-row"><span>Qualification</span><span>Deal cash flow only</span></div>
+        <div class="vp-example-row"><span>Borrower</span><span>LLC</span></div>
+        <div class="vp-example-row"><span>Result</span><span>Closed, no personal income review</span></div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- LOAN PROGRAMS light/white -->
-<section class="vp-section-light vp-bg-white" id="programs" aria-labelledby="programs-hed">
-  <div class="container">
-    <div class="vp-section-head">
-      <p class="vp-eyebrow-dark">Loan Programs</p>
-      <h2 class="vp-h2-light" id="programs-hed">Every deal is different.</h2>
-      <p class="vp-sub-light">Four core programs covering most investor scenarios. We match the structure to the deal.</p>
+<!-- ═══════════════ SECTION 4 — HOW WE WORK ═══════════════ -->
+<section class="vp-section">
+  <div class="vp-container">
+    <div style="text-align:center;max-width:640px;margin:0 auto 56px">
+      <div class="vp-eyebrow">How We Work</div>
+      <h2 class="vp-h2">Three steps from first call to close.</h2>
     </div>
-    <div class="vp-programs-grid">
-      <div class="vp-program-tile">
-        <div class="vp-program-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-        <h3 class="vp-program-name">DSCR Loans</h3>
-        <p class="vp-program-desc">Qualify on rental income &mdash; not W-2s or tax returns. For rental property acquisitions and refinances.</p>
-        <a href="dscr.html" class="vp-program-link-dark">DSCR guide &rarr;</a>
+    <div class="vp-grid vp-grid-3">
+      <div>
+        <div class="vp-step-num">01</div>
+        <h3 class="vp-h3">Analyze</h3>
+        <p class="vp-body">We review your deal, property, and financing situation. No application required.</p>
       </div>
-      <div class="vp-program-tile">
-        <div class="vp-program-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-        <h3 class="vp-program-name">Fix &amp; Flip</h3>
-        <p class="vp-program-desc">Fast bridge capital for value-add deals. Borrow on purchase and rehab, repay at sale or refi.</p>
-        <a href="fix-and-flip.html" class="vp-program-link-dark">Fix &amp; flip guide &rarr;</a>
+      <div>
+        <div class="vp-step-num">02</div>
+        <h3 class="vp-h3">Structure</h3>
+        <p class="vp-body">We identify the right loan structure, rate, and terms for your specific scenario.</p>
       </div>
-      <div class="vp-program-tile">
-        <div class="vp-program-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
-        <h3 class="vp-program-name">Business Purpose Loans (BPL)</h3>
-        <p class="vp-program-desc">Entity-based lending for serious scaling. No property count cap, no personal income scrutiny.</p>
-        <a href="bpl.html" class="vp-program-link-dark">BPL guide &rarr;</a>
-      </div>
-      <div class="vp-program-tile">
-        <div class="vp-program-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
-        <h3 class="vp-program-name">Bank Statement / Non-QM</h3>
-        <p class="vp-program-desc">12&ndash;24 months of deposits replace tax returns. Built for self-employed and complex-income borrowers.</p>
-        <a href="non-qm-loans-florida.html" class="vp-program-link-dark">Non-QM guide &rarr;</a>
+      <div>
+        <div class="vp-step-num">03</div>
+        <h3 class="vp-h3">Execute</h3>
+        <p class="vp-body">We move from term sheet to close with no income verification required for investment properties.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHO THIS IS FOR dark -->
-<section class="vp-section-dark" aria-labelledby="who-for-hed">
-  <div class="container">
-    <div class="vp-section-head">
-      <p class="vp-eyebrow-olive">Who This Is For</p>
-      <h2 class="vp-h2-dark" id="who-for-hed">Built for investors at every stage.</h2>
+<!-- ═══════════════ SECTION 5 — LOAN PROGRAMS ═══════════════ -->
+<section class="vp-section vp-section--white" id="programs">
+  <div class="vp-container">
+    <div style="text-align:center;max-width:640px;margin:0 auto 48px">
+      <div class="vp-eyebrow">Loan Programs</div>
+      <h2 class="vp-h2">Every deal is different.</h2>
+      <p class="vp-body vp-muted-txt">Four core programs covering most investor scenarios. We match the structure to the deal.</p>
     </div>
-    <div class="vp-who-for-grid">
-      <div class="vp-who-col">
-        <div class="vp-who-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6B745E" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-        <h3 class="vp-who-title">Investors Refinancing</h3>
-        <p class="vp-who-body">You own 1&ndash;10 rental properties and want to pull cash out, lower your rate, or restructure debt. No W-2 required.</p>
+    <div class="vp-grid vp-grid-4">
+      <article class="vp-card">
+        <h3 class="vp-h3">DSCR Loans</h3>
+        <p class="vp-body" style="font-size:15px">Qualify on rental income &mdash; not W-2s or tax returns. For rental property acquisitions and refinances.</p>
+        <ul class="vp-program-bullets">
+          <li>No personal income required</li>
+          <li>LLC-friendly, 1&ndash;4 units + condos</li>
+          <li>20&ndash;25% down, 660+ credit</li>
+        </ul>
+        <a href="dscr.html" class="vp-program-link">DSCR guide &rarr;</a>
+      </article>
+      <article class="vp-card">
+        <h3 class="vp-h3">Fix &amp; Flip</h3>
+        <p class="vp-body" style="font-size:15px">Fast bridge capital for value-add deals. Borrow on purchase and rehab, repay at sale or refi.</p>
+        <ul class="vp-program-bullets">
+          <li>Up to 90% purchase + 100% rehab</li>
+          <li>Qualifies on ARV, not income</li>
+          <li>Close in as few as 10 days</li>
+        </ul>
+        <a href="fix-and-flip.html" class="vp-program-link">Fix &amp; flip guide &rarr;</a>
+      </article>
+      <article class="vp-card">
+        <h3 class="vp-h3">Business Purpose (BPL)</h3>
+        <p class="vp-body" style="font-size:15px">Entity-based lending for serious scaling. No property count cap, no personal income scrutiny.</p>
+        <ul class="vp-program-bullets">
+          <li>No conventional 10-property limit</li>
+          <li>LLC borrowing &mdash; asset protection</li>
+          <li>DSCR, bridge, blanket portfolio</li>
+        </ul>
+        <a href="bpl.html" class="vp-program-link">BPL guide &rarr;</a>
+      </article>
+      <article class="vp-card">
+        <h3 class="vp-h3">Bank Statement / Non-QM</h3>
+        <p class="vp-body" style="font-size:15px">12&ndash;24 months of deposits replace tax returns. Built for self-employed and complex-income borrowers.</p>
+        <ul class="vp-program-bullets">
+          <li>No tax returns required</li>
+          <li>Business or personal deposits</li>
+          <li>Investment + second home use</li>
+        </ul>
+        <a href="non-qm-loans-florida.html" class="vp-program-link">Non-QM guide &rarr;</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 6 — WHO THIS IS FOR ═══════════════ -->
+<section class="vp-section">
+  <div class="vp-container">
+    <div style="text-align:center;max-width:640px;margin:0 auto 48px">
+      <div class="vp-eyebrow">Who This Is For</div>
+      <h2 class="vp-h2">Built for investors at every stage.</h2>
+    </div>
+    <div class="vp-grid vp-grid-3">
+      <div class="vp-card">
+        <div class="vp-eyebrow" style="margin-bottom:12px">Investors Refinancing</div>
+        <p class="vp-body" style="font-size:16px;margin:0">You own 1&ndash;10 rental properties and want to pull cash out, lower your rate, or restructure debt. No W-2 required.</p>
       </div>
-      <div class="vp-who-col">
-        <div class="vp-who-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6B745E" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        <h3 class="vp-who-title">Active Buyers</h3>
-        <p class="vp-who-body">You&#8217;re acquiring your next property and need fast, flexible financing that qualifies on the deal &mdash; not your tax return.</p>
+      <div class="vp-card">
+        <div class="vp-eyebrow" style="margin-bottom:12px">Active Buyers</div>
+        <p class="vp-body" style="font-size:16px;margin:0">You&rsquo;re acquiring your next property and need fast, flexible financing that qualifies on the deal &mdash; not your tax return.</p>
       </div>
-      <div class="vp-who-col">
-        <div class="vp-who-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6B745E" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-        <h3 class="vp-who-title">Portfolio Builders</h3>
-        <p class="vp-who-body">You&#8217;re scaling and need a lending partner who understands the math &mdash; DSCR, cash-on-cash, equity deployment.</p>
+      <div class="vp-card">
+        <div class="vp-eyebrow" style="margin-bottom:12px">Portfolio Builders</div>
+        <p class="vp-body" style="font-size:16px;margin:0">You&rsquo;re scaling and need a lending partner who understands the math &mdash; DSCR, cash-on-cash, equity deployment.</p>
+      </div>
+    </div>
+    <p class="vp-body vp-muted-txt" style="text-align:center;font-size:14px;margin-top:32px">Best for investment-property borrowers. Not the right fit for primary residence rate shopping.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 7 — FOUNDER ═══════════════ -->
+<section class="vp-section vp-section--white">
+  <div class="vp-container">
+    <div style="text-align:center;max-width:640px;margin:0 auto 32px">
+      <div class="vp-eyebrow">Founder</div>
+      <h2 class="vp-h2">Built by someone who&rsquo;s been inside the system.</h2>
+    </div>
+    <div class="vp-founder">
+      <img src="/chad-evers.jpg" alt="Chad Evers, Founder — Viador Partners"/>
+      <div class="vp-founder-body">
+        <p class="vp-founder-name">Chad Evers &middot; Founder</p>
+        <p class="vp-founder-creds">NMLS #2822744 &middot; 20 years institutional lending &middot; Built national mortgage teams &middot; 3 years Citi global experience</p>
+        <p class="vp-founder-quote">&ldquo;Viador is what I built instead. For the people the system was never designed to serve.&rdquo;</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOUNDER SECTION dark -->
-<section class="vp-founder-section" aria-labelledby="founder-hed">
-  <div class="container">
-    <div class="vp-founder-inner">
-      <div class="vp-founder-left">
-        <img src="/chad-evers.jpg" alt="Chad Evers, Founder of Viador Partners" class="vp-founder-photo"
-             onerror="this.style.display='none';this.nextSibling.style.display='flex'"/>
-        <span class="vp-founder-photo-placeholder" style="display:none" aria-hidden="true">CE</span>
-        <div class="vp-founder-bio">
-          <p class="vp-founder-tagline">Built from institutional lending experience.</p>
-          <p class="vp-founder-name" id="founder-hed">Chad Evers &middot; Founder</p>
-          <p class="vp-founder-creds">NMLS #2822744<span class="vp-sep"> &middot; </span>20+ years institutional lending<br>Built national mortgage teams<span class="vp-sep"> &middot; </span>3 years Citi global experience</p>
-          <a href="https://www.linkedin.com/in/chadevers" target="_blank" rel="noopener noreferrer" class="vp-founder-linkedin">Connect on LinkedIn &rarr;</a>
-        </div>
-      </div>
-      <div class="vp-founder-divider"></div>
-      <div class="vp-founder-right">
-        <blockquote class="vp-founder-quote">
-          The right <span class="dor">dor</span> changes everything. Most investors don't know it's there.
-        </blockquote>
-        <p class="vp-founder-cite"><span class="vp-founder-cite-text">Chad Evers &middot; Founder, Viador Partners &middot; NMLS #2822744</span></p>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- ═══════════════ SECTION 8 — CONVERSION FORM ═══════════════ -->
 <section class="vp-section" id="dealform">
   <div class="vp-narrow">
     <div style="text-align:center;margin-bottom:40px">
@@ -1652,7 +973,7 @@ a{color:inherit}
         <div style="margin-bottom:14px">
           <input type="email" id="femail" name="email" placeholder="Email address" autocomplete="email" required style="width:100%;padding:16px 18px;border:1px solid var(--line);border-radius:8px;font-size:16px;font-family:var(--font-body);background:#fff;color:var(--ink);outline:none;box-sizing:border-box"/>
         </div>
-        <button type="button" class="vp-btn vp-btn--gold" id="submitDeal" style="width:100%;padding:18px">Review My Deal &rarr;</button>
+        <button type="button" class="vp-btn vp-btn--gold" id="submitDeal" style="width:100%;padding:18px">Analyze My Deal &rarr;</button>
       </form>
       <div style="text-align:center;margin-top:18px">
         <span style="font-size:14px;color:var(--vp-muted)">Or book a call &rarr; </span>
@@ -1748,73 +1069,72 @@ a{color:inherit}
   </div>
 </section>
 
-<!-- FINAL CTA BAND dark -->
-<section class="vp-cta-final" aria-label="Start your deal review">
-  <div class="container">
-    <div class="vp-cta-final-inner">
-      <div class="vp-cta-final-left">
-        <div class="vp-cta-final-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6B745E" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-        <div>
-          <h2 class="vp-cta-final-hed">Ready to see what your deal looks like?</h2>
-          <p class="vp-cta-final-sub">We&#8217;ll review it and respond with a clear path forward within 24 hours.</p>
-        </div>
-      </div>
-      <div class="vp-cta-final-buttons">
-        <a href="#dealform" class="vp-btn-primary">Review My Deal</a>
-        <a href="tel:+18134192983" class="vp-btn-outline-dark">Talk to an Expert &rarr;</a>
-      </div>
+<!-- ═══════════════ SECTION 11 — FINAL CTA (dark) ═══════════════ -->
+<section class="vp-section vp-section--dark">
+  <div class="vp-container" style="text-align:center">
+    <h2 class="vp-h2" style="max-width:640px;margin:0 auto 24px">Ready to see what your deal looks like?</h2>
+    <div class="vp-cta-isolate">
+      <a href="#dealform" class="vp-btn vp-btn--gold vp-btn--large">Analyze My Deal</a>
+    </div>
+    <div class="vp-trust-strip">
+      <span>Free review</span>
+      <span>No obligation</span>
+      <span>24-hour response</span>
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- FOOTER dark canonical Variant B — no VA disclaimer -->
-<footer class="vp-footer">
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="footer">
   <div class="container">
-    <div class="vp-footer-top">
-      <div class="vp-footer-brand">
-        <img src="/assets/brand/viador_vp_mark_dark_transparent.png" alt="Viador Partners" class="vp-footer-logo"/>
-        <p class="vp-footer-tagline">Real estate investor lending advisory.</p>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/assets/brand/viador_vp_mark_dark_transparent.png" alt="Viador Partners" style="height:32px;width:auto;display:block;object-fit:contain;opacity:0.88"/>
       </div>
-      <div class="vp-footer-col">
-        <h4 class="vp-footer-col-head">Programs</h4>
+      <div class="footer-nav-group">
+        <h4>Investors</h4>
+        <a href="bpl.html">What Is BPL?</a>
         <a href="dscr.html">DSCR Loans</a>
         <a href="fix-and-flip.html">Fix &amp; Flip</a>
-        <a href="bpl.html">Business Purpose Loans (BPL)</a>
-        <a href="bridge-loans-florida.html">Bridge Loans</a>
-        <a href="non-qm-loans-florida.html">Bank Statement &amp; Non-QM</a>
-        <a href="dscr.html">Rental Portfolio Loans</a>
+        <a href="#dealform">Analyze My Deal</a>
       </div>
-      <div class="vp-footer-col">
-        <h4 class="vp-footer-col-head">Tools</h4>
-        <a href="deal-analyzer.html">Deal Calculator</a>
-        <a href="dscr-calculator.html">Rate Explorer</a>
-        <a href="deal-analyzer.html">Scenario Analyzer</a>
-        <a href="deal-analyzer.html">Loan Comparison</a>
+      <div class="footer-nav-group">
+        <h4>Programs</h4>
+        <a href="dscr.html">DSCR Loans</a>
+        <a href="fix-and-flip.html">Fix &amp; Flip</a>
+        <a href="bpl.html">Business Purpose (BPL)</a>
+        <span style="display:block;font-size:10px;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin:8px 0 4px;font-family:var(--font-mono)">Commercial</span>
+        <a href="commercial.html">Small Balance Commercial</a>
+        <a href="commercial.html">SBA 7(a) &amp; 504</a>
+        <a href="franchise.html">Franchise Financing</a>
       </div>
-      <div class="vp-footer-col">
-        <h4 class="vp-footer-col-head">Company</h4>
+      <div class="footer-nav-group">
+        <h4>Partners</h4>
+        <a href="partners.html">Realtor Program</a>
+        <a href="partners.html">Refer a Deal</a>
         <a href="about.html">About Viador</a>
-        <a href="about.html">Our Approach</a>
-        <a href="about.html">Careers</a>
-        <a href="#dealform">Contact</a>
+        <a href="#faq">FAQ</a>
       </div>
     </div>
-    <div class="vp-footer-bottom">
-      <p class="vp-footer-compliance">
-        &copy; 2026 Viador Partners LLC &middot; chad&#64;viadorpartners.com &middot; (813) 419-2983<br>
+    <div class="footer-bottom">
+      <p style="margin:0;text-align:center;font-size:10px;line-height:1.8;width:100%;color:rgba(244,245,243,0.42)">
+        © 2026 Viador Partners LLC &middot; chad&#64;viadorpartners.com &middot; (813) 419-2983<br>
         Chad Evers NMLS #2822744 | Lending through Focus Home Mortgage Inc. NMLS #2769672 | Equal Housing Lender<br>
-        <a href="privacy-policy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Use</a>
+        Not a commitment to lend. Equal Housing Lender. <a href="privacy-policy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> &middot; <a href="terms.html" style="color:inherit;text-decoration:underline">Terms of Use</a><br>
+        Veteran homeowner? Visit <a href="https://nextdutyvet.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">NextDutyVet.com</a>
       </p>
     </div>
   </div>
 </footer>
 
-
 <!-- STICKY MOBILE CTA -->
 <div class="mobile-sticky-cta" id="mobileCta" aria-label="Quick deal review">
-  <a href="#dealform" class="mobile-sticky-btn">Review My Deal →</a>
+  <a href="#dealform" class="mobile-sticky-btn">Analyze My Deal →</a>
   <a href="tel:+18134192983" class="mobile-sticky-call">Call Us</a>
 </div>
 
@@ -1925,4 +1245,4 @@ document.getElementById('exitEmailForm').addEventListener('submit', function(e) 
 });
 </script>
 
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Q
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" d
