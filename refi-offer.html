@@ -12,6 +12,8 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Your Personalized Refi Analysis | Viador Partners</title>
+  <link rel="canonical" href="https://viadorpartners.com/refi-offer"/>
+
   <meta name="description" content="Your personalized BPL refinance analysis prepared by Viador Partners."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -88,19 +90,19 @@
       <li class="nav-dropdown">
         <span class="nav-link nav-dropdown-trigger">Programs</span>
         <div class="nav-dropdown-menu">
-          <a href="/dscr.html">DSCR Loans</a>
-          <a href="/fix-and-flip.html">Fix &amp; Flip</a>
-          <a href="/bpl.html">Business Purpose (BPL)</a>
-          <a href="/bridge-loans-florida.html">Bridge Loans</a>
-          <a href="/non-qm-loans-florida.html">Non-QM / Bank Statement</a>
-          <a href="/portfolio-loans-real-estate.html">Portfolio Loans</a>
+          <a href="/dscr">DSCR Loans</a>
+          <a href="/fix-and-flip">Fix &amp; Flip</a>
+          <a href="/bpl">Business Purpose (BPL)</a>
+          <a href="/bridge-loans-florida">Bridge Loans</a>
+          <a href="/non-qm-loans-florida">Non-QM / Bank Statement</a>
+          <a href="/portfolio-loans-real-estate">Portfolio Loans</a>
         </div>
       </li>
       <li class="nav-dropdown">
         <span class="nav-link nav-dropdown-trigger">Tools</span>
         <div class="nav-dropdown-menu">
-          <a href="/deal-analyzer.html">Deal Analyzer</a>
-          <a href="/dscr-calculator.html">DSCR Calculator</a>
+          <a href="/deal-analyzer">Deal Analyzer</a>
+          <a href="/dscr-calculator">DSCR Calculator</a>
         </div>
       </li>
       <li><a class="nav-link" href="/about">About</a></li>
@@ -129,7 +131,7 @@
       <p style="margin:0;text-align:center;font-size:10px;line-height:1.8;width:100%;color:rgba(244,245,243,0.42)">
         © 2026 Viador Partners LLC &middot; chad&#64;viadorpartners.com &middot; (813) 419-2983<br>
         Chad Evers NMLS #2822744 | Lending through Focus Home Mortgage Inc. NMLS #2769672 | Equal Housing Lender<br>
-        Not a commitment to lend. Equal Housing Lender. <a href="privacy-policy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> &middot; <a href="terms.html" style="color:inherit;text-decoration:underline">Terms of Use</a><br>
+        Not a commitment to lend. Equal Housing Lender. <a href="/privacy-policy" style="color:inherit;text-decoration:underline">Privacy Policy</a> &middot; <a href="/terms" style="color:inherit;text-decoration:underline">Terms of Use</a><br>
         Veteran homeowner? Visit <a href="https://nextdutyvet.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">NextDutyVet.com</a>
       </p>
     </div>
@@ -148,7 +150,7 @@
   var b64Code = params.get('c') || window.location.hash.substring(1);
 
   if (!kvCode && !b64Code) {
-    container.innerHTML = '<div class="offer-error"><h2>Analysis not found</h2><p style="color:rgba(255,255,255,0.5)">This link may have expired. <a href="refi.html" style="color:var(--gold)">Run a new refi analysis &rarr;</a></p></div>';
+    container.innerHTML = '<div class="offer-error"><h2>Analysis not found</h2><p style="color:rgba(255,255,255,0.5)">This link may have expired. <a href="/refi" style="color:var(--gold)">Run a new refi analysis &rarr;</a></p></div>';
     return;
   }
 
@@ -164,12 +166,12 @@
       if (json.error) throw new Error(json.error);
       data = json;
     } catch(e) {
-      container.innerHTML = '<div class="offer-error"><h2>Offer not found or expired</h2><p style="color:rgba(255,255,255,0.5)">' + (e.message || '') + '</p><p style="margin-top:12px"><a href="refi.html" style="color:var(--gold)">Run a new refi analysis &rarr;</a></p></div>';
+      container.innerHTML = '<div class="offer-error"><h2>Offer not found or expired</h2><p style="color:rgba(255,255,255,0.5)">' + (e.message || '') + '</p><p style="margin-top:12px"><a href="/refi" style="color:var(--gold)">Run a new refi analysis &rarr;</a></p></div>';
       return;
     }
   } else {
     try { data = JSON.parse(atob(b64Code)); } catch(e) {
-      container.innerHTML = '<div class="offer-error"><h2>Invalid analysis link</h2><p style="color:rgba(255,255,255,0.5)"><a href="refi.html" style="color:var(--gold)">Run a new refi analysis &rarr;</a></p></div>';
+      container.innerHTML = '<div class="offer-error"><h2>Invalid analysis link</h2><p style="color:rgba(255,255,255,0.5)"><a href="/refi" style="color:var(--gold)">Run a new refi analysis &rarr;</a></p></div>';
       return;
     }
   }
