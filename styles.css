@@ -2236,7 +2236,6 @@ body {
 .vp-btn--gold             { background: #6B745E !important; }
 .vp-btn--gold:hover       { background: #7A8468 !important; }
 .vp-label-badge           { background: rgba(107,116,94,0.08) !important; border-color: rgba(107,116,94,0.20) !important; }
-.hero::before             { background: radial-gradient(ellipse, rgba(107,116,94,0.07) 0%, transparent 70%) !important; }
 .final-cta::before        { background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(107,116,94,0.06) 0%, transparent 70%) !important; }
 
 /* 3 ─ NAV DARK */
