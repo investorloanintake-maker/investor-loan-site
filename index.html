@@ -1001,31 +1001,28 @@ a{color:inherit}
 .programs-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  gap: 1px;
+  background: rgba(31,35,38,0.14); /* hairline dividers */
 }
 
 .program-card {
   background: #fff;
-  border: 1px solid var(--border-card);
-  border-radius: 6px;
-  padding: 32px 22px 26px;
+  padding: 36px 24px 28px;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: background 0.15s ease;
 }
 
 .program-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-card);
-  border-color: rgba(107, 116, 94, 0.25);
+  background: rgba(107,116,94,0.05);
 }
 
 .program-icon {
   width: 56px; height: 56px;
-  border: 1.5px solid var(--border-subtle);
+  background: #6B745E;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto 18px;
-  color: var(--olive);
+  color: #F4F5F3;
 }
 
 .program-icon svg { width: 24px; height: 24px; }
@@ -1054,6 +1051,17 @@ a{color:inherit}
 }
 
 .program-link:hover { color: var(--olive-bright); }
+
+/* =============== IVORY SECTION (light break between dark blocks) =============== */
+.vp-section-ivory {
+  background: #F4F2EC;
+  padding: 72px 24px;
+  color: #1F2326; /* CRITICAL: explicit charcoal — prevents white-on-white on dark-dominant theme */
+}
+.vp-section-ivory .vp-h2-dark  { color: #1F2326; }
+.vp-section-ivory .vp-who-title { color: #1F2326; }
+.vp-section-ivory .vp-who-body  { color: #52504C; }
+.vp-section-ivory .vp-eyebrow-olive { color: #6B745E; }
 
 /* =============== RESPONSIVE =============== */
 @media (max-width: 1100px) {
@@ -1377,6 +1385,18 @@ a{color:inherit}
         <a href="/foreign-national-dscr-loans" class="program-link">Foreign national guide &rarr;</a>
       </article>
 
+      <article class="program-card">
+        <div class="program-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="8" width="17" height="11" rx="1.5"></rect>
+            <rect x="5" y="5" width="17" height="11" rx="1.5"></rect>
+          </svg>
+        </div>
+        <h3 class="program-title">Second Mortgages</h3>
+        <p class="program-text">Pull equity without refinancing your first mortgage &mdash; a second lien that leaves your existing financing in place.</p>
+        <a href="/dscr-second-mortgage" class="program-link">Second mortgage guide &rarr;</a>
+      </article>
+
     </div>
   </div>
 </section>
@@ -1473,7 +1493,7 @@ a{color:inherit}
 </section>
 
 <!-- EXAMPLE SCENARIOS dark -->
-<section class="vp-section-dark" aria-labelledby="scenarios-hed">
+<section class="vp-section-dark" style="padding-bottom:72px" aria-labelledby="scenarios-hed">
   <div class="container">
     <div class="vp-section-head">
       <p class="vp-eyebrow-olive">Example Scenarios</p>
@@ -1523,7 +1543,7 @@ a{color:inherit}
 
 
 <!-- WHO THIS IS FOR dark -->
-<section class="vp-section-dark" aria-labelledby="who-for-hed">
+<section class="vp-section-ivory" aria-labelledby="who-for-hed">
   <div class="container">
     <div class="vp-section-head">
       <p class="vp-eyebrow-olive">Who This Is For</p>
