@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cash-Out Refinance Calculator — Debt Consolidation & Equity Access | Viador Partners</title>
+  <meta name="description" content="Free cash-out refinance calculator. See how much equity you can access, your new monthly payment, and how much you'd save by consolidating debt into your mortgage."/>
+  <meta name="keywords" content="cash out refinance calculator, debt consolidation calculator, home equity calculator, mortgage refinance calculator, cash out refi Florida Ohio"/>
+  <link rel="canonical" href="https://www.viadorpartners.com/cashout-calculator"/>
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.viadorpartners.com/cashout-calculator"/>
+  <meta property="og:title" content="Cash-Out Refinance Calculator | Viador Partners"/>
+  <meta property="og:description" content="See how much equity you can access and what you'd save monthly by consolidating debt through a cash-out refinance."/>
+  <meta property="og:image" content="https://www.viadorpartners.com/og-image.jpg"/>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Cash-Out Refinance & Debt Consolidation Calculator",
+    "description": "Free calculator showing available equity, maximum cash-out amount, new monthly payment, and monthly savings from consolidating debt through a cash-out refinance.",
+    "url": "https://www.viadorpartners.com/cashout-calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "provider": {
+      "@type": "FinancialService",
+      "name": "Viador Partners",
+      "url": "https://www.viadorpartners.com",
+      "employee": { "@type": "Person", "name": "Chad Evers", "hasCredential": "NMLS #2822744" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much equity can I access with a cash-out refinance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most lenders allow you to access up to 80% of your home's value through a cash-out refinance. For investment properties, the limit is typically 75%. For example, on a $500,000 home with a $250,000 balance, you could access up to $150,000 in cash (80% of $500,000 = $400,000 new loan - $250,000 payoff = $150,000 cash out)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I use a cash-out refinance to consolidate debt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A cash-out refinance can be a smart debt consolidation strategy if your mortgage rate is significantly lower than your credit card or other debt rates. Credit cards typically charge 18-25% interest. Consolidating into a mortgage at 6-7% can save hundreds of dollars per month. However, you're converting unsecured debt into secured debt — your home — so it's important to avoid running up high-interest debt again after consolidating."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the minimum credit score for a cash-out refinance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most lenders require a minimum 620 FICO score for a cash-out refinance. Better rates are available at 680+. The loan amount cannot exceed 80% LTV for primary residences (75% for investment properties). You also typically need at least 6 months of seasoning — meaning you've owned the property for at least 6 months."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .calc-page{padding:80px 0 120px;background:var(--cream)}
+    .calc-hero{text-align:center;margin-bottom:56px}
+    .calc-hero h1{font-family:var(--font-display);font-size:clamp(28px,4vw,48px);font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:16px}
+    .calc-hero p{font-size:17px;color:var(--ink-soft);max-width:600px;margin:0 auto;line-height:1.6}
+    .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;max-width:1160px;margin:0 auto}
+    @media(max-width:768px){.calc-grid{grid-template-columns:1fr}}
+    .calc-card{background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:32px;margin-bottom:16px}
+    .calc-card-title{font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;margin-bottom:24px}
+    .field{margin-bottom:18px}
+    .field label{display:block;font-size:13px;font-weight:500;color:var(--ink-soft);margin-bottom:6px}
+    .field input,.field select{width:100%;padding:10px 14px;font-size:15px;border:1px solid var(--line);border-radius:8px;background:var(--cream);color:var(--ink)}
+    .field input:focus,.field select:focus{outline:none;border-color:var(--gold)}
+    .metrics-row{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px}
+    .metric-box{background:var(--cream-dark);border-radius:10px;padding:14px 16px}
+    .m-label{font-size:11px;color:var(--ink-soft);margin-bottom:4px}
+    .m-val{font-size:22px;font-weight:700;color:var(--ink);font-family:var(--font-mono)}
+    .m-val.good{color:#1A7A3A}.m-val.warn{color:var(--gold)}.m-val.bad{color:#CC2200}
+    .result-table{width:100%;border-collapse:collapse;margin-bottom:20px}
+    .result-table tr{border-bottom:1px solid var(--line-soft)}
+    .result-table tr:last-child{border-bottom:none}
+    .result-table td{padding:9px 0;font-size:14px}
+    .result-table td:first-child{color:var(--ink-soft)}
+    .result-table td:last-child{text-align:right;font-weight:500;color:var(--ink)}
+    .good{color:#1A7A3A!important}.warn{color:var(--gold)!important}.bad{color:#CC2200!important}
+    .verdict{padding:14px 18px;border-radius:10px;font-size:14px;font-weight:500;margin-bottom:20px}
+    .verdict.pass{background:#E8F5E9;color:#1A7A3A;border:1px solid #A5D6A7}
+    .verdict.marginal{background:#FFF8E1;color:#7A5500;border:1px solid #FFE082}
+    .verdict.fail{background:#FFEBEE;color:#CC2200;border:1px solid #FFCDD2}
+    .faq-section{margin-top:80px;padding-top:80px;border-top:1px solid var(--line)}
+    .faq-item{border-bottom:1px solid var(--line);padding:24px 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:10px}
+    .faq-a{font-size:14px;color:var(--ink-soft);line-height:1.7}
+    .cta-band{background:var(--charcoal);border-radius:16px;padding:48px 40px;text-align:center;margin-top:80px}
+    .cta-band h2{font-family:var(--font-display);font-size:clamp(24px,3vw,36px);color:var(--cream);margin-bottom:12px}
+    .cta-band p{color:rgba(255,255,255,0.65);font-size:15px;margin-bottom:28px}
+    .cta-band a{display:inline-block;background:var(--gold);color:var(--cream);padding:14px 32px;border-radius:8px;font-size:15px;font-weight:500;text-decoration:none}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+  {
+    "@type": "Person",
+    "@id": "https://www.viadorpartners.com/#chad-evers",
+    "name": "Chad Evers",
+    "jobTitle": "Licensed Mortgage Loan Originator",
+    "description": "Ohio roots. 20 years in lending — originating loans, building national mortgage teams from scratch, 3 years gaining global institutional experience at Citi. Left corporate life to build Viador Partners for the people the system was never designed to serve.",
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Mortgage Loan Originator License",
+      "credentialCategory": "NMLS",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Nationwide Multistate Licensing System (NMLS)"
+      },
+      "identifier": "NMLS #2822744"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "@id": "https://www.viadorpartners.com/#viador-partners",
+      "name": "Viador Partners LLC",
+      "url": "https://www.viadorpartners.com",
+      "telephone": "+18134192983",
+      "email": "chad@viadorpartners.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tampa",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Florida",
+        "Ohio"
+      ],
+      "knowsAbout": [
+        "DSCR Loans",
+        "Business Purpose Loans",
+        "Fix and Flip Loans",
+        "Bridge Loans",
+        "SBA Loans",
+        "Non-QM Mortgage",
+        "Investment Property Financing"
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/chad-evers",
+      "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2822744",
+      "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?searchTerm=viador+partners"
+    ],
+    "telephone": "+18134192983",
+    "email": "chad@viadorpartners.com",
+    "knowsAbout": [
+      "DSCR Loans",
+      "Real Estate Investment Financing",
+      "Business Purpose Loans",
+      "Non-QM Mortgage",
+      "Fix and Flip Loans",
+      "Bridge Financing",
+      "SBA Loans",
+      "Investment Property Cash-Out Refinance"
+    ]
+  },
+  {
+    "@type": "Organization",
+    "@id": "https://www.viadorpartners.com/#viador-partners",
+    "name": "Viador Partners LLC",
+    "url": "https://www.viadorpartners.com",
+    "logo": "https://www.viadorpartners.com/logo.png",
+    "telephone": "+18134192983",
+    "email": "chad@viadorpartners.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tampa",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "founder": {
+      "@id": "https://www.viadorpartners.com/#chad-evers"
+    },
+    "areaServed": [
+      "Florida",
+      "Ohio"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Investment Property Loan Programs",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "DSCR Loans",
+          "description": "Qualify on rental income, no W-2s required"
+        },
+        {
+          "@type": "Offer",
+          "name": "Fix and Flip Loans",
+          "description": "Short-term bridge financing for value-add properties"
+        },
+        {
+          "@type": "Offer",
+          "name": "Business Purpose Loans",
+          "description": "Entity-based real estate financing"
+        },
+        {
+          "@type": "Offer",
+          "name": "SBA Loans",
+          "description": "Government-backed loans for owner-occupied commercial real estate"
+        }
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/viador-partners",
+      "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?searchTerm=viador+partners"
+    ]
+  },
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.viadorpartners.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Cash-Out Refinance Calculator \u2014 Debt Consolidation & Equity Access",
+        "item": "https://www.viadorpartners.com/cashout-calculator"
+      }
+    ]
+  },
+  {
+    "@type": "WebPage",
+    "@id": "https://www.viadorpartners.com/cashout-calculator#webpage",
+    "url": "https://www.viadorpartners.com/cashout-calculator",
+    "name": "Cash-Out Refinance Calculator \u2014 Debt Consolidation & Equity Access | Viador Partners",
+    "description": "Free cash-out refinance calculator. See how much equity you can access, your new monthly payment, and how much you'd save by consolidating debt into your mortgage.",
+    "author": {
+      "@id": "https://www.viadorpartners.com/#chad-evers"
+    },
+    "publisher": {
+      "@id": "https://www.viadorpartners.com/#viador-partners"
+    },
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://www.viadorpartners.com"
+    }
+  }
+]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Calculate Your Investment Property Cash-Out Refinance Amount",
+  "description": "How to determine how much equity you can access through a DSCR cash-out refinance on a rental property.",
+  "totalTime": "PT5M",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter current property value",
+      "text": "Enter the current estimated market value of your investment property. If you do not have a recent appraisal, use recent comparable sales in your area."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enter your current loan balance",
+      "text": "Enter the current outstanding balance on your existing mortgage. This is available on your monthly mortgage statement."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Select target LTV",
+      "text": "DSCR cash-out refinances allow up to 75-80% LTV. Enter your desired LTV to calculate the maximum new loan amount."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Calculate cash-out proceeds",
+      "text": "The calculator subtracts your existing balance from the new loan amount to show estimated cash-out proceeds before closing costs."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Verify DSCR on new loan amount",
+      "text": "A higher loan amount means a higher payment. Enter your monthly rent to verify the new DSCR meets minimum requirements (1.0+) before proceeding."
+    }
+  ]
+}
+</script></head>
+<body>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+        <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown">
+        <a href="index.html#programs" class="nav-dropdown-trigger">Programs</a>
+        <div class="nav-dropdown-menu">
+          <a href="dscr.html">DSCR Loans</a>
+          <a href="fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="bpl.html">Business Purpose Loans</a>
+          <a href="non-qm-loans-florida.html">Non-QM / Bank Statement</a>
+          <a href="conventional-investment-property-loans.html">Conventional</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="investor-platform.html" class="nav-dropdown-trigger">Tools</a>
+        <div class="nav-dropdown-menu">
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="dscr-calculator.html">DSCR Calculator</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+    </nav>
+    <a href="index.html#dealform" class="nav-cta">Analyze My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger"><span></span><span></span></button>
+  </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="dscr.html">DSCR Loans</a>
+    <a href="fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="bpl.html">Business Purpose Loans</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="about.html">About</a>
+    <span class="drawer-label">Commercial</span>
+    <a href="commercial.html">Commercial Lending</a>
+    <a href="franchise.html">SBA &amp; Franchise</a>
+    <a href="index.html#dealform" class="drawer-cta">Analyze My Deal &rarr;</a>
+  </div>
+</header>
+
+<main>
+<section class="calc-page">
+  <div class="container">
+    <div class="calc-hero">
+      <p class="section-label">Free Tool</p>
+      <h1>Cash-Out Refinance Calculator</h1>
+      <p>See how much equity you can access, your new monthly payment, and how much you could save by consolidating high-interest debt into your mortgage.</p>
+    </div>
+
+    <div class="calc-grid">
+      <div>
+        <div class="calc-card">
+          <div class="calc-card-title">Your property</div>
+          <div class="field"><label>Current home value ($)</label><input type="number" id="r-val" value="580000" oninput="calcRefi()"></div>
+          <div class="field"><label>Current mortgage balance ($)</label><input type="number" id="r-bal" value="280000" oninput="calcRefi()"></div>
+          <div class="field"><label>Current monthly payment ($)</label><input type="number" id="r-pmt" value="2100" oninput="calcRefi()"></div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-card-title">New loan terms</div>
+          <div class="field"><label>New interest rate (%)</label><input type="number" id="r-rate" value="6.875" step="0.05" oninput="calcRefi()"></div>
+          <div class="field"><label>Loan term</label><select id="r-term" onchange="calcRefi()"><option value="30" selected>30 years</option><option value="20">20 years</option><option value="15">15 years</option></select></div>
+          <div class="field"><label>Max LTV</label><select id="r-ltv" onchange="calcRefi()"><option value="80" selected>80% — primary residence</option><option value="75">75% — investment property</option><option value="70">70% — conservative</option></select></div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-card-title">Debts to consolidate (optional)</div>
+          <div class="field"><label>Credit card balances ($)</label><input type="number" id="r-cc" value="18000" oninput="calcRefi()"></div>
+          <div class="field"><label>Credit card monthly minimums ($)</label><input type="number" id="r-ccpmt" value="450" oninput="calcRefi()"></div>
+          <div class="field"><label>Other debt balances ($)</label><input type="number" id="r-other" value="0" oninput="calcRefi()"></div>
+          <div class="field"><label>Other debt monthly payments ($)</label><input type="number" id="r-otherpmt" value="0" oninput="calcRefi()"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="metrics-row">
+          <div class="metric-box"><div class="m-label">Available equity</div><div class="m-val" id="re-eq">—</div></div>
+          <div class="metric-box"><div class="m-label">Max cash out</div><div class="m-val" id="re-co">—</div></div>
+          <div class="metric-box"><div class="m-label">New payment</div><div class="m-val" id="re-np">—</div></div>
+          <div class="metric-box"><div class="m-label">Monthly savings</div><div class="m-val" id="re-sv">—</div></div>
+        </div>
+
+        <div class="calc-card">
+          <div class="calc-card-title">Full analysis</div>
+          <table class="result-table" id="re-table"></table>
+          <div id="re-verdict" class="verdict"></div>
+          <a href="index.html#dealform" style="display:block;text-align:center;background:var(--gold);color:var(--cream);padding:13px;border-radius:8px;font-size:14px;font-weight:500">Explore this with Viador →</a>
+        </div>
+
+        <div class="calc-card" style="background:var(--cream-dark);border:none">
+          <div class="calc-card-title">Typical use cases</div>
+          <table class="result-table">
+            <tr><td>Debt consolidation</td><td class="good">Often saves $300-800/mo</td></tr>
+            <tr><td>Fund next investment</td><td class="good">Use equity as down payment</td></tr>
+            <tr><td>Home improvements</td><td class="warn">Adds value, review ROI</td></tr>
+            <tr><td>Higher rate refi</td><td class="bad">Review breakeven carefully</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="section-label">Refinance education</div>
+      <h2 style="font-family:var(--font-display);font-size:clamp(22px,3vw,34px);font-weight:700;color:var(--ink);margin:12px 0 32px">When does a cash-out refinance make sense?</h2>
+      <div class="faq-item">
+        <div class="faq-q">How much equity can I access with a cash-out refinance?</div>
+        <div class="faq-a">Most lenders allow you to access up to 80% of your home's value (75% for investment properties). On a $580,000 home with a $280,000 balance, you could access up to $184,000 in cash — your new loan would be $464,000, paying off your $280,000 balance and putting $184,000 in your pocket. Use the calculator above to see your exact numbers.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Should I use a cash-out refi to pay off credit card debt?</div>
+        <div class="faq-a">If your credit cards are charging 18–25% interest and you can consolidate into a 6–7% mortgage rate, the math is often compelling. Many borrowers save $300–$800 per month by consolidating. The key caveat: you're converting unsecured debt into secured debt. If you don't change spending behavior, you could end up with both the higher mortgage AND new credit card debt — that's the trap to avoid.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I use a cash-out refinance as a down payment on an investment property?</div>
+        <div class="faq-a">Yes — and this is one of the most powerful strategies for scaling a real estate portfolio. Access equity from your primary residence or an existing investment property and use it as a 25% down payment on a new DSCR rental loan. Many experienced investors use this "equity recycling" approach to buy additional properties without bringing new cash to the table.</div>
+      </div>
+    </div>
+
+    <div class="cta-band">
+      <h2>Ready to access your equity?</h2>
+      <p>Submit your deal for a free review. Viador Partners will respond within 24 hours with rate options and qualification guidance.</p>
+      <a href="index.html#dealform">Get a Free Quote →</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo" style="margin-bottom:16px;display:inline-flex"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+        <p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;max-width:280px">Residential and investor financing — Florida and Ohio.</p>
+      </div>
+      <div class="footer-nav-group"><h4>Calculators</h4><a href="dscr-calculator.html">DSCR Calculator</a><a href="deal-analyzer.html">Deal Analyzer</a><a href="cashout-calculator.html">Cash-Out Refi</a><a href="investor-platform.html">Full Platform</a></div>
+      <div class="footer-nav-group"><h4>Investors</h4><a href="bpl.html">What Is BPL?</a><a href="dscr.html">DSCR Loans</a><a href="fix-and-flip.html">Fix &amp; Flip</a><a href="index.html#dealform">Analyze My Deal</a></div>
+      <div class="footer-nav-group"><h4>Viador</h4><a href="about.html">About</a><a href="partners.html">Realtor Program</a><a href="index.html#faq">FAQ</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Viador Partners LLC. All rights reserved.</span>
+      <span>Viador Partners LLC &#124; NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.7">chad&#64;viadorpartners.com &#124; (813) 419-2983</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.6">NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.5">Not a commitment to lend. Equal Housing Opportunity. <a href="privacy-policy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> &middot; <a href="terms.html" style="color:inherit;text-decoration:underline">Terms of Use</a></span>
+    <span style="display:block;margin-top:10px;font-size:10px;opacity:0.6">Veteran homeowner? Visit <a href="https://nextdutyvet.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">NextDutyVet.com</a></span></div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script>
+function pmt(r,n,pv){const m=r/12/100;if(m===0)return pv/n;return pv*(m*Math.pow(1+m,n))/(Math.pow(1+m,n)-1);}
+function fmt(n){return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:0,maximumFractionDigits:0}).format(n);}
+function calcRefi(){
+  const val=+document.getElementById('r-val').value||0;
+  const bal=+document.getElementById('r-bal').value||0;
+  const curpmt=+document.getElementById('r-pmt').value||0;
+  const rate=+document.getElementById('r-rate').value||0;
+  const term=+document.getElementById('r-term').value||30;
+  const ltvMax=+document.getElementById('r-ltv').value||80;
+  const cc=+document.getElementById('r-cc').value||0;
+  const ccpmt=+document.getElementById('r-ccpmt').value||0;
+  const other=+document.getElementById('r-other').value||0;
+  const otherpmt=+document.getElementById('r-otherpmt').value||0;
+  const maxLoan=val*ltvMax/100;
+  const equity=val-bal;
+  const availCash=Math.max(0,maxLoan-bal);
+  const totalDebt=cc+other;
+  const newLoan=Math.min(maxLoan,bal+totalDebt);
+  const newPmt=pmt(rate,term*12,newLoan);
+  const oldTotal=curpmt+ccpmt+otherpmt;
+  const savings=oldTotal-newPmt;
+  const dc=e=>document.getElementById(e);
+  dc('re-eq').textContent=fmt(equity);
+  dc('re-co').textContent=fmt(availCash);
+  dc('re-np').textContent=fmt(newPmt);
+  dc('re-sv').textContent=fmt(savings);
+  dc('re-sv').className='m-val '+(savings>0?'good':savings===0?'':'bad');
+  dc('re-table').innerHTML=`
+    <tr><td>Current home value</td><td>${fmt(val)}</td></tr>
+    <tr><td>Current balance</td><td>${fmt(bal)}</td></tr>
+    <tr><td>Available equity</td><td class="good">${fmt(equity)}</td></tr>
+    <tr><td>Max cash-out (${ltvMax}% LTV)</td><td>${fmt(availCash)}</td></tr>
+    <tr><td>Debts to consolidate</td><td>${fmt(totalDebt)}</td></tr>
+    <tr><td>New loan amount</td><td style="font-weight:700">${fmt(newLoan)}</td></tr>
+    <tr><td>New monthly payment</td><td style="font-weight:700">${fmt(newPmt)}</td></tr>
+    <tr><td>Previous total payments</td><td>${fmt(oldTotal)}</td></tr>
+    <tr><td>Monthly savings</td><td class="${savings>0?'good':savings===0?'':'bad'}" style="font-weight:700">${fmt(savings)}</td></tr>
+    <tr><td>Annual savings</td><td class="${savings>0?'good':savings===0?'':'bad'}">${fmt(savings*12)}</td></tr>`;
+  const vd=dc('re-verdict');
+  if(savings>200){vd.className='verdict pass';vd.textContent=`Strong candidate — ${fmt(savings)}/month in savings by consolidating debt`;}
+  else if(savings>0){vd.className='verdict marginal';vd.textContent=`Modest savings — consider if simplifying debt is worth the refinance`;}
+  else{vd.className='verdict fail';vd.textContent=`Current rate environment may not support savings — talk to Viador about options`;}
+}
+calcRefi();
+</script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/245454217.js"></script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Investment Property Refi | Lower Your Rate to 6.25-7.25% DSCR | Viador Partners</title>
+  <meta name="description" content="Investment property owners with rates above 7% can refinance to 6.25-7.25% DSCR — no income verification, no tax returns. Closes in 21 days."/>
+  <link rel="canonical" href="https://www.viadorpartners.com/investor-refi.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .tto{background:var(--ink);color:var(--cream);min-height:100vh}
+    .tto-hero{padding:120px 20px 50px;text-align:center}
+    .tto-h1{font-family:'Inter',system-ui,sans-serif;font-size:clamp(32px,6vw,56px);font-weight: 700;color:#fff;margin:0 0 12px;letter-spacing:-0.02em}
+    .tto-sub{font-size:17px;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto 32px;line-height:1.6;font-weight:300}
+    .tto-props{display:flex;justify-content:center;gap:32px;margin-bottom:40px;flex-wrap:wrap}
+    .tto-prop{display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(255,255,255,0.6)}
+    .tto-prop-icon{font-size:20px}
+    .tto-form{max-width:480px;margin:0 auto}
+    .tto-input{width:100%;padding:16px 18px;border:1px solid rgba(0,0,0,0.15);border-radius:8px;font-family:'Inter',system-ui,sans-serif;font-size:16px;background:#fff;color:#1a1a1a;outline:none;box-sizing:border-box}
+    .tto-input::placeholder{color:#888}
+    .tto-btn{width:100%;margin-top:12px;padding:16px;background:var(--gold);color:#fff;border:none;border-radius:8px;font-family:'Inter',system-ui,sans-serif;font-size:16px;font-weight:600;cursor:pointer}
+    .tto-btn:hover{background:var(--gold-light)}
+    .tto-btn:disabled{opacity:0.5;cursor:not-allowed}
+    .tto-wrap{max-width:700px;margin:0 auto;padding:0 20px 80px}
+    .tto-section{padding-top:32px}
+    .tto-label{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+    .tto-card{background:#1a1c24;border:1px solid rgba(191, 144, 32,0.15);border-radius:10px;padding:20px;margin-bottom:16px}
+    .tto-grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .tto-metric{text-align:center;padding:14px;background:rgba(255,255,255,0.03);border-radius:8px}
+    .tto-metric-label{font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:4px}
+    .tto-metric-val{font-family:'Inter',system-ui,sans-serif;font-size:20px;font-weight:700;color:#fff}
+    .tto-green{color:#4ade80!important}
+    .tto-gold{color:var(--gold)!important}
+    .tto-red{color:#fc6060!important}
+    .tto-debt-row{display:grid;grid-template-columns:120px 1fr 90px;gap:8px;align-items:center;margin-bottom:8px}
+    .tto-debt-label{font-size:13px;color:rgba(255,255,255,0.5)}
+    .tto-debt-input{padding:10px 12px;background:#fff;border:1px solid rgba(0,0,0,0.15);border-radius:6px;color:#1a1a1a;font-size:14px;outline:none;width:100%;box-sizing:border-box}
+    .tto-debt-rate{display:flex;align-items:center;gap:4px;font-size:12px;color:rgba(255,255,255,0.4)}
+    .tto-debt-rate input{width:48px;padding:8px 4px;background:#fff;border:1px solid rgba(0,0,0,0.15);border-radius:6px;color:#1a1a1a;font-size:14px;outline:none;text-align:center}
+    .tto-highlight{text-align:center;padding:14px;background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.12);border-radius:8px;margin-top:14px}
+    .tto-timeline{position:relative;height:8px;background:#333;border-radius:4px;overflow:hidden;margin:12px 0 4px}
+    .tto-timeline-fill{position:absolute;left:0;top:0;height:100%;background:#4ade80;border-radius:4px;transition:width 0.3s}
+    .tto-summary{border:2px solid var(--gold);border-radius:10px;padding:20px;margin:16px 0}
+    .tto-sum-row{display:flex;justify-content:space-between;padding:4px 0;font-size:13px}
+    .tto-sum-row .l{color:rgba(255,255,255,0.5)}
+    .tto-sum-row .v{font-weight:600;text-align:right}
+    .tto-email-box{background:#1a1c24;border:1px solid rgba(191, 144, 32,0.15);border-radius:10px;padding:24px;text-align:center;margin-top:32px}
+    .tto-email-row{display:flex;gap:8px;max-width:400px;margin:12px auto 0}
+    .tto-cta-box{background:#1a1c24;border:2px solid var(--gold);border-radius:12px;padding:32px;text-align:center;margin-top:32px}
+    @media(max-width:560px){.tto-grid2{grid-template-columns:1fr}.tto-debt-row{grid-template-columns:1fr 1fr 80px}.tto-props{gap:16px}}
+  </style>
+</head>
+<body class="tto">
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+    <nav class="nav-links" aria-label="Primary"><a href="dscr.html">DSCR Loans</a><a href="about.html">About</a></nav>
+    <a href="tel:8134192983" class="nav-cta">(813) 419-2983</a>
+    <button class="burger" aria-label="Menu" id="burger"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- SECTION 1: Hero -->
+<section class="tto-hero">
+  <h1 class="tto-h1">Your Rate Is Costing You</h1>
+  <p class="tto-sub">Investment property owners with rates above 7% can refinance to 6.25&ndash;7.25% DSCR &mdash; no income verification, no tax returns.</p>
+  <div class="tto-props">
+    <div class="tto-prop"><span class="tto-prop-icon">&#x1F4B0;</span> Today's DSCR rate: <strong style="color:#4ade80">6.25&ndash;7.25%</strong></div>
+    <div class="tto-prop"><span class="tto-prop-icon">&#10003;</span> No W-2 required</div>
+    <div class="tto-prop"><span class="tto-prop-icon">&#9889;</span> Closes in 21 days</div>
+  </div>
+  <div class="tto-form">
+    <input type="text" id="tto-address" class="tto-input" placeholder="Enter your property address"/>
+    <button id="tto-go" class="tto-btn" onclick="runTermToOwn()" disabled style="opacity:0.5">Calculate My Opportunity &rarr;</button>
+    <p style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:8px;text-align:center">Free. No signup required. Works for any property.</p>
+  </div>
+</section>
+
+<!-- Results (hidden until scored) -->
+<div id="tto-results" style="display:none">
+<div class="tto-wrap">
+
+  <!-- SECTION 2: Property Snapshot -->
+  <div class="tto-section">
+    <div class="tto-label">Your Property</div>
+    <div class="tto-card">
+      <div style="font-size:18px;font-weight:600;color:#fff;margin-bottom:4px" id="tto-prop-addr"></div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px" id="tto-prop-meta"></div>
+      <div class="tto-grid2">
+        <div class="tto-metric"><div class="tto-metric-label">Est. Market Value</div><div class="tto-metric-val" id="tto-avm"></div></div>
+        <div class="tto-metric" style="background:rgba(191, 144, 32,0.06);border:1px solid rgba(191, 144, 32,0.12)"><div class="tto-metric-label">Available Equity</div><div class="tto-metric-val tto-gold" id="tto-equity"></div></div>
+      </div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:12px;text-align:center" id="tto-equity-msg"></div>
+    </div>
+  </div>
+
+  <!-- Mortgage Balance Input -->
+  <div class="tto-section">
+    <div class="tto-label">Your Current Mortgage</div>
+    <div class="tto-card">
+      <div style="font-size:14px;color:#fff;font-weight:600;margin-bottom:8px">What's your current mortgage balance?</div>
+      <input type="text" id="mortgage-balance" class="tto-debt-input" placeholder="e.g. 285,000" style="width:100%;font-size:16px;padding:12px 14px" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+      <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:6px">Approximate is fine &mdash; you can adjust anytime. Check your last statement for accuracy.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Debt Consolidation -->
+  <div class="tto-section">
+    <div class="tto-label">Add Your High-Interest Debt</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:14px">See your blended rate before and after</div>
+    <div class="tto-card">
+      <div class="tto-debt-row"><div class="tto-debt-label">Credit Cards</div><input type="text" id="d-cc-bal" class="tto-debt-input" placeholder="Balance" oninput="this.value=this.value.replace(/[^0-9]/g,'')"><div class="tto-debt-rate">at <input type="text" id="d-cc-rate" value="22"> %</div></div>
+      <div class="tto-debt-row"><div class="tto-debt-label">Auto / Business</div><input type="text" id="d-auto-bal" class="tto-debt-input" placeholder="Balance" oninput="this.value=this.value.replace(/[^0-9]/g,'')"><div class="tto-debt-rate">at <input type="text" id="d-auto-rate" value="8"> %</div></div>
+      <div class="tto-debt-row"><div class="tto-debt-label">Other Debt</div><input type="text" id="d-other-bal" class="tto-debt-input" placeholder="Balance" oninput="this.value=this.value.replace(/[^0-9]/g,'')"><div class="tto-debt-rate">at <input type="text" id="d-other-rate" value="0"> %</div></div>
+      <button class="tto-btn" style="margin-top:14px" onclick="calcTermToOwn()">Calculate My Term to Own Picture &rarr;</button>
+    </div>
+  </div>
+
+  <!-- Investor-specific: DSCR + Prepay info -->
+  <div class="tto-section">
+    <div class="tto-card" style="border-color:rgba(74,222,128,0.15)">
+      <div style="font-size:12px;color:#4ade80;font-weight:600;margin-bottom:10px">DSCR Refinance &mdash; No Income Docs</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7">
+        &bull; Qualifies on rental income only &mdash; no W-2, no tax returns<br>
+        &bull; LLC vesting allowed &mdash; keep liability separation<br>
+        &bull; No limit on number of financed properties<br>
+        &bull; 30-year fixed rates: 6.25&ndash;7.25% for DSCR &ge; 1.25x<br>
+        &bull; Cash-out available up to 75% LTV<br>
+        &bull; Typical close: 21&ndash;30 days
+      </div>
+    </div>
+    <div class="tto-card">
+      <div style="font-size:12px;color:var(--gold);font-weight:600;margin-bottom:10px">Prepay Penalty Check</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:10px">Most DSCR/bridge loans have step-down penalties. Check yours:</div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;text-align:center;font-size:11px">
+        <div style="background:rgba(255,255,255,0.03);border-radius:4px;padding:6px"><div style="color:rgba(255,255,255,0.4)">Yr 1</div><div style="color:#fc6060;font-weight:700">5%</div></div>
+        <div style="background:rgba(255,255,255,0.03);border-radius:4px;padding:6px"><div style="color:rgba(255,255,255,0.4)">Yr 2</div><div style="color:#fc6060;font-weight:700">4%</div></div>
+        <div style="background:rgba(255,255,255,0.03);border-radius:4px;padding:6px"><div style="color:rgba(255,255,255,0.4)">Yr 3</div><div style="color:#e8b84b;font-weight:700">3%</div></div>
+        <div style="background:rgba(255,255,255,0.03);border-radius:4px;padding:6px"><div style="color:rgba(255,255,255,0.4)">Yr 4</div><div style="color:#4ade80;font-weight:700">2%</div></div>
+        <div style="background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.12);border-radius:4px;padding:6px"><div style="color:rgba(255,255,255,0.4)">Yr 5+</div><div style="color:#4ade80;font-weight:700">0%</div></div>
+      </div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px">2020&ndash;2021 loans: penalties fully expired. 2022 loans: 2% remaining. 2023: 3% &mdash; evaluate breakeven.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Results (hidden until debt calculated) -->
+  <div id="tto-calc-results" style="display:none">
+    <div class="tto-section">
+      <div class="tto-label">Your Results</div>
+
+      <!-- Panel A: Blended Rate -->
+      <div class="tto-card">
+        <div style="font-size:12px;color:var(--gold);font-weight:600;margin-bottom:12px">Blended Rate Comparison</div>
+        <div class="tto-grid2" style="margin-bottom:14px">
+          <div style="background:rgba(192,57,43,0.06);border:1px solid rgba(192,57,43,0.15);border-radius:8px;padding:14px">
+            <div style="font-size:10px;color:#fc6060;font-weight:700;text-transform:uppercase;margin-bottom:8px">Before</div>
+            <div id="blend-before-items" style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.8"></div>
+            <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:8px;margin-top:8px">
+              <div style="font-family:'Inter',system-ui,sans-serif;font-size:18px;font-weight:700;color:#fc6060" id="blend-before-total"></div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.4)">Blended: <span id="blend-before-rate" style="color:#fc6060;font-weight:700"></span></div>
+            </div>
+          </div>
+          <div style="background:rgba(39,102,74,0.06);border:1px solid rgba(39,102,74,0.15);border-radius:8px;padding:14px">
+            <div style="font-size:10px;color:#4ade80;font-weight:700;text-transform:uppercase;margin-bottom:8px">After Refi</div>
+            <div id="blend-after-items" style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.8"></div>
+            <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:8px;margin-top:8px">
+              <div style="font-family:'Inter',system-ui,sans-serif;font-size:18px;font-weight:700;color:#4ade80" id="blend-after-total"></div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.4)">Rate: <span style="color:#4ade80;font-weight:700">7.25%</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="tto-highlight">
+          <div style="font-size:16px;font-weight:700;color:#4ade80" id="blend-headline"></div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px" id="savings-headline"></div>
+        </div>
+      </div>
+
+      <!-- Panel B: Term to Own -->
+      <div class="tto-card">
+        <div style="font-size:12px;color:var(--gold);font-weight:600;margin-bottom:12px">Accelerated Payoff</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);min-width:160px">Apply to principal:</div>
+          <input type="range" id="extra-slider" min="0" max="1000" step="25" value="0" oninput="updatePayoff()" style="flex:1;accent-color:var(--gold)">
+          <div style="font-family:'Inter',system-ui,sans-serif;font-size:14px;font-weight:600;color:var(--gold);min-width:70px;text-align:right" id="extra-val">$0</div>
+        </div>
+        <div class="tto-grid2" style="margin-bottom:14px">
+          <div class="tto-metric"><div class="tto-metric-label">Standard Payoff</div><div class="tto-metric-val" id="std-date" style="color:rgba(255,255,255,0.5)"></div></div>
+          <div class="tto-metric" style="background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.12)"><div class="tto-metric-label">Your Payoff</div><div class="tto-metric-val tto-green" id="accel-date"></div></div>
+        </div>
+        <div class="tto-grid2">
+          <div class="tto-metric"><div class="tto-metric-label">Years Saved</div><div class="tto-metric-val tto-green" id="years-saved">0</div></div>
+          <div class="tto-metric"><div class="tto-metric-label">Interest Saved</div><div class="tto-metric-val tto-green" id="int-saved">$0</div></div>
+        </div>
+        <div class="tto-timeline"><div class="tto-timeline-fill" id="timeline-fill"></div></div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,0.3)"><span>Now</span><span id="timeline-label"></span><span>30yr</span></div>
+      </div>
+
+      <!-- Panel C: Summary -->
+      <div class="tto-card tto-summary">
+        <div style="font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px">Your Term to Own Picture</div>
+        <div class="tto-sum-row"><span class="l">Monthly savings:</span><span class="v tto-green" id="sum-savings"></span></div>
+        <div class="tto-sum-row"><span class="l">Apply to principal:</span><span class="v tto-gold" id="sum-extra"></span></div>
+        <div style="height:1px;background:rgba(255,255,255,0.06);margin:6px 0"></div>
+        <div class="tto-sum-row"><span class="l">Paid off by:</span><span class="v" id="sum-date" style="color:#fff"></span></div>
+        <div class="tto-sum-row"><span class="l">Years sooner:</span><span class="v tto-green" id="sum-years"></span></div>
+        <div class="tto-sum-row"><span class="l">Interest saved:</span><span class="v tto-green" id="sum-int"></span></div>
+        <div class="tto-sum-row"><span class="l">Blended rate:</span><span class="v tto-gold" id="sum-blend"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Email Capture -->
+  <div class="tto-email-box" id="tto-email-section">
+    <div style="font-family:'Inter',system-ui,sans-serif;font-size:18px;color:#fff;margin-bottom:4px">Want a full breakdown sent to you?</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:12px">We'll also reach out if there's a better option for your situation.</div>
+    <div class="tto-email-row"><input type="email" id="tto-email" placeholder="you@email.com" style="flex:1;padding:12px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(191, 144, 32,0.3);border-radius:6px;color:#fff;font-size:15px;outline:none"><button onclick="captureEmail()" style="padding:12px 20px;background:var(--gold);color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap">Send My Analysis &rarr;</button></div>
+    <div id="tto-email-msg" style="display:none;color:#4ade80;font-size:13px;margin-top:10px"></div>
+  </div>
+
+  <!-- SECTION 6: CTA -->
+  <div class="tto-cta-box">
+    <div style="font-family:'Inter',system-ui,sans-serif;font-size:22px;color:#fff;margin-bottom:8px">Ready to lock in a lower DSCR rate?</div>
+    <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:20px;line-height:1.5">Viador Partners specializes in DSCR refinancing for rental property investors.<br>No W-2. No tax returns. 24-hour file review.<br>NMLS #2822744 &middot; chad@viadorpartners.com</div>
+    <a href="index.html#dealform" style="display:inline-block;padding:14px 32px;background:var(--gold);color:#fff;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;font-family:'Inter',system-ui,sans-serif">Submit My Investment Property for Review &rarr;</a>
+    <div style="margin-top:12px"><a href="tel:8134192983" style="color:rgba(255,255,255,0.4);font-size:14px;text-decoration:none">(813) 419-2983</a></div>
+  </div>
+
+  <!-- Footer -->
+  <div style="padding:24px 0 0;border-top:1px solid rgba(255,255,255,0.06);margin-top:32px;text-align:center;font-size:10px;color:rgba(255,255,255,0.3);line-height:1.8">
+    <p>&copy; 2026 Viador Partners LLC &middot; NMLS #2822744 &middot; Equal Housing Lender</p>
+    <p style="margin-top:6px">All figures are estimates for informational purposes only. Not a commitment to lend. Actual rates and terms subject to full underwriting review.</p>
+  </div>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+<script>
+function initAutocomplete(){
+  var input=document.getElementById('tto-address');
+  if(!input||!window.google||!google.maps||!google.maps.places)return;
+  var ac=new google.maps.places.Autocomplete(input,{types:['address'],componentRestrictions:{country:'us'}});
+  ac.addListener('place_changed',function(){
+    var place=ac.getPlace();
+    if(place&&place.formatted_address){
+      input.value=place.formatted_address;
+      var btn=document.getElementById('tto-go');
+      if(btn){btn.disabled=false;btn.style.opacity='1';}
+    }
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSEIZTzvhi03BeXx9pGZV_o7oJEu2gAV8&libraries=places&callback=initAutocomplete" async defer></script>
+<script>
+var PROXY='https://viador-ai-proxy.chad-7f6.workers.dev';
+var D={avm:0,equity:0,balance:0};
+var fmt=function(n){return'$'+Math.abs(Math.round(n)).toLocaleString()};
+var MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+// Enable button on typing
+document.getElementById('tto-address').addEventListener('input',function(){
+  var b=document.getElementById('tto-go');
+  if(this.value.trim().length>=8){b.disabled=false;b.style.opacity='1';}
+  else{b.disabled=true;b.style.opacity='0.5';}
+});
+document.getElementById('tto-address').addEventListener('keydown',function(e){
+  if(e.key==='Enter'){e.preventDefault();document.getElementById('tto-go').click();}
+});
+
+// Check for offer code on load — pre-populate from KV payload
+(async function(){
+  var p=new URLSearchParams(location.search);
+  var code=p.get('code');
+  if(!code)return;
+  try{
+    var res=await fetch(PROXY+'/offer/'+code);
+    if(!res.ok)return;
+    var payload=await res.json();
+    // Pre-fill from PropStream data
+    if(payload.loan&&payload.loan.balance>0){
+      var mbEl=document.getElementById('mortgage-balance');
+      if(mbEl)mbEl.value=Math.round(payload.loan.balance);
+      D.loan1Rate=payload.loan.rate||9.0;
+    }
+    if(payload.property&&payload.property.address){
+      var addrEl=document.getElementById('tto-address');
+      if(addrEl){
+        addrEl.value=payload.property.address+(payload.property.city?', '+payload.property.city:'')+(payload.property.state?', '+payload.property.state:'');
+        var btn=document.getElementById('tto-go');
+        if(btn){btn.disabled=false;btn.style.opacity='1';}
+      }
+    }
+  }catch(e){console.log('Offer code load error:',e);}
+})();
+
+async function runTermToOwn(){
+  var addr=document.getElementById('tto-address').value.trim();
+  if(!addr)return;
+  var btn=document.getElementById('tto-go');
+  btn.disabled=true;btn.textContent='Analyzing...';
+  if(typeof gtag==='function')gtag('event','investor_refi_started',{address:addr});
+
+  var parts=addr.split(',').map(function(s){return s.trim()});
+  var last=(parts[parts.length-1]||'').trim();
+  var szm=last.match(/([A-Z]{2})\s*(\d{5})/i);
+  try{
+    var ctrl=new AbortController();
+    setTimeout(function(){ctrl.abort()},20000);
+    var res=await fetch(PROXY+'/score',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({address:parts[0]||addr,city:parts[1]||'',state:szm?szm[1].toUpperCase():(parts[2]||'').split(' ')[0].toUpperCase(),zip:szm?szm[2]:(addr.match(/\d{5}/)||[''])[0],askingPrice:0,estimatedRent:0,propertyType:'Single Family'}),
+      signal:ctrl.signal});
+    var data=await res.json();
+    D.avm=data._consensusAVM||0;
+  }catch(e){D.avm=350000;}
+
+  D.equity=Math.round(D.avm*0.75);
+  D.balance=Math.round(D.avm*0.65);
+
+  document.getElementById('tto-prop-addr').textContent=addr;
+  document.getElementById('tto-prop-meta').textContent=(parts[1]||'')+', '+(szm?szm[1]:'');
+  document.getElementById('tto-avm').textContent=fmt(D.avm);
+  document.getElementById('tto-equity').textContent=fmt(D.equity);
+  document.getElementById('tto-equity-msg').textContent='Your investment property has '+fmt(D.equity)+' in accessible equity. No income docs required to refinance.';
+
+  document.getElementById('tto-results').style.display='block';
+  btn.disabled=false;btn.textContent='Calculate My Opportunity \u2192';
+  document.getElementById('tto-results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function calcTermToOwn(){
+  var userBal=parseInt(document.getElementById('mortgage-balance')?.value?.replace(/[^0-9]/g,''))||0;
+  var curBal=userBal>0?userBal:Math.round((D.avm||350000)*0.55);
+  D.balance=curBal;
+  var curRate=D.loan1Rate||9.0,newRate=7.25;
+  var cc=parseInt(document.getElementById('d-cc-bal')?.value)||0;
+  var ccR=parseFloat(document.getElementById('d-cc-rate')?.value)||22;
+  var au=parseInt(document.getElementById('d-auto-bal')?.value)||0;
+  var auR=parseFloat(document.getElementById('d-auto-rate')?.value)||8;
+  var ot=parseInt(document.getElementById('d-other-bal')?.value)||0;
+  var otR=parseFloat(document.getElementById('d-other-rate')?.value)||0;
+
+  var totalDebt=curBal+cc+au+ot;
+  var wInt=(curBal*curRate/100)+(cc*ccR/100)+(au*auR/100)+(ot*otR/100);
+  var blendBefore=totalDebt>0?(wInt/totalDebt)*100:curRate;
+
+  var newLoan=totalDebt;
+  var mr=newRate/100/12;
+  var newPmt=newLoan*mr/(1-Math.pow(1+mr,-360));
+
+  var curMR=curRate/100/12;
+  var curMortPmt=curBal>0?curBal*curMR/(1-Math.pow(1+curMR,-360)):0;
+  var ccMin=cc>0?Math.max(cc*0.02,25):0;
+  var auMin=au>0?au*(auR/100/12)/(1-Math.pow(1+auR/100/12,-60)):0;
+  var otMin=ot>0?ot*0.03:0;
+  var curTotal=curMortPmt+ccMin+auMin+otMin;
+  var savings=Math.round(curTotal-newPmt);
+
+  D.newLoan=newLoan;D.newPmt=newPmt;D.savings=savings;D.blendBefore=blendBefore;D.newRate=newRate;
+
+  // Before items
+  var bHTML='Mortgage: '+fmt(curBal)+' @ '+curRate+'%<br>';
+  if(cc>0)bHTML+='Credit cards: '+fmt(cc)+' @ '+ccR+'%<br>';
+  if(au>0)bHTML+='Auto/Business: '+fmt(au)+' @ '+auR+'%<br>';
+  if(ot>0)bHTML+='Other: '+fmt(ot)+' @ '+otR+'%<br>';
+  document.getElementById('blend-before-items').innerHTML=bHTML;
+  document.getElementById('blend-before-total').textContent=fmt(curTotal)+'/mo';
+  document.getElementById('blend-before-rate').textContent=blendBefore.toFixed(1)+'%';
+
+  var aHTML='New mortgage: '+fmt(newLoan)+' @ '+newRate+'%<br>';
+  if(cc+au+ot>0)aHTML+='All other debt: $0 (consolidated)<br>';
+  document.getElementById('blend-after-items').innerHTML=aHTML;
+  document.getElementById('blend-after-total').textContent=fmt(newPmt)+'/mo';
+
+  document.getElementById('blend-headline').textContent='Blended rate drops from '+blendBefore.toFixed(1)+'% to '+newRate+'%';
+  document.getElementById('savings-headline').textContent=savings>0?'You save ~'+fmt(savings)+'/mo immediately':'Payment stays similar \u2014 but at a fixed 30yr rate';
+
+  document.getElementById('extra-slider').max=Math.max(savings,100);
+  document.getElementById('extra-slider').value=Math.round(Math.max(savings,0)*0.5);
+
+  document.getElementById('tto-calc-results').style.display='block';
+  updatePayoff();
+  document.getElementById('tto-calc-results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function updatePayoff(){
+  var extra=parseInt(document.getElementById('extra-slider')?.value)||0;
+  document.getElementById('extra-val').textContent=fmt(extra);
+  var r=D.newRate/100/12,totalPmt=D.newPmt+extra,months=360;
+  if(extra>0&&totalPmt>D.newLoan*r){
+    months=Math.ceil(-Math.log(1-(D.newLoan*r)/totalPmt)/Math.log(1+r));
+    if(isNaN(months)||months<0)months=360;
+  }
+  var std=new Date();std.setMonth(std.getMonth()+360);
+  var acc=new Date();acc.setMonth(acc.getMonth()+months);
+  var yrsSaved=Math.round((360-months)/12*10)/10;
+  var stdInt=(D.newPmt*360)-D.newLoan;
+  var accInt=(totalPmt*months)-D.newLoan;
+  var intSaved=Math.max(0,stdInt-accInt);
+
+  document.getElementById('std-date').textContent=MO[std.getMonth()]+' '+std.getFullYear();
+  document.getElementById('accel-date').textContent=MO[acc.getMonth()]+' '+acc.getFullYear();
+  document.getElementById('years-saved').textContent=yrsSaved>0?yrsSaved.toFixed(1)+' yrs':'0';
+  document.getElementById('int-saved').textContent=fmt(intSaved);
+  document.getElementById('timeline-fill').style.width=Math.round(months/360*100)+'%';
+  document.getElementById('timeline-label').textContent=months<360?MO[acc.getMonth()]+' '+acc.getFullYear():'Same';
+
+  document.getElementById('sum-savings').textContent=D.savings>0?fmt(D.savings)+'/mo':'$0/mo';
+  document.getElementById('sum-extra').textContent=fmt(extra)+'/mo';
+  document.getElementById('sum-date').textContent=MO[acc.getMonth()]+' '+acc.getFullYear();
+  document.getElementById('sum-years').textContent=yrsSaved>0?yrsSaved.toFixed(1)+' years sooner':'Standard 30yr';
+  document.getElementById('sum-int').textContent=fmt(intSaved);
+  document.getElementById('sum-blend').textContent=D.blendBefore.toFixed(1)+'% \u2192 '+D.newRate+'%';
+}
+
+function captureEmail(){
+  var email=document.getElementById('tto-email').value.trim();
+  if(!email||email.indexOf('@')<0){document.getElementById('tto-email').focus();return;}
+  if(typeof gtag==='function')gtag('event','tto_email_captured',{email:email});
+  fetch(PROXY+'/hubspot-contact',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({email:email,address:document.getElementById('tto-address')?.value||'',
+      estimated_value:String(D.avm||''),estimated_equity:String(D.equity||''),
+      blended_before:String(D.blendBefore?.toFixed(1)||''),monthly_savings:String(D.savings||''),
+      lead_source:'investor-refi-targeted'})}).catch(function(){});
+  document.getElementById('tto-email-msg').style.display='block';
+  document.getElementById('tto-email-msg').textContent='\u2705 Sent! We\u2019ll follow up if there\u2019s a better option for your situation.';
+  document.querySelector('.tto-email-row').style.display='none';
+}
+</script>
+</body>
+</html>

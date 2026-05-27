@@ -1,0 +1,361 @@
+/* =====================================================================
+   VIADOR PARTNERS  +  NEXT DUTY VET
+   Unified Design System — v2 (locked 2026-05-07)
+   ---------------------------------------------------------------------
+   ONE SYSTEM. TWO BRANDS. DIFFERENT ROLES.
+     Viador  — institutional, capital markets, investor-facing
+     NDV     — advisory, consumer-facing, veteran-focused
+   Connected at the foundation; differentiated by surface and density.
+   ---------------------------------------------------------------------
+   This file replaces all prior color, gradient, and typography tokens.
+   Legacy values (gold #BF9020, cream #F5F3EE, warm/blue grays, decorative
+   gradients) are RETIRED. Do not reintroduce.
+   ===================================================================== */
+
+:root {
+
+  /* ------------------------------------------------------------------
+     1.  CORE FOUNDATION  —  shared by both brands
+     ------------------------------------------------------------------ */
+
+  /* Color — locked palette, no others permitted at the brand level */
+  --vp-charcoal:        #1F2326;   /* primary dark surface, primary text on light */
+  --vp-off-white:       #F4F5F3;   /* primary light surface, primary text on dark */
+  --vp-olive:           #6B745E;   /* accent — single accent color, both brands */
+  --vp-muted-light:     #C7CCC5;   /* secondary text on dark surfaces */
+  --vp-muted-on-light:  #A8B0A6;   /* secondary text on light surfaces (olive-gray family) */
+
+  /* Charcoal scale (for subtle depth only — do not introduce new hues) */
+  --vp-charcoal-deep:   #18 1B 1E;     /* used as #181B1E — slight gradient anchor */
+  --vp-charcoal-deep-hex: #181B1E;
+  --vp-charcoal-line:   #2A2F33;       /* hairline dividers on dark */
+  --vp-charcoal-soft:   #2D3236;       /* card surfaces on dark */
+
+  /* Off-white scale (for layered light surfaces) */
+  --vp-off-white-soft:  #ECEDEA;       /* secondary light bg, alt rows */
+  --vp-off-white-line:  #DDE0DA;       /* hairline dividers on light */
+
+  /* Text on light surfaces (NDV) */
+  --vp-text-on-light:           var(--vp-charcoal);
+  --vp-text-on-light-secondary: var(--vp-muted-on-light);   /* #A8B0A6, olive-gray family */
+
+  /* Olive variants — minimal, only for state expression (hover/focus) */
+  --vp-olive-hover:     #7C8770;   /* one shade lighter for hover */
+  --vp-olive-soft:      rgba(107,116,94,0.12);   /* tints, low-saturation backgrounds */
+
+  /* ------------------------------------------------------------------
+     2.  TYPOGRAPHY  —  Inter only, both brands
+     ------------------------------------------------------------------ */
+
+  --vp-font-family:
+      'Inter',
+      -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  --vp-fw-regular:   400;
+  --vp-fw-medium:    500;
+  --vp-fw-semibold:  600;
+  --vp-fw-bold:      700;
+
+  /* Type scale */
+  --vp-fs-display:   clamp(2.5rem, 5vw, 4rem);    /* hero headlines */
+  --vp-fs-h1:        clamp(2rem,   4vw, 3rem);
+  --vp-fs-h2:        clamp(1.5rem, 3vw, 2.25rem);
+  --vp-fs-h3:        1.5rem;
+  --vp-fs-h4:        1.25rem;
+  --vp-fs-body:      1rem;             /* 16px */
+  --vp-fs-small:     0.875rem;         /* 14px */
+  --vp-fs-caption:   0.75rem;          /* 12px */
+
+  /* Line height */
+  --vp-lh-tight:     1.1;
+  --vp-lh-headline:  1.2;
+  --vp-lh-body:      1.6;
+  --vp-lh-relaxed:   1.75;
+
+  /* Letter spacing */
+  --vp-ls-tight:     -0.02em;          /* large headlines */
+  --vp-ls-snug:      -0.01em;          /* headlines */
+  --vp-ls-normal:    0;                /* body */
+  --vp-ls-wide:      0.04em;           /* small caps, eyebrows */
+  --vp-ls-widest:    0.12em;           /* section labels (e.g. "OUR PLATFORM") */
+
+  /* ------------------------------------------------------------------
+     3.  SPACING  —  8px base, both brands
+     ------------------------------------------------------------------ */
+
+  --vp-s-1:   4px;
+  --vp-s-2:   8px;
+  --vp-s-3:  12px;
+  --vp-s-4:  16px;
+  --vp-s-5:  24px;
+  --vp-s-6:  32px;
+  --vp-s-7:  48px;
+  --vp-s-8:  64px;
+  --vp-s-9:  96px;
+  --vp-s-10:128px;
+
+  /* Container */
+  --vp-container-max: 1200px;
+  --vp-container-px:  clamp(1.5rem, 4vw, 3rem);
+
+  /* ------------------------------------------------------------------
+     4.  BORDERS / RADII / ELEVATION
+     ------------------------------------------------------------------ */
+
+  --vp-border-hairline-on-dark:  1px solid var(--vp-charcoal-line);
+  --vp-border-hairline-on-light: 1px solid var(--vp-off-white-line);
+  --vp-border-accent:            1px solid var(--vp-olive);
+
+  --vp-radius-none:   0;
+  --vp-radius-sm:     2px;
+  --vp-radius-md:     4px;
+  --vp-radius-lg:     8px;
+  --vp-radius-pill:   999px;
+
+  /* Elevation — institutional restraint. No drop shadows beyond hairlines. */
+  --vp-elevation-0:   none;
+  --vp-elevation-1:   0 1px 0 rgba(0,0,0,0.04);   /* card on light */
+  --vp-elevation-1-d: 0 1px 0 rgba(255,255,255,0.04); /* card on dark */
+
+  /* ------------------------------------------------------------------
+     5.  MOTION  —  restrained, never decorative
+     ------------------------------------------------------------------ */
+
+  --vp-ease:          cubic-bezier(0.2, 0.6, 0.2, 1);
+  --vp-dur-fast:      120ms;
+  --vp-dur-base:      200ms;
+  --vp-dur-slow:      320ms;
+
+  /* ------------------------------------------------------------------
+     6.  SEMANTIC TOKENS  —  default to Viador (dark surface)
+        NDV scope below overrides where surface flips light.
+     ------------------------------------------------------------------ */
+
+  --vp-bg:              var(--vp-charcoal);
+  --vp-bg-alt:          var(--vp-charcoal-soft);
+  --vp-fg:              var(--vp-off-white);
+  --vp-fg-secondary:    var(--vp-muted-light);
+  --vp-accent:          var(--vp-olive);
+  --vp-divider:         var(--vp-charcoal-line);
+}
+
+/* =====================================================================
+   BRAND SCOPES
+   Apply via class on <html> or top-level brand wrapper:
+     <html class="vp-viador">  ...for Viador pages
+     <html class="vp-ndv">     ...for NDV pages
+   ===================================================================== */
+
+/* ---- VIADOR  —  institutional, charcoal-dominant, accent sparse ---- */
+.vp-viador {
+  --vp-bg:           var(--vp-charcoal);
+  --vp-bg-alt:       var(--vp-charcoal-soft);
+  --vp-fg:           var(--vp-off-white);
+  --vp-fg-secondary: var(--vp-muted-light);
+  --vp-divider:      var(--vp-charcoal-line);
+
+  /* Density hint — sparse olive use. Components should respect this. */
+  --vp-accent-density: 1;   /* 1 = sparse (Viador), 3 = moderate (NDV) */
+
+  /* Tightened headline tracking for institutional feel */
+  --vp-headline-spacing: var(--vp-ls-tight);
+
+  background-color: var(--vp-bg);
+  color: var(--vp-fg);
+  font-family: var(--vp-font-family);
+}
+
+/* ---- NDV  —  advisory, light-dominant, accent moderate ---- */
+.vp-ndv {
+  --vp-bg:           var(--vp-off-white);
+  --vp-bg-alt:       var(--vp-off-white-soft);
+  --vp-fg:           var(--vp-charcoal);
+  --vp-fg-secondary: var(--vp-text-on-light-secondary);
+  --vp-divider:      var(--vp-off-white-line);
+
+  --vp-accent-density: 3;
+  --vp-headline-spacing: var(--vp-ls-snug);
+
+  background-color: var(--vp-bg);
+  color: var(--vp-fg);
+  font-family: var(--vp-font-family);
+}
+
+/* Inverted scope — dark sections within an NDV page (footers, hero overlays) */
+.vp-ndv .vp-surface-dark {
+  --vp-bg:           var(--vp-charcoal);
+  --vp-fg:           var(--vp-off-white);
+  --vp-fg-secondary: var(--vp-muted-light);
+  --vp-divider:      var(--vp-charcoal-line);
+  background-color: var(--vp-bg);
+  color: var(--vp-fg);
+}
+
+/* Inverted scope — light card on Viador page (rare, for emphasis) */
+.vp-viador .vp-surface-light {
+  --vp-bg:           var(--vp-off-white);
+  --vp-fg:           var(--vp-charcoal);
+  --vp-fg-secondary: var(--vp-text-on-light-secondary);
+  --vp-divider:      var(--vp-off-white-line);
+  background-color: var(--vp-bg);
+  color: var(--vp-fg);
+}
+
+/* =====================================================================
+   BASE ELEMENT STYLES
+   ===================================================================== */
+
+html, body {
+  font-family: var(--vp-font-family);
+  font-size: 16px;
+  line-height: var(--vp-lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--vp-font-family);
+  font-weight: var(--vp-fw-semibold);
+  line-height: var(--vp-lh-headline);
+  letter-spacing: var(--vp-headline-spacing, var(--vp-ls-snug));
+  color: var(--vp-fg);
+  margin: 0 0 var(--vp-s-4);
+}
+
+h1 { font-size: var(--vp-fs-display); line-height: var(--vp-lh-tight); }
+h2 { font-size: var(--vp-fs-h1); }
+h3 { font-size: var(--vp-fs-h2); }
+h4 { font-size: var(--vp-fs-h3); }
+
+p {
+  color: var(--vp-fg);
+  font-size: var(--vp-fs-body);
+  line-height: var(--vp-lh-body);
+  margin: 0 0 var(--vp-s-4);
+}
+
+a {
+  color: var(--vp-accent);
+  text-decoration: none;
+  transition: color var(--vp-dur-fast) var(--vp-ease);
+}
+a:hover { color: var(--vp-olive-hover); }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--vp-divider);
+  margin: var(--vp-s-7) 0;
+}
+
+/* =====================================================================
+   COMPONENT TOKENS  —  shared, then brand-tuned
+   ===================================================================== */
+
+/* Buttons ------------------------------------------------------------ */
+.vp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vp-s-2);
+  font-family: var(--vp-font-family);
+  font-weight: var(--vp-fw-medium);
+  font-size: var(--vp-fs-body);
+  letter-spacing: var(--vp-ls-snug);
+  padding: var(--vp-s-4) var(--vp-s-6);
+  border-radius: var(--vp-radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--vp-dur-base) var(--vp-ease);
+  white-space: nowrap;
+}
+
+.vp-btn--primary {
+  background: var(--vp-olive);
+  color: var(--vp-off-white);
+  border-color: var(--vp-olive);
+}
+.vp-btn--primary:hover {
+  background: var(--vp-olive-hover);
+  border-color: var(--vp-olive-hover);
+}
+
+.vp-btn--secondary {
+  background: transparent;
+  color: var(--vp-fg);
+  border-color: var(--vp-olive);
+}
+.vp-btn--secondary:hover {
+  background: var(--vp-olive-soft);
+}
+
+/* Eyebrow / Section label (e.g. "OUR PLATFORM") ---------------------- */
+.vp-eyebrow {
+  font-size: var(--vp-fs-caption);
+  font-weight: var(--vp-fw-medium);
+  letter-spacing: var(--vp-ls-widest);
+  text-transform: uppercase;
+  color: var(--vp-accent);
+  margin-bottom: var(--vp-s-3);
+}
+
+/* Stat block --------------------------------------------------------- */
+.vp-stat-value {
+  font-size: var(--vp-fs-h1);
+  font-weight: var(--vp-fw-semibold);
+  color: var(--vp-accent);
+  letter-spacing: var(--vp-ls-tight);
+  line-height: 1;
+}
+.vp-stat-label {
+  font-size: var(--vp-fs-small);
+  color: var(--vp-fg-secondary);
+  margin-top: var(--vp-s-2);
+}
+
+/* Headline emphasis pattern (white + olive within same line) --------- */
+/* Usage: <h1>Structured capital.<br><em class="vp-emph">Strategic</em> advantage.</h1> */
+.vp-emph {
+  color: var(--vp-accent);
+  font-style: normal;
+  font-weight: inherit;
+}
+
+/* Hairline divider (used under stats, between sections) -------------- */
+.vp-rule {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--vp-accent);
+  margin: var(--vp-s-4) 0;
+}
+
+/* Icon wrapper (used in feature rows, both brands) ------------------- */
+.vp-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--vp-accent);
+  stroke: var(--vp-accent);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+/* =====================================================================
+   RETIRED — DO NOT USE
+   ---------------------------------------------------------------------
+   The following tokens are explicitly removed from the system.
+   If you find them in legacy CSS, replace per the migration map below.
+   =====================================================================
+   --vp-gold        (#BF9020)         → REMOVED. Use --vp-olive.
+   --vp-cream       (#F5F3EE)         → REMOVED. Use --vp-off-white.
+   --ndv-olive      (#1F2326 mistake) → Was correct in name, mapped wrong.
+                                        Now: ndv olive == --vp-olive.
+   --ndv-bg         (#F4F5F3)         → Use --vp-off-white.
+   --vp-blue-black  (any)             → REMOVED. Use --vp-charcoal.
+   #4A4F52 (charcoal-derived light-surface secondary)
+                                      → REMOVED. Use --vp-muted-on-light
+                                        (#A8B0A6, olive-gray family).
+   linear-gradient(decorative)        → REMOVED. Subtle charcoal depth only.
+   box-shadow w/ color                → REMOVED. Use hairline borders.
+   ===================================================================== */

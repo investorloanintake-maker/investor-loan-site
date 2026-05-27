@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SBA Franchise Financing — From Application to Open | Viador Partners</title>
+  <meta name="description" content="SBA franchise financing with as little as 10% down, up to $5M, 10-year terms. Pre-approved franchise brands close faster. Free eligibility assessment. NMLS #2822744."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.viadorpartners.com/franchise"/>
+  <meta property="og:title" content="SBA Franchise Financing — From Application to Open | Viador Partners"/>
+  <meta property="og:description" content="SBA franchise financing with as little as 10% down, up to $5M, 10-year terms. Pre-approved franchise brands close faster. Free eligibility assessment."/>
+  <meta property="og:image" content="https://www.viadorpartners.com/og-image.jpg"/>
+  <link rel="canonical" href="https://www.viadorpartners.com/franchise"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+/* ── Tokens ── */
+:root {
+  --cream:#FFFFFF;
+  --cream-dark:#F2EDE6;
+  --ink:#141210;
+  --ink-mid:#2E2B27;
+  --ink-soft:#52504C;
+  --gold:#BF9020;
+  --gold-light:#D9A84A;
+  --gold-faint:rgba(191, 144, 32,0.08);
+  --charcoal:#1A1C24;
+  --charcoal2:#22252F;
+  --white:#FFFFFF;
+  --line:rgba(20,18,16,0.14);
+  --line-soft:rgba(20,18,16,0.08);
+  --font-display:'Inter',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --font-mono:'Inter',system-ui,sans-serif;
+  --max:1160px;
+  --gap:clamp(16px,3vw,32px);
+  --shadow-sm:0 1px 3px rgba(28,26,23,.06),0 4px 12px rgba(28,26,23,.04);
+  --shadow-md:0 4px 16px rgba(28,26,23,.08),0 12px 32px rgba(28,26,23,.06);
+  --ease:cubic-bezier(.22,.68,0,1.2);
+  --ease-out:cubic-bezier(0,0,0.2,1);
+}
+
+/* ── Reset ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+img,svg{display:block;max-width:100%}
+button,input,select,textarea{font:inherit}
+a{color:inherit;text-decoration:none}
+
+body{
+  font-family:var(--font-body);
+  font-size:18px;
+  line-height:1.7;
+  color:var(--ink);
+  background:var(--cream);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+.container{
+  width:min(var(--max),calc(100% - 48px));
+  margin-inline:auto;
+}
+
+/* ── NAV ── */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:90;
+  background:rgba(247,243,238,0.94);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .3s;
+}
+.nav.scrolled{box-shadow:var(--shadow-sm)}
+
+.nav-inner{
+  width:min(var(--max),calc(100% - 48px));
+  margin-inline:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+  padding:16px 0;
+}
+
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{
+  width:34px;height:34px;
+  background:var(--ink);color:var(--gold);
+  font-family:var(--font-display);font-size:18px;font-weight: 700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.logo-text{
+  font-family:var(--font-display);font-size:20px;font-weight:700;
+  color:var(--ink);letter-spacing:-0.02em;
+}
+.logo-sub{
+  font-family:var(--font-mono);font-size:9px;letter-spacing:0.25em;
+  text-transform:uppercase;color:var(--gold);font-weight:400;
+}
+
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:15px;font-weight:400;color:var(--ink-soft);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-dropdown{position:relative}
+.nav-dropdown-trigger{cursor:pointer}
+.nav-dropdown-trigger::after{content:' \25BE';font-size:10px;opacity:0.5}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--cream);border:1px solid var(--line);border-radius:8px;padding:8px 0;min-width:220px;box-shadow:0 4px 16px rgba(28,26,23,.08),0 12px 32px rgba(28,26,23,.06);z-index:100}
+.nav-dropdown:hover .nav-dropdown-menu{display:block}
+.nav-dropdown-menu a{display:block;padding:10px 20px;font-size:14px;color:var(--ink-soft);text-decoration:none;white-space:nowrap;transition:background .15s,color .15s}
+.nav-dropdown-menu a:hover{background:var(--gold-faint);color:var(--ink)}
+
+.nav-phone{
+  font-family:var(--font-mono);font-size:13px;color:var(--ink-soft);
+  text-decoration:none;letter-spacing:0.02em;transition:color .2s;white-space:nowrap;
+}
+.nav-phone:hover{color:var(--gold)}
+
+.nav-cta{
+  font-family:var(--font-body);font-size:12px;font-weight:500;letter-spacing:0.01em;
+  padding:9px 20px;background:var(--ink);color:var(--cream);text-decoration:none;
+  border:1.5px solid var(--ink);transition:background .2s,color .2s;white-space:nowrap;
+}
+.nav-cta:hover{background:var(--gold);border-color:var(--gold);color:var(--white)}
+
+.burger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:4px;
+}
+.burger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:transform .25s,opacity .25s}
+.burger.open span:first-child{transform:translateY(6.5px) rotate(45deg)}
+.burger.open span:last-child{transform:translateY(-6.5px) rotate(-45deg)}
+
+.mobile-drawer{
+  display:none;flex-direction:column;padding:16px 24px 20px;
+  border-top:1px solid var(--line);gap:4px;
+}
+.mobile-drawer a{
+  font-size:18px;color:var(--ink-mid);padding:10px 0;
+  border-bottom:1px solid var(--line-soft);text-decoration:none;
+}
+.mobile-drawer a:last-child{border-bottom:none}
+.drawer-cta{color:var(--gold)!important;font-weight:500!important}
+
+/* ── Trust Bar ── */
+.trust-bar{background:var(--ink);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.trust-bar-inner{
+  width:min(var(--max),calc(100% - 48px));margin-inline:auto;
+  display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;
+}
+.trust-bar-item{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;
+  text-transform:uppercase;color:rgba(255,255,255,0.55);
+  display:flex;align-items:center;gap:8px;white-space:nowrap;
+}
+.trust-bar-divider{width:1px;height:14px;background:rgba(255,255,255,0.15);flex-shrink:0}
+
+/* ── Buttons ── */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--ink);color:var(--cream);
+  font-family:var(--font-body);font-size:15px;font-weight:500;letter-spacing:0.01em;
+  padding:13px 24px;border:1.5px solid var(--ink);cursor:pointer;
+  transition:background .2s var(--ease-out),color .2s var(--ease-out),transform .15s;text-decoration:none;
+}
+.btn-primary:hover{background:var(--gold);border-color:var(--gold);color:var(--white);transform:translateY(-1px)}
+
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:6px;
+  background:transparent;color:rgba(255,255,255,0.8);
+  font-family:var(--font-body);font-size:15px;font-weight:400;
+  padding:13px 24px;border:1.5px solid rgba(255,255,255,0.2);cursor:pointer;
+  transition:border-color .2s,color .2s,transform .15s;text-decoration:none;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-1px)}
+
+.btn-gold{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--gold);color:var(--white);
+  font-family:var(--font-body);font-size:15px;font-weight:500;
+  padding:14px 28px;border:none;cursor:pointer;width:100%;
+  transition:opacity .2s,transform .15s;text-decoration:none;
+}
+.btn-gold:hover{opacity:0.88;transform:translateY(-1px)}
+
+/* ── Section Label ── */
+.section-label{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:16px;
+  display:flex;align-items:center;gap:12px;
+}
+.section-label::before{content:'';width:28px;height:1px;background:var(--gold)}
+
+/* ── Hero ── */
+.hero{
+  background:var(--ink);color:var(--cream);
+  padding:140px 0 80px;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 50% 60% at 70% 20%,rgba(191, 144, 32,0.08) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 50% at 30% 80%,rgba(191, 144, 32,0.04) 0%,transparent 50%);
+}
+.hero-inner{position:relative;max-width:720px}
+.hero h1{
+  font-family:var(--font-display);font-size:clamp(36px,5vw,60px);font-weight: 700;
+  line-height:1.08;letter-spacing:-0.02em;margin-bottom:20px;
+}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{
+  font-size:18px;line-height:1.7;color:rgba(247,243,238,0.7);
+  max-width:580px;margin-bottom:36px;
+}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+
+/* ── How It Works ── */
+.how-section{padding:clamp(80px,10vw,140px) 0}
+.how-section .section-title{
+  font-family:var(--font-display);font-size:clamp(28px,4vw,44px);font-weight:700;
+  color:var(--ink);margin-bottom:48px;line-height:1.15;letter-spacing:-0.02em;
+}
+.how-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;
+}
+.how-card{
+  background:var(--cream);border:1px solid var(--line);padding:32px 28px;
+  transition:box-shadow .2s;
+}
+.how-card:hover{box-shadow:var(--shadow-sm)}
+.how-num{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:12px;
+}
+.how-card h3{
+  font-family:var(--font-display);font-size:18px;font-weight:700;
+  color:var(--ink);line-height:1.4;margin-bottom:0;
+}
+.how-card:last-child{grid-column:1/-1}
+
+/* ── Qualifications ── */
+.qual-section{background:var(--cream-dark);padding:clamp(80px,10vw,140px) 0}
+.qual-section .section-title{
+  font-family:var(--font-display);font-size:clamp(28px,4vw,44px);font-weight:700;
+  color:var(--ink);margin-bottom:40px;line-height:1.15;letter-spacing:-0.02em;
+}
+.qual-list{list-style:none;max-width:640px}
+.qual-list li{
+  font-size:16px;line-height:1.7;color:var(--ink-soft);
+  padding:14px 0;border-bottom:1px solid var(--line);
+  display:flex;align-items:flex-start;gap:14px;
+}
+.qual-list li:last-child{border-bottom:none}
+.qual-check{
+  color:var(--gold);font-size:16px;flex-shrink:0;margin-top:2px;
+  font-weight:700;
+}
+
+/* ── Brands ── */
+.brands-section{padding:clamp(80px,10vw,140px) 0}
+.brands-section .section-title{
+  font-family:var(--font-display);font-size:clamp(28px,4vw,44px);font-weight:700;
+  color:var(--ink);margin-bottom:12px;line-height:1.15;letter-spacing:-0.02em;
+}
+.brands-sub{
+  font-size:16px;line-height:1.7;color:var(--ink-soft);
+  max-width:600px;margin-bottom:40px;
+}
+.brands-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:28px;
+}
+.brand-pill{
+  background:var(--cream-dark);border:1px solid var(--line);
+  padding:16px 12px;text-align:center;font-size:14px;font-weight:500;
+  color:var(--ink-mid);transition:border-color .2s,box-shadow .2s;
+}
+.brand-pill:hover{border-color:var(--gold);box-shadow:var(--shadow-sm)}
+.brands-note{font-size:14px;color:var(--ink-soft);line-height:1.7}
+.brands-note a{color:var(--gold);text-decoration:underline}
+
+/* ── Form Section ── */
+.form-section{background:var(--cream-dark);padding:clamp(80px,10vw,140px) 0}
+.form-layout{
+  display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:start;
+}
+.form-left .section-title{
+  font-family:var(--font-display);font-size:clamp(28px,4vw,40px);font-weight:700;
+  color:var(--ink);margin-bottom:16px;line-height:1.15;letter-spacing:-0.02em;
+}
+.form-left p{font-size:16px;line-height:1.7;color:var(--ink-soft);margin-bottom:28px}
+.trust-items{display:flex;flex-direction:column;gap:12px}
+.trust-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:15px;color:var(--ink-mid);
+}
+.trust-item .check{color:var(--gold);font-weight:700;font-size:16px}
+
+.form-card{
+  background:var(--white);padding:36px 32px;
+  box-shadow:var(--shadow-md);border-radius:6px;
+}
+.form-card label{
+  display:block;font-size:13px;font-weight:500;color:var(--ink-mid);
+  margin-bottom:6px;margin-top:18px;
+}
+.form-card label:first-child{margin-top:0}
+.form-card input,.form-card select{
+  width:100%;padding:12px 14px;font-size:15px;
+  border:1px solid var(--line);background:var(--cream);
+  color:var(--ink);border-radius:4px;
+  transition:border-color .2s;
+}
+.form-card input:focus,.form-card select:focus{
+  outline:none;border-color:var(--gold);
+}
+.form-card select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2352504C' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.form-submit{margin-top:24px}
+
+.form-success{text-align:center;padding:48px 24px}
+.success-check{
+  width:56px;height:56px;border-radius:50%;
+  background:var(--gold-faint);color:var(--gold);
+  font-size:28px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+}
+.form-success h3{
+  font-family:var(--font-display);font-size:22px;font-weight:700;
+  color:var(--ink);margin-bottom:8px;
+}
+.form-success p{font-size:15px;color:var(--ink-soft);line-height:1.7}
+
+/* ── Footer ── */
+.footer{background:var(--ink);padding:clamp(48px,6vw,80px) 0 32px}
+.footer-top{
+  display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;
+  padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px;
+}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.footer-brand .logo-mark{background:var(--gold);color:var(--ink)}
+.footer-brand strong{
+  display:block;font-family:var(--font-display);font-size:18px;font-weight:700;
+  color:var(--white);letter-spacing:-0.02em;
+}
+.footer-brand span{font-size:11px;color:rgba(255,255,255,0.4)}
+.footer-nav-group{display:flex;flex-direction:column}
+.footer-nav-group h4{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:0.15em;
+  text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:16px;
+}
+.footer-nav-group a{
+  font-size:15px;color:rgba(255,255,255,0.55);text-decoration:none;
+  padding:5px 0;transition:color .2s;
+}
+.footer-nav-group a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer-bottom span{
+  font-size:13px;color:rgba(255,255,255,0.25);
+  font-family:var(--font-mono);letter-spacing:0.04em;
+}
+
+/* ── Responsive ── */
+@media(max-width:960px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  .how-grid{grid-template-columns:1fr}
+  .how-card:last-child{grid-column:auto}
+  .brands-grid{grid-template-columns:repeat(3,1fr)}
+  .form-layout{grid-template-columns:1fr;gap:40px}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:700px){
+  .trust-bar-divider{display:none}
+  .trust-bar-inner{gap:10px;justify-content:flex-start}
+  .brands-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-actions{flex-direction:column}
+  .hero-actions .btn-primary,.hero-actions .btn-ghost{width:100%;justify-content:center}
+}
+
+@media(max-width:520px){
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:8px}
+  .nav-phone{display:none}
+}
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+        <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown">
+        <a href="index.html#programs" class="nav-dropdown-trigger">Programs</a>
+        <div class="nav-dropdown-menu">
+          <a href="dscr.html">DSCR Loans</a>
+          <a href="fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="bpl.html">Business Purpose Loans</a>
+          <a href="non-qm-loans-florida.html">Non-QM / Bank Statement</a>
+          <a href="conventional-investment-property-loans.html">Conventional</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="investor-platform.html" class="nav-dropdown-trigger">Tools</a>
+        <div class="nav-dropdown-menu">
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="dscr-calculator.html">DSCR Calculator</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+    </nav>    <a href="application.html" class="nav-cta">Analyze My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="dscr.html">DSCR Loans</a>
+    <a href="fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="bpl.html">Business Purpose Loans</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="about.html">About</a>
+    <span class="drawer-label">Commercial</span>
+    <a href="commercial.html">Commercial Lending</a>
+    <a href="franchise.html">SBA &amp; Franchise</a>
+    <a href="index.html#dealform" class="drawer-cta">Analyze My Deal &rarr;</a>
+  </div>
+</header>
+
+<!-- ═══ TRUST BAR ═══ -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <span class="trust-bar-item">NMLS #2822744</span>
+    <span class="trust-bar-divider"></span>
+    <span class="trust-bar-item">Ohio roots &middot; Built national mortgage teams &middot; 3 years Citi</span>
+    <span class="trust-bar-divider"></span>
+    <span class="trust-bar-item">SBA 7(a)</span>
+    <span class="trust-bar-divider"></span>
+    <span class="trust-bar-item">SBA 504</span>
+    <span class="trust-bar-divider"></span>
+    <span class="trust-bar-item">Franchise Financing</span>
+  </div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="section-label">SBA Franchise Financing</div>
+      <h1>SBA Franchise Financing&nbsp;&mdash; <em>From Application to Open.</em></h1>
+      <p class="hero-sub">You found the right franchise. You know it works. SBA financing shouldn&rsquo;t be the thing that stops you. It won&rsquo;t be.</p>
+      <div class="hero-actions">
+        <a href="#franchise-form" class="btn-primary">Check My Franchise Eligibility &mdash; Free</a>
+        <a href="#brands" class="btn-ghost">View Pre-Approved Brands &darr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="how-section">
+  <div class="container">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">How SBA Franchise Financing Works</h2>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num">01</div>
+        <h3>SBA 7(a) is the primary vehicle &mdash; up to $5M in total financing for franchise acquisition and buildout.</h3>
+      </div>
+      <div class="how-card">
+        <div class="how-num">02</div>
+        <h3>Pre-approved franchises (SBA Franchise Directory) close in 60&ndash;90 days with streamlined documentation.</h3>
+      </div>
+      <div class="how-card">
+        <div class="how-num">03</div>
+        <h3>Non-approved franchises require additional review &mdash; typical timeline is 90&ndash;120 days to close.</h3>
+      </div>
+      <div class="how-card">
+        <div class="how-num">04</div>
+        <h3>Typical structure: 10% borrower equity, 90% SBA-guaranteed loan &mdash; one of the lowest down payments in commercial lending.</h3>
+      </div>
+      <div class="how-card">
+        <div class="how-num">05</div>
+        <h3>Covers: franchise fee, equipment, leasehold improvements, working capital &mdash; one loan for the full launch.</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUALIFICATIONS ═══ -->
+<section class="qual-section">
+  <div class="container">
+    <div class="section-label">Qualifications</div>
+    <h2 class="section-title">What You Need to Qualify</h2>
+    <ul class="qual-list">
+      <li><span class="qual-check">&#10003;</span>Credit score: 680+ preferred</li>
+      <li><span class="qual-check">&#10003;</span>Relevant industry experience or management background</li>
+      <li><span class="qual-check">&#10003;</span>Personal financial statement</li>
+      <li><span class="qual-check">&#10003;</span>Franchise agreement or letter of intent</li>
+      <li><span class="qual-check">&#10003;</span>Business plan (we can help)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ PRE-APPROVED BRANDS ═══ -->
+<section class="brands-section" id="brands">
+  <div class="container">
+    <div class="section-label">Pre-Approved Brands</div>
+    <h2 class="section-title">SBA Pre-Approved Franchise Brands</h2>
+    <p class="brands-sub">These franchise brands are pre-approved by the SBA &mdash; faster closing, less documentation.</p>
+    <div class="brands-grid">
+      <div class="brand-pill">McDonald's</div>
+      <div class="brand-pill">Subway</div>
+      <div class="brand-pill">Anytime Fitness</div>
+      <div class="brand-pill">Sport Clips</div>
+      <div class="brand-pill">Great Clips</div>
+      <div class="brand-pill">Ace Hardware</div>
+      <div class="brand-pill">Kumon</div>
+      <div class="brand-pill">Jan-Pro</div>
+      <div class="brand-pill">Servpro</div>
+      <div class="brand-pill">Paul Davis Restoration</div>
+      <div class="brand-pill">Mosquito Joe</div>
+      <div class="brand-pill">Pinot's Palette</div>
+      <div class="brand-pill">Mathnasium</div>
+      <div class="brand-pill">Neighborly</div>
+      <div class="brand-pill">Supercuts</div>
+      <div class="brand-pill">The UPS Store</div>
+      <div class="brand-pill">Snap Fitness</div>
+      <div class="brand-pill">Orangetheory Fitness</div>
+      <div class="brand-pill">European Wax Center</div>
+      <div class="brand-pill">Nothing Bundt Cakes</div>
+    </div>
+    <p class="brands-note">Don't see your franchise? <a href="#franchise-form">Contact us</a> &mdash; we work with approved and non-approved brands.</p>
+  </div>
+</section>
+
+<!-- ═══ LEAD CAPTURE FORM ═══ -->
+<section class="form-section" id="franchise-form">
+  <div class="container">
+    <div class="form-layout">
+      <div class="form-left">
+        <div class="section-label">Get Started</div>
+        <h2 class="section-title">Check Your Franchise Eligibility</h2>
+        <p>Get a free eligibility assessment for SBA franchise financing.</p>
+        <div class="trust-items">
+          <div class="trust-item"><span class="check">&#10003;</span> Free</div>
+          <div class="trust-item"><span class="check">&#10003;</span> No obligation</div>
+          <div class="trust-item"><span class="check">&#10003;</span> 24-hour response</div>
+        </div>
+      </div>
+      <div class="form-card">
+        <form id="franchiseForm" autocomplete="on">
+          <label for="fname">Name *</label>
+          <input type="text" id="fname" name="name" required placeholder="Full name"/>
+
+          <label for="femail">Email *</label>
+          <input type="email" id="femail" name="email" required placeholder="you@email.com"/>
+
+          <label for="fphone">Phone</label>
+          <input type="tel" id="fphone" name="phone" placeholder="(555) 555-5555"/>
+
+          <label for="fbrand">Franchise Brand</label>
+          <input type="text" id="fbrand" name="brand" placeholder="e.g. McDonald's, Anytime Fitness"/>
+
+          <label for="finvestment">Estimated Investment Amount</label>
+          <select id="finvestment" name="investment">
+            <option value="" disabled selected>Select range</option>
+            <option value="Under $150K">Under $150K</option>
+            <option value="$150K-$300K">$150K &ndash; $300K</option>
+            <option value="$300K-$500K">$300K &ndash; $500K</option>
+            <option value="$500K-$1M">$500K &ndash; $1M</option>
+            <option value="$1M+">$1M+</option>
+          </select>
+
+          <label for="ftimeline">Timeline</label>
+          <select id="ftimeline" name="timeline">
+            <option value="" disabled selected>Select timeline</option>
+            <option value="Ready now">Ready now</option>
+            <option value="3-6 months">3&ndash;6 months</option>
+            <option value="6-12 months">6&ndash;12 months</option>
+            <option value="Just researching">Just researching</option>
+          </select>
+
+          <div class="form-submit">
+            <button type="submit" class="btn-gold">Check My Eligibility &rarr;</button>
+          </div>
+        </form>
+
+        <div id="franchiseSuccess" style="display:none" class="form-success">
+          <div class="success-check">&#10003;</div>
+          <h3>Eligibility request received.</h3>
+          <p>We'll review your franchise scenario and be in touch within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <span class="logo-mark">V</span>
+          <div><strong>Viador</strong> <span class="logo-sub" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:400;">Partners</span><br><span>Investor Capital &amp; Deal Advisory</span></div>
+        </div>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Investors</h4>
+        <a href="bpl.html">What Is BPL?</a>
+        <a href="dscr.html">DSCR Loans</a>
+        <a href="fix-and-flip.html">Fix &amp; Flip</a>
+        <a href="application.html">Analyze My Deal</a>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Programs</h4>
+        <a href="dscr.html">DSCR Rental Loans</a>
+        <a href="fix-and-flip.html">Fix &amp; Flip Bridge</a>
+      </div>
+      <div class="footer-nav-group">
+        <h4>About</h4>
+        <a href="about.html">About Viador</a>
+        <a href="partners.html">Partner Program</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Viador Partners LLC. All rights reserved.</span>
+      <span>Viador Partners LLC &#124; NMLS #2822744</span>
+      <span style="display:block;margin-top:6px;font-size:10px;opacity:0.7">chad&#64;viadorpartners.com &#124; (813) 419-2983</span>
+      <span style="display:block;margin-top:6px;font-size:10px;opacity:0.6">NMLS #2822744</span>
+      <span style="display:block;margin-top:6px;font-size:10px;opacity:0.5">Not a commitment to lend. Equal Housing Opportunity. <a href="privacy-policy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> &middot; <a href="terms.html" style="color:inherit;text-decoration:underline">Terms of Use</a></span>
+    <span style="display:block;margin-top:10px;font-size:10px;opacity:0.6">Veteran homeowner? Visit <a href="https://nextdutyvet.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">NextDutyVet.com</a></span></div>
+  </div>
+</footer>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script>
+/* Burger toggle */
+(function(){
+  var burger=document.getElementById('burger');
+  var drawer=document.getElementById('drawer');
+  burger.addEventListener('click',function(){
+    burger.classList.toggle('open');
+    var isOpen=burger.classList.contains('open');
+    burger.setAttribute('aria-expanded',isOpen);
+    drawer.style.display=isOpen?'flex':'none';
+  });
+})();
+
+/* Nav scroll shadow */
+(function(){
+  var nav=document.getElementById('nav');
+  var last=0;
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY;
+    if(y>10){nav.classList.add('scrolled')}else{nav.classList.remove('scrolled')}
+    last=y;
+  },{passive:true});
+})();
+
+/* Form submission — HubSpot */
+document.getElementById('franchiseForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var name = document.getElementById('fname').value.trim();
+  var email = document.getElementById('femail').value.trim();
+  var phone = document.getElementById('fphone').value.trim();
+  var brand = document.getElementById('fbrand').value.trim();
+  var investment = document.getElementById('finvestment').value;
+  var timeline = document.getElementById('ftimeline').value;
+
+  if (!name || !email) { alert('Please enter your name and email.'); return; }
+
+  var nameParts = name.split(' ');
+  var firstName = nameParts[0];
+  var lastName = nameParts.slice(1).join(' ') || '';
+
+  var fields = [
+    { name: 'firstname', value: firstName },
+    { name: 'lastname', value: lastName },
+    { name: 'email', value: email },
+    { name: 'phone', value: phone },
+    { name: 'message', value: 'Franchise Brand: ' + brand + ' | Investment: ' + investment + ' | Timeline: ' + timeline },
+    { name: 'deal_type_interest', value: 'sba' },
+    { name: 'hs_page_url', value: window.location.href }
+  ];
+
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/245454217/e463e10b-4cb3-4d79-8915-2d6c62d4cc58', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      fields: fields,
+      context: { pageUri: window.location.href, pageName: 'Franchise SBA Inquiry' }
+    })
+  }).then(function() {
+    document.getElementById('franchiseForm').style.display = 'none';
+    document.getElementById('franchiseSuccess').style.display = 'block';
+  }).catch(function() {
+    document.getElementById('franchiseForm').style.display = 'none';
+    document.getElementById('franchiseSuccess').style.display = 'block';
+  });
+});
+</script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/245454217.js"></script>
+</body>
+</html>

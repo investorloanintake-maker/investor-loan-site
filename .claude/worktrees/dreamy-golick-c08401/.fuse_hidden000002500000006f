@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Realtor & Referral Partner Program | Viador Partners</title>
+  <meta name="description" content="Realtors and advisors — refer investor clients to Viador Partners. We find the right financing structure for every deal: DSCR, BPL, Fix & Flip, Bridge."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.viadorpartners.com/partners"/>
+  <meta property="og:title" content="Realtor & Referral Partner Program | Viador Partners"/>
+  <meta property="og:description" content="Realtors and advisors — refer investor clients to Viador Partners. We find the right financing structure for every deal: DSCR, BPL, Fix & Flip, Bridge."/>
+  <meta property="og:image" content="https://www.viadorpartners.com/og-image.jpg"/>
+  <link rel="canonical" href="https://www.viadorpartners.com/partners.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+  {
+    "@type": "Person",
+    "@id": "https://www.viadorpartners.com/#chad-evers",
+    "name": "Chad Evers",
+    "jobTitle": "Licensed Mortgage Loan Originator",
+    "description": "Ohio roots. 20 years in lending — originating loans, building national mortgage teams from scratch, 3 years gaining global institutional experience at Citi. Left corporate life to build Viador Partners for the people the system was never designed to serve.",
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Mortgage Loan Originator License",
+      "credentialCategory": "NMLS",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Nationwide Multistate Licensing System (NMLS)"
+      },
+      "identifier": "NMLS #2822744"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "@id": "https://www.viadorpartners.com/#viador-partners",
+      "name": "Viador Partners LLC",
+      "url": "https://www.viadorpartners.com",
+      "telephone": "+18134192983",
+      "email": "chad@viadorpartners.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tampa",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Florida",
+        "Ohio"
+      ],
+      "knowsAbout": [
+        "DSCR Loans",
+        "Business Purpose Loans",
+        "Fix and Flip Loans",
+        "Bridge Loans",
+        "SBA Loans",
+        "Non-QM Mortgage",
+        "Investment Property Financing"
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/chad-evers",
+      "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2822744",
+      "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?searchTerm=viador+partners"
+    ],
+    "telephone": "+18134192983",
+    "email": "chad@viadorpartners.com",
+    "knowsAbout": [
+      "DSCR Loans",
+      "Real Estate Investment Financing",
+      "Business Purpose Loans",
+      "Non-QM Mortgage",
+      "Fix and Flip Loans",
+      "Bridge Financing",
+      "SBA Loans",
+      "Investment Property Cash-Out Refinance"
+    ]
+  },
+  {
+    "@type": "Organization",
+    "@id": "https://www.viadorpartners.com/#viador-partners",
+    "name": "Viador Partners LLC",
+    "url": "https://www.viadorpartners.com",
+    "logo": "https://www.viadorpartners.com/logo.png",
+    "telephone": "+18134192983",
+    "email": "chad@viadorpartners.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tampa",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "founder": {
+      "@id": "https://www.viadorpartners.com/#chad-evers"
+    },
+    "areaServed": [
+      "Florida",
+      "Ohio"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Investment Property Loan Programs",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "DSCR Loans",
+          "description": "Qualify on rental income, no W-2s required"
+        },
+        {
+          "@type": "Offer",
+          "name": "Fix and Flip Loans",
+          "description": "Short-term bridge financing for value-add properties"
+        },
+        {
+          "@type": "Offer",
+          "name": "Business Purpose Loans",
+          "description": "Entity-based real estate financing"
+        },
+        {
+          "@type": "Offer",
+          "name": "SBA Loans",
+          "description": "Government-backed loans for owner-occupied commercial real estate"
+        }
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/viador-partners",
+      "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?searchTerm=viador+partners"
+    ]
+  },
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.viadorpartners.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Realtor & Referral Partner Program",
+        "item": "https://www.viadorpartners.com/partners"
+      }
+    ]
+  },
+  {
+    "@type": "WebPage",
+    "@id": "https://www.viadorpartners.com/partners#webpage",
+    "url": "https://www.viadorpartners.com/partners",
+    "name": "Realtor & Referral Partner Program | Viador Partners",
+    "description": "Realtors and advisors \u2014 refer investor clients to Viador Partners. We find the right financing structure for every deal: DSCR, BPL, Fix & Flip, Bridge.",
+    "author": {
+      "@id": "https://www.viadorpartners.com/#chad-evers"
+    },
+    "publisher": {
+      "@id": "https://www.viadorpartners.com/#viador-partners"
+    },
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://www.viadorpartners.com"
+    }
+  }
+]
+}
+</script>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+        <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown">
+        <a href="index.html#programs" class="nav-dropdown-trigger">Programs</a>
+        <div class="nav-dropdown-menu">
+          <a href="dscr.html">DSCR Loans</a>
+          <a href="fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="bpl.html">Business Purpose Loans</a>
+          <a href="non-qm-loans-florida.html">Non-QM / Bank Statement</a>
+          <a href="conventional-investment-property-loans.html">Conventional</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="investor-platform.html" class="nav-dropdown-trigger">Tools</a>
+        <div class="nav-dropdown-menu">
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="dscr-calculator.html">DSCR Calculator</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+    </nav>
+    <a href="index.html#dealform" class="nav-cta">Analyze My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="dscr.html">DSCR Loans</a>
+    <a href="fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="bpl.html">Business Purpose Loans</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="about.html">About</a>
+    <span class="drawer-label">Commercial</span>
+    <a href="commercial.html">Commercial Lending</a>
+    <a href="franchise.html">SBA &amp; Franchise</a>
+    <a href="index.html#dealform" class="drawer-cta">Analyze My Deal &rarr;</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" aria-labelledby="partner-h1">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-tag">
+        <span class="tag-dot"></span>
+        For realtors, CPAs &amp; advisors
+      </div>
+      <h1 id="partner-h1" class="hero-title">
+        Your investor clients<br>
+        have more options<br>
+        <em>than they think.</em>
+      </h1>
+      <p class="hero-sub">Whether it's a conventional purchase, a DSCR rental, a fix and flip, or a BPL deal through an LLC — we review every scenario and find the right structure. Your client gets a straight answer fast.</p>
+      <div class="hero-actions">
+        <a href="#partner-form" class="btn-primary">Join the Network</a>
+        <a href="bpl.html" class="btn-ghost">What is BPL? →</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-proof-card">
+        <div class="hero-proof-header">
+          <span class="hero-proof-tag">Why partners refer to us</span>
+        </div>
+        <div class="hero-proof-item">
+          <div class="hero-proof-icon">◈</div>
+          <div class="hero-proof-body">
+            <div class="hero-proof-headline">Your clients close deals</div>
+            <div class="hero-proof-detail">Your clients get funded. Fast answers, clean execution, no extra work on your end.</div>
+          </div>
+        </div>
+        <div class="hero-proof-item">
+          <div class="hero-proof-icon">⚡</div>
+          <div class="hero-proof-body">
+            <div class="hero-proof-headline">We find the right fit for every deal</div>
+            <div class="hero-proof-detail">Conventional, DSCR, BPL, bridge — we review the deal and match it to the right structure and lender.</div>
+          </div>
+        </div>
+        <div class="hero-proof-item">
+          <div class="hero-proof-icon">$</div>
+          <div class="hero-proof-body">
+            <div class="hero-proof-headline">24-hour deal review</div>
+            <div class="hero-proof-detail">Fast feedback protects your reputation and keeps deals from going cold.</div>
+          </div>
+        </div>
+        <div class="hero-proof-item hero-proof-item-last">
+          <div class="hero-proof-icon">✓</div>
+          <div class="hero-proof-body">
+            <div class="hero-proof-headline">Nationwide coverage</div>
+            <div class="hero-proof-detail">We originate directly in select markets and broker everywhere else.</div>
+          </div>
+        </div>
+        <div class="hero-proof-footer">
+          <span class="hero-proof-free">Free to join · No cost · No paperwork</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-rule">
+    <div class="hero-rule-line"></div>
+    <div class="hero-rule-text">DSCR · Fix &amp; Flip · Bridge · BPL · Bank Statement</div>
+    <div class="hero-rule-line"></div>
+  </div>
+</section>
+
+<!-- WHO WE WORK WITH -->
+<section class="section paths-section" id="who">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Who partners with us</div>
+      <h2 class="section-title">Built for anyone who<br>works with investors.</h2>
+    </div>
+    <div class="paths-grid">
+
+      <article class="path-card" tabindex="0">
+        <div class="path-num">01</div>
+        <div class="path-body">
+          <div class="path-tag">Realtors &amp; Agents</div>
+          <h3>You need a lender who closes</h3>
+          <p>Your investor clients move fast and need financing that keeps up. We review every deal in 24 hours — conventional or otherwise — and find the right structure so deals close on time.</p>
+          <div class="path-links">
+            <a href="#partner-form">Join the program →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="path-card" tabindex="0">
+        <div class="path-num">02</div>
+        <div class="path-body">
+          <div class="path-tag">CPAs &amp; Financial Advisors</div>
+          <h3>Your clients are building wealth through real estate</h3>
+          <p>You advise on the strategy — we handle the financing. When your clients need capital for their next acquisition, you can send them somewhere you trust.</p>
+          <div class="path-links">
+            <a href="#partner-form">Become a partner →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="path-card" tabindex="0">
+        <div class="path-num">03</div>
+        <div class="path-body">
+          <div class="path-tag">Attorneys &amp; Title Agents</div>
+          <h3>See deals fall through for financing reasons?</h3>
+          <p>We review every scenario — conventional, BPL, bridge, and DSCR — and find the right path forward. Refer once, we take it from there.</p>
+          <div class="path-links">
+            <a href="#partner-form">Get set up →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- BPL MOMENT -->
+<section class="bpl-moment" aria-labelledby="bpl-partner-h">
+  <div class="container">
+    <div class="bpl-moment-inner">
+      <div class="bpl-moment-copy">
+        <div class="section-label light">One tool worth knowing about</div>
+        <h2 id="bpl-partner-h" class="bpl-title">Most investors think<br>they're <em>capped.</em><br>They're not.</h2>
+        <p class="bpl-sub">If a client has maxed out conventional loans or needs to borrow through an LLC — there's another structure worth knowing about. Business Purpose Loans are entity-based. No property count ceiling. No personal income verification.</p>
+        <p class="bpl-sub">One conversation about BPL could unlock your client's next 10 acquisitions — and 10 more commissions for you.</p>
+        <a href="bpl.html" class="btn-primary-dark" style="margin-top:24px;display:inline-flex;">Read the full BPL guide →</a>
+      </div>
+      <div class="bpl-moment-compare">
+        <div class="bpl-compare-table">
+          <div class="bpl-compare-row bpl-compare-header">
+            <span></span>
+            <span>Conventional</span>
+            <span class="bpl-col-highlight">BPL</span>
+          </div>
+          <div class="bpl-compare-row">
+            <span>Property limit</span>
+            <span>10 max</span>
+            <span class="bpl-col-highlight">No limit</span>
+          </div>
+          <div class="bpl-compare-row">
+            <span>Income check</span>
+            <span>W2 / tax returns</span>
+            <span class="bpl-col-highlight">Deal-based</span>
+          </div>
+          <div class="bpl-compare-row">
+            <span>Borrower</span>
+            <span>Personal name</span>
+            <span class="bpl-col-highlight">LLC / entity</span>
+          </div>
+          <div class="bpl-compare-row">
+            <span>Asset protection</span>
+            <span>None</span>
+            <span class="bpl-col-highlight">Entity shields</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER FORM -->
+<section class="form-section" id="partner-form">
+  <div class="container">
+    <div class="form-layout">
+
+      <div class="form-copy">
+        <div class="section-label">Join our network</div>
+        <h2 class="form-title">Become a<br>Referral Partner.</h2>
+        <p>Tell us about yourself. We'll reach out within 24 hours to walk you through the program and get your first referral set up.</p>
+        <div class="form-trust">
+          <div class="trust-item"><span>✓</span> Free to join</div>
+          <div class="trust-item"><span>✓</span> Fast deal review</div>
+          <div class="trust-item"><span>✓</span> 24-hour response</div>
+        </div>
+        <div class="form-notes">
+          <p><strong>Realtors</strong> — refer investor clients who need financing that moves as fast as you need to close.</p>
+          <p><strong>CPAs &amp; advisors</strong> — your clients are building wealth through real estate. We handle the financing side.</p>
+          <p><strong>Attorneys &amp; title agents</strong> — see deals fall through for financing reasons? We may be able to save them.</p>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <form id="partnerForm" novalidate>
+          <div class="section-label" style="margin-bottom:20px;">Let's schedule a call</div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="pname">Your name <span class="req">*</span></label>
+              <input type="text" id="pname" name="name" placeholder="First &amp; last name" autocomplete="name" required/>
+            </div>
+            <div class="field">
+              <label for="pcompany">Company / Brokerage</label>
+              <input type="text" id="pcompany" name="company" placeholder="Your company name"/>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="pemail">Email <span class="req">*</span></label>
+              <input type="email" id="pemail" name="email" placeholder="you@email.com" autocomplete="email" required/>
+            </div>
+            <div class="field">
+              <label for="pphone">Phone</label>
+              <input type="tel" id="pphone" name="phone" placeholder="(555) 555-5555"/>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="prole">Your role</label>
+            <select id="prole" name="role">
+              <option value="">Select your role</option>
+              <option value="realtor">Realtor / Real Estate Agent</option>
+              <option value="broker">Mortgage Broker</option>
+              <option value="cpa">CPA / Accountant</option>
+              <option value="attorney">Attorney / Title Agent</option>
+              <option value="financial">Financial Advisor</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="pclients">How many investor clients do you work with?</label>
+            <select id="pclients" name="investor_clients">
+              <option value="">Select</option>
+              <option value="1-5">1–5 per year</option>
+              <option value="5-15">5–15 per year</option>
+              <option value="15+">15+ per year</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="pnotes">Anything you'd like us to know? <em>(optional)</em></label>
+            <textarea id="pnotes" name="notes" placeholder="Markets you serve, types of investors you work with, or questions about the program…"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary btn-full">Request a Discovery Call</button>
+          <p class="form-fine">No cost · We'll reach out within 24 hours to set a time</p>
+        </form>
+
+        <div id="partnerSuccess" style="display:none;" class="form-success" aria-live="polite">
+          <div class="success-check">✓</div>
+          <h3>Request received.</h3>
+          <p>We'll reach out within 24 hours to schedule your discovery call and walk through how the partner program works.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-mark">V</span>
+        <div>
+          <strong>Viador</strong> <span class="logo-sub" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:400;">Partners</span>
+          <span>Investor Capital &amp; Deal Advisory</span>
+        </div>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Investors</h4>
+        <a href="bpl.html">What Is BPL?</a>
+        <a href="dscr.html">DSCR Loans</a>
+        <a href="fix-and-flip.html">Fix &amp; Flip</a>
+        <a href="index.html#dealform">Analyze My Deal</a>
+      </div>
+      <div class="footer-nav-group">
+                <h4>Programs</h4>
+        <a href="dscr.html">DSCR Loans</a>
+        <a href="fix-and-flip.html">Fix &amp; Flip</a>
+        <a href="bpl.html">Business Purpose (BPL)</a>
+        <span style="display:block;font-size:10px;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin:8px 0 4px;font-family:var(--font-mono)">Commercial</span>
+        <a href="commercial.html">Small Balance Commercial</a>
+        <a href="commercial.html">SBA 7(a) &amp; 504</a>
+        <a href="franchise.html">Franchise Financing</a>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Partners</h4>
+        <a href="partners.html">Realtor Program</a>
+        <a href="#partner-form">Refer a Deal</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Viador Partners LLC. All rights reserved.</span>
+      <span>Viador Partners LLC &#124; NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.7">chad&#64;viadorpartners.com &#124; (813) 419-2983</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.6">NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.5">Not a commitment to lend. Equal Housing Opportunity. <a href="privacy-policy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> &middot; <a href="terms.html" style="color:inherit;text-decoration:underline">Terms of Use</a></span>
+    <span style="display:block;margin-top:10px;font-size:10px;opacity:0.6">Veteran homeowner? Visit <a href="https://nextdutyvet.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">NextDutyVet.com</a></span></div>
+  </div>
+</footer>
+
+<div class="mobile-sticky-cta" id="mobileCta" aria-label="Become a partner">
+  <a href="#partner-form" class="mobile-sticky-btn">Become a Partner — Free →</a>
+  <a href="tel:+18134192983" class="mobile-sticky-call">Call Us</a>
+</div>
+
+<script src="script.js" defer></script>
+<script>
+  document.getElementById('partnerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name  = document.getElementById('pname');
+    const email = document.getElementById('pemail');
+    if (!name.value.trim())  { name.focus();  return; }
+    if (!email.value.trim()) { email.focus(); return; }
+    this.style.display = 'none';
+    document.getElementById('partnerSuccess').style.display = 'block';
+  });
+</script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/245454217.js"></script>
+</body>
+</html>

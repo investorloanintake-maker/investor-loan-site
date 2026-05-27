@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>DSCR Loan Calculator — Qualify in Seconds | Viador Partners</title>
+  <meta name="description" content="Free DSCR loan calculator for real estate investors. Enter your rental income and loan details to instantly see your DSCR ratio, PITIA payment, and whether you qualify — no income docs required."/>
+  <meta name="keywords" content="DSCR calculator, DSCR loan calculator, debt service coverage ratio calculator, DSCR qualification, rental property loan calculator, investor loan calculator Florida Ohio"/>
+  <link rel="canonical" href="https://www.viadorpartners.com/dscr-calculator"/>
+  <meta name="robots" content="index, follow"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.viadorpartners.com/dscr-calculator"/>
+  <meta property="og:title" content="DSCR Loan Calculator — Qualify in Seconds | Viador Partners"/>
+  <meta property="og:description" content="Free DSCR calculator. Enter rent and loan details — get your DSCR ratio and approval likelihood instantly. No income docs required for DSCR loans."/>
+  <meta property="og:image" content="https://www.viadorpartners.com/og-image.jpg"/>
+  <meta property="og:site_name" content="Viador Partners"/>
+
+  <!-- GEO: WebApplication schema for calculator tool -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DSCR Loan Calculator",
+    "description": "Free DSCR loan calculator for real estate investors. Calculate your Debt Service Coverage Ratio, monthly PITIA payment, and qualification likelihood instantly.",
+    "url": "https://www.viadorpartners.com/dscr-calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "provider": {
+      "@type": "FinancialService",
+      "name": "Viador Partners",
+      "url": "https://www.viadorpartners.com",
+      "telephone": "(813) 419-2983",
+      "areaServed": ["Florida", "Ohio", "US"],
+      "knowsAbout": ["DSCR Loans", "Non-QM Mortgage", "Investment Property Financing"],
+      "employee": {
+        "@type": "Person",
+        "name": "Chad Evers",
+        "jobTitle": "Founder & Licensed Mortgage Loan Originator",
+        "hasCredential": "NMLS #2822744",
+        "knowsAbout": ["DSCR Loans", "Real Estate Investor Financing", "Non-QM Lending"]
+      }
+    }
+  }
+  </script>
+
+  <!-- GEO: FAQPage schema — exactly how investors ask AI search -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a DSCR loan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A DSCR loan (Debt Service Coverage Ratio loan) is a type of investment property mortgage that qualifies you based on the rental income the property generates — not your personal income, W-2s, or tax returns. If the property earns enough rent to cover its mortgage payment, you qualify. DSCR loans are ideal for real estate investors, self-employed borrowers, and anyone who owns multiple properties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is DSCR calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DSCR is calculated by dividing the property's gross monthly rental income by its total monthly PITIA (Principal, Interest, Taxes, Insurance, and Association dues). For example: $3,000 monthly rent ÷ $2,400 PITIA = 1.25 DSCR. A DSCR above 1.0 means the property generates more income than its debt obligation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What DSCR ratio do I need to qualify?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most DSCR lenders require a minimum DSCR of 1.0, meaning the rent exactly covers the mortgage. To get the best rates, you want 1.25 or higher. Some lenders offer no-ratio DSCR programs for properties with a DSCR below 1.0, typically requiring a larger down payment (30-35%) and a higher credit score (720+)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What credit score do I need for a DSCR loan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most DSCR lenders require a minimum 620 FICO score, though better rates are available at 680+ and 720+. Unlike conventional loans, DSCR loans do not use your debt-to-income ratio — only the property's cash flow and your credit profile matter."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much down payment is required for a DSCR loan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DSCR loans typically require 20-25% down payment. Some lenders allow 15% down for strong borrowers with high DSCR ratios and excellent credit. Investment properties financed through LLCs or corporations are also eligible."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I get a DSCR loan through my LLC?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. DSCR loans are specifically designed for investment properties and can be originated in the name of an LLC, corporation, or trust. This is one of the key advantages over conventional loans, which typically require personal borrowing. Viador Partners specializes in DSCR loans for LLC-held investment properties in Florida and Ohio."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How fast can a DSCR loan close?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DSCR loans typically close in 21-30 days. Because there is no income verification or employment documentation required, the process is faster than conventional loans. Some lenders offer pre-approval within 24 hours. Viador Partners targets 21-day closings for qualified DSCR borrowers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between a DSCR loan and a conventional rental property loan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A conventional rental property loan requires full income documentation — W-2s, tax returns, and a debt-to-income ratio under 45%. It also limits most borrowers to 6-10 financed properties. A DSCR loan qualifies based only on the property's rental income, requires no personal income docs, has no limit on financed properties, and can be held in an LLC. DSCR loans typically have slightly higher rates (0.5-1.5% more) but offer far more flexibility for scaling investors."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- GEO: HowTo schema for DSCR calculation process -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Calculate Your DSCR Ratio",
+    "description": "Step-by-step guide to calculating the Debt Service Coverage Ratio for a rental property loan.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Get your monthly gross rental income",
+        "text": "Find or estimate the property's monthly gross rent. For purchases, use a market rent analysis or appraisal rent schedule. For refinances, use your current lease."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Calculate your monthly PITIA",
+        "text": "Add up Principal + Interest (use our calculator) + Property Taxes + Insurance + HOA dues (if any). This is your total monthly housing expense."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Divide rent by PITIA",
+        "text": "DSCR = Gross Monthly Rent ÷ Monthly PITIA. Example: $3,200 rent ÷ $2,560 PITIA = 1.25 DSCR."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Compare to lender minimums",
+        "text": "A DSCR of 1.25+ qualifies for best rates. 1.10-1.24 qualifies at most lenders with slight rate adjustment. 1.0-1.09 is marginal but approved by some lenders. Below 1.0 requires a no-ratio DSCR program."
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .calc-page { padding: 80px 0 120px; background: var(--cream); }
+    .calc-hero { text-align: center; margin-bottom: 56px; }
+    .calc-hero .section-label { margin-bottom: 16px; }
+    .calc-hero h1 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 48px); font-weight: 700; color: var(--ink); line-height: 1.15; margin-bottom: 16px; }
+    .calc-hero p { font-size: 17px; color: var(--ink-soft); max-width: 600px; margin: 0 auto 32px; line-height: 1.6; }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; max-width: 1160px; margin: 0 auto; }
+    @media(max-width:768px){ .calc-grid { grid-template-columns: 1fr; } }
+    .calc-card { background: var(--cream); border: 1px solid var(--line); border-radius: 16px; padding: 32px; }
+    .calc-card-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; }
+    .field { margin-bottom: 18px; }
+    .field label { display: block; font-size: 13px; font-weight: 500; color: var(--ink-soft); margin-bottom: 6px; }
+    .field input, .field select { width: 100%; padding: 10px 14px; font-size: 15px; border: 1px solid var(--line); border-radius: 8px; background: var(--cream); color: var(--ink); transition: border-color .2s; }
+    .field input:focus, .field select:focus { outline: none; border-color: var(--gold); }
+    .metrics-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px; }
+    .metric-box { background: var(--cream-dark); border-radius: 10px; padding: 14px 16px; }
+    .metric-box .m-label { font-size: 11px; color: var(--ink-soft); margin-bottom: 4px; }
+    .metric-box .m-val { font-size: 22px; font-weight: 700; color: var(--ink); font-family: var(--font-mono); }
+    .metric-box .m-val.good { color: #1A7A3A; }
+    .metric-box .m-val.warn { color: var(--gold); }
+    .metric-box .m-val.bad { color: #CC2200; }
+    .result-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    .result-table tr { border-bottom: 1px solid var(--line-soft); }
+    .result-table tr:last-child { border-bottom: none; }
+    .result-table td { padding: 9px 0; font-size: 14px; }
+    .result-table td:first-child { color: var(--ink-soft); }
+    .result-table td:last-child { text-align: right; font-weight: 500; color: var(--ink); }
+    .result-table td.good { color: #1A7A3A; }
+    .result-table td.warn { color: var(--gold); }
+    .result-table td.bad { color: #CC2200; }
+    .verdict { padding: 14px 18px; border-radius: 10px; font-size: 14px; font-weight: 500; margin-bottom: 20px; }
+    .verdict.pass { background: #E8F5E9; color: #1A7A3A; border: 1px solid #A5D6A7; }
+    .verdict.marginal { background: #FFF8E1; color: #7A5500; border: 1px solid #FFE082; }
+    .verdict.fail { background: #FFEBEE; color: #CC2200; border: 1px solid #FFCDD2; }
+    .ref-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    .ref-table tr { border-bottom: 1px solid var(--line-soft); }
+    .ref-table tr:last-child { border-bottom: none; }
+    .ref-table td { padding: 8px 0; font-size: 13px; }
+    .ref-table td:first-child { color: var(--ink-soft); }
+    .ref-table td:last-child { text-align: right; font-weight: 500; }
+    .edu-section { margin-top: 80px; padding-top: 80px; border-top: 1px solid var(--line); }
+    .edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 40px; }
+    @media(max-width:768px){ .edu-grid { grid-template-columns: 1fr; } }
+    .edu-card { background: var(--cream-dark); border-radius: 12px; padding: 28px; }
+    .edu-card h3 { font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 12px; }
+    .edu-card p { font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
+    .faq-section { margin-top: 80px; }
+    .faq-item { border-bottom: 1px solid var(--line); padding: 24px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 10px; }
+    .faq-a { font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
+    .cta-band { background: var(--charcoal); border-radius: 16px; padding: 48px 40px; text-align: center; margin-top: 80px; }
+    .cta-band h2 { font-family: var(--font-display); font-size: clamp(24px, 3vw, 36px); color: var(--cream); margin-bottom: 12px; }
+    .cta-band p { color: rgba(255,255,255,0.65); font-size: 15px; margin-bottom: 28px; }
+    .cta-band a { display: inline-block; background: var(--gold); color: var(--cream); padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; transition: background .2s; }
+    .cta-band a:hover { background: var(--gold-light); }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+  {
+    "@type": "Person",
+    "@id": "https://www.viadorpartners.com/#chad-evers",
+    "name": "Chad Evers",
+    "jobTitle": "Licensed Mortgage Loan Originator",
+    "description": "Ohio roots. 20 years in lending — originating loans, building national mortgage teams from scratch, 3 years gaining global institutional experience at Citi. Left corporate life to build Viador Partners for the people the system was never designed to serve.",
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Mortgage Loan Originator License",
+      "credentialCategory": "NMLS",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Nationwide Multistate Licensing System (NMLS)"
+      },
+      "identifier": "NMLS #2822744"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "@id": "https://www.viadorpartners.com/#viador-partners",
+      "name": "Viador Partners LLC",
+      "url": "https://www.viadorpartners.com",
+      "telephone": "+18134192983",
+      "email": "chad@viadorpartners.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tampa",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Florida",
+        "Ohio"
+      ],
+      "knowsAbout": [
+        "DSCR Loans",
+        "Business Purpose Loans",
+        "Fix and Flip Loans",
+        "Bridge Loans",
+        "SBA Loans",
+        "Non-QM Mortgage",
+        "Investment Property Financing"
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/chad-evers",
+      "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2822744",
+      "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?searchTerm=viador+partners"
+    ],
+    "telephone": "+18134192983",
+    "email": "chad@viadorpartners.com",
+    "knowsAbout": [
+      "DSCR Loans",
+      "Real Estate Investment Financing",
+      "Business Purpose Loans",
+      "Non-QM Mortgage",
+      "Fix and Flip Loans",
+      "Bridge Financing",
+      "SBA Loans",
+      "Investment Property Cash-Out Refinance"
+    ]
+  },
+  {
+    "@type": "Organization",
+    "@id": "https://www.viadorpartners.com/#viador-partners",
+    "name": "Viador Partners LLC",
+    "url": "https://www.viadorpartners.com",
+    "logo": "https://www.viadorpartners.com/logo.png",
+    "telephone": "+18134192983",
+    "email": "chad@viadorpartners.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tampa",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "founder": {
+      "@id": "https://www.viadorpartners.com/#chad-evers"
+    },
+    "areaServed": [
+      "Florida",
+      "Ohio"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Investment Property Loan Programs",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "DSCR Loans",
+          "description": "Qualify on rental income, no W-2s required"
+        },
+        {
+          "@type": "Offer",
+          "name": "Fix and Flip Loans",
+          "description": "Short-term bridge financing for value-add properties"
+        },
+        {
+          "@type": "Offer",
+          "name": "Business Purpose Loans",
+          "description": "Entity-based real estate financing"
+        },
+        {
+          "@type": "Offer",
+          "name": "SBA Loans",
+          "description": "Government-backed loans for owner-occupied commercial real estate"
+        }
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/viador-partners",
+      "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?searchTerm=viador+partners"
+    ]
+  },
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.viadorpartners.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "DSCR Loan Calculator \u2014 Qualify in Seconds",
+        "item": "https://www.viadorpartners.com/dscr-calculator"
+      }
+    ]
+  },
+  {
+    "@type": "WebPage",
+    "@id": "https://www.viadorpartners.com/dscr-calculator#webpage",
+    "url": "https://www.viadorpartners.com/dscr-calculator",
+    "name": "DSCR Loan Calculator \u2014 Qualify in Seconds | Viador Partners",
+    "description": "Free DSCR loan calculator for real estate investors. Enter your rental income and loan details to instantly see your DSCR ratio, PITIA payment, and whether you qualify \u2014 no income docs required.",
+    "author": {
+      "@id": "https://www.viadorpartners.com/#chad-evers"
+    },
+    "publisher": {
+      "@id": "https://www.viadorpartners.com/#viador-partners"
+    },
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://www.viadorpartners.com"
+    }
+  }
+]
+}
+</script></head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+        <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown">
+        <a href="index.html#programs" class="nav-dropdown-trigger">Programs</a>
+        <div class="nav-dropdown-menu">
+          <a href="dscr.html">DSCR Loans</a>
+          <a href="fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="bpl.html">Business Purpose Loans</a>
+          <a href="non-qm-loans-florida.html">Non-QM / Bank Statement</a>
+          <a href="conventional-investment-property-loans.html">Conventional</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="investor-platform.html" class="nav-dropdown-trigger">Tools</a>
+        <div class="nav-dropdown-menu">
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="dscr-calculator.html">DSCR Calculator</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+    </nav>
+    <a href="index.html#dealform" class="nav-cta">Analyze My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="dscr.html">DSCR Loans</a>
+    <a href="fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="bpl.html">Business Purpose Loans</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="about.html">About</a>
+    <span class="drawer-label">Commercial</span>
+    <a href="commercial.html">Commercial Lending</a>
+    <a href="franchise.html">SBA &amp; Franchise</a>
+    <a href="index.html#dealform" class="drawer-cta">Analyze My Deal &rarr;</a>
+  </div>
+</header>
+
+<main>
+<section class="calc-page">
+  <div class="container">
+
+    <div class="calc-hero">
+      <p class="section-label">Free Tool</p>
+      <h1>DSCR Loan Calculator</h1>
+      <p>Enter your rental income and loan details to instantly calculate your Debt Service Coverage Ratio and see whether you qualify — no W-2s or tax returns required.</p>
+    </div>
+
+    <div class="calc-grid">
+
+      <!-- INPUTS -->
+      <div class="calc-card">
+        <div class="calc-card-title">Property details</div>
+
+        <div class="field">
+          <label for="rent">Monthly gross rental income ($)</label>
+          <input type="number" id="rent" value="3200" oninput="calc()">
+        </div>
+        <div class="field">
+          <label for="propval">Property value ($)</label>
+          <input type="number" id="propval" value="450000" oninput="calc()">
+        </div>
+        <div class="field">
+          <label for="loanamt">Loan amount ($)</label>
+          <input type="number" id="loanamt" value="360000" oninput="calc()">
+        </div>
+        <div class="field">
+          <label for="irate">Interest rate (%)</label>
+          <input type="number" id="irate" value="7.25" step="0.05" oninput="calc()">
+        </div>
+        <div class="field">
+          <label for="lterm">Loan term</label>
+          <select id="lterm" onchange="calc()">
+            <option value="30" selected>30 years (fixed)</option>
+            <option value="25">25 years (fixed)</option>
+            <option value="20">20 years (fixed)</option>
+            <option value="15">15 years (fixed)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="ptax">Monthly property tax ($)</label>
+          <input type="number" id="ptax" value="420" oninput="calc()">
+        </div>
+        <div class="field">
+          <label for="pins">Monthly insurance ($)</label>
+          <input type="number" id="pins" value="180" oninput="calc()">
+        </div>
+        <div class="field">
+          <label for="phoa">Monthly HOA ($) — enter 0 if none</label>
+          <input type="number" id="phoa" value="0" oninput="calc()">
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div>
+        <div class="metrics-row">
+          <div class="metric-box">
+            <div class="m-label">DSCR ratio</div>
+            <div class="m-val" id="out-dscr">—</div>
+          </div>
+          <div class="metric-box">
+            <div class="m-label">Monthly PITIA</div>
+            <div class="m-val" id="out-pitia">—</div>
+          </div>
+          <div class="metric-box">
+            <div class="m-label">Monthly cash flow</div>
+            <div class="m-val" id="out-cf">—</div>
+          </div>
+          <div class="metric-box">
+            <div class="m-label">Loan-to-value</div>
+            <div class="m-val" id="out-ltv">—</div>
+          </div>
+        </div>
+
+        <div class="calc-card" style="margin-bottom:16px">
+          <div class="calc-card-title">Full breakdown</div>
+          <table class="result-table" id="out-table"></table>
+          <div id="out-verdict" class="verdict pass"></div>
+          <a href="index.html#dealform" style="display:block;text-align:center;background:var(--gold);color:var(--cream);padding:13px;border-radius:8px;font-size:14px;font-weight:500;margin-top:4px">Get a free quote for this deal →</a>
+        </div>
+
+        <div class="calc-card">
+          <div class="calc-card-title">DSCR approval tiers</div>
+          <table class="ref-table">
+            <tr><td>1.25+ DSCR</td><td class="good">Best rates available</td></tr>
+            <tr><td>1.20 DSCR</td><td class="good">Strong — competitive rates</td></tr>
+            <tr><td>1.10 DSCR</td><td style="color:var(--gold);font-weight:500">Approved, slight rate adj.</td></tr>
+            <tr><td>1.00 DSCR</td><td style="color:var(--gold);font-weight:500">Break-even — some lenders</td></tr>
+            <tr><td>Below 1.00</td><td style="color:#CC2200;font-weight:500">No-ratio DSCR program</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION SECTION -->
+    <div class="edu-section">
+      <div class="section-label">What is a DSCR loan?</div>
+      <h2 style="font-family:var(--font-display);font-size:clamp(24px,3vw,38px);font-weight:700;color:var(--ink);margin:12px 0 16px;max-width:700px">The investor loan that qualifies on property income — not yours</h2>
+      <p style="font-size:16px;color:var(--ink-soft);max-width:700px;line-height:1.7">A DSCR loan (Debt Service Coverage Ratio loan) is a non-QM mortgage designed specifically for real estate investors. Instead of verifying your personal income through W-2s or tax returns, the lender evaluates whether the property generates enough rental income to cover its own mortgage payment. If the property cash flows, you qualify.</p>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <h3>No income documentation required</h3>
+          <p>DSCR loans do not require W-2s, pay stubs, or tax returns. Qualification is based entirely on the property's rental income relative to its debt obligations. This is ideal for self-employed investors, those with complex tax situations, or anyone scaling a portfolio beyond conventional loan limits.</p>
+        </div>
+        <div class="edu-card">
+          <h3>LLC and entity borrowing allowed</h3>
+          <p>Unlike conventional loans, DSCR loans can be originated in the name of an LLC, corporation, or trust. This protects your personal assets, keeps the loan off your personal credit report, and makes it easier to structure deals with partners or for tax purposes.</p>
+        </div>
+        <div class="edu-card">
+          <h3>No limit on financed properties</h3>
+          <p>Conventional loans limit most borrowers to 6–10 financed properties. DSCR loans have no such limit — you can finance your 5th, 10th, or 20th property the same way you financed your first, as long as each property qualifies on its own cash flow.</p>
+        </div>
+        <div class="edu-card">
+          <h3>Fast closings — typically 21 days</h3>
+          <p>Without income documentation, the DSCR process is significantly faster than conventional loans. Viador Partners targets 21-day closings for qualified DSCR borrowers. For investors competing for deals, speed is a genuine competitive advantage.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div class="faq-section">
+      <div class="section-label">Frequently asked questions</div>
+      <h2 style="font-family:var(--font-display);font-size:clamp(22px,3vw,34px);font-weight:700;color:var(--ink);margin:12px 0 32px">Everything investors ask about DSCR loans</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">What is a DSCR loan and how does it work?</div>
+        <div class="faq-a">A DSCR loan qualifies you based on the investment property's rental income, not your personal W-2 or tax returns. The lender calculates your Debt Service Coverage Ratio (DSCR = Monthly Rent ÷ Monthly PITIA). If that ratio is 1.0 or higher, the property generates enough income to cover its debt — and you qualify. No employment verification, no personal DTI calculation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What DSCR ratio do I need to qualify for a loan?</div>
+        <div class="faq-a">Most lenders require a minimum DSCR of 1.0. For the best available rates, you want 1.25 or higher. At 1.0–1.10, you can still be approved but may see a slight rate adjustment. Below 1.0, some lenders offer no-ratio DSCR programs that rely on your credit profile and down payment rather than cash flow.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I get a DSCR loan for a short-term rental (Airbnb / VRBO)?</div>
+        <div class="faq-a">Yes. Many DSCR lenders accept short-term rental income documentation, typically using AirDNA market rent data or 12 months of platform income history. Short-term rentals may carry a small rate premium compared to long-term rentals, but they are fully eligible for DSCR financing.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What is the minimum credit score for a DSCR loan?</div>
+        <div class="faq-a">Most DSCR lenders set a minimum of 620 FICO. Better rates are available at 680+ and 720+. Unlike conventional loans, DSCR lenders do not calculate your debt-to-income ratio — only your credit score and the property's cash flow determine approval and pricing.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How much do I need to put down on a DSCR loan?</div>
+        <div class="faq-a">Standard DSCR loans require 20–25% down. Some lenders allow 15% for strong borrowers. No-ratio DSCR programs (for properties with DSCR below 1.0) typically require 30–35% down. The down payment also affects your LTV, which influences your rate.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Are DSCR loan rates higher than conventional rates?</div>
+        <div class="faq-a">Yes, typically 0.5–1.5% higher than conventional investment property rates. As of early 2026, competitive DSCR rates range from approximately 6.12% to 8.5% depending on DSCR ratio, LTV, credit score, property type, and lender. The flexibility and speed of DSCR loans — no income docs, LLC eligible, no property limit — justify the rate premium for most investors.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What states does Viador Partners offer DSCR loans in?</div>
+        <div class="faq-a">Viador Partners is actively originating DSCR loans in Florida and Ohio, with additional states available through our lender network. We specialize in nationwide investment properties and the Columbus and Cleveland Ohio markets. Contact us for availability in other states.</div>
+      </div>
+    </div>
+
+    <!-- CTA BAND -->
+    <div class="cta-band">
+      <h2>Ready to move forward on a deal?</h2>
+      <p>Submit your deal for a free review. Viador Partners will respond within 24 hours with rate options and qualification guidance.</p>
+      <a href="index.html#dealform">Analyze My Deal →</a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo" style="margin-bottom:16px;display:inline-flex"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+        <p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;max-width:280px">Real estate investor financing — DSCR, fix &amp; flip, BPL, and more. Florida and Ohio.</p>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Calculators</h4>
+        <a href="dscr-calculator.html">DSCR Calculator</a>
+        <a href="deal-analyzer.html">Deal Analyzer</a>
+        <a href="cashout-calculator.html">Cash-Out Refi</a>
+        <a href="investor-platform.html">Full Platform</a>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Investors</h4>
+        <a href="bpl.html">What Is BPL?</a>
+        <a href="dscr.html">DSCR Loans</a>
+        <a href="fix-and-flip.html">Fix &amp; Flip</a>
+        <a href="index.html#dealform">Analyze My Deal</a>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Viador</h4>
+        <a href="deal-analyzer.html">Deal Analyzer</a>
+        <a href="about.html">About</a>
+        <a href="partners.html">Realtor Program</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Viador Partners LLC. All rights reserved.</span>
+      <span>Viador Partners LLC &#124; NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.7">chad&#64;viadorpartners.com &#124; (813) 419-2983</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.6">NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.5">Not a commitment to lend. Equal Housing Opportunity. <a href="privacy-policy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> &middot; <a href="terms.html" style="color:inherit;text-decoration:underline">Terms of Use</a></span>
+    <span style="display:block;margin-top:10px;font-size:10px;opacity:0.6">Veteran homeowner? Visit <a href="https://nextdutyvet.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">NextDutyVet.com</a></span></div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script>
+function pmt(r,n,pv){const m=r/12/100;if(m===0)return pv/n;return pv*(m*Math.pow(1+m,n))/(Math.pow(1+m,n)-1);}
+function fmt(n){return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:0,maximumFractionDigits:0}).format(n);}
+function calc(){
+  const rent=+document.getElementById('rent').value||0;
+  const val=+document.getElementById('propval').value||1;
+  const loan=+document.getElementById('loanamt').value||0;
+  const rate=+document.getElementById('irate').value||0;
+  const term=+document.getElementById('lterm').value||30;
+  const tax=+document.getElementById('ptax').value||0;
+  const ins=+document.getElementById('pins').value||0;
+  const hoa=+document.getElementById('phoa').value||0;
+  const pi=pmt(rate,term*12,loan);
+  const pitia=pi+tax+ins+hoa;
+  const dscr=pitia>0?rent/pitia:0;
+  const cf=rent-pitia;
+  const ltv=val>0?(loan/val*100):0;
+  const dc=el=>document.getElementById(el);
+  dc('out-dscr').textContent=dscr.toFixed(2);
+  dc('out-dscr').className='m-val '+(dscr>=1.25?'good':dscr>=1.0?'warn':'bad');
+  dc('out-pitia').textContent=fmt(pitia);
+  dc('out-cf').textContent=fmt(cf);
+  dc('out-cf').className='m-val '+(cf>=0?'good':'bad');
+  dc('out-ltv').textContent=ltv.toFixed(1)+'%';
+  dc('out-ltv').className='m-val '+(ltv<=80?'good':ltv<=85?'warn':'bad');
+  dc('out-table').innerHTML=`
+    <tr><td>Monthly P&amp;I</td><td>${fmt(pi)}</td></tr>
+    <tr><td>Tax + Insurance + HOA</td><td>${fmt(tax+ins+hoa)}</td></tr>
+    <tr><td>Total PITIA</td><td>${fmt(pitia)}</td></tr>
+    <tr><td>Gross monthly rent</td><td class="good">${fmt(rent)}</td></tr>
+    <tr><td>Net monthly cash flow</td><td class="${cf>=0?'good':'bad'}">${fmt(cf)}</td></tr>
+    <tr><td>DSCR ratio</td><td class="${dscr>=1.25?'good':dscr>=1.0?'warn':'bad'}">${dscr.toFixed(2)}</td></tr>
+    <tr><td>Loan-to-value (LTV)</td><td class="${ltv<=80?'good':ltv<=85?'warn':'bad'}">${ltv.toFixed(1)}%</td></tr>
+    <tr><td>Down payment required</td><td>${fmt(val-loan)}</td></tr>`;
+  const vd=dc('out-verdict');
+  if(dscr>=1.25){vd.className='verdict pass';vd.textContent=`Strong approval — DSCR of ${dscr.toFixed(2)} qualifies for best available rates`;}
+  else if(dscr>=1.10){vd.className='verdict pass';vd.textContent=`Approved — DSCR of ${dscr.toFixed(2)} qualifies at most lenders`;}
+  else if(dscr>=1.00){vd.className='verdict marginal';vd.textContent=`Marginal — DSCR of ${dscr.toFixed(2)} may qualify with some lenders, ask about options`;}
+  else{vd.className='verdict fail';vd.textContent=`Below 1.0 — ask Viador about no-ratio DSCR programs`;}
+}
+calc();
+</script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/245454217.js"></script>
+</body>
+</html>

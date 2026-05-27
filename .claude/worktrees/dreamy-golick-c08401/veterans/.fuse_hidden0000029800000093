@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");gtag('event','reduce_payments_page_view');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Veterans Reduce Monthly Payments Without Selling Their Home | Viador Partners</title>
+<meta name="description" content="Most veterans carrying consumer debt alongside a low mortgage rate are paying 10–14% on total obligations — not 3%. Here is how veterans restructure monthly payments without touching their VA rate.">
+<link rel="canonical" href="https://viadorpartners.com/veterans/reduce-monthly-payments">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How Veterans Reduce Monthly Payments Without Selling Their Home">
+<meta property="og:description" content="Most veterans carrying consumer debt alongside a low mortgage rate are paying 10–14% on total obligations — not 3%.">
+<meta property="og:url" content="https://viadorpartners.com/veterans/reduce-monthly-payments">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://viadorpartners.com"},{"@type":"ListItem","position":2,"name":"Veterans","item":"https://viadorpartners.com/veterans"},{"@type":"ListItem","position":3,"name":"Reduce Monthly Payments","item":"https://viadorpartners.com/veterans/reduce-monthly-payments"}]},{"@type":"Article","headline":"How Veterans Reduce Monthly Payments Without Selling Their Home","author":{"@type":"Person","name":"Chad Evers","hasCredential":"NMLS #2822744","url":"https://viadorpartners.com/about/chad-evers"},"publisher":{"@type":"Organization","name":"Viador Partners LLC","url":"https://viadorpartners.com"},"datePublished":"2026-04-08","description":"Most veterans carrying consumer debt alongside a low mortgage rate are paying 10–14% on total obligations — not 3%. Here is how veterans restructure monthly payments without touching their VA rate."},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can veterans reduce monthly payments without refinancing their mortgage?","acceptedAnswer":{"@type":"Answer","text":"Yes. A home equity loan or HELOC sits behind the existing mortgage. High-interest consumer debt can be consolidated into a single lower payment while the original VA mortgage rate stays completely unchanged."}},{"@type":"Question","name":"Why does my military pension feel tight even when the income looks sufficient?","acceptedAnswer":{"@type":"Answer","text":"The issue is usually debt structure rather than income level. A $3,500 pension with a mortgage, credit cards, and auto loan can leave less than $400/month in available cash. Restructuring high-interest debt using home equity can free $500–$1,200/month without any change to income."}},{"@type":"Question","name":"What is the difference between a VA cash-out refinance and a home equity loan for debt consolidation?","acceptedAnswer":{"@type":"Answer","text":"A VA cash-out refinance replaces the entire existing mortgage with a new loan at today's rates. A home equity loan sits behind the existing mortgage and leaves the original rate untouched. If your current VA rate is under 4%, a home equity loan is typically the better structure for debt consolidation."}},{"@type":"Question","name":"How much monthly cash flow can a veteran realistically free up through debt restructuring?","acceptedAnswer":{"@type":"Answer","text":"It depends on the debt load and equity available. Veterans carrying $30,000–$60,000 in consumer debt typically see monthly payment reductions of $400–$900 after restructuring into a home equity loan."}},{"@type":"Question","name":"Does debt consolidation using home equity affect the VA loan or VA benefits?","acceptedAnswer":{"@type":"Answer","text":"No. A home equity loan or HELOC is a separate product that does not affect the existing VA loan, VA loan entitlement, or any VA benefits. The VA loan remains as the first mortgage, unchanged."}}]}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+.rp-hero{background:var(--ink,#141210);color:#fff;padding:120px 24px 80px;text-align:center;position:relative;overflow:hidden}
+.rp-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(191, 144, 32,0.1) 0%,transparent 70%);pointer-events:none}
+.rp-hero h1{font-family:'Inter',system-ui,sans-serif;font-size:clamp(28px,4.5vw,46px);font-weight: 700;color:#fff;max-width:680px;margin:0 auto 16px;line-height:1.15}
+.rp-hero .sub{font-size:clamp(15px,1.8vw,18px);color:var(--gold,#BF9020);font-family:'Inter',system-ui,sans-serif;font-weight:300;font-style:italic;max-width:600px;margin:0 auto 20px;line-height:1.5}
+.rp-hero .body{font-size:16px;color:rgba(255,255,255,0.6);max-width:560px;margin:0 auto 32px;line-height:1.7}
+.rp-hero .breadcrumb{font-family:'Inter',system-ui,sans-serif;font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:24px;letter-spacing:.05em}
+.rp-hero .breadcrumb a{color:rgba(255,255,255,0.3);text-decoration:none}
+.rp-btn{display:inline-block;padding:18px 40px;background:var(--gold,#BF9020);color:#fff;border-radius:6px;font-weight:700;font-size:17px;text-decoration:none;font-family:'Inter',system-ui,sans-serif;transition:all .2s}
+.rp-btn:hover{background:var(--gold-light,#D9A84A);transform:translateY(-1px)}
+.rp-btn-ghost{display:inline-block;padding:14px 28px;border:1px solid var(--gold);color:var(--gold);border-radius:6px;font-weight:500;font-size:14px;text-decoration:none;font-family:'Inter',system-ui,sans-serif;margin-left:12px}
+.rp{padding:64px 24px;max-width:720px;margin:0 auto}
+.rp-label{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#BF9020);margin-bottom:10px}
+.rp h2{font-family:'Inter',system-ui,sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--ink,#141210);margin-bottom:14px;line-height:1.2}
+.rp p{font-size:16px;color:var(--ink-soft,#52504C);line-height:1.8;margin-bottom:16px}
+.rp-breakdown{background:var(--ink,#141210);color:#fff;border-radius:12px;padding:32px;margin:32px 0;text-align:center}
+.rp-breakdown .title{font-family:'Inter',system-ui,sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.rp-breakdown .rows{max-width:360px;margin:0 auto}
+.rp-breakdown .row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.08);font-size:16px}
+.rp-breakdown .row:last-of-type{border-bottom:none}
+.rp-breakdown .lbl{color:rgba(255,255,255,0.6)}
+.rp-breakdown .val{font-weight:600;color:#fff;font-family:'Inter',system-ui,sans-serif}
+.rp-breakdown hr{border:none;border-top:2px solid var(--gold);margin:12px 0}
+.rp-breakdown .remaining{display:flex;justify-content:space-between;padding:12px 0;font-size:18px}
+.rp-breakdown .remaining .lbl{color:rgba(255,255,255,0.8);font-weight:500}
+.rp-breakdown .remaining .val{color:var(--gold-light,#E8B84B);font-size:22px;font-weight: 700}
+.rp-bullet{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:15px;color:var(--ink-soft);line-height:1.6}
+.rp-bullet::before{content:'\2713';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:2px}
+.rp-block{background:var(--cream-dark,#F2EDE6);border:1px solid var(--line);border-radius:10px;padding:24px;margin-bottom:16px}
+.rp-block h3{font-family:'Inter',system-ui,sans-serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.rp-block p{font-size:14px;color:var(--ink-soft);line-height:1.7;margin-bottom:0}
+.rp-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+.rp-before{background:rgba(220,38,38,0.04);border:2px solid rgba(220,38,38,0.15);border-radius:10px;padding:24px}
+.rp-before h4{font-size:12px;color:#dc2626;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+.rp-before .row{display:flex;justify-content:space-between;padding:6px 0;font-size:14px;color:var(--ink-soft)}
+.rp-before .row .val{font-weight:600;color:var(--ink)}
+.rp-before .total{border-top:2px solid #dc2626;padding-top:10px;margin-top:6px;display:flex;justify-content:space-between;font-weight:700;color:#dc2626;font-size:16px}
+.rp-after{background:rgba(22,163,74,0.04);border:2px solid rgba(22,163,74,0.2);border-radius:10px;padding:24px}
+.rp-after h4{font-size:12px;color:#16a34a;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+.rp-after .row{display:flex;justify-content:space-between;padding:6px 0;font-size:14px;color:var(--ink-soft)}
+.rp-after .row .val{font-weight:600;color:var(--ink)}
+.rp-after .total{border-top:2px solid #16a34a;padding-top:10px;margin-top:6px;display:flex;justify-content:space-between;font-weight:700;color:#16a34a;font-size:16px}
+.rp-improvement{background:rgba(22,163,74,0.08);border:2px solid rgba(22,163,74,0.2);border-radius:10px;padding:20px;text-align:center;margin:16px 0}
+.rp-improvement .number{font-family:'Inter',system-ui,sans-serif;font-size:36px;font-weight: 700;color:#16a34a}
+.rp-improvement .label{font-size:14px;color:var(--ink-soft);margin-top:4px}
+.rp-phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0}
+.rp-phase{background:var(--cream-dark,#F2EDE6);border-radius:8px;padding:20px}
+.rp-phase h4{font-family:'Inter',system-ui,sans-serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.rp-phase p{font-size:13px;color:var(--ink-soft);line-height:1.6;margin:0}
+.rp-faq{border-bottom:1px solid var(--line);padding:18px 0}
+.rp-faq-q{font-family:'Inter',system-ui,sans-serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.rp-faq-a{font-size:15px;color:var(--ink-soft);line-height:1.7}
+.rp-final{text-align:center;padding:48px 0;border-top:1px solid var(--line);margin-top:32px}
+.rp-final h2{margin-bottom:8px}
+.rp-final p{max-width:500px;margin:0 auto 24px}
+.rp-trust{font-family:'Inter',system-ui,sans-serif;font-size:11px;color:var(--ink-soft);margin-top:16px;letter-spacing:.03em}
+.rp-trust a{color:var(--gold);text-decoration:none}
+.rp-disclaimer{font-size:11px;color:var(--ink-soft);text-align:center;padding:24px;background:var(--cream-dark);line-height:1.7;margin-top:32px}
+@media(max-width:640px){.rp-hero{padding:80px 20px 64px}.rp-compare{grid-template-columns:1fr}.rp-btn-ghost{margin-left:0;margin-top:12px;display:block}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+    <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown">
+        <a href="../index.html#programs" class="nav-dropdown-trigger">Programs</a>
+        <div class="nav-dropdown-menu">
+          <a href="../dscr.html">DSCR Loans</a>
+          <a href="../fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="../bpl.html">Business Purpose Loans</a>
+        </div>
+      </div>
+      <a href="../about.html">About</a>
+    </nav>
+    <a href="cash-flow-reset.html" class="nav-cta" onclick="gtag('event','reduce_payments_cta_cashflow_reset')">Get My Plan</a>
+    <button class="burger" aria-label="Menu" id="burger"><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="rp-hero">
+  <div class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="../veterans.html">Veterans</a> &rsaquo; Reduce Monthly Payments</div>
+  <h1>Your Pension Should Cover More Than It Does.</h1>
+  <p class="sub">Most veterans carrying consumer debt alongside a low mortgage rate are paying 10&ndash;14% on their total obligations &mdash; not 3%.</p>
+  <p class="body">You served long enough to earn your pension. But right now, it feels like your income is working harder than it should &mdash; and still not stretching far enough.</p>
+  <a href="cash-flow-reset.html" class="rp-btn" onclick="gtag('event','reduce_payments_cta_show_math')">Show Me the Math</a>
+</section>
+
+<div class="rp">
+
+  <h2>Why Your Pension Feels Tight &mdash; Even When It Shouldn't</h2>
+  <p>This isn't about income. It's about structure.</p>
+
+  <div class="rp-breakdown">
+    <div class="title">Take a typical retired service member</div>
+    <div class="rows">
+      <div class="row"><span class="lbl">Pension</span><span class="val">$3,500/mo</span></div>
+      <hr>
+      <div class="row"><span class="lbl">Mortgage</span><span class="val">$1,600</span></div>
+      <div class="row"><span class="lbl">Credit cards</span><span class="val">$900</span></div>
+      <div class="row"><span class="lbl">Truck payment</span><span class="val">$650</span></div>
+      <hr>
+      <div class="row"><span class="lbl">Total outflow</span><span class="val">$3,150</span></div>
+      <div class="remaining"><span class="lbl">Remaining</span><span class="val">$350</span></div>
+    </div>
+  </div>
+
+  <p>On paper, that looks manageable. In reality, it feels like pressure every month. Nothing is wrong with your pension. Everything is wrong with how the payments are stacked.</p>
+  <p>Because while your mortgage might be sitting at 3%, your credit cards and consumer debt are quietly driving your real cost of living into the double digits.</p>
+
+  <div style="margin-top:48px">
+    <h2>The Part Most Veterans Never Get Shown</h2>
+    <p>You don't need to sell your home. You don't need to give up your <a href="../veterans.html" style="color:var(--gold)">VA</a> rate. And you don't need to keep juggling multiple high-interest payments.</p>
+    <p>There's a way to restructure your monthly obligations using the equity you've already built &mdash; without touching your existing mortgage.</p>
+    <p><strong style="color:var(--ink)">This is not a refinance.</strong></p>
+    <p>It's a second-position strategy designed to:</p>
+    <div style="margin:12px 0 24px">
+      <div class="rp-bullet">Eliminate high-interest consumer debt</div>
+      <div class="rp-bullet">Replace multiple payments with one lower payment</div>
+      <div class="rp-bullet">Preserve your current VA mortgage rate</div>
+      <div class="rp-bullet">Reduce overall monthly outflow</div>
+    </div>
+    <p>Same home. Same ownership. Different structure.</p>
+  </div>
+
+  <div style="margin-top:48px" id="three-paths">
+    <div class="rp-label">Three Paths</div>
+    <h2>The Three Ways Veterans Are Doing This Right Now</h2>
+    <p>Every situation is different. But most fall into one of these three paths.</p>
+
+    <div class="rp-block" style="border-left:3px solid var(--gold)">
+      <h3><a href="va-cash-out-refinance-tampa.html" style="color:var(--ink);text-decoration:none">VA Cash-Out Refinance</a></h3>
+      <p>Best when your current mortgage rate is already higher (typically 5.5% or above) and consolidating everything into one loan lowers total cost of capital.</p>
+    </div>
+    <div class="rp-block" style="border-left:3px solid #16a34a">
+      <h3><a href="low-rate-va-loan-strategy.html" style="color:var(--ink);text-decoration:none">Home Equity Loan or HELOC</a></h3>
+      <p>Best when your current mortgage rate is low (sub-4%) and you want to keep it untouched while eliminating high-interest debt separately.</p>
+    </div>
+    <div class="rp-block" style="border-left:3px solid var(--ink-soft,#52504C)">
+      <h3><a href="va-cash-out-refinance-tampa.html" style="color:var(--ink);text-decoration:none">IRRRL</a> + Cash-Out Strategy</h3>
+      <p>Best when you're already in a higher VA rate and want to streamline into a lower rate first, then reposition debt to improve monthly cash flow.</p>
+    </div>
+    <p>This is not about chasing the lowest rate. It's about restructuring the entire system so your income actually works the way it should.</p>
+  </div>
+
+  <div style="margin-top:48px" id="scenario">
+    <div class="rp-label">What This Looks Like</div>
+    <h2>Hypothetical Scenario</h2>
+    <p style="font-size:13px;color:var(--ink-soft);font-style:italic;margin-bottom:16px">Hypothetical scenario &mdash; for illustration only, not a guarantee of outcome.</p>
+    <p>Tampa, Florida. Retired E-7 with 22 years of service.<br>Pension: $3,200/month. Mortgage: $1,450 at 3.1% (VA loan).<br>Credit cards: $38,000 at 21% interest. Auto loan: $28,000 at 7% interest.</p>
+
+    <div class="rp-compare">
+      <div class="rp-before">
+        <h4>Before</h4>
+        <div class="row"><span>Mortgage</span><span class="val">$1,450</span></div>
+        <div class="row"><span>Credit cards</span><span class="val">$760</span></div>
+        <div class="row"><span>Auto loan</span><span class="val">$530</span></div>
+        <div class="total"><span>Total</span><span>$2,740/mo</span></div>
+      </div>
+      <div class="rp-after">
+        <h4>After Home Equity Loan</h4>
+        <div class="row"><span>Mortgage (unchanged)</span><span class="val">$1,450</span></div>
+        <div class="row"><span>Consolidated debt</span><span class="val">$580</span></div>
+        <div class="total"><span>New total</span><span>$2,030/mo</span></div>
+      </div>
+    </div>
+
+    <div class="rp-improvement">
+      <div class="number">+$710/mo</div>
+      <div class="label">Monthly improvement. VA loan untouched. Pressure removed.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:48px">
+    <div class="rp-label">The Process</div>
+    <h2>How This Works</h2>
+    <div class="rp-phases">
+      <div class="rp-phase"><h4>Phase 1 &mdash; Break Down</h4><p>We look at your full payment picture &mdash; not just your mortgage &mdash; and identify where your money is actually going.</p></div>
+      <div class="rp-phase"><h4>Phase 2 &mdash; Map Options</h4><p>We walk through which path makes the most sense based on your current rate, equity position, and total obligations.</p></div>
+      <div class="rp-phase"><h4>Phase 3 &mdash; Execute &amp; Reset</h4><p>If the numbers make sense, we restructure your payments into something that gives your income breathing room again.</p></div>
+    </div>
+  </div>
+
+  <div style="margin-top:48px">
+    <div class="rp-label">FAQ</div>
+    <h2>Common Questions</h2>
+    <div class="rp-faq">
+      <div class="rp-faq-q">Can veterans reduce monthly payments without refinancing their mortgage?</div>
+      <div class="rp-faq-a">Yes. A home equity loan or HELOC sits behind the existing mortgage. High-interest consumer debt can be consolidated into a single lower payment while the original VA mortgage rate stays completely unchanged.</div>
+    </div>
+    <div class="rp-faq">
+      <div class="rp-faq-q">Why does my military pension feel tight even when the income looks sufficient?</div>
+      <div class="rp-faq-a">The issue is usually debt structure rather than income level. A $3,500 pension with a mortgage, credit cards, and auto loan can leave less than $400/month in available cash. Restructuring high-interest debt using home equity can free $500&ndash;$1,200/month without any change to income.</div>
+    </div>
+    <div class="rp-faq">
+      <div class="rp-faq-q">What is the difference between a VA cash-out refinance and a home equity loan?</div>
+      <div class="rp-faq-a">A VA cash-out refinance replaces the entire existing mortgage with a new loan at today's rates. A home equity loan sits behind the existing mortgage and leaves the original rate untouched. If your current VA rate is under 4%, a home equity loan is typically the better structure for debt consolidation.</div>
+    </div>
+    <div class="rp-faq">
+      <div class="rp-faq-q">How much monthly cash flow can a veteran realistically free up?</div>
+      <div class="rp-faq-a">It depends on the debt load and equity available. Veterans carrying $30,000&ndash;$60,000 in consumer debt typically see monthly payment reductions of $400&ndash;$900 after restructuring into a home equity loan.</div>
+    </div>
+    <div class="rp-faq">
+      <div class="rp-faq-q">Does debt consolidation using home equity affect the VA loan or VA benefits?</div>
+      <div class="rp-faq-a">No. A home equity loan or HELOC is a separate product that does not affect the existing VA loan, VA loan entitlement, or any VA benefits.</div>
+    </div>
+  </div>
+
+  <div class="rp-final">
+    <h2>Start With the Numbers.</h2>
+    <p>You don't need to guess. You don't need to shop rates. You just need to see the full picture. If there's a better structure available, you'll know. If there isn't, you'll know that too.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
+      <a href="https://calendly.com/chad-viadorpartners/30min?source=reduce-payments&utm_source=viadorpartners&utm_medium=veterans-content&utm_campaign=veteran-reduce-monthly-payments" target="_blank" class="rp-btn" onclick="gtag('event','reduce_payments_cta_schedule')">Schedule a Call</a>
+      <a href="cash-flow-reset.html" class="rp-btn-ghost" onclick="gtag('event','reduce_payments_cta_cashflow_reset')">Explore the Next Step</a>
+    </div>
+    <div class="rp-trust"><a href="../about/chad-evers">Chad Evers</a> &middot; NMLS #2822744 &middot; Viador Partners &middot; Serving Florida and Ohio</div>
+  </div>
+
+</div>
+
+
+<!-- UNIFIED CTA BLOCK -->
+<div id="unified-cta-block" style="background:var(--cream-dark,#F2EDE6);border-top:1px solid var(--line,rgba(20,18,16,0.14));border-bottom:1px solid var(--line,rgba(20,18,16,0.14));padding:48px 24px;text-align:center;margin-top:32px">
+  <div style="max-width:580px;margin:0 auto">
+    <h2 style="font-family:'Inter',system-ui,sans-serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--ink,#141210);margin-bottom:12px;line-height:1.2">Want to See What Your Options Actually Look Like?</h2>
+    <p style="font-size:15px;color:var(--ink-soft,#52504C);line-height:1.7;margin-bottom:24px">Most veterans with a low-rate VA mortgage assume their only option is to refinance. That's not always true. If you want to understand what actually makes sense in your situation, we run the numbers and walk you through it. No pressure. No obligation. Just a clear picture of your options.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
+      <a href="cash-flow-reset.html" style="display:inline-block;padding:16px 32px;background:var(--gold,#BF9020);color:#fff;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;font-family:'Inter',system-ui,sans-serif" onclick="gtag('event','veteran_reduce_payments_cta_run_numbers')">Run My Numbers</a>
+      <a href="https://calendly.com/chad-viadorpartners/30min?source=unified-cta-reduce_payments&utm_source=viadorpartners&utm_medium=veterans-content&utm_campaign=unified-cta" target="_blank" style="display:inline-block;padding:14px 28px;border:1px solid var(--gold,#BF9020);color:var(--gold,#BF9020);border-radius:6px;font-weight:500;font-size:14px;text-decoration:none;font-family:'Inter',system-ui,sans-serif" onclick="gtag('event','veteran_reduce_payments_cta_schedule')">Schedule a 30-Minute Call</a>
+    </div>
+    <div style="font-family:'Inter',system-ui,sans-serif;font-size:11px;color:var(--ink-soft,#52504C);margin-top:16px;letter-spacing:.03em"><a href="../about/chad-evers" style="color:var(--gold);text-decoration:none">Chad Evers</a> &middot; NMLS #2822744 &middot; Viador Partners LLC &middot; Tampa, FL</div>
+  </div>
+</div>
+
+
+<script>
+(function(){var tracked=false;window.addEventListener('scroll',function(){if(tracked)return;var el=document.getElementById('unified-cta-block');if(el){var r=el.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0){gtag('event','veteran_reduce_payments_cta_viewed');tracked=true;}}},{passive:true});})();
+</script>
+
+<div class="rp-disclaimer">This material is for informational purposes only and does not constitute financial advice, mortgage advice, or a commitment to lend. All loan programs are subject to credit approval, underwriting guidelines, and property eligibility. Rates, terms, and availability may vary. Veterans should consider all available options, including free resources provided by the Department of Veterans Affairs and accredited representatives. Not affiliated with or endorsed by the U.S. Department of Veterans Affairs. Chad Evers, NMLS #2822744. Viador Partners LLC. Equal Housing Lender.</div>
+
+<footer class="footer">
+  <div class="container">
+    <div style="text-align:center;padding:32px 0;font-size:12px;color:var(--ink-soft)">
+      <p>&copy; 2026 Viador Partners LLC &middot; NMLS #2822744 &middot; Equal Housing Lender</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+<script>
+var st=false,tp=false;
+window.addEventListener('scroll',function(){
+  if(!st){var e=document.getElementById('scenario');if(e){var r=e.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0){gtag('event','reduce_payments_scenario_viewed');st=true;}}}
+  if(!tp){var e2=document.getElementById('three-paths');if(e2){var r2=e2.getBoundingClientRect();if(r2.top<window.innerHeight&&r2.bottom>0){gtag('event','reduce_payments_three_paths_viewed');tp=true;}}}
+},{passive:true});
+</script>
+</body>
+</html>

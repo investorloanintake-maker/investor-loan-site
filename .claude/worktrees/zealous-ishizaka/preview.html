@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Viador Partners V4 — Design Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:#111;color:#1C1A17;overflow-x:hidden;}
+
+:root{
+  --cream:#F7F3EE;
+  --cream-d:#EDE7DC;
+  --ink:#1C1A17;
+  --ink-m:#3D3A35;
+  --ink-s:#6B6560;
+  --gold:#C9923A;
+  --gold-l:#E8C07A;
+  --charcoal:#1E2028;
+  --white:#fff;
+  --line:rgba(28,26,23,0.10);
+}
+
+/* ─ top bar ─ */
+.topbar{background:#1C1A17;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.07);}
+.topbar-title{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:#C9923A;letter-spacing:-.01em;}
+.topbar-sub{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,0.3);}
+.tabs{display:flex;gap:0;}
+.tab{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;cursor:pointer;color:rgba(255,255,255,0.35);border-bottom:2px solid transparent;background:none;border-top:none;border-left:none;border-right:none;transition:color .2s,border-color .2s;}
+.tab.on,.tab:hover{color:#C9923A;}
+.tab.on{border-bottom-color:#C9923A;}
+
+/* ─ section label bar ─ */
+.s-bar{background:#1C1A17;padding:8px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);}
+.s-bar-name{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,0.3);}
+.badge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;}
+.new{background:#C9923A;color:#fff;}
+.upd{background:#2a2d38;color:rgba(255,255,255,0.5);}
+
+.section-wrap{scroll-margin-top:48px;}
+
+/* ─ eyebrow ─ */
+.ey{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:20px;}
+.ey::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block;}
+.ey.lt{color:rgba(255,255,255,0.4);}
+.ey.lt::before{background:rgba(255,255,255,0.25);}
+
+/* ─ buttons ─ */
+.btn{display:inline-flex;align-items:center;font-size:14px;font-weight:500;padding:13px 26px;cursor:pointer;border:1.5px solid;font-family:'DM Sans',sans-serif;text-decoration:none;}
+.b-ink{background:var(--ink);color:var(--cream);border-color:var(--ink);}
+.b-gold{background:var(--gold);color:#fff;border-color:var(--gold);}
+.b-out{background:transparent;color:var(--ink-m);border-color:var(--line);}
+.b-glass{background:transparent;color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.2);}
+
+/* ══════════════ NAV ══════════════ */
+.nav-demo{background:rgba(247,243,238,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);padding:18px 48px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(28,26,23,0.07);}
+.logo-row{display:flex;align-items:center;gap:11px;}
+.logo-box{width:38px;height:38px;background:var(--ink);color:var(--gold);font-family:'Fraunces',serif;font-size:20px;font-weight:900;display:flex;align-items:center;justify-content:center;}
+.logo-word{font-family:'Fraunces',serif;font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--ink);}
+.nav-links{display:flex;gap:36px;}
+.nav-links a{font-size:14px;color:var(--ink-s);text-decoration:none;}
+.nav-links a.g{color:var(--gold);font-weight:500;}
+.nav-btn{font-size:13px;font-weight:500;padding:10px 22px;background:var(--ink);color:var(--cream);border:1.5px solid var(--ink);}
+
+/* ══════════════ HERO ══════════════ */
+.hero-section{background:var(--cream);padding:72px 48px 64px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;overflow:hidden;}
+.hero-section::before{content:'';position:absolute;top:-20%;right:-10%;width:60%;height:90%;background:radial-gradient(ellipse,rgba(201,146,58,0.08) 0%,transparent 70%);pointer-events:none;}
+.htag{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-s);margin-bottom:28px;}
+.pdot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.8);}}
+.h1{font-family:'Fraunces',serif;font-size:72px;font-weight:900;line-height:1.0;letter-spacing:-.03em;color:var(--ink);margin-bottom:22px;}
+.h1 em{font-style:italic;font-weight:300;color:var(--gold);}
+.hp{font-size:16px;color:var(--ink-s);line-height:1.7;margin-bottom:32px;}
+.hbtns{display:flex;gap:14px;}
+.stat-box{background:var(--white);border:1px solid var(--line);box-shadow:0 6px 20px rgba(28,26,23,0.08),0 20px 48px rgba(28,26,23,0.05);margin-bottom:18px;}
+.stat-row{padding:22px 28px;}
+.stat-div{height:1px;background:var(--line);margin:0 28px;}
+.snum{font-family:'Fraunces',serif;font-size:54px;font-weight:900;line-height:1;letter-spacing:-.03em;color:var(--ink);margin-bottom:5px;}
+.snum sup{font-size:24px;font-weight:300;color:var(--ink-s);}
+.slbl{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-s);}
+.pills{display:flex;gap:8px;flex-wrap:wrap;}
+.pill{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:7px 13px;background:var(--cream-d);color:var(--ink-m);border:1px solid var(--line);}
+.pill.g{background:rgba(201,146,58,0.09);border-color:#E8C07A;color:var(--gold);}
+
+/* ══════════════ PATHS ══════════════ */
+.paths-section{background:var(--cream);padding:72px 48px;}
+.paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);margin-top:36px;}
+.pcard{background:var(--white);padding:36px 30px;position:relative;}
+.pbig{font-family:'Fraunces',serif;font-size:72px;font-weight:900;color:rgba(28,26,23,0.04);line-height:1;margin-bottom:10px;letter-spacing:-.04em;}
+.ptag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pcard h3{font-family:'Fraunces',serif;font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin-bottom:12px;line-height:1.2;}
+.pcard p{font-size:14px;color:var(--ink-s);line-height:1.7;margin-bottom:20px;}
+.pcta-a{font-size:14px;font-weight:500;color:var(--ink);display:block;margin-bottom:6px;}
+.pcta-b{font-size:14px;color:var(--ink-s);}
+.pbar{height:2px;background:var(--gold);margin-top:24px;}
+.feat-label{position:absolute;top:-1px;left:30px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;background:var(--gold);color:#fff;padding:4px 12px;}
+
+/* ══════════════ BPL ══════════════ */
+.bpl-section{background:var(--charcoal);padding:80px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;overflow:hidden;}
+.bpl-section::before{content:'BPL';position:absolute;right:-3%;top:50%;transform:translateY(-50%);font-family:'Fraunces',serif;font-size:280px;font-weight:900;color:rgba(255,255,255,0.025);letter-spacing:-.05em;line-height:1;pointer-events:none;user-select:none;}
+.bh{font-family:'Fraunces',serif;font-size:56px;font-weight:900;color:#fff;line-height:1.05;letter-spacing:-.03em;margin-bottom:20px;}
+.bp{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:12px;}
+.bp strong{color:var(--gold-l);font-weight:500;}
+.bbtns{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px;}
+.cmp-box{border:1px solid rgba(255,255,255,0.08);overflow:hidden;}
+.crow{display:grid;grid-template-columns:1.2fr 1fr 1.2fr;border-bottom:1px solid rgba(255,255,255,0.06);}
+.crow:last-child{border-bottom:none;}
+.crow span{padding:13px 16px;font-size:13px;color:rgba(255,255,255,0.50);line-height:1.4;}
+.crow span:first-child{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,0.28);border-right:1px solid rgba(255,255,255,0.06);}
+.crow span:nth-child(2){border-right:1px solid rgba(255,255,255,0.06);}
+.crow.hdr{background:rgba(255,255,255,0.03);}
+.crow.hdr span{font-family:'DM Mono',monospace !important;font-size:9px !important;letter-spacing:.1em !important;text-transform:uppercase !important;color:rgba(255,255,255,0.28) !important;padding:10px 16px !important;}
+.hi{background:rgba(201,146,58,0.12) !important;color:var(--gold-l) !important;font-weight:500 !important;}
+
+/* ══════════════ PROGRAMS ══════════════ */
+.prog-section{background:var(--cream);padding:72px 48px;}
+.prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);margin-top:36px;}
+.prog{background:var(--white);padding:32px 28px;position:relative;}
+.prog.dk{background:var(--charcoal);}
+.prog-badge{position:absolute;top:18px;right:18px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;background:var(--gold);color:#fff;padding:3px 10px;}
+.prog-type{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.prog.dk .prog-type{color:var(--gold-l);}
+.prog h3{font-family:'Fraunces',serif;font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px;line-height:1.2;color:var(--ink);}
+.prog.dk h3{color:#fff;}
+.prog p{font-size:14px;color:var(--ink-s);line-height:1.65;margin-bottom:16px;}
+.prog.dk p{color:rgba(255,255,255,0.55);}
+.prog ul{list-style:none;margin-bottom:18px;}
+.prog li{font-size:13px;color:var(--ink-s);padding:6px 0 6px 16px;position:relative;border-bottom:1px solid var(--line);}
+.prog li::before{content:'–';position:absolute;left:0;color:var(--gold);}
+.prog.dk li{color:rgba(255,255,255,0.45);border-color:rgba(255,255,255,0.07);}
+.prog.dk li::before{color:var(--gold-l);}
+.prog-lk{font-size:13px;font-weight:500;color:var(--ink);border-bottom:1px solid var(--line);}
+.prog.dk .prog-lk{color:var(--gold-l);border-color:rgba(201,146,58,0.3);}
+
+/* ══════════════ FORM ══════════════ */
+.form-section{background:var(--cream-d);padding:72px 48px;}
+.form-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:start;}
+.ftitle{font-family:'Fraunces',serif;font-size:54px;font-weight:900;color:var(--ink);line-height:1.05;letter-spacing:-.03em;margin-bottom:14px;}
+.fsub{font-size:16px;color:var(--ink-s);margin-bottom:26px;}
+.trust-strip{display:flex;gap:24px;flex-wrap:wrap;padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:20px;}
+.ti{display:flex;align-items:center;gap:7px;font-size:14px;color:var(--ink-m);}
+.ti span{color:var(--gold);font-weight:700;font-size:16px;}
+.fn{font-size:14px;color:var(--ink-s);line-height:1.65;margin-bottom:12px;}
+.fn strong{color:var(--ink-m);font-weight:500;}
+.fcard{background:var(--white);border:1px solid var(--line);box-shadow:0 4px 16px rgba(28,26,23,0.08),0 16px 40px rgba(28,26,23,0.05);padding:32px;}
+.pips{display:flex;align-items:center;margin-bottom:28px;}
+.pip{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.pip-n{width:32px;height:32px;border:1.5px solid var(--line);background:var(--cream-d);color:var(--ink-s);font-family:'DM Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;}
+.pip.on .pip-n{background:var(--ink);border-color:var(--ink);color:var(--gold);}
+.pip-l{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-s);}
+.pip-tr{flex:1;height:1.5px;background:var(--line);margin:0 14px 18px;}
+.fld{margin-bottom:16px;}
+.fld label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-s);display:block;margin-bottom:7px;}
+.fld select,.fld input{width:100%;padding:12px 14px;background:var(--cream);border:1px solid var(--line);color:var(--ink);font-size:14px;font-family:'DM Sans',sans-serif;-webkit-appearance:none;appearance:none;}
+.fld-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.fbtn{width:100%;padding:14px;background:var(--ink);color:var(--cream);border:none;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:6px;}
+
+/* ══════════════ FAQ ══════════════ */
+.faq-section{background:var(--cream);padding:72px 48px;}
+.faq-layout{display:grid;grid-template-columns:280px 1fr;gap:80px;}
+.faq-left h2{font-family:'Fraunces',serif;font-size:44px;font-weight:900;color:var(--ink);line-height:1.1;letter-spacing:-.02em;margin-bottom:28px;}
+.faq-list{border-top:1px solid var(--line);}
+.fq{padding:20px 0;font-family:'Fraunces',serif;font-size:17px;font-weight:400;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid var(--line);cursor:pointer;transition:color .2s;}
+.fq.open{color:var(--gold);border-color:transparent;}
+.fplus{font-family:'Fraunces',serif;font-size:26px;font-weight:300;color:var(--gold);flex-shrink:0;transition:transform .25s;}
+.fq.open .fplus{transform:rotate(45deg);}
+.fa{font-size:14px;color:var(--ink-s);line-height:1.8;padding:0 0 20px;border-bottom:1px solid var(--line);display:none;}
+.fa.show{display:block;}
+
+/* ══════════════ CTA ══════════════ */
+.cta-section{background:var(--charcoal);padding:96px 48px;text-align:center;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(201,146,58,0.07) 0%,transparent 70%);pointer-events:none;}
+.cta-inner{position:relative;max-width:660px;margin:0 auto;}
+.cta-h{font-family:'Fraunces',serif;font-size:62px;font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.03em;margin-bottom:16px;}
+.cta-p{font-size:16px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:36px;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;}
+.cta-trust{display:flex;gap:14px;justify-content:center;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);}
+
+/* ══════════════ FOOTER ══════════════ */
+.footer{background:var(--ink);padding:60px 48px 28px;}
+.ft{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:24px;}
+.fb-row{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
+.fb-mark{width:36px;height:36px;background:var(--gold);color:var(--ink);font-family:'Fraunces',serif;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center;}
+.fb-name{font-family:'Fraunces',serif;font-size:19px;font-weight:700;color:#fff;}
+.fb-tag{font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px;}
+.fc h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:14px;}
+.fc a{display:block;font-size:13px;color:rgba(255,255,255,0.50);text-decoration:none;padding:5px 0;}
+.fb{display:flex;justify-content:space-between;}
+.fb span{font-size:11px;color:rgba(255,255,255,0.22);font-family:'DM Mono',monospace;letter-spacing:.04em;}
+</style></head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span class="topbar-title">Viador Partners V4 — Full Design Preview</span>
+  <div class="tabs">
+    <button class="tab on" onclick="go('s-nav',this)">Nav</button>
+    <button class="tab" onclick="go('s-hero',this)">Hero</button>
+    <button class="tab" onclick="go('s-paths',this)">Paths</button>
+    <button class="tab" onclick="go('s-bpl',this)">BPL</button>
+    <button class="tab" onclick="go('s-prog',this)">Programs</button>
+    <button class="tab" onclick="go('s-form',this)">Form</button>
+    <button class="tab" onclick="go('s-faq',this)">FAQ</button>
+    <button class="tab" onclick="go('s-cta',this)">CTA</button>
+  </div>
+  <span class="topbar-sub">Sophisticated Light · Editorial</span>
+</div>
+
+<!-- ── NAV ── -->
+<div class="section-wrap" id="s-nav">
+  <div class="s-bar"><span class="s-bar-name">Navigation</span><span class="badge upd">Updated</span></div>
+  <div class="nav-demo">
+    <div class="logo-row">
+      <div class="logo-box">C</div>
+      <span class="logo-word">Viador Partners</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">Who We Help</a>
+      <a href="#" class="g">What Is BPL?</a>
+      <a href="#">Programs</a>
+      <a href="#">FAQ</a>
+    </div>
+    <div class="nav-btn">Analyze My Deal</div>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<div class="section-wrap" id="s-hero">
+  <div class="s-bar"><span class="s-bar-name">Hero Section</span><span class="badge new">Redesigned</span></div>
+  <div class="hero-section">
+    <div>
+      <div class="htag"><span class="pdot"></span> Deal reviews within 24 hours &nbsp;·&nbsp; FL &amp; OH</div>
+      <h1 class="h1">Financing that<br><em>doesn't stop</em><br>when you're<br>ready to scale.</h1>
+      <p class="hp">DSCR · Fix &amp; Flip · Bridge · BPL<br>For investors at every stage — from first deal to full portfolio.</p>
+      <div class="hbtns">
+        <span class="btn b-ink">Analyze My Deal</span>
+        <span class="btn b-out">What is BPL? →</span>
+      </div>
+    </div>
+    <div>
+      <div class="stat-box">
+        <div class="stat-row"><div class="snum">24<sup>hr</sup></div><div class="slbl">Typical deal review</div></div>
+        <div class="stat-div"></div>
+        <div class="stat-row"><div class="snum">∞</div><div class="slbl">BPL loan limit — no ceiling</div></div>
+        <div class="stat-div"></div>
+        <div class="stat-row"><div class="snum">0</div><div class="slbl">W2s required for DSCR</div></div>
+      </div>
+      <div class="pills">
+        <span class="pill">DSCR</span>
+        <span class="pill">Fix &amp; Flip</span>
+        <span class="pill">Bridge</span>
+        <span class="pill g">BPL</span>
+        <span class="pill">Bank Statement</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── THREE PATHS ── -->
+<div class="section-wrap" id="s-paths">
+  <div class="s-bar"><span class="s-bar-name">Three Paths</span><span class="badge new">Redesigned</span></div>
+  <div class="paths-section">
+    <div class="ey">Who we help</div>
+    <div class="paths-grid">
+      <div class="pcard">
+        <div class="pbig">01</div>
+        <div class="ptag">Active investor</div>
+        <h3>Building a portfolio</h3>
+        <p>You've done deals. You have an LLC. You need financing that moves as fast as you do — DSCR, BPL, fix &amp; flip, or bridge for your next acquisition.</p>
+        <span class="pcta-a">Submit my deal →</span>
+        <span class="pcta-b">What is BPL?</span>
+        <div class="pbar"></div>
+      </div>
+      <div class="pcard">
+        <div class="feat-label">Referral partners</div>
+        <div class="pbig">02</div>
+        <div class="ptag">Realtors &amp; advisors</div>
+        <h3>Working with investors</h3>
+        <p>Your investor clients have more options than they think. We close what banks can't — and get back to you within 24 hours on every deal.</p>
+        <span class="pcta-a">Become a partner →</span>
+        <span class="pcta-b">Submit a client deal</span>
+        <div class="pbar"></div>
+      </div>
+      <div class="pcard">
+        <div class="pbig">03</div>
+        <div class="ptag">New investor</div>
+        <h3>Just getting started</h3>
+        <p>You know real estate builds wealth but don't know how people fund it. We break down how investor loans actually work — and whether your first deal can move.</p>
+        <span class="pcta-a">Analyze my deal →</span>
+        <span class="pcta-b">Ask a question</span>
+        <div class="pbar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── BPL MOMENT ── -->
+<div class="section-wrap" id="s-bpl">
+  <div class="s-bar"><span class="s-bar-name">BPL Feature Moment</span><span class="badge new">New Section</span></div>
+  <div class="bpl-section">
+    <div>
+      <div class="ey lt">Emerging opportunity</div>
+      <h2 class="bh">Hit your conventional loan limit?</h2>
+      <p class="bp">Most investors don't know there's a financing structure with no property count ceiling — faster, more flexible, and it doesn't touch your personal income.</p>
+      <p class="bp">It's called a <strong>Business Purpose Loan.</strong></p>
+      <div class="bbtns">
+        <span class="btn b-gold">Read the full guide →</span>
+        <span class="btn b-glass">Talk to us about BPL</span>
+      </div>
+    </div>
+    <div>
+      <div class="cmp-box">
+        <div class="crow hdr"><span></span><span>Conventional</span><span class="hi">BPL</span></div>
+        <div class="crow"><span>Loan limit</span><span>10 max</span><span class="hi">Unlimited</span></div>
+        <div class="crow"><span>Income proof</span><span>W2 required</span><span class="hi">Not required</span></div>
+        <div class="crow"><span>Borrower</span><span>Personal name</span><span class="hi">LLC / Entity</span></div>
+        <div class="crow"><span>Closing speed</span><span>30–60 days</span><span class="hi">7–21 days</span></div>
+        <div class="crow"><span>Loan types</span><span>Purchase, refi</span><span class="hi">Flip, DSCR, bridge, blanket</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PROGRAMS ── -->
+<div class="section-wrap" id="s-prog">
+  <div class="s-bar"><span class="s-bar-name">Loan Programs</span><span class="badge upd">Updated</span></div>
+  <div class="prog-section">
+    <div class="ey">Loan programs</div>
+    <div class="prog-grid">
+      <div class="prog">
+        <div class="prog-type">DSCR</div>
+        <h3>Rental Loans</h3>
+        <p>Qualify on rental income — not your W2. No tax returns, no employment verification. For investors building long-term portfolios.</p>
+        <ul><li>No personal income required</li><li>Single family, 2–4 units, condos</li><li>LLC borrowing welcomed</li></ul>
+        <span class="prog-lk">DSCR guide →</span>
+      </div>
+      <div class="prog">
+        <div class="prog-type">Bridge</div>
+        <h3>Fix &amp; Flip</h3>
+        <p>Fast capital for value-add deals. Borrow against purchase and rehab costs, repay on sale.</p>
+        <ul><li>Up to 90% purchase + 100% rehab</li><li>Based on ARV, not income</li><li>Close in as few as 10 days</li></ul>
+        <span class="prog-lk">Fix &amp; flip guide →</span>
+      </div>
+      <div class="prog dk">
+        <div class="prog-badge">Emerging</div>
+        <div class="prog-type">BPL</div>
+        <h3>Business Purpose Loans</h3>
+        <p>The structure serious investors use to scale without hitting conventional limits.</p>
+        <ul><li>No conventional loan count limit</li><li>Entity-based — protects assets</li><li>Flip, DSCR, bridge, blanket portfolio</li></ul>
+        <span class="prog-lk">Full BPL guide →</span>
+      </div>
+      <div class="prog">
+        <div class="prog-type">Bank Statement</div>
+        <h3>Self-Employed Loans</h3>
+        <p>Qualify using 12–24 months of bank statements — not tax returns.</p>
+        <ul><li>No W2 or tax returns needed</li><li>12 or 24-month options</li><li>Investment and primary properties</li></ul>
+        <span class="prog-lk">Submit your scenario →</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FORM ── -->
+<div class="section-wrap" id="s-form">
+  <div class="s-bar"><span class="s-bar-name">Deal Form</span><span class="badge upd">Updated</span></div>
+  <div class="form-section">
+    <div class="form-layout">
+      <div>
+        <div class="ey">Free deal review</div>
+        <div class="ftitle">Tell us about<br>your deal.</div>
+        <p class="fsub">No obligation. Response within 24 hours.</p>
+        <div class="trust-strip">
+          <div class="ti"><span>✓</span> Free, always</div>
+          <div class="ti"><span>✓</span> No obligation</div>
+          <div class="ti"><span>✓</span> 24-hour response</div>
+        </div>
+        <p class="fn"><strong>Have an LLC?</strong> Tell us in Step 1 — it opens up BPL options most investors don't know they qualify for.</p>
+        <p class="fn"><strong>Hit your limit?</strong> BPL has no property count ceiling. Submit and we'll find the right structure.</p>
+      </div>
+      <div class="fcard">
+        <div class="pips">
+          <div class="pip on"><div class="pip-n">1</div><div class="pip-l">About you</div></div>
+          <div class="pip-tr"></div>
+          <div class="pip"><div class="pip-n">2</div><div class="pip-l">The deal</div></div>
+        </div>
+        <div class="fld"><label>Investor experience</label><select><option>Select your level</option></select></div>
+        <div class="fld"><label>Loan type needed</label><select><option>What type of financing?</option></select></div>
+        <div class="fld-2">
+          <div class="fld"><label>Do you have an LLC?</label><select><option>Select one</option></select></div>
+          <div class="fld"><label>Property state</label><select><option>Select state</option></select></div>
+        </div>
+        <button class="fbtn">Continue — Step 2 of 2 →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FAQ ── -->
+<div class="section-wrap" id="s-faq">
+  <div class="s-bar"><span class="s-bar-name">FAQ — Editorial Layout</span><span class="badge new">Redesigned</span></div>
+  <div class="faq-section">
+    <div class="faq-layout">
+      <div class="faq-left">
+        <div class="ey">FAQ</div>
+        <h2>Questions<br>answered.</h2>
+        <span class="btn b-ink">Submit your deal →</span>
+      </div>
+      <div class="faq-list">
+        <div class="fq open" onclick="toggleFaq(this)">What is a Business Purpose Loan (BPL)?<span class="fplus">+</span></div>
+        <div class="fa show">A Business Purpose Loan is a real estate loan made to a business entity — typically an LLC — for an investment property. Underwritten on the deal and asset, not your personal income. This removes property count limits and income documentation requirements.</div>
+        <div class="fq" onclick="toggleFaq(this)">How is BPL different from a DSCR loan?<span class="fplus">+</span></div>
+        <div class="fa">DSCR is a type of BPL — it's a specific underwriting method. BPL is the broader framework, which also covers fix &amp; flip bridge loans, blanket portfolio loans, and other structures.</div>
+        <div class="fq" onclick="toggleFaq(this)">Do I need an LLC to get a BPL loan?<span class="fplus">+</span></div>
+        <div class="fa">Yes. Business Purpose Loans require a business entity as the borrower — most commonly an LLC. Setup is straightforward and typically under $200 in Florida or Ohio.</div>
+        <div class="fq" onclick="toggleFaq(this)">How long does a deal review take?<span class="fplus">+</span></div>
+        <div class="fa">Most reviews within 24 hours. Experienced investors with complete deal details are often reviewed the same business day.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FINAL CTA + FOOTER ── -->
+<div class="section-wrap" id="s-cta">
+  <div class="s-bar"><span class="s-bar-name">Final CTA &amp; Footer</span><span class="badge upd">Updated</span></div>
+  <div class="cta-section">
+    <div class="cta-inner">
+      <div class="ey lt" style="justify-content:center;">Ready?</div>
+      <h2 class="cta-h">Ready to find out<br>if your deal works?</h2>
+      <p class="cta-p">Free review. No obligation. Most investors get more clarity in one conversation than weeks of searching on their own.</p>
+      <div class="cta-btns">
+        <span class="btn b-gold">Analyze My Deal</span>
+        <span class="btn b-glass">What Is BPL? →</span>
+      </div>
+      <div class="cta-trust">
+        <span>No obligation</span><span>·</span>
+        <span>No obligation</span><span>·</span>
+        <span>24-hour response</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="ft">
+      <div>
+        <div class="fb-row"><div class="fb-mark">C</div><div class="fb-name">Viador Partners</div></div>
+        <div class="fb-tag">Investor Capital &amp; Deal Advisory</div>
+      </div>
+      <div class="fc"><h4>Investors</h4><a href="#">What Is BPL?</a><a href="#">DSCR Loans</a><a href="#">Fix &amp; Flip</a><a href="#">Analyze My Deal</a></div>
+      <div class="fc"><h4>Programs</h4><a href="#">Business Purpose Loans</a><a href="#">DSCR Rental Loans</a><a href="#">Fix &amp; Flip Bridge</a></div>
+      <div class="fc"><h4>Partners</h4><a href="#">Realtor Program</a><a href="#">Refer a Deal</a><a href="#">FAQ</a></div>
+    </div>
+    <div class="fb">
+      <span>© 2026 Viador Partners LLC. All rights reserved.</span>
+      <span>Not a commitment to lend. Illustrative only.</span>
+    </div>
+  </div>
+</div>
+
+<script>
+function go(id,tab){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  tab.classList.add('on');
+}
+function toggleFaq(el){
+  el.classList.toggle('open');
+  const ans=el.nextElementSibling;
+  if(ans)ans.classList.toggle('show');
+}
+window.addEventListener('scroll',()=>{
+  const ids=['s-nav','s-hero','s-paths','s-bpl','s-prog','s-form','s-faq','s-cta'];
+  const tabs=document.querySelectorAll('.tab');
+  let cur=0;
+  ids.forEach((id,i)=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=56)cur=i;});
+  tabs.forEach(t=>t.classList.remove('on'));
+  if(tabs[cur])tabs[cur].classList.add('on');
+},{passive:true});
+</script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/245454217.js"></script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <script type="text/javascript">_linkedin_partner_id="8839754";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);</script>
+  <script type="text/javascript">(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Personalized Refi Analysis | Viador Partners</title>
+  <meta name="description" content="Your personalized BPL refinance analysis prepared by Viador Partners."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .offer-page { background: var(--ink); color: var(--cream); min-height: 100vh; }
+    .offer-wrap { max-width: 680px; margin: 0 auto; padding: 40px 20px 60px; }
+    .offer-header { text-align: center; padding: 100px 0 32px; }
+    .offer-eyebrow { font-family:'Inter',system-ui,sans-serif; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .offer-h1 { font-family:'Inter',system-ui,sans-serif; font-size: clamp(24px, 4vw, 36px); font-weight: 700; line-height: 1.2; margin: 0 0 8px; }
+    .offer-sub { font-size: 14px; color: rgba(255,255,255,0.45); }
+    .offer-photo { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; margin-bottom: 16px; background: #1a1c24; }
+    .offer-prop { font-family:'Inter',system-ui,sans-serif; font-size: 20px; margin-bottom: 4px; }
+    .offer-prop-sub { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+    .offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+    .offer-card { background: #1a1c24; border: 1px solid rgba(191, 144, 32,0.15); border-radius: 10px; padding: 16px; }
+    .offer-card-label { font-family:'Inter',system-ui,sans-serif; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+    .offer-card-val { font-family:'Inter',system-ui,sans-serif; font-size: 22px; font-weight: 700; }
+    .offer-card-note { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 4px; }
+    .offer-card.full { grid-column: 1 / -1; text-align: center; }
+    .offer-verdict { display: inline-block; padding: 8px 24px; border-radius: 24px; font-size: 15px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .offer-verdict.green { background: #2d6a4f; color: #a7f3d0; }
+    .offer-verdict.yellow { background: #92400e; color: #fde68a; }
+    .offer-verdict.red { background: #8b1a1a; color: #fca5a5; }
+    .offer-portfolio { background: rgba(191, 144, 32,0.08); border: 1px solid rgba(191, 144, 32,0.2); border-radius: 10px; padding: 20px; margin-bottom: 24px; text-align: center; }
+    .offer-cta-box { background: #1a1c24; border: 2px solid var(--gold); border-radius: 12px; padding: 32px; text-align: center; margin-bottom: 24px; }
+    .offer-cta-box h3 { font-family:'Inter',system-ui,sans-serif; font-size: 22px; margin: 0 0 8px; }
+    .offer-cta-box p { font-size: 14px; color: rgba(255,255,255,0.5); margin: 0 0 20px; line-height: 1.5; }
+    .offer-cta-btn { display: inline-block; padding: 14px 36px; background: var(--gold); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; font-family:'Inter',system-ui,sans-serif; }
+    .offer-cta-btn:hover { background: var(--gold-light); }
+    .offer-secondary { background: #1a1c24; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 24px; text-align: center; margin-bottom: 24px; }
+    .offer-secondary h4 { font-family:'Inter',system-ui,sans-serif; font-size: 17px; margin: 0 0 8px; }
+    .offer-secondary p { font-size: 13px; color: rgba(255,255,255,0.5); margin: 0 0 14px; line-height: 1.5; }
+    .offer-email-row { display: flex; gap: 8px; max-width: 360px; margin: 0 auto; }
+    .offer-email-input { flex: 1; padding: 10px 14px; border: 1px solid rgba(191, 144, 32,0.3); border-radius: 6px; background: rgba(255,255,255,0.06); color: #fff; font-size: 14px; outline: none; font-family:'Inter',system-ui,sans-serif; }
+    .offer-email-btn { padding: 10px 18px; background: var(--gold); color: #fff; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; font-family:'Inter',system-ui,sans-serif; white-space: nowrap; }
+    .offer-error { text-align: center; padding: 80px 20px; }
+    .offer-error h2 { font-family:'Inter',system-ui,sans-serif; font-size: 24px; margin-bottom: 12px; }
+    .offer-card-val.hero-num { font-size: 48px; }
+    .offer-urgency { font-size: 14px; color: #f97316; text-align: center; max-width: 440px; margin: -8px auto 24px; line-height: 1.5; }
+    .offer-form-box { background: #1a1c24; border: 2px solid var(--gold); border-radius: 12px; padding: 32px; margin-bottom: 24px; }
+    .offer-form-box h3 { font-family:'Inter',system-ui,sans-serif; font-size: 22px; margin: 0 0 6px; text-align: center; }
+    .offer-form-box .sub { font-size: 14px; color: rgba(255,255,255,0.5); margin: 0 0 20px; line-height: 1.5; text-align: center; }
+    .offer-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+    .offer-form-grid.full { grid-template-columns: 1fr; }
+    .offer-form-input { width: 100%; padding: 12px 14px; border: 1px solid rgba(191, 144, 32,0.3); border-radius: 6px; background: rgba(255,255,255,0.06); color: #fff; font-size: 15px; outline: none; box-sizing: border-box; font-family:'Inter',system-ui,sans-serif; }
+    .offer-form-input::placeholder { color: rgba(255,255,255,0.35); }
+    .offer-form-select { width: 100%; padding: 12px 14px; border: 1px solid rgba(191, 144, 32,0.3); border-radius: 6px; background: #1a1c24; color: #fff; font-size: 15px; outline: none; box-sizing: border-box; font-family:'Inter',system-ui,sans-serif; }
+    .offer-submit-btn { width: 100%; padding: 14px; background: var(--gold); color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; font-family:'Inter',system-ui,sans-serif; }
+    .offer-submit-btn:hover { background: var(--gold-light); }
+    .offer-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .offer-success { text-align: center; padding: 20px; color: #4ade80; font-size: 15px; line-height: 1.5; display: none; }
+    .offer-phone-direct { text-align: center; margin-top: 16px; }
+    .offer-phone-direct a { color: var(--gold); font-family:'Inter',system-ui,sans-serif; font-size: 24px; text-decoration: none; font-weight: 700; }
+    .sticky-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #141210; border-top: 2px solid var(--gold); padding: 12px 16px; z-index: 9999; }
+    .sticky-bar-inner { display: flex; align-items: center; justify-content: space-between; max-width: 680px; margin: 0 auto; gap: 12px; }
+    .sticky-bar-text { font-size: 13px; color: #fff; font-weight: 500; }
+    .sticky-bar-text span { color: #4ade80; }
+    .sticky-bar-btn { padding: 10px 20px; background: var(--gold); color: #fff; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; font-family:'Inter',system-ui,sans-serif; }
+    @media (max-width: 768px) { .sticky-bar { display: block; } .offer-wrap { padding-bottom: 80px; } }
+    @media (max-width: 520px) { .offer-grid { grid-template-columns: 1fr; } .offer-form-grid { grid-template-columns: 1fr; } .offer-card-val.hero-num { font-size: 36px; } }
+  </style>
+</head>
+<body class="offer-page">
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="dscr.html">DSCR Loans</a>
+      <a href="refi.html" style="color:var(--gold)">Refi Analyzer</a>
+      <a href="about.html">About</a>
+    </nav>
+    <a href="tel:8134192983" class="nav-cta">(813) 419-2983</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="offer-header">
+  <div class="offer-eyebrow">PERSONALIZED REFI ANALYSIS</div>
+  <h1 class="offer-h1">Your Refinance Opportunity</h1>
+  <div class="offer-sub">Prepared by Viador Partners &middot; NMLS #2822744</div>
+</div>
+
+<div class="offer-wrap" id="offer-content">
+  <div style="text-align:center;padding:40px;color:rgba(255,255,255,0.4)">Loading your analysis...</div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 Viador Partners LLC. All rights reserved.</span>
+      <span>NMLS #2822744 &middot; Tampa, FL &middot; chad@viadorpartners.com</span>
+      <span style="display:block;margin-top:6px;font-size:10px;opacity:0.5">Not a commitment to lend. Analysis based on estimated figures. Actual terms subject to full underwriting.</span>
+    <span style="display:block;margin-top:10px;font-size:10px;opacity:0.6">Veteran homeowner? Visit <a href="https://nextdutyvet.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">NextDutyVet.com</a></span></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+(function() {
+  var PROXY = 'https://viador-ai-proxy.chad-7f6.workers.dev';
+  var container = document.getElementById('offer-content');
+
+  // Parse offer code from URL: ?code=ABC123 or ?c=BASE64 or #BASE64
+  var params = new URLSearchParams(window.location.search);
+  var kvCode = params.get('code');
+  var b64Code = params.get('c') || window.location.hash.substring(1);
+
+  if (!kvCode && !b64Code) {
+    container.innerHTML = '<div class="offer-error"><h2>Analysis not found</h2><p style="color:rgba(255,255,255,0.5)">This link may have expired. <a href="refi.html" style="color:var(--gold)">Run a new refi analysis &rarr;</a></p></div>';
+    return;
+  }
+
+  // Load data — KV code takes priority, then fall back to base64
+  loadOfferData();
+  async function loadOfferData() {
+  var data = null;
+
+  if (kvCode) {
+    try {
+      var res = await fetch(PROXY + '/offer/' + encodeURIComponent(kvCode));
+      var json = await res.json();
+      if (json.error) throw new Error(json.error);
+      data = json;
+    } catch(e) {
+      container.innerHTML = '<div class="offer-error"><h2>Offer not found or expired</h2><p style="color:rgba(255,255,255,0.5)">' + (e.message || '') + '</p><p style="margin-top:12px"><a href="refi.html" style="color:var(--gold)">Run a new refi analysis &rarr;</a></p></div>';
+      return;
+    }
+  } else {
+    try { data = JSON.parse(atob(b64Code)); } catch(e) {
+      container.innerHTML = '<div class="offer-error"><h2>Invalid analysis link</h2><p style="color:rgba(255,255,255,0.5)"><a href="refi.html" style="color:var(--gold)">Run a new refi analysis &rarr;</a></p></div>';
+      return;
+    }
+  }
+
+  if (typeof gtag === 'function') gtag('event', 'refi_offer_viewed', { address: data.address, verdict: data.verdict, code: kvCode || '' });
+
+  var fmt$ = function(n) { return '$' + Math.round(n).toLocaleString(); };
+
+  // Street View image
+  var photoUrl = 'https://maps.googleapis.com/maps/api/streetview?size=680x220&location=' + encodeURIComponent(data.address || '') + '&key=AIzaSyCSEIZTzvhi03BeXx9pGZV_o7oJEu2gAV8&return_error_code=true';
+
+  // Verdict — support both old strings and new enum values
+  var vClass, vText;
+  var v = (data.verdict || '').toLowerCase().replace(/[\s\u2014\u2014-]+/g, '_');
+  var bkMonths = data.prepay_months || data.breakeven || 0;
+  var isFreeAndClear = data.free_and_clear === true;
+  if (isFreeAndClear) {
+    vClass = 'green'; vText = '\u2705 FREE & CLEAR \u2014 ' + fmt$(data.equity || 0) + ' in accessible equity ready to deploy';
+  } else if (v === 'refi_now' || v === 'refi now' || v.indexOf('refi') >= 0) {
+    vClass = 'green'; vText = '\u2705 REFI NOW \u2014 Your prepay window is open';
+  } else if (v === 'wait' || v.indexOf('wait') >= 0 || v === 'wait___check_timing') {
+    vClass = 'yellow'; vText = '\u26a0\ufe0f WAIT' + (bkMonths ? ' \u2014 Window opens in ~' + bkMonths + ' months' : ' \u2014 CHECK TIMING');
+  } else if (v === 'not_worth_it' || v.indexOf('not') >= 0) {
+    vClass = 'red'; vText = '\u274c NOT WORTH IT \u2014 Breakeven too long';
+  } else {
+    vClass = 'yellow'; vText = '\u26a0\ufe0f ' + (data.verdict || 'REVIEW NEEDED');
+  }
+
+  var html = '';
+
+  // Prepared date
+  if (data.created) {
+    var d = new Date(data.created);
+    html += '<div style="text-align:center;font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:16px">Analysis prepared ' + d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) + '</div>';
+  }
+
+  // Property
+  html += '<img class="offer-photo" src="' + photoUrl + '" alt="Property" onerror="this.style.display=\'none\'"/>';
+  html += '<div class="offer-prop">' + (data.address || 'Property') + '</div>';
+  if (data.details) html += '<div class="offer-prop-sub">' + data.details + '</div>';
+  else html += '<div class="offer-prop-sub">Investment Property</div>';
+
+  var savingsVal = data.monthly_savings || data.savings || 0;
+  var breakevenVal = data.prepay_months || data.breakeven || 0;
+
+  // Hero numbers — equity and savings dominate
+  var savingsCardLabel = isFreeAndClear ? 'Monthly Income from New Acquisition' : 'Monthly Savings';
+  var savingsCardNote = isFreeAndClear ? 'Deploying equity into a new DSCR rental' : fmt$(savingsVal * 12) + ' annually';
+  html += '<div class="offer-grid">';
+  html += '<div class="offer-card" style="text-align:center"><div class="offer-card-label">Accessible Equity</div><div class="offer-card-val hero-num" style="color:#BF9020">' + fmt$(data.equity || 0) + '</div><div class="offer-card-note">At 75% LTV</div></div>';
+  html += '<div class="offer-card" style="text-align:center"><div class="offer-card-label">' + savingsCardLabel + '</div><div class="offer-card-val hero-num" style="color:#4ade80">' + fmt$(savingsVal) + '/mo</div><div class="offer-card-note">' + savingsCardNote + '</div></div>';
+  html += '</div>';
+
+  // Secondary metrics
+  html += '<div class="offer-grid">';
+  html += '<div class="offer-card"><div class="offer-card-label">Current Est. Value</div><div class="offer-card-val">' + fmt$(data.avm || 0) + '</div></div>';
+  if (isFreeAndClear) {
+    html += '<div class="offer-card"><div class="offer-card-label">Loan Status</div><div class="offer-card-val" style="color:#4ade80">Free & Clear</div></div>';
+  } else {
+    html += '<div class="offer-card"><div class="offer-card-label">Est. Current Rate</div><div class="offer-card-val">' + (data.currentRate || '~9.0%') + '</div></div>';
+  }
+  html += '<div class="offer-card"><div class="offer-card-label">Today\'s DSCR Rate</div><div class="offer-card-val" style="color:#4ade80">' + (data.newRate || '7.25% \u2013 7.75%') + '</div></div>';
+  if (isFreeAndClear) {
+    html += '<div class="offer-card"><div class="offer-card-label">Prepay Penalty</div><div class="offer-card-val" style="color:#4ade80">None</div></div>';
+  } else {
+    html += '<div class="offer-card"><div class="offer-card-label">Prepay Breakeven</div><div class="offer-card-val">' + (breakevenVal || '?') + ' months</div></div>';
+  }
+  html += '</div>';
+
+  // Verdict
+  html += '<div class="offer-card full" style="margin-bottom:8px"><div class="offer-verdict ' + vClass + '">' + vText + '</div></div>';
+
+  // Urgency line
+  if (isFreeAndClear) {
+    html += '<div class="offer-urgency">Every month you wait is another month this equity sits idle instead of funding your next acquisition.</div>';
+  } else if (vClass === 'green' && savingsVal > 0) {
+    html += '<div class="offer-urgency">Every month at your current rate costs you <strong>' + fmt$(savingsVal) + '</strong> you don\'t have to spend. Your prepay window is open now.</div>';
+  } else if (vClass === 'yellow' && breakevenVal > 0) {
+    html += '<div class="offer-urgency" style="color:#fbbf24">Your prepay penalty drops in ~' + breakevenVal + ' months. We\'ll alert you when the window opens.</div>';
+  }
+
+  // Portfolio (multi-property) — supports both old .portfolio and new .all_properties
+  var allProps = data.all_properties || [];
+  if (allProps.length > 1 || (data.portfolio && data.portfolio.count > 1)) {
+    html += '<div class="offer-portfolio">';
+    html += '<div style="font-family:\'DM Mono\',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">YOUR FULL PORTFOLIO</div>';
+    if (allProps.length > 1) {
+      html += '<table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:14px">';
+      html += '<tr style="border-bottom:1px solid rgba(255,255,255,0.1);text-align:left"><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;font-weight:400;font-family:\'DM Mono\',monospace">Address</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:right">Est. Value</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:right">Equity</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:right">Savings</th><th style="padding:6px 8px;color:rgba(255,255,255,0.4);font-size:10px;text-align:center">Verdict</th></tr>';
+      var totEquity = 0, totSavings = 0;
+      allProps.forEach(function(prop) {
+        var pEquity = Math.round((prop.avm || 0) * 0.75);
+        totEquity += pEquity;
+        totSavings += (prop.savings || 0);
+        var pv = (prop.verdict || '').toLowerCase();
+        var pvColor = pv.indexOf('refi') >= 0 ? '#4ade80' : pv.indexOf('wait') >= 0 ? '#fde68a' : '#fca5a5';
+        html += '<tr style="border-bottom:1px solid rgba(255,255,255,0.06)"><td style="padding:8px;color:#fff;font-size:12px">' + (prop.address || '') + '</td><td style="padding:8px;text-align:right">' + fmt$(prop.avm || 0) + '</td><td style="padding:8px;text-align:right;color:#4ade80">' + fmt$(pEquity) + '</td><td style="padding:8px;text-align:right">' + fmt$(prop.savings || 0) + '/mo</td><td style="padding:8px;text-align:center;color:' + pvColor + ';font-size:11px;font-weight:600">' + (prop.verdict || '') + '</td></tr>';
+      });
+      html += '<tr style="font-weight:700"><td style="padding:8px">Total (' + allProps.length + ' properties)</td><td></td><td style="padding:8px;text-align:right;color:#4ade80">' + fmt$(totEquity) + '</td><td style="padding:8px;text-align:right;color:#4ade80">' + fmt$(totSavings) + '/mo</td><td></td></tr>';
+      html += '</table>';
+    } else if (data.portfolio) {
+      var p = data.portfolio;
+      html += '<div style="font-size:15px;margin-bottom:8px">We identified <strong>' + p.count + ' additional properties</strong> in your portfolio with refi potential.</div>';
+      html += '<div style="display:flex;justify-content:center;gap:32px;margin-top:12px">';
+      html += '<div><div style="font-size:11px;color:rgba(255,255,255,0.4)">Total Equity</div><div style="font-family:\'Fraunces\',serif;font-size:24px;color:#4ade80;font-weight:700">' + fmt$(p.totalEquity || 0) + '</div></div>';
+      html += '<div><div style="font-size:11px;color:rgba(255,255,255,0.4)">Total Monthly Savings</div><div style="font-family:\'Fraunces\',serif;font-size:24px;color:#4ade80;font-weight:700">' + fmt$(p.totalSavings || 0) + '/mo</div></div>';
+      html += '</div>';
+    }
+    html += '</div>';
+  }
+
+  // Primary CTA — inline form
+  html += '<div class="offer-form-box" id="offer-form-box">';
+  html += '<h3>Get Your Free Refi Review</h3>';
+  html += '<div class="sub">Chad reviews every file personally within 24 hours. No obligation. No credit pull.</div>';
+  html += '<div class="offer-form-grid"><div><label style="font-size:11px;color:rgba(255,255,255,0.4);display:block;margin-bottom:4px">First name</label><input type="text" id="offer-fname" class="offer-form-input" placeholder="First name"/></div><div><label style="font-size:11px;color:rgba(255,255,255,0.4);display:block;margin-bottom:4px">Phone number</label><input type="tel" id="offer-phone" class="offer-form-input" placeholder="(813) 555-1234"/></div></div>';
+  html += '<div class="offer-form-grid full"><div><label style="font-size:11px;color:rgba(255,255,255,0.4);display:block;margin-bottom:4px">Best time to call</label><select id="offer-time" class="offer-form-select"><option value="Morning 8-11am">Morning 8-11am</option><option value="Afternoon 12-4pm" selected>Afternoon 12-4pm</option><option value="Evening 4-7pm">Evening 4-7pm</option></select></div></div>';
+  html += '<button class="offer-submit-btn" id="offer-submit-btn" onclick="submitRefiReview()">Submit My File for Review &rarr;</button>';
+  html += '<div class="offer-success" id="offer-form-success"></div>';
+  html += '<div class="offer-phone-direct">Prefer to call directly?<br><a href="tel:8134192983">(813) 419-2983</a></div>';
+  html += '</div>';
+
+  // Secondary CTA (wait list)
+  if (vClass === 'yellow' || vClass === 'red') {
+    html += '<div class="offer-secondary">';
+    html += '<h4>Not ready yet?</h4>';
+    html += '<p>We\'ll alert you when your prepay window opens or rates drop further.</p>';
+    html += '<div class="offer-email-row">';
+    html += '<input type="email" id="offer-email" class="offer-email-input" placeholder="you@email.com"/>';
+    html += '<button class="offer-email-btn" onclick="captureOfferEmail()">Alert Me &rarr;</button>';
+    html += '</div>';
+    html += '<div id="offer-email-msg" style="display:none;color:#4ade80;font-size:13px;margin-top:10px"></div>';
+    html += '</div>';
+  }
+
+  // Disclaimer
+  html += '<p style="text-align:center;font-size:11px;color:rgba(255,255,255,0.3);max-width:480px;margin:20px auto 0;line-height:1.5">Not a commitment to lend. Analysis based on public market data and estimated figures. Actual terms subject to full underwriting review.</p>';
+
+  container.innerHTML = html;
+
+  // Email capture
+  window.captureOfferEmail = function() {
+    var email = document.getElementById('offer-email').value.trim();
+    if (!email || email.indexOf('@') < 0) { document.getElementById('offer-email').focus(); return; }
+    if (typeof gtag === 'function') gtag('event', 'refi_offer_email_captured', { email: email, address: data.address });
+
+    fetch(PROXY + '/hubspot-contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        address: data.address || '',
+        estimated_value: String(data.avm || ''),
+        refi_verdict: data.verdict || '',
+        lead_source: 'refi-offer-page'
+      })
+    }).catch(function() {});
+
+    document.getElementById('offer-email-msg').style.display = 'block';
+    document.getElementById('offer-email-msg').textContent = 'You\'re on the list. We\'ll notify you when it\'s time to move.';
+    document.querySelector('.offer-email-row').style.display = 'none';
+  };
+
+  // Submit refi review form
+  window.submitRefiReview = function() {
+    var fname = document.getElementById('offer-fname').value.trim();
+    var phone = document.getElementById('offer-phone').value.trim();
+    var bestTime = document.getElementById('offer-time').value;
+    if (!phone) { document.getElementById('offer-phone').focus(); return; }
+
+    var btn = document.getElementById('offer-submit-btn');
+    btn.disabled = true; btn.textContent = 'Submitting...';
+
+    if (typeof gtag === 'function') gtag('event', 'refi_offer_submitted', { address: data.address, verdict: data.verdict, phone: phone });
+
+    fetch(PROXY + '/hubspot-contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstname: fname,
+        phone: phone,
+        best_call_time: bestTime,
+        email: data.investor_email || '',
+        address: data.address || '',
+        estimated_value: String(data.avm || ''),
+        estimated_equity: String(data.equity || ''),
+        refi_verdict: data.verdict || '',
+        lead_source: 'refi-offer-page'
+      })
+    }).catch(function() {});
+
+    var successEl = document.getElementById('offer-form-success');
+    successEl.style.display = 'block';
+    successEl.innerHTML = '\u2705 Submitted. Expect a call from Chad within 24 hours' + (phone ? ' at <strong>' + phone + '</strong>' : '') + '.';
+    document.querySelector('.offer-form-grid').style.display = 'none';
+    document.querySelectorAll('.offer-form-grid').forEach(function(el) { el.style.display = 'none'; });
+    btn.style.display = 'none';
+  };
+
+  // Sticky bar (mobile only, shown via CSS)
+  var stickyDiv = document.createElement('div');
+  stickyDiv.className = 'sticky-bar';
+  stickyDiv.innerHTML = '<div class="sticky-bar-inner"><div class="sticky-bar-text">\u2705 <span>' + fmt$(data.equity || 0) + '</span> equity available</div><button class="sticky-bar-btn" onclick="document.getElementById(\'offer-form-box\').scrollIntoView({behavior:\'smooth\'})">Get Review &rarr;</button></div>';
+  document.body.appendChild(stickyDiv);
+
+  } // end loadOfferData
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Viador Markets — Partner Demo</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#141210;--gold:#BF9020;--gold-light:#D9A84A;
+  --cream:#F2EDE6;--char:#1A1C24;--white:#fff;
+  --gray:#6B6560;--line:#E0D9CF;--green:#1A5C38;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'DM Sans',system-ui,sans-serif;
+  --r:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--char);color:var(--white);min-height:100vh}
+
+/* ── GATE ─────────────────────────────────────────── */
+#gate{
+  display:flex;align-items:center;justify-content:center;
+  min-height:100vh;padding:2rem;
+  background:var(--char);
+}
+.gate-card{
+  background:#1E2130;border:1px solid #2E3040;border-radius:16px;
+  padding:3rem 2.5rem;width:100%;max-width:440px;text-align:center;
+}
+.gate-logo{font-family:var(--font-display);font-size:1.5rem;color:var(--gold);letter-spacing:.12em;margin-bottom:.25rem}
+.gate-sub{font-size:.75rem;color:#6A6268;letter-spacing:.2em;margin-bottom:2rem}
+.gate-card h1{font-family:var(--font-display);font-size:1.6rem;color:var(--white);margin-bottom:.5rem}
+.gate-card p{font-size:.9rem;color:#9A9290;margin-bottom:2rem;line-height:1.6}
+.gate-input{
+  width:100%;padding:.85rem 1rem;border-radius:8px;
+  background:#141620;border:1px solid #2E3040;color:var(--white);
+  font-size:1rem;font-family:var(--font-body);margin-bottom:1rem;
+  text-align:center;letter-spacing:.15em;
+}
+.gate-input:focus{outline:none;border-color:var(--gold)}
+.gate-input::placeholder{color:#4A4A5A;letter-spacing:.05em}
+.gate-btn{
+  width:100%;padding:.9rem;background:var(--gold);color:#fff;
+  border:none;border-radius:8px;font-size:1rem;font-weight:500;
+  cursor:pointer;font-family:var(--font-body);transition:opacity .2s;
+}
+.gate-btn:hover{opacity:.9}
+.gate-error{color:#E05252;font-size:.85rem;margin-top:.75rem;display:none}
+.gate-timer{font-size:.75rem;color:#6A6268;margin-top:1.5rem}
+.gate-expire{color:#E8B84B;font-size:.85rem;margin-top:.5rem;display:none}
+
+/* ── DEMO PAGE ────────────────────────────────────── */
+#demo{display:none}
+
+.demo-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 2rem;border-bottom:1px solid #2E3040;
+  background:#1E2130;position:sticky;top:0;z-index:100;
+}
+.demo-logo{font-family:var(--font-display);font-size:1.1rem;color:var(--gold)}
+.demo-logo span{color:#7A7268;font-size:.7rem;letter-spacing:.12em;display:block;margin-top:1px}
+.demo-badge{
+  background:#252840;border:1px solid var(--gold);color:var(--gold-light);
+  padding:.3rem .8rem;border-radius:20px;font-size:.75rem;font-weight:500;
+}
+.session-timer{font-size:.75rem;color:#6A6268}
+#countdown{color:#E8B84B;font-weight:500}
+
+.demo-hero{
+  padding:3rem 2rem 2rem;text-align:center;
+  border-bottom:1px solid #2E3040;
+  background:linear-gradient(180deg,#1A1C2C 0%,var(--char) 100%);
+}
+.demo-hero h1{font-family:var(--font-display);font-size:2.2rem;color:var(--white);margin-bottom:.75rem;line-height:1.2}
+.demo-hero h1 em{color:var(--gold);font-style:normal}
+.demo-hero p{font-size:1rem;color:#9A9290;max-width:580px;margin:0 auto 1.5rem;line-height:1.6}
+.hero-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .num{font-family:var(--font-display);font-size:1.8rem;color:var(--gold-light);display:block}
+.hero-stat .lbl{font-size:.75rem;color:#6A6268}
+
+/* ── LEAD FLOW ────────────────────────────────────── */
+.section{padding:2.5rem 2rem;max-width:1100px;margin:0 auto}
+.section-head{margin-bottom:1.5rem}
+.section-label{font-size:.7rem;color:var(--gold);letter-spacing:.2em;font-weight:500;margin-bottom:.4rem}
+.section-head h2{font-family:var(--font-display);font-size:1.6rem;color:var(--white);line-height:1.2}
+.section-head p{font-size:.9rem;color:#9A9290;margin-top:.5rem;line-height:1.6}
+
+/* Lead flow steps */
+.flow-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-bottom:1.5rem}
+.flow-connector{
+  position:absolute;top:2.2rem;left:10%;right:10%;height:2px;
+  background:linear-gradient(90deg,var(--gold) 0%,#2E3040 100%);
+  z-index:0;
+}
+.flow-step{position:relative;z-index:1;text-align:center;padding:0 .5rem}
+.step-icon{
+  width:4.4rem;height:4.4rem;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1rem;font-size:1.4rem;
+  border:2px solid;
+}
+.step-icon.viador{background:#1E2232;border-color:var(--gold)}
+.step-icon.broker{background:#1A2A1A;border-color:#2E7D32}
+.step-num{
+  position:absolute;top:-.4rem;right:calc(50% - 2.2rem - .2rem);
+  width:1.2rem;height:1.2rem;border-radius:50%;
+  background:var(--gold);color:#fff;font-size:.6rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.step-title{font-size:.8rem;font-weight:500;color:var(--white);margin-bottom:.3rem}
+.step-body{font-size:.72rem;color:#7A7268;line-height:1.5}
+.step-who{
+  display:inline-block;font-size:.65rem;font-weight:500;
+  padding:.15rem .5rem;border-radius:10px;margin-top:.4rem;
+}
+.who-viador{background:#252840;color:var(--gold-light)}
+.who-broker{background:#1A2A1A;color:#6ABD6A}
+.who-investor{background:#2A1A1A;color:#E8A090}
+
+.flow-note{
+  background:#1E2130;border:1px solid #2E3040;border-radius:10px;
+  padding:1rem 1.25rem;display:flex;align-items:flex-start;gap:.75rem;
+}
+.flow-note-icon{font-size:1.2rem;flex-shrink:0;margin-top:.1rem}
+.flow-note p{font-size:.85rem;color:#9A9290;line-height:1.6}
+.flow-note strong{color:var(--white)}
+
+/* ── LIVE LISTINGS ────────────────────────────────── */
+.listings-section{padding:0 2rem 2.5rem;max-width:1100px;margin:0 auto}
+.filters-bar{
+  display:flex;gap:.75rem;margin-bottom:1.25rem;flex-wrap:wrap;align-items:center;
+}
+.filter-label{font-size:.75rem;color:#6A6268}
+.filter-btn{
+  padding:.35rem .85rem;border-radius:20px;font-size:.75rem;font-weight:500;
+  cursor:pointer;border:1px solid #2E3040;background:#1E2130;color:#9A9290;
+  transition:all .15s;
+}
+.filter-btn.active{background:var(--gold);color:#fff;border-color:var(--gold)}
+.filter-btn:hover:not(.active){border-color:var(--gold);color:var(--gold)}
+.listings-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+
+.listing-card{
+  background:#1E2130;border:1px solid #2E3040;border-radius:var(--r);
+  overflow:hidden;transition:border-color .15s,transform .15s;cursor:pointer;
+}
+.listing-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.listing-card.top{border-color:var(--gold)}
+.card-img{width:100%;height:140px;object-fit:cover;display:block;position:relative}
+.card-img-wrap{position:relative}
+.score-pill{
+  position:absolute;top:.6rem;right:.6rem;
+  padding:.25rem .6rem;border-radius:6px;font-size:.75rem;font-weight:700;
+  font-family:var(--font-display);
+}
+.score-a{background:#1B5E20;color:#fff}
+.score-b{background:#1565C0;color:#fff}
+.best-badge{
+  position:absolute;top:.6rem;left:.6rem;
+  background:var(--gold);color:#fff;
+  font-size:.65rem;font-weight:600;padding:.2rem .5rem;border-radius:4px;letter-spacing:.05em;
+}
+.attribution{
+  position:absolute;bottom:.4rem;left:.4rem;
+  background:rgba(26,28,36,.85);color:#9A9290;
+  font-size:.6rem;padding:.15rem .4rem;border-radius:4px;
+}
+.card-body{padding:.9rem}
+.card-price{font-size:1.1rem;font-weight:500;color:var(--white);margin-bottom:.2rem}
+.card-addr{font-size:.75rem;color:#6A6268;margin-bottom:.6rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-metrics{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-bottom:.75rem}
+.metric{background:#141620;border-radius:6px;padding:.4rem .5rem;text-align:center}
+.metric-val{font-size:.85rem;font-weight:500}
+.metric-val.green{color:#5BAD5B}
+.metric-val.blue{color:#64B5F6}
+.metric-val.gold{color:var(--gold-light)}
+.metric-lbl{font-size:.6rem;color:#6A6268;margin-top:.1rem}
+.card-btn{
+  width:100%;padding:.55rem;border-radius:6px;border:none;
+  background:var(--gold);color:#fff;font-size:.8rem;font-weight:500;
+  cursor:pointer;font-family:var(--font-body);transition:opacity .2s;
+}
+.card-btn:hover{opacity:.9}
+
+/* ── SCORE ALGO ───────────────────────────────────── */
+.algo-section{
+  background:#1E2130;border-top:1px solid #2E3040;
+  border-bottom:1px solid #2E3040;padding:2rem;
+}
+.algo-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.algo-controls{}
+.algo-title{font-family:var(--font-display);font-size:1.2rem;color:var(--white);margin-bottom:.3rem}
+.algo-sub{font-size:.8rem;color:#7A7268;margin-bottom:1.25rem;line-height:1.5}
+.weight-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.9rem}
+.weight-label{font-size:.8rem;color:#9A9290;width:7rem;flex-shrink:0}
+.weight-slider{flex:1}
+.weight-val{font-size:.8rem;font-weight:500;color:var(--white);width:2.5rem;text-align:right}
+.weight-bar-track{height:4px;background:#2E3040;border-radius:2px;margin-top:.3rem;overflow:hidden}
+.weight-bar-fill{height:100%;background:var(--gold);border-radius:2px;transition:width .3s}
+.total-row{font-size:.75rem;color:#6A6268;text-align:right;margin-top:.25rem}
+.total-row span{color:var(--gold)}
+.assump-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1.25rem}
+.assump-row label{font-size:.7rem;color:#6A6268;display:block;margin-bottom:.2rem}
+.assump-row input{
+  width:100%;padding:.45rem .6rem;border-radius:6px;
+  background:#141620;border:1px solid #2E3040;color:var(--white);
+  font-size:.8rem;font-family:var(--font-body);
+}
+.assump-row input:focus{outline:none;border-color:var(--gold)}
+.recalc-btn{
+  width:100%;padding:.65rem;border-radius:6px;
+  background:var(--gold);color:#fff;border:none;
+  font-size:.85rem;font-weight:500;cursor:pointer;margin-top:.8rem;font-family:var(--font-body);
+}
+.top3-panel{}
+.top3-title{font-family:var(--font-display);font-size:1.1rem;color:var(--white);margin-bottom:1rem}
+.top3-item{
+  display:flex;align-items:center;gap:.75rem;
+  padding:.7rem 0;border-bottom:1px solid #2E3040;
+}
+.top3-item:last-child{border-bottom:none}
+.rank-circle{
+  width:1.8rem;height:1.8rem;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;
+}
+.r1{background:var(--gold);color:#fff}
+.r2{background:#888;color:#fff}
+.r3{background:#A07840;color:#fff}
+.top3-addr{flex:1;font-size:.8rem;color:#9A9290}
+.top3-score{font-size:1rem;font-weight:700;font-family:var(--font-display)}
+.top3-score.a{color:#5BAD5B}
+.top3-score.b{color:#64B5F6}
+
+/* ── CTA SECTION ──────────────────────────────────── */
+.cta-section{
+  padding:3rem 2rem;text-align:center;
+  background:linear-gradient(180deg,var(--char) 0%,#1A1C2C 100%);
+}
+.cta-section h2{font-family:var(--font-display);font-size:1.8rem;color:var(--white);margin-bottom:.75rem}
+.cta-section p{font-size:.9rem;color:#9A9290;max-width:480px;margin:0 auto 2rem;line-height:1.6}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.cta-btn-primary{
+  padding:.85rem 2rem;background:var(--gold);color:#fff;border:none;
+  border-radius:8px;font-size:1rem;font-weight:500;cursor:pointer;font-family:var(--font-body);
+  text-decoration:none;display:inline-block;
+}
+.cta-btn-secondary{
+  padding:.85rem 2rem;background:transparent;color:var(--gold);
+  border:1px solid var(--gold);border-radius:8px;font-size:1rem;font-weight:500;
+  cursor:pointer;font-family:var(--font-body);text-decoration:none;display:inline-block;
+}
+.cta-contact{margin-top:2rem;font-size:.85rem;color:#6A6268}
+.cta-contact a{color:var(--gold-light);text-decoration:none}
+.nmls{font-size:.7rem;color:#4A4A5A;margin-top:1rem}
+
+/* ── HOUSE SVGs ───────────────────────────────────── */
+.house-svg{width:100%;height:140px;display:block}
+
+input[type="range"]{
+  -webkit-appearance:none;width:100%;height:4px;border-radius:2px;
+  background:#2E3040;outline:none;cursor:pointer;
+}
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:14px;height:14px;border-radius:50%;
+  background:var(--gold);cursor:pointer;
+}
+</style></head>
+<body>
+
+<!-- ══ GATE ══════════════════════════════════════════════ -->
+<div id="gate">
+  <div class="gate-card">
+    <div class="gate-logo">VIADOR</div>
+    <div class="gate-sub">MARKETS · PARTNER PREVIEW</div>
+    <h1>Broker Demo Access</h1>
+    <p>This is a private preview of the Viador Markets platform. Enter the access code provided by Viador Partners to continue.</p>
+    <input class="gate-input" type="password" id="pwd" placeholder="Enter access code" maxlength="20" autocomplete="off"/>
+    <button class="gate-btn" onclick="checkPassword()">Access Demo</button>
+    <div class="gate-error" id="gate-error">Incorrect access code. Please contact chad@viadorpartners.com</div>
+    <div class="gate-expire" id="gate-expire"></div>
+    <div class="gate-timer" id="gate-timer-msg">This demo link expires after a limited time.</div>
+  </div>
+</div>
+
+<!-- ══ DEMO ══════════════════════════════════════════════ -->
+<div id="demo">
+
+  <!-- Nav -->
+  <nav class="demo-nav">
+    <div>
+      <div class="demo-logo">Viador Markets <span>PARTNER PREVIEW · CONFIDENTIAL</span></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:1.25rem">
+      <span class="session-timer">Session expires: <span id="countdown">--:--</span></span>
+      <span class="demo-badge">BROKER DEMO</span>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="demo-hero">
+    <h1>Your listings.<br/><em>More buyers.</em> Zero cost.</h1>
+    <p>This is a live preview of what Viador Markets looks like when your MLS data is connected. Every listing shows investment metrics — and qualified buyers arrive pre-screened before they contact you.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="num">$0</span><span class="lbl">Cost to your brokerage</span></div>
+      <div class="hero-stat"><span class="num">25K+</span><span class="lbl">Investor audience</span></div>
+      <div class="hero-stat"><span class="num">48hr</span><span class="lbl">From yes to live</span></div>
+      <div class="hero-stat"><span class="num">100%</span><span class="lbl">Pre-qualified leads</span></div>
+    </div>
+  </div>
+
+  <!-- Lead Flow -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-label">HOW LEADS REACH YOU</div>
+      <h2>Every lead is pre-qualified before it lands in your inbox</h2>
+      <p>Viador handles the first touch. By the time a buyer reaches you, they have confirmed financing, a specific property in mind, and a real timeline. You never receive a cold lead.</p>
+    </div>
+
+    <div style="position:relative;margin-bottom:1.5rem">
+      <div class="flow-connector"></div>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="step-icon viador" style="font-size:1.5rem">🔍</div>
+          <div class="step-num">1</div>
+          <div class="step-title">Investor browses</div>
+          <div class="step-body">Finds a property on Viador Markets. Reviews investment score, cash flow, and cap rate estimate.</div>
+          <span class="step-who who-investor">Investor</span>
+        </div>
+        <div class="flow-step">
+          <div class="step-icon viador" style="font-size:1.5rem">📋</div>
+          <div class="step-num">2</div>
+          <div class="step-title">Submits interest</div>
+          <div class="step-body">Clicks "Get Financing" — HubSpot captures their name, target property, and purchase timeline.</div>
+          <span class="step-who who-investor">Investor</span>
+        </div>
+        <div class="flow-step">
+          <div class="step-icon viador" style="font-size:1.5rem">📞</div>
+          <div class="step-num">3</div>
+          <div class="step-title">Viador pre-qualifies</div>
+          <div class="step-body">Viador Partners calls within 24 hours. Confirms purchase price qualification, timeline, and agent status.</div>
+          <span class="step-who who-viador">Viador</span>
+        </div>
+        <div class="flow-step">
+          <div class="step-icon broker" style="font-size:1.5rem">🤝</div>
+          <div class="step-num">4</div>
+          <div class="step-title">Warm handoff</div>
+          <div class="step-body">Viador Partners introduces the buyer to you directly — with the specific property, financing status, and timeline confirmed.</div>
+          <span class="step-who who-viador">Viador → You</span>
+        </div>
+        <div class="flow-step">
+          <div class="step-icon broker" style="font-size:1.5rem">🏠</div>
+          <div class="step-num">5</div>
+          <div class="step-title">You close the deal</div>
+          <div class="step-body">You receive a named buyer, a specific property, confirmed financing, and a real close date. You close the deal.</div>
+          <span class="step-who who-broker">Your Brokerage</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-note">
+      <div class="flow-note-icon">💡</div>
+      <p><strong>Why Viador calls first:</strong> We pre-qualify every investor before making an introduction. If they have an agent, we still help with financing — no referral sent. If they need an agent, you get a call from Chad personally with full context. You never receive an unscreened lead. The moment your brokerage is introduced, the investor already knows who you are and why you're calling.</p>
+    </div>
+  </div>
+
+  <!-- Live Listings -->
+  <div class="listings-section">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:.75rem">
+      <div>
+        <div class="section-label">LIVE LISTINGS</div>
+        <div style="font-family:var(--font-display);font-size:1.2rem;color:var(--white)">Tampa Bay &amp; Columbus — ranked by investment score</div>
+      </div>
+      <div class="filters-bar" style="margin-bottom:0">
+        <span class="filter-label">Sort by:</span>
+        <button class="filter-btn active" onclick="setSort(this,'score')">Best score</button>
+        <button class="filter-btn" onclick="setSort(this,'cashflow')">Cash flow</button>
+        <button class="filter-btn" onclick="setSort(this,'cap')">Cap rate</button>
+        <button class="filter-btn" onclick="setSort(this,'equity')">Upside</button>
+      </div>
+    </div>
+    <div class="listings-grid" id="listings-grid"></div>
+  </div>
+
+  <!-- Score Algorithm -->
+  <div class="algo-section">
+    <div class="algo-inner">
+      <div class="algo-controls">
+        <div class="algo-title">Adjust the scoring algorithm</div>
+        <div class="algo-sub">Investors tune weights to their strategy. A cash flow buyer scores differently than a value-add investor. Scores recalculate live — so do the Top 3 picks.</div>
+        <div id="weight-controls"></div>
+        <div class="total-row">Weights total: <span id="weight-total">100%</span></div>
+        <div class="assump-grid" id="assump-controls"></div>
+        <button class="recalc-btn" onclick="renderListings()">Recalculate all scores</button>
+      </div>
+      <div class="top3-panel">
+        <div class="top3-title">Top 3 picks right now</div>
+        <div id="top3-list"></div>
+        <div style="margin-top:1.25rem;padding:1rem;background:#141620;border-radius:8px;border:1px solid #2E3040">
+          <div style="font-size:.75rem;color:#6A6268;margin-bottom:.5rem">YOUR BROKERAGE ATTRIBUTION</div>
+          <div style="font-size:.85rem;color:#9A9290;line-height:1.6">Every listing on Viador Markets displays your brokerage name as the data source. Every buyer inquiry routes back through you. <strong style="color:var(--white)">Your brand appears on every page, every day.</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Ready to launch Viador Markets<br/>in your market?</h2>
+    <p>15-minute call. One MLS authorization form. Live in two weeks. No cost, no contract, no ongoing work.</p>
+    <div class="cta-btns">
+      <a href="mailto:chad@viadorpartners.com?subject=Viador Markets Partnership — Let's Talk&body=Hi Chad, I viewed the Viador Markets demo and I'm interested in discussing the partnership. Please reach out." class="cta-btn-primary">Email Chad to Schedule a Call</a>
+      <a href="tel:+18134192983" class="cta-btn-secondary">Call (813) 419-2983</a>
+    </div>
+    <div class="cta-contact">chad@viadorpartners.com · (813) 419-2983 · <a href="https://viadorpartners.com">viadorpartners.com</a></div>
+    <div class="nmls">Viador Partners | NMLS #2822744 · Viador Partners LLC · EIN 41-4907672 · Not a commitment to lend · For informational purposes only</div>
+  </div>
+
+</div><!-- /demo -->
+
+<script>
+// ── CONFIG ─────────────────────────────────────────────
+// Passwords map to expiry durations (hours from now)
+// Change these before sending to each broker
+const PASSWORDS = {
+  'VIADOR2026':  72,   // General demo — 3 days
+  'PLUMTREE26':  168,  // Chris Russell — 7 days
+  'PARTNER26':   48,   // Generic partner link — 2 days
+};
+
+const SESSION_MINUTES = 45; // Session length once logged in
+
+// ── GATE ───────────────────────────────────────────────
+function checkPassword() {
+  const input = document.getElementById('pwd').value.trim().toUpperCase();
+  const err = document.getElementById('gate-error');
+  const exp = document.getElementById('gate-expire');
+
+  if (PASSWORDS[input] !== undefined) {
+    err.style.display = 'none';
+    // Store session
+    const expiry = Date.now() + PASSWORDS[input] * 3600000;
+    sessionStorage.setItem('vm_auth', JSON.stringify({ pw: input, expiry, loginTime: Date.now() }));
+    launchDemo();
+  } else {
+    err.style.display = 'block';
+    document.getElementById('pwd').value = '';
+  }
+}
+
+document.getElementById('pwd').addEventListener('keydown', e => {
+  if (e.key === 'Enter') checkPassword();
+});
+
+// Check existing session
+function checkSession() {
+  try {
+    const data = JSON.parse(sessionStorage.getItem('vm_auth') || 'null');
+    if (data && Date.now() < data.expiry) {
+      launchDemo();
+      return true;
+    }
+  } catch(e) {}
+  return false;
+}
+
+function launchDemo() {
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('demo').style.display = 'block';
+  startCountdown();
+  buildWeightControls();
+  buildAssumpControls();
+  renderListings();
+}
+
+// ── SESSION COUNTDOWN ──────────────────────────────────
+function startCountdown() {
+  const end = Date.now() + SESSION_MINUTES * 60000;
+  const el = document.getElementById('countdown');
+  function tick() {
+    const rem = Math.max(0, end - Date.now());
+    const m = Math.floor(rem / 60000);
+    const s = Math.floor((rem % 60000) / 1000);
+    el.textContent = `${m}:${s.toString().padStart(2,'0')}`;
+    if (rem <= 0) {
+      document.getElementById('demo').innerHTML = '<div style="text-align:center;padding:4rem;color:#9A9290"><h2 style="font-family:var(--font-display);color:var(--white);margin-bottom:1rem">Session Expired</h2><p>Please contact Chad for a new access link.</p><p style="margin-top:1rem"><a href="mailto:chad@viadorpartners.com" style="color:var(--gold)">chad@viadorpartners.com</a> · (813) 419-2983</p></div>';
+    } else {
+      setTimeout(tick, 1000);
+    }
+  }
+  tick();
+}
+
+// ── DATA ───────────────────────────────────────────────
+const props = [
+  { price:389000, addr:'4821 Cypress Ln',   city:'Tampa', state:'FL',   bed:3, bath:2, sqft:1640, rent:2550, arv:430000, houseType:1 },
+  { price:524900, addr:'1107 Harbor Dr',    city:'St. Pete', state:'FL', bed:4, bath:3, sqft:2100, rent:3400, arv:580000, houseType:2 },
+  { price:298500, addr:'556 Pine Blvd',     city:'Columbus', state:'OH', bed:3, bath:1, sqft:1240, rent:1900, arv:335000, houseType:3 },
+  { price:675000, addr:'2233 Bay Shore Dr', city:'Tampa', state:'FL',   bed:4, bath:3, sqft:2440, rent:4200, arv:730000, houseType:2 },
+  { price:442000, addr:'671 River Rd',      city:'Columbus', state:'OH', bed:3, bath:2, sqft:1780, rent:2650, arv:480000, houseType:1 },
+  { price:195000, addr:'1342 Oak Hill Ave', city:'Columbus', state:'OH', bed:2, bath:1, sqft:980,  rent:1350, arv:225000, houseType:3 },
+  { price:312000, addr:'2290 Maple Grove',  city:'Columbus', state:'OH', bed:4, bath:2, sqft:1980, rent:2400, arv:360000, houseType:4 },
+  { price:610000, addr:'8801 Waterfront Ct',city:'Tampa', state:'FL',   bed:3, bath:2, sqft:1920, rent:3600, arv:650000, houseType:2 },
+];
+
+// House SVG generator — 4 styles
+function houseSVG(type, priceK) {
+  const palettes = [
+    { sky:'5B8FA8', house:'E8D5B7', roof:'8B4513', trim:'D4C0A0', win:'B8CDD8' },
+    { sky:'4A7C9B', house:'D4C4A8', roof:'6B3A2A', trim:'C0B090', win:'A8C0CC' },
+    { sky:'6B9FB8', house:'C8B898', roof:'7A4530', trim:'B4A488', win:'ACCBC8' },
+    { sky:'527A95', house:'DDD0B8', roof:'754028', trim:'C8B8A0', win:'B0C8C0' },
+  ];
+  const p = palettes[(type-1)%4];
+  const layouts = [
+    // Type 1: classic ranch
+    `<rect x="0" y="0" width="300" height="140" fill="#${p.sky}"/>
+     <rect x="0" y="88" width="300" height="52" fill="#4A7832"/>
+     <rect x="60" y="45" width="180" height="60" fill="#${p.house}"/>
+     <polygon points="50,46 150,18 250,46" fill="#${p.roof}"/>
+     <rect x="120" y="80" width="30" height="25" fill="#7A5030"/>
+     <rect x="72" y="55" width="28" height="20" fill="#${p.win}"/><rect x="76" y="55" width="1" height="20" fill="#0003"/><rect x="72" y="64" width="28" height="1" fill="#0003"/>
+     <rect x="112" y="55" width="28" height="20" fill="#${p.win}"/><rect x="116" y="55" width="1" height="20" fill="#0003"/><rect x="112" y="64" width="28" height="1" fill="#0003"/>
+     <rect x="168" y="55" width="28" height="20" fill="#${p.win}"/><rect x="172" y="55" width="1" height="20" fill="#0003"/>
+     <rect x="130" y="100" width="40" height="10" fill="#B0A898"/>`,
+    // Type 2: two-story colonial
+    `<rect x="0" y="0" width="300" height="140" fill="#${p.sky}"/>
+     <rect x="0" y="95" width="300" height="45" fill="#3D6828"/>
+     <rect x="55" y="35" width="190" height="75" fill="#${p.house}"/>
+     <polygon points="45,36 150,8 255,36" fill="#${p.roof}"/>
+     <rect x="125" y="85" width="35" height="25" fill="#7A5030"/>
+     <rect x="65" y="45" width="26" height="18" fill="#${p.win}"/><rect x="109" y="45" width="26" height="18" fill="#${p.win}"/>
+     <rect x="165" y="45" width="26" height="18" fill="#${p.win}"/><rect x="209" y="45" width="26" height="18" fill="#${p.win}"/>
+     <rect x="65" y="70" width="26" height="18" fill="#${p.win}"/><rect x="209" y="70" width="26" height="18" fill="#${p.win}"/>`,
+    // Type 3: craftsman bungalow
+    `<rect x="0" y="0" width="300" height="140" fill="#${p.sky}"/>
+     <rect x="0" y="92" width="300" height="48" fill="#55803C"/>
+     <rect x="65" y="42" width="170" height="65" fill="#${p.house}"/>
+     <polygon points="55,43 150,12 245,43" fill="#${p.roof}"/>
+     <rect x="55" y="55" width="190" height="12" fill="#${p.roof}" opacity=".8"/>
+     <rect x="118" y="78" width="32" height="29" fill="#6A4020"/>
+     <rect x="75" y="52" width="24" height="18" fill="#${p.win}"/>
+     <rect x="155" y="52" width="24" height="18" fill="#${p.win}"/>
+     <rect x="200" y="52" width="24" height="18" fill="#${p.win}"/>`,
+    // Type 4: modern/contemporary
+    `<rect x="0" y="0" width="300" height="140" fill="#${p.sky}"/>
+     <rect x="0" y="95" width="300" height="45" fill="#4A7532"/>
+     <rect x="50" y="40" width="200" height="70" fill="#${p.house}"/>
+     <rect x="50" y="40" width="200" height="10" fill="#${p.roof}"/>
+     <rect x="50" y="38" width="200" height="4" fill="#${p.roof}"/>
+     <rect x="155" y="80" width="40" height="30" fill="#6A4428"/>
+     <rect x="60" y="55" width="40" height="30" fill="#${p.win}" opacity=".9"/>
+     <rect x="108" y="55" width="35" height="30" fill="#${p.win}" opacity=".9"/>
+     <rect x="210" y="50" width="30" height="35" fill="#${p.win}" opacity=".9"/>`,
+  ];
+  return `<svg class="house-svg" viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">${layouts[(type-1)%4]}</svg>`;
+}
+
+// ── WEIGHT CONTROLS ────────────────────────────────────
+const weights = { cashflow:30, dscr:25, cap:25, equity:20 };
+const wLabels = { cashflow:'Cash flow', dscr:'DSCR ratio', cap:'Cap rate', equity:'ARV upside' };
+const assump = { dp:25, rate:7.5, vac:5, exp:35 };
+const aLabels = { dp:'Down payment %', rate:'Rate %', vac:'Vacancy %', exp:'Expenses % of rent' };
+
+function buildWeightControls() {
+  const el = document.getElementById('weight-controls');
+  el.innerHTML = Object.keys(weights).map(k => `
+    <div class="weight-row">
+      <div class="weight-label">${wLabels[k]}</div>
+      <input type="range" class="weight-slider" min="0" max="40" step="5" value="${weights[k]}"
+        oninput="weights['${k}']=+this.value;updateWeightDisplay();renderListings()"/>
+      <div class="weight-val" id="wv-${k}">${weights[k]}%</div>
+    </div>
+    <div class="weight-bar-track"><div class="weight-bar-fill" id="wb-${k}" style="width:${weights[k]/40*100}%"></div></div>
+  `).join('');
+}
+
+function buildAssumpControls() {
+  const el = document.getElementById('assump-controls');
+  el.innerHTML = Object.keys(assump).map(k => `
+    <div class="assump-row">
+      <label>${aLabels[k]}</label>
+      <input type="text" value="${assump[k]}%" oninput="assump['${k}']=parseFloat(this.value)||${assump[k]};renderListings()"/>
+    </div>
+  `).join('');
+}
+
+function updateWeightDisplay() {
+  let total = 0;
+  Object.keys(weights).forEach(k => {
+    document.getElementById('wv-'+k).textContent = weights[k]+'%';
+    document.getElementById('wb-'+k).style.width = (weights[k]/40*100)+'%';
+    total += weights[k];
+  });
+  const tot = document.getElementById('weight-total');
+  tot.textContent = total+'%';
+  tot.style.color = total===100 ? 'var(--gold)' : '#E05252';
+}
+
+// ── CALC ───────────────────────────────────────────────
+function calcProp(p) {
+  const dp = assump.dp/100, rate = assump.rate/100/12, vac = assump.vac/100, exp = assump.exp/100;
+  const loan = p.price*(1-dp);
+  const pmt = loan*(rate*Math.pow(1+rate,360))/(Math.pow(1+rate,360)-1);
+  const taxins = p.price*0.015/12;
+  const pitia = pmt+taxins;
+  const effRent = p.rent*(1-vac);
+  const noi = effRent - p.rent*exp;
+  const cashflow = Math.round(noi-pitia);
+  const dscr = parseFloat((effRent/pitia).toFixed(2));
+  const capRate = parseFloat(((noi*12/p.price)*100).toFixed(1));
+  const equity = Math.round(((p.arv-p.price)/p.price)*100);
+  return { cashflow, dscr, capRate, equity, pitia:Math.round(pitia), noi:Math.round(noi) };
+}
+
+function scoreComponent(val,min,max){ return Math.min(100,Math.max(0,Math.round((val-min)/(max-min)*100))); }
+
+function calcScore(m) {
+  const total = Object.values(weights).reduce((a,b)=>a+b,0)||100;
+  return Math.round((
+    scoreComponent(m.cashflow,-200,800)*weights.cashflow +
+    scoreComponent(m.dscr,0.8,1.6)*weights.dscr +
+    scoreComponent(m.capRate,3,9)*weights.cap +
+    scoreComponent(m.equity,0,25)*weights.equity
+  )/total);
+}
+
+function grade(s){ return s>=85?'A':s>=70?'B':s>=55?'C':'D'; }
+
+let sortKey = 'score';
+function setSort(btn, key) {
+  sortKey = key;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderListings();
+}
+
+// ── RENDER ─────────────────────────────────────────────
+function renderListings() {
+  const scored = props.map(p => ({ ...p, m:calcProp(p), score:0 }));
+  scored.forEach(p => p.score = calcScore(p.m));
+  scored.sort((a,b) => {
+    if(sortKey==='cashflow') return b.m.cashflow-a.m.cashflow;
+    if(sortKey==='cap') return b.m.capRate-a.m.capRate;
+    if(sortKey==='equity') return b.m.equity-a.m.equity;
+    return b.score-a.score;
+  });
+
+  const grid = document.getElementById('listings-grid');
+  grid.innerHTML = scored.map((p,i) => {
+    const g = grade(p.score);
+    const scoreClass = g==='A'?'score-a':'score-b';
+    const cfColor = p.m.cashflow>=300?'green':p.m.cashflow>=100?'blue':'';
+    const dscrColor = p.m.dscr>=1.25?'green':p.m.dscr>=1.0?'blue':'';
+    return `
+      <div class="listing-card ${i===0?'top':''}">
+        <div class="card-img-wrap">
+          ${houseSVG(p.houseType, Math.round(p.price/1000))}
+          <span class="${scoreClass} score-pill">${p.score} ${g}</span>
+          ${i===0?'<span class="best-badge">BEST PICK</span>':''}
+          <span class="attribution">via Plumtree Realty</span>
+        </div>
+        <div class="card-body">
+          <div class="card-price">$${p.price.toLocaleString()}</div>
+          <div class="card-addr">${p.addr}, ${p.city}, ${p.state}</div>
+          <div style="font-size:.72rem;color:#6A6268;margin-bottom:.6rem">${p.bed}bd · ${p.bath}ba · ${p.sqft.toLocaleString()} sf</div>
+          <div class="card-metrics">
+            <div class="metric">
+              <div class="metric-val ${cfColor}">$${p.m.cashflow.toLocaleString()}/mo</div>
+              <div class="metric-lbl">Cash flow</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val ${dscrColor}">${p.m.dscr}</div>
+              <div class="metric-lbl">DSCR</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val gold">${p.m.capRate}%</div>
+              <div class="metric-lbl">Cap rate</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">${p.m.equity>0?'+':''}${p.m.equity}%</div>
+              <div class="metric-lbl">ARV upside</div>
+            </div>
+          </div>
+          <button class="card-btn">Buyer pre-qualified → Get financing</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // Top 3
+  const top3 = document.getElementById('top3-list');
+  top3.innerHTML = scored.slice(0,3).map((p,i) => `
+    <div class="top3-item">
+      <div class="rank-circle r${i+1}">${i+1}</div>
+      <div class="top3-addr">${p.addr}, ${p.city}</div>
+      <div class="top3-score ${grade(p.score).toLowerCase()}">${p.score}</div>
+    </div>
+  `).join('');
+}
+
+// Init
+checkSession();
+</script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/245454217.js"></script>
+</body>
+</html>

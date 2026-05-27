@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conventional Investment Property Loans — When They Work & When They Don't | Viador Partners</title>
+  <meta name="description" content="Conventional investment property loans: requirements, down payments, rate add-ons, and why most serious investors eventually move to DSCR. Straight talk from a licensed MLO."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.viadorpartners.com/conventional-investment-property-loans"/>
+  <meta property="og:title" content="Conventional Investment Property Loans — When They Work & When They Don't | Viador Partners"/>
+  <meta property="og:description" content="Conventional investment property loans: requirements, down payments, rate add-ons, and why most serious investors eventually move to DSCR. Straight talk from a licensed MLO."/>
+  <meta property="og:image" content="https://www.viadorpartners.com/og-image.jpg"/>
+  <link rel="canonical" href="https://www.viadorpartners.com/conventional-investment-property-loans"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LoanOrCredit",
+        "name": "Conventional Investment <em>Property Loans</em>",
+        "provider": {
+          "@type": "Person",
+          "name": "Chad Evers",
+          "jobTitle": "Licensed Mortgage Loan Originator",
+          "hasCredential": "NMLS #2822744",
+          "worksFor": {"@type":"Organization","name":"Viador Partners LLC"}
+        },
+        "url": "https://www.viadorpartners.com/conventional-investment-property-loans"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":'What is the minimum down payment for a conventional investment property loan?',"acceptedAnswer":{"@type":"Answer","text":'The minimum is 15% for a single-unit investment property, but you will pay private mortgage insurance (PMI). To avoid PMI, you need 20–25% down. For 2–4 unit investment properties, the minimum is 25%.'}},
+    {"@type":"Question","name":'How many investment properties can I finance conventionally?',"acceptedAnswer":{"@type":"Answer","text":'Fannie Mae guidelines allow a maximum of 10 financed properties per borrower (including your primary residence). Once you reach 10, you cannot get additional conventional investment property loans and must use DSCR, portfolio, or other non-QM programs.'}},
+    {"@type":"Question","name":'Do conventional lenders count rental income toward qualification?',"acceptedAnswer":{"@type":"Answer","text":'Yes, but only 75% of documented rental income can offset the property payment. If a property rents for $2,000/month, conventional lenders use $1,500 toward your DTI calculation.'}},
+    {"@type":"Question","name":'Is the rate difference between conventional and DSCR worth it?',"acceptedAnswer":{"@type":"Answer","text":'Often less than investors expect, once Loan Level Price Adjustments are applied to conventional investment property loans. Run the actual rate quotes for both options before assuming conventional is cheaper.'}},
+    {"@type":"Question","name":'Can I put an investment property in an LLC with a conventional loan?',"acceptedAnswer":{"@type":"Answer","text":'No. Conventional loans backed by Fannie Mae or Freddie Mac require personal vesting. Closing in an LLC triggers the due-on-sale clause. DSCR and BPL loans are the appropriate structure for LLC vesting.'}},
+    {"@type":"Question","name":'What happens when I hit the 10 conventional property limit?',"acceptedAnswer":{"@type":"Answer","text":'You move to DSCR loans, portfolio loans, or commercial financing. DSCR loans are the most common next step — similar process, no portfolio cap, and entity-friendly. Most serious investors shift to DSCR well before hitting the 10-property limit anyway.'}}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    .guide-hero{background:var(--ink);color:var(--cream);padding:140px 0 72px}
+    .guide-hero-inner{max-width:720px}
+    .guide-eyebrow{font-family:'Inter',system-ui,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+    .guide-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+    .guide-h1{font-family:'Inter',system-ui,sans-serif;font-size:clamp(36px,5vw,60px);font-weight: 700;line-height:1.08;letter-spacing:-.02em;margin-bottom:20px}
+    .guide-h1 em{font-style:italic;color:var(--gold)}
+    .guide-sub{font-size:18px;line-height:1.7;color:rgba(247,243,238,.7);max-width:580px;margin-bottom:36px}
+    .guide-meta{display:flex;gap:24px;flex-wrap:wrap}
+    .guide-meta-item{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,243,238,.4);display:flex;align-items:center;gap:6px}
+    .guide-meta-item::before{content:'·';color:var(--gold)}
+    .guide-wrap{max-width:1100px;margin:0 auto;padding:72px 48px 120px;display:grid;grid-template-columns:1fr 260px;gap:72px;align-items:start}
+    .guide-article{min-width:0}
+    .guide-sidebar{position:sticky;top:100px}
+    .guide-h2{font-family:'Inter',system-ui,sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--ink);margin:48px 0 16px;line-height:1.2}
+    .guide-p{font-size:16px;line-height:1.8;color:var(--ink-soft);margin-bottom:18px}
+    .guide-ul{margin:0 0 20px 0;padding-left:24px}
+    .guide-ul li{font-size:16px;line-height:1.7;color:var(--ink-soft);margin-bottom:8px}
+    .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+    .stat-card{background:var(--cream);border:1px solid var(--line);padding:24px 20px;text-align:center}
+    .stat-num{font-family:'Inter',system-ui,sans-serif;font-size:36px;font-weight: 700;color:var(--gold);display:block;margin-bottom:4px}
+    .stat-lab{font-size:12px;color:var(--ink-soft)}
+    .callout-box{background:var(--ink);color:var(--cream);padding:32px 36px;margin:32px 0}
+    .callout-box h3{font-family:'Inter',system-ui,sans-serif;font-size:20px;color:var(--gold);margin-bottom:12px}
+    .callout-box p{font-size:15px;line-height:1.7;color:rgba(247,243,238,.8)}
+    .g-toc{background:var(--ink);padding:24px 28px;margin-bottom:20px}
+    .g-toc-title{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+    .g-toc-list{list-style:none}
+    .g-toc-list li{border-bottom:1px solid rgba(255,255,255,.06)}
+    .g-toc-list li:last-child{border-bottom:none}
+    .g-toc-list a{display:block;padding:8px 0;font-size:13px;color:rgba(247,243,238,.6);text-decoration:none;transition:color .15s}
+    .g-toc-list a:hover{color:var(--gold)}
+    .g-cta{background:var(--gold);padding:28px 24px;text-align:center}
+    .g-cta h3{font-family:'Inter',system-ui,sans-serif;font-size:20px;color:#fff;margin-bottom:8px}
+    .g-cta p{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:16px}
+    .g-cta a{display:block;background:#fff;color:var(--gold);font-weight:700;padding:12px;font-size:14px;text-decoration:none}
+    .faq-section{margin:48px 0}
+    .faq-item{border-bottom:1px solid var(--line)}
+    .faq-q{width:100%;text-align:left;background:none;border:none;padding:20px 0;font-family:'Inter',system-ui,sans-serif;font-size:17px;font-weight:700;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .faq-q::after{content:'+';font-size:22px;color:var(--gold);flex-shrink:0;transition:transform .2s}
+    .faq-q.open::after{transform:rotate(45deg)}
+    .faq-a{display:none;padding:0 0 20px}
+    .faq-a.open{display:block}
+    .faq-a p{font-size:15px;line-height:1.8;color:var(--ink-soft)}
+    .related-links{margin:48px 0 0}
+    .related-links h3{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+    .related-link{display:block;font-size:14px;color:var(--gold);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--line)}
+    .related-link:hover{color:var(--ink)}
+    .cta-band{background:var(--ink);padding:80px 0;text-align:center}
+    .cta-band h2{font-family:'Inter',system-ui,sans-serif;font-size:clamp(28px,4vw,44px);color:var(--cream);margin-bottom:16px}
+    .cta-band p{font-size:16px;color:rgba(247,243,238,.6);max-width:500px;margin:0 auto 32px}
+    @media(max-width:768px){
+      .guide-wrap{grid-template-columns:1fr;padding:40px 24px 80px;gap:40px}
+      .guide-sidebar{position:static}
+      .stat-grid{grid-template-columns:1fr 1fr}
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+  {
+    "@type": "Person",
+    "@id": "https://www.viadorpartners.com/#chad-evers",
+    "name": "Chad Evers",
+    "jobTitle": "Licensed Mortgage Loan Originator",
+    "description": "Ohio roots. 20 years in lending — originating loans, building national mortgage teams from scratch, 3 years gaining global institutional experience at Citi. Left corporate life to build Viador Partners for the people the system was never designed to serve.",
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Mortgage Loan Originator License",
+      "credentialCategory": "NMLS",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Nationwide Multistate Licensing System (NMLS)"
+      },
+      "identifier": "NMLS #2822744"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "@id": "https://www.viadorpartners.com/#viador-partners",
+      "name": "Viador Partners LLC",
+      "url": "https://www.viadorpartners.com",
+      "telephone": "+18134192983",
+      "email": "chad@viadorpartners.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tampa",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Florida",
+        "Ohio"
+      ],
+      "knowsAbout": [
+        "DSCR Loans",
+        "Business Purpose Loans",
+        "Fix and Flip Loans",
+        "Bridge Loans",
+        "SBA Loans",
+        "Non-QM Mortgage",
+        "Investment Property Financing"
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/chad-evers",
+      "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2822744",
+      "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?searchTerm=viador+partners"
+    ],
+    "telephone": "+18134192983",
+    "email": "chad@viadorpartners.com",
+    "knowsAbout": [
+      "DSCR Loans",
+      "Real Estate Investment Financing",
+      "Business Purpose Loans",
+      "Non-QM Mortgage",
+      "Fix and Flip Loans",
+      "Bridge Financing",
+      "SBA Loans",
+      "Investment Property Cash-Out Refinance"
+    ]
+  },
+  {
+    "@type": "Organization",
+    "@id": "https://www.viadorpartners.com/#viador-partners",
+    "name": "Viador Partners LLC",
+    "url": "https://www.viadorpartners.com",
+    "logo": "https://www.viadorpartners.com/logo.png",
+    "telephone": "+18134192983",
+    "email": "chad@viadorpartners.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tampa",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "founder": {
+      "@id": "https://www.viadorpartners.com/#chad-evers"
+    },
+    "areaServed": [
+      "Florida",
+      "Ohio"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Investment Property Loan Programs",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "DSCR Loans",
+          "description": "Qualify on rental income, no W-2s required"
+        },
+        {
+          "@type": "Offer",
+          "name": "Fix and Flip Loans",
+          "description": "Short-term bridge financing for value-add properties"
+        },
+        {
+          "@type": "Offer",
+          "name": "Business Purpose Loans",
+          "description": "Entity-based real estate financing"
+        },
+        {
+          "@type": "Offer",
+          "name": "SBA Loans",
+          "description": "Government-backed loans for owner-occupied commercial real estate"
+        }
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/viador-partners",
+      "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?searchTerm=viador+partners"
+    ]
+  },
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.viadorpartners.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Conventional Investment Property Loans \u2014 When They Work & When They Don't",
+        "item": "https://www.viadorpartners.com/conventional-investment-property-loans"
+      }
+    ]
+  },
+  {
+    "@type": "WebPage",
+    "@id": "https://www.viadorpartners.com/conventional-investment-property-loans#webpage",
+    "url": "https://www.viadorpartners.com/conventional-investment-property-loans",
+    "name": "Conventional Investment Property Loans \u2014 When They Work & When They Don't | Viador Partners",
+    "description": "Conventional investment property loans: requirements, down payments, rate add-ons, and why most serious investors eventually move to DSCR. Straight talk from a licensed MLO.",
+    "author": {
+      "@id": "https://www.viadorpartners.com/#chad-evers"
+    },
+    "publisher": {
+      "@id": "https://www.viadorpartners.com/#viador-partners"
+    },
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://www.viadorpartners.com"
+    }
+  }
+]
+}
+</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".guide-h1", ".guide-sub", ".guide-h2", ".guide-p:first-of-type", ".callout-box h3"]
+  }
+  </script>
+</head>
+<body>
+  <header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+    <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown">
+        <a href="index.html#programs" class="nav-dropdown-trigger">Programs</a>
+        <div class="nav-dropdown-menu">
+          <a href="dscr.html">DSCR Loans</a>
+          <a href="fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="bpl.html">Business Purpose Loans</a>
+          <a href="non-qm-loans-florida.html">Non-QM / Bank Statement</a>
+          <a href="conventional-investment-property-loans.html">Conventional</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="investor-platform.html" class="nav-dropdown-trigger">Tools</a>
+        <div class="nav-dropdown-menu">
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="dscr-calculator.html">DSCR Calculator</a>
+          <a href="resources">Resources</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+    </nav>
+    <a href="index.html#dealform" class="nav-cta">Analyze My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="dscr.html">DSCR Loans</a>
+    <a href="fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="bpl.html">Business Purpose Loans</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="resources">Resources</a>
+    <a href="about.html">About</a>
+    <a href="index.html#dealform" class="drawer-cta">Analyze My Deal &rarr;</a>
+  </div>
+</header>
+  <section class="guide-hero">
+    <div class="container">
+      <div class="guide-hero-inner">
+        <div class="guide-eyebrow">Conventional Loans · Investment Property</div>
+        <h1 class="guide-h1">Conventional Investment <em>Property Loans</em></h1>
+        <p class="guide-sub">Conventional loans work for some investors. For many others, the restrictions kill deals before they start. Here is an honest breakdown of when they make sense and when they do not.</p>
+        <div class="guide-meta">
+          <span class="guide-meta-item">Viador Partners, NMLS #2822744</span>
+          <span class="guide-meta-item">20 Years Lending Experience</span>
+          <span class="guide-meta-item">Viador Partners LLC</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="guide-wrap">
+    <article class="guide-article">
+      <p class="guide-p">Conventional investment property loans — backed by Fannie Mae or Freddie Mac — are the default starting point for many investors because they offer the lowest rates of any investment property loan type. They are also the most restrictive. Understanding exactly what conventional loans require, where they break down, and what alternatives exist when they do not work is essential knowledge for any real estate investor building a portfolio.</p>
+      
+      <h2 class="guide-h2">Conventional Investment Property Loan Requirements</h2>
+      <p class="guide-p">Fannie Mae and Freddie Mac set the guidelines for conventional investment property loans. As of 2026, the core requirements are:</p>
+      <ul class="guide-ul">
+        <li><strong>Down payment:</strong> 15% minimum for 1-unit (but requires mortgage insurance), 25% for no-MI on 1-unit, 25–30% for 2–4 units</li>
+        <li><strong>Credit score:</strong> 620 minimum, but most lenders require 680+ for investment properties at competitive rates</li>
+        <li><strong>DTI (Debt-to-Income):</strong> Maximum 45%, counting all your personal debts plus the new property payment</li>
+        <li><strong>Income documentation:</strong> 2 years W-2s or tax returns, pay stubs, full income verification</li>
+        <li><strong>Property limit:</strong> Maximum 10 financed properties (Fannie Mae guidelines)</li>
+        <li><strong>Reserves:</strong> 2–6 months PITIA per property, increasing with portfolio size</li>
+        <li><strong>Rental income:</strong> Only 75% of documented rental income can be used to offset the payment</li>
+      </ul>
+      <div class="stat-grid">
+        <div class="stat-card"><span class="stat-num">10</span><span class="stat-lab">Max conventional financed properties</span></div>
+        <div class="stat-card"><span class="stat-num">25%</span><span class="stat-lab">Typical minimum down payment</span></div>
+        <div class="stat-card"><span class="stat-num">45%</span><span class="stat-lab">Max DTI ratio</span></div>
+      </div>
+      <h2 class="guide-h2">Conventional Loan Add-Ons for Investment Properties</h2>
+      <p class="guide-p">Conventional investment property loans carry pricing add-ons (called Loan Level Price Adjustments or LLPAs) that do not apply to primary residences. These increase the rate substantially:</p>
+      <ul class="guide-ul">
+        <li>Investment property base add-on: 1.5–3.75% depending on LTV and credit score</li>
+        <li>Credit score impact: a 700 score at 75% LTV adds approximately 2.125% to the rate</li>
+        <li>Multi-unit impact: 2–4 unit investment properties carry additional LLPAs</li>
+        <li>Cash-out refinance adds further pricing penalties on investment properties</li>
+      </ul>
+      <p class="guide-p">The result is that conventional investment property rates are often only marginally lower than DSCR rates — but with far more documentation requirements and restrictions. For many investors, the documentation burden is not worth the 0.25–0.5% rate improvement.</p>
+      <h2 class="guide-h2">When Conventional Investment Loans Make Sense</h2>
+      <p class="guide-p">Conventional loans work best for:</p>
+      <ul class="guide-ul">
+        <li><strong>First or second investment property</strong> for a W-2 employee with strong income and good credit</li>
+        <li><strong>Investors below the 10-property limit</strong> who have not yet hit portfolio size restrictions</li>
+        <li><strong>Strong DTI borrowers</strong> whose total monthly debt obligations are well below 45%</li>
+        <li><strong>Investors who cannot access the 20%+ down payment</strong> required for DSCR (15% down is possible conventionally, with MI)</li>
+        <li><strong>Borrowers prioritizing rate above all else</strong> who can meet all documentation requirements</li>
+      </ul>
+      <h2 class="guide-h2">When to Move to DSCR Instead</h2>
+      <p class="guide-p">DSCR loans are the better choice when:</p>
+      <ul class="guide-ul">
+        <li>You are at or near the 10-property conventional limit</li>
+        <li>Your tax returns show less income than you actually earn (self-employment write-offs)</li>
+        <li>Your DTI is too high due to multiple properties or business debt</li>
+        <li>You want to vest in an LLC or entity name</li>
+        <li>You need to close faster than 45–60 days</li>
+        <li>The property is a short-term rental or non-traditional investment</li>
+        <li>Rate difference vs DSCR is under 0.5% — rarely worth the documentation headache</li>
+      </ul>
+      <div class="callout-box"><h3>The Honest Calculation</h3><p>On a $350,000 investment property loan, the difference between a 7.0% conventional rate and a 7.5% DSCR rate is approximately $115/month. If DSCR closes in 21 days vs 60 days for conventional, the carrying cost savings alone can offset the rate difference. Run the full math — not just the rate.</p></div>
+
+      <div class="faq-section">
+        <h2 class="guide-h2">Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">What is the minimum down payment for a conventional investment property loan?</button>
+          <div class="faq-a"><p>The minimum is 15% for a single-unit investment property, but you will pay private mortgage insurance (PMI). To avoid PMI, you need 20–25% down. For 2–4 unit investment properties, the minimum is 25%.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">How many investment properties can I finance conventionally?</button>
+          <div class="faq-a"><p>Fannie Mae guidelines allow a maximum of 10 financed properties per borrower (including your primary residence). Once you reach 10, you cannot get additional conventional investment property loans and must use DSCR, portfolio, or other non-QM programs.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">Do conventional lenders count rental income toward qualification?</button>
+          <div class="faq-a"><p>Yes, but only 75% of documented rental income can offset the property payment. If a property rents for $2,000/month, conventional lenders use $1,500 toward your DTI calculation.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">Is the rate difference between conventional and DSCR worth it?</button>
+          <div class="faq-a"><p>Often less than investors expect, once Loan Level Price Adjustments are applied to conventional investment property loans. Run the actual rate quotes for both options before assuming conventional is cheaper.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">Can I put an investment property in an LLC with a conventional loan?</button>
+          <div class="faq-a"><p>No. Conventional loans backed by Fannie Mae or Freddie Mac require personal vesting. Closing in an LLC triggers the due-on-sale clause. DSCR and BPL loans are the appropriate structure for LLC vesting.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">What happens when I hit the 10 conventional property limit?</button>
+          <div class="faq-a"><p>You move to DSCR loans, portfolio loans, or commercial financing. DSCR loans are the most common next step — similar process, no portfolio cap, and entity-friendly. Most serious investors shift to DSCR well before hitting the 10-property limit anyway.</p></div>
+        </div>
+      </div>
+
+      <div class="related-links">
+        <h3>Related Resources</h3>
+        <a href="dscr.html" class="related-link">What Is a DSCR Loan? Complete Guide</a>
+<a href="dscr-loans-florida.html" class="related-link">DSCR Loans in Florida</a>
+<a href="investment-property-loans-no-income-verification.html" class="related-link">No-Income-Verification Investor Loans</a>
+<a href="dscr-loan-requirements.html" class="related-link">DSCR Loan Requirements</a>
+<a href="dscr-calculator.html" class="related-link">DSCR Calculator</a>
+      </div>
+    </article>
+
+    <aside class="guide-sidebar">
+      <div class="g-toc">
+        <div class="g-toc-title">On This Page</div>
+        <ul class="g-toc-list">
+          <li><a href="#conventionalinvestme">Conventional Investment Property Loan Requirements</a></li><li><a href="#conventionalloanadd-">Conventional Loan Add-Ons for Investment Properties</a></li><li><a href="#whenconventionalinve">When Conventional Investment Loans Make Sense</a></li><li><a href="#whentomovetodscrinst">When to Move to DSCR Instead</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="g-cta">
+        <h3>Analyze My Deal</h3>
+        <p>Submit your scenario and Viador Partners will respond within 24 hours.</p>
+        <a href="application.html">Start Here →</a>
+      </div>
+    </aside>
+  </div>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Not Sure Whether Conventional or DSCR Is Right for Your Deal?</h2>
+      <p>Submit your scenario and Viador Partners will run both options and tell you which one actually saves you money.</p>
+      <a href="application.html" class="btn-primary" style="display:inline-block">Analyze My Deal &rarr;</a>
+    </div>
+  </section>
+
+  <footer class="footer-wrap">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">Viador<span>Partners</span></div>
+          <p class="footer-tagline">Investor financing built for real estate investors, self-employed professionals, and business owners.</p>
+        </div>
+        <div class="footer-nav-group"><h4>Programs</h4><a href="dscr.html">DSCR Loans</a><a href="fix-and-flip.html">Fix &amp; Flip</a><a href="bpl.html">Business Purpose (BPL)</a><a href="commercial.html">Commercial</a><a href="franchise.html">SBA &amp; Franchise</a></div>
+        <div class="footer-nav-group"><h4>Calculators</h4><a href="dscr-calculator.html">DSCR Calculator</a><a href="deal-analyzer.html">Deal Analyzer</a><a href="cashout-calculator.html">Cash-Out Refi</a><a href="investor-platform.html">Full Platform</a></div>
+        <div class="footer-nav-group"><h4>Company</h4><a href="about.html">About</a><a href="partners.html">Partners</a><a href="index.html#faq">FAQ</a><a href="application.html">Contact</a></div>
+      </div>
+      <div class="footer-bottom">
+        <span>Viador Partners LLC &#124; NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.7">chad&#64;viadorpartners.com &#124; (813) 419-2983</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.6">NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.5">Not a commitment to lend. Equal Housing Opportunity. <a href="privacy-policy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> &middot; <a href="terms.html" style="color:inherit;text-decoration:underline">Terms of Use</a></span>
+      <span style="display:block;margin-top:10px;font-size:10px;opacity:0.6">Veteran homeowner? Visit <a href="https://nextdutyvet.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">NextDutyVet.com</a></span></div>
+    </div>
+  </footer>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/245454217.js"></script>
+</body>
+</html>

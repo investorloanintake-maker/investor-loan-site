@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Real Estate Investor Cash Flow Guide — How to Analyze Any Deal | Viador Partners</title>
+  <meta name="description" content="How to calculate real estate cash flow, cap rate, cash-on-cash return, and DSCR on any investment property. The complete deal analysis guide with free calculator tools."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.viadorpartners.com/real-estate-investor-cash-flow-guide"/>
+  <meta property="og:title" content="Real Estate Investor Cash Flow Guide — How to Analyze Any Deal | Viador Partners"/>
+  <meta property="og:description" content="How to calculate real estate cash flow, cap rate, cash-on-cash return, and DSCR on any investment property. The complete deal analysis guide with free calculator tools."/>
+  <meta property="og:image" content="https://www.viadorpartners.com/og-image.jpg"/>
+  <link rel="canonical" href="https://www.viadorpartners.com/real-estate-investor-cash-flow-guide"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LoanOrCredit",
+        "name": "Real Estate Investor <em>Cash Flow Guide</em>",
+        "provider": {
+          "@type": "Person",
+          "name": "Chad Evers",
+          "jobTitle": "Licensed Mortgage Loan Originator",
+          "hasCredential": "NMLS #2822744",
+          "worksFor": {"@type":"Organization","name":"Viador Partners LLC"}
+        },
+        "url": "https://www.viadorpartners.com/real-estate-investor-cash-flow-guide"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":'What is a good cash flow for a rental property?',"acceptedAnswer":{"@type":"Answer","text":'Most investors target a minimum of $200-400/month in net cash flow after all expenses including mortgage, taxes, insurance, management, maintenance reserves, and vacancy allowance. Less than $200/month makes the property difficult to justify given management time and risk. More than $500/month is excellent by 2026 standards in most markets.'}},
+    {"@type":"Question","name":'What is a good cap rate for rental properties in 2026?',"acceptedAnswer":{"@type":"Answer","text":'5-6% is typical for stable markets like Columbus and suburban Tampa Bay. 6-8% is strong and found in secondary markets. 8%+ is excellent and usually indicates a higher-management property in a value market like Cleveland or Toledo. Cap rates below 5% suggest appreciation-focused markets where cash flow is secondary.'}},
+    {"@type":"Question","name":'What is a good cash-on-cash return for real estate?',"acceptedAnswer":{"@type":"Answer","text":'Most investors target 6-10% cash-on-cash. 8%+ is considered strong. Below 5% is marginal and suggests either overpaying, under-renting, or taking on excessive expenses. The target varies by investor — some accept lower cash-on-cash for stronger appreciation markets.'}},
+    {"@type":"Question","name":'How does DSCR relate to cash flow?',"acceptedAnswer":{"@type":"Answer","text":"DSCR measures whether the property covers its mortgage payment (lender's perspective). Cash flow measures what you actually keep after all expenses (investor's perspective). A property can have a strong DSCR (1.25) but negative cash flow after management, maintenance, and vacancy expenses. Always calculate both."}},
+    {"@type":"Question","name":'Where can I calculate cash flow and DSCR for free?',"acceptedAnswer":{"@type":"Answer","text":'Viador Partners offers a free DSCR calculator at viadorpartners.com/dscr-calculator.html and a full deal analyzer (cap rate, cash flow, 5-year projection) at viadorpartners.com/deal-analyzer.html.'}},
+    {"@type":"Question","name":'What expenses do investors typically forget when calculating cash flow?',"acceptedAnswer":{"@type":"Answer","text":'The most commonly overlooked: property management (8-10% of rent), maintenance reserves (5-8% of rent), vacancy allowance (5-8%), capital expenditure reserves (HVAC, roof, plumbing), and landlord insurance vs homeowner insurance (different product, different cost).'}}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    .guide-hero{background:var(--ink);color:var(--cream);padding:140px 0 72px}
+    .guide-hero-inner{max-width:720px}
+    .guide-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+    .guide-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+    .guide-h1{font-family:'Fraunces',serif;font-size:clamp(36px,5vw,60px);font-weight:900;line-height:1.08;letter-spacing:-.02em;margin-bottom:20px}
+    .guide-h1 em{font-style:italic;color:var(--gold)}
+    .guide-sub{font-size:18px;line-height:1.7;color:rgba(247,243,238,.7);max-width:580px;margin-bottom:36px}
+    .guide-meta{display:flex;gap:24px;flex-wrap:wrap}
+    .guide-meta-item{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,243,238,.4);display:flex;align-items:center;gap:6px}
+    .guide-meta-item::before{content:'·';color:var(--gold)}
+    .guide-wrap{max-width:1100px;margin:0 auto;padding:72px 48px 120px;display:grid;grid-template-columns:1fr 260px;gap:72px;align-items:start}
+    .guide-article{min-width:0}
+    .guide-sidebar{position:sticky;top:100px}
+    .guide-h2{font-family:'Fraunces',serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--ink);margin:48px 0 16px;line-height:1.2}
+    .guide-p{font-size:16px;line-height:1.8;color:var(--ink-soft);margin-bottom:18px}
+    .guide-ul{margin:0 0 20px 0;padding-left:24px}
+    .guide-ul li{font-size:16px;line-height:1.7;color:var(--ink-soft);margin-bottom:8px}
+    .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+    .stat-card{background:var(--cream);border:1px solid var(--line);padding:24px 20px;text-align:center}
+    .stat-num{font-family:'Fraunces',serif;font-size:36px;font-weight:900;color:var(--gold);display:block;margin-bottom:4px}
+    .stat-lab{font-size:12px;color:var(--ink-soft)}
+    .callout-box{background:var(--ink);color:var(--cream);padding:32px 36px;margin:32px 0}
+    .callout-box h3{font-family:'Fraunces',serif;font-size:20px;color:var(--gold);margin-bottom:12px}
+    .callout-box p{font-size:15px;line-height:1.7;color:rgba(247,243,238,.8)}
+    .g-toc{background:var(--ink);padding:24px 28px;margin-bottom:20px}
+    .g-toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+    .g-toc-list{list-style:none}
+    .g-toc-list li{border-bottom:1px solid rgba(255,255,255,.06)}
+    .g-toc-list li:last-child{border-bottom:none}
+    .g-toc-list a{display:block;padding:8px 0;font-size:13px;color:rgba(247,243,238,.6);text-decoration:none;transition:color .15s}
+    .g-toc-list a:hover{color:var(--gold)}
+    .g-cta{background:var(--gold);padding:28px 24px;text-align:center}
+    .g-cta h3{font-family:'Fraunces',serif;font-size:20px;color:#fff;margin-bottom:8px}
+    .g-cta p{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:16px}
+    .g-cta a{display:block;background:#fff;color:var(--gold);font-weight:700;padding:12px;font-size:14px;text-decoration:none}
+    .faq-section{margin:48px 0}
+    .faq-item{border-bottom:1px solid var(--line)}
+    .faq-q{width:100%;text-align:left;background:none;border:none;padding:20px 0;font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .faq-q::after{content:'+';font-size:22px;color:var(--gold);flex-shrink:0;transition:transform .2s}
+    .faq-q.open::after{transform:rotate(45deg)}
+    .faq-a{display:none;padding:0 0 20px}
+    .faq-a.open{display:block}
+    .faq-a p{font-size:15px;line-height:1.8;color:var(--ink-soft)}
+    .related-links{margin:48px 0 0}
+    .related-links h3{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+    .related-link{display:block;font-size:14px;color:var(--gold);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--line)}
+    .related-link:hover{color:var(--ink)}
+    .cta-band{background:var(--ink);padding:80px 0;text-align:center}
+    .cta-band h2{font-family:'Fraunces',serif;font-size:clamp(28px,4vw,44px);color:var(--cream);margin-bottom:16px}
+    .cta-band p{font-size:16px;color:rgba(247,243,238,.6);max-width:500px;margin:0 auto 32px}
+    @media(max-width:768px){
+      .guide-wrap{grid-template-columns:1fr;padding:40px 24px 80px;gap:40px}
+      .guide-sidebar{position:static}
+      .stat-grid{grid-template-columns:1fr 1fr}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".guide-h1", ".guide-sub", ".guide-h2", ".guide-p:first-of-type", ".callout-box h3"]
+  }
+  </script></head>
+<body>
+  <header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+    <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown">
+        <a href="index.html#programs" class="nav-dropdown-trigger">Programs</a>
+        <div class="nav-dropdown-menu">
+          <a href="dscr.html">DSCR Loans</a>
+          <a href="fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="bpl.html">Business Purpose Loans</a>
+          <a href="non-qm-loans-florida.html">Non-QM / Bank Statement</a>
+          <a href="conventional-investment-property-loans.html">Conventional</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="investor-platform.html" class="nav-dropdown-trigger">Tools</a>
+        <div class="nav-dropdown-menu">
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="dscr-calculator.html">DSCR Calculator</a>
+          <a href="resources">Resources</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+    </nav>
+    <a href="index.html#dealform" class="nav-cta">Analyze My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="dscr.html">DSCR Loans</a>
+    <a href="fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="bpl.html">Business Purpose Loans</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="resources">Resources</a>
+    <a href="about.html">About</a>
+    <a href="index.html#dealform" class="drawer-cta">Analyze My Deal &rarr;</a>
+  </div>
+</header>
+  <section class="guide-hero">
+    <div class="container">
+      <div class="guide-hero-inner">
+        <div class="guide-eyebrow">Investor Education · Cash Flow Analysis</div>
+        <h1 class="guide-h1">Real Estate Investor <em>Cash Flow Guide</em></h1>
+        <p class="guide-sub">The four numbers every investor must know before buying any property. How to calculate them, what they mean, and how they connect to DSCR loan qualification.</p>
+        <div class="guide-meta">
+          <span class="guide-meta-item">Viador Partners, NMLS #2822744</span>
+          <span class="guide-meta-item">20 Years Lending Experience</span>
+          <span class="guide-meta-item">Viador Partners LLC</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="guide-wrap">
+    <article class="guide-article">
+      <p class="guide-p">Real estate investing math is not complicated, but it is specific. The investors who make consistent money understand four core numbers cold: cash flow, cap rate, cash-on-cash return, and DSCR. They can calculate all four on any deal in minutes. They know what good looks like, what marginal looks like, and when to walk away. This guide covers all four — and how they connect to the financing that makes the investment possible.</p>
+      
+      <h2 class="guide-h2">The Four Numbers Every Investor Must Know</h2>
+      <p class="guide-p">Before analyzing any deal, understand what each metric measures and what it does not:</p>
+      <div class="callout-box"><h3>1. Cash Flow — What You Actually Put in Your Pocket</h3><p>Monthly Cash Flow = Gross Rent − Vacancy − Operating Expenses − Mortgage Payment<br><br>This is the number you live on. Positive cash flow means the property pays you after all expenses. Negative cash flow means you are subsidizing the property from other income. Target: $200-500+/month minimum for the property to be worth managing.</p></div>
+      <div class="callout-box"><h3>2. Cap Rate — Return Independent of Financing</h3><p>Cap Rate = Net Operating Income ÷ Property Value<br><br>NOI = Gross Rent × (1 − Vacancy Rate) − Operating Expenses (no mortgage)<br><br>Cap rate tells you what the property earns independent of how you financed it. It allows fair comparison between properties regardless of down payment or loan terms. A 6% cap rate means the property generates 6% of its value annually before debt service.</p></div>
+      <div class="callout-box"><h3>3. Cash-on-Cash Return — ROI on Your Invested Capital</h3><p>Cash-on-Cash = Annual Cash Flow ÷ Total Cash Invested<br><br>Total cash invested = Down payment + Closing costs + Repairs<br><br>If you put $75,000 into a deal and it generates $6,000/year in cash flow, your cash-on-cash return is 8%. This is the number that tells you whether your capital is working hard enough.</p></div>
+      <div class="callout-box"><h3>4. DSCR — Whether the Property Qualifies for Financing</h3><p>DSCR = Monthly Gross Rent ÷ Monthly PITIA<br><br>DSCR is the lender's number. It tells them whether the property generates enough income to cover its own mortgage payment. Your analysis should always include DSCR as a check on whether financing is available at the loan amount you need.</p></div>
+      <h2 class="guide-h2">A Complete Deal Analysis Example</h2>
+      <p class="guide-p">Walking through a real deal — a $235,000 Columbus, Ohio single-family:</p>
+      <ul class="guide-ul">
+        <li><strong>Gross rent:</strong> $1,800/month</li>
+        <li><strong>Down payment:</strong> 25% = $58,750</li>
+        <li><strong>Loan amount:</strong> $176,250 at 7.25% DSCR</li>
+        <li><strong>Monthly P&I:</strong> $1,202</li>
+        <li><strong>Taxes:</strong> $280/month</li>
+        <li><strong>Insurance:</strong> $110/month</li>
+        <li><strong>PITIA:</strong> $1,592</li>
+        <li><strong>DSCR:</strong> $1,800 ÷ $1,592 = 1.13 ✓ qualifies</li>
+      </ul>
+      <ul class="guide-ul">
+        <li><strong>Vacancy (5%):</strong> $90/month</li>
+        <li><strong>Management (9%):</strong> $162/month</li>
+        <li><strong>Maintenance reserve (6%):</strong> $108/month</li>
+        <li><strong>Total operating expenses (excl mortgage):</strong> $360 + $280 + $110 = $750/month</li>
+        <li><strong>NOI:</strong> ($1,800 − $90) − ($280 + $110 + $162 + $108) = $1,710 − $660 = $1,050/month = $12,600/year</li>
+        <li><strong>Cap rate:</strong> $12,600 ÷ $235,000 = 5.36%</li>
+        <li><strong>Monthly cash flow:</strong> $1,050 − $1,202 (P&I) = −$152/month</li>
+      </ul>
+      <p class="guide-p">Wait — negative cash flow? This deal does not cash flow at 7.25% with 25% down. The DSCR qualifies (1.13) but the actual cash flow after management and maintenance reserves is negative. This illustrates why DSCR qualification and actual investor cash flow are different numbers. Use the Deal Analyzer at viadorpartners.com/deal-analyzer.html to run this analysis on any property.</p>
+      <h2 class="guide-h2">What Makes a Deal Actually Work</h2>
+      <p class="guide-p">The Columbus deal above shows why deal selection matters as much as financing. To make it cash flow positive:</p>
+      <ul class="guide-ul">
+        <li>Buy at $195,000 instead of $235,000 — lower payment, same rent → +$267/month cash flow</li>
+        <li>Or put 30% down instead of 25% — lower payment → +$84/month cash flow + better DSCR</li>
+        <li>Or find a property renting for $2,000/month instead of $1,800 — same payment → +$200/month</li>
+        <li>Or all three combined → significant positive cash flow</li>
+      </ul>
+      <p class="guide-p">The numbers tell you exactly what needs to change. Deal analysis is not about getting attached to a property — it's about finding the ones where the math actually works.</p>
+
+      <div class="faq-section">
+        <h2 class="guide-h2">Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">What is a good cash flow for a rental property?</button>
+          <div class="faq-a"><p>Most investors target a minimum of $200-400/month in net cash flow after all expenses including mortgage, taxes, insurance, management, maintenance reserves, and vacancy allowance. Less than $200/month makes the property difficult to justify given management time and risk. More than $500/month is excellent by 2026 standards in most markets.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">What is a good cap rate for rental properties in 2026?</button>
+          <div class="faq-a"><p>5-6% is typical for stable markets like Columbus and suburban Tampa Bay. 6-8% is strong and found in secondary markets. 8%+ is excellent and usually indicates a higher-management property in a value market like Cleveland or Toledo. Cap rates below 5% suggest appreciation-focused markets where cash flow is secondary.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">What is a good cash-on-cash return for real estate?</button>
+          <div class="faq-a"><p>Most investors target 6-10% cash-on-cash. 8%+ is considered strong. Below 5% is marginal and suggests either overpaying, under-renting, or taking on excessive expenses. The target varies by investor — some accept lower cash-on-cash for stronger appreciation markets.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">How does DSCR relate to cash flow?</button>
+          <div class="faq-a"><p>DSCR measures whether the property covers its mortgage payment (lender's perspective). Cash flow measures what you actually keep after all expenses (investor's perspective). A property can have a strong DSCR (1.25) but negative cash flow after management, maintenance, and vacancy expenses. Always calculate both.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">Where can I calculate cash flow and DSCR for free?</button>
+          <div class="faq-a"><p>Viador Partners offers a free DSCR calculator at viadorpartners.com/dscr-calculator.html and a full deal analyzer (cap rate, cash flow, 5-year projection) at viadorpartners.com/deal-analyzer.html.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-expanded="false">What expenses do investors typically forget when calculating cash flow?</button>
+          <div class="faq-a"><p>The most commonly overlooked: property management (8-10% of rent), maintenance reserves (5-8% of rent), vacancy allowance (5-8%), capital expenditure reserves (HVAC, roof, plumbing), and landlord insurance vs homeowner insurance (different product, different cost).</p></div>
+        </div>
+      </div>
+
+      <div class="related-links">
+        <h3>Related Resources</h3>
+        <a href="dscr-calculator.html" class="related-link">Free DSCR Calculator</a>
+<a href="deal-analyzer.html" class="related-link">Deal Analyzer — Cap Rate & Cash Flow</a>
+<a href="what-is-a-dscr-loan.html" class="related-link">What Is a DSCR Loan?</a>
+<a href="what-is-debt-service-coverage-ratio.html" class="related-link">What Is Debt Service Coverage Ratio?</a>
+<a href="real-estate-investor-beginners-guide.html" class="related-link">Beginner's Guide to Investor Financing</a>
+      </div>
+    </article>
+
+    <aside class="guide-sidebar">
+      <div class="g-toc">
+        <div class="g-toc-title">On This Page</div>
+        <ul class="g-toc-list">
+          <li><a href="#thefournumberseveryi">The Four Numbers Every Investor Must Know</a></li><li><a href="#acompletedealanalysi">A Complete Deal Analysis Example</a></li><li><a href="#whatmakesadealactual">What Makes a Deal Actually Work</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="g-cta">
+        <h3>Analyze My Deal</h3>
+        <p>Submit your scenario and Viador Partners will respond within 24 hours.</p>
+        <a href="application.html">Start Here →</a>
+      </div>
+    </aside>
+  </div>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Want a Free Deal Analysis on a Specific Property?</h2>
+      <p>Submit your deal details and Viador Partners will run the full analysis including DSCR qualification within 24 hours.</p>
+      <a href="application.html" class="btn-primary" style="display:inline-block">Analyze My Deal &rarr;</a>
+    </div>
+  </section>
+
+  <footer class="footer-wrap">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">Viador<span>Partners</span></div>
+          <p class="footer-tagline">Investor financing built for real estate investors, self-employed professionals, and business owners.</p>
+        </div>
+        <div class="footer-nav-group"><h4>Programs</h4><a href="dscr.html">DSCR Loans</a><a href="fix-and-flip.html">Fix &amp; Flip</a><a href="bpl.html">Business Purpose (BPL)</a><a href="commercial.html">Commercial</a><a href="franchise.html">SBA &amp; Franchise</a></div>
+        <div class="footer-nav-group"><h4>Calculators</h4><a href="dscr-calculator.html">DSCR Calculator</a><a href="deal-analyzer.html">Deal Analyzer</a><a href="cashout-calculator.html">Cash-Out Refi</a><a href="investor-platform.html">Full Platform</a></div>
+        <div class="footer-nav-group"><h4>Company</h4><a href="about.html">About</a><a href="partners.html">Partners</a><a href="index.html#faq">FAQ</a><a href="application.html">Contact</a></div>
+      </div>
+      <div class="footer-bottom">
+        <span>Viador Partners LLC &#124; NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.7">chad&#64;viadorpartners.com &#124; (813) 419-2983</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.6">NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.5">Not a commitment to lend. Equal Housing Opportunity. <a href="privacy-policy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> &middot; <a href="terms.html" style="color:inherit;text-decoration:underline">Terms of Use</a></span>
+      <span style="display:block;margin-top:10px;font-size:10px;opacity:0.6">Veteran homeowner? Visit <a href="https://nextdutyvet.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">NextDutyVet.com</a></span></div>
+    </div>
+  </footer>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/245454217.js"></script>
+</body>
+</html>

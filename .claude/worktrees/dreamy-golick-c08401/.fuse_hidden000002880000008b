@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deal Received — Viador Partners</title>
+  <meta name="description" content="Your deal has been submitted. We review every deal within 24 hours and reach out with honest feedback."/>
+  <meta name="robots" content="noindex, nofollow"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&family=Inter:wght@300;400;500;600;700;800;900&display=swap"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ── Thank-you page styles ───────────────── */
+
+    .ty-hero {
+      background: var(--ink);
+      padding: 120px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .ty-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 50% 30%, rgba(191, 144, 32,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 50% 80%, rgba(191, 144, 32,0.04) 0%, transparent 50%);
+    }
+    .ty-hero-inner {
+      position: relative;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .ty-check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      margin-bottom: 28px;
+      font-size: 36px;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .ty-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.1;
+      margin: 0 0 16px;
+    }
+    .ty-hero h2 {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1.3;
+      margin: 0 0 20px;
+    }
+    .ty-hero p {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: rgba(244,241,234,0.65);
+      line-height: 1.65;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ── Steps section ───────────────── */
+
+    .ty-steps {
+      background: var(--cream);
+      padding: 72px 24px;
+    }
+    .ty-steps-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    .ty-step {
+      text-align: center;
+    }
+    .ty-step-num {
+      font-family:'Inter',system-ui,sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .ty-step h3 {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.45;
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      .ty-steps-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        max-width: 360px;
+      }
+    }
+
+    /* ── CTA section ───────────────── */
+
+    .ty-ctas {
+      background: var(--cream-dark, #ece8df);
+      padding: 56px 24px;
+      text-align: center;
+    }
+    .ty-ctas-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .ty-btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 28px;
+      background: var(--gold);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .ty-btn-gold:hover {
+      background: #a0710f;
+    }
+    .ty-btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .ty-btn-outline:hover {
+      background: var(--ink);
+      color: var(--cream);
+    }
+  </style></head>
+<body>
+
+<!-- GRAIN OVERLAY -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+        <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown">
+        <a href="index.html#programs" class="nav-dropdown-trigger">Programs</a>
+        <div class="nav-dropdown-menu">
+          <a href="dscr.html">DSCR Loans</a>
+          <a href="fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="bpl.html">Business Purpose Loans</a>
+          <a href="non-qm-loans-florida.html">Non-QM / Bank Statement</a>
+          <a href="conventional-investment-property-loans.html">Conventional</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="investor-platform.html" class="nav-dropdown-trigger">Tools</a>
+        <div class="nav-dropdown-menu">
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="dscr-calculator.html">DSCR Calculator</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+    </nav>    <a href="index.html#dealform" class="nav-cta">Review My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="dscr.html">DSCR Loans</a>
+    <a href="fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="bpl.html">Business Purpose Loans</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="about.html">About</a>
+    <span class="drawer-label">Commercial</span>
+    <a href="commercial.html">Commercial Lending</a>
+    <a href="franchise.html">SBA &amp; Franchise</a>
+    <a href="index.html#dealform" class="drawer-cta">Review My Deal →</a>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     HERO — CONFIRMATION
+═══════════════════════════════════════════ -->
+<section class="ty-hero">
+  <div class="ty-hero-inner">
+    <div class="ty-check" aria-hidden="true">&#10003;</div>
+    <h1>Good. Your deal is in the right hands.</h1>
+    <h2>You&rsquo;ll hear back within 24 hours.</h2>
+    <p>Honest feedback on what works, what doesn&rsquo;t, and exactly what to do next. Whether we&rsquo;re the right fit or not.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     WHAT HAPPENS NEXT — STEPS
+═══════════════════════════════════════════ -->
+<section class="ty-steps">
+  <div class="ty-steps-inner">
+    <div class="ty-step">
+      <div class="ty-step-num">01</div>
+      <h3>Check your email for confirmation</h3>
+    </div>
+    <div class="ty-step">
+      <div class="ty-step-num">02</div>
+      <h3>We review your deal within 24 hours</h3>
+    </div>
+    <div class="ty-step">
+      <div class="ty-step-num">03</div>
+      <h3>Expect a call or email with our assessment</h3>
+    </div>
+  </div>
+  <div style="max-width:540px;margin:32px auto 0;text-align:center;">
+    <p style="font-size:15px;color:var(--ink-soft,#52504C);line-height:1.8;font-weight:300;">You&rsquo;re not in a queue.<br>You&rsquo;re in a network that has seen every deal type, every market, every situation.<br><strong style="color:var(--ink,#141210)">We&rsquo;ll find the path.</strong></p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CTAs
+═══════════════════════════════════════════ -->
+<section class="ty-ctas">
+  <div class="ty-ctas-inner">
+    <a href="https://calendly.com/viadorpartners" class="ty-btn-gold" target="_blank">Schedule a 15-Minute Call &rarr;</a>
+    <a href="tel:+18134192983" class="ty-btn-outline" style="font-size:15px">Add our number to your contacts: (813) 419-2983</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-mark">V</span>
+        <div>
+          <strong>Viador</strong> <span class="logo-sub" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:400;">Partners</span>
+          <span>Investor Capital &amp; Deal Advisory</span>
+        </div>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Investors</h4>
+        <a href="bpl.html">What Is BPL?</a>
+        <a href="dscr.html">DSCR Loans</a>
+        <a href="fix-and-flip.html">Fix &amp; Flip</a>
+        <a href="index.html#dealform">Review My Deal</a>
+      </div>
+      <div class="footer-nav-group">
+                <h4>Programs</h4>
+        <a href="dscr.html">DSCR Loans</a>
+        <a href="fix-and-flip.html">Fix &amp; Flip</a>
+        <a href="bpl.html">Business Purpose (BPL)</a>
+        <span style="display:block;font-size:10px;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin:8px 0 4px;font-family:var(--font-mono)">Commercial</span>
+        <a href="commercial.html">Small Balance Commercial</a>
+        <a href="commercial.html">SBA 7(a) &amp; 504</a>
+        <a href="franchise.html">Franchise Financing</a>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Partners</h4>
+        <a href="partners.html">Realtor Program</a>
+        <a href="partners.html">Refer a Deal</a>
+        <a href="about.html">About Viador</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Viador Partners LLC. All rights reserved.</span>
+      <span>Viador Partners LLC &#124; NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.7">chad&#64;viadorpartners.com &#124; (813) 419-2983</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.6">NMLS #2822744</span>
+        <span style="display:block;margin-top:6px;font-size:10px;opacity:0.5">Not a commitment to lend. Equal Housing Opportunity. <a href="privacy-policy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> &middot; <a href="terms.html" style="color:inherit;text-decoration:underline">Terms of Use</a></span>
+    <span style="display:block;margin-top:10px;font-size:10px;opacity:0.6">Veteran homeowner? Visit <a href="https://nextdutyvet.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">NextDutyVet.com</a></span></div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/245454217.js"></script>
+</body>
+</html>

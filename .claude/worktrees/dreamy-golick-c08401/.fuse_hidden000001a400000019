@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.png"/>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQWW7XCPVS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="noindex,nofollow"/>
+  <title>ViaScore Commercial™ — AI Deal Analysis for Commercial Real Estate | Viador Partners</title>
+  <meta name="description" content="Enter any commercial property address and get an institutional-grade investment analysis in seconds. Cap rate, debt yield, DSCR, exit risk — scored 0-100. Free. NMLS #2822744."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.viadorpartners.com/commercial-score"/>
+  <meta property="og:title" content="ViaScore Commercial™ — AI Deal Analysis for Commercial Real Estate | Viador Partners"/>
+  <meta property="og:description" content="Enter any commercial property address and get an institutional-grade investment analysis in seconds. Cap rate, debt yield, DSCR, exit risk — scored 0-100."/>
+  <meta property="og:image" content="https://www.viadorpartners.com/og-image.jpg"/>
+  <link rel="canonical" href="https://www.viadorpartners.com/commercial-score"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Mono:wght@300;400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxTjFdBfaPwyNXUjZMFQMv4UYaz2cSiEQ&libraries=places"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ViaScore Commercial™ AI Deal Analysis",
+    "description": "Institutional-grade commercial real estate deal analysis. Scores commercial properties 0-100 across cap rate, debt yield, DSCR, market demand, occupancy stability, and exit risk.",
+    "url": "https://www.viadorpartners.com/commercial-score",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "provider": {
+      "@type": "FinancialService",
+      "name": "Viador Partners",
+      "url": "https://www.viadorpartners.com",
+      "employee": { "@type": "Person", "name": "Chad Evers", "hasCredential": "NMLS #2822744" }
+    }
+  }
+  </script>
+
+  <style>
+    /* ============================================================
+       VIADOR PARTNERS — ViaScore Commercial™
+       Self-contained design system
+       ============================================================ */
+
+    /* ── Tokens ─────────────────────────────────────────────── */
+    :root {
+      --cream:      #FFFFFF;
+      --cream-dark: #F2EDE6;
+      --ink:        #141210;
+      --ink-mid:    #2E2B27;
+      --ink-soft:   #52504C;
+      --gold:       #BF9020;
+      --gold-light: #D9A84A;
+      --gold-faint: rgba(191, 144, 32,0.08);
+      --charcoal:   #1A1C24;
+      --charcoal2:  #22252F;
+      --white:      #FFFFFF;
+      --line:       rgba(20,18,16,0.14);
+
+      --font-display:'Inter',system-ui,sans-serif;
+      --font-body:'Inter',system-ui,sans-serif;
+      --font-mono:'Inter',system-ui,sans-serif;
+
+      --max:   1160px;
+      --shadow-sm: 0 1px 3px rgba(28,26,23,.06), 0 4px 12px rgba(28,26,23,.04);
+      --shadow-md: 0 4px 16px rgba(28,26,23,.08), 0 12px 32px rgba(28,26,23,.06);
+    }
+
+    /* ── Reset ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    img, svg { display: block; max-width: 100%; }
+    button, input, select, textarea { font: inherit; }
+    a { color: inherit; text-decoration: none; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    /* ── Nav ────────────────────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: box-shadow 0.3s, border-color 0.3s;
+    }
+    .nav.scrolled {
+      box-shadow: var(--shadow-sm);
+      border-bottom-color: var(--line);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      width: min(var(--max), calc(100% - 48px));
+      margin-inline: auto;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--ink);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 6px;
+    }
+    .logo-text { font-weight: 700; }
+    .logo-sub { font-weight: 300; opacity: 0.6; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink-soft);
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a[aria-current="page"] { color: var(--gold); font-weight: 500; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger { cursor: pointer; }
+    .nav-dropdown-trigger::after { content: ' \25BE'; font-size: 10px; opacity: 0.5; }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--cream); border: 1px solid var(--line); border-radius: 8px; padding: 8px 0; min-width: 220px; box-shadow: 0 4px 16px rgba(28,26,23,.08), 0 12px 32px rgba(28,26,23,.06); z-index: 100; }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 10px 20px; font-size: 14px; color: var(--ink-soft); text-decoration: none; white-space: nowrap; transition: background .15s, color .15s; }
+    .nav-dropdown-menu a:hover { background: var(--gold-faint); color: var(--ink); }
+
+    .nav-phone {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--ink-soft);
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .nav-phone:hover { color: var(--gold); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 20px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 6px;
+      border: 1.5px solid var(--ink);
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .burger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 1px;
+      transition: transform 0.25s;
+    }
+    .burger.open span:first-child { transform: translateY(4px) rotate(45deg); }
+    .burger.open span:last-child  { transform: translateY(-4px) rotate(-45deg); }
+
+    .mobile-drawer {
+      display: none;
+      flex-direction: column;
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      padding: 16px 24px 24px;
+    }
+    .mobile-drawer.open { display: flex; }
+    .mobile-drawer a {
+      display: block;
+      padding: 12px 0;
+      font-size: 15px;
+      color: var(--ink-soft);
+      border-bottom: 1px solid var(--line);
+    }
+    .mobile-drawer a:last-child { border-bottom: none; }
+    .drawer-cta {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 12px 24px;
+      background: var(--ink);
+      color: var(--white) !important;
+      font-weight: 500;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    /* ── Trust bar ──────────────────────────────────────────── */
+    .trust-bar {
+      background: var(--ink);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 10px 0;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .cs-hero {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cs-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 70% 20%, rgba(191, 144, 32,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 30% 80%, rgba(191, 144, 32,0.04) 0%, transparent 50%);
+    }
+    .cs-hero-inner {
+      position: relative;
+      text-align: center;
+      max-width: 740px;
+      margin: 0 auto;
+    }
+    .cs-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cs-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .cs-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .cs-hero-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+      max-width: 580px;
+      margin: 0 auto 48px;
+    }
+
+    /* ── Scoring Form ──────────────────────────────────────── */
+    .cs-form-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .cs-field {
+      margin-bottom: 20px;
+    }
+    .cs-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 6px;
+    }
+    .cs-input,
+    .cs-select {
+      display: block;
+      width: 100%;
+      padding: 12px 14px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--ink);
+      background: var(--cream-dark);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .cs-input:focus,
+    .cs-select:focus {
+      border-color: var(--gold);
+    }
+    .cs-input::placeholder {
+      color: rgba(82,80,76,0.5);
+    }
+    .cs-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2352504C' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+    .cs-helper {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: rgba(82,80,76,0.6);
+      margin-top: 4px;
+      letter-spacing: 0.02em;
+    }
+    .cs-btn {
+      display: block;
+      width: 100%;
+      padding: 14px 24px;
+      background: var(--gold);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 28px;
+    }
+    .cs-btn:hover { background: #a0710f; }
+    .cs-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    /* ── Results ────────────────────────────────────────────── */
+    .cs-results {
+      display: none;
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 48px 0 0;
+    }
+
+    /* ── Spinner ────────────────────────────────────────────── */
+    .cs-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--line);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Results section (below hero) ──────────────────────── */
+    .cs-results-section {
+      background: var(--white);
+      padding: 0 0 80px;
+    }
+
+    /* ── CTA Band ──────────────────────────────────────────── */
+    .cs-cta-band {
+      background: var(--cream-dark);
+      padding: 80px 0;
+      text-align: center;
+    }
+    .cs-cta-band h2 {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .cs-cta-band p {
+      font-size: 16px;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin-bottom: 32px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    .footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      padding: 64px 0 40px;
+      font-size: 13px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+      max-width: 280px;
+      margin-top: 16px;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .footer-logo span {
+      font-weight: 300;
+      opacity: 0.6;
+      margin-left: 4px;
+    }
+    .footer-nav-group h4 {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 16px;
+    }
+    .footer-nav-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-nav-group a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.15s;
+    }
+    .footer-nav-group a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+    }
+    .footer-bottom a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .nav-links, .nav-cta, .nav-phone { display: none; }
+      .burger { display: flex; }
+      .nav-inner { width: calc(100% - 32px); }
+
+      .cs-hero { padding: 80px 0 56px; }
+      .cs-form-card { padding: 28px 20px; }
+
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Trust Bar ─────────────────────────────────────────── -->
+<div class="trust-bar">
+  NMLS #2822744 &middot; Ohio roots &middot; Built national mortgage teams &middot; 3 years Citi &middot; ViaScore Commercial&trade;
+</div>
+
+<!-- ── Nav ───────────────────────────────────────────────── -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo"><img src="/assets/vp-logo.png" alt="Viador Partners" class="logo-img" style="height:40px;width:auto;display:block"/></a>
+        <nav class="nav-links" aria-label="Primary">
+      <div class="nav-dropdown">
+        <a href="index.html#programs" class="nav-dropdown-trigger">Programs</a>
+        <div class="nav-dropdown-menu">
+          <a href="dscr.html">DSCR Loans</a>
+          <a href="fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="bpl.html">Business Purpose Loans</a>
+          <a href="non-qm-loans-florida.html">Non-QM / Bank Statement</a>
+          <a href="conventional-investment-property-loans.html">Conventional</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="investor-platform.html" class="nav-dropdown-trigger">Tools</a>
+        <div class="nav-dropdown-menu">
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="deal-analyzer.html">Deal Analyzer</a>
+          <a href="dscr-calculator.html">DSCR Calculator</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+    </nav>
+    <a href="application.html" class="nav-cta">Analyze My Deal</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" id="burger"><span></span><span></span></button>
+  </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="dscr.html">DSCR Loans</a>
+    <a href="fix-and-flip.html">Fix &amp; Flip</a>
+    <a href="bpl.html">Business Purpose Loans</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="deal-analyzer.html">Deal Analyzer</a>
+    <a href="about.html">About</a>
+    <span class="drawer-label">Commercial</span>
+    <a href="commercial.html">Commercial Lending</a>
+    <a href="franchise.html">SBA &amp; Franchise</a>
+    <a href="index.html#dealform" class="drawer-cta">Analyze My Deal &rarr;</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ── Hero + Form ──────────────────────────────────────── -->
+<section class="cs-hero">
+  <div class="container cs-hero-inner">
+    <p class="cs-eyebrow">ViaScore Commercial&trade;</p>
+    <h1>ViaScore Commercial&trade; &mdash; AI Deal Analysis for Commercial Real Estate</h1>
+    <p class="cs-hero-sub">Enter any commercial property address. Get an institutional-grade investment analysis in seconds.</p>
+
+    <!-- Scoring Form -->
+    <div class="cs-form-card">
+      <div class="cs-field">
+        <label class="cs-label" for="cs-address">Property Address</label>
+        <input class="cs-input" type="text" id="cs-address" placeholder="123 Main St, Tampa, FL 33602" autocomplete="off"/>
+      </div>
+      <div class="cs-field">
+        <label class="cs-label" for="cs-price">Asking Price</label>
+        <input class="cs-input" type="text" id="cs-price" placeholder="$1,500,000"/>
+      </div>
+      <div class="cs-field">
+        <label class="cs-label" for="cs-type">Property Type</label>
+        <select class="cs-select" id="cs-type">
+          <option value="Office">Office</option>
+          <option value="Retail">Retail</option>
+          <option value="Industrial">Industrial</option>
+          <option value="Multifamily 5+">Multifamily 5+</option>
+          <option value="Mixed-Use">Mixed-Use</option>
+          <option value="NNN">NNN</option>
+          <option value="Self-Storage">Self-Storage</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="cs-field">
+        <label class="cs-label" for="cs-noi">Current NOI (Annual)</label>
+        <input class="cs-input" type="text" id="cs-noi" placeholder="$120,000"/>
+        <p class="cs-helper">Net Operating Income = gross rents minus operating expenses</p>
+      </div>
+      <div class="cs-field">
+        <label class="cs-label" for="cs-occupancy">Current Occupancy %</label>
+        <input class="cs-input" type="text" id="cs-occupancy" placeholder="95%"/>
+      </div>
+      <button class="cs-btn" id="cs-btn">Analyze This Deal</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── Results ──────────────────────────────────────────── -->
+<section class="cs-results-section">
+  <div class="container">
+    <div class="cs-results" id="cs-results"></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ── Footer ───────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Viador<span>Partners</span></div>
+        <p>Real estate investor financing &mdash; commercial and residential nationwide.</p>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Programs</h4>
+          <a href="dscr.html">DSCR Loans</a>
+          <a href="fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="bpl.html">Business Purpose (BPL)</a>
+          <a href="commercial.html">Commercial</a>
+          <a href="franchise.html">SBA &amp; Franchise</a>
+        </div>
+      <div class="footer-nav-group">
+        <h4>Calculators</h4>
+        <a href="dscr-calculator.html">DSCR Calculator</a>
+        <a href="deal-analyzer.html">Deal Analyzer</a>
+        <a href="cashout-calculator.html">Cash-Out Refi</a>
+        <a href="investor-platform.html">Full Platform</a>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="partners.html">Partners</a>
+        <a href="/#faq">FAQ</a>
+        <a href="application.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Viador Partners LLC &#124; NMLS #2822744</span>
+      <span style="display:block;margin-top:6px;font-size:10px;opacity:0.7">chad&#64;viadorpartners.com &#124; (813) 419-2983</span>
+      <span style="display:block;margin-top:6px;font-size:10px;opacity:0.6">NMLS #2822744</span>
+      <span style="display:block;margin-top:6px;font-size:10px;opacity:0.5">Not a commitment to lend. Equal Housing Opportunity. <a href="privacy-policy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Use</a></span>
+    <span style="display:block;margin-top:10px;font-size:10px;opacity:0.6">Veteran homeowner? Visit <a href="https://nextdutyvet.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">NextDutyVet.com</a></span></div>
+  </div>
+</footer>
+
+<script>
+/* ── Burger toggle ──────────────────────────────────────── */
+(function() {
+  var burger = document.getElementById('burger');
+  var drawer = document.getElementById('drawer');
+  if (burger && drawer) {
+    burger.addEventListener('click', function() {
+      burger.classList.toggle('open');
+      drawer.classList.toggle('open');
+      burger.setAttribute('aria-expanded', drawer.classList.contains('open'));
+    });
+  }
+})();
+
+/* ── Scroll shadow ──────────────────────────────────────── */
+(function() {
+  var nav = document.getElementById('nav');
+  if (!nav) return;
+  var last = 0;
+  window.addEventListener('scroll', function() {
+    var y = window.scrollY;
+    if (y > 8) { nav.classList.add('scrolled'); }
+    else { nav.classList.remove('scrolled'); }
+    last = y;
+  }, { passive: true });
+})();
+
+/* ── Google Places Autocomplete ─────────────────────────── */
+function initAutocomplete() {
+  var input = document.getElementById('cs-address');
+  if (!input || typeof google === 'undefined' || !google.maps || !google.maps.places) return;
+  var autocomplete = new google.maps.places.Autocomplete(input, {
+    types: ['address'],
+    componentRestrictions: { country: 'us' }
+  });
+}
+window.addEventListener('load', initAutocomplete);
+
+/* ── Analyze Deal ───────────────────────────────────────── */
+var PROXY = 'https://viador-ai-proxy.chad-7f6.workers.dev';
+
+document.getElementById('cs-btn').addEventListener('click', function() {
+  var address = document.getElementById('cs-address').value.trim();
+  var price = document.getElementById('cs-price').value.trim();
+  var type = document.getElementById('cs-type').value;
+  var noi = document.getElementById('cs-noi').value.trim();
+  var occupancy = document.getElementById('cs-occupancy').value.trim();
+
+  if (!address || !price) { alert('Please enter property address and asking price.'); return; }
+
+  var btn = document.getElementById('cs-btn');
+  var results = document.getElementById('cs-results');
+  btn.disabled = true;
+  btn.textContent = 'Analyzing...';
+  results.style.display = 'block';
+  results.innerHTML = '<div style="text-align:center;padding:40px"><div class="cs-spinner"></div><p style="margin-top:16px;color:var(--ink-soft)">Running institutional-grade analysis...</p></div>';
+
+  var systemPrompt = 'You are a commercial real estate underwriter with 20 years of institutional experience. Analyze this commercial property as a potential acquisition. Be honest and critical — not optimistic. Focus on cap rate, debt yield, DSCR at commercial rates, and exit risk.';
+
+  var userPrompt = 'Property Address: ' + address + '\n' +
+    'Asking Price: ' + price + '\n' +
+    'Property Type: ' + type + '\n' +
+    (noi ? 'Current NOI (Annual): ' + noi + '\n' : 'Current NOI: Not provided — estimate based on market data\n') +
+    (occupancy ? 'Current Occupancy: ' + occupancy + '\n' : '') +
+    '\nAnalyze this commercial property across these dimensions:\n' +
+    '1. Cap Rate (0-25pts) — current NOI / asking price. Score 25 for 7%+ cap rate, scale down to 0 for sub-4% cap rate\n' +
+    '2. Debt Yield (0-20pts) — NOI / loan amount (assume 65% LTV). Score 20 for 10%+ debt yield\n' +
+    '3. DSCR at Commercial Rates (0-20pts) — debt coverage at 7.5% rate, 25-year am, 65% LTV\n' +
+    '4. Market Demand (0-15pts) — property type demand in this market\n' +
+    '5. Occupancy Stability (0-10pts) — current occupancy and lease structure\n' +
+    '6. Exit Risk (0-10pts) — liquidity and resale risk for this asset type\n\n' +
+    'Return a valid JSON object (no markdown, no code fences, just raw JSON) with this exact structure:\n' +
+    '{"score": <number 0-100>, "verdict": "<Acquire|Hold|Pass>", "capRate": "<e.g. 6.2%>", "debtYield": "<e.g. 9.5%>", "dscr": "<e.g. 1.35x>", "dimensions": [{"name": "<dimension>", "score": <pts>, "max": <max_pts>}], "narrative": "<3 paragraphs separated by \\n\\n>", "recommendedLoanAmount": "<e.g. $975,000>", "estimatedRate": "<e.g. 7.25%>", "nextSteps": "<brief next steps>"}';
+
+  fetch(PROXY, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 2000,
+      stream: true,
+      system: systemPrompt,
+      messages: [{ role: 'user', content: userPrompt }]
+    })
+  }).then(function(res) {
+    if (!res.ok) throw new Error('API ' + res.status);
+    var reader = res.body.getReader();
+    var decoder = new TextDecoder();
+    var raw = '';
+    var buffer = '';
+
+    function pump() {
+      return reader.read().then(function(result) {
+        if (result.done) {
+          parseAndRenderResults(raw);
+          return;
+        }
+        buffer += decoder.decode(result.value, {stream: true});
+        var lines = buffer.split('\n');
+        buffer = lines.pop();
+        lines.forEach(function(line) {
+          if (line.startsWith('data: ')) {
+            var payload = line.slice(6).trim();
+            if (payload === '[DONE]') return;
+            try {
+              var evt = JSON.parse(payload);
+              if (evt.type === 'content_block_delta' && evt.delta && evt.delta.text) {
+                raw += evt.delta.text;
+              }
+            } catch(e) {}
+          }
+        });
+        return pump();
+      });
+    }
+    return pump();
+  }).catch(function(err) {
+    results.innerHTML = '<div style="text-align:center;padding:40px;color:#D94F4F">Analysis failed: ' + err.message + '. Please try again.</div>';
+    btn.disabled = false;
+    btn.textContent = 'Analyze This Deal';
+  });
+});
+
+function parseAndRenderResults(raw) {
+  var btn = document.getElementById('cs-btn');
+  btn.disabled = false;
+  btn.textContent = 'Analyze This Deal';
+
+  try {
+    var jsonMatch = raw.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) throw new Error('No JSON found');
+    var data = JSON.parse(jsonMatch[0]);
+    renderCommercialScore(data);
+  } catch(e) {
+    var results = document.getElementById('cs-results');
+    results.innerHTML = '<div style="padding:32px"><h3 style="margin-bottom:16px">Analysis</h3><div style="white-space:pre-wrap;line-height:1.7">' + raw + '</div></div>';
+  }
+}
+
+function renderCommercialScore(data) {
+  var results = document.getElementById('cs-results');
+  var score = data.score || 0;
+  var verdict = data.verdict || 'Hold';
+
+  var color = score >= 65 ? '#2ECC71' : score >= 50 ? '#BF9020' : score >= 35 ? '#E08A3C' : '#D94F4F';
+  var verdictBg = verdict === 'Acquire' ? 'rgba(46,204,113,0.12)' : verdict === 'Pass' ? 'rgba(217,79,79,0.12)' : 'rgba(191, 144, 32,0.12)';
+  var verdictColor = verdict === 'Acquire' ? '#2ECC71' : verdict === 'Pass' ? '#D94F4F' : '#BF9020';
+
+  var circumference = 2 * Math.PI * 54;
+  var offset = circumference - (score / 100) * circumference;
+
+  var html = '';
+
+  /* Score Ring */
+  html += '<div style="text-align:center;padding:48px 0 32px">';
+  html += '<svg width="160" height="160" viewBox="0 0 120 120" style="transform:rotate(-90deg)">';
+  html += '<circle cx="60" cy="60" r="54" fill="none" stroke="rgba(20,18,16,0.06)" stroke-width="8"/>';
+  html += '<circle cx="60" cy="60" r="54" fill="none" stroke="' + color + '" stroke-width="8" stroke-linecap="round" stroke-dasharray="' + circumference + '" stroke-dashoffset="' + offset + '" style="transition:stroke-dashoffset 1.5s ease"/>';
+  html += '</svg>';
+  html += '<div style="margin-top:-110px;position:relative">';
+  html += '<div style="font-family:Fraunces,serif;font-size:48px;font-weight:700;color:var(--ink)">' + score + '</div>';
+  html += '<div style="font-family:\'DM Mono\',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-soft)">ViaScore Commercial</div>';
+  html += '</div>';
+  html += '<div style="display:inline-block;margin-top:16px;padding:6px 16px;border-radius:20px;background:' + verdictBg + ';color:' + verdictColor + ';font-family:\'DM Mono\',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase">' + verdict + '</div>';
+  html += '</div>';
+
+  /* Metric Tiles */
+  html += '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:800px;margin:0 auto 40px">';
+  var metrics = [
+    { label: 'Cap Rate', value: data.capRate || '\u2014' },
+    { label: 'Debt Yield', value: data.debtYield || '\u2014' },
+    { label: 'DSCR', value: data.dscr || '\u2014' },
+    { label: 'Est. Loan Amount', value: data.recommendedLoanAmount || '\u2014' }
+  ];
+  metrics.forEach(function(m) {
+    html += '<div style="background:var(--charcoal);border-radius:10px;padding:20px 16px;text-align:center">';
+    html += '<div style="font-family:\'DM Mono\',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px">' + m.label + '</div>';
+    html += '<div style="font-family:Fraunces,serif;font-size:22px;color:#fff">' + m.value + '</div>';
+    html += '</div>';
+  });
+  html += '</div>';
+
+  /* Dimension Bars */
+  if (data.dimensions && data.dimensions.length) {
+    html += '<div style="max-width:640px;margin:0 auto 40px">';
+    data.dimensions.forEach(function(d) {
+      var pct = (d.score / d.max) * 100;
+      html += '<div style="margin-bottom:12px">';
+      html += '<div style="display:flex;justify-content:space-between;margin-bottom:4px">';
+      html += '<span style="font-family:\'DM Mono\',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-soft)">' + d.name + '</span>';
+      html += '<span style="font-family:\'DM Mono\',monospace;font-size:11px;color:var(--ink-mid)">' + d.score + '/' + d.max + '</span>';
+      html += '</div>';
+      html += '<div style="height:8px;background:var(--cream-dark);border-radius:4px;overflow:hidden">';
+      html += '<div style="height:100%;width:' + pct + '%;background:var(--gold);border-radius:4px;transition:width 1s ease"></div>';
+      html += '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+  }
+
+  /* Narrative */
+  if (data.narrative) {
+    var paragraphs = data.narrative.split('\n\n').filter(function(p) { return p.trim(); });
+    html += '<div id="cs-narrative" style="max-width:700px;margin:0 auto 40px;padding:32px;background:var(--cream-dark);border-radius:12px">';
+    html += '<div style="font-family:\'DM Mono\',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">AI Analysis</div>';
+    paragraphs.forEach(function(p) {
+      html += '<p style="margin-bottom:16px;line-height:1.7;color:var(--ink-mid);font-size:15px">' + p + '</p>';
+    });
+    html += '</div>';
+  }
+
+  /* CTA */
+  html += '<div style="text-align:center;padding:32px 0">';
+  html += '<a href="application.html" style="display:inline-block;padding:14px 32px;background:var(--ink);color:#fff;font-size:15px;font-weight:500;border-radius:6px;text-decoration:none;transition:background .2s">Review My Commercial Deal with Viador Partners</a>';
+  html += '</div>';
+
+  results.innerHTML = html;
+
+  /* Scroll to results */
+  results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+
+</body>
+</html>
