@@ -4,6 +4,88 @@
    ASCII-only comments (UTF-8 box chars break shell heredocs).
    ============================================================ */
 
+
+/* ============================================================
+   GLOBAL NAV (dark charcoal bar - sitewide canonical)
+   Copied from /styles.css .nav-wrap block.
+   All rules scoped to .nav-wrap - zero collision with page styles.
+   ============================================================ */
+.nav-wrap {
+  background: #1F2326;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.nav-wrap .nav {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  box-sizing: border-box;
+}
+.nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.nav-brand-mark {
+  width: 44px; height: 44px;
+  border: 1.5px solid rgba(255,255,255,0.45);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px; letter-spacing: 1px;
+  color: #fff; background: transparent; flex-shrink: 0;
+}
+.nav-brand-text { color: #fff; font-weight: 700; font-size: 15px; letter-spacing: 1.4px; line-height: 1.1; }
+.nav-brand-text span { display: block; font-weight: 500; font-size: 11px; letter-spacing: 1.8px; opacity: 0.7; margin-top: 2px; }
+.nav-wrap .nav-links {
+  display: flex; align-items: center; gap: 36px;
+  list-style: none; flex: 1; justify-content: center;
+  padding: 0; margin: 0;
+}
+.nav-wrap .nav-link {
+  color: rgba(255,255,255,0.85); text-decoration: none;
+  font-size: 14px; font-weight: 500; letter-spacing: 0.2px;
+  transition: color 0.15s ease; display: flex; align-items: center; gap: 4px;
+}
+.nav-wrap .nav-link:hover { color: #fff; }
+.nav-wrap .nav-link.has-caret::after {
+  content: ''; display: inline-block; width: 0; height: 0;
+  border-left: 4px solid transparent; border-right: 4px solid transparent;
+  border-top: 4px solid currentColor; margin-left: 4px; opacity: 0.7;
+}
+.nav-ctas { display: flex; align-items: center; gap: 12px; }
+.nav-wrap .btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 12px 24px; font-family: 'Inter', sans-serif;
+  font-weight: 600; font-size: 14px; letter-spacing: 0.2px;
+  text-decoration: none; border-radius: 4px; border: 1.5px solid transparent;
+  cursor: pointer; transition: all 0.18s ease; white-space: nowrap; box-sizing: border-box;
+}
+.nav-wrap .btn-primary { background: #6B745E; color: #fff; border-color: #6B745E; }
+.nav-wrap .btn-primary:hover { background: #8B9474; border-color: #8B9474; }
+.nav-wrap .btn-secondary-dark { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
+.nav-wrap .btn-secondary-dark:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.05); }
+/* -- Nav dropdown overrides (dark theme) -- */
+.nav-wrap .nav-dropdown { position: relative; }
+.nav-wrap .nav-dropdown-trigger { cursor: pointer; user-select: none; }
+.nav-wrap .nav-dropdown-trigger::after { content: ''; display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; margin-left: 5px; opacity: 0.7; vertical-align: middle; }
+.nav-wrap .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 210px; background: #1F2326; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.35); padding: 12px 6px 6px; z-index: 200; }
+.nav-wrap .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-wrap .nav-dropdown-menu a { display: block; color: rgba(247,245,239,0.82); font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 400; padding: 9px 14px; border-radius: 4px; text-decoration: none; white-space: nowrap; transition: background 0.15s, color 0.15s; }
+.nav-wrap .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.07); color: #fff; }
+.nav-wrap .nav-links a { color: rgba(255,255,255,0.85); }
+@media (max-width: 720px) {
+  .nav-wrap .nav { flex-wrap: wrap; gap: 16px; padding: 14px 20px; }
+  .nav-wrap .nav-links { display: none; }
+  .nav-ctas { width: 100%; justify-content: flex-end; }
+  .nav-brand-text { font-size: 13px; }
+  .nav-brand-text span { font-size: 10px; }
+}
+/* ============================================================
+   END GLOBAL NAV
+   ============================================================ */
+
 :root {
   --charcoal: #1F2326;
   --charcoal-light: #2A2F32;
