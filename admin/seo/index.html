@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Viador Command Center — SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* =========================================================================
+   VIADOR / NDV — SEO COMMAND CENTER  (LIVE MODE, no placeholder metrics)
+   White-dominant operator UI. Data layer = Google Sheet / viador-ai-proxy Worker.
+   Notion = state of record. Florida is FULLY ACTIVE. No pending language.
+   Metrics render ONLY from real sources; missing = blank. Framework/plan = kept.
+   ========================================================================= */
+:root{
+  --charcoal:#1F2326; --ink:#2A2F33; --muted:#6A7178; --faint:#9AA0A4;
+  --line:#E4E2DA; --line-soft:#EDEBE3;
+  --bg:#F4F2EC; --panel:#FFFFFF; --panel-2:#FAF9F5; --sidebar:#F7F6F1;
+  --olive:#6B745E; --olive-bright:#8B9474; --olive-tint:#EEF0E9;
+  --green:#2E7D55; --green-bg:#E7F1EA; --amber:#B5731E; --amber-bg:#F7EDDB;
+  --slate:#48657F; --slate-bg:#E9EEF3; --red:#B23A2E; --red-bg:#F6E5E2;
+  --shadow:0 1px 2px rgba(31,35,38,.05), 0 4px 14px rgba(31,35,38,.04);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Archivo',system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:13px;line-height:1.4;-webkit-font-smoothing:antialiased}
+.mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
+.blank{color:var(--faint)}
+
+.shell{display:flex;min-height:100vh}
+.sidebar{width:236px;flex:0 0 236px;background:var(--sidebar);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:18px 14px;gap:16px;position:sticky;top:0;height:100vh;overflow-y:auto}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 6px 12px;border-bottom:1px solid var(--line)}
+.brand-mark{width:34px;height:34px;border-radius:9px;background:var(--charcoal);color:#F4F2EC;display:grid;place-items:center;font-weight:800;font-size:17px;letter-spacing:.5px}
+.brand-name{font-weight:700;font-size:14px;color:var(--charcoal);letter-spacing:.2px;line-height:1.1}
+.brand-sub{font-size:10px;color:var(--muted);letter-spacing:1.4px;text-transform:uppercase;margin-top:2px}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav a{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:8px;color:var(--ink);text-decoration:none;font-weight:500;font-size:13px;transition:background .12s}
+.nav a:hover{background:#EFEDE5}
+.nav a.active{background:var(--charcoal);color:#F4F2EC}
+.nav a.active .dot{background:var(--olive-bright)}
+.dot{width:7px;height:7px;border-radius:50%;background:#C8C6BC}
+.mini{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px;box-shadow:var(--shadow)}
+.mini h4{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:9px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.mini h4 .tag{font-size:8.5px;letter-spacing:.6px;background:#EFEDE5;color:var(--faint);padding:2px 6px;border-radius:10px;font-weight:700}
+.mini-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;font-size:12px}
+.mini-row .k{color:var(--muted)} .mini-row .v{font-weight:600;color:var(--charcoal)}
+.mini-best{margin-top:8px;padding-top:8px;border-top:1px solid var(--line-soft);font-size:11px;color:var(--muted)}
+.mini-best b{color:var(--olive);font-weight:700;display:block;font-size:12px;margin-top:1px}
+.mini-pipe{margin-top:6px;font-size:18px;font-weight:700;color:var(--charcoal)}
+.lic h4{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:9px;font-weight:700}
+.lic-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:12.5px}
+.lic-badge{font-size:10px;font-weight:700;letter-spacing:.6px;padding:2px 8px;border-radius:20px;background:var(--green-bg);color:var(--green);text-transform:uppercase}
+.lic-note{margin-top:9px;font-size:10.5px;color:var(--muted);display:flex;gap:6px;align-items:flex-start}
+.side-foot{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-size:10px;color:var(--muted);line-height:1.5}
+.side-foot b{color:var(--charcoal);font-weight:700}
+
+.main{flex:1;min-width:0;display:flex;flex-direction:column}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(244,242,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:16px 24px 12px}
+.topbar-row{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.h1{font-size:22px;font-weight:800;color:var(--charcoal);letter-spacing:-.3px}
+.h1-sub{font-size:12px;color:var(--muted);margin-top:2px}
+.topbar-actions{display:flex;align-items:center;gap:10px}
+.asof{font-size:11px;color:var(--muted)}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);font-family:inherit;font-size:12px;font-weight:600;padding:8px 13px;border-radius:8px;cursor:pointer;transition:.12s}
+.btn:hover{border-color:var(--olive);color:var(--olive)}
+.btn-dark{background:var(--charcoal);color:#F4F2EC;border-color:var(--charcoal)}
+.btn-dark:hover{background:#2c3236;color:#fff}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}
+.filt{display:flex;flex-direction:column;gap:3px}
+.filt label{font-size:9.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);font-weight:700;padding-left:2px}
+.filt select{font-family:inherit;font-size:12px;font-weight:500;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:6px 26px 6px 9px;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 3.5L5 6.5L8 3.5' stroke='%236A7178' stroke-width='1.4' fill='none' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 9px center}
+.filt select:focus{outline:none;border-color:var(--olive)}
+.status-bar{display:flex;align-items:center;gap:14px;margin-top:12px;padding:8px 13px;border-radius:8px;background:var(--panel);border:1px solid var(--line);font-size:11.5px;color:var(--muted);flex-wrap:wrap}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px var(--green-bg)}
+.status-bar b{color:var(--charcoal)}
+.legend{display:flex;gap:12px;margin-left:auto;flex-wrap:wrap}
+.legend span{display:inline-flex;align-items:center;gap:5px;font-size:10.5px}
+.legend i{width:8px;height:8px;border-radius:2px;display:inline-block}
+
+.content{padding:22px 24px 40px;display:flex;flex-direction:column;gap:22px}
+.scorecard{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:14px 15px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--olive-bright);opacity:0;transition:.15s}
+.kpi:hover::before{opacity:1}
+.kpi-label{font-size:10.5px;letter-spacing:.4px;color:var(--muted);font-weight:600;text-transform:uppercase}
+.kpi-val{font-size:26px;font-weight:700;color:var(--charcoal);margin:7px 0 4px;font-family:'IBM Plex Mono',monospace;letter-spacing:-1px}
+.kpi-val.empty{color:var(--faint)}
+.kpi-foot{display:flex;align-items:center;gap:7px}
+.chg{font-size:11.5px;font-weight:700;display:inline-flex;align-items:center;gap:2px}
+.chg.up{color:var(--green)} .chg.down{color:var(--red)} .chg.good-down{color:var(--green)}
+.kpi-help{font-size:10px;color:var(--muted)}
+.kpi-src{font-size:9.5px;color:var(--faint);font-weight:600;letter-spacing:.3px}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 17px;border-bottom:1px solid var(--line-soft)}
+.card-title{font-size:14px;font-weight:700;color:var(--charcoal);letter-spacing:.1px;display:flex;align-items:center;gap:8px}
+.card-title .tick{width:4px;height:15px;border-radius:3px;background:var(--olive)}
+.card-meta{font-size:11px;color:var(--muted);font-weight:500;display:flex;align-items:center;gap:7px}
+.src{font-size:9px;letter-spacing:.5px;font-weight:700;text-transform:uppercase;background:#EFEDE5;color:var(--faint);padding:2px 7px;border-radius:10px}
+.card-body{padding:6px 6px 8px} .card-body.pad{padding:16px 17px}
+.grid-2{display:grid;grid-template-columns:1.45fr 1fr;gap:22px;align-items:start}
+.grid-2b{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+
+table{width:100%;border-collapse:collapse;font-size:12px}
+thead th{text-align:left;font-size:9.5px;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);font-weight:700;padding:9px 11px;border-bottom:1px solid var(--line);white-space:nowrap;background:var(--panel-2)}
+thead th.r,tbody td.r{text-align:right}
+tbody td{padding:9px 11px;border-bottom:1px solid var(--line-soft);color:var(--ink);vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--panel-2)}
+td.rank{color:var(--muted);font-weight:700;font-family:'IBM Plex Mono',monospace}
+td.strong{font-weight:600;color:var(--charcoal)}
+td.url{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate)}
+.qlp{font-family:'IBM Plex Mono',monospace;font-weight:600}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;letter-spacing:.2px;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.chip.green{background:var(--green-bg);color:var(--green)} .chip.amber{background:var(--amber-bg);color:var(--amber)}
+.chip.slate{background:var(--slate-bg);color:var(--slate)} .chip.red{background:var(--red-bg);color:var(--red)}
+.chip.olive{background:var(--olive-tint);color:var(--olive)} .chip.ghost{background:#F0EEE6;color:var(--muted)}
+.aud{font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:6px}
+.aud.vet{background:#E9EEF3;color:#3C5A78} .aud.inv{background:#EFEAE2;color:#7A632E} .aud.both{background:var(--olive-tint);color:var(--olive)}
+.empty-cell{text-align:center;color:var(--faint);padding:22px;font-size:12px}
+.empty-cell b{color:var(--muted)}
+
+.bars{display:flex;flex-direction:column;gap:11px;padding:6px 4px}
+.bar-row{display:grid;grid-template-columns:165px 1fr 44px;align-items:center;gap:10px}
+.bar-label{font-size:11.5px;color:var(--ink);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-track{height:16px;background:#EFEDE5;border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--olive),var(--olive-bright));transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.bar-val{font-size:11.5px;font-weight:700;font-family:'IBM Plex Mono',monospace;color:var(--charcoal);text-align:right}
+.bar-axis{display:flex;justify-content:space-between;padding:8px 4px 0;margin-left:175px;font-size:10px;color:var(--muted)}
+.gauges{display:flex;flex-direction:column}
+.gauge-row{display:grid;grid-template-columns:1fr 64px 64px;align-items:center;gap:12px;padding:11px 4px;border-bottom:1px solid var(--line-soft)}
+.gauge-row:last-child{border-bottom:none}
+.gauge-name{font-size:12px;font-weight:600;color:var(--ink)}
+.gauge-name small{display:block;font-size:10px;color:var(--muted);font-weight:400}
+.gauge-val{font-size:14px;font-weight:700;font-family:'IBM Plex Mono',monospace;text-align:right}
+.arc{width:64px;height:34px}
+.plan{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.plan-col{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--panel)}
+.plan-col h5{display:flex;align-items:center;gap:7px;font-size:11px;letter-spacing:.8px;text-transform:uppercase;font-weight:800;margin-bottom:10px}
+.plan-col.exp{border-top:3px solid var(--green)} .plan-col.exp h5{color:var(--green)}
+.plan-col.upd{border-top:3px solid var(--amber)} .plan-col.upd h5{color:var(--amber)}
+.plan-col.mon{border-top:3px solid var(--slate)} .plan-col.mon h5{color:var(--slate)}
+.plan-col.pau{border-top:3px solid var(--red)} .plan-col.pau h5{color:var(--red)}
+.plan-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.plan-col li{font-size:11.5px;color:var(--ink);padding-left:15px;position:relative;line-height:1.35}
+.plan-col li::before{content:"";position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:2px;background:currentColor;opacity:.5}
+.section-foot{font-size:10.5px;color:var(--muted);padding:2px 24px 0}
+@media (max-width:1280px){.scorecard{grid-template-columns:repeat(4,1fr)}.grid-2,.grid-2b{grid-template-columns:1fr}.plan{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:880px){.sidebar{display:none}.scorecard{grid-template-columns:repeat(2,1fr)}.plan{grid-template-columns:1fr}.bar-row{grid-template-columns:120px 1fr 40px}.card-body{overflow-x:auto}}
+/* gate (matches /admin behavior: sessionStorage 'vcc_auth', simpleHash, PW_HASH "33f4aafb") */
+.seo-gate{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#F4F2EC;z-index:1000;font-family:'Archivo',system-ui,sans-serif}
+.seo-gate-card{background:#FFFFFF;border:1px solid #E4E2DA;border-radius:8px;padding:40px 32px;width:340px;text-align:center;box-shadow:0 1px 2px rgba(31,35,38,.05),0 4px 14px rgba(31,35,38,.04)}
+.seo-gate-logo{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:48px;color:#8B9474;line-height:1;margin-bottom:8px}
+.seo-gate-title{font-size:14px;font-weight:600;color:#6A7178;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px}
+.seo-gate input{width:100%;padding:12px 14px;background:#F4F2EC;border:1px solid #E4E2DA;border-radius:6px;color:#2A2F33;font-family:inherit;font-size:14px;margin-bottom:12px}
+.seo-gate input:focus{outline:none;border-color:#8B9474}
+.seo-gate button{width:100%;padding:12px;background:#8B9474;border:none;border-radius:6px;color:#fff;font-weight:600;font-size:14px;cursor:pointer}
+.seo-gate button:hover{background:#6B745E}
+.seo-gate-err{display:none;color:#B23A2E;font-size:12px;margin-top:10px}
+.seo-locked .shell{visibility:hidden}
+</style>
+</head>
+<body class="seo-locked">
+<div class="seo-gate" id="seo-gate">
+  <div class="seo-gate-card">
+    <div class="seo-gate-logo">V</div>
+    <div class="seo-gate-title">Viador Command Center &mdash; SEO</div>
+    <form onsubmit="return window.__seoHandleLogin();">
+      <input type="password" id="seo-gate-pw" placeholder="Password" autocomplete="current-password" autofocus/>
+      <button type="submit">Unlock</button>
+      <div class="seo-gate-err" id="seo-gate-err">Incorrect password</div>
+    </form>
+  </div>
+</div>
+<script>
+/* Same simpleHash + PW_HASH as /admin (admin.html line 1126). Shared
+   sessionStorage key 'vcc_auth' means an existing /admin login carries through. */
+(function(){
+  var PW_HASH = '33f4aafb';
+  function simpleHash(s){ var h=0; for (var i=0;i<s.length;i++){ h=((h<<5)-h)+s.charCodeAt(i); h|=0; } return (h>>>0).toString(16).slice(0,8); }
+  function unlock(){
+    var gate = document.getElementById('seo-gate');
+    if (gate) gate.style.display = 'none';
+    document.body.classList.remove('seo-locked');
+  }
+  window.__seoHandleLogin = function(){
+    var pwEl = document.getElementById('seo-gate-pw');
+    if (simpleHash(pwEl.value) === PW_HASH){
+      sessionStorage.setItem('vcc_auth','1');
+      unlock();
+    } else {
+      document.getElementById('seo-gate-err').style.display = 'block';
+      pwEl.value = '';
+      pwEl.focus();
+    }
+    return false;
+  };
+  if (sessionStorage.getItem('vcc_auth') === '1') unlock();
+})();
+</script>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">V</div>
+      <div><div class="brand-name">Viador Command Center</div><div class="brand-sub">Viador &middot; NDV</div></div></div>
+    <nav class="nav">
+      <a href="/admin#home"><span class="dot"></span>Home</a>
+      <a href="/admin#ndv"><span class="dot"></span>NDV Campaign</a>
+      <a href="/admin#pipeline"><span class="dot"></span>Pipeline</a>
+      <a href="#" class="active"><span class="dot"></span>SEO Command Center</a>
+      <a href="/admin#pnl"><span class="dot"></span>P&amp;L &amp; Runway</a>
+      <a href="/admin#notes"><span class="dot"></span>Strategy &amp; Notes</a>
+    </nav>
+    <div class="mini">
+      <h4>Veteran SEO <span class="tag">GA4 / HubSpot</span></h4>
+      <div class="mini-row"><span class="k">Sessions</span><span class="v blank">—</span></div>
+      <div class="mini-row"><span class="k">Leads</span><span class="v blank">—</span></div>
+      <div class="mini-row"><span class="k">Qualified Leads</span><span class="v blank">—</span></div>
+      <div class="mini-row"><span class="k">Booked Calls</span><span class="v blank">—</span></div>
+      <div class="mini-best">Best cluster<b class="blank">—</b></div>
+      <div class="mini-pipe blank">—</div>
+    </div>
+    <div class="mini">
+      <h4>Investor SEO <span class="tag">GA4 / HubSpot</span></h4>
+      <div class="mini-row"><span class="k">Sessions</span><span class="v blank">—</span></div>
+      <div class="mini-row"><span class="k">Leads</span><span class="v blank">—</span></div>
+      <div class="mini-row"><span class="k">Qualified Leads</span><span class="v blank">—</span></div>
+      <div class="mini-row"><span class="k">Booked Calls</span><span class="v blank">—</span></div>
+      <div class="mini-best">Best cluster<b class="blank">—</b></div>
+      <div class="mini-pipe blank">—</div>
+    </div>
+    <div class="mini lic">
+      <h4>License Status</h4>
+      <div class="lic-row"><span>Ohio</span><span class="lic-badge">Active</span></div>
+      <div class="lic-row"><span>Maryland</span><span class="lic-badge">Active</span></div>
+      <div class="lic-row"><span>Tennessee</span><span class="lic-badge">Active</span></div>
+      <div class="lic-row"><span>Florida</span><span class="lic-badge">Active</span></div>
+      <div class="lic-note"><span>&#9679;</span><span>All four states active &amp; fully licensed.</span></div>
+    </div>
+    <div class="side-foot"><b>Viador Partners LLC</b><br>Internal Use Only &middot; NMLS #2822744<br>Notion = state of record<br>Sheets = data layer<br>admin.html = operator UI</div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-row">
+        <div>
+          <div class="h1">SEO Command Center</div>
+          <div class="h1-sub">Organic Growth Overview &middot; North Star: <b style="color:var(--olive)">Qualified Organic Leads per Indexed Page by Cluster</b></div>
+        </div>
+        <div class="topbar-actions">
+          <span class="asof" id="asof">Awaiting first sync</span>
+          <button class="btn" id="refreshBtn">&#8635; Refresh</button>
+          <button class="btn btn-dark" id="exportBtn">Export CSV</button>
+        </div>
+      </div>
+      <div class="filters" id="filters">
+        <div class="filt"><label>Date Range</label><select id="fDate"><option>Last 7 Days</option><option selected>Last 30 Days</option><option>Last 90 Days</option><option>YTD</option></select></div>
+        <div class="filt"><label>Site</label><select id="fSite"><option>All</option><option>Next Duty Vet</option><option>Viador Partners</option></select></div>
+        <div class="filt"><label>Audience</label><select id="fAud"><option>All</option><option>Veteran</option><option>Investor</option></select></div>
+        <div class="filt"><label>State</label><select id="fState"><option>All</option><option>Ohio</option><option>Maryland</option><option>Tennessee</option><option>Florida</option></select></div>
+        <div class="filt"><label>Metro</label><select id="fMetro"><option>All</option><option>Cleveland</option><option>Columbus</option><option>Cincinnati</option><option>Baltimore</option><option>Nashville</option><option>Knoxville</option><option>Chattanooga</option><option>Tampa</option><option>Miami</option></select></div>
+        <div class="filt"><label>Cluster</label><select id="fCluster"><option>All</option><option>VA Entitlement</option><option>Equity Without Refinancing</option><option>VA IRRRL</option><option>VA Cash-Out / Debt Consolidation</option><option>DSCR</option><option>Foreign National / ITIN</option><option>Bank Statement / Self-Employed</option><option>Bridge / Fix-and-Flip</option><option>Ground-Up / Blanket / Portfolio</option></select></div>
+        <div class="filt"><label>Status</label><select id="fStatus"><option>All</option><option>Published</option><option>Indexed</option><option>Needs Update</option><option>Winner</option><option>Striking Distance</option><option>Underperforming</option></select></div>
+      </div>
+      <div class="status-bar">
+        <span class="live-dot"></span>
+        <span><b>Live</b> — reading from Command Center data layer. Empty fields mean the source is not yet connected; they are the build list, not zeros.</span>
+        <div class="legend">
+          <span><i style="background:var(--green)"></i>Expand / Winner</span>
+          <span><i style="background:var(--amber)"></i>Update</span>
+          <span><i style="background:var(--slate)"></i>Hold / Monitor</span>
+          <span><i style="background:var(--red)"></i>Underperform</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="scorecard" id="scorecard"></div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head"><div class="card-title"><span class="tick"></span>Cluster Performance</div>
+            <div class="card-meta"><span class="src">GSC + HubSpot</span>ranked by efficiency</div></div>
+          <div class="card-body">
+            <table id="clusterTable"><thead><tr>
+              <th>#</th><th>Cluster / Pillar</th><th>Audience</th><th class="r">Live</th><th class="r">Indexed</th><th class="r">Impr.</th><th class="r">Clicks</th><th class="r">CTR</th><th class="r">Avg Pos</th><th class="r">Leads</th><th class="r">QL</th><th class="r">QL/Page</th><th>Trend</th><th>Decision</th>
+            </tr></thead><tbody></tbody></table>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <div class="card">
+            <div class="card-head"><div class="card-title"><span class="tick"></span>QL per Indexed Page by Cluster</div></div>
+            <div class="card-body pad"><div class="bars" id="barChart"></div><div class="bar-axis"><span>0</span><span>0.25</span><span>0.50</span><span>0.75</span><span>1.0</span></div></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><div class="card-title"><span class="tick"></span>SEO Health Gauges</div></div>
+            <div class="card-body pad"><div class="gauges" id="gauges"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-title"><span class="tick"></span>State + Metro Performance</div><div class="card-meta"><span class="src">GSC + HubSpot</span>all four states active</div></div>
+        <div class="card-body"><table id="stateTable"><thead><tr>
+          <th>State / Metro</th><th>License</th><th>Audience Bias</th><th class="r">Live</th><th class="r">Impr.</th><th class="r">Clicks</th><th class="r">Leads</th><th class="r">QL</th><th>Best Query Theme</th><th>Next Action</th>
+        </tr></thead><tbody></tbody></table></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-title"><span class="tick"></span>Page-Level SEO ROI</div><div class="card-meta"><span class="src">GSC + HubSpot</span>tracked pages</div></div>
+        <div class="card-body"><table id="pageTable"><thead><tr>
+          <th>URL / Page</th><th>Site</th><th>Cluster</th><th>Aud.</th><th>State</th><th class="r">Impr.</th><th class="r">Clicks</th><th class="r">CTR</th><th class="r">Pos</th><th class="r">Leads</th><th class="r">QL</th><th>Status</th><th>Next Action</th>
+        </tr></thead><tbody></tbody></table></div>
+      </div>
+
+      <div class="grid-2b">
+        <div class="card">
+          <div class="card-head"><div class="card-title"><span class="tick"></span>Query Opportunity Board</div><div class="card-meta"><span class="src">Search Console</span>pos 8&ndash;30</div></div>
+          <div class="card-body"><table id="queryTable"><thead><tr><th>Query</th><th class="r">Impr.</th><th class="r">Clicks</th><th class="r">CTR</th><th class="r">Pos</th><th>Opportunity</th><th>Action</th></tr></thead><tbody></tbody></table></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><div class="card-title"><span class="tick"></span>Organic Conversion Tracking</div><div class="card-meta"><span class="src">GA4</span>events</div></div>
+          <div class="card-body"><table id="convTable"><thead><tr><th>Event</th><th class="r">Total</th><th class="r">Organic</th><th class="r">Vet</th><th class="r">Inv.</th><th>Best Page</th></tr></thead><tbody></tbody></table></div>
+        </div>
+      </div>
+
+      <div class="grid-2b">
+        <div class="card">
+          <div class="card-head"><div class="card-title"><span class="tick"></span>Lead Quality by Cluster</div><div class="card-meta"><span class="src">HubSpot</span></div></div>
+          <div class="card-body"><table id="lqTable"><thead><tr><th>Cluster</th><th class="r">Leads</th><th class="r">QL</th><th class="r">Qual %</th><th class="r">Avg Loan</th><th class="r">Est. Pipeline</th></tr></thead><tbody></tbody></table></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><div class="card-title"><span class="tick"></span>Content Refresh Queue</div><div class="card-meta"><span class="src">Sheet: SEO_Refresh</span></div></div>
+          <div class="card-body"><table id="refreshTable"><thead><tr><th>#</th><th>URL</th><th>Problem</th><th>Fix</th><th>Owner</th><th>Due</th></tr></thead><tbody></tbody></table></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-title"><span class="tick"></span>Content Production Queue</div><div class="card-meta"><span class="src">Plan</span>next pages to build</div></div>
+        <div class="card-body"><table id="prodTable"><thead><tr><th>#</th><th>Page / Asset</th><th>Site</th><th>Cluster</th><th>Aud.</th><th>Target State</th><th>Primary Keyword</th><th>Intent</th><th>Status</th></tr></thead><tbody></tbody></table></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-title"><span class="tick"></span>Weekly Action Plan</div><div class="card-meta">Priority = QL/page + ranking momentum + commercial value</div></div>
+        <div class="card-body pad"><div class="plan">
+          <div class="plan-col exp"><h5>&#9650; Expand</h5><ul>
+            <li>Build Cleveland DSCR Cash-Out page</li><li>Build VA HELOC vs VA Cash-Out comparison page</li><li>Build Disabled Veteran Funding Fee Calculator</li><li>Build Florida DSCR Loan Guide</li><li>Build Tampa DSCR Loan Guide</li><li>Build Miami Foreign National DSCR Loan Guide</li>
+          </ul></div>
+          <div class="plan-col upd"><h5>&#9679; Update</h5><ul>
+            <li>Rewrite title/meta on VA Home Equity Without Refinancing</li><li>Add calculator to Second Mortgage vs HELOC vs Cash-Out</li><li>Add internal links to Ohio DSCR from investor pages</li><li>Add internal links to Florida &amp; foreign-national DSCR pages once live</li>
+          </ul></div>
+          <div class="plan-col mon"><h5>&#9673; Monitor</h5><ul>
+            <li>Foreign National DSCR Florida &mdash; high commercial intent</li><li>Bank Statement Mortgage Ohio &mdash; early impressions, no leads</li><li>Tampa &amp; Miami DSCR pages &mdash; track metro growth</li>
+          </ul></div>
+          <div class="plan-col pau"><h5>&#9632; Pause</h5><ul>
+            <li>Broad VA purchase bad-credit content until entitlement/equity clusters mature</li><li>Generic fix-and-flip state pages until DSCR cluster gains traction</li>
+          </ul></div>
+        </div></div>
+      </div>
+
+      <div class="section-foot">Viador Partners LLC &middot; Internal Use Only &middot; NMLS #2822744 &middot; Lending through Focus Home Mortgage Inc. NMLS #2769672 &middot; Identity: demand aggregator + advisory platform &middot; Notion = state of record &middot; Sheets = data layer</div>
+    </div>
+  </main>
+</div>
+
+<script>
+/* =========================================================================
+   LIVE DATA — no placeholder metrics. Set DATA_URL to the viador-ai-proxy
+   Worker endpoint that returns the JSON shape below (joins GSC + GA4 +
+   HubSpot + the SEO_* Sheet tabs). Until then every metric renders blank.
+   ========================================================================= */
+const DATA_URL = "https://marketing-monitor.chad-7f6.workers.dev/seo"; // Marketing Monitor Worker
+const SHEET_ID = "13tBkar44YoHj8PMvpweU-5kf6os2j1dNK5xdoZW21_4";
+const B = "—";
+
+/* FRAMEWORK = taxonomy + plan authored by Chad. Contains NO metrics. */
+const FRAMEWORK = {
+  clusters: [
+    {n:1,name:"VA Entitlement / 2 VA Loans",aud:"Veteran"},
+    {n:2,name:"Equity Without Refinancing",aud:"Veteran"},
+    {n:3,name:"Ohio DSCR / Cash-Out",aud:"Investor"},
+    {n:4,name:"Florida DSCR / Foreign National",aud:"Investor"},
+    {n:5,name:"Foreign National / ITIN",aud:"Investor"},
+    {n:6,name:"Bank Statement / Self-Employed",aud:"Investor"},
+    {n:7,name:"VA IRRRL / Streamline",aud:"Veteran"},
+    {n:8,name:"Bridge / Fix-and-Flip",aud:"Investor"},
+    {n:9,name:"Ground-Up / Portfolio / Blanket",aud:"Investor"}
+  ],
+  gauges: [
+    {key:"indexing",name:"Indexing Health",sub:"green 90%+ priority pages indexed"},
+    {key:"ctr",name:"CTR Health",sub:"green 4%+ avg CTR, commercial"},
+    {key:"momentum",name:"Ranking Momentum",sub:"green 10+ queries up MoM"},
+    {key:"leadEff",name:"Lead Efficiency",sub:"green 0.50+ QL / indexed page / mo"},
+    {key:"clusterQ",name:"Cluster Quality",sub:"green 40%+ qualification rate"},
+    {key:"contentEff",name:"Content Efficiency",sub:"green 50%+ impressions < 45 days"},
+    {key:"conv",name:"Conversion Health",sub:"green 3%+ visitor-to-lead, money pages"}
+  ],
+  states: [
+    {name:"Ohio",lvl:0,bias:"V + I",act:"Expand"},
+    {name:"Cleveland",lvl:1,bias:"I",act:"Build LP"},
+    {name:"Columbus",lvl:1,bias:"I",act:"Build bridge page"},
+    {name:"Cincinnati",lvl:1,bias:"I",act:"Build fix & flip"},
+    {name:"Maryland",lvl:0,bias:"V + I",act:"Add calculator"},
+    {name:"Baltimore",lvl:1,bias:"V",act:"Build pages"},
+    {name:"Tennessee",lvl:0,bias:"V + I",act:"Build metro pages"},
+    {name:"Nashville",lvl:1,bias:"I",act:"Improve links"},
+    {name:"Knoxville",lvl:1,bias:"V",act:"Monitor"},
+    {name:"Chattanooga",lvl:1,bias:"I",act:"Monitor"},
+    {name:"Florida",lvl:0,bias:"V + I",act:"Build pages"},
+    {name:"Tampa",lvl:1,bias:"I",act:"Build pages"},
+    {name:"Miami",lvl:1,bias:"I",act:"Build pages"}
+  ],
+  pages: [
+    {url:"/can-you-have-two-va-loans-at-once",site:"NDV",cluster:"VA Entitlement",aud:"Veteran",state:"Nationwide"},
+    {url:"/va-remaining-entitlement-calculator",site:"NDV",cluster:"VA Entitlement",aud:"Veteran",state:"Nationwide"},
+    {url:"/keep-low-mortgage-rate-get-cash",site:"NDV",cluster:"Equity Without Refinancing",aud:"Veteran",state:"Nationwide"},
+    {url:"/second-mortgage-vs-heloc-vs-cash-out-refinance",site:"NDV",cluster:"Equity Without Refinancing",aud:"Veteran",state:"Nationwide"},
+    {url:"/ohio-dscr-loans-no-income-verification",site:"Viador Partners",cluster:"DSCR",aud:"Investor",state:"Ohio"},
+    {url:"/dscr-cash-out-refinance-ohio",site:"Viador Partners",cluster:"DSCR",aud:"Investor",state:"Ohio"},
+    {url:"/foreign-national-dscr-loan-florida",site:"Viador Partners",cluster:"Foreign National / ITIN",aud:"Investor",state:"Florida"},
+    {url:"/florida-dscr-loans",site:"Viador Partners",cluster:"DSCR",aud:"Investor",state:"Florida"},
+    {url:"/tampa-dscr-loans",site:"Viador Partners",cluster:"DSCR",aud:"Investor",state:"Florida"},
+    {url:"/miami-foreign-national-dscr-loans",site:"Viador Partners",cluster:"Foreign National / ITIN",aud:"Investor",state:"Florida"},
+    {url:"/bank-statement-mortgage-ohio",site:"Viador Partners",cluster:"Bank Statement / Self-Employed",aud:"Investor",state:"Ohio"}
+  ],
+  leadQuality: [
+    "VA Entitlement / 2 VA Loans","Equity Without Refinancing","Ohio DSCR / Cash-Out",
+    "Florida DSCR / Foreign National","Foreign National / ITIN","Bank Statement / Self-Employed",
+    "Bridge / Fix-and-Flip","Ground-Up / Portfolio / Blanket"
+  ],
+  production: [
+    {n:1,asset:"VA Remaining Entitlement Calculator",site:"NDV",cluster:"VA Entitlement",aud:"Veteran",state:"Nationwide",kw:"va remaining entitlement calculator",intent:"Commercial"},
+    {n:2,asset:"Can You Have Two VA Loans at Once?",site:"NDV",cluster:"VA Entitlement",aud:"Veteran",state:"Nationwide",kw:"can you have two VA loans at once",intent:"Commercial"},
+    {n:3,asset:"Keep Low Mortgage Rate and Get Cash",site:"NDV",cluster:"Equity Without Refinancing",aud:"Veteran",state:"Nationwide",kw:"keep low mortgage rate and get cash",intent:"Commercial"},
+    {n:4,asset:"VA HELOC vs VA Cash-Out Refinance",site:"NDV",cluster:"Equity Without Refinancing",aud:"Veteran",state:"Nationwide",kw:"VA HELOC vs cash-out",intent:"Commercial"},
+    {n:5,asset:"Ohio DSCR Cash-Out Refinance",site:"Viador Partners",cluster:"DSCR",aud:"Investor",state:"Ohio",kw:"DSCR cash-out refinance Ohio",intent:"Transactional"},
+    {n:6,asset:"Cleveland DSCR Cash-Out Loan",site:"Viador Partners",cluster:"DSCR",aud:"Investor",state:"Ohio",kw:"DSCR loan Cleveland",intent:"Transactional"},
+    {n:7,asset:"Maryland DSCR Loan Calculator",site:"Viador Partners",cluster:"DSCR",aud:"Investor",state:"Maryland",kw:"Maryland DSCR loan calculator",intent:"Commercial"},
+    {n:8,asset:"Florida DSCR Loan Guide",site:"Viador Partners",cluster:"DSCR",aud:"Investor",state:"Florida",kw:"Florida DSCR loan",intent:"Commercial"},
+    {n:9,asset:"Foreign National DSCR Loan Florida",site:"Viador Partners",cluster:"Foreign National / ITIN",aud:"Investor",state:"Florida",kw:"foreign national DSCR Florida",intent:"Commercial"},
+    {n:10,asset:"Tampa DSCR Loan Guide",site:"Viador Partners",cluster:"DSCR",aud:"Investor",state:"Florida",kw:"DSCR loan Tampa",intent:"Commercial"},
+    {n:11,asset:"Miami Foreign National DSCR Loan Guide",site:"Viador Partners",cluster:"Foreign National / ITIN",aud:"Investor",state:"Florida",kw:"foreign national DSCR Miami",intent:"Commercial"},
+    {n:12,asset:"ITIN DSCR Loan Guide",site:"Viador Partners",cluster:"Foreign National / ITIN",aud:"Investor",state:"Nationwide",kw:"ITIN DSCR loan",intent:"Commercial"},
+    {n:13,asset:"Bank Statement Mortgage Ohio",site:"Viador Partners",cluster:"Bank Statement / Self-Employed",aud:"Investor",state:"Ohio",kw:"bank statement mortgage Ohio",intent:"Commercial"}
+  ],
+  kpiDefs: [
+    {key:"sessions",label:"Organic Sessions",src:"GA4"},
+    {key:"leads",label:"Organic Leads",src:"HubSpot"},
+    {key:"ql",label:"Qualified Organic Leads",src:"HubSpot"},
+    {key:"calls",label:"Organic Booked Calls",src:"HubSpot"},
+    {key:"apps",label:"Organic Applications",src:"HubSpot"},
+    {key:"pipeline",label:"Est. Funded Pipeline",src:"HubSpot"},
+    {key:"leadDensity",label:"Leads / 1,000 Sessions",src:"Computed"},
+    {key:"qlPerPage",label:"Qualified Leads / Indexed Page",src:"Computed"},
+    {key:"ctr",label:"Avg Organic CTR",src:"Search Console"},
+    {key:"pos",label:"Avg Organic Position",src:"Search Console"}
+  ]
+};
+
+/* LIVE = real metrics keyed for join. Populated from DATA_URL; blank otherwise. */
+let LIVE = {
+  asof:null, kpis:{}, clusters:{}, gauges:{}, states:{}, pages:{},
+  queries:[], conv:[], leadQuality:{}, refresh:[], production:{}, sidebar:{}
+};
+
+/* ---------- helpers ---------- */
+const $ = (id)=>document.getElementById(id);
+const decClass = d => ({Expand:"green",Update:"amber",Hold:"slate",Monitor:"slate",Consolidate:"red"})[d]||"ghost";
+const statusClass = s => { if(!s)return"ghost"; if(/Winner/.test(s))return"green"; if(/Striking/.test(s))return"slate"; if(/Gap|Underperform|Consolidate/.test(s))return"red"; if(/Needs|Update|Fix|Rewrite|Calculator|Links|Schema/.test(s))return"amber"; return"ghost"; };
+const oppClass = o => ({Winner:"green","Striking Distance":"slate","CTR Fix":"amber","Content Gap":"red","New Page Needed":"amber","Internal Link Needed":"amber"})[o]||"ghost";
+const audClass = a => a==="Veteran"?"vet":a==="Investor"?"inv":"both";
+const audAbbr  = a => a==="Veteran"?"Vet":a==="Investor"?"Inv":a;
+const siteAbbr = s => (s==="Next Duty Vet"||s==="NDV")?"NDV":"VP";
+const v = x => (x===0||x)?x:`<span class="blank">${B}</span>`;          // value or blank
+const nfmt = x => (x===0||x)? Number(x).toLocaleString() : `<span class="blank">${B}</span>`;
+const arrow = d => d==="up"?"&#9650;":d==="down"?"&#9660;":d==="good-down"?"&#9660;":"";
+
+function getFilters(){return{site:$('fSite').value,aud:$('fAud').value,state:$('fState').value,metro:$('fMetro').value,cluster:$('fCluster').value,status:$('fStatus').value};}
+function matchAud(a,f){return f.aud==="All"||a===f.aud||a==="V + I"||(f.aud==="Veteran"&&/V/.test(a))||(f.aud==="Investor"&&/I/.test(a));}
+function matchSite(s,f){if(f.site==="All")return true;const a=siteAbbr(s);return(f.site==="Next Duty Vet"&&a==="NDV")||(f.site==="Viador Partners"&&a==="VP");}
+function matchState(st,f){if(f.state==="All")return true;return(st||"").indexOf(f.state)>-1||(f.state==="Florida"&&/Tampa|Miami/.test(st))||(f.state==="Ohio"&&/Cleveland|Columbus|Cincinnati/.test(st))||(f.state==="Maryland"&&/Baltimore/.test(st))||(f.state==="Tennessee"&&/Nashville|Knoxville|Chattanooga/.test(st));}
+function matchCluster(c,f){if(f.cluster==="All")return true;return(c||"").toLowerCase().indexOf(f.cluster.toLowerCase().split(' /')[0])>-1;}
+function emptyRow(cols,src){return `<tr><td colspan="${cols}" class="empty-cell">No data yet &mdash; <b>${src}</b> not connected.</td></tr>`;}
+
+/* ---------- renderers (framework + LIVE) ---------- */
+function renderScorecard(){
+  $('scorecard').innerHTML = FRAMEWORK.kpiDefs.map(d=>{
+    const m = LIVE.kpis[d.key];
+    if(m && (m.val||m.val===0)){
+      return `<div class="kpi"><div class="kpi-label">${d.label}</div><div class="kpi-val">${m.val}</div>
+        <div class="kpi-foot">${m.chg?`<span class="chg ${m.dir||'up'}">${arrow(m.dir||'up')} ${m.chg}</span>`:''}<span class="kpi-help">${m.help||'vs previous period'}</span></div></div>`;
+    }
+    return `<div class="kpi"><div class="kpi-label">${d.label}</div><div class="kpi-val empty">${B}</div>
+      <div class="kpi-foot"><span class="kpi-src">Source: ${d.src}</span></div></div>`;
+  }).join('');
+}
+function renderClusters(){
+  const f=getFilters();
+  const rows=FRAMEWORK.clusters.filter(c=>matchAud(c.aud,f)&&matchCluster(c.name,f));
+  $('clusterTable').querySelector('tbody').innerHTML = rows.map(c=>{
+    const m=LIVE.clusters[c.name]||{};
+    const trend = m.trend?(m.trend==="up"?'<span style="color:var(--green);font-weight:700">&#9650;</span>':m.trend==="down"?'<span style="color:var(--red);font-weight:700">&#9660;</span>':'<span class="blank">&rarr;</span>'):`<span class="blank">${B}</span>`;
+    return `<tr><td class="rank">${c.n}</td><td class="strong">${c.name}</td><td><span class="aud ${audClass(c.aud)}">${c.aud}</span></td>
+      <td class="r num">${v(m.live)}</td><td class="r num">${v(m.idx)}</td><td class="r num">${nfmt(m.impr)}</td><td class="r num">${v(m.clk)}</td>
+      <td class="r num">${v(m.ctr)}</td><td class="r num">${v(m.pos)}</td><td class="r num">${v(m.leads)}</td><td class="r num">${v(m.ql)}</td>
+      <td class="r qlp">${m.qlp!=null?Number(m.qlp).toFixed(2):`<span class="blank">${B}</span>`}</td><td>${trend}</td>
+      <td>${m.dec?`<span class="chip ${decClass(m.dec)}">${m.dec}</span>`:`<span class="blank">${B}</span>`}</td></tr>`;
+  }).join('') || emptyRow(14,'GSC + HubSpot');
+}
+function renderBars(){
+  const have=FRAMEWORK.clusters.some(c=>LIVE.clusters[c.name]&&LIVE.clusters[c.name].qlp!=null);
+  if(!have){$('barChart').innerHTML=`<div class="empty-cell">No qualified-lead data yet &mdash; <b>GSC + HubSpot</b> not connected.</div>`;return;}
+  $('barChart').innerHTML = FRAMEWORK.clusters.map(c=>{const q=(LIVE.clusters[c.name]||{}).qlp||0;
+    return `<div class="bar-row"><span class="bar-label" title="${c.name}">${c.name}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.min(100,(q/1.0)*100)}%"></div></div><span class="bar-val">${q.toFixed(2)}</span></div>`;}).join('');
+}
+function arcSVG(pct,color){const r=26,circ=Math.PI*r,off=circ*(1-Math.max(0,Math.min(1,pct)));
+  return `<svg class="arc" viewBox="0 0 64 34"><path d="M6 30 A26 26 0 0 1 58 30" fill="none" stroke="#EFEDE5" stroke-width="6" stroke-linecap="round"/><path d="M6 30 A26 26 0 0 1 58 30" fill="none" stroke="${color}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${off}"/></svg>`;}
+function renderGauges(){
+  const zc={green:"var(--green)",amber:"var(--amber)",red:"var(--red)"};
+  $('gauges').innerHTML = FRAMEWORK.gauges.map(g=>{const m=LIVE.gauges[g.key];
+    const arc = (m&&m.pct!=null)?arcSVG(m.pct,zc[m.zone]||"var(--faint)"):arcSVG(0,"#E4E2DA");
+    const val = (m&&m.disp)?`<div class="gauge-val" style="color:${zc[m.zone]||'var(--faint)'}">${m.disp}</div>`:`<div class="gauge-val blank">${B}</div>`;
+    return `<div class="gauge-row"><div class="gauge-name">${g.name}<small>${g.sub}</small></div>${arc}${val}</div>`;}).join('');
+}
+function renderStates(){
+  const f=getFilters();
+  const rows=FRAMEWORK.states.filter(s=>matchState(s.name,f)&&matchAud(s.bias,f));
+  $('stateTable').querySelector('tbody').innerHTML = rows.map(s=>{const m=LIVE.states[s.name]||{};
+    return `<tr><td class="${s.lvl?'':'strong'}" style="padding-left:${s.lvl?22:11}px">${s.lvl?'&#8627; ':''}${s.name}</td>
+      <td><span class="chip green">Active</span></td><td><span class="aud both">${s.bias}</span></td>
+      <td class="r num">${v(m.live)}</td><td class="r num">${nfmt(m.impr)}</td><td class="r num">${v(m.clk)}</td><td class="r num">${v(m.leads)}</td><td class="r num">${v(m.ql)}</td>
+      <td>${m.theme||`<span class="blank">${B}</span>`}</td><td><span class="chip olive">${s.act}</span></td></tr>`;}).join('') || emptyRow(10,'GSC + HubSpot');
+}
+function renderPages(){
+  const f=getFilters();
+  const rows=FRAMEWORK.pages.filter(p=>matchSite(p.site,f)&&matchAud(p.aud,f)&&matchState(p.state,f)&&matchCluster(p.cluster,f));
+  $('pageTable').querySelector('tbody').innerHTML = rows.map(p=>{const m=LIVE.pages[p.url]||{};
+    return `<tr><td class="url">${p.url}</td><td>${siteAbbr(p.site)}</td><td>${p.cluster}</td><td><span class="aud ${audClass(p.aud)}">${audAbbr(p.aud)}</span></td><td>${p.state}</td>
+      <td class="r num">${nfmt(m.impr)}</td><td class="r num">${v(m.clk)}</td><td class="r num">${v(m.ctr)}</td><td class="r num">${v(m.pos)}</td><td class="r num">${v(m.leads)}</td><td class="r num">${v(m.ql)}</td>
+      <td>${m.status?`<span class="chip ${statusClass(m.status)}">${m.status}</span>`:`<span class="blank">${B}</span>`}</td><td>${m.act||`<span class="blank">${B}</span>`}</td></tr>`;}).join('') || emptyRow(13,'GSC + HubSpot');
+}
+function renderQueries(){
+  const f=getFilters();
+  const rows=(LIVE.queries||[]).filter(q=>(!q.aud||matchAud(q.aud,f))&&(!q.state||matchState(q.state,f)));
+  $('queryTable').querySelector('tbody').innerHTML = rows.length? rows.map(q=>`<tr><td class="strong">${q.q}</td><td class="r num">${nfmt(q.impr)}</td><td class="r num">${v(q.clk)}</td><td class="r num">${v(q.ctr)}</td><td class="r num">${v(q.pos)}</td><td><span class="chip ${oppClass(q.opp)}">${q.opp}</span></td><td>${q.act||''}</td></tr>`).join('') : emptyRow(7,'Search Console');
+}
+function renderConv(){
+  const rows=LIVE.conv||[];
+  $('convTable').querySelector('tbody').innerHTML = rows.length? rows.map(c=>`<tr><td class="strong">${c.ev}</td><td class="r num">${v(c.tot)}</td><td class="r num">${v(c.org)}</td><td class="r num">${v(c.vet)}</td><td class="r num">${v(c.inv)}</td><td class="url">${c.best||''}</td></tr>`).join('') : emptyRow(6,'GA4');
+}
+function renderLeadQuality(){
+  const f=getFilters();
+  const rows=FRAMEWORK.leadQuality.filter(c=>matchCluster(c,f));
+  const any=rows.some(c=>LIVE.leadQuality[c]);
+  $('lqTable').querySelector('tbody').innerHTML = any? rows.map(c=>{const m=LIVE.leadQuality[c]||{};
+    return `<tr><td class="strong">${c}</td><td class="r num">${v(m.leads)}</td><td class="r num">${v(m.ql)}</td><td class="r num">${v(m.rate)}</td><td class="r num">${v(m.loan)}</td><td class="r num">${v(m.pipe)}</td></tr>`;}).join('') : emptyRow(6,'HubSpot');
+}
+function renderRefresh(){
+  const rows=LIVE.refresh||[];
+  $('refreshTable').querySelector('tbody').innerHTML = rows.length? rows.map(r=>`<tr><td class="rank">${r.n}</td><td class="url">${r.url}</td><td><span class="chip amber">${r.problem}</span></td><td>${r.fix}</td><td>${r.owner||''}</td><td class="num">${r.due||''}</td></tr>`).join('') : emptyRow(6,'Sheet: SEO_Refresh');
+}
+function renderProduction(){
+  const f=getFilters();
+  const rows=FRAMEWORK.production.filter(p=>matchSite(p.site,f)&&matchAud(p.aud,f)&&matchState(p.state,f)&&matchCluster(p.cluster,f));
+  $('prodTable').querySelector('tbody').innerHTML = rows.map(p=>{const st=(LIVE.production[p.asset]||{}).status;
+    const sc = st==="Published"?"green":st==="In Progress"?"amber":st?"slate":"ghost";
+    return `<tr><td class="rank">${p.n}</td><td class="strong">${p.asset}</td><td>${siteAbbr(p.site)}</td><td>${p.cluster}</td><td><span class="aud ${audClass(p.aud)}">${audAbbr(p.aud)}</span></td><td>${p.state}</td><td class="url">${p.kw}</td><td>${p.intent}</td><td>${st?`<span class="chip ${sc}">${st}</span>`:`<span class="blank">${B}</span>`}</td></tr>`;}).join('') || emptyRow(9,'Plan');
+}
+function renderAll(){
+  $('asof').textContent = LIVE.asof ? ("Synced " + LIVE.asof) : "Awaiting first sync";
+  renderScorecard();renderClusters();renderBars();renderGauges();renderStates();renderPages();renderQueries();renderConv();renderLeadQuality();renderRefresh();renderProduction();
+}
+function applyFilters(){renderClusters();renderStates();renderPages();renderQueries();renderLeadQuality();renderProduction();}
+
+/* ---------- CSV export (tracked page list + any live metrics) ---------- */
+function exportCSV(){
+  const f=getFilters();
+  const rows=FRAMEWORK.pages.filter(p=>matchSite(p.site,f)&&matchAud(p.aud,f)&&matchState(p.state,f)&&matchCluster(p.cluster,f));
+  const head=["URL","Site","Cluster","Audience","State","Impressions","Clicks","CTR","Position","Leads","QualifiedLeads","Status","NextAction"];
+  const body=rows.map(p=>{const m=LIVE.pages[p.url]||{};return [p.url,p.site,p.cluster,p.aud,p.state,m.impr??"",m.clk??"",m.ctr??"",m.pos??"",m.leads??"",m.ql??"",m.status??"",m.act??""].map(x=>`"${String(x).replace(/"/g,'""')}"`).join(',');});
+  const url=URL.createObjectURL(new Blob([[head.join(','),...body].join('\n')],{type:'text/csv'}));
+  const a=document.createElement('a');a.href=url;a.download='seo_page_roi.csv';a.click();URL.revokeObjectURL(url);
+}
+
+/* ---------- live fetch + adapter (Marketing Monitor /seo) ----------
+   Defensive: maps the Worker payload into the LIVE shape the renderers use.
+   Anything that doesn't map cleanly stays blank by design (never throws). */
+const pathOf = u => { if(!u) return u; try{ return new URL(u).pathname.replace(/\/$/,'')||'/'; }catch(e){ return String(u).replace(/^https?:\/\/[^/]+/,'').replace(/\/$/,'')||'/'; } };
+const pctOf  = x => x==null?null : (Number(x)<=1 ? (Number(x)*100).toFixed(1)+'%' : Number(x).toFixed(1)+'%');
+const r1     = x => x==null?null : Number(x).toFixed(1);
+const oppFromPos = p => p==null?null : (p<=7?'Winner':(p<=30?'Striking Distance':'Content Gap'));
+const asKpi  = (x,fmt)=> x==null?null : (typeof x==='object'?x:{val: fmt?fmt(x):String(x)});
+
+function normalize(j){
+  const out={asof:j.asof||null,kpis:{},clusters:j.clusters||{},gauges:j.gauges||{},states:j.states||{},pages:{},queries:[],conv:j.conv||[],leadQuality:j.leadQuality||{},refresh:j.refresh||[],production:j.production||{}};
+  const kp=j.kpis||{};
+  if(kp.sessions!=null) out.kpis.sessions=asKpi(kp.sessions,n=>Number(n).toLocaleString());
+  if(kp.leads!=null)    out.kpis.leads   =asKpi(kp.leads);
+  if(kp.apps!=null)     out.kpis.apps    =asKpi(kp.apps);
+  if(kp.pipeline!=null) out.kpis.pipeline=asKpi(kp.pipeline);
+  if(kp.ql!=null)       out.kpis.ql      =asKpi(kp.ql);
+  if(kp.calls!=null)    out.kpis.calls   =asKpi(kp.calls);
+  // pages: Worker groups by site {ndv:[...],viador:[...]} of GSC rows -> flatten keyed by path
+  const addPages=arr=>(arr||[]).forEach(row=>{const u=pathOf(row.page||row.url);if(!u)return;out.pages[u]={impr:row.impressions,clk:row.clicks,ctr:pctOf(row.ctr),pos:r1(row.position)};});
+  if(j.pages&&(j.pages.ndv||j.pages.viador)){ addPages(j.pages.ndv); addPages(j.pages.viador); }
+  else if(j.pages){ Object.keys(j.pages).forEach(k=>{const row=j.pages[k];out.pages[pathOf(k)]={impr:row.impressions??row.impr,clk:row.clicks??row.clk,ctr:row.ctr!=null?pctOf(row.ctr):undefined,pos:r1(row.position??row.pos)};}); }
+  // queries: GSC rows {query,clicks,impressions,ctr,position} -> board shape
+  out.queries=(j.queries||[]).map(r=>({q:r.query||r.q,impr:r.impressions??r.impr,clk:r.clicks??r.clk,ctr:r.ctr!=null?pctOf(r.ctr):undefined,pos:r1(r.position??r.pos),opp:r.opp||oppFromPos(r.position??r.pos),act:r.act||''}));
+  return out;
+}
+async function fetchLive(){
+  if(!DATA_URL) return;
+  try{
+    const r=await fetch(DATA_URL,{cache:'no-store'});
+    LIVE = normalize(await r.json());
+  }catch(e){ console.warn('Live fetch failed, fields stay blank:',e); }
+}
+
+async function boot(){
+  await fetchLive();
+  renderAll();
+  ['fSite','fAud','fState','fMetro','fCluster','fStatus','fDate'].forEach(id=>$(id).addEventListener('change',applyFilters));
+  $('exportBtn').addEventListener('click',exportCSV);
+  $('refreshBtn').addEventListener('click',async()=>{await fetchLive();renderAll();});
+}
+boot();
+</script>
+
+<!-- =========================================================================
+  DATA WIRING  (for Claude Code / Cowork when connecting sources)
+  -------------------------------------------------------------------------
+  This page shows ONLY real data. With DATA_URL empty, every metric is blank
+  by design. To light it up, point DATA_URL at a viador-ai-proxy Worker route
+  (e.g. /seo) that returns JSON in the LIVE shape:
+
+  {
+    "asof":"Jun 4, 2026 6:00 AM",
+    "kpis":{ "sessions":{"val":"1,240","chg":"+18%","dir":"up"}, ... },
+    "clusters":{ "VA Entitlement / 2 VA Loans":{"live":6,"idx":6,"impr":8400,"clk":310,"ctr":"3.7%","pos":14.2,"leads":9,"ql":5,"qlp":0.83,"trend":"up","dec":"Expand"}, ... },
+    "gauges":{ "indexing":{"disp":"92%","pct":0.92,"zone":"green"}, ... },
+    "states":{ "Ohio":{"live":18,"impr":7800,"clk":325,"leads":10,"ql":6,"theme":"DSCR loan Cleveland"}, ... },
+    "pages":{ "/florida-dscr-loans":{"impr":1400,"clk":60,"ctr":"4.3%","pos":11.2,"leads":2,"ql":1,"status":"Striking Distance","act":"Add testimonials"}, ... },
+    "queries":[ {"q":"DSCR loan Florida","impr":900,"clk":36,"ctr":"4.0%","pos":11.0,"opp":"Striking Distance","act":"Add testimonials","aud":"Investor","state":"Florida"}, ... ],
+    "conv":[ {"ev":"Form Submit","tot":42,"org":28,"vet":18,"inv":10,"best":"/..."}, ... ],
+    "leadQuality":{ "Ohio DSCR / Cash-Out":{"leads":5,"ql":3,"rate":"60.0%","loan":"$300K","pipe":"$900K"}, ... },
+    "refresh":[ {"n":1,"url":"/...","problem":"Low CTR","fix":"Rewrite title/meta","owner":"Chad","due":"Jun 9"}, ... ],
+    "production":{ "Florida DSCR Loan Guide":{"status":"In Progress"}, ... }
+  }
+
+  SOURCES (who fills what):
+    Search Console -> impressions, clicks, CTR, position, queries  (REQUIRED; GA4 cannot supply these. Verify BOTH domains in GSC.)
+    GA4            -> sessions, conversion events
+    HubSpot        -> leads, qualified leads, booked calls, applications, pipeline, lead quality
+    Sheet SEO_*    -> manual fields (refresh queue, production statuses, page status/next-action overrides)
+
+  Worker plan: viador-ai-proxy reads GSC + GA4 (service-account JSONs already on the
+  roadmap for the Organic Engine tab) + HubSpot + the SEO_* tabs, joins nightly, caches,
+  and serves /seo. Keeps the Sheet private (no public gviz share needed).
+
+  COMPLIANCE: Est. Pipeline / Avg Loan are INTERNAL projections — never render on a
+  public page or external export (UDAAP). Florida is fully active — no pending language.
+========================================================================= -->
+</body>
+</html>
