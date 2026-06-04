@@ -595,12 +595,26 @@ const oppFromPos = p => p==null?null : (p<=7?'Winner':(p<=30?'Striking Distance'
 const asKpi  = (x,fmt)=> x==null?null : (typeof x==='object'?x:{val: fmt?fmt(x):String(x)});
 
 function normalize(j){
-  const out={asof:j.asof||null,kpis:{},clusters:j.clusters||{},gauges:j.gauges||{},states:j.states||{},pages:{},queries:[],conv:j.conv||[],leadQuality:j.leadQuality||{},refresh:j.refresh||[],production:j.production||{}};
+  const out={
+    asof:j.asof||null,
+    kpis:{},
+    clusters:j.clusters||{},
+    gauges:j.gauges||{},
+    states:j.states||{},
+    pages:{},
+    queries:[],
+    conv:j.conv||[],
+    leadQuality:j.leadQuality||{},
+    refresh:[],     // page-refresh queue (Sheet: SEO_Refresh shape); see filter below
+    production:{},  // per-asset status map; see filter below
+    sourceHealth:[],
+    sourceMeta:{}
+  };
   const kp=j.kpis||{};
   if(kp.sessions!=null) out.kpis.sessions=asKpi(kp.sessions,n=>Number(n).toLocaleString());
   if(kp.leads!=null)    out.kpis.leads   =asKpi(kp.leads);
   if(kp.apps!=null)     out.kpis.apps    =asKpi(kp.apps);
-  if(kp.pipeline!=null) out.kpis.pipeline=asKpi(kp.pipeline);
+  if(kp.pipeline!=null) out.kpis.pipeline=asKpi(kp.pipeline,n=>'$'+Number(n).toLocaleString());
   if(kp.ql!=null)       out.kpis.ql      =asKpi(kp.ql);
   if(kp.calls!=null)    out.kpis.calls   =asKpi(kp.calls);
   // pages: Worker groups by site {ndv:[...],viador:[...]} of GSC rows -> flatten keyed by path
@@ -609,6 +623,20 @@ function normalize(j){
   else if(j.pages){ Object.keys(j.pages).forEach(k=>{const row=j.pages[k];out.pages[pathOf(k)]={impr:row.impressions??row.impr,clk:row.clicks??row.clk,ctr:row.ctr!=null?pctOf(row.ctr):undefined,pos:r1(row.position??row.pos)};}); }
   // queries: GSC rows {query,clicks,impressions,ctr,position} -> board shape
   out.queries=(j.queries||[]).map(r=>({q:r.query||r.q,impr:r.impressions??r.impr,clk:r.clicks??r.clk,ctr:r.ctr!=null?pctOf(r.ctr):undefined,pos:r1(r.position??r.pos),opp:r.opp||oppFromPos(r.position??r.pos),act:r.act||''}));
+  // refresh: Worker /seo sends data-source-health rows (items have .source);
+  // page-refresh queue rows would have .url + .problem. Route them separately
+  // so renderRefresh sees the empty state instead of garbage rows.
+  const incomingRefresh=Array.isArray(j.refresh)?j.refresh:[];
+  out.refresh=incomingRefresh.filter(r=>r&&r.url&&!r.source);
+  out.sourceHealth=incomingRefresh.filter(r=>r&&r.source);
+  // production: Worker /seo sends worker metadata ({worker_url, generated_at,
+  // sources_ok}); per-asset status map would be keyed by framework asset names.
+  // Route worker meta separately so LIVE.production lookups stay clean.
+  if(j.production&&typeof j.production==='object'&&!j.production.worker_url){
+    out.production=j.production;
+  } else if (j.production) {
+    out.sourceMeta=j.production;
+  }
   return out;
 }
 async function fetchLive(){
