@@ -460,9 +460,9 @@ const FRAMEWORK = {
   ]
 };
 
-/* LIVE = real metrics keyed for join. Populated from DATA_URL; blank otherwise. */
+/* LIVE = real metrics, populated from DATA_URL; absent fields stay blank. */
 let LIVE = {
-  asof:null, kpis:{}, clusters:{}, gauges:{}, states:{}, pages:{},
+  asof:null, kpis:{}, clusters:{}, gauges:{}, states:{}, pages:[],
   queries:[], conv:[], leadQuality:{}, refresh:[], production:{}, sidebar:{}
 };
 
@@ -536,11 +536,13 @@ function renderStates(){
 }
 function renderPages(){
   const f=getFilters();
-  const rows=FRAMEWORK.pages.filter(p=>matchSite(p.site,f)&&matchAud(p.aud,f)&&matchState(p.state,f)&&matchCluster(p.cluster,f));
-  $('pageTable').querySelector('tbody').innerHTML = rows.map(p=>{const m=LIVE.pages[p.url]||{};
-    return `<tr><td class="url">${p.url}</td><td>${siteAbbr(p.site)}</td><td>${p.cluster}</td><td><span class="aud ${audClass(p.aud)}">${audAbbr(p.aud)}</span></td><td>${p.state}</td>
-      <td class="r num">${nfmt(m.impr)}</td><td class="r num">${v(m.clk)}</td><td class="r num">${v(m.ctr)}</td><td class="r num">${v(m.pos)}</td><td class="r num">${v(m.leads)}</td><td class="r num">${v(m.ql)}</td>
-      <td>${m.status?`<span class="chip ${statusClass(m.status)}">${m.status}</span>`:`<span class="blank">${B}</span>`}</td><td>${m.act||`<span class="blank">${B}</span>`}</td></tr>`;}).join('') || emptyRow(13,'GSC + HubSpot');
+  const liveRows=Array.isArray(LIVE.pages)?LIVE.pages:[];
+  const rows=liveRows.filter(p=>matchSite(p.site,f)&&matchAud(p.aud,f)&&matchState(p.state||'',f)&&matchCluster(p.cluster||'',f));
+  $('pageTable').querySelector('tbody').innerHTML = rows.map(p=>{
+    const status=derivePageStatus(p);
+    return `<tr><td class="url">${esc(p.url)}</td><td>${siteAbbr(p.site)}</td><td>${esc(p.cluster||'')||`<span class="blank">${B}</span>`}</td><td><span class="aud ${audClass(p.aud)}">${audAbbr(p.aud)}</span></td><td>${esc(p.state||'')||`<span class="blank">${B}</span>`}</td>
+      <td class="r num">${nfmt(p.impr)}</td><td class="r num">${v(p.clk)}</td><td class="r num">${v(p.ctr)}</td><td class="r num">${v(p.pos)}</td><td class="r num">${v(p.leads)}</td><td class="r num">${v(p.ql)}</td>
+      <td>${status.status?`<span class="chip ${statusClass(status.status)}">${status.status}</span>`:`<span class="blank">${B}</span>`}</td><td>${status.act||`<span class="blank">${B}</span>`}</td></tr>`;}).join('') || emptyRow(13,'GSC + HubSpot');
 }
 function renderQueries(){
   const f=getFilters();
@@ -575,12 +577,13 @@ function renderAll(){
 }
 function applyFilters(){renderClusters();renderStates();renderPages();renderQueries();renderLeadQuality();renderProduction();}
 
-/* ---------- CSV export (tracked page list + any live metrics) ---------- */
+/* ---------- CSV export (live page ROI from GSC + derived status) ---------- */
 function exportCSV(){
   const f=getFilters();
-  const rows=FRAMEWORK.pages.filter(p=>matchSite(p.site,f)&&matchAud(p.aud,f)&&matchState(p.state,f)&&matchCluster(p.cluster,f));
+  const liveRows=Array.isArray(LIVE.pages)?LIVE.pages:[];
+  const rows=liveRows.filter(p=>matchSite(p.site,f)&&matchAud(p.aud,f)&&matchState(p.state||'',f)&&matchCluster(p.cluster||'',f));
   const head=["URL","Site","Cluster","Audience","State","Impressions","Clicks","CTR","Position","Leads","QualifiedLeads","Status","NextAction"];
-  const body=rows.map(p=>{const m=LIVE.pages[p.url]||{};return [p.url,p.site,p.cluster,p.aud,p.state,m.impr??"",m.clk??"",m.ctr??"",m.pos??"",m.leads??"",m.ql??"",m.status??"",m.act??""].map(x=>`"${String(x).replace(/"/g,'""')}"`).join(',');});
+  const body=rows.map(p=>{const st=derivePageStatus(p);return [p.url,p.site,p.cluster||'',p.aud||'',p.state||'',p.impr??"",p.clk??"",p.ctr??"",p.pos??"",p.leads??"",p.ql??"",st.status||"",st.act||""].map(x=>`"${String(x).replace(/"/g,'""')}"`).join(',');});
   const url=URL.createObjectURL(new Blob([[head.join(','),...body].join('\n')],{type:'text/csv'}));
   const a=document.createElement('a');a.href=url;a.download='seo_page_roi.csv';a.click();URL.revokeObjectURL(url);
 }
@@ -598,10 +601,10 @@ function normalize(j){
   const out={
     asof:j.asof||null,
     kpis:{},
-    clusters:j.clusters||{},
+    clusters:{},
     gauges:j.gauges||{},
     states:j.states||{},
-    pages:{},
+    pages:[],       // ordered array of enriched page rows (sorted by impr desc)
     queries:[],
     conv:j.conv||[],
     leadQuality:j.leadQuality||{},
@@ -617,10 +620,41 @@ function normalize(j){
   if(kp.pipeline!=null) out.kpis.pipeline=asKpi(kp.pipeline,n=>'$'+Number(n).toLocaleString());
   if(kp.ql!=null)       out.kpis.ql      =asKpi(kp.ql);
   if(kp.calls!=null)    out.kpis.calls   =asKpi(kp.calls);
-  // pages: Worker groups by site {ndv:[...],viador:[...]} of GSC rows -> flatten keyed by path
-  const addPages=arr=>(arr||[]).forEach(row=>{const u=pathOf(row.page||row.url);if(!u)return;out.pages[u]={impr:row.impressions,clk:row.clicks,ctr:pctOf(row.ctr),pos:r1(row.position)};});
-  if(j.pages&&(j.pages.ndv||j.pages.viador)){ addPages(j.pages.ndv); addPages(j.pages.viador); }
-  else if(j.pages){ Object.keys(j.pages).forEach(k=>{const row=j.pages[k];out.pages[pathOf(k)]={impr:row.impressions??row.impr,clk:row.clicks??row.clk,ctr:row.ctr!=null?pctOf(row.ctr):undefined,pos:r1(row.position??row.pos)};}); }
+  // clusters: Worker keys exactly match FRAMEWORK.clusters[].name. Translate
+  // {pages_live, impressions, clicks, ctr, avg_position, leads, ql, qlp} into
+  // the render shape {live, impr, clk, ctr, pos, leads, ql, qlp}.
+  if(j.clusters&&typeof j.clusters==='object'){
+    Object.entries(j.clusters).forEach(([name,c])=>{
+      out.clusters[name]={
+        live: c.pages_live,
+        impr: c.impressions,
+        clk: c.clicks,
+        ctr: c.ctr!=null?Number(c.ctr).toFixed(2)+'%':undefined,
+        pos: c.avg_position!=null?Number(c.avg_position).toFixed(1):undefined,
+        leads: c.leads, ql: c.ql, qlp: c.qlp,
+        idx: undefined, trend: undefined, dec: undefined
+      };
+    });
+  }
+  // pages: Worker enriches each row with {path, site, cluster, state}. Flatten
+  // ndv+viador into one ordered array sorted by impressions desc.
+  const collectPages=(arr,siteKey)=>(arr||[]).map(row=>({
+    url: row.path || pathOf(row.page||row.url),
+    site: siteKey==='ndv'?'Next Duty Vet':(siteKey==='viador'?'Viador Partners':siteKey),
+    aud: siteKey==='ndv'?'Veteran':(siteKey==='viador'?'Investor':''),
+    cluster: row.cluster || '',
+    state: row.state || '',
+    impr: row.impressions,
+    clk: row.clicks,
+    ctr: row.ctr!=null?Number(row.ctr).toFixed(2)+'%':undefined,
+    pos: row.position!=null?Number(row.position).toFixed(1):undefined,
+    posRaw: row.position,
+    leads: null, ql: null
+  }));
+  if(j.pages&&(j.pages.ndv||j.pages.viador)){
+    out.pages=[...collectPages(j.pages.ndv,'ndv'),...collectPages(j.pages.viador,'viador')]
+      .sort((a,b)=>(b.impr||0)-(a.impr||0));
+  }
   // queries: GSC rows {query,clicks,impressions,ctr,position} -> board shape
   out.queries=(j.queries||[]).map(r=>({q:r.query||r.q,impr:r.impressions??r.impr,clk:r.clicks??r.clk,ctr:r.ctr!=null?pctOf(r.ctr):undefined,pos:r1(r.position??r.pos),opp:r.opp||oppFromPos(r.position??r.pos),act:r.act||''}));
   // refresh: Worker /seo sends data-source-health rows (items have .source);
@@ -638,6 +672,19 @@ function normalize(j){
     out.sourceMeta=j.production;
   }
   return out;
+}
+// Derive status + next action from real GSC numbers. No fabrication: rules are
+// position-based with a CTR-Fix override when impressions are sizable but
+// clicks are zero (a visible "not earning the click" signal).
+function derivePageStatus(row){
+  const pos=Number(row.posRaw);
+  const impr=Number(row.impr||0);
+  const clk=Number(row.clk||0);
+  if(!Number.isFinite(pos)) return {status:null,act:null};
+  if(impr>=50 && clk===0) return {status:'CTR Fix',act:'Update title / meta'};
+  if(pos<=10)              return {status:'Winner',act:'Hold'};
+  if(pos<=30)              return {status:'Striking Distance',act:'Optimize on-page + internal links'};
+  return {status:'Monitor',act:null};
 }
 async function fetchLive(){
   if(!DATA_URL) return;
