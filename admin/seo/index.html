@@ -151,6 +151,17 @@ td.url{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate)}
 .section-foot{font-size:10.5px;color:var(--muted);padding:2px 24px 0}
 @media (max-width:1280px){.scorecard{grid-template-columns:repeat(4,1fr)}.grid-2,.grid-2b{grid-template-columns:1fr}.plan{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:880px){.sidebar{display:none}.scorecard{grid-template-columns:repeat(2,1fr)}.plan{grid-template-columns:1fr}.bar-row{grid-template-columns:120px 1fr 40px}.card-body{overflow-x:auto}}
+@media (max-width:760px){
+  .topbar{position:static;padding:12px 14px 10px}
+  .topbar-row{align-items:flex-start;gap:8px}
+  .h1{font-size:18px}.h1-sub{font-size:11px}
+  .topbar-actions{gap:6px}.asof{display:none}
+  .filters{flex-wrap:nowrap;overflow-x:auto;margin-top:10px;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+  .filt{flex:0 0 auto}.filt select{padding:6px 22px 6px 8px;font-size:11px}
+  .status-bar{margin-top:10px;font-size:10.5px;gap:8px;padding:7px 10px}.legend{display:none}
+  .content{padding:14px 12px 30px;gap:16px}
+  .scorecard{grid-template-columns:repeat(2,1fr);gap:8px}.kpi-val{font-size:20px}
+}
 /* gate (matches /admin behavior: sessionStorage 'vcc_auth', simpleHash, PW_HASH "33f4aafb") */
 .seo-gate{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#F4F2EC;z-index:1000;font-family:'Archivo',system-ui,sans-serif}
 .seo-gate-card{background:#FFFFFF;border:1px solid #E4E2DA;border-radius:8px;padding:40px 32px;width:340px;text-align:center;box-shadow:0 1px 2px rgba(31,35,38,.05),0 4px 14px rgba(31,35,38,.04)}
@@ -521,19 +532,34 @@ function arcSVG(pct,color){const r=26,circ=Math.PI*r,off=circ*(1-Math.max(0,Math
   return `<svg class="arc" viewBox="0 0 64 34"><path d="M6 30 A26 26 0 0 1 58 30" fill="none" stroke="#EFEDE5" stroke-width="6" stroke-linecap="round"/><path d="M6 30 A26 26 0 0 1 58 30" fill="none" stroke="${color}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${off}"/></svg>`;}
 function renderGauges(){
   const zc={green:"var(--green)",amber:"var(--amber)",red:"var(--red)"};
-  $('gauges').innerHTML = FRAMEWORK.gauges.map(g=>{const m=LIVE.gauges[g.key];
+  const pages=Array.isArray(LIVE.pages)?LIVE.pages:[];
+  let tImpr=0,tClk=0; pages.forEach(p=>{tImpr+=(+p.impr||0);tClk+=(+p.clk||0);});
+  const knum=k=>{const m=LIVE.kpis[k];return m&&m.val!=null?Number(String(m.val).replace(/[^0-9.\-]/g,'')):null;};
+  const sessions=knum('sessions'), leads=knum('leads'), idxPages=pages.length;
+  const computed={};
+  if(tImpr>0){const c=tClk/tImpr*100; computed.ctr={disp:c.toFixed(2)+'%',pct:Math.min(1,c/4),zone:c>=4?'green':c>=2?'amber':'red'};}
+  if(sessions!=null&&sessions>0&&leads!=null){const r=leads/sessions*100; computed.conv={disp:r.toFixed(1)+'%',pct:Math.min(1,r/3),zone:r>=3?'green':r>=1?'amber':'red'};}
+  if(leads!=null&&idxPages>0){const e=leads/idxPages; computed.leadEff={disp:e.toFixed(2),pct:Math.min(1,e/0.5),zone:e>=0.5?'green':e>=0.1?'amber':'red'};}
+  const G=Object.assign({},computed,LIVE.gauges);
+  $('gauges').innerHTML = FRAMEWORK.gauges.map(g=>{const m=G[g.key];
     const arc = (m&&m.pct!=null)?arcSVG(m.pct,zc[m.zone]||"var(--faint)"):arcSVG(0,"#E4E2DA");
     const val = (m&&m.disp)?`<div class="gauge-val" style="color:${zc[m.zone]||'var(--faint)'}">${m.disp}</div>`:`<div class="gauge-val blank">${B}</div>`;
     return `<div class="gauge-row"><div class="gauge-name">${g.name}<small>${g.sub}</small></div>${arc}${val}</div>`;}).join('');
 }
 function renderStates(){
   const f=getFilters();
+  const pages=Array.isArray(LIVE.pages)?LIVE.pages:[];
+  const metroKey={Cleveland:'cleveland',Columbus:'columbus',Cincinnati:'cincinnati',Baltimore:'baltimore',Nashville:'nashville',Knoxville:'knoxville',Chattanooga:'chattanooga',Tampa:'tampa',Miami:'miami'};
+  const agg=pred=>{let live=0,impr=0,clk=0;pages.forEach(p=>{if(pred(p)){live++;impr+=(+p.impr||0);clk+=(+p.clk||0);}});return{live,impr,clk};};
   const rows=FRAMEWORK.states.filter(s=>matchState(s.name,f)&&matchAud(s.bias,f));
-  $('stateTable').querySelector('tbody').innerHTML = rows.map(s=>{const m=LIVE.states[s.name]||{};
+  $('stateTable').querySelector('tbody').innerHTML = rows.map(s=>{
+    const k=metroKey[s.name];
+    const a = s.lvl===0 ? agg(p=>(p.state||'')===s.name) : agg(p=>k&&(p.url||'').toLowerCase().indexOf(k)>-1);
+    const has=a.live>0;
     return `<tr><td class="${s.lvl?'':'strong'}" style="padding-left:${s.lvl?22:11}px">${s.lvl?'&#8627; ':''}${s.name}</td>
       <td><span class="chip green">Active</span></td><td><span class="aud both">${s.bias}</span></td>
-      <td class="r num">${v(m.live)}</td><td class="r num">${nfmt(m.impr)}</td><td class="r num">${v(m.clk)}</td><td class="r num">${v(m.leads)}</td><td class="r num">${v(m.ql)}</td>
-      <td>${m.theme||`<span class="blank">${B}</span>`}</td><td><span class="chip olive">${s.act}</span></td></tr>`;}).join('') || emptyRow(10,'GSC + HubSpot');
+      <td class="r num">${has?a.live:`<span class="blank">${B}</span>`}</td><td class="r num">${has?a.impr.toLocaleString():`<span class="blank">${B}</span>`}</td><td class="r num">${has?a.clk:`<span class="blank">${B}</span>`}</td><td class="r num"><span class="blank">${B}</span></td><td class="r num"><span class="blank">${B}</span></td>
+      <td><span class="blank">${B}</span></td><td><span class="chip olive">${s.act}</span></td></tr>`;}).join('') || emptyRow(10,'GSC');
 }
 function renderPages(){
   const f=getFilters();
