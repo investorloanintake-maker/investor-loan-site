@@ -321,6 +321,14 @@ td.url{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate)}
       </div>
 
       <div class="card">
+        <div class="card-head"><div class="card-title"><span class="tick"></span>Movers</div><div class="card-meta"><span class="src">Search Console</span>vs previous period</div></div>
+        <div class="card-body pad"><div class="grid-2b">
+          <div><table id="moversGain"><thead><tr><th>Gaining</th><th class="r">Pos</th><th class="r">&Delta;</th></tr></thead><tbody></tbody></table></div>
+          <div><table id="moversSlip"><thead><tr><th>Slipping</th><th class="r">Pos</th><th class="r">&Delta;</th></tr></thead><tbody></tbody></table></div>
+        </div></div>
+      </div>
+
+      <div class="card">
         <div class="card-head"><div class="card-title"><span class="tick"></span>Page-Level SEO ROI</div><div class="card-meta"><span class="src">GSC + HubSpot</span>tracked pages</div></div>
         <div class="card-body"><table id="pageTable"><thead><tr>
           <th>URL / Page</th><th>Site</th><th>Cluster</th><th>Aud.</th><th>State</th><th class="r">Impr.</th><th class="r">Clicks</th><th class="r">CTR</th><th class="r">Pos</th><th class="r">Leads</th><th class="r">QL</th><th>Status</th><th>Next Action</th>
@@ -489,6 +497,9 @@ const v = x => (x===0||x)?x:`<span class="blank">${B}</span>`;          // value
 const nfmt = x => (x===0||x)? Number(x).toLocaleString() : `<span class="blank">${B}</span>`;
 const esc = s => String(s==null?'':s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const arrow = d => d==="up"?"&#9650;":d==="down"?"&#9660;":d==="good-down"?"&#9660;":"";
+// Position trend: lower position is better, so prev>cur (position dropped) = improving.
+// Within ~0.5 = flat; missing prev = blank (undefined).
+const trendFromDelta = (prev,cur) => { if(prev==null||cur==null) return undefined; const d=Number(prev)-Number(cur); return d>=0.5?'up':d<=-0.5?'down':'flat'; };
 
 function getFilters(){return{site:$('fSite').value,aud:$('fAud').value,state:$('fState').value,metro:$('fMetro').value,cluster:$('fCluster').value,status:$('fStatus').value};}
 function matchAud(a,f){return f.aud==="All"||a===f.aud||a==="V + I"||(f.aud==="Veteran"&&/V/.test(a))||(f.aud==="Investor"&&/I/.test(a));}
@@ -540,6 +551,10 @@ function renderGauges(){
   if(tImpr>0){const c=tClk/tImpr*100; computed.ctr={disp:c.toFixed(2)+'%',pct:Math.min(1,c/4),zone:c>=4?'green':c>=2?'amber':'red'};}
   if(sessions!=null&&sessions>0&&leads!=null){const r=leads/sessions*100; computed.conv={disp:r.toFixed(1)+'%',pct:Math.min(1,r/3),zone:r>=3?'green':r>=1?'amber':'red'};}
   if(leads!=null&&idxPages>0){const e=leads/idxPages; computed.leadEff={disp:e.toFixed(2),pct:Math.min(1,e/0.5),zone:e>=0.5?'green':e>=0.1?'amber':'red'};}
+  // Ranking momentum: queries that improved >=1 position vs the previous window.
+  // Blank unless at least one query carries a previous-window position.
+  const mq=(Array.isArray(LIVE.queries)?LIVE.queries:[]).filter(q=>q.posPrev!=null&&q.posRaw!=null);
+  if(mq.length){const count=mq.filter(q=>(q.posPrev-q.posRaw)>=1).length; computed.momentum={disp:String(count),pct:Math.min(1,count/10),zone:count>=10?'green':count>=3?'amber':'red'};}
   const G=Object.assign({},computed,LIVE.gauges);
   $('gauges').innerHTML = FRAMEWORK.gauges.map(g=>{const m=G[g.key];
     const arc = (m&&m.pct!=null)?arcSVG(m.pct,zc[m.zone]||"var(--faint)"):arcSVG(0,"#E4E2DA");
@@ -560,6 +575,25 @@ function renderStates(){
       <td><span class="chip green">Active</span></td><td><span class="aud both">${s.bias}</span></td>
       <td class="r num">${has?a.live:`<span class="blank">${B}</span>`}</td><td class="r num">${has?a.impr.toLocaleString():`<span class="blank">${B}</span>`}</td><td class="r num">${has?a.clk:`<span class="blank">${B}</span>`}</td><td class="r num"><span class="blank">${B}</span></td><td class="r num"><span class="blank">${B}</span></td>
       <td><span class="blank">${B}</span></td><td><span class="chip olive">${s.act}</span></td></tr>`;}).join('') || emptyRow(10,'GSC');
+}
+function renderMovers(){
+  // Gaining / Slipping queries ranked by position delta vs previous window.
+  // Only queries with a previous-window position participate; delta>0 = improved
+  // (position dropped). No prev data -> excluded, never fabricated.
+  const queries=(Array.isArray(LIVE.queries)?LIVE.queries:[]).filter(q=>q.posPrev!=null&&q.posRaw!=null);
+  const delta=q=>q.posPrev-q.posRaw;
+  const gaining=queries.filter(q=>delta(q)>0).sort((a,b)=>delta(b)-delta(a)).slice(0,8);
+  const slipping=queries.filter(q=>delta(q)<0).sort((a,b)=>delta(a)-delta(b)).slice(0,8);
+  const rowHtml=(q,gain)=>{
+    const d=Math.abs(delta(q));
+    const badge=gain
+      ?`<span style="color:var(--green);font-weight:700">&#9650;${d.toFixed(1)}</span>`
+      :`<span style="color:var(--red);font-weight:700">&#9660;${d.toFixed(1)}</span>`;
+    return `<tr><td class="strong">${esc(q.q)}</td><td class="r num">${v(q.pos)}</td><td class="r num">${badge}</td></tr>`;
+  };
+  const g=$('moversGain'), s=$('moversSlip');
+  if(g) g.querySelector('tbody').innerHTML = gaining.length?gaining.map(q=>rowHtml(q,true)).join(''):emptyRow(3,'Search Console');
+  if(s) s.querySelector('tbody').innerHTML = slipping.length?slipping.map(q=>rowHtml(q,false)).join(''):emptyRow(3,'Search Console');
 }
 function renderPages(){
   const f=getFilters();
@@ -600,7 +634,7 @@ function renderProduction(){
 }
 function renderAll(){
   $('asof').textContent = LIVE.asof ? ("Synced " + LIVE.asof) : "Awaiting first sync";
-  renderScorecard();renderClusters();renderBars();renderGauges();renderStates();renderPages();renderQueries();renderConv();renderLeadQuality();renderRefresh();renderProduction();
+  renderScorecard();renderClusters();renderBars();renderGauges();renderStates();renderMovers();renderPages();renderQueries();renderConv();renderLeadQuality();renderRefresh();renderProduction();
 }
 function applyFilters(){renderClusters();renderStates();renderPages();renderQueries();renderLeadQuality();renderProduction();}
 
@@ -658,8 +692,9 @@ function normalize(j){
         clk: c.clicks,
         ctr: c.ctr!=null?Number(c.ctr).toFixed(2)+'%':undefined,
         pos: c.avg_position!=null?Number(c.avg_position).toFixed(1):undefined,
+        posPrev: c.avg_position_prev!=null?Number(c.avg_position_prev):null,
         leads: c.leads, ql: c.ql, qlp: c.qlp,
-        idx: undefined, trend: undefined, dec: undefined
+        idx: undefined, trend: trendFromDelta(c.avg_position_prev, c.avg_position), dec: undefined
       };
     });
   }
@@ -676,6 +711,7 @@ function normalize(j){
     ctr: row.ctr!=null?Number(row.ctr).toFixed(2)+'%':undefined,
     pos: row.position!=null?Number(row.position).toFixed(1):undefined,
     posRaw: row.position,
+    posPrev: row.position_prev!=null?Number(row.position_prev):null,
     leads: null, ql: null
   }));
   if(j.pages&&(j.pages.ndv||j.pages.viador)){
@@ -683,7 +719,7 @@ function normalize(j){
       .sort((a,b)=>(b.impr||0)-(a.impr||0));
   }
   // queries: GSC rows {query,clicks,impressions,ctr,position} -> board shape
-  out.queries=(j.queries||[]).map(r=>({q:r.query||r.q,impr:r.impressions??r.impr,clk:r.clicks??r.clk,ctr:r.ctr!=null?pctOf(r.ctr):undefined,pos:r1(r.position??r.pos),opp:r.opp||oppFromPos(r.position??r.pos),act:r.act||''}));
+  out.queries=(j.queries||[]).map(r=>{const posCur=r.position??r.pos;return {q:r.query||r.q,impr:r.impressions??r.impr,clk:r.clicks??r.clk,ctr:r.ctr!=null?pctOf(r.ctr):undefined,pos:r1(posCur),posRaw:posCur!=null?Number(posCur):null,posPrev:r.position_prev!=null?Number(r.position_prev):null,opp:r.opp||oppFromPos(posCur),act:r.act||''};});
   // refresh: Worker /seo sends data-source-health rows (items have .source);
   // page-refresh queue rows would have .url + .problem. Route them separately
   // so renderRefresh sees the empty state instead of garbage rows.
