@@ -476,6 +476,7 @@ const audAbbr  = a => a==="Veteran"?"Vet":a==="Investor"?"Inv":a;
 const siteAbbr = s => (s==="Next Duty Vet"||s==="NDV")?"NDV":"VP";
 const v = x => (x===0||x)?x:`<span class="blank">${B}</span>`;          // value or blank
 const nfmt = x => (x===0||x)? Number(x).toLocaleString() : `<span class="blank">${B}</span>`;
+const esc = s => String(s==null?'':s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const arrow = d => d==="up"?"&#9650;":d==="down"?"&#9660;":d==="good-down"?"&#9660;":"";
 
 function getFilters(){return{site:$('fSite').value,aud:$('fAud').value,state:$('fState').value,metro:$('fMetro').value,cluster:$('fCluster').value,status:$('fStatus').value};}
