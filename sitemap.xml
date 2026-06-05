@@ -822,4 +822,17 @@
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <!-- Batch 2 — Tier 1 (2026-06-05) -->
+  <url>
+    <loc>https://viadorpartners.com/bank-statement-loans</loc>
+    <lastmod>2026-06-05</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://viadorpartners.com/bank-statement-loans-florida</loc>
+    <lastmod>2026-06-05</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
