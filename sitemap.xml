@@ -835,4 +835,29 @@
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <!-- Phase 1 foundation (2026-06-07) -->
+  <url>
+    <loc>https://viadorpartners.com/author/chad-evers</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://viadorpartners.com/editorial-policy</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://viadorpartners.com/methodology</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://viadorpartners.com/source-library</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.3</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
