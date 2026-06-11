@@ -1,7 +1,5 @@
 /network /partners 301
 /network/ /partners 301
-/resources /dscr 301
-/resources/ /dscr 301
 /index.html / 301
 /dscr-loan-rates-2026/* /dscr-loan-requirements/:splat 301
 /*.html /:splat 301
