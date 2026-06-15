@@ -1606,6 +1606,7 @@ a{color:inherit}
     <p class="vp-label" style="text-align:center;margin-bottom:16px;letter-spacing:0.1em;font-size:0.75rem;text-transform:uppercase;color:var(--ink,#1a1a1a);opacity:0.55">Investor financing paths</p>
     <h2 id="paths-hed" style="text-align:center;font-family:'Fraunces',serif;font-size:clamp(1.25rem,2.5vw,1.625rem);font-weight:600;color:var(--ink,#1a1a1a);margin:0 auto 32px;max-width:560px">Common structures we review with investors.</h2>
     <ul style="list-style:none;padding:0;margin:0 auto;max-width:820px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px 24px">
+      <li><a href="/investor-financing-scenario-review" style="font-family:'DM Sans',sans-serif;font-size:0.9375rem;color:var(--ink,#1a1a1a);text-decoration:none;border-bottom:1px solid rgba(26,26,26,0.18);padding-bottom:2px"><strong>Investor financing scenario review</strong></a></li>
       <li><a href="/portfolio-loans-real-estate" style="font-family:'DM Sans',sans-serif;font-size:0.9375rem;color:var(--ink,#1a1a1a);text-decoration:none;border-bottom:1px solid rgba(26,26,26,0.18);padding-bottom:2px">Portfolio loans for rental investors</a></li>
       <li><a href="/non-qm-loans-florida" style="font-family:'DM Sans',sans-serif;font-size:0.9375rem;color:var(--ink,#1a1a1a);text-decoration:none;border-bottom:1px solid rgba(26,26,26,0.18);padding-bottom:2px">Non-QM loans in Florida</a></li>
       <li><a href="/rental-property-loans-florida" style="font-family:'DM Sans',sans-serif;font-size:0.9375rem;color:var(--ink,#1a1a1a);text-decoration:none;border-bottom:1px solid rgba(26,26,26,0.18);padding-bottom:2px">Rental property loans in Florida</a></li>
@@ -1896,68 +1897,4 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
     <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:#6B745E; margin-bottom:12px; font-family:'DM Sans',sans-serif;">Before You Go</div>
     <h2 style="font-family:'Fraunces',serif; font-size:1.8rem; color:#1A1C24; margin:0 0 12px;">Score your deal free.</h2>
     <p style="color:#666; font-size:0.95rem; margin:0 0 24px; line-height:1.6;">No email required. See if your property qualifies in 10 seconds &mdash; real numbers, not guesswork.</p>
-    <a href="/deal-analyzer" onclick="closeExitIntent()" style="display:block; background:#1A1C24; color:#fff; padding:14px 24px; border-radius:6px; text-decoration:none; font-weight:600; font-size:1rem; margin-bottom:12px;">Score My Deal &mdash; Free &rarr;</a>
-    <div style="border-top:1px solid #eee; padding-top:16px; margin-top:4px;">
-      <p style="font-size:0.8rem; color:#888; margin:0 0 10px;">Or get the free DSCR &amp; BPL Investor Guide</p>
-      <form id="exitEmailForm" style="display:flex; gap:8px;">
-        <input type="email" id="exitEmail" placeholder="your@email.com" required style="flex:1; padding:10px 14px; border:1px solid #ddd; border-radius:6px; font-size:14px;">
-        <button type="submit" style="padding:10px 16px; background:#6B745E; color:#fff; border:none; border-radius:6px; font-weight:600; cursor:pointer; white-space:nowrap;">Send It</button>
-      </form>
-      <div id="exitEmailSuccess" style="display:none; color:#2d7a2d; font-size:0.85rem; margin-top:8px;">&check; Guide on its way &mdash; check your inbox.</div>
-    </div>
-  </div>
-</div>
-
-<script>
-function triggerExitIntent() {
-  if (sessionStorage.getItem('exitShown')) return;
-  sessionStorage.setItem('exitShown', '1');
-  var overlay = document.getElementById('exitIntentOverlay');
-  if (overlay) overlay.style.display = 'flex';
-}
-
-(function() {
-  if (sessionStorage.getItem('exitShown')) return;
-
-  // Desktop: mouse leaves viewport top
-  document.addEventListener('mouseleave', function(e) {
-    if (e.clientY <= 0) triggerExitIntent();
-  });
-
-  // Mobile: user switches tabs/apps
-  document.addEventListener('visibilitychange', function() {
-    if (document.hidden) triggerExitIntent();
-  });
-
-  // Mobile: user navigates away (back button)
-  window.addEventListener('pagehide', triggerExitIntent);
-})();
-
-function closeExitIntent() {
-  var overlay = document.getElementById('exitIntentOverlay');
-  if (overlay) overlay.style.display = 'none';
-}
-
-document.getElementById('exitEmailForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  var email = document.getElementById('exitEmail').value;
-  fetch('https://api.hsforms.com/submissions/v3/integration/submit/245454217/e463e10b-4cb3-4d79-8915-2d6c62d4cc58', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      fields: [
-        {name: 'email', value: email},
-        {name: 'message', value: 'Exit intent — DSCR BPL Guide request'}
-      ],
-      context: {pageUri: window.location.href, pageName: 'Viador Partners Homepage'}
-    })
-  });
-  document.getElementById('exitEmailForm').style.display = 'none';
-  document.getElementById('exitEmailSuccess').style.display = 'block';
-  setTimeout(closeExitIntent, 2000);
-});
-</script>
-
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516"></script>
-</body>
-</html>
+    <a href="/deal-analyzer" onclick="clo
