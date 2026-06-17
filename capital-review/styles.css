@@ -28,8 +28,6 @@
   box-sizing: border-box;
 }
 .nav-brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
-.nav-brand-mark { width: 40px; height: 40px; flex-shrink: 0; display: block; }
-.nav-brand-wordmark { height: 34px; width: auto; display: block; }
 .nav-wrap .nav-links {
   display: flex; align-items: center; gap: 36px;
   list-style: none; flex: 1; justify-content: center;
@@ -71,8 +69,6 @@
   .nav-wrap .nav { flex-wrap: wrap; gap: 16px; padding: 14px 20px; }
   .nav-wrap .nav-links { display: none; }
   .nav-ctas { width: 100%; justify-content: flex-end; }
-  .nav-brand-mark { width: 34px; height: 34px; }
-  .nav-brand-wordmark { height: 28px; }
 }
 /* ============================================================
    END GLOBAL NAV

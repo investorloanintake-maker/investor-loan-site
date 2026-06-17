@@ -313,13 +313,22 @@
   ]
 }
 </script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap">
+<style>
+/* Viador Partners wordmark lockup — live text (header + footer) */
+.nav-wordmark,.footer-wordmark{display:inline-flex;flex-direction:column;align-items:center;line-height:1;font-family:'Poppins','Inter',-apple-system,BlinkMacSystemFont,sans-serif;text-decoration:none}
+.nav-wordmark .wm-name{font-weight:700;font-size:30px;letter-spacing:.02em;color:#F4F5F3}
+.nav-wordmark .wm-sub{font-weight:600;font-size:11px;letter-spacing:.42em;text-indent:.42em;color:#A8B0A6;margin-top:5px}
+.footer-wordmark .wm-name{font-weight:700;font-size:23px;letter-spacing:.02em;color:#F4F5F3}
+.footer-wordmark .wm-sub{font-weight:600;font-size:9px;letter-spacing:.40em;text-indent:.40em;color:#A8B0A6;margin-top:4px}
+@media(max-width:720px){.nav-wordmark .wm-name{font-size:25px}.nav-wordmark .wm-sub{font-size:9.5px}}
+</style>
 </head>
 <body>
 <header class="nav-wrap">
   <nav class="nav" aria-label="Primary">
     <a href="/" class="nav-brand" aria-label="Viador Partners home">
-      <img class="nav-brand-mark" src="/assets/brand/viador-vp-badge.svg" alt="" width="40" height="40" />
-      <img class="nav-brand-wordmark" src="/assets/brand/viador-wordmark-light.svg" alt="Viador Partners" height="34" />
+      <span class="nav-wordmark"><span class="wm-name">VIADOR</span><span class="wm-sub">PARTNERS</span></span>
     </a>
     <ul class="nav-links">
       <li class="nav-dropdown">
@@ -440,7 +449,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="/" class="logo" style="margin-bottom:16px;display:inline-flex"><img src="/assets/brand/viador-lockup-dark.png" alt="Viador Partners" class="logo-img" style="height:52px;width:auto;display:block;object-fit:contain"/></a>
+        <a href="/" class="logo" style="margin-bottom:16px;display:inline-flex"><span class="footer-wordmark"><span class="wm-name">VIADOR</span><span class="wm-sub">PARTNERS</span></span></a>
         <p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;max-width:280px">Residential and investor financing — Florida and Ohio.</p>
       </div>
       <div class="footer-nav-group"><h4>Calculators</h4><a href="/dscr-calculator">DSCR Calculator</a><a href="/deal-analyzer">Deal Analyzer</a><a href="/cashout-calculator">Cash-Out Refi</a><a href="/investor-platform">Full Platform</a></div>

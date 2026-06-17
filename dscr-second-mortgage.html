@@ -71,14 +71,23 @@
     @media(max-width:960px){.ds-mobile-sticky{display:flex}}
     @media(max-width:600px){.ds-grid2{grid-template-columns:1fr}.ds-detail-grid{grid-template-columns:1fr}}
   </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap">
+<style>
+/* Viador Partners wordmark lockup — live text (header + footer) */
+.nav-wordmark,.footer-wordmark{display:inline-flex;flex-direction:column;align-items:center;line-height:1;font-family:'Poppins','Inter',-apple-system,BlinkMacSystemFont,sans-serif;text-decoration:none}
+.nav-wordmark .wm-name{font-weight:700;font-size:30px;letter-spacing:.02em;color:#F4F5F3}
+.nav-wordmark .wm-sub{font-weight:600;font-size:11px;letter-spacing:.42em;text-indent:.42em;color:#A8B0A6;margin-top:5px}
+.footer-wordmark .wm-name{font-weight:700;font-size:23px;letter-spacing:.02em;color:#F4F5F3}
+.footer-wordmark .wm-sub{font-weight:600;font-size:9px;letter-spacing:.40em;text-indent:.40em;color:#A8B0A6;margin-top:4px}
+@media(max-width:720px){.nav-wordmark .wm-name{font-size:25px}.nav-wordmark .wm-sub{font-size:9.5px}}
+</style>
 </head>
 <body class="ds">
 
 <header class="nav-wrap">
   <nav class="nav" aria-label="Primary">
     <a href="/" class="nav-brand" aria-label="Viador Partners home">
-      <img class="nav-brand-mark" src="/assets/brand/viador-vp-badge.svg" alt="" width="40" height="40" />
-      <img class="nav-brand-wordmark" src="/assets/brand/viador-wordmark-light.svg" alt="Viador Partners" height="34" />
+      <span class="nav-wordmark"><span class="wm-name">VIADOR</span><span class="wm-sub">PARTNERS</span></span>
     </a>
     <ul class="nav-links">
       <li class="nav-dropdown">

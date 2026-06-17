@@ -1003,8 +1003,6 @@ footer {
 .nav-wrap { background: #1F2326; border-bottom: 1px solid rgba(255,255,255,0.04); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; }
 .nav-wrap .nav { max-width: 1320px; margin: 0 auto; padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 32px; box-sizing: border-box; }
 .nav-brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
-.nav-brand-mark { width: 40px; height: 40px; flex-shrink: 0; display: block; }
-.nav-brand-wordmark { height: 34px; width: auto; display: block; }
 .nav-wrap .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; flex: 1; justify-content: center; padding: 0; margin: 0; }
 .nav-wrap .nav-link { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.2px; transition: color 0.15s ease; display: flex; align-items: center; gap: 4px; }
 .nav-wrap .nav-link:hover { color: #fff; }
@@ -1247,6 +1245,16 @@ footer {
   ]
 }
 </script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap">
+<style>
+/* Viador Partners wordmark lockup — live text (header + footer) */
+.nav-wordmark,.footer-wordmark{display:inline-flex;flex-direction:column;align-items:center;line-height:1;font-family:'Poppins','Inter',-apple-system,BlinkMacSystemFont,sans-serif;text-decoration:none}
+.nav-wordmark .wm-name{font-weight:700;font-size:30px;letter-spacing:.02em;color:#F4F5F3}
+.nav-wordmark .wm-sub{font-weight:600;font-size:11px;letter-spacing:.42em;text-indent:.42em;color:#A8B0A6;margin-top:5px}
+.footer-wordmark .wm-name{font-weight:700;font-size:23px;letter-spacing:.02em;color:#F4F5F3}
+.footer-wordmark .wm-sub{font-weight:600;font-size:9px;letter-spacing:.40em;text-indent:.40em;color:#A8B0A6;margin-top:4px}
+@media(max-width:720px){.nav-wordmark .wm-name{font-size:25px}.nav-wordmark .wm-sub{font-size:9.5px}}
+</style>
 </head>
 <body>
 
@@ -1255,8 +1263,7 @@ footer {
 <header class="nav-wrap">
   <nav class="nav" aria-label="Primary">
     <a href="/" class="nav-brand" aria-label="Viador Partners home">
-      <img class="nav-brand-mark" src="/assets/brand/viador-vp-badge.svg" alt="" width="40" height="40" />
-      <img class="nav-brand-wordmark" src="/assets/brand/viador-wordmark-light.svg" alt="Viador Partners" height="34" />
+      <span class="nav-wordmark"><span class="wm-name">VIADOR</span><span class="wm-sub">PARTNERS</span></span>
     </a>
     <ul class="nav-links">
       <li class="nav-dropdown">
