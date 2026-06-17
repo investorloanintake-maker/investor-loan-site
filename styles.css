@@ -152,17 +152,9 @@ body {
   gap: 32px;
   box-sizing: border-box;
 }
-.nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-.nav-brand-mark {
-  width: 44px; height: 44px;
-  border: 1.5px solid rgba(255,255,255,0.45);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 13px; letter-spacing: 1px;
-  color: #fff; background: transparent; flex-shrink: 0;
-}
-.nav-brand-text { color: #fff; font-weight: 700; font-size: 15px; letter-spacing: 1.4px; line-height: 1.1; }
-.nav-brand-text span { display: block; font-weight: 500; font-size: 11px; letter-spacing: 1.8px; opacity: 0.7; margin-top: 2px; }
+.nav-brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+.nav-brand-mark { width: 40px; height: 40px; flex-shrink: 0; display: block; }
+.nav-brand-wordmark { height: 34px; width: auto; display: block; }
 .nav-wrap .nav-links {
   display: flex; align-items: center; gap: 36px;
   list-style: none; flex: 1; justify-content: center;
@@ -204,8 +196,8 @@ body {
   .nav-wrap .nav { flex-wrap: wrap; gap: 16px; padding: 14px 20px; }
   .nav-wrap .nav-links { display: none; }
   .nav-ctas { width: 100%; justify-content: flex-end; }
-  .nav-brand-text { font-size: 13px; }
-  .nav-brand-text span { font-size: 10px; }
+  .nav-brand-mark { width: 34px; height: 34px; }
+  .nav-brand-wordmark { height: 28px; }
 }
 
 /* ── Buttons ────────────────────────────────────────────── */

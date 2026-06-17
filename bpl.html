@@ -1002,10 +1002,9 @@ footer {
 /* ── Nav-wrap (shared dark nav) ── */
 .nav-wrap { background: #1F2326; border-bottom: 1px solid rgba(255,255,255,0.04); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; }
 .nav-wrap .nav { max-width: 1320px; margin: 0 auto; padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 32px; box-sizing: border-box; }
-.nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-.nav-brand-mark { width: 44px; height: 44px; border: 1.5px solid rgba(255,255,255,0.45); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; letter-spacing: 1px; color: #fff; background: transparent; flex-shrink: 0; }
-.nav-brand-text { color: #fff; font-weight: 700; font-size: 15px; letter-spacing: 1.4px; line-height: 1.1; }
-.nav-brand-text span { display: block; font-weight: 500; font-size: 11px; letter-spacing: 1.8px; opacity: 0.7; margin-top: 2px; }
+.nav-brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+.nav-brand-mark { width: 40px; height: 40px; flex-shrink: 0; display: block; }
+.nav-brand-wordmark { height: 34px; width: auto; display: block; }
 .nav-wrap .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; flex: 1; justify-content: center; padding: 0; margin: 0; }
 .nav-wrap .nav-link { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.2px; transition: color 0.15s ease; display: flex; align-items: center; gap: 4px; }
 .nav-wrap .nav-link:hover { color: #fff; }
@@ -1256,8 +1255,8 @@ footer {
 <header class="nav-wrap">
   <nav class="nav" aria-label="Primary">
     <a href="/" class="nav-brand" aria-label="Viador Partners home">
-      <div class="nav-brand-mark">VP</div>
-      <div class="nav-brand-text">VIADOR<span>PARTNERS</span></div>
+      <img class="nav-brand-mark" src="/assets/brand/viador-vp-badge.svg" alt="" width="40" height="40" />
+      <img class="nav-brand-wordmark" src="/assets/brand/viador-wordmark-light.svg" alt="Viador Partners" height="34" />
     </a>
     <ul class="nav-links">
       <li class="nav-dropdown">
