@@ -1,0 +1,20 @@
+name: Compliance Guard
+
+# Catches anything pushed directly (or via PR) to main that violates the
+# public-footer compliance canon or leaves a page structurally broken.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  compliance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Run compliance + structure guard
+        run: node scripts/check-compliance.js

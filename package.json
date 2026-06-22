@@ -4,6 +4,7 @@
   "private": true,
   "description": "Viador Partners — viadorpartners.com",
   "scripts": {
+    "check:compliance": "node scripts/check-compliance.js",
     "session-end": "node scripts/update-brief.js && git add -A && git commit -m \"Session update auto-brief\" && git push",
     "update-brief": "node scripts/update-brief.js",
     "deploy": "git add -A && git commit -m \"Deploy\" && git push"

@@ -1,0 +1,9 @@
+#!/bin/sh
+# Compliance + structure guard (see scripts/check-compliance.js).
+# Blocks any commit where a served public page is missing visible
+# "Equal Housing Lender" / dual NMLS, or is structurally broken
+# (e.g. a mid-tag truncation like commit 0dab8d3).
+#
+# Enable in a fresh clone with:   git config core.hooksPath .githooks
+# Emergency bypass (discouraged):  git commit --no-verify
+exec node scripts/check-compliance.js
