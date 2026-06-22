@@ -546,6 +546,9 @@
 
       gtag('event','scenario_review_cta_click',{location:'form_submit_button'});
 
+      /* UTM attribution capture — matching HubSpot properties now exist. */
+      function qp(n){ return new URLSearchParams(window.location.search).get(n) || ''; }
+
       var fields = [
         {name:'firstname', value:fname},
         {name:'lastname',  value:lname},
@@ -563,7 +566,13 @@
         {name:'previously_denied',     value:v('sr-denied')},
         {name:'timeline',              value:v('sr-timeline')},
         {name:'message',               value:v('sr-question').trim()},
-        {name:'hs_page_url',           value:window.location.href}
+        {name:'hs_page_url',           value:window.location.href},
+        {name:'utm_source',   value:qp('utm_source')},
+        {name:'utm_medium',   value:qp('utm_medium')},
+        {name:'utm_campaign', value:qp('utm_campaign')},
+        {name:'utm_term',     value:qp('utm_term')},
+        {name:'utm_content',  value:qp('utm_content')},
+        {name:'landing_page', value:window.location.href}
       ].filter(function(f){ return f.value !== ''; });
 
       /* PRIORITY: read HubSpot tracking cookie for contact attribution */
