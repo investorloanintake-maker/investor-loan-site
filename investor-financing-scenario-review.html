@@ -9,6 +9,7 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-LQWW7XCPVS");</script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="robots" content="noindex, nofollow"/>
   <title>Investor Financing Scenario Review — Know the Box Before You Apply | Viador Partners</title>
   <meta name="description" content="Submit your deal details. Viador compares DSCR, bridge, bank-statement, cash-out, and non-QM investor financing paths so you know which strategy may fit before you apply."/>
   <meta property="og:type" content="website"/>
@@ -565,9 +566,13 @@
         {name:'hs_page_url',           value:window.location.href}
       ].filter(function(f){ return f.value !== ''; });
 
+      /* PRIORITY: read HubSpot tracking cookie for contact attribution */
+      function cookieVal(n){ var m = document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)'); return m ? m.pop() : ''; }
+      var hutk = cookieVal('hubspotutk');
+
       var payload = {
         fields: fields,
-        context: { pageUri: window.location.href, pageName: document.title }
+        context: { pageUri: window.location.href, pageName: document.title, hutk: hutk }
       };
 
       try {
