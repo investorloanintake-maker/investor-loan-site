@@ -1926,15 +1926,23 @@ function closeExitIntent() {
 document.getElementById('exitEmailForm').addEventListener('submit', function(e) {
   e.preventDefault();
   var email = document.getElementById('exitEmail').value;
+  var qp = function(n){ return new URLSearchParams(location.search).get(n) || ''; };
+  var hutk = (document.cookie.match(/hubspotutk=([^;]+)/) || [])[1] || '';
   fetch('https://api.hsforms.com/submissions/v3/integration/submit/245454217/e463e10b-4cb3-4d79-8915-2d6c62d4cc58', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
       fields: [
         {name: 'email', value: email},
-        {name: 'message', value: 'Exit intent — DSCR BPL Guide request'}
+        {name: 'message', value: 'Exit intent — DSCR BPL Guide request'},
+        {name: 'utm_source', value: qp('utm_source')},
+        {name: 'utm_medium', value: qp('utm_medium')},
+        {name: 'utm_campaign', value: qp('utm_campaign')},
+        {name: 'utm_term', value: qp('utm_term')},
+        {name: 'utm_content', value: qp('utm_content')},
+        {name: 'landing_page', value: location.href}
       ],
-      context: {pageUri: window.location.href, pageName: 'Viador Partners Homepage'}
+      context: {pageUri: window.location.href, pageName: 'Viador Partners Homepage', ...(hutk ? {hutk} : {})}
     })
   });
   document.getElementById('exitEmailForm').style.display = 'none';

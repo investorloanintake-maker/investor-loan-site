@@ -84,6 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
       /* Helper to get field value safely */
       const val = id => document.getElementById(id)?.value?.trim() || '';
 
+      /* UTM attribution capture — matching HubSpot properties exist. */
+      const qp = n => new URLSearchParams(location.search).get(n) || '';
+
       /* Build HubSpot fields array */
       const fields = [
         { name: 'firstname',            value: firstName },
@@ -102,13 +105,23 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'estimated_arv',        value: val('arv-est').replace(/[^0-9.]/g, '') },
         { name: 'message',              value: val('notes') },
         { name: 'hs_page_url',          value: window.location.href },
+        { name: 'utm_source',   value: qp('utm_source') },
+        { name: 'utm_medium',   value: qp('utm_medium') },
+        { name: 'utm_campaign', value: qp('utm_campaign') },
+        { name: 'utm_term',     value: qp('utm_term') },
+        { name: 'utm_content',  value: qp('utm_content') },
+        { name: 'landing_page', value: location.href },
       ].filter(f => f.value !== ''); /* strip empty fields */
+
+      /* PRIORITY: read HubSpot tracking cookie for contact attribution */
+      const hutk = (document.cookie.match(/hubspotutk=([^;]+)/) || [])[1] || '';
 
       const payload = {
         fields,
         context: {
           pageUri:  window.location.href,
-          pageName: document.title
+          pageName: document.title,
+          ...(hutk ? { hutk } : {}) /* attach only when present */
         }
       };
 
