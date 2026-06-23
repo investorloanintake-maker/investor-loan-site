@@ -1941,7 +1941,7 @@ document.getElementById('exitEmailForm').addEventListener('submit', function(e) 
         {name: 'utm_term', value: qp('utm_term')},
         {name: 'utm_content', value: qp('utm_content')},
         {name: 'landing_page', value: location.href}
-      ],
+      ].filter(f => f.value !== ''),
       context: {pageUri: window.location.href, pageName: 'Viador Partners Homepage', ...(hutk ? {hutk} : {})}
     })
   });
