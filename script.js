@@ -136,6 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
         );
 
         if (res.ok) {
+          /* Fire GA4 conversion events BEFORE redirect (fixes 0.63% key-event rate — 2026-07-01) */
+          try {
+            if (typeof gtag === 'function') {
+              gtag('event', 'conversion_form_submit', { source: 'viador_deal_form', value: 1 });
+              gtag('event', 'generate_lead', { currency: 'USD', value: 1 });
+            }
+          } catch(e) {}
           /* Success — redirect to thank you page, fallback to inline */
           try { window.location.href = 'thank-you.html'; } catch(e) {}
           var fp = document.querySelector('.form-panel') || document.getElementById('dealForm');

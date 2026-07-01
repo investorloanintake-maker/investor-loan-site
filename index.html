@@ -1144,7 +1144,7 @@ a{color:inherit}
       <li><a class="nav-link" href="/insights">Insights</a></li>
     </ul>
     <div class="nav-ctas">
-      <a href="https://calendly.com/chad-viadorpartners-nextdutyvet/30-minute-review" target="_blank" rel="noopener noreferrer" class="btn btn-secondary-dark">Talk to an Expert</a>
+      <a href="https://calendly.com/chad-viadorpartners-nextdutyvet/30-minute-review" target="_blank" rel="noopener noreferrer" class="btn btn-secondary-dark" onclick="if(typeof gtag==='function')gtag('event','conversion_calendly_click',{location:'nav'})">Talk to an Expert</a>
       <a href="/#dealform" class="btn btn-primary">Review My Deal</a>
     </div>
   </nav>
@@ -1674,7 +1674,7 @@ a{color:inherit}
       </form>
       <div style="text-align:center;margin-top:18px">
         <span style="font-size:14px;color:var(--vp-muted)">Or book a call &rarr; </span>
-        <a href="https://calendly.com/chad-viadorpartners-nextdutyvet/30-minute-review" target="_blank" rel="noopener" style="font-size:14px;color:var(--vp-gold);font-weight:600;text-decoration:underline">Calendly</a>
+        <a href="https://calendly.com/chad-viadorpartners-nextdutyvet/30-minute-review" target="_blank" rel="noopener" style="font-size:14px;color:var(--vp-gold);font-weight:600;text-decoration:underline" onclick="if(typeof gtag==='function')gtag('event','conversion_calendly_click',{location:'deal_form'})">Calendly</a>
       </div>
       <p style="font-size:12px;color:var(--vp-muted);text-align:center;margin-top:14px">No obligation &middot; Response within 24 hours &middot; NMLS #2822744</p>
     </div>
@@ -1683,7 +1683,7 @@ a{color:inherit}
       <div style="font-size:48px;color:var(--vp-gold);margin-bottom:16px">&#10003;</div>
       <h3 class="vp-h3">You&rsquo;ll hear from Chad within 24 hours.</h3>
       <p class="vp-body vp-muted-txt">Honest feedback on what works, what doesn&rsquo;t, and exactly what to do next.</p>
-      <a href="https://calendly.com/chad-viadorpartners-nextdutyvet/30-minute-review" target="_blank" rel="noopener" class="vp-btn vp-btn--gold">Want to talk sooner? Book a call &rarr;</a>
+      <a href="https://calendly.com/chad-viadorpartners-nextdutyvet/30-minute-review" target="_blank" rel="noopener" class="vp-btn vp-btn--gold" onclick="if(typeof gtag==='function')gtag('event','conversion_calendly_click',{location:'form_success'})">Want to talk sooner? Book a call &rarr;</a>
     </div>
   </div>
 
@@ -1779,7 +1779,7 @@ a{color:inherit}
       </div>
       <div class="vp-cta-final-buttons">
         <a href="#dealform" class="vp-btn-primary">Review My Deal</a>
-        <a href="https://calendly.com/chad-viadorpartners-nextdutyvet/30-minute-review" target="_blank" rel="noopener" class="vp-btn-outline-dark">Talk to an Expert &rarr;</a>
+        <a href="https://calendly.com/chad-viadorpartners-nextdutyvet/30-minute-review" target="_blank" rel="noopener" class="vp-btn-outline-dark" onclick="if(typeof gtag==='function')gtag('event','conversion_calendly_click',{location:'final_cta'})">Talk to an Expert &rarr;</a>
       </div>
     </div>
   </div>
@@ -1833,7 +1833,7 @@ a{color:inherit}
 <!-- STICKY MOBILE CTA -->
 <div class="mobile-sticky-cta" id="mobileCta" aria-label="Quick deal review">
   <a href="#dealform" class="mobile-sticky-btn">Review My Deal →</a>
-  <a href="tel:+18134192983" class="mobile-sticky-call">Call Us</a>
+  <a href="tel:+18134192983" class="mobile-sticky-call" onclick="if(typeof gtag==='function')gtag('event','conversion_phone_click',{location:'mobile_sticky'})">Call Us</a>
 </div>
 
 <script src="script.js" defer></script>
@@ -1945,6 +1945,12 @@ document.getElementById('exitEmailForm').addEventListener('submit', function(e) 
       context: {pageUri: window.location.href, pageName: 'Viador Partners Homepage', ...(hutk ? {hutk} : {})}
     })
   });
+  try {
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion_form_submit', { source: 'viador_exit_intent', value: 1 });
+      gtag('event', 'generate_lead', { currency: 'USD', value: 1 });
+    }
+  } catch(e) {}
   document.getElementById('exitEmailForm').style.display = 'none';
   document.getElementById('exitEmailSuccess').style.display = 'block';
   setTimeout(closeExitIntent, 2000);
